@@ -60,10 +60,11 @@ function FooterLogotype() {
     >
       {/* Blackletter P / C stacked */}
       <span
-        className="flex flex-col items-center leading-[0.85] transition-all duration-500 ease-out"
+        className="flex flex-col items-center transition-all duration-500 ease-out"
         style={{
           fontFamily: "'UnifrakturMaguntia', cursive",
           fontSize: "2rem",
+          lineHeight: "1.1",
           opacity: hovered ? 0 : 0.8,
           transform: hovered ? "scale(0.8) translateY(-4px)" : "scale(1) translateY(0)",
           filter: hovered ? "blur(4px)" : "blur(0)",
@@ -72,9 +73,9 @@ function FooterLogotype() {
         <span>P</span>
         <span>C</span>
       </span>
-      {/* Full name in sans-serif */}
+      {/* Full name in sans-serif, two lines */}
       <span
-        className="absolute left-0 top-0 text-sm font-medium tracking-tight whitespace-nowrap transition-all duration-500 ease-out"
+        className="absolute left-0 top-0 text-sm font-medium tracking-tight transition-all duration-500 ease-out flex flex-col"
         style={{
           fontFamily: "system-ui, -apple-system, Helvetica, sans-serif",
           opacity: hovered ? 0.9 : 0,
@@ -82,7 +83,8 @@ function FooterLogotype() {
           filter: hovered ? "blur(0)" : "blur(4px)",
         }}
       >
-        Premodern Concordance
+        <span>Premodern</span>
+        <span>Concordance</span>
       </span>
     </Link>
   );
