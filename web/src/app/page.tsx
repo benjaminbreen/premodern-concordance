@@ -131,14 +131,14 @@ interface ClusterPreview {
 }
 
 const CAT_COLORS: Record<string, string> = {
-  PLANT: "text-emerald-600 dark:text-emerald-400 border-emerald-300 dark:border-emerald-700",
-  PERSON: "text-purple-600 dark:text-purple-400 border-purple-300 dark:border-purple-700",
-  SUBSTANCE: "text-cyan-600 dark:text-cyan-400 border-cyan-300 dark:border-cyan-700",
-  DISEASE: "text-red-600 dark:text-red-400 border-red-300 dark:border-red-700",
-  PLACE: "text-green-600 dark:text-green-400 border-green-300 dark:border-green-700",
-  CONCEPT: "text-amber-600 dark:text-amber-400 border-amber-300 dark:border-amber-700",
-  ANIMAL: "text-lime-600 dark:text-lime-400 border-lime-300 dark:border-lime-700",
-  OBJECT: "text-slate-500 dark:text-slate-400 border-slate-300 dark:border-slate-600",
+  PLANT: "text-emerald-700 dark:text-emerald-400 border-emerald-300 dark:border-emerald-700",
+  PERSON: "text-purple-700 dark:text-purple-400 border-purple-300 dark:border-purple-700",
+  SUBSTANCE: "text-cyan-700 dark:text-cyan-400 border-cyan-300 dark:border-cyan-700",
+  DISEASE: "text-red-700 dark:text-red-400 border-red-300 dark:border-red-700",
+  PLACE: "text-green-700 dark:text-green-400 border-green-300 dark:border-green-700",
+  CONCEPT: "text-amber-700 dark:text-amber-400 border-amber-300 dark:border-amber-700",
+  ANIMAL: "text-lime-700 dark:text-lime-400 border-lime-300 dark:border-lime-700",
+  OBJECT: "text-slate-600 dark:text-slate-400 border-slate-300 dark:border-slate-600",
 };
 
 export default function Home() {
