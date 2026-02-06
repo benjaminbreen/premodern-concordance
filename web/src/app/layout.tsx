@@ -58,17 +58,19 @@ function FooterLogotype() {
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
     >
-      {/* Blackletter PC */}
+      {/* Blackletter P / C stacked */}
       <span
-        className="text-4xl leading-none transition-all duration-500 ease-out inline-block"
+        className="flex flex-col items-center leading-[0.85] transition-all duration-500 ease-out"
         style={{
           fontFamily: "'UnifrakturMaguntia', cursive",
+          fontSize: "2rem",
           opacity: hovered ? 0 : 0.8,
           transform: hovered ? "scale(0.8) translateY(-4px)" : "scale(1) translateY(0)",
           filter: hovered ? "blur(4px)" : "blur(0)",
         }}
       >
-        PC
+        <span>P</span>
+        <span>C</span>
       </span>
       {/* Full name in sans-serif */}
       <span
