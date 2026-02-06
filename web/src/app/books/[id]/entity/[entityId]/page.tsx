@@ -231,6 +231,7 @@ export default function EntityDetailPage() {
       "coloquios_da_orta_1563": "/data/orta_entities.json",
       "historia_medicinal_monardes_1574": "/data/monardes_entities.json",
       "relation_historique_humboldt_vol3_1825": "/data/humboldt_entities.json",
+      "ricettario_fiorentino_1597": "/data/ricettario_entities.json",
     };
 
     const dataFile = bookFiles[params.id as string];
