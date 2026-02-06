@@ -1,0 +1,38 @@
+============================================================
+Entity Extraction Pipeline
+============================================================
+Input: books/polyanthea_medicinal.txt
+LLM: llama3.1:8b
+Embedding model: models/finetuned-bge-m3-premodern
+Similarity threshold: 0.97
+
+Loading text...
+  4,137,046 characters
+
+Chunking text...
+  1561 chunks
+
+Extracting entities...
+  Processing chunk 1/1561...   Warning: extraction failed: Expecting property name enclosed in double quotes: line 21 column 39 (char 1957)
+found 0 entities
+  Processing chunk 2/1561... found 9 entities
+  Processing chunk 3/1561... found 11 entities
+  Processing chunk 4/1561... found 23 entities
+  Processing chunk 5/1561... found 13 entities
+  Processing chunk 6/1561... found 5 entities
+  Processing chunk 7/1561... found 20 entities
+  Processing chunk 8/1561... found 11 entities
+  Processing chunk 9/1561... found 17 entities
+  Processing chunk 10/1561... found 15 entities
+  Processing chunk 11/1561... found 9 entities
+  Processing chunk 12/1561... found 13 entities
+  Processing chunk 13/1561... found 8 entities
+  Processing chunk 14/1561... found 28 entities
+  Processing chunk 15/1561... found 22 entities
+  Processing chunk 16/1561... found 24 entities
+  Processing chunk 17/1561... found 20 entities
+  Processing chunk 18/1561... found 28 entities
+  Processing chunk 19/1561... found 0 entities
+  Processing chunk 20/1561... found 19 entities
+  Processing chunk 21/1561... found 13 entities
+  Processing chunk 22/1561... 

@@ -1,0 +1,101 @@
+============================================================
+AUTOMATICALLY DETECTED HISTORICAL PATTERNS
+============================================================
+
+## 1. Language Distribution in Corpus
+   English: 56 terms
+   Latin: 16 terms
+   Spanish: 6 terms
+   Chinese: 6 terms
+   Portuguese: 3 terms
+   French: 1 terms
+   Dutch: 1 terms
+   Icelandic: 1 terms
+
+## 2. Cross-Linguistic Knowledge Transfer
+   English ↔ Latin: 13 links
+      • theriaca ↔ theriac
+      • bezoardicum ↔ bezoar
+      • aloe ↔ aloes
+      ... and 10 more
+   Chinese ↔ English: 6 links
+      • ginseng ↔ ren shen
+      • qinghao ↔ sweet wormwood
+      • camphor ↔ zhang nao
+      ... and 3 more
+   Portuguese ↔ Spanish: 2 links
+      • quebra pedra ↔ quiebra piedra
+      • yerba mate ↔ erva do Paraguay
+   English ↔ Portuguese: 2 links
+      • dodo ↔ doudo
+      • stone-breaker ↔ quebra pedra
+   English ↔ Spanish: 1 links
+      • sarsaparilla ↔ zarzaparrilla
+   English ↔ French: 1 links
+      • dronte ↔ dodo
+   Dutch ↔ English: 1 links
+      • dodo ↔ walghvogel
+   English ↔ Icelandic: 1 links
+      • geirfugl ↔ great auk
+
+## 3. Zones of Epistemic Uncertainty (contested_identity)
+   • cassia / cinnamon
+     Note: species ambiguity cassia vs true cinnamon
+   • rhubarb / turkish rhubarb
+     Note: trade route vs species identity
+   • sarsaparilla / mechoacan
+     Note: sometimes conflated in trade
+   • manna / manna from ash
+     Note: multiple botanical sources
+   • penguin / great auk
+     Note: penguin originally meant great auk not Antarctic birds
+   • dodo / solitaire
+     Note: different birds sometimes confused in accounts
+   • manatee / mermaid
+     Note: manatees sometimes described as mermaids
+
+## 4. Derivation Chains (terminological evolution)
+   opium → laudanum
+     (opium tincture)
+   cochineal dye → cochineal insect
+     (product from organism)
+   spirit of wine → alcohol
+     (alcohol meant pure essence in early modern)
+
+## 5. Extinct Species in Corpus
+   • aurochs (English)
+     Sources: 1600s
+   • dodo (English)
+     Sources: Herbert 1634, 1600s
+   • doudo (Portuguese)
+     Sources: Santos 1607
+   • dronte (French)
+     Sources: Bontekoe 1646
+   • geirfugl (Icelandic)
+     Sources: 1600s
+   • great auk (English)
+     Sources: 1600s
+   • urus (Latin)
+     Sources: Caesar/Pliny
+
+## 6. Non-European Terminology Adopted by European Sources
+   • ginseng (English) ← ren shen (Chinese)
+   • sweet wormwood (English) ← qinghao (Chinese)
+   • camphor (English) ← zhang nao (Chinese)
+   • cinnamon (English) ← rou gui (Chinese)
+   • ginger (English) ← sheng jiang (Chinese)
+   • clove (English) ← ding xiang (Chinese)
+
+## 7. Potential Historical Claims from This Data
+
+   Based on the cross-linguistic links, we can make claims like:
+
+   CLAIM: At least 6 substances in the English pharmacopoeia
+          correspond to documented Chinese materia medica:
+          • ginseng = ren shen
+          • qinghao = sweet wormwood
+          • camphor = zhang nao
+          • cinnamon = rou gui
+          • ginger = sheng jiang
+
+============================================================

@@ -1,0 +1,196 @@
+@import "tailwindcss";
+
+:root {
+  --background: #fafaf9;
+  --foreground: #1c1917;
+  --muted: #78716c;
+  --border: #e7e5e4;
+  --card: #ffffff;
+  --accent: #059669;
+  --accent-light: #d1fae5;
+  --person: #7c3aed;
+  --substance: #0891b2;
+  --concept: #ca8a04;
+}
+
+.dark {
+  --background: #0c0a09;
+  --foreground: #fafaf9;
+  --muted: #a8a29e;
+  --border: #292524;
+  --card: #1c1917;
+  --accent: #10b981;
+  --accent-light: #064e3b;
+  --person: #a78bfa;
+  --substance: #22d3ee;
+  --concept: #facc15;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-muted: var(--muted);
+  --color-border: var(--border);
+  --color-card: var(--card);
+  --color-accent: var(--accent);
+  --color-accent-light: var(--accent-light);
+  --color-person: var(--person);
+  --color-substance: var(--substance);
+  --color-concept: var(--concept);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+/* Smooth transitions for dark mode (scoped to avoid interfering with animations) */
+*:not([style*="opacity"]) {
+  transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+
+/* ── Page entrance animations ──────────────────────────────────────── */
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes revealLine {
+  from { transform: scaleX(0); }
+  to { transform: scaleX(1); }
+}
+
+.animate-fade-up {
+  animation: fadeUp 0.4s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.35s ease both;
+}
+
+.animate-scale-in {
+  animation: scaleIn 0.4s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.animate-reveal-line {
+  transform-origin: left;
+  animation: revealLine 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+/* Stagger delays */
+.delay-0 { animation-delay: 0ms; }
+.delay-1 { animation-delay: 60ms; }
+.delay-2 { animation-delay: 120ms; }
+.delay-3 { animation-delay: 180ms; }
+.delay-4 { animation-delay: 240ms; }
+.delay-5 { animation-delay: 300ms; }
+.delay-6 { animation-delay: 360ms; }
+.delay-7 { animation-delay: 420ms; }
+.delay-8 { animation-delay: 480ms; }
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--background);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--muted);
+}
+
+/* Category badges */
+.badge-person {
+  background-color: color-mix(in srgb, var(--person) 20%, transparent);
+  color: var(--person);
+  border: 1px solid color-mix(in srgb, var(--person) 40%, transparent);
+}
+
+.badge-substance {
+  background-color: color-mix(in srgb, var(--substance) 20%, transparent);
+  color: var(--substance);
+  border: 1px solid color-mix(in srgb, var(--substance) 40%, transparent);
+}
+
+.badge-concept {
+  background-color: color-mix(in srgb, var(--concept) 20%, transparent);
+  color: var(--concept);
+  border: 1px solid color-mix(in srgb, var(--concept) 40%, transparent);
+}
+
+/* Hover animations */
+.card-hover {
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.card-hover:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.dark .card-hover:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+/* Footer links — animated underline + brighten on hover */
+@layer base {
+  .footer-link {
+    position: relative;
+    display: inline-block;
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+
+  .footer-link::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -1px;
+    width: 100%;
+    height: 1px;
+    background: #ffffff;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .footer-link:hover {
+    color: #ffffff !important;
+  }
+
+  .footer-link:hover::after {
+    transform: scaleX(1);
+  }
+}

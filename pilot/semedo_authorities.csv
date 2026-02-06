@@ -1,0 +1,91 @@
+term_a,lang_a,source_a,term_b,lang_b,source_b,link_type,modern_id,notes
+Oswaldus Crollius,Latin,Basilica Chymica 1609,Oswald Croll,German,Basilica Chymica 1609,orthographic_variant,Oswald_Croll,German iatrochemist c.1563-1609
+Crollius,Latin,Semedo 1741,Osvaldo Crollo,Italian,17th c translations,orthographic_variant,Oswald_Croll,common citation form
+Oswald Croll,German,Basilica Chymica 1609,Oswaldo Crolio,Spanish,Spanish translations,orthographic_variant,Oswald_Croll,Paracelsian physician
+Joannes Baptista van Helmont,Latin,Ortus Medicinae 1648,Jan Baptist van Helmont,Flemish,Ortus Medicinae 1648,orthographic_variant,Jan_Baptist_van_Helmont,Flemish chemist 1580-1644
+Van Helmont,Latin,Semedo 1741,Jean Baptiste van Helmont,French,17th c French sources,orthographic_variant,Jan_Baptist_van_Helmont,coined term gas
+Helmontius,Latin,academic citations,Johann Baptist von Helmont,German,German translations,orthographic_variant,Jan_Baptist_van_Helmont,iatrochemist and physiologist
+Nicolaus Lemery,Latin,Cours de Chymie 1675,Nicolas Lemery,French,Cours de Chymie 1675,orthographic_variant,Nicolas_Lemery,French chemist 1645-1715
+Lemery,French,Semedo 1741,Nicola Lemery,Italian,Italian translations,orthographic_variant,Nicolas_Lemery,major chemistry textbook author
+Nicolas Lemery,French,Cours de Chymie 1675,Nikolaus Lemery,German,German translations,orthographic_variant,Nicolas_Lemery,apothecary and physician
+Joannes Schroederus,Latin,Pharmacopoeia 1641,Johann Schröder,German,Pharmacopoeia 1641,orthographic_variant,Johann_Schroeder,German pharmacist 1600-1664
+Schroeder,German,Semedo 1741,Jean Schroder,French,French translations,orthographic_variant,Johann_Schroeder,influential pharmacopoeia
+Johann Schröder,German,Pharmacopoeia 1641,Giovanni Schrodero,Italian,Italian translations,orthographic_variant,Johann_Schroeder,Frankfurt physician
+Rogerus Baco,Latin,medieval manuscripts,Roger Bacon,English,Opus Majus 1267,orthographic_variant,Roger_Bacon,English philosopher c.1219-1292
+Bacon,English,Semedo 1741,Ruggero Bacone,Italian,Italian sources,orthographic_variant,Roger_Bacon,Franciscan friar and alchemist
+Roger Bacon,English,Opus Majus 1267,Rogerio Bacon,Portuguese,Portuguese translations,orthographic_variant,Roger_Bacon,doctor mirabilis
+Aureolus Philippus Theophrastus Bombastus von Hohenheim,Latin,formal name,Paracelsus,Latin,common name,same_referent,Paracelsus,Swiss physician 1493-1541
+Paracelsus,Latin,Semedo 1741,Paracelso,Italian,Italian sources,orthographic_variant,Paracelsus,founder of iatrochemistry
+Paracelsus,Latin,common name,Paracelse,French,French sources,orthographic_variant,Paracelsus,controversial medical reformer
+Claudius Galenus,Latin,Greek medical tradition,Galen,English,standard name,same_referent,Galen,Greek physician 129-216 CE
+Galenus,Latin,Semedo 1741,Galeno,Italian/Spanish,Romance translations,orthographic_variant,Galen,foundational medical authority
+Galen,English,medical literature,Galien,French,French sources,orthographic_variant,Galen,humoral theory systematizer
+Pedanius Dioscorides,Latin,De Materia Medica,Dioscorides,Latin,common form,orthographic_variant,Dioscorides,Greek physician 40-90 CE
+Dioscorides,Latin,Semedo 1741,Dioscoride,Italian/French,Romance translations,orthographic_variant,Dioscorides,foundational pharmacology
+Pedanius Dioscorides,Latin,De Materia Medica,Dioskurides,German,German sources,orthographic_variant,Dioscorides,materia medica authority
+Abu Ali al-Husayn ibn Abd Allah ibn Sina,Arabic,Canon of Medicine,Avicenna,Latin,Latin West,same_referent,Avicenna,Persian polymath 980-1037
+Avicenna,Latin,Semedo 1741,Avicenne,French,French sources,orthographic_variant,Avicenna,Canon of Medicine author
+Avicenna,Latin,Canon translations,Ibn Sina,Arabic,Arabic sources,same_referent,Avicenna,prince of physicians
+Rhazes,Latin,Liber Almansoris,Abu Bakr Muhammad ibn Zakariya al-Razi,Arabic,original name,same_referent,Rhazes,Persian physician 854-925
+Rasis,Latin,Semedo 1741,Rhases,Latin,variant spelling,orthographic_variant,Rhazes,physician and alchemist
+Rhazes,Latin,Latin West,Rases,Spanish,Spanish sources,orthographic_variant,Rhazes,Baghdad medical authority
+Daniel Sennertus,Latin,Institutiones Medicae 1611,Daniel Sennert,German,German form,orthographic_variant,Daniel_Sennert,German physician 1572-1637
+Sennertus,Latin,Semedo 1741,Daniele Sennerto,Italian,Italian translations,orthographic_variant,Daniel_Sennert,Wittenberg professor
+Daniel Sennert,German,medical works,Daniel Sennert,English,English translations,orthographic_variant,Daniel_Sennert,atomist physician
+Hieronymus Cardanus,Latin,De Subtilitate 1550,Girolamo Cardano,Italian,Italian sources,same_referent,Girolamo_Cardano,Italian polymath 1501-1576
+Cardanus,Latin,Semedo 1741,Jerome Cardan,French,French sources,orthographic_variant,Girolamo_Cardano,mathematician and physician
+Girolamo Cardano,Italian,original name,Geronimo Cardano,Spanish,Spanish sources,orthographic_variant,Girolamo_Cardano,Renaissance physician
+Petrus Andreas Matthiolus,Latin,Commentarii 1544,Pietro Andrea Mattioli,Italian,Italian form,same_referent,Pietro_Mattioli,Italian physician 1501-1577
+Matthiolus,Latin,Semedo 1741,Matthiole,French,French sources,orthographic_variant,Pietro_Mattioli,Dioscorides commentator
+Pietro Andrea Mattioli,Italian,Commentarii,Pier Andrea Mattioli,Italian,variant spelling,orthographic_variant,Pietro_Mattioli,herbal authority
+Lazarus Riverius,Latin,Praxis Medica 1640,Lazare Riviere,French,French form,same_referent,Lazare_Riviere,French physician 1589-1655
+Riverius,Latin,Semedo 1741,Lazzaro Riviera,Italian,Italian sources,orthographic_variant,Lazare_Riviere,Montpellier professor
+Lazare Riviere,French,Praxis Medica,Lazaro Riverio,Spanish,Spanish translations,orthographic_variant,Lazare_Riviere,iatrochemist
+Thomas Sydenham,English,Observationes Medicae 1676,Thomas Sydenham,Latin,Thomas Sydenhamius,orthographic_variant,Thomas_Sydenham,English physician 1624-1689
+Sydenham,English,Semedo 1741,Tommaso Sydenham,Italian,Italian sources,orthographic_variant,Thomas_Sydenham,English Hippocrates
+Thomas Sydenham,English,medical works,Thomas Sydenham,French,same name in French,orthographic_variant,Thomas_Sydenham,empirical medicine pioneer
+Ambroise Pare,French,Oeuvres 1575,Ambrosius Pareus,Latin,Latin form,same_referent,Ambroise_Pare,French surgeon 1510-1590
+Pareus,Latin,Semedo 1741,Ambrogio Pare,Italian,Italian sources,orthographic_variant,Ambroise_Pare,father of modern surgery
+Ambroise Pare,French,surgical works,Ambrosio Pareo,Spanish,Spanish translations,orthographic_variant,Ambroise_Pare,barber-surgeon to French kings
+Franciscus Sylvius,Latin,academic name,Franz de le Boe,Dutch,original name,same_referent,Franciscus_Sylvius,Dutch physician 1614-1672
+Sylvius,Latin,Semedo 1741,Francois Sylvius,French,French sources,orthographic_variant,Franciscus_Sylvius,Leiden professor
+Franciscus Sylvius,Latin,medical works,Francesco Silvio,Italian,Italian sources,orthographic_variant,Franciscus_Sylvius,iatrochemist
+Thomas Willis,English,Cerebri Anatome 1664,Thomas Willisius,Latin,Latin form,orthographic_variant,Thomas_Willis,English physician 1621-1675
+Willis,English,Semedo 1741,Tommaso Willis,Italian,Italian sources,orthographic_variant,Thomas_Willis,neuroanatomy founder
+Thomas Willis,English,medical works,Thomas Willis,German,German translations,orthographic_variant,Thomas_Willis,circle of Willis
+Marcellus Malpighius,Latin,academic name,Marcello Malpighi,Italian,Italian form,same_referent,Marcello_Malpighi,Italian physician 1628-1694
+Malpighius,Latin,Semedo 1741,Malpighi,Italian,common form,orthographic_variant,Marcello_Malpighi,microscopist
+Marcello Malpighi,Italian,anatomical works,Marcel Malpighi,French,French sources,orthographic_variant,Marcello_Malpighi,founder of histology
+Athanasius Kircher,Latin,Mundus Subterraneus 1665,Athanasius Kircherus,Latin,Latin variant,orthographic_variant,Athanasius_Kircher,German Jesuit 1602-1680
+Kircher,German,Semedo 1741,Atanasio Kircher,Italian,Italian sources,orthographic_variant,Athanasius_Kircher,polymath and Egyptologist
+Athanasius Kircher,German,encyclopedic works,Athanase Kircher,French,French sources,orthographic_variant,Athanasius_Kircher,Jesuit scholar
+Caspar Bartholin,Latin,Institutiones Anatomicae 1611,Caspar Bartholinus,Latin,variant,orthographic_variant,Caspar_Bartholin,Danish anatomist 1585-1629
+Bartholinus,Latin,Semedo 1741,Gaspare Bartolino,Italian,Italian sources,orthographic_variant,Caspar_Bartholin,Copenhagen professor
+Caspar Bartholin,Danish,anatomical works,Caspar Bartholin,German,German translations,orthographic_variant,Caspar_Bartholin,anatomical nomenclature
+Joannes Fernelius,Latin,Universa Medicina 1567,Jean Fernel,French,French form,same_referent,Jean_Fernel,French physician 1497-1558
+Fernelius,Latin,Semedo 1741,Giovanni Fernelio,Italian,Italian sources,orthographic_variant,Jean_Fernel,coined term physiology
+Jean Fernel,French,medical works,Johann Fernelius,German,German translations,orthographic_variant,Jean_Fernel,physician to Henri II
+Andreas Vesalius,Latin,De Humani Corporis Fabrica 1543,Andries van Wesel,Dutch,original name,same_referent,Andreas_Vesalius,Flemish anatomist 1514-1564
+Vesalius,Latin,Semedo 1741,Andrea Vesalio,Italian,Italian sources,orthographic_variant,Andreas_Vesalius,father of modern anatomy
+Andreas Vesalius,Latin,anatomical works,Andre Vesale,French,French sources,orthographic_variant,Andreas_Vesalius,challenged Galenic anatomy
+Hieronymus Fabricius ab Aquapendente,Latin,De Venarum Ostiolis 1603,Girolamo Fabrici,Italian,Italian form,same_referent,Girolamo_Fabrici,Italian anatomist 1537-1619
+Fabricius,Latin,Semedo 1741,Fabricio de Acquapendente,Italian,full Italian name,orthographic_variant,Girolamo_Fabrici,Padua professor
+Hieronymus Fabricius,Latin,anatomical works,Jerome Fabrice,French,French sources,orthographic_variant,Girolamo_Fabrici,Harvey's teacher
+Guilielmus Harvaeus,Latin,De Motu Cordis 1628,William Harvey,English,English form,same_referent,William_Harvey,English physician 1578-1657
+Harvey,English,Semedo 1741,Guglielmo Harvey,Italian,Italian sources,orthographic_variant,William_Harvey,discovered blood circulation
+William Harvey,English,De Motu Cordis,Guillaume Harvey,French,French sources,orthographic_variant,William_Harvey,royal physician to Charles I
+Raymundus Lullus,Latin,alchemical works,Ramon Llull,Catalan,original name,same_referent,Ramon_Llull,Catalan philosopher 1232-1316
+Lullius,Latin,Semedo 1741,Raimondo Lullo,Italian,Italian sources,orthographic_variant,Ramon_Llull,Ars Magna author
+Ramon Llull,Catalan,philosophical works,Raymond Lulle,French,French sources,orthographic_variant,Ramon_Llull,Christian mystic
+Arnaldus de Villa Nova,Latin,alchemical texts,Arnau de Vilanova,Catalan,original name,same_referent,Arnau_de_Vilanova,Catalan physician 1240-1311
+Arnaldus,Latin,Semedo 1741,Arnaldo de Villanova,Italian,Italian sources,orthographic_variant,Arnau_de_Vilanova,court physician
+Arnau de Vilanova,Catalan,medical works,Arnaud de Villeneuve,French,French sources,orthographic_variant,Arnau_de_Vilanova,alchemist and physician
+Albertus Magnus,Latin,De Mineralibus,Albert the Great,English,English form,same_referent,Albertus_Magnus,German bishop 1200-1280
+Albertus,Latin,Semedo 1741,Alberto Magno,Italian/Spanish,Romance sources,orthographic_variant,Albertus_Magnus,Dominican philosopher
+Albertus Magnus,Latin,encyclopedic works,Albert le Grand,French,French sources,orthographic_variant,Albertus_Magnus,universal doctor
+Jacobus Sylvius,Latin,anatomical works,Jacques Dubois,French,original name,same_referent,Jacques_Dubois,French anatomist 1478-1555
+Sylvius (Dubois),Latin,Semedo 1741,Giacomo Silvio,Italian,Italian sources,orthographic_variant,Jacques_Dubois,Paris professor
+Jacques Dubois,French,anatomical works,Jakob Sylvius,German,German translations,orthographic_variant,Jacques_Dubois,Vesalius's teacher
+Joannes Mesue,Latin,pharmacopoeia,Yuhanna ibn Masawaih,Arabic,original name,same_referent,Yuhanna_ibn_Masawaih,Assyrian physician 777-857
+Mesue,Latin,Semedo 1741,Giovanni Mesue,Italian,Italian sources,orthographic_variant,Yuhanna_ibn_Masawaih,pharmacology authority
+Yuhanna ibn Masawaih,Arabic,medical works,Jean Mesue,French,French sources,orthographic_variant,Yuhanna_ibn_Masawaih,Baghdad court physician

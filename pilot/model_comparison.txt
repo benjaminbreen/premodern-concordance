@@ -1,0 +1,40 @@
+======================================================================
+EMBEDDING MODEL COMPARISON
+Test pairs: 54, Threshold: 0.7
+======================================================================
+
+OVERALL METRICS:
+----------------------------------------------------------------------
+Model                      Precision     Recall         F1
+----------------------------------------------------------------------
+BGE-M3 (baseline)              1.000      0.255      0.407
+mE5-Large-Instruct             0.870      1.000      0.931
+Arctic-Embed-L-v2              0.929      0.277      0.426
+Paraphrase-mMPNet              0.909      0.213      0.345
+
+CROSS-LINGUAL SAME_REFERENT (the critical metric):
+----------------------------------------------------------------------
+Model                      Avg Similarity   Recall@0.7
+----------------------------------------------------------------------
+BGE-M3 (baseline)                   0.513       10.0%
+mE5-Large-Instruct                  0.896      100.0%
+Arctic-Embed-L-v2                   0.435       10.0%
+Paraphrase-mMPNet                   0.434       15.0%
+
+HARD NEGATIVE SEPARATION (lower is better):
+----------------------------------------------------------------------
+Model                       Hard Neg Avg Sim  Gap from Same Ref
+----------------------------------------------------------------------
+BGE-M3 (baseline)                      0.463              0.050
+mE5-Large-Instruct                     0.897             -0.001
+Arctic-Embed-L-v2                      0.397              0.038
+Paraphrase-mMPNet                      0.440             -0.006
+
+DETAILED RESULTS FOR BEST MODEL: mE5-Large-Instruct
+----------------------------------------------------------------------
+  orthographic_variant      Avg: 0.953  Recall@0.7: 100.0%
+  same_referent             Avg: 0.896  Recall@0.7: 100.0%
+  hard_negative             Avg: 0.897  Recall@0.7: 100.0%
+  conceptual_overlap        Avg: 0.900  Recall@0.7: 100.0%
+  derivation                Avg: 0.909  Recall@0.7: 100.0%
+  contested_identity        Avg: 0.907  Recall@0.7: 100.0%

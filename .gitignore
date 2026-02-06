@@ -1,0 +1,36 @@
+# Environment files with secrets
+.env
+.env.local
+web/.env.local
+pilot/.env.local
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# Node
+web/node_modules/
+web/.next/
+web/.vercel
+
+# OS
+.DS_Store
+
+# Large binary assets (not needed for deployment)
+models/
+books/*.pdf
+checkpoints/
+
+# Old site directory
+site/
+
+# Claude Code local state
+.claude/
+
+# Output files (regeneratable)
+output/
+pilot/embedding_results.csv
+pilot/llm_review.csv
+pilot/summary.txt

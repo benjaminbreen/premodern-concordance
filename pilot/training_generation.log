@@ -1,0 +1,521 @@
+Loading books/polyanthea_medicinal.txt...
+  2356 chunks
+
+Total chunks available: 2356
+Selected 500 chunks for labeling
+
+Using teacher: gemini-2.5-flash-lite
+
+Labeling 1/500... ✓ 15 entities
+Labeling 2/500... ✓ 19 entities
+Labeling 3/500... ✓ 5 entities
+Labeling 4/500... ✓ 28 entities
+Labeling 5/500... ✓ 30 entities
+Labeling 6/500... ✓ 14 entities
+Labeling 7/500... ✓ 19 entities
+Labeling 8/500... ✓ 21 entities
+Labeling 9/500... ✓ 33 entities
+Labeling 10/500... ✓ 23 entities
+Labeling 11/500... ✓ 31 entities
+Labeling 12/500... ✓ 9 entities
+Labeling 13/500... ✓ 29 entities
+Labeling 14/500... ✗ skipped
+Labeling 15/500... ✓ 13 entities
+Labeling 16/500... ✓ 25 entities
+Labeling 17/500... ✓ 34 entities
+Labeling 18/500... ✓ 19 entities
+Labeling 19/500... ✓ 21 entities
+Labeling 20/500...   Warning: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'The model is overloaded. Please try again later.', 'status': 'UNAVAILABLE'}}
+✗ skipped
+Labeling 21/500...   Warning: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'The model is overloaded. Please try again later.', 'status': 'UNAVAILABLE'}}
+✗ skipped
+Labeling 22/500... ✓ 29 entities
+Labeling 23/500... ✓ 23 entities
+Labeling 24/500... ✓ 15 entities
+Labeling 25/500... ✓ 17 entities
+Labeling 26/500... ✓ 12 entities
+Labeling 27/500... ✓ 14 entities
+Labeling 28/500... ✓ 31 entities
+Labeling 29/500... ✓ 16 entities
+Labeling 30/500... ✓ 27 entities
+Labeling 31/500... ✓ 19 entities
+Labeling 32/500... ✓ 21 entities
+Labeling 33/500... ✓ 16 entities
+Labeling 34/500... ✓ 32 entities
+Labeling 35/500... ✓ 36 entities
+Labeling 36/500... ✓ 19 entities
+Labeling 37/500... ✗ skipped
+Labeling 38/500... ✓ 18 entities
+Labeling 39/500... ✓ 14 entities
+Labeling 40/500... ✗ skipped
+Labeling 41/500... ✓ 28 entities
+Labeling 42/500... ✓ 8 entities
+Labeling 43/500... ✓ 40 entities
+Labeling 44/500... ✓ 23 entities
+Labeling 45/500... ✓ 17 entities
+Labeling 46/500... ✗ skipped
+Labeling 47/500... ✓ 23 entities
+Labeling 48/500... ✓ 10 entities
+Labeling 49/500... ✓ 14 entities
+Labeling 50/500... ✓ 10 entities
+Labeling 51/500... ✓ 26 entities
+Labeling 52/500...   Warning: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'The model is overloaded. Please try again later.', 'status': 'UNAVAILABLE'}}
+✗ skipped
+Labeling 53/500... ✓ 21 entities
+Labeling 54/500... ✓ 13 entities
+Labeling 55/500... ✓ 15 entities
+Labeling 56/500... ✓ 34 entities
+Labeling 57/500... ✓ 26 entities
+Labeling 58/500... ✗ skipped
+Labeling 59/500... ✓ 32 entities
+Labeling 60/500... ✓ 8 entities
+Labeling 61/500... ✓ 17 entities
+Labeling 62/500... ✓ 14 entities
+Labeling 63/500... ✗ skipped
+Labeling 64/500... ✓ 19 entities
+Labeling 65/500... ✓ 24 entities
+Labeling 66/500... ✓ 12 entities
+Labeling 67/500... ✓ 16 entities
+Labeling 68/500... ✓ 19 entities
+Labeling 69/500... ✓ 25 entities
+Labeling 70/500... ✓ 9 entities
+Labeling 71/500... ✓ 34 entities
+Labeling 72/500... ✓ 21 entities
+Labeling 73/500... ✓ 15 entities
+Labeling 74/500... ✓ 16 entities
+Labeling 75/500... ✓ 20 entities
+Labeling 76/500... ✓ 12 entities
+Labeling 77/500... ✓ 15 entities
+Labeling 78/500... ✓ 7 entities
+Labeling 79/500... ✓ 26 entities
+Labeling 80/500... ✓ 17 entities
+Labeling 81/500... ✓ 18 entities
+Labeling 82/500... ✓ 20 entities
+Labeling 83/500... ✓ 24 entities
+Labeling 84/500... ✓ 25 entities
+Labeling 85/500... ✗ skipped
+Labeling 86/500... ✓ 7 entities
+Labeling 87/500... ✓ 13 entities
+Labeling 88/500... ✓ 7 entities
+Labeling 89/500... ✓ 18 entities
+Labeling 90/500... ✓ 9 entities
+Labeling 91/500... ✓ 34 entities
+Labeling 92/500... ✓ 2 entities
+Labeling 93/500... ✗ skipped
+Labeling 94/500... ✗ skipped
+Labeling 95/500... ✓ 22 entities
+Labeling 96/500... ✓ 21 entities
+Labeling 97/500... ✓ 22 entities
+Labeling 98/500... ✗ skipped
+Labeling 99/500... ✓ 23 entities
+Labeling 100/500... ✓ 8 entities
+Labeling 101/500... ✓ 12 entities
+Labeling 102/500... ✓ 15 entities
+Labeling 103/500... ✓ 12 entities
+Labeling 104/500... ✓ 24 entities
+Labeling 105/500... ✓ 31 entities
+Labeling 106/500... ✓ 25 entities
+Labeling 107/500... ✓ 33 entities
+Labeling 108/500... ✓ 14 entities
+Labeling 109/500... ✓ 13 entities
+Labeling 110/500... ✓ 34 entities
+Labeling 111/500... ✓ 10 entities
+Labeling 112/500... ✓ 21 entities
+Labeling 113/500... ✗ skipped
+Labeling 114/500... ✓ 34 entities
+Labeling 115/500... ✓ 14 entities
+Labeling 116/500... ✓ 11 entities
+Labeling 117/500... ✓ 19 entities
+Labeling 118/500... ✓ 30 entities
+Labeling 119/500... ✓ 16 entities
+Labeling 120/500... ✓ 15 entities
+Labeling 121/500... ✓ 22 entities
+Labeling 122/500... ✓ 27 entities
+Labeling 123/500... ✓ 11 entities
+Labeling 124/500... ✓ 26 entities
+Labeling 125/500...   Warning: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'The model is overloaded. Please try again later.', 'status': 'UNAVAILABLE'}}
+✗ skipped
+Labeling 126/500... ✓ 34 entities
+Labeling 127/500... ✓ 5 entities
+Labeling 128/500... ✓ 34 entities
+Labeling 129/500... ✓ 20 entities
+Labeling 130/500... ✓ 23 entities
+Labeling 131/500... ✓ 20 entities
+Labeling 132/500... ✓ 22 entities
+Labeling 133/500... ✓ 9 entities
+Labeling 134/500... ✓ 23 entities
+Labeling 135/500... ✓ 22 entities
+Labeling 136/500... ✓ 21 entities
+Labeling 137/500... ✓ 26 entities
+Labeling 138/500... ✓ 7 entities
+Labeling 139/500... ✓ 10 entities
+Labeling 140/500... ✗ skipped
+Labeling 141/500... ✓ 21 entities
+Labeling 142/500... ✓ 30 entities
+Labeling 143/500... ✓ 9 entities
+Labeling 144/500... ✓ 6 entities
+Labeling 145/500... ✓ 16 entities
+Labeling 146/500... ✓ 22 entities
+Labeling 147/500... ✓ 24 entities
+Labeling 148/500... ✓ 13 entities
+Labeling 149/500... ✓ 30 entities
+Labeling 150/500... ✓ 30 entities
+Labeling 151/500... ✓ 15 entities
+Labeling 152/500... ✓ 21 entities
+Labeling 153/500... ✓ 10 entities
+Labeling 154/500... ✓ 6 entities
+Labeling 155/500... ✓ 25 entities
+Labeling 156/500... ✓ 13 entities
+Labeling 157/500... ✓ 19 entities
+Labeling 158/500... ✓ 6 entities
+Labeling 159/500... ✓ 17 entities
+Labeling 160/500... ✓ 10 entities
+Labeling 161/500... ✓ 18 entities
+Labeling 162/500... ✓ 21 entities
+Labeling 163/500... ✓ 19 entities
+Labeling 164/500... ✓ 15 entities
+Labeling 165/500... ✓ 8 entities
+Labeling 166/500... ✓ 31 entities
+Labeling 167/500... ✗ skipped
+Labeling 168/500... ✓ 18 entities
+Labeling 169/500... ✓ 17 entities
+Labeling 170/500... ✓ 26 entities
+Labeling 171/500... ✓ 22 entities
+Labeling 172/500... ✓ 24 entities
+Labeling 173/500... ✓ 13 entities
+Labeling 174/500... ✓ 20 entities
+Labeling 175/500... ✓ 10 entities
+Labeling 176/500... ✓ 24 entities
+Labeling 177/500... ✓ 7 entities
+Labeling 178/500... ✓ 18 entities
+Labeling 179/500... ✓ 28 entities
+Labeling 180/500... ✓ 4 entities
+Labeling 181/500... ✓ 30 entities
+Labeling 182/500... ✓ 25 entities
+Labeling 183/500... ✓ 16 entities
+Labeling 184/500... ✓ 26 entities
+Labeling 185/500... ✓ 11 entities
+Labeling 186/500... ✓ 21 entities
+Labeling 187/500... ✓ 15 entities
+Labeling 188/500... ✓ 15 entities
+Labeling 189/500... ✓ 24 entities
+Labeling 190/500... ✓ 20 entities
+Labeling 191/500... ✓ 13 entities
+Labeling 192/500... ✓ 37 entities
+Labeling 193/500... ✓ 24 entities
+Labeling 194/500... ✓ 19 entities
+Labeling 195/500... ✓ 30 entities
+Labeling 196/500... ✓ 15 entities
+Labeling 197/500... ✓ 19 entities
+Labeling 198/500... ✓ 3 entities
+Labeling 199/500... ✓ 18 entities
+Labeling 200/500... ✓ 21 entities
+Labeling 201/500... ✓ 20 entities
+Labeling 202/500... ✓ 19 entities
+Labeling 203/500... ✗ skipped
+Labeling 204/500... ✓ 24 entities
+Labeling 205/500... ✓ 13 entities
+Labeling 206/500... ✓ 17 entities
+Labeling 207/500... ✓ 16 entities
+Labeling 208/500... ✓ 23 entities
+Labeling 209/500... ✓ 20 entities
+Labeling 210/500... ✓ 25 entities
+Labeling 211/500... ✓ 20 entities
+Labeling 212/500... ✓ 18 entities
+Labeling 213/500... ✓ 6 entities
+Labeling 214/500... ✓ 17 entities
+Labeling 215/500... ✓ 28 entities
+Labeling 216/500... ✓ 17 entities
+Labeling 217/500... ✓ 16 entities
+Labeling 218/500... ✗ skipped
+Labeling 219/500... ✓ 13 entities
+Labeling 220/500... ✓ 6 entities
+Labeling 221/500... ✓ 24 entities
+Labeling 222/500... ✓ 19 entities
+Labeling 223/500... ✓ 31 entities
+Labeling 224/500... ✓ 36 entities
+Labeling 225/500... ✓ 28 entities
+Labeling 226/500... ✓ 17 entities
+Labeling 227/500... ✗ skipped
+Labeling 228/500... ✓ 3 entities
+Labeling 229/500... ✓ 18 entities
+Labeling 230/500... ✓ 20 entities
+Labeling 231/500... ✓ 23 entities
+Labeling 232/500... ✓ 9 entities
+Labeling 233/500... ✓ 14 entities
+Labeling 234/500... ✓ 20 entities
+Labeling 235/500... ✓ 33 entities
+Labeling 236/500... ✓ 13 entities
+Labeling 237/500... ✓ 24 entities
+Labeling 238/500... ✓ 24 entities
+Labeling 239/500... ✓ 21 entities
+Labeling 240/500... ✓ 18 entities
+Labeling 241/500... ✓ 16 entities
+Labeling 242/500... ✓ 11 entities
+Labeling 243/500... ✓ 19 entities
+Labeling 244/500... ✓ 30 entities
+Labeling 245/500... ✓ 25 entities
+Labeling 246/500... ✓ 14 entities
+Labeling 247/500... ✓ 28 entities
+Labeling 248/500... ✓ 12 entities
+Labeling 249/500... ✓ 20 entities
+Labeling 250/500... ✓ 34 entities
+Labeling 251/500... ✓ 23 entities
+Labeling 252/500... ✓ 14 entities
+Labeling 253/500... ✓ 31 entities
+Labeling 254/500... ✓ 17 entities
+Labeling 255/500... ✓ 12 entities
+Labeling 256/500... ✓ 24 entities
+Labeling 257/500... ✓ 9 entities
+Labeling 258/500... ✓ 26 entities
+Labeling 259/500... ✓ 24 entities
+Labeling 260/500... ✓ 34 entities
+Labeling 261/500... ✓ 11 entities
+Labeling 262/500... ✓ 17 entities
+Labeling 263/500... ✓ 20 entities
+Labeling 264/500... ✓ 32 entities
+Labeling 265/500... ✓ 12 entities
+Labeling 266/500... ✓ 30 entities
+Labeling 267/500... ✓ 21 entities
+Labeling 268/500... ✓ 11 entities
+Labeling 269/500... ✓ 18 entities
+Labeling 270/500... ✓ 18 entities
+Labeling 271/500... ✓ 11 entities
+Labeling 272/500... ✓ 15 entities
+Labeling 273/500... ✓ 19 entities
+Labeling 274/500... ✓ 36 entities
+Labeling 275/500... ✓ 14 entities
+Labeling 276/500... ✓ 8 entities
+Labeling 277/500... ✓ 19 entities
+Labeling 278/500... ✗ skipped
+Labeling 279/500... ✓ 13 entities
+Labeling 280/500... ✓ 20 entities
+Labeling 281/500... ✓ 17 entities
+Labeling 282/500... ✓ 15 entities
+Labeling 283/500... ✓ 28 entities
+Labeling 284/500... ✓ 13 entities
+Labeling 285/500... ✓ 25 entities
+Labeling 286/500... ✓ 9 entities
+Labeling 287/500... ✓ 15 entities
+Labeling 288/500... ✓ 19 entities
+Labeling 289/500... ✓ 20 entities
+Labeling 290/500... ✓ 11 entities
+Labeling 291/500... ✓ 5 entities
+Labeling 292/500... ✓ 22 entities
+Labeling 293/500... ✓ 9 entities
+Labeling 294/500... ✗ skipped
+Labeling 295/500... ✓ 13 entities
+Labeling 296/500... ✓ 24 entities
+Labeling 297/500... ✗ skipped
+Labeling 298/500... ✓ 15 entities
+Labeling 299/500... ✓ 15 entities
+Labeling 300/500...   Warning: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'The model is overloaded. Please try again later.', 'status': 'UNAVAILABLE'}}
+✗ skipped
+Labeling 301/500... ✓ 20 entities
+Labeling 302/500... ✓ 8 entities
+Labeling 303/500...   Warning: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'The model is overloaded. Please try again later.', 'status': 'UNAVAILABLE'}}
+✗ skipped
+Labeling 304/500... ✓ 22 entities
+Labeling 305/500... ✓ 34 entities
+Labeling 306/500... ✓ 34 entities
+Labeling 307/500... ✓ 19 entities
+Labeling 308/500... ✓ 13 entities
+Labeling 309/500... ✗ skipped
+Labeling 310/500... ✗ skipped
+Labeling 311/500... ✓ 30 entities
+Labeling 312/500... ✓ 18 entities
+Labeling 313/500... ✓ 9 entities
+Labeling 314/500... ✓ 13 entities
+Labeling 315/500... ✓ 14 entities
+Labeling 316/500... ✓ 6 entities
+Labeling 317/500... ✓ 13 entities
+Labeling 318/500... ✓ 35 entities
+Labeling 319/500... ✓ 21 entities
+Labeling 320/500... ✓ 26 entities
+Labeling 321/500... ✓ 11 entities
+Labeling 322/500... ✓ 8 entities
+Labeling 323/500... ✓ 26 entities
+Labeling 324/500... ✓ 35 entities
+Labeling 325/500... ✓ 22 entities
+Labeling 326/500... ✓ 9 entities
+Labeling 327/500... ✓ 19 entities
+Labeling 328/500... ✓ 15 entities
+Labeling 329/500... ✓ 25 entities
+Labeling 330/500... ✓ 19 entities
+Labeling 331/500... ✓ 20 entities
+Labeling 332/500... ✓ 10 entities
+Labeling 333/500... ✓ 9 entities
+Labeling 334/500... ✓ 9 entities
+Labeling 335/500... ✓ 11 entities
+Labeling 336/500... ✓ 15 entities
+Labeling 337/500... ✓ 3 entities
+Labeling 338/500... ✓ 36 entities
+Labeling 339/500... ✓ 18 entities
+Labeling 340/500... ✓ 22 entities
+Labeling 341/500... ✓ 22 entities
+Labeling 342/500... ✓ 18 entities
+Labeling 343/500... ✓ 14 entities
+Labeling 344/500... ✓ 9 entities
+Labeling 345/500... ✓ 27 entities
+Labeling 346/500... ✗ skipped
+Labeling 347/500... ✓ 26 entities
+Labeling 348/500... ✓ 12 entities
+Labeling 349/500... ✓ 16 entities
+Labeling 350/500... ✓ 24 entities
+Labeling 351/500... ✗ skipped
+Labeling 352/500... ✓ 19 entities
+Labeling 353/500... ✓ 9 entities
+Labeling 354/500... ✓ 25 entities
+Labeling 355/500... ✓ 28 entities
+Labeling 356/500... ✓ 16 entities
+Labeling 357/500... ✓ 17 entities
+Labeling 358/500... ✗ skipped
+Labeling 359/500... ✓ 34 entities
+Labeling 360/500... ✓ 16 entities
+Labeling 361/500... ✓ 17 entities
+Labeling 362/500... ✓ 29 entities
+Labeling 363/500... ✓ 16 entities
+Labeling 364/500... ✓ 8 entities
+Labeling 365/500... ✓ 27 entities
+Labeling 366/500... ✓ 21 entities
+Labeling 367/500... ✓ 7 entities
+Labeling 368/500... ✓ 25 entities
+Labeling 369/500... ✓ 10 entities
+Labeling 370/500... ✓ 17 entities
+Labeling 371/500... ✓ 30 entities
+Labeling 372/500... ✓ 12 entities
+Labeling 373/500... ✓ 22 entities
+Labeling 374/500... ✓ 21 entities
+Labeling 375/500... ✓ 21 entities
+Labeling 376/500... ✓ 23 entities
+Labeling 377/500... ✓ 19 entities
+Labeling 378/500... ✓ 31 entities
+Labeling 379/500... ✗ skipped
+Labeling 380/500... ✓ 21 entities
+Labeling 381/500... ✓ 12 entities
+Labeling 382/500... ✓ 17 entities
+Labeling 383/500... ✓ 12 entities
+Labeling 384/500... ✓ 19 entities
+Labeling 385/500... ✓ 18 entities
+Labeling 386/500... ✓ 16 entities
+Labeling 387/500... ✓ 16 entities
+Labeling 388/500...   Warning: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'The model is overloaded. Please try again later.', 'status': 'UNAVAILABLE'}}
+✗ skipped
+Labeling 389/500... ✓ 21 entities
+Labeling 390/500... ✓ 11 entities
+Labeling 391/500... ✓ 11 entities
+Labeling 392/500... ✗ skipped
+Labeling 393/500... ✓ 25 entities
+Labeling 394/500... ✓ 13 entities
+Labeling 395/500... ✓ 17 entities
+Labeling 396/500... ✓ 15 entities
+Labeling 397/500... ✓ 25 entities
+Labeling 398/500... ✓ 14 entities
+Labeling 399/500... ✓ 35 entities
+Labeling 400/500... ✓ 22 entities
+Labeling 401/500... ✓ 20 entities
+Labeling 402/500... ✓ 30 entities
+Labeling 403/500... ✓ 7 entities
+Labeling 404/500... ✓ 28 entities
+Labeling 405/500... ✓ 15 entities
+Labeling 406/500... ✓ 19 entities
+Labeling 407/500... ✓ 10 entities
+Labeling 408/500... ✓ 38 entities
+Labeling 409/500... ✓ 8 entities
+Labeling 410/500... ✓ 16 entities
+Labeling 411/500... ✓ 14 entities
+Labeling 412/500... ✓ 20 entities
+Labeling 413/500... ✓ 20 entities
+Labeling 414/500... ✓ 11 entities
+Labeling 415/500... ✓ 29 entities
+Labeling 416/500... ✓ 35 entities
+Labeling 417/500... ✓ 5 entities
+Labeling 418/500... ✓ 23 entities
+Labeling 419/500... ✓ 32 entities
+Labeling 420/500... ✓ 16 entities
+Labeling 421/500... ✓ 38 entities
+Labeling 422/500... ✓ 17 entities
+Labeling 423/500... ✓ 26 entities
+Labeling 424/500... ✓ 14 entities
+Labeling 425/500... ✓ 27 entities
+Labeling 426/500... ✓ 7 entities
+Labeling 427/500... ✓ 24 entities
+Labeling 428/500... ✓ 20 entities
+Labeling 429/500... ✓ 18 entities
+Labeling 430/500... ✓ 17 entities
+Labeling 431/500... ✓ 26 entities
+Labeling 432/500... ✓ 22 entities
+Labeling 433/500... ✓ 18 entities
+Labeling 434/500... ✗ skipped
+Labeling 435/500... ✓ 18 entities
+Labeling 436/500... ✓ 12 entities
+Labeling 437/500... ✓ 20 entities
+Labeling 438/500... ✓ 21 entities
+Labeling 439/500... ✓ 17 entities
+Labeling 440/500... ✓ 11 entities
+Labeling 441/500... ✓ 35 entities
+Labeling 442/500... ✓ 27 entities
+Labeling 443/500... ✓ 41 entities
+Labeling 444/500... ✓ 29 entities
+Labeling 445/500... ✓ 37 entities
+Labeling 446/500... ✓ 13 entities
+Labeling 447/500... ✓ 40 entities
+Labeling 448/500... ✓ 28 entities
+Labeling 449/500... ✓ 22 entities
+Labeling 450/500... ✓ 30 entities
+Labeling 451/500... ✓ 14 entities
+Labeling 452/500... ✓ 22 entities
+Labeling 453/500... ✓ 12 entities
+Labeling 454/500... ✓ 22 entities
+Labeling 455/500... ✓ 19 entities
+Labeling 456/500... ✓ 17 entities
+Labeling 457/500... ✓ 29 entities
+Labeling 458/500... ✓ 29 entities
+Labeling 459/500... ✓ 19 entities
+Labeling 460/500... ✓ 11 entities
+Labeling 461/500... ✗ skipped
+Labeling 462/500... ✗ skipped
+Labeling 463/500... ✓ 7 entities
+Labeling 464/500... ✓ 10 entities
+Labeling 465/500... ✓ 22 entities
+Labeling 466/500... ✓ 14 entities
+Labeling 467/500... ✓ 36 entities
+Labeling 468/500... ✓ 13 entities
+Labeling 469/500... ✓ 17 entities
+Labeling 470/500... ✓ 32 entities
+Labeling 471/500... ✓ 12 entities
+Labeling 472/500... ✗ skipped
+Labeling 473/500... ✓ 37 entities
+Labeling 474/500... ✓ 19 entities
+Labeling 475/500... ✓ 33 entities
+Labeling 476/500... ✓ 36 entities
+Labeling 477/500... ✓ 14 entities
+Labeling 478/500... ✓ 7 entities
+Labeling 479/500... ✓ 3 entities
+Labeling 480/500... ✓ 16 entities
+Labeling 481/500... ✓ 11 entities
+Labeling 482/500... ✓ 28 entities
+Labeling 483/500... ✓ 26 entities
+Labeling 484/500... ✓ 38 entities
+Labeling 485/500... ✗ skipped
+Labeling 486/500... ✓ 33 entities
+Labeling 487/500... ✓ 18 entities
+Labeling 488/500... ✓ 18 entities
+Labeling 489/500... ✓ 15 entities
+Labeling 490/500... ✓ 25 entities
+Labeling 491/500... ✓ 36 entities
+Labeling 492/500... ✓ 34 entities
+Labeling 493/500... ✓ 10 entities
+Labeling 494/500... ✓ 17 entities
+Labeling 495/500... ✓ 12 entities
+Labeling 496/500... ✓ 31 entities
+Labeling 497/500... ✓ 15 entities
+Labeling 498/500... ✓ 6 entities
+Labeling 499/500... ✗ skipped
+Labeling 500/500... ✓ 35 entities
+
+==================================================
+Generated 461 training examples
+Failed/skipped: 39
+Saved to: pilot/entity_training_data.jsonl
+Sample (first 10) saved to: pilot/entity_training_data.sample.json

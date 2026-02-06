@@ -1,0 +1,55 @@
+term_a,lang_a,source_a,term_b,lang_b,source_b,link_type,modern_id,notes
+quebra pedra,Portuguese,Orta 1563,quiebra piedra,Spanish,Monardes 1574,orthographic_variant,Phyllanthus_niruri,DRAFT verify spelling and identity
+qina,Spanish,colonial sources,quina,Spanish,colonial sources,orthographic_variant,Cinchona,DRAFT verify variant
+theriaca,Latin,pharmacopoeia,theriac,English,pharmacopoeia,orthographic_variant,theriac,DRAFT
+bezoardicum,Latin,Monardes 1574,bezoar,English,Parkinson 1640,orthographic_variant,bezoar,DRAFT
+sarsaparilla,English,1600s,zarzaparrilla,Spanish,1600s,orthographic_variant,Smilax,DRAFT
+rheubarb,English,1600s,rhubarb,English,1600s,orthographic_variant,Rheum,DRAFT
+aloe,Latin,early modern,aloes,English,early modern,orthographic_variant,Aloe,DRAFT
+dodo,English,Herbert 1634,doudo,Portuguese,Santos 1607,orthographic_variant,Raphus_cucullatus,extinct 1662
+dronte,French,Bontekoe 1646,dodo,English,Herbert 1634,orthographic_variant,Raphus_cucullatus,extinct 1662
+stone-breaker,English,Parkinson 1640,quebra pedra,Portuguese,Orta 1563,same_referent,Phyllanthus_niruri,DRAFT verify
+yerba mate,Spanish,Ruiz de Montoya 1639,erva do Paraguay,Portuguese,Piso 1648,same_referent,Ilex_paraguariensis,DRAFT verify
+galingale,English,1600s,galanga,Latin,1600s,same_referent,Alpinia,DRAFT
+dodo,English,Herbert 1634,walghvogel,Dutch,van Neck 1598,same_referent,Raphus_cucullatus,Dutch sailors name meaning disgusting bird
+aurochs,English,1600s,urus,Latin,Caesar/Pliny,same_referent,Bos_primigenius,extinct 1627
+geirfugl,Icelandic,1600s,great auk,English,1600s,same_referent,Pinguinus_impennis,extinct 1844
+sandalwood,English,1600s,santalum,Latin,1600s,same_referent,Santalum,DRAFT
+rhubarb,English,1600s,rheum,Latin,1600s,same_referent,Rheum,DRAFT
+ginseng,English,1700s,ren shen,Chinese,ben cao,same_referent,Panax_ginseng,DRAFT verify
+qinghao,Chinese,ben cao,sweet wormwood,English,1700s,same_referent,Artemisia_annua,specific species link
+camphor,English,1600s,zhang nao,Chinese,ben cao,same_referent,Camphora_officinarum,DRAFT verify
+cinnamon,English,1600s,rou gui,Chinese,ben cao,same_referent,Cinnamomum_cassia,bark not twigs - gui zhi is twigs
+ginger,English,1600s,sheng jiang,Chinese,ben cao,same_referent,Zingiber_officinale,DRAFT verify
+clove,English,1600s,ding xiang,Chinese,ben cao,same_referent,Syzygium_aromaticum,DRAFT verify
+tamarind,English,1600s,tamarindus,Latin,1600s,same_referent,Tamarindus_indica,fixed typo from amarindus
+frankincense,English,1600s,olibanum,Latin,1600s,same_referent,Boswellia,DRAFT
+commiphora myrrh,Latin,1600s,myrrh,English,1600s,same_referent,Commiphora_myrrha,resin from Commiphora trees
+amber,English,1600s,ambra,Latin,1600s,same_referent,Amber,DRAFT
+dragon's blood,English,1600s,sanguis draconis,Latin,1600s,same_referent,Dracaena_draco,DRAFT
+sea cow,English,Steller 1741,manati,Spanish,Oviedo 1526,hard_negative,Sirenia,Hydrodamalis gigas vs Trichechus - different genera
+quicksilver,English,1600s,mercury,Latin,1600s,same_referent,Hg,same substance different names
+theriac,English,pharmacopoeia,mithridate,English,pharmacopoeia,conceptual_overlap,universal_antidote,both universal antidotes different recipes
+aqua vitae,Latin,early modern,spirit of wine,English,early modern,conceptual_overlap,distilled_alcohol,DRAFT
+alembic,English,1600s,retort,English,1600s,conceptual_overlap,distillation_apparatus,apparatus overlap
+cordial,English,1600s,restorative,English,1600s,conceptual_overlap,medicinal_preparation,DRAFT
+plague water,English,1600s,antidote,English,1600s,conceptual_overlap,prophylactic,DRAFT
+unicorn horn,English,1600s,narwhal tusk,English,1600s,conceptual_overlap,Monodon_monoceros,narwhal tusks sold as unicorn horns
+rhinoceros horn,English,1600s,unicorn horn,English,1600s,conceptual_overlap,keratin_horn,sometimes conflated in trade
+opium,English,1600s,laudanum,English,1600s,derivation,Papaver_somniferum,opium tincture
+peru balsam,English,1600s,balsam of Peru,English,1600s,orthographic_variant,Myroxylon_balsamum,same substance different word order
+cochineal dye,English,1600s,cochineal insect,English,1600s,derivation,Dactylopius_coccus,product from organism
+spirit of wine,English,1600s,alcohol,English,1700s,derivation,ethanol,alcohol meant pure essence in early modern
+cassia,English,1600s,cinnamon,English,1600s,contested_identity,Cinnamomum,species ambiguity cassia vs true cinnamon
+rhubarb,English,1600s,turkish rhubarb,English,1600s,contested_identity,Rheum,trade route vs species identity
+sarsaparilla,English,1600s,mechoacan,English,1600s,contested_identity,Smilax,sometimes conflated in trade
+manna,English,1600s,manna from ash,English,1600s,contested_identity,Fraxinus_ornus,multiple botanical sources
+penguin,English,1600s,great auk,English,1600s,contested_identity,Pinguinus_impennis,penguin originally meant great auk not Antarctic birds
+dodo,English,Herbert 1634,solitaire,English,Leguat 1708,contested_identity,Raphus_vs_Pezophaps,different birds sometimes confused in accounts
+manatee,English,1600s,mermaid,English,medieval,contested_identity,Trichechus,manatees sometimes described as mermaids
+artemisia annua,Latin,early modern,artemisia vulgaris,Latin,early modern,hard_negative,Artemisia,different species same genus
+cassia,English,1600s,senna,English,1600s,hard_negative,Fabaceae,different plants in historical Cassia complex
+ginger,English,1600s,galangal,English,1600s,hard_negative,Zingiberaceae,similar culinary use different plants
+cinnamon,English,1600s,clove,English,1600s,hard_negative,spices,similar spice class different plants
+aurochs,English,1600s,wisent,English,1600s,hard_negative,Bos_vs_Bison,different bovids often confused
+dodo,English,1600s,cassowary,English,1600s,hard_negative,Raphus_vs_Casuarius,both large flightless birds different families

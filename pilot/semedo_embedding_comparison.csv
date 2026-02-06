@@ -1,0 +1,91 @@
+term_a,term_b,lang_a,lang_b,link_type,modern_id,sim_base,sim_finetuned,improvement
+Oswaldus Crollius,Oswald Croll,Latin,German,orthographic_variant,Oswald_Croll,0.7373447418212891,0.9262111186981201,0.18886637687683105
+Crollius,Osvaldo Crollo,Latin,Italian,orthographic_variant,Oswald_Croll,0.38013899326324463,0.9368355870246887,0.5566965937614441
+Oswald Croll,Oswaldo Crolio,German,Spanish,orthographic_variant,Oswald_Croll,0.5865718126296997,0.9459271430969238,0.3593553304672241
+Joannes Baptista van Helmont,Jan Baptist van Helmont,Latin,Flemish,orthographic_variant,Jan_Baptist_van_Helmont,0.932603120803833,0.9771525263786316,0.044549405574798584
+Van Helmont,Jean Baptiste van Helmont,Latin,French,orthographic_variant,Jan_Baptist_van_Helmont,0.8239808082580566,0.8235729932785034,-0.00040781497955322266
+Helmontius,Johann Baptist von Helmont,Latin,German,orthographic_variant,Jan_Baptist_van_Helmont,0.48854851722717285,0.7538458108901978,0.2652972936630249
+Nicolaus Lemery,Nicolas Lemery,Latin,French,orthographic_variant,Nicolas_Lemery,0.8688464760780334,0.9796181917190552,0.11077171564102173
+Lemery,Nicola Lemery,French,Italian,orthographic_variant,Nicolas_Lemery,0.7538484334945679,0.9308136701583862,0.17696523666381836
+Nicolas Lemery,Nikolaus Lemery,French,German,orthographic_variant,Nicolas_Lemery,0.8853394389152527,0.970429003238678,0.08508956432342529
+Joannes Schroederus,Johann Schröder,Latin,German,orthographic_variant,Johann_Schroeder,0.6241987943649292,0.9641571044921875,0.3399583101272583
+Schroeder,Jean Schroder,German,French,orthographic_variant,Johann_Schroeder,0.6952715516090393,0.9542262554168701,0.2589547038078308
+Johann Schröder,Giovanni Schrodero,German,Italian,orthographic_variant,Johann_Schroeder,0.6860970258712769,0.9823732972145081,0.2962762713432312
+Rogerus Baco,Roger Bacon,Latin,English,orthographic_variant,Roger_Bacon,0.7321799993515015,0.9737234711647034,0.2415434718132019
+Bacon,Ruggero Bacone,English,Italian,orthographic_variant,Roger_Bacon,0.6583367586135864,0.9627334475517273,0.30439668893814087
+Roger Bacon,Rogerio Bacon,English,Portuguese,orthographic_variant,Roger_Bacon,0.8658719062805176,0.9914275407791138,0.1255556344985962
+Aureolus Philippus Theophrastus Bombastus von Hohenheim,Paracelsus,Latin,Latin,same_referent,Paracelsus,0.36928337812423706,0.4060273766517639,0.036743998527526855
+Paracelsus,Paracelso,Latin,Italian,orthographic_variant,Paracelsus,0.9241387844085693,0.9563705921173096,0.032231807708740234
+Paracelsus,Paracelse,Latin,French,orthographic_variant,Paracelsus,0.7183756828308105,0.5598782300949097,-0.15849745273590088
+Claudius Galenus,Galen,Latin,English,same_referent,Galen,0.4713001549243927,0.7097296714782715,0.23842951655387878
+Galenus,Galeno,Latin,Italian/Spanish,orthographic_variant,Galen,0.7606432437896729,0.9900577664375305,0.22941452264785767
+Galen,Galien,English,French,orthographic_variant,Galen,0.8154836893081665,0.9630083441734314,0.1475246548652649
+Pedanius Dioscorides,Dioscorides,Latin,Latin,orthographic_variant,Dioscorides,0.6873061656951904,0.9614401459693909,0.27413398027420044
+Dioscorides,Dioscoride,Latin,Italian/French,orthographic_variant,Dioscorides,0.9521772265434265,0.9933687448501587,0.04119151830673218
+Pedanius Dioscorides,Dioskurides,Latin,German,orthographic_variant,Dioscorides,0.5897413492202759,0.9449626803398132,0.35522133111953735
+Abu Ali al-Husayn ibn Abd Allah ibn Sina,Avicenna,Arabic,Latin,same_referent,Avicenna,0.3821912705898285,0.6794835925102234,0.2972923219203949
+Avicenna,Avicenne,Latin,French,orthographic_variant,Avicenna,0.8914922475814819,0.9992817640304565,0.10778951644897461
+Avicenna,Ibn Sina,Latin,Arabic,same_referent,Avicenna,0.4555964767932892,0.9487916231155396,0.49319514632225037
+Rhazes,Abu Bakr Muhammad ibn Zakariya al-Razi,Latin,Arabic,same_referent,Rhazes,0.33424055576324463,0.7357550859451294,0.40151453018188477
+Rasis,Rhases,Latin,Latin,orthographic_variant,Rhazes,0.6242291927337646,0.8820636868476868,0.2578344941139221
+Rhazes,Rases,Latin,Spanish,orthographic_variant,Rhazes,0.583773136138916,0.9193800687789917,0.3356069326400757
+Daniel Sennertus,Daniel Sennert,Latin,German,orthographic_variant,Daniel_Sennert,0.8459473252296448,0.9878829717636108,0.14193564653396606
+Sennertus,Daniele Sennerto,Latin,Italian,orthographic_variant,Daniel_Sennert,0.6271746158599854,0.9453945755958557,0.31821995973587036
+Daniel Sennert,Daniel Sennert,German,English,orthographic_variant,Daniel_Sennert,1.0,1.0000001192092896,1.1920928955078125e-07
+Hieronymus Cardanus,Girolamo Cardano,Latin,Italian,same_referent,Girolamo_Cardano,0.6242939233779907,0.892009973526001,0.26771605014801025
+Cardanus,Jerome Cardan,Latin,French,orthographic_variant,Girolamo_Cardano,0.6628627181053162,0.9304537177085876,0.2675909996032715
+Girolamo Cardano,Geronimo Cardano,Italian,Spanish,orthographic_variant,Girolamo_Cardano,0.8338878750801086,0.9858884811401367,0.15200060606002808
+Petrus Andreas Matthiolus,Pietro Andrea Mattioli,Latin,Italian,same_referent,Pietro_Mattioli,0.5938245058059692,0.7977957129478455,0.20397120714187622
+Matthiolus,Matthiole,Latin,French,orthographic_variant,Pietro_Mattioli,0.8553042411804199,0.9929876923561096,0.1376834511756897
+Pietro Andrea Mattioli,Pier Andrea Mattioli,Italian,Italian,orthographic_variant,Pietro_Mattioli,0.9508240818977356,0.9744611978530884,0.023637115955352783
+Lazarus Riverius,Lazare Riviere,Latin,French,same_referent,Lazare_Riviere,0.6097117066383362,0.9171236753463745,0.30741196870803833
+Riverius,Lazzaro Riviera,Latin,Italian,orthographic_variant,Lazare_Riviere,0.31175893545150757,0.9758653044700623,0.6641063690185547
+Lazare Riviere,Lazaro Riverio,French,Spanish,orthographic_variant,Lazare_Riviere,0.6740796566009521,0.9836984276771545,0.3096187710762024
+Thomas Sydenham,Thomas Sydenham,English,Latin,orthographic_variant,Thomas_Sydenham,1.0000001192092896,1.0,-1.1920928955078125e-07
+Sydenham,Tommaso Sydenham,English,Italian,orthographic_variant,Thomas_Sydenham,0.7626124620437622,0.8915992975234985,0.12898683547973633
+Thomas Sydenham,Thomas Sydenham,English,French,orthographic_variant,Thomas_Sydenham,1.0000001192092896,1.0,-1.1920928955078125e-07
+Ambroise Pare,Ambrosius Pareus,French,Latin,same_referent,Ambroise_Pare,0.603615939617157,0.9828344583511353,0.37921851873397827
+Pareus,Ambrogio Pare,Latin,Italian,orthographic_variant,Ambroise_Pare,0.5116825103759766,0.9819431900978088,0.4702606797218323
+Ambroise Pare,Ambrosio Pareo,French,Spanish,orthographic_variant,Ambroise_Pare,0.6403969526290894,0.9949527382850647,0.35455578565597534
+Franciscus Sylvius,Franz de le Boe,Latin,Dutch,same_referent,Franciscus_Sylvius,0.39495986700057983,0.931043267250061,0.5360834002494812
+Sylvius,Francois Sylvius,Latin,French,orthographic_variant,Franciscus_Sylvius,0.8139404058456421,0.9616904258728027,0.14775002002716064
+Franciscus Sylvius,Francesco Silvio,Latin,Italian,orthographic_variant,Franciscus_Sylvius,0.49887850880622864,0.9493153095245361,0.4504368007183075
+Thomas Willis,Thomas Willisius,English,Latin,orthographic_variant,Thomas_Willis,0.7576438784599304,0.9517598748207092,0.1941159963607788
+Willis,Tommaso Willis,English,Italian,orthographic_variant,Thomas_Willis,0.7213531136512756,0.9277932047843933,0.20644009113311768
+Thomas Willis,Thomas Willis,English,German,orthographic_variant,Thomas_Willis,1.0000001192092896,1.0000001192092896,0.0
+Marcellus Malpighius,Marcello Malpighi,Latin,Italian,same_referent,Marcello_Malpighi,0.7735528945922852,0.976876437664032,0.20332354307174683
+Malpighius,Malpighi,Latin,Italian,orthographic_variant,Marcello_Malpighi,0.8410793542861938,0.9980763792991638,0.15699702501296997
+Marcello Malpighi,Marcel Malpighi,Italian,French,orthographic_variant,Marcello_Malpighi,0.899520993232727,0.994385838508606,0.0948648452758789
+Athanasius Kircher,Athanasius Kircherus,Latin,Latin,orthographic_variant,Athanasius_Kircher,0.8413049578666687,0.9785943031311035,0.13728934526443481
+Kircher,Atanasio Kircher,German,Italian,orthographic_variant,Athanasius_Kircher,0.7318198680877686,0.9345661401748657,0.20274627208709717
+Athanasius Kircher,Athanase Kircher,German,French,orthographic_variant,Athanasius_Kircher,0.9325850009918213,0.9832314252853394,0.050646424293518066
+Caspar Bartholin,Caspar Bartholinus,Latin,Latin,orthographic_variant,Caspar_Bartholin,0.9045430421829224,0.9858283400535583,0.08128529787063599
+Bartholinus,Gaspare Bartolino,Latin,Italian,orthographic_variant,Caspar_Bartholin,0.5110819339752197,0.9900585412979126,0.47897660732269287
+Caspar Bartholin,Caspar Bartholin,Danish,German,orthographic_variant,Caspar_Bartholin,1.0,1.0000001192092896,1.1920928955078125e-07
+Joannes Fernelius,Jean Fernel,Latin,French,same_referent,Jean_Fernel,0.5927250385284424,0.9698113203048706,0.3770862817764282
+Fernelius,Giovanni Fernelio,Latin,Italian,orthographic_variant,Jean_Fernel,0.5243852734565735,0.9741711020469666,0.44978582859039307
+Jean Fernel,Johann Fernelius,French,German,orthographic_variant,Jean_Fernel,0.5683605074882507,0.9654356241226196,0.3970751166343689
+Andreas Vesalius,Andries van Wesel,Latin,Dutch,same_referent,Andreas_Vesalius,0.5126603245735168,0.945966362953186,0.4333060383796692
+Vesalius,Andrea Vesalio,Latin,Italian,orthographic_variant,Andreas_Vesalius,0.6327593922615051,0.9514779448509216,0.3187185525894165
+Andreas Vesalius,Andre Vesale,Latin,French,orthographic_variant,Andreas_Vesalius,0.6920467615127563,0.9414146542549133,0.24936789274215698
+Hieronymus Fabricius ab Aquapendente,Girolamo Fabrici,Latin,Italian,same_referent,Girolamo_Fabrici,0.4908444881439209,0.8312826156616211,0.3404381275177002
+Fabricius,Fabricio de Acquapendente,Latin,Italian,orthographic_variant,Girolamo_Fabrici,0.4875156581401825,0.9457099437713623,0.4581942856311798
+Hieronymus Fabricius,Jerome Fabrice,Latin,French,orthographic_variant,Girolamo_Fabrici,0.6266747713088989,0.9300686120986938,0.3033938407897949
+Guilielmus Harvaeus,William Harvey,Latin,English,same_referent,William_Harvey,0.4379495680332184,0.9312997460365295,0.49335017800331116
+Harvey,Guglielmo Harvey,English,Italian,orthographic_variant,William_Harvey,0.6973499059677124,0.9566296339035034,0.259279727935791
+William Harvey,Guillaume Harvey,English,French,orthographic_variant,William_Harvey,0.7552282810211182,0.9796358346939087,0.22440755367279053
+Raymundus Lullus,Ramon Llull,Latin,Catalan,same_referent,Ramon_Llull,0.5479113459587097,0.9260039329528809,0.37809258699417114
+Lullius,Raimondo Lullo,Latin,Italian,orthographic_variant,Ramon_Llull,0.4529995322227478,0.9477545619010925,0.4947550296783447
+Ramon Llull,Raymond Lulle,Catalan,French,orthographic_variant,Ramon_Llull,0.601166844367981,0.9630456566810608,0.36187881231307983
+Arnaldus de Villa Nova,Arnau de Vilanova,Latin,Catalan,same_referent,Arnau_de_Vilanova,0.5035712718963623,0.8367412090301514,0.33316993713378906
+Arnaldus,Arnaldo de Villanova,Latin,Italian,orthographic_variant,Arnau_de_Vilanova,0.48129868507385254,0.9124811887741089,0.43118250370025635
+Arnau de Vilanova,Arnaud de Villeneuve,Catalan,French,orthographic_variant,Arnau_de_Vilanova,0.6399987936019897,0.9284601211547852,0.2884613275527954
+Albertus Magnus,Albert the Great,Latin,English,same_referent,Albertus_Magnus,0.6566599607467651,0.7430988550186157,0.08643889427185059
+Albertus,Alberto Magno,Latin,Italian/Spanish,orthographic_variant,Albertus_Magnus,0.36973491311073303,0.8979895710945129,0.5282546579837799
+Albertus Magnus,Albert le Grand,Latin,French,orthographic_variant,Albertus_Magnus,0.627504289150238,0.8299216628074646,0.20241737365722656
+Jacobus Sylvius,Jacques Dubois,Latin,French,same_referent,Jacques_Dubois,0.41403642296791077,0.9089667201042175,0.49493029713630676
+Sylvius (Dubois),Giacomo Silvio,Latin,Italian,orthographic_variant,Jacques_Dubois,0.3164979815483093,0.9356912970542908,0.6191933155059814
+Jacques Dubois,Jakob Sylvius,French,German,orthographic_variant,Jacques_Dubois,0.4303436279296875,0.9113563299179077,0.4810127019882202
+Joannes Mesue,Yuhanna ibn Masawaih,Latin,Arabic,same_referent,Yuhanna_ibn_Masawaih,0.4830961227416992,0.8094647526741028,0.32636862993240356
+Mesue,Giovanni Mesue,Latin,Italian,orthographic_variant,Yuhanna_ibn_Masawaih,0.7911072373390198,0.9636853933334351,0.17257815599441528
+Yuhanna ibn Masawaih,Jean Mesue,Arabic,French,orthographic_variant,Yuhanna_ibn_Masawaih,0.44638752937316895,0.8000401258468628,0.35365259647369385

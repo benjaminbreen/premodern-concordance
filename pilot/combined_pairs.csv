@@ -1,0 +1,266 @@
+term_a,lang_a,source_a,term_b,lang_b,source_b,link_type,modern_id,notes
+quebra pedra,Portuguese,Orta 1563,quiebra piedra,Spanish,Monardes 1574,orthographic_variant,Phyllanthus_niruri,DRAFT verify spelling and identity
+qina,Spanish,colonial sources,quina,Spanish,colonial sources,orthographic_variant,Cinchona,DRAFT verify variant
+theriaca,Latin,pharmacopoeia,theriac,English,pharmacopoeia,orthographic_variant,theriac,DRAFT
+bezoardicum,Latin,Monardes 1574,bezoar,English,Parkinson 1640,orthographic_variant,bezoar,DRAFT
+sarsaparilla,English,1600s,zarzaparrilla,Spanish,1600s,orthographic_variant,Smilax,DRAFT
+rheubarb,English,1600s,rhubarb,English,1600s,orthographic_variant,Rheum,DRAFT
+aloe,Latin,early modern,aloes,English,early modern,orthographic_variant,Aloe,DRAFT
+dodo,English,Herbert 1634,doudo,Portuguese,Santos 1607,orthographic_variant,Raphus_cucullatus,extinct 1662
+dronte,French,Bontekoe 1646,dodo,English,Herbert 1634,orthographic_variant,Raphus_cucullatus,extinct 1662
+stone-breaker,English,Parkinson 1640,quebra pedra,Portuguese,Orta 1563,same_referent,Phyllanthus_niruri,DRAFT verify
+yerba mate,Spanish,Ruiz de Montoya 1639,erva do Paraguay,Portuguese,Piso 1648,same_referent,Ilex_paraguariensis,DRAFT verify
+galingale,English,1600s,galanga,Latin,1600s,same_referent,Alpinia,DRAFT
+dodo,English,Herbert 1634,walghvogel,Dutch,van Neck 1598,same_referent,Raphus_cucullatus,Dutch sailors name meaning disgusting bird
+aurochs,English,1600s,urus,Latin,Caesar/Pliny,same_referent,Bos_primigenius,extinct 1627
+geirfugl,Icelandic,1600s,great auk,English,1600s,same_referent,Pinguinus_impennis,extinct 1844
+sandalwood,English,1600s,santalum,Latin,1600s,same_referent,Santalum,DRAFT
+rhubarb,English,1600s,rheum,Latin,1600s,same_referent,Rheum,DRAFT
+ginseng,English,1700s,ren shen,Chinese,ben cao,same_referent,Panax_ginseng,DRAFT verify
+qinghao,Chinese,ben cao,sweet wormwood,English,1700s,same_referent,Artemisia_annua,specific species link
+camphor,English,1600s,zhang nao,Chinese,ben cao,same_referent,Camphora_officinarum,DRAFT verify
+cinnamon,English,1600s,rou gui,Chinese,ben cao,same_referent,Cinnamomum_cassia,bark not twigs - gui zhi is twigs
+ginger,English,1600s,sheng jiang,Chinese,ben cao,same_referent,Zingiber_officinale,DRAFT verify
+clove,English,1600s,ding xiang,Chinese,ben cao,same_referent,Syzygium_aromaticum,DRAFT verify
+tamarind,English,1600s,tamarindus,Latin,1600s,same_referent,Tamarindus_indica,fixed typo from amarindus
+frankincense,English,1600s,olibanum,Latin,1600s,same_referent,Boswellia,DRAFT
+commiphora myrrh,Latin,1600s,myrrh,English,1600s,same_referent,Commiphora_myrrha,resin from Commiphora trees
+amber,English,1600s,ambra,Latin,1600s,same_referent,Amber,DRAFT
+dragon's blood,English,1600s,sanguis draconis,Latin,1600s,same_referent,Dracaena_draco,DRAFT
+sea cow,English,Steller 1741,manati,Spanish,Oviedo 1526,hard_negative,Sirenia,Hydrodamalis gigas vs Trichechus - different genera
+quicksilver,English,1600s,mercury,Latin,1600s,same_referent,Hg,same substance different names
+theriac,English,pharmacopoeia,mithridate,English,pharmacopoeia,conceptual_overlap,universal_antidote,both universal antidotes different recipes
+aqua vitae,Latin,early modern,spirit of wine,English,early modern,conceptual_overlap,distilled_alcohol,DRAFT
+alembic,English,1600s,retort,English,1600s,conceptual_overlap,distillation_apparatus,apparatus overlap
+cordial,English,1600s,restorative,English,1600s,conceptual_overlap,medicinal_preparation,DRAFT
+plague water,English,1600s,antidote,English,1600s,conceptual_overlap,prophylactic,DRAFT
+unicorn horn,English,1600s,narwhal tusk,English,1600s,conceptual_overlap,Monodon_monoceros,narwhal tusks sold as unicorn horns
+rhinoceros horn,English,1600s,unicorn horn,English,1600s,conceptual_overlap,keratin_horn,sometimes conflated in trade
+opium,English,1600s,laudanum,English,1600s,derivation,Papaver_somniferum,opium tincture
+peru balsam,English,1600s,balsam of Peru,English,1600s,orthographic_variant,Myroxylon_balsamum,same substance different word order
+cochineal dye,English,1600s,cochineal insect,English,1600s,derivation,Dactylopius_coccus,product from organism
+spirit of wine,English,1600s,alcohol,English,1700s,derivation,ethanol,alcohol meant pure essence in early modern
+cassia,English,1600s,cinnamon,English,1600s,contested_identity,Cinnamomum,species ambiguity cassia vs true cinnamon
+rhubarb,English,1600s,turkish rhubarb,English,1600s,contested_identity,Rheum,trade route vs species identity
+sarsaparilla,English,1600s,mechoacan,English,1600s,contested_identity,Smilax,sometimes conflated in trade
+manna,English,1600s,manna from ash,English,1600s,contested_identity,Fraxinus_ornus,multiple botanical sources
+penguin,English,1600s,great auk,English,1600s,contested_identity,Pinguinus_impennis,penguin originally meant great auk not Antarctic birds
+dodo,English,Herbert 1634,solitaire,English,Leguat 1708,contested_identity,Raphus_vs_Pezophaps,different birds sometimes confused in accounts
+manatee,English,1600s,mermaid,English,medieval,contested_identity,Trichechus,manatees sometimes described as mermaids
+artemisia annua,Latin,early modern,artemisia vulgaris,Latin,early modern,hard_negative,Artemisia,different species same genus
+cassia,English,1600s,senna,English,1600s,hard_negative,Fabaceae,different plants in historical Cassia complex
+ginger,English,1600s,galangal,English,1600s,hard_negative,Zingiberaceae,similar culinary use different plants
+cinnamon,English,1600s,clove,English,1600s,hard_negative,spices,similar spice class different plants
+aurochs,English,1600s,wisent,English,1600s,hard_negative,Bos_vs_Bison,different bovids often confused
+dodo,English,1600s,cassowary,English,1600s,hard_negative,Raphus_vs_Casuarius,both large flightless birds different families
+theriack,English,1600s,theriac,English,1600s,orthographic_variant,theriac,common early modern spelling
+physick,English,1600s,physic,English,1700s,orthographic_variant,medicine,k-dropping in 18th century
+sulphur,English,1600s,sulfur,English,1800s,orthographic_variant,S,spelling standardization
+opii,Latin,pharmacopoeia,opium,Latin,pharmacopoeia,orthographic_variant,Papaver_somniferum,genitive vs nominative
+alkermes,English,1600s,alchermes,Italian,1600s,orthographic_variant,kermes,Arabic-derived spelling variants
+bezar,English,1600s,bezoar,English,1600s,orthographic_variant,bezoar,simplified spelling
+agarick,English,1600s,agaric,English,1700s,orthographic_variant,Laricifomes_officinalis,k-dropping
+balsame,English,1600s,balsam,English,1700s,orthographic_variant,balsam,final e dropping
+camphire,English,1600s,camphor,English,1700s,orthographic_variant,Cinnamomum_camphora,spelling shift
+oyle,English,1600s,oil,English,1700s,orthographic_variant,oil,y to i standardization
+sirrup,English,1600s,syrup,English,1700s,orthographic_variant,syrup,spelling variant
+receyt,English,1500s,receipt,English,1600s,orthographic_variant,recipe,early modern spelling
+apothicary,English,1600s,apothecary,English,1700s,orthographic_variant,apothecary,spelling standardization
+quinquina,French,1680s,quina,Spanish,colonial,orthographic_variant,Cinchona,French adaptation
+kina,Dutch,1700s,quina,Spanish,colonial,orthographic_variant,Cinchona,Dutch adaptation
+febre,Portuguese,1600s,fiebre,Spanish,1600s,orthographic_variant,fever,cognate terms
+droguista,Spanish,1600s,droghista,Italian,1600s,orthographic_variant,druggist,trade term variant
+especia,Spanish,1600s,espècia,Catalan,1600s,orthographic_variant,spice,Iberian variants
+thériaque,French,1600s,teriaca,Italian,1600s,orthographic_variant,theriac,Romance variants
+Weihrauch,German,1600s,frankincense,English,1600s,same_referent,Boswellia,German name for frankincense
+encens,French,1600s,incenso,Italian,1600s,same_referent,Boswellia,Romance terms for frankincense
+wierook,Dutch,1600s,Weihrauch,German,1600s,same_referent,Boswellia,Germanic terms
+canela,Spanish,1600s,cannelle,French,1600s,same_referent,Cinnamomum_verum,cinnamon in Romance languages
+kaneel,Dutch,1600s,Zimt,German,1600s,same_referent,Cinnamomum,Germanic cinnamon terms
+peper,Dutch,1600s,Pfeffer,German,1600s,same_referent,Piper_nigrum,Germanic pepper terms
+poivre,French,1600s,pepe,Italian,1600s,same_referent,Piper_nigrum,Romance pepper terms
+girofle,French,1600s,garofano,Italian,1600s,same_referent,Syzygium_aromaticum,clove in Romance
+kruidnagel,Dutch,1600s,Gewürznelke,German,1600s,same_referent,Syzygium_aromaticum,Germanic clove terms
+noz moscada,Portuguese,1600s,noix muscade,French,1600s,same_referent,Myristica_fragrans,nutmeg Romance terms
+nootmuskaat,Dutch,1600s,Muskatnuss,German,1600s,same_referent,Myristica_fragrans,nutmeg Germanic
+açafrão,Portuguese,1600s,safran,French,1600s,same_referent,Crocus_sativus,saffron Romance
+saffraan,Dutch,1600s,Safran,German,1600s,same_referent,Crocus_sativus,saffron Germanic
+ruibarbo,Portuguese,1600s,rhabarbe,French,1600s,same_referent,Rheum,rhubarb Romance
+rabarber,Dutch,1600s,Rhabarber,German,1600s,same_referent,Rheum,rhubarb Germanic
+aloès,French,1600s,aloë,Dutch,1600s,same_referent,Aloe,aloe cross-linguistic
+sene,Portuguese,1600s,séné,French,1600s,same_referent,Senna,senna Romance terms
+Wermut,German,1600s,wormwood,English,1600s,same_referent,Artemisia_absinthium,wormwood Germanic
+absinth,German,1600s,absinthe,French,1600s,same_referent,Artemisia_absinthium,learned Latin-derived terms
+assenzio,Italian,1600s,ajenjo,Spanish,1600s,same_referent,Artemisia_absinthium,wormwood Romance
+Baldrian,German,1600s,valerian,English,1600s,same_referent,Valeriana_officinalis,valerian cross-linguistic
+valeriana,Italian,1600s,valeriane,French,1600s,same_referent,Valeriana_officinalis,valerian Romance
+Eisenhut,German,1600s,aconite,English,1600s,same_referent,Aconitum,monkshood/wolfsbane
+aconito,Italian,1600s,aconit,French,1600s,same_referent,Aconitum,aconite Romance
+Bilsenkraut,German,1600s,henbane,English,1600s,same_referent,Hyoscyamus_niger,henbane Germanic
+jusquiame,French,1600s,giusquiamo,Italian,1600s,same_referent,Hyoscyamus_niger,henbane Romance
+belladonna,Italian,1600s,belle-dame,French,1600s,same_referent,Atropa_belladonna,deadly nightshade
+Tollkirsche,German,1600s,belladonna,English,1600s,same_referent,Atropa_belladonna,deadly nightshade
+mandragora,Latin,1600s,mandrake,English,1600s,same_referent,Mandragora_officinarum,mandrake
+Alraune,German,1600s,mandragore,French,1600s,same_referent,Mandragora_officinarum,mandrake
+digital,French,1600s,digitalis,Latin,1600s,same_referent,Digitalis_purpurea,foxglove
+Fingerhut,German,1600s,foxglove,English,1600s,same_referent,Digitalis_purpurea,foxglove common names
+dedalera,Spanish,1600s,digitale,Italian,1600s,same_referent,Digitalis_purpurea,foxglove Romance
+storax,English,1600s,styrax,Latin,1600s,same_referent,Styrax,styrax resin
+benjoin,French,1600s,benzoe,Latin,1600s,same_referent,Styrax_benzoin,benzoin
+Benzoe,German,1600s,benzoino,Italian,1600s,same_referent,Styrax_benzoin,benzoin
+galbanum,Latin,1600s,galbano,Italian,1600s,same_referent,Ferula_galbaniflua,galbanum resin
+opopanax,Latin,1600s,opoponax,French,1600s,same_referent,Opopanax,opopanax resin
+sagapeno,Italian,1600s,sagapenum,Latin,1600s,same_referent,Ferula_persica,sagapenum resin
+ammoniacum,Latin,1600s,ammoniaque,French,1600s,same_referent,Dorema_ammoniacum,ammoniac gum
+asafoetida,Latin,1600s,assa-fétide,French,1600s,same_referent,Ferula_assa-foetida,asafoetida
+Teufelsdreck,German,1600s,asafoetida,English,1600s,same_referent,Ferula_assa-foetida,devils dung
+scammonée,French,1600s,scammonea,Latin,1600s,same_referent,Convolvulus_scammonia,scammony
+coloquinte,French,1600s,colocynthis,Latin,1600s,same_referent,Citrullus_colocynthis,colocynth
+turbith,English,1600s,turpethum,Latin,1600s,same_referent,Operculina_turpethum,turpeth root
+jalap,English,1600s,jalapa,Spanish,1600s,same_referent,Ipomoea_purga,jalap root
+mechoacan,Spanish,1600s,méchoacan,French,1600s,same_referent,Ipomoea_jalapa,mechoacan root
+ipecacuana,Portuguese,1600s,ipécacuanha,French,1600s,same_referent,Carapichea_ipecacuanha,ipecac
+contrayerva,Spanish,1600s,contrayerba,Spanish,1600s,orthographic_variant,Dorstenia_contrajerva,spelling variant
+guaiaco,Italian,1600s,gayac,French,1600s,same_referent,Guaiacum,guaiacum wood
+Guajakholz,German,1600s,lignum vitae,Latin,1600s,same_referent,Guaiacum,guaiacum
+pao santo,Portuguese,1600s,guaiacum,Latin,1600s,same_referent,Guaiacum_officinale,holy wood
+sassafraz,Portuguese,1600s,sassafras,English,1600s,orthographic_variant,Sassafras_albidum,spelling variant
+salsepareille,French,1600s,sarsaparilla,English,1600s,same_referent,Smilax,sarsaparilla
+Stechwinde,German,1600s,salsepareille,French,1600s,same_referent,Smilax,sarsaparilla Germanic
+china root,English,1600s,esquine,French,1600s,same_referent,Smilax_china,china root
+raiz da china,Portuguese,1600s,radix chinae,Latin,1600s,same_referent,Smilax_china,china root
+tabaco,Spanish,1600s,tabac,French,1600s,same_referent,Nicotiana_tabacum,tobacco
+Dillenius,German,herbals,Dillen,English,herbals,orthographic_variant,personal_name,botanist name variant
+Alembick,German,1600s,alambic,French,1600s,same_referent,alembic,distillation apparatus
+Destillierkolben,German,1600s,retorte,German,1600s,conceptual_overlap,distillation_apparatus,different apparatus types
+Schmelztiegel,German,1600s,crucible,English,1600s,same_referent,crucible,crucible
+matraz,Spanish,1600s,matras,French,1600s,same_referent,flask,round-bottomed flask
+cucurbita,Latin,1600s,cucurbit,English,1600s,same_referent,cucurbit,distillation vessel base
+capitello,Italian,1600s,chapiteau,French,1600s,same_referent,still_head,still head
+balneum mariae,Latin,1600s,bain-marie,French,1600s,same_referent,water_bath,water bath
+athanor,English,1600s,Athanor,German,1600s,same_referent,athanor,digesting furnace
+fourneau,French,1600s,fornello,Italian,1600s,same_referent,furnace,furnace
+Wunderwasser,German,1600s,aqua mirabilis,Latin,1600s,same_referent,wonder_water,medicinal water
+aqua fortis,Latin,1600s,eau forte,French,1600s,same_referent,nitric_acid,nitric acid
+Scheidewasser,German,1600s,aqua fortis,Latin,1600s,same_referent,nitric_acid,parting water
+aqua regia,Latin,1600s,eau régale,French,1600s,same_referent,aqua_regia,royal water
+Königswasser,German,1600s,aqua regia,Latin,1600s,same_referent,aqua_regia,kings water
+spiritus vini,Latin,1600s,esprit de vin,French,1600s,same_referent,ethanol,spirit of wine
+Weingeist,German,1600s,spiritus vini,Latin,1600s,same_referent,ethanol,wine spirit
+vitriol,English,1600s,Vitriol,German,1600s,same_referent,sulfate,vitriol
+huile de vitriol,French,1600s,oil of vitriol,English,1600s,same_referent,sulfuric_acid,sulfuric acid
+sal ammoniac,English,1600s,sel ammoniac,French,1600s,same_referent,ammonium_chloride,sal ammoniac
+Salmiak,German,1600s,sal ammoniac,English,1600s,same_referent,ammonium_chloride,salmiac
+borax,English,1600s,bórax,Spanish,1600s,same_referent,sodium_borate,borax
+nitrum,Latin,1600s,nitre,English,1600s,same_referent,potassium_nitrate,saltpeter
+Salpeter,German,1600s,salpêtre,French,1600s,same_referent,potassium_nitrate,saltpeter
+sal petrae,Latin,1600s,salitre,Spanish,1600s,same_referent,potassium_nitrate,saltpeter
+antimoine,French,1600s,antimonio,Italian,1600s,same_referent,Sb,antimony
+Spiessglas,German,1600s,antimony,English,1600s,same_referent,Sb,antimony
+cinabre,French,1600s,cinabrio,Spanish,1600s,same_referent,HgS,cinnabar
+Zinnober,German,1600s,cinnabar,English,1600s,same_referent,HgS,cinnabar
+orpiment,English,1600s,orpin,French,1600s,same_referent,As2S3,orpiment
+Auripigment,German,1600s,oropimente,Spanish,1600s,same_referent,As2S3,orpiment
+réalgar,French,1600s,rejalgar,Spanish,1600s,same_referent,As4S4,realgar
+litargirio,Spanish,1600s,litharge,English,1600s,same_referent,PbO,litharge
+Bleiglätte,German,1600s,lithargyrum,Latin,1600s,same_referent,PbO,litharge
+minium,Latin,1600s,minio,Spanish,1600s,same_referent,Pb3O4,red lead
+Mennige,German,1600s,minium,English,1600s,same_referent,Pb3O4,red lead
+cerussa,Latin,1600s,céruse,French,1600s,same_referent,lead_carbonate,white lead
+Bleiweiß,German,1600s,ceruse,English,1600s,same_referent,lead_carbonate,white lead
+sublimé,French,1600s,sublimato,Italian,1600s,same_referent,HgCl2,corrosive sublimate
+præcipitat,Latin,1600s,precipitate,English,1600s,same_referent,precipitate,chemical precipitate
+calx,Latin,1600s,chite,Catalan,1600s,same_referent,calcium_oxide,quicklite
+magnesia,Latin,1600s,magnésie,French,1600s,same_referent,MgO,magnesia
+crocus martis,Latin,1600s,safran de Mars,French,1600s,same_referent,iron_oxide,crocus of Mars
+flores,Latin,1600s,fleurs,French,1600s,same_referent,sublimate,chemical flowers
+sal volatile,Latin,1600s,sel volatil,French,1600s,same_referent,ammonium_carbonate,volatile salt
+Hirschhornsalz,German,1600s,sal volatile,Latin,1600s,same_referent,ammonium_carbonate,hartshorn salt
+laudano,Italian,1600s,laudanum,English,1600s,same_referent,laudanum,opium tincture
+Mohnsaft,German,1600s,opium,Latin,1600s,same_referent,Papaver_somniferum,poppy juice
+papaver,Latin,1600s,pavot,French,1600s,same_referent,Papaver,poppy
+électuaire,French,1600s,electuario,Spanish,1600s,same_referent,electuary,medicinal paste
+confectio,Latin,1600s,confection,English,1600s,same_referent,confection,medicinal sweet
+julep,English,1600s,julep,French,1600s,same_referent,julep,sweet drink
+ptisane,French,1600s,tisana,Italian,1600s,same_referent,tisane,herbal infusion
+emplatre,French,1600s,emplastro,Italian,1600s,same_referent,plaster,medicinal plaster
+cataplasme,French,1600s,cataplasma,Latin,1600s,same_referent,poultice,poultice
+fomentation,English,1600s,fomentación,Spanish,1600s,same_referent,fomentation,warm application
+clystère,French,1600s,clistere,Italian,1600s,same_referent,clyster,enema
+suppositoire,French,1600s,supposta,Italian,1600s,same_referent,suppository,suppository
+pilule,French,1600s,pillola,Italian,1600s,same_referent,pill,medicinal pill
+trochisque,French,1600s,trochisco,Spanish,1600s,same_referent,troche,lozenge
+poudre,French,1600s,polvo,Spanish,1600s,same_referent,powder,medicinal powder
+onguent,French,1600s,unguento,Italian,1600s,same_referent,ointment,ointment
+liniment,English,1600s,linimento,Spanish,1600s,same_referent,liniment,liniment
+baume,French,1600s,balsamo,Italian,1600s,same_referent,balm,medicinal balm
+teinture,French,1600s,tintura,Italian,1600s,same_referent,tincture,tincture
+essence,French,1600s,essenza,Italian,1600s,same_referent,essence,essence
+esprit,French,1600s,spirito,Italian,1600s,same_referent,spirit,distilled spirit
+huile essentielle,French,1600s,olio essenziale,Italian,1600s,same_referent,essential_oil,essential oil
+mithridate,English,1600s,mitridato,Italian,1600s,same_referent,mithridate,universal antidote
+orviétan,French,1600s,orvietano,Italian,1600s,same_referent,orvietan,Venice treacle variant
+diascordium,Latin,1600s,diascordio,Spanish,1600s,same_referent,diascordium,opiate electuary
+philonium,Latin,1600s,filonio,Spanish,1600s,same_referent,philonium,opiate preparation
+requies Nicolai,Latin,1600s,requiem Nicolai,Latin,1600s,orthographic_variant,requies_nicolai,opiate
+diacodion,Latin,1600s,diacodio,Spanish,1600s,same_referent,diacodium,poppy syrup
+hiera picra,Latin,1600s,iera piera,Spanish,1600s,orthographic_variant,hiera_picra,bitter electuary
+bénédicte laxative,French,1600s,benedicta laxativa,Latin,1600s,same_referent,benedicta,laxative confection
+confectio hamech,Latin,1600s,confection hamech,English,1600s,same_referent,hamech,purgative
+mumia,Latin,1600s,momie,French,1600s,same_referent,mummy,medicinal mummy
+unicornu,Latin,1600s,licorne,French,1600s,same_referent,unicorn,unicorn horn
+Einhorn,German,1600s,unicornio,Spanish,1600s,same_referent,unicorn,unicorn
+lapis bezoar,Latin,1600s,pierre de bézoard,French,1600s,same_referent,bezoar,bezoar stone
+margarita,Latin,1600s,perle,French,1600s,same_referent,pearl,medicinal pearl
+corallium,Latin,1600s,corail,French,1600s,same_referent,coral,red coral
+succinum,Latin,1600s,succin,French,1600s,same_referent,amber,amber/succinite
+Bernstein,German,1600s,amber,English,1600s,same_referent,amber,amber
+castoreum,Latin,1600s,castoréum,French,1600s,same_referent,castoreum,beaver secretion
+Bibergeil,German,1600s,castoreum,English,1600s,same_referent,castoreum,beaver gland
+moschus,Latin,1600s,musc,French,1600s,same_referent,musk,musk deer secretion
+Moschus,German,1600s,muschio,Italian,1600s,same_referent,musk,musk
+ambra grisea,Latin,1600s,ambre gris,French,1600s,same_referent,ambergris,ambergris
+zibethum,Latin,1600s,civette,French,1600s,same_referent,civet,civet secretion
+Zibeth,German,1600s,zibetto,Italian,1600s,same_referent,civet,civet
+cantharides,Latin,1600s,cantaride,French,1600s,same_referent,Lytta_vesicatoria,Spanish fly
+Spanische Fliege,German,1600s,cantharides,English,1600s,same_referent,Lytta_vesicatoria,Spanish fly
+kermes,Latin,1600s,chermes,Italian,1600s,same_referent,Kermes_vermilio,kermes dye insect
+cochenille,French,1600s,cocciniglia,Italian,1600s,same_referent,Dactylopius_coccus,cochineal
+grana,Spanish,1600s,graine d'écarlate,French,1600s,same_referent,Kermes_vermilio,kermes grain
+indigo,English,1600s,índigo,Spanish,1600s,same_referent,Indigofera,indigo dye
+añil,Spanish,1600s,anil,Portuguese,1600s,same_referent,Indigofera,indigo plant
+pastel,French,1600s,guado,Italian,1600s,same_referent,Isatis_tinctoria,woad
+Waid,German,1600s,woad,English,1600s,same_referent,Isatis_tinctoria,woad
+garance,French,1600s,robbia,Italian,1600s,same_referent,Rubia_tinctorum,madder
+Krapp,German,1600s,madder,English,1600s,same_referent,Rubia_tinctorum,madder
+brasil,Portuguese,1600s,brésil,French,1600s,same_referent,Caesalpinia,brazilwood
+Brasilholz,German,1600s,brazil wood,English,1600s,same_referent,Caesalpinia,brazilwood
+theriac,English,1600s,orvietan,English,1600s,conceptual_overlap,universal_antidote,both alexipharmics different recipes
+aqua vitae,Latin,1600s,usquebaugh,Irish,1600s,conceptual_overlap,distilled_spirit,both distilled spirits
+brandy,English,1600s,eau de vie,French,1600s,conceptual_overlap,brandy,both grape spirits
+hippocras,English,1600s,claret,English,1600s,conceptual_overlap,spiced_wine,both spiced wines
+cordial,English,1600s,elixir,English,1600s,conceptual_overlap,medicinal_drink,both strengthening preparations
+purge,English,1600s,laxative,English,1600s,conceptual_overlap,purgative,related but different strengths
+vomit,English,1600s,emetic,English,1600s,conceptual_overlap,emetic,vernacular vs learned term
+sudorific,English,1600s,diaphoretic,English,1600s,conceptual_overlap,sweat_inducing,same function different terms
+anodyne,English,1600s,narcotic,English,1600s,conceptual_overlap,pain_relief,overlapping function
+simple,English,1600s,compound,English,1600s,hard_negative,preparation_type,single vs mixed ingredients
+Galenic,English,1600s,Paracelsian,English,1600s,hard_negative,medical_tradition,opposing medical schools
+vegetable,English,1600s,mineral,English,1600s,hard_negative,materia_medica,different kingdoms
+internal,English,1600s,external,English,1600s,hard_negative,application,different application routes
+cassia,Latin,1600s,senna,Latin,1600s,hard_negative,Fabaceae,different plants often confused
+cinnamon,English,1600s,cassia lignea,Latin,1600s,contested_identity,Cinnamomum,true cinnamon vs cassia
+rhubarb,English,1600s,rhapontic,Latin,1600s,contested_identity,Rheum,true vs false rhubarb
+opium thebaicum,Latin,1600s,meconium,Latin,1600s,contested_identity,Papaver,different opium preparations
+aloe hepatica,Latin,1600s,aloe socotrina,Latin,1600s,contested_identity,Aloe,different aloe grades
+guaiacum,Latin,1600s,lignum sanctum,Latin,1600s,contested_identity,Guaiacum,same or different species
+balsam of Peru,English,1600s,balsam of Tolu,English,1600s,contested_identity,Myroxylon,related but distinct balsams
+storax calamita,Latin,1600s,storax liquida,Latin,1600s,contested_identity,Styrax,different storax preparations
+sanguis draconis,Latin,1600s,cinnabar,Latin,1600s,hard_negative,red_substances,red resin vs red mineral
+musk,English,1600s,civet,English,1600s,hard_negative,animal_perfume,different animal sources
+amber,English,1600s,ambergris,English,1600s,hard_negative,amber_substances,fossil resin vs whale product
+laudanum,English,1600s,paregoric,English,1700s,derivation,opiate,different opium preparations
+opium → morphine,English,1800s,morphine,English,1800s,derivation,Papaver_somniferum,alkaloid from opium
+cinchona bark,English,1600s,Jesuits bark,English,1600s,same_referent,Cinchona,same substance different names
+cortex peruvianus,Latin,1600s,quinaquina,Spanish,1600s,same_referent,Cinchona,Peruvian bark
+fever bark,English,1600s,cinchona,Latin,1700s,same_referent,Cinchona,common name

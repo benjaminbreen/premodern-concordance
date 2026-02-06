@@ -1,0 +1,1160 @@
+{
+  "nodes": [
+    {
+      "id": "quebra pedra",
+      "language": "Portuguese",
+      "sources": [
+        "Orta 1563"
+      ],
+      "modern_id": "Phyllanthus_niruri"
+    },
+    {
+      "id": "quiebra piedra",
+      "language": "Spanish",
+      "sources": [
+        "Monardes 1574"
+      ],
+      "modern_id": "Phyllanthus_niruri"
+    },
+    {
+      "id": "qina",
+      "language": "Spanish",
+      "sources": [
+        "colonial sources"
+      ],
+      "modern_id": "Cinchona"
+    },
+    {
+      "id": "quina",
+      "language": "Spanish",
+      "sources": [
+        "colonial sources"
+      ],
+      "modern_id": "Cinchona"
+    },
+    {
+      "id": "theriaca",
+      "language": "Latin",
+      "sources": [
+        "pharmacopoeia"
+      ],
+      "modern_id": "theriac"
+    },
+    {
+      "id": "theriac",
+      "language": "English",
+      "sources": [
+        "pharmacopoeia"
+      ],
+      "modern_id": "theriac"
+    },
+    {
+      "id": "bezoardicum",
+      "language": "Latin",
+      "sources": [
+        "Monardes 1574"
+      ],
+      "modern_id": "bezoar"
+    },
+    {
+      "id": "bezoar",
+      "language": "English",
+      "sources": [
+        "Parkinson 1640"
+      ],
+      "modern_id": "bezoar"
+    },
+    {
+      "id": "sarsaparilla",
+      "language": "English",
+      "sources": [
+        "1600s"
+      ],
+      "modern_id": "Smilax"
+    },
+    {
+      "id": "zarzaparrilla",
+      "language": "Spanish",
+      "sources": [
+        "1600s"
+      ],
+      "modern_id": "Smilax"
+    },
+    {
+      "id": "rheubarb",
+      "language": "English",
+      "sources": [
+        "1600s"
+      ],
+      "modern_id": "Rheum"
+    },
+    {
+      "id": "rhubarb",
+      "language": "English",
+      "sources": [
+        "1600s"
+      ],
+      "modern_id": "Rheum"
+    },
+    {
+      "id": "aloe",
+      "language": "Latin",
+      "sources": [
+        "early modern"
+      ],
+      "modern_id": "Aloe"
+    },
+    {
+      "id": "aloes",
+      "language": "English",
+      "sources": [
+        "early modern"
+      ],
+      "modern_id": "Aloe"
+    },
+    {
+      "id": "dodo",
+      "language": "English",
+      "sources": [
+        "Herbert 1634",
+        "1600s"
+      ],
+      "modern_id": "Raphus_cucullatus"
+    },
+    {
+      "id": "doudo",
+      "language": "Portuguese",
+      "sources": [
+        "Santos 1607"
+      ],
+      "modern_id": "Raphus_cucullatus"
+    },
+    {
+      "id": "dronte",
+      "language": "French",
+      "sources": [
+        "Bontekoe 1646"
+      ],
+      "modern_id": "Raphus_cucullatus"
+    },
+    {
+      "id": "stone-breaker",
+      "language": "English",
+      "sources": [
+        "Parkinson 1640"
+      ],
+      "modern_id": "Phyllanthus_niruri"
+    },
+    {
+      "id": "yerba mate",
+      "language": "Spanish",
+      "sources": [
+        "Ruiz de Montoya 1639"
+      ],
+      "modern_id": "Ilex_paraguariensis"
+    },
+    {
+      "id": "erva do Paraguay",
+      "language": "Portuguese",
+      "sources": [
+        "Piso 1648"
+      ],
+      "modern_id": "Ilex_paraguariensis"
+    },
+    {
+      "id": "galingale",
+      "language": "English",
+      "sources": [
+        "1600s"
+      ],
+      "modern_id": "Alpinia"
+    },
+    {
+      "id": "galanga",
+      "language": "Latin",
+      "sources": [
+        "1600s"
+      ],
+      "modern_id": "Alpinia"
+    },
+    {
+      "id": "walghvogel",
+      "language": "Dutch",
+      "sources": [
+        "van Neck 1598"
+      ],
+      "modern_id": "Raphus_cucullatus"
+    },
+    {
+      "id": "aurochs",
+      "language": "English",
+      "sources": [
+        "1600s"
+      ],
+      "modern_id": "Bos_primigenius"
+    },
+    {
+      "id": "urus",
+      "language": "Latin",
+      "sources": [
+        "Caesar/Pliny"
+      ],
+      "modern_id": "Bos_primigenius"
+    },
+    {
+      "id": "geirfugl",
+      "language": "Icelandic",
+      "sources": [
+        "1600s"
+      ],
+      "modern_id": "Pinguinus_impennis"
+    },
+    {
+      "id": "great auk",
+      "language": "English",
+      "sources": [
+        "1600s"
+      ],
+      "modern_id": "Pinguinus_impennis"
+    },
+    {
+      "id": "sandalwood",
+      "language": "English",
+      "sources": [
+        "1600s"
+      ],
+      "modern_id": "Santalum"
+    },
+    {
+      "id": "santalum",
+      "language": "Latin",
+      "sources": [
+        "1600s"
+      ],
+      "modern_id": "Santalum"
+    },
+    {
+      "id": "rheum",
+      "language": "Latin",
+      "sources": [
+        "1600s"
+      ],
+      "modern_id": "Rheum"
+    },
+    {
+      "id": "ginseng",
+      "language": "English",
+      "sources": [
+        "1700s"
+      ],
+      "modern_id": "Panax_ginseng"
+    },
+    {
+      "id": "ren shen",
+      "language": "Chinese",
+      "sources": [
+        "ben cao"
+      ],
+      "modern_id": "Panax_ginseng"
+    },
+    {
+      "id": "qinghao",
+      "language": "Chinese",
+      "sources": [
+        "ben cao"
+      ],
+      "modern_id": "Artemisia_annua"
+    },
+    {
+      "id": "sweet wormwood",
+      "language": "English",
+      "sources": [
+        "1700s"
+      ],
+      "modern_id": "Artemisia_annua"
+    },
+    {
+      "id": "camphor",
+      "language": "English",
+      "sources": [
+        "1600s"
+      ],
+      "modern_id": "Camphora_officinarum"
+    },
+    {
+      "id": "zhang nao",
+      "language": "Chinese",
+      "sources": [
+        "ben cao"
+      ],
+      "modern_id": "Camphora_officinarum"
+    },
+    {
+      "id": "cinnamon",
+      "language": "English",
+      "sources": [
+        "1600s"
+      ],
+      "modern_id": "Cinnamomum_cassia"
+    },
+    {
+      "id": "rou gui",
+      "language": "Chinese",
+      "sources": [
+        "ben cao"
+      ],
+      "modern_id": "Cinnamomum_cassia"
+    },
+    {
+      "id": "ginger",
+      "language": "English",
+      "sources": [
+        "1600s"
+      ],
+      "modern_id": "Zingiber_officinale"
+    },
+    {
+      "id": "sheng jiang",
+      "language": "Chinese",
+      "sources": [
+        "ben cao"
+      ],
+      "modern_id": "Zingiber_officinale"
+    },
+    {
+      "id": "clove",
+      "language": "English",
+      "sources": [
+        "1600s"
+      ],
+      "modern_id": "Syzygium_aromaticum"
+    },
+    {
+      "id": "ding xiang",
+      "language": "Chinese",
+      "sources": [
+        "ben cao"
+      ],
+      "modern_id": "Syzygium_aromaticum"
+    },
+    {
+      "id": "tamarind",
+      "language": "English",
+      "sources": [
+        "1600s"
+      ],
+      "modern_id": "Tamarindus_indica"
+    },
+    {
+      "id": "tamarindus",
+      "language": "Latin",
+      "sources": [
+        "1600s"
+      ],
+      "modern_id": "Tamarindus_indica"
+    },
+    {
+      "id": "frankincense",
+      "language": "English",
+      "sources": [
+        "1600s"
+      ],
+      "modern_id": "Boswellia"
+    },
+    {
+      "id": "olibanum",
+      "language": "Latin",
+      "sources": [
+        "1600s"
+      ],
+      "modern_id": "Boswellia"
+    },
+    {
+      "id": "commiphora myrrh",
+      "language": "Latin",
+      "sources": [
+        "1600s"
+      ],
+      "modern_id": "Commiphora_myrrha"
+    },
+    {
+      "id": "myrrh",
+      "language": "English",
+      "sources": [
+        "1600s"
+      ],
+      "modern_id": "Commiphora_myrrha"
+    },
+    {
+      "id": "amber",
+      "language": "English",
+      "sources": [
+        "1600s"
+      ],
+      "modern_id": "Amber"
+    },
+    {
+      "id": "ambra",
+      "language": "Latin",
+      "sources": [
+        "1600s"
+      ],
+      "modern_id": "Amber"
+    },
+    {
+      "id": "dragon's blood",
+      "language": "English",
+      "sources": [
+        "1600s"
+      ],
+      "modern_id": "Dracaena_draco"
+    },
+    {
+      "id": "sanguis draconis",
+      "language": "Latin",
+      "sources": [
+        "1600s"
+      ],
+      "modern_id": "Dracaena_draco"
+    },
+    {
+      "id": "sea cow",
+      "language": "English",
+      "sources": [
+        "Steller 1741"
+      ],
+      "modern_id": "Sirenia"
+    },
+    {
+      "id": "manati",
+      "language": "Spanish",
+      "sources": [
+        "Oviedo 1526"
+      ],
+      "modern_id": "Sirenia"
+    },
+    {
+      "id": "quicksilver",
+      "language": "English",
+      "sources": [
+        "1600s"
+      ],
+      "modern_id": "Hg"
+    },
+    {
+      "id": "mercury",
+      "language": "Latin",
+      "sources": [
+        "1600s"
+      ],
+      "modern_id": "Hg"
+    },
+    {
+      "id": "mithridate",
+      "language": "English",
+      "sources": [
+        "pharmacopoeia"
+      ],
+      "modern_id": "universal_antidote"
+    },
+    {
+      "id": "aqua vitae",
+      "language": "Latin",
+      "sources": [
+        "early modern"
+      ],
+      "modern_id": "distilled_alcohol"
+    },
+    {
+      "id": "spirit of wine",
+      "language": "English",
+      "sources": [
+        "early modern",
+        "1600s"
+      ],
+      "modern_id": "distilled_alcohol"
+    },
+    {
+      "id": "alembic",
+      "language": "English",
+      "sources": [
+        "1600s"
+      ],
+      "modern_id": "distillation_apparatus"
+    },
+    {
+      "id": "retort",
+      "language": "English",
+      "sources": [
+        "1600s"
+      ],
+      "modern_id": "distillation_apparatus"
+    },
+    {
+      "id": "cordial",
+      "language": "English",
+      "sources": [
+        "1600s"
+      ],
+      "modern_id": "medicinal_preparation"
+    },
+    {
+      "id": "restorative",
+      "language": "English",
+      "sources": [
+        "1600s"
+      ],
+      "modern_id": "medicinal_preparation"
+    },
+    {
+      "id": "plague water",
+      "language": "English",
+      "sources": [
+        "1600s"
+      ],
+      "modern_id": "prophylactic"
+    },
+    {
+      "id": "antidote",
+      "language": "English",
+      "sources": [
+        "1600s"
+      ],
+      "modern_id": "prophylactic"
+    },
+    {
+      "id": "unicorn horn",
+      "language": "English",
+      "sources": [
+        "1600s"
+      ],
+      "modern_id": "Monodon_monoceros"
+    },
+    {
+      "id": "narwhal tusk",
+      "language": "English",
+      "sources": [
+        "1600s"
+      ],
+      "modern_id": "Monodon_monoceros"
+    },
+    {
+      "id": "rhinoceros horn",
+      "language": "English",
+      "sources": [
+        "1600s"
+      ],
+      "modern_id": "keratin_horn"
+    },
+    {
+      "id": "opium",
+      "language": "English",
+      "sources": [
+        "1600s"
+      ],
+      "modern_id": "Papaver_somniferum"
+    },
+    {
+      "id": "laudanum",
+      "language": "English",
+      "sources": [
+        "1600s"
+      ],
+      "modern_id": "Papaver_somniferum"
+    },
+    {
+      "id": "peru balsam",
+      "language": "English",
+      "sources": [
+        "1600s"
+      ],
+      "modern_id": "Myroxylon_balsamum"
+    },
+    {
+      "id": "balsam of Peru",
+      "language": "English",
+      "sources": [
+        "1600s"
+      ],
+      "modern_id": "Myroxylon_balsamum"
+    },
+    {
+      "id": "cochineal dye",
+      "language": "English",
+      "sources": [
+        "1600s"
+      ],
+      "modern_id": "Dactylopius_coccus"
+    },
+    {
+      "id": "cochineal insect",
+      "language": "English",
+      "sources": [
+        "1600s"
+      ],
+      "modern_id": "Dactylopius_coccus"
+    },
+    {
+      "id": "alcohol",
+      "language": "English",
+      "sources": [
+        "1700s"
+      ],
+      "modern_id": "ethanol"
+    },
+    {
+      "id": "cassia",
+      "language": "English",
+      "sources": [
+        "1600s"
+      ],
+      "modern_id": "Cinnamomum"
+    },
+    {
+      "id": "turkish rhubarb",
+      "language": "English",
+      "sources": [
+        "1600s"
+      ],
+      "modern_id": "Rheum"
+    },
+    {
+      "id": "mechoacan",
+      "language": "English",
+      "sources": [
+        "1600s"
+      ],
+      "modern_id": "Smilax"
+    },
+    {
+      "id": "manna",
+      "language": "English",
+      "sources": [
+        "1600s"
+      ],
+      "modern_id": "Fraxinus_ornus"
+    },
+    {
+      "id": "manna from ash",
+      "language": "English",
+      "sources": [
+        "1600s"
+      ],
+      "modern_id": "Fraxinus_ornus"
+    },
+    {
+      "id": "penguin",
+      "language": "English",
+      "sources": [
+        "1600s"
+      ],
+      "modern_id": "Pinguinus_impennis"
+    },
+    {
+      "id": "solitaire",
+      "language": "English",
+      "sources": [
+        "Leguat 1708"
+      ],
+      "modern_id": "Raphus_vs_Pezophaps"
+    },
+    {
+      "id": "manatee",
+      "language": "English",
+      "sources": [
+        "1600s"
+      ],
+      "modern_id": "Trichechus"
+    },
+    {
+      "id": "mermaid",
+      "language": "English",
+      "sources": [
+        "medieval"
+      ],
+      "modern_id": "Trichechus"
+    },
+    {
+      "id": "artemisia annua",
+      "language": "Latin",
+      "sources": [
+        "early modern"
+      ],
+      "modern_id": "Artemisia"
+    },
+    {
+      "id": "artemisia vulgaris",
+      "language": "Latin",
+      "sources": [
+        "early modern"
+      ],
+      "modern_id": "Artemisia"
+    },
+    {
+      "id": "senna",
+      "language": "English",
+      "sources": [
+        "1600s"
+      ],
+      "modern_id": "Fabaceae"
+    },
+    {
+      "id": "galangal",
+      "language": "English",
+      "sources": [
+        "1600s"
+      ],
+      "modern_id": "Zingiberaceae"
+    },
+    {
+      "id": "wisent",
+      "language": "English",
+      "sources": [
+        "1600s"
+      ],
+      "modern_id": "Bos_vs_Bison"
+    },
+    {
+      "id": "cassowary",
+      "language": "English",
+      "sources": [
+        "1600s"
+      ],
+      "modern_id": "Raphus_vs_Casuarius"
+    }
+  ],
+  "edges": [
+    {
+      "source": "quebra pedra",
+      "target": "quiebra piedra",
+      "link_type": "orthographic_variant",
+      "similarity": 0.6992994546890259,
+      "modern_id": "Phyllanthus_niruri",
+      "notes": "DRAFT verify spelling and identity"
+    },
+    {
+      "source": "qina",
+      "target": "quina",
+      "link_type": "orthographic_variant",
+      "similarity": 0.7733330726623535,
+      "modern_id": "Cinchona",
+      "notes": "DRAFT verify variant"
+    },
+    {
+      "source": "theriaca",
+      "target": "theriac",
+      "link_type": "orthographic_variant",
+      "similarity": 0.872459888458252,
+      "modern_id": "theriac",
+      "notes": "DRAFT"
+    },
+    {
+      "source": "bezoardicum",
+      "target": "bezoar",
+      "link_type": "orthographic_variant",
+      "similarity": 0.6456543803215027,
+      "modern_id": "bezoar",
+      "notes": "DRAFT"
+    },
+    {
+      "source": "sarsaparilla",
+      "target": "zarzaparrilla",
+      "link_type": "orthographic_variant",
+      "similarity": 0.7100824117660522,
+      "modern_id": "Smilax",
+      "notes": "DRAFT"
+    },
+    {
+      "source": "rheubarb",
+      "target": "rhubarb",
+      "link_type": "orthographic_variant",
+      "similarity": 0.8612998723983765,
+      "modern_id": "Rheum",
+      "notes": "DRAFT"
+    },
+    {
+      "source": "aloe",
+      "target": "aloes",
+      "link_type": "orthographic_variant",
+      "similarity": 0.9183196425437928,
+      "modern_id": "Aloe",
+      "notes": "DRAFT"
+    },
+    {
+      "source": "dodo",
+      "target": "doudo",
+      "link_type": "orthographic_variant",
+      "similarity": 0.8444569706916809,
+      "modern_id": "Raphus_cucullatus",
+      "notes": "extinct 1662"
+    },
+    {
+      "source": "dronte",
+      "target": "dodo",
+      "link_type": "orthographic_variant",
+      "similarity": 0.5687496066093445,
+      "modern_id": "Raphus_cucullatus",
+      "notes": "extinct 1662"
+    },
+    {
+      "source": "stone-breaker",
+      "target": "quebra pedra",
+      "link_type": "same_referent",
+      "similarity": 0.6714171767234802,
+      "modern_id": "Phyllanthus_niruri",
+      "notes": "DRAFT verify"
+    },
+    {
+      "source": "yerba mate",
+      "target": "erva do Paraguay",
+      "link_type": "same_referent",
+      "similarity": 0.4935913980007171,
+      "modern_id": "Ilex_paraguariensis",
+      "notes": "DRAFT verify"
+    },
+    {
+      "source": "galingale",
+      "target": "galanga",
+      "link_type": "same_referent",
+      "similarity": 0.668459951877594,
+      "modern_id": "Alpinia",
+      "notes": "DRAFT"
+    },
+    {
+      "source": "dodo",
+      "target": "walghvogel",
+      "link_type": "same_referent",
+      "similarity": 0.3747040033340454,
+      "modern_id": "Raphus_cucullatus",
+      "notes": "Dutch sailors name meaning disgusting bird"
+    },
+    {
+      "source": "aurochs",
+      "target": "urus",
+      "link_type": "same_referent",
+      "similarity": 0.5582899451255798,
+      "modern_id": "Bos_primigenius",
+      "notes": "extinct 1627"
+    },
+    {
+      "source": "geirfugl",
+      "target": "great auk",
+      "link_type": "same_referent",
+      "similarity": 0.3559378087520599,
+      "modern_id": "Pinguinus_impennis",
+      "notes": "extinct 1844"
+    },
+    {
+      "source": "sandalwood",
+      "target": "santalum",
+      "link_type": "same_referent",
+      "similarity": 0.4601762890815735,
+      "modern_id": "Santalum",
+      "notes": "DRAFT"
+    },
+    {
+      "source": "rhubarb",
+      "target": "rheum",
+      "link_type": "same_referent",
+      "similarity": 0.5108481049537659,
+      "modern_id": "Rheum",
+      "notes": "DRAFT"
+    },
+    {
+      "source": "ginseng",
+      "target": "ren shen",
+      "link_type": "same_referent",
+      "similarity": 0.4898405075073242,
+      "modern_id": "Panax_ginseng",
+      "notes": "DRAFT verify"
+    },
+    {
+      "source": "qinghao",
+      "target": "sweet wormwood",
+      "link_type": "same_referent",
+      "similarity": 0.3487280607223511,
+      "modern_id": "Artemisia_annua",
+      "notes": "specific species link"
+    },
+    {
+      "source": "camphor",
+      "target": "zhang nao",
+      "link_type": "same_referent",
+      "similarity": 0.4376406371593475,
+      "modern_id": "Camphora_officinarum",
+      "notes": "DRAFT verify"
+    },
+    {
+      "source": "cinnamon",
+      "target": "rou gui",
+      "link_type": "same_referent",
+      "similarity": 0.3293415009975433,
+      "modern_id": "Cinnamomum_cassia",
+      "notes": "bark not twigs - gui zhi is twigs"
+    },
+    {
+      "source": "ginger",
+      "target": "sheng jiang",
+      "link_type": "same_referent",
+      "similarity": 0.4551756381988525,
+      "modern_id": "Zingiber_officinale",
+      "notes": "DRAFT verify"
+    },
+    {
+      "source": "clove",
+      "target": "ding xiang",
+      "link_type": "same_referent",
+      "similarity": 0.393888920545578,
+      "modern_id": "Syzygium_aromaticum",
+      "notes": "DRAFT verify"
+    },
+    {
+      "source": "tamarind",
+      "target": "tamarindus",
+      "link_type": "same_referent",
+      "similarity": 0.7387035489082336,
+      "modern_id": "Tamarindus_indica",
+      "notes": "fixed typo from amarindus"
+    },
+    {
+      "source": "frankincense",
+      "target": "olibanum",
+      "link_type": "same_referent",
+      "similarity": 0.4671404361724853,
+      "modern_id": "Boswellia",
+      "notes": "DRAFT"
+    },
+    {
+      "source": "commiphora myrrh",
+      "target": "myrrh",
+      "link_type": "same_referent",
+      "similarity": 0.672933042049408,
+      "modern_id": "Commiphora_myrrha",
+      "notes": "resin from Commiphora trees"
+    },
+    {
+      "source": "amber",
+      "target": "ambra",
+      "link_type": "same_referent",
+      "similarity": 0.7505100965499878,
+      "modern_id": "Amber",
+      "notes": "DRAFT"
+    },
+    {
+      "source": "dragon's blood",
+      "target": "sanguis draconis",
+      "link_type": "same_referent",
+      "similarity": 0.5818300247192383,
+      "modern_id": "Dracaena_draco",
+      "notes": "DRAFT"
+    },
+    {
+      "source": "sea cow",
+      "target": "manati",
+      "link_type": "hard_negative",
+      "similarity": 0.4309815764427185,
+      "modern_id": "Sirenia",
+      "notes": "Hydrodamalis gigas vs Trichechus - different genera"
+    },
+    {
+      "source": "quicksilver",
+      "target": "mercury",
+      "link_type": "same_referent",
+      "similarity": 0.4998595714569092,
+      "modern_id": "Hg",
+      "notes": "same substance different names"
+    },
+    {
+      "source": "theriac",
+      "target": "mithridate",
+      "link_type": "conceptual_overlap",
+      "similarity": 0.3496860265731811,
+      "modern_id": "universal_antidote",
+      "notes": "both universal antidotes different recipes"
+    },
+    {
+      "source": "aqua vitae",
+      "target": "spirit of wine",
+      "link_type": "conceptual_overlap",
+      "similarity": 0.4911937415599823,
+      "modern_id": "distilled_alcohol",
+      "notes": "DRAFT"
+    },
+    {
+      "source": "alembic",
+      "target": "retort",
+      "link_type": "conceptual_overlap",
+      "similarity": 0.4094863831996918,
+      "modern_id": "distillation_apparatus",
+      "notes": "apparatus overlap"
+    },
+    {
+      "source": "cordial",
+      "target": "restorative",
+      "link_type": "conceptual_overlap",
+      "similarity": 0.5151161551475525,
+      "modern_id": "medicinal_preparation",
+      "notes": "DRAFT"
+    },
+    {
+      "source": "plague water",
+      "target": "antidote",
+      "link_type": "conceptual_overlap",
+      "similarity": 0.49937304854393,
+      "modern_id": "prophylactic",
+      "notes": "DRAFT"
+    },
+    {
+      "source": "unicorn horn",
+      "target": "narwhal tusk",
+      "link_type": "conceptual_overlap",
+      "similarity": 0.4548376798629761,
+      "modern_id": "Monodon_monoceros",
+      "notes": "narwhal tusks sold as unicorn horns"
+    },
+    {
+      "source": "rhinoceros horn",
+      "target": "unicorn horn",
+      "link_type": "conceptual_overlap",
+      "similarity": 0.7337193489074707,
+      "modern_id": "keratin_horn",
+      "notes": "sometimes conflated in trade"
+    },
+    {
+      "source": "opium",
+      "target": "laudanum",
+      "link_type": "derivation",
+      "similarity": 0.5228934288024902,
+      "modern_id": "Papaver_somniferum",
+      "notes": "opium tincture"
+    },
+    {
+      "source": "peru balsam",
+      "target": "balsam of Peru",
+      "link_type": "orthographic_variant",
+      "similarity": 0.8747727870941162,
+      "modern_id": "Myroxylon_balsamum",
+      "notes": "same substance different word order"
+    },
+    {
+      "source": "cochineal dye",
+      "target": "cochineal insect",
+      "link_type": "derivation",
+      "similarity": 0.7307925224304199,
+      "modern_id": "Dactylopius_coccus",
+      "notes": "product from organism"
+    },
+    {
+      "source": "spirit of wine",
+      "target": "alcohol",
+      "link_type": "derivation",
+      "similarity": 0.6101706027984619,
+      "modern_id": "ethanol",
+      "notes": "alcohol meant pure essence in early modern"
+    },
+    {
+      "source": "cassia",
+      "target": "cinnamon",
+      "link_type": "contested_identity",
+      "similarity": 0.4983057975769043,
+      "modern_id": "Cinnamomum",
+      "notes": "species ambiguity cassia vs true cinnamon"
+    },
+    {
+      "source": "rhubarb",
+      "target": "turkish rhubarb",
+      "link_type": "contested_identity",
+      "similarity": 0.8126634955406189,
+      "modern_id": "Rheum",
+      "notes": "trade route vs species identity"
+    },
+    {
+      "source": "sarsaparilla",
+      "target": "mechoacan",
+      "link_type": "contested_identity",
+      "similarity": 0.362449437379837,
+      "modern_id": "Smilax",
+      "notes": "sometimes conflated in trade"
+    },
+    {
+      "source": "manna",
+      "target": "manna from ash",
+      "link_type": "contested_identity",
+      "similarity": 0.696342408657074,
+      "modern_id": "Fraxinus_ornus",
+      "notes": "multiple botanical sources"
+    },
+    {
+      "source": "penguin",
+      "target": "great auk",
+      "link_type": "contested_identity",
+      "similarity": 0.432686299085617,
+      "modern_id": "Pinguinus_impennis",
+      "notes": "penguin originally meant great auk not Antarctic birds"
+    },
+    {
+      "source": "dodo",
+      "target": "solitaire",
+      "link_type": "contested_identity",
+      "similarity": 0.4350567162036896,
+      "modern_id": "Raphus_vs_Pezophaps",
+      "notes": "different birds sometimes confused in accounts"
+    },
+    {
+      "source": "manatee",
+      "target": "mermaid",
+      "link_type": "contested_identity",
+      "similarity": 0.5811157822608948,
+      "modern_id": "Trichechus",
+      "notes": "manatees sometimes described as mermaids"
+    },
+    {
+      "source": "artemisia annua",
+      "target": "artemisia vulgaris",
+      "link_type": "hard_negative",
+      "similarity": 0.686380922794342,
+      "modern_id": "Artemisia",
+      "notes": "different species same genus"
+    },
+    {
+      "source": "cassia",
+      "target": "senna",
+      "link_type": "hard_negative",
+      "similarity": 0.3975127637386322,
+      "modern_id": "Fabaceae",
+      "notes": "different plants in historical Cassia complex"
+    },
+    {
+      "source": "ginger",
+      "target": "galangal",
+      "link_type": "hard_negative",
+      "similarity": 0.4862920641899109,
+      "modern_id": "Zingiberaceae",
+      "notes": "similar culinary use different plants"
+    },
+    {
+      "source": "cinnamon",
+      "target": "clove",
+      "link_type": "hard_negative",
+      "similarity": 0.4888167381286621,
+      "modern_id": "spices",
+      "notes": "similar spice class different plants"
+    },
+    {
+      "source": "aurochs",
+      "target": "wisent",
+      "link_type": "hard_negative",
+      "similarity": 0.3622635304927826,
+      "modern_id": "Bos_vs_Bison",
+      "notes": "different bovids often confused"
+    },
+    {
+      "source": "dodo",
+      "target": "cassowary",
+      "link_type": "hard_negative",
+      "similarity": 0.3912479877471924,
+      "modern_id": "Raphus_vs_Casuarius",
+      "notes": "both large flightless birds different families"
+    }
+  ]
+}
