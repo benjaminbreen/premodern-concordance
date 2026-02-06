@@ -438,8 +438,19 @@ export default function ConcordancePage() {
         {search && ` matching "${search}"`}
       </div>
 
-      {/* Cluster cards */}
-      <div className="space-y-3">
+      {/* Column header */}
+      <div className="hidden md:grid grid-cols-[1.75rem_1fr_1fr_5.5rem_1fr_3rem_1.5rem] items-center gap-x-3 px-4 py-2 text-[10px] uppercase tracking-widest text-[var(--muted)] font-medium border-b border-[var(--border)]">
+        <span />
+        <span>Name</span>
+        <span>Identification</span>
+        <span>Type</span>
+        <span>Sources</span>
+        <span className="text-right">Refs</span>
+        <span />
+      </div>
+
+      {/* Cluster rows */}
+      <div className="divide-y divide-[var(--border)] border-b border-[var(--border)]">
         {filteredClusters.slice(0, showCount).map((cluster) => {
           const isExpanded = expandedCluster === cluster.id;
           const catColor = CATEGORY_COLORS[cluster.category];
@@ -448,54 +459,63 @@ export default function ConcordancePage() {
           return (
             <div
               key={cluster.id}
-              className="border border-[var(--border)] rounded-lg bg-[var(--card)] overflow-hidden"
+              className="bg-[var(--card)]"
             >
-              {/* Cluster header */}
+              {/* Cluster row */}
               <button
                 onClick={() => setExpandedCluster(isExpanded ? null : cluster.id)}
-                className="w-full px-4 py-3 flex items-center justify-between hover:bg-[var(--border)]/30 transition-colors text-left"
+                className="w-full px-4 py-3 grid grid-cols-[auto_1fr_auto_auto] md:grid-cols-[1.75rem_1fr_1fr_5.5rem_1fr_3rem_1.5rem] items-center gap-x-3 hover:bg-[var(--border)]/30 transition-colors text-left"
               >
-                <div className="flex items-center gap-3 flex-1 min-w-0">
+                {/* Indicator */}
+                <div className="flex items-center justify-center">
                   {cluster.ground_truth?.portrait_url ? (
                     // eslint-disable-next-line @next/next/no-img-element
                     <img
                       src={cluster.ground_truth.portrait_url}
                       alt=""
-                      className="w-7 h-7 rounded-full object-cover shrink-0 border border-[var(--border)] bg-[var(--border)]"
+                      className="w-7 h-7 rounded-full object-cover border border-[var(--border)] bg-[var(--border)]"
                     />
                   ) : (
-                    <span className={`w-2.5 h-2.5 rounded-full shrink-0 ${catColor?.dot || "bg-gray-400"}`} />
+                    <span className={`w-2.5 h-2.5 rounded-full ${catColor?.dot || "bg-gray-400"}`} />
                   )}
-                  <span className="font-semibold truncate">{cluster.canonical_name}</span>
-                  {cluster.ground_truth && cluster.ground_truth.modern_name.toLowerCase() !== cluster.canonical_name.toLowerCase() && (
-                    <span className="text-sm text-[var(--muted)] truncate">
-                      {cluster.ground_truth.linnaean ? (
-                        <i>{cluster.ground_truth.linnaean}</i>
-                      ) : (
-                        cluster.ground_truth.modern_name
-                      )}
-                    </span>
-                  )}
-                  <span className={`${catColor?.badge || "bg-[var(--border)]"} px-2 py-0.5 rounded text-xs font-medium border shrink-0`}>
-                    {cluster.category}
-                  </span>
-                  <div className="flex gap-1 shrink-0">
-                    {bookIds.map((bid) => (
-                      <BookPill key={bid} bookId={bid} books={data.books} />
-                    ))}
-                  </div>
                 </div>
-                <div className="flex items-center gap-4 shrink-0 ml-3">
-                  <span className="text-sm text-[var(--muted)] font-mono">
-                    {cluster.total_mentions}x
-                  </span>
-                  <svg
-                    className={`w-4 h-4 text-[var(--muted)] transition-transform ${isExpanded ? "rotate-180" : ""}`}
-                    fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                  >
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                  </svg>
+
+                {/* Name */}
+                <span className="font-semibold truncate">{cluster.canonical_name}</span>
+
+                {/* Identification — hidden on mobile */}
+                <span className="hidden md:block text-sm text-[var(--muted)] truncate">
+                  {cluster.ground_truth && cluster.ground_truth.modern_name.toLowerCase() !== cluster.canonical_name.toLowerCase()
+                    ? cluster.ground_truth.linnaean
+                      ? <i>{cluster.ground_truth.linnaean}</i>
+                      : cluster.ground_truth.modern_name
+                    : null}
+                </span>
+
+                {/* Category — hidden on mobile */}
+                <span className={`hidden md:inline-flex ${catColor?.badge || "bg-[var(--border)]"} px-2 py-0.5 rounded text-xs font-medium border justify-center`}>
+                  {cluster.category}
+                </span>
+
+                {/* Book pills — hidden on mobile */}
+                <div className="hidden md:flex gap-1 overflow-hidden">
+                  {bookIds.map((bid) => (
+                    <BookPill key={bid} bookId={bid} books={data.books} />
+                  ))}
                 </div>
+
+                {/* Mention count */}
+                <span className="text-sm text-[var(--muted)] font-mono text-right">
+                  {cluster.total_mentions}&times;
+                </span>
+
+                {/* Chevron */}
+                <svg
+                  className={`w-4 h-4 text-[var(--muted)] transition-transform justify-self-end ${isExpanded ? "rotate-180" : ""}`}
+                  fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                </svg>
               </button>
 
               {/* Expanded detail */}
@@ -504,16 +524,16 @@ export default function ConcordancePage() {
                   {/* Ground truth identification */}
                   {cluster.ground_truth && (
                     <div className="mt-4 p-3 rounded-lg bg-[var(--background)] border border-[var(--border)]">
-                      <div className="flex items-start gap-4">
+                      <div className="flex items-start gap-3">
                         {cluster.ground_truth.portrait_url ? (
                           <div className="shrink-0">
                             {/* eslint-disable-next-line @next/next/no-img-element */}
                             <img
                               src={cluster.ground_truth.portrait_url}
                               alt={cluster.ground_truth.modern_name}
-                              className="w-20 h-24 rounded object-cover border border-[var(--border)] bg-[var(--border)]"
+                              className="w-16 h-20 rounded object-cover border border-[var(--border)] bg-[var(--border)]"
                             />
-                            <p className="text-[9px] text-[var(--muted)] mt-1 text-center opacity-50">
+                            <p className="text-[9px] text-[var(--muted)] mt-1 text-center opacity-40">
                               Wikimedia Commons
                             </p>
                           </div>
@@ -535,13 +555,13 @@ export default function ConcordancePage() {
                             </span>
                           </div>
                           {cluster.ground_truth.description && (
-                            <p className="text-xs text-[var(--muted)] mt-1">{cluster.ground_truth.description}</p>
+                            <p className="text-sm text-[var(--muted)] mt-1 leading-relaxed max-w-[60ch]">{cluster.ground_truth.description}</p>
                           )}
                           {cluster.ground_truth.wikidata_description && !cluster.ground_truth.description && (
-                            <p className="text-xs text-[var(--muted)] mt-1">{cluster.ground_truth.wikidata_description}</p>
+                            <p className="text-sm text-[var(--muted)] mt-1 leading-relaxed max-w-[60ch]">{cluster.ground_truth.wikidata_description}</p>
                           )}
                           {cluster.ground_truth.family && (
-                            <p className="text-xs text-[var(--muted)] mt-0.5">Family: {cluster.ground_truth.family}</p>
+                            <p className="text-xs text-[var(--muted)] mt-2">Family: {cluster.ground_truth.family}</p>
                           )}
                           {cluster.ground_truth.birth_year && (
                             <p className="text-xs text-[var(--muted)] mt-0.5">
@@ -555,9 +575,11 @@ export default function ConcordancePage() {
                             <p className="text-xs text-[var(--muted)] mt-0.5">Modern: {cluster.ground_truth.modern_term}</p>
                           )}
                           {cluster.ground_truth.note && (
-                            <p className="text-xs text-yellow-600 dark:text-yellow-400 mt-1">{cluster.ground_truth.note}</p>
+                            <p className="text-xs text-[var(--muted)] mt-2 border-l-2 border-[var(--border)] pl-2">
+                              {cluster.ground_truth.note}
+                            </p>
                           )}
-                          <div className="flex items-center gap-2 mt-2">
+                          <div className="flex items-center gap-2 mt-2 flex-wrap">
                             {cluster.ground_truth.wikipedia_url && (
                               <a
                                 href={cluster.ground_truth.wikipedia_url}
@@ -574,7 +596,7 @@ export default function ConcordancePage() {
                                 href={`https://www.wikidata.org/wiki/${cluster.ground_truth.wikidata_id}`}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="inline-flex items-center gap-1 px-2 py-1 rounded text-xs border border-[var(--border)] hover:bg-[var(--border)] transition-colors font-mono"
+                                className="inline-flex items-center gap-1 px-2 py-1 rounded text-xs border border-[var(--border)] hover:bg-[var(--border)] transition-colors font-mono text-[var(--muted)]"
                                 title={cluster.ground_truth.wikidata_id}
                               >
                                 {cluster.ground_truth.wikidata_id}

@@ -248,10 +248,12 @@ export default function EntityDetailPage() {
           // Store the full entity ID list (sorted by count desc, matching book page order)
           const ids = data.entities.map((e: Entity) => e.id);
           setEntityIds(ids);
-          const idx = ids.indexOf(params.entityId as string);
+          const rawEntityId = params.entityId as string;
+          const entityId = decodeURIComponent(rawEntityId).normalize("NFC");
+          const idx = ids.indexOf(entityId);
           setCurrentIndex(idx);
           const found = data.entities.find(
-            (e: Entity) => e.id === params.entityId
+            (e: Entity) => e.id.normalize("NFC") === entityId
           );
           if (found) {
             setEntity(found);
