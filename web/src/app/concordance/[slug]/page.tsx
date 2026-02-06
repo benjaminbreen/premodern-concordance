@@ -1,8 +1,18 @@
 "use client";
 
-import { useEffect, useState, useCallback, useMemo } from "react";
+import { useEffect, useState, useCallback, useMemo, useRef } from "react";
 import Link from "next/link";
 import { useParams, useRouter, useSearchParams } from "next/navigation";
+import {
+  forceSimulation,
+  forceLink,
+  forceManyBody,
+  forceCenter,
+  forceCollide,
+  type SimulationNodeDatum,
+  type SimulationLinkDatum,
+} from "d3-force";
+import { scaleSqrt } from "d3-scale";
 
 /* ───── shared types (duplicated from concordance/page.tsx) ───── */
 
@@ -468,6 +478,480 @@ function WikiCard({ url, searching }: { url: string | null; searching: boolean }
   );
 }
 
+/* ───── neighborhood graph ───── */
+
+interface NeighborData {
+  k: number;
+  count: number;
+  neighbors: Record<string, { id: number; sim: number }[]>;
+}
+
+interface GraphNode extends SimulationNodeDatum {
+  id: number;
+  name: string;
+  category: string;
+  mentions: number;
+  isCurrent: boolean;
+  slug: string;
+  similarity: number; // similarity to the current cluster (1.0 for current)
+  topBooks: { name: string; year: number }[];
+  gloss: string; // first sentence of semantic_gloss, description, or wikidata_description
+}
+
+interface GraphLink extends SimulationLinkDatum<GraphNode> {
+  similarity: number;
+}
+
+const CATEGORY_NODE_COLORS: Record<string, string> = {
+  PERSON: "#a855f7",
+  PLANT: "#10b981",
+  ANIMAL: "#84cc16",
+  SUBSTANCE: "#06b6d4",
+  CONCEPT: "#f59e0b",
+  DISEASE: "#ef4444",
+  PLACE: "#22c55e",
+  OBJECT: "#64748b",
+  ANATOMY: "#f43f5e",
+};
+
+/** Extract first sentence from a text string */
+function firstSentence(text: string): string {
+  if (!text) return "";
+  const m = text.match(/^.+?[.!?](?:\s|$)/);
+  return m ? m[0].trim() : (text.length > 120 ? text.slice(0, 117) + "\u2026" : text);
+}
+
+function NeighborhoodGraph({
+  clusterId,
+  clusters,
+  books,
+}: {
+  clusterId: number;
+  clusters: Cluster[];
+  books: BookMeta[];
+}) {
+  const svgRef = useRef<SVGSVGElement>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
+  const simRef = useRef<ReturnType<typeof forceSimulation<GraphNode>> | null>(null);
+  const nodesRef = useRef<GraphNode[]>([]);
+  const linksRef = useRef<GraphLink[]>([]);
+
+  const [neighborData, setNeighborData] = useState<NeighborData | null>(null);
+  const [, setTick] = useState(0); // force re-render on sim tick
+  const [hoveredNode, setHoveredNode] = useState<GraphNode | null>(null);
+  const [dragNode, setDragNode] = useState<GraphNode | null>(null);
+  const [dimensions, setDimensions] = useState({ width: 700, height: 460 });
+  const wasDraggedRef = useRef(false);
+
+  const router = useRouter();
+  const bookMap = useMemo(() => new Map(books.map((b) => [b.id, b])), [books]);
+
+  // Responsive width
+  useEffect(() => {
+    const el = containerRef.current;
+    if (!el) return;
+    const ro = new ResizeObserver((entries) => {
+      const w = entries[0].contentRect.width;
+      setDimensions({ width: w, height: Math.min(460, Math.max(320, w * 0.55)) });
+    });
+    ro.observe(el);
+    return () => ro.disconnect();
+  }, []);
+
+  // Load neighbor data
+  useEffect(() => {
+    fetch("/data/cluster_neighbors.json")
+      .then((r) => r.json())
+      .then((d: NeighborData) => setNeighborData(d))
+      .catch(() => {});
+  }, []);
+
+  // Build graph + start simulation
+  useEffect(() => {
+    if (!neighborData) return;
+    const clusterMap = new Map(clusters.map((c) => [c.id, c]));
+    const neighborList = neighborData.neighbors[String(clusterId)];
+    if (!neighborList) return;
+    const current = clusterMap.get(clusterId);
+    if (!current) return;
+    const { width, height } = dimensions;
+
+    function buildNodeData(c: Cluster, isCurrent: boolean, sim: number): GraphNode {
+      const memberBooks = [...new Set(c.members.map((m) => m.book_id))];
+      const topBooks = memberBooks
+        .map((bid) => bookMap.get(bid))
+        .filter((b): b is BookMeta => !!b)
+        .sort((a, b) => a.year - b.year)
+        .slice(0, 3)
+        .map((b) => ({ name: BOOK_SHORT_NAMES[b.id] || b.title, year: b.year }));
+      const gt = c.ground_truth;
+      const gloss = firstSentence(
+        gt?.semantic_gloss || gt?.description || gt?.wikidata_description || ""
+      );
+      return {
+        id: c.id,
+        name: c.canonical_name,
+        category: c.category,
+        mentions: c.total_mentions,
+        isCurrent,
+        slug: clusterSlug(c, clusters),
+        similarity: sim,
+        topBooks,
+        gloss,
+      };
+    }
+
+    const nodeIds = new Set<number>([clusterId]);
+    const graphNodes: GraphNode[] = [buildNodeData(current, true, 1)];
+    // Pin the current node to center
+    graphNodes[0].fx = width / 2;
+    graphNodes[0].fy = height / 2;
+
+    const simToId: Record<number, number> = {};
+    for (const n of neighborList) {
+      const c = clusterMap.get(n.id);
+      if (!c) continue;
+      nodeIds.add(n.id);
+      simToId[n.id] = graphNodes.length;
+      const nd = buildNodeData(c, false, n.sim);
+      // Spread around in a circle initially
+      const angle = (graphNodes.length / (neighborList.length + 1)) * 2 * Math.PI;
+      nd.x = width / 2 + Math.cos(angle) * 150;
+      nd.y = height / 2 + Math.sin(angle) * 150;
+      graphNodes.push(nd);
+    }
+
+    const graphLinks: GraphLink[] = neighborList
+      .filter((n) => nodeIds.has(n.id))
+      .map((n) => ({ source: clusterId, target: n.id, similarity: n.sim }));
+
+    // Neighbor-neighbor links
+    const linkSet = new Set(graphLinks.map((l) => `${l.source}-${l.target}`));
+    for (const n of neighborList) {
+      const their = neighborData.neighbors[String(n.id)];
+      if (!their) continue;
+      for (const nn of their) {
+        if (nn.id === clusterId || !nodeIds.has(nn.id) || nn.sim <= 0.5) continue;
+        const key1 = `${n.id}-${nn.id}`;
+        const key2 = `${nn.id}-${n.id}`;
+        if (!linkSet.has(key1) && !linkSet.has(key2)) {
+          graphLinks.push({ source: n.id, target: nn.id, similarity: nn.sim });
+          linkSet.add(key1);
+        }
+      }
+    }
+
+    nodesRef.current = graphNodes;
+    linksRef.current = graphLinks;
+
+    const radiusScale = scaleSqrt()
+      .domain([1, Math.max(...graphNodes.map((n) => n.mentions), 1)])
+      .range([7, 30]);
+
+    // Stop any prior simulation
+    simRef.current?.stop();
+
+    const sim = forceSimulation<GraphNode>(graphNodes)
+      .force(
+        "link",
+        forceLink<GraphNode, GraphLink>(graphLinks)
+          .id((d) => d.id)
+          .distance((d) => 60 + (1 - d.similarity) * 140)
+          .strength((d) => d.similarity * 0.5)
+      )
+      .force("charge", forceManyBody().strength(-250).distanceMax(350))
+      .force("center", forceCenter(width / 2, height / 2).strength(0.05))
+      .force("collide", forceCollide<GraphNode>().radius((d) => radiusScale(d.mentions) + 6).strength(0.7))
+      .alpha(1)
+      .alphaDecay(0.015)
+      .velocityDecay(0.35);
+
+    sim.on("tick", () => {
+      for (const n of graphNodes) {
+        const r = radiusScale(n.mentions);
+        if (n.fx == null) n.x = Math.max(r + 50, Math.min(width - r - 50, n.x!));
+        if (n.fy == null) n.y = Math.max(r + 20, Math.min(height - r - 20, n.y!));
+      }
+      setTick((t) => t + 1);
+    });
+
+    simRef.current = sim;
+    return () => { sim.stop(); };
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [neighborData, clusterId, dimensions.width]);
+
+  // Drag handlers
+  const handlePointerDown = useCallback((e: React.PointerEvent, node: GraphNode) => {
+    if (node.isCurrent) return;
+    e.preventDefault();
+    e.stopPropagation();
+    (e.target as Element).setPointerCapture(e.pointerId);
+    node.fx = node.x;
+    node.fy = node.y;
+    wasDraggedRef.current = false;
+    setDragNode(node);
+    setHoveredNode(null);
+    simRef.current?.alphaTarget(0.3).restart();
+  }, []);
+
+  const handlePointerMove = useCallback(
+    (e: React.PointerEvent) => {
+      if (!dragNode || !svgRef.current) return;
+      wasDraggedRef.current = true;
+      const svg = svgRef.current;
+      const rect = svg.getBoundingClientRect();
+      const scaleX = dimensions.width / rect.width;
+      const scaleY = dimensions.height / rect.height;
+      dragNode.fx = (e.clientX - rect.left) * scaleX;
+      dragNode.fy = (e.clientY - rect.top) * scaleY;
+    },
+    [dragNode, dimensions]
+  );
+
+  const handlePointerUp = useCallback(() => {
+    if (!dragNode) return;
+    dragNode.fx = null;
+    dragNode.fy = null;
+    setDragNode(null);
+    simRef.current?.alphaTarget(0);
+  }, [dragNode]);
+
+  const nodes = nodesRef.current;
+  const links = linksRef.current;
+
+  if (!neighborData || nodes.length === 0) return null;
+
+  const { width, height } = dimensions;
+  const maxMentions = Math.max(...nodes.map((n) => n.mentions), 1);
+  const radiusScale = scaleSqrt().domain([1, maxMentions]).range([7, 30]);
+
+  return (
+    <div ref={containerRef} className="w-full relative">
+      <svg
+        ref={svgRef}
+        viewBox={`0 0 ${width} ${height}`}
+        className="w-full rounded-lg border border-[var(--border)] select-none"
+        style={{
+          height: `${height}px`,
+          maxHeight: "460px",
+          background: "radial-gradient(ellipse at center, var(--card) 0%, var(--background) 100%)",
+        }}
+        onPointerMove={handlePointerMove}
+        onPointerUp={handlePointerUp}
+        onPointerLeave={handlePointerUp}
+      >
+        <defs>
+          {/* Radial gradient for node glow */}
+          {Object.entries(CATEGORY_NODE_COLORS).map(([cat, color]) => (
+            <radialGradient key={cat} id={`glow-${cat}`}>
+              <stop offset="0%" stopColor={color} stopOpacity={0.4} />
+              <stop offset="100%" stopColor={color} stopOpacity={0} />
+            </radialGradient>
+          ))}
+        </defs>
+
+        {/* Subtle grid dots */}
+        <pattern id="grid-dots" x="0" y="0" width="30" height="30" patternUnits="userSpaceOnUse">
+          <circle cx="15" cy="15" r="0.5" fill="var(--muted)" opacity="0.15" />
+        </pattern>
+        <rect width={width} height={height} fill="url(#grid-dots)" />
+
+        {/* Links */}
+        {links.map((link, i) => {
+          const source = link.source as GraphNode;
+          const target = link.target as GraphNode;
+          if (source.x == null || target.x == null) return null;
+          const isHighlighted =
+            hoveredNode && (source.id === hoveredNode.id || target.id === hoveredNode.id);
+          const opacity = isHighlighted ? 0.5 : 0.06 + link.similarity * 0.2;
+          const sw = isHighlighted ? 2 : link.similarity > 0.6 ? 1 : 0.5;
+          return (
+            <line
+              key={i}
+              x1={source.x}
+              y1={source.y}
+              x2={target.x}
+              y2={target.y}
+              stroke={isHighlighted ? "var(--foreground)" : "var(--muted)"}
+              strokeOpacity={opacity}
+              strokeWidth={sw}
+              style={{ transition: "stroke-opacity 0.2s, stroke-width 0.2s" }}
+            />
+          );
+        })}
+
+        {/* Nodes — render in two passes: back (non-hovered) then front (hovered/current) */}
+        {nodes
+          .slice()
+          .sort((a, b) => {
+            if (a.isCurrent) return 1;
+            if (b.isCurrent) return -1;
+            if (hoveredNode?.id === a.id) return 1;
+            if (hoveredNode?.id === b.id) return -1;
+            return 0;
+          })
+          .map((node) => {
+            if (node.x == null || node.y == null) return null;
+            const r = radiusScale(node.mentions);
+            const color = CATEGORY_NODE_COLORS[node.category] || "#64748b";
+            const isHovered = hoveredNode?.id === node.id;
+            const isDimmed = hoveredNode && !isHovered && !node.isCurrent;
+
+            return (
+              <g
+                key={node.id}
+                style={{ cursor: node.isCurrent ? "default" : dragNode ? "grabbing" : "grab" }}
+                onPointerDown={(e) => handlePointerDown(e, node)}
+                onMouseEnter={() => { if (!dragNode) setHoveredNode(node); }}
+                onMouseLeave={() => { if (!dragNode) setHoveredNode(null); }}
+                onClick={() => {
+                  if (wasDraggedRef.current) return;
+                  if (!node.isCurrent) router.push(`/concordance/${node.slug}`);
+                }}
+              >
+                {/* Ambient glow */}
+                {(node.isCurrent || isHovered) && (
+                  <circle
+                    cx={node.x}
+                    cy={node.y}
+                    r={r * 2.5}
+                    fill={`url(#glow-${node.category})`}
+                    style={{ pointerEvents: "none" }}
+                  />
+                )}
+                {/* Ring for current node */}
+                {node.isCurrent && (
+                  <circle
+                    cx={node.x}
+                    cy={node.y}
+                    r={r + 3}
+                    fill="none"
+                    stroke={color}
+                    strokeWidth={1.5}
+                    strokeOpacity={0.5}
+                    strokeDasharray="3 3"
+                  />
+                )}
+                {/* Main circle */}
+                <circle
+                  cx={node.x}
+                  cy={node.y}
+                  r={r}
+                  fill={color}
+                  fillOpacity={isDimmed ? 0.25 : node.isCurrent ? 0.95 : isHovered ? 0.85 : 0.6}
+                  stroke={isHovered ? "var(--foreground)" : "rgba(255,255,255,0.15)"}
+                  strokeWidth={isHovered ? 2 : 0.5}
+                  style={{ transition: "fill-opacity 0.2s, stroke-width 0.15s" }}
+                />
+                {/* Label */}
+                {(node.isCurrent || isHovered || r > 12) && (
+                  <text
+                    x={node.x}
+                    y={node.y! + r + 13}
+                    textAnchor="middle"
+                    className="fill-[var(--foreground)]"
+                    fontSize={node.isCurrent ? 12 : 10}
+                    fontWeight={node.isCurrent ? 600 : 400}
+                    opacity={isDimmed ? 0.3 : 1}
+                    style={{ pointerEvents: "none", transition: "opacity 0.2s" }}
+                  >
+                    {node.name.length > 22 ? node.name.slice(0, 20) + "\u2026" : node.name}
+                  </text>
+                )}
+              </g>
+            );
+          })}
+      </svg>
+
+      {/* Floating tooltip — anchored to node position, pushed to graph edge */}
+      {hoveredNode && !dragNode && hoveredNode.x != null && hoveredNode.y != null && (() => {
+        // Convert node SVG coords to percentage-based positioning
+        const nodeYPct = (hoveredNode.y! / height) * 100;
+        const onLeft = hoveredNode.x! < width / 2;
+        return (
+        <div
+          className="absolute z-50 pointer-events-none"
+          style={{
+            top: `${nodeYPct}%`,
+            ...(onLeft
+              ? { right: 0, transform: "translateY(-50%)" }
+              : { left: 0, transform: "translateY(-50%)" }),
+          }}
+        >
+          <div className="bg-[var(--foreground)] text-[var(--background)] rounded-lg px-4 py-3 shadow-xl max-w-[260px]">
+            {/* Header */}
+            <div className="flex items-center gap-2 mb-1.5">
+              <span
+                className="w-2.5 h-2.5 rounded-full shrink-0"
+                style={{ backgroundColor: CATEGORY_NODE_COLORS[hoveredNode.category] || "#64748b" }}
+              />
+              <span className="font-semibold text-sm leading-tight">{hoveredNode.name}</span>
+            </div>
+            {/* Category + mentions */}
+            <div className="flex items-center gap-2 text-[11px] opacity-60 mb-2">
+              <span>{hoveredNode.category}</span>
+              <span>&middot;</span>
+              <span>{hoveredNode.mentions} mentions</span>
+              {!hoveredNode.isCurrent && (
+                <>
+                  <span>&middot;</span>
+                  <span>{Math.round(hoveredNode.similarity * 100)}% similar</span>
+                </>
+              )}
+            </div>
+            {/* Gloss */}
+            {hoveredNode.gloss && (
+              <p className="text-[11px] leading-relaxed opacity-80 mb-2">
+                {hoveredNode.gloss}
+              </p>
+            )}
+            {/* Top books */}
+            {hoveredNode.topBooks.length > 0 && (
+              <div className="flex flex-wrap gap-x-2 gap-y-0.5 text-[10px] opacity-50">
+                {hoveredNode.topBooks.map((b, i) => (
+                  <span key={i}>
+                    {b.name} ({b.year})
+                  </span>
+                ))}
+              </div>
+            )}
+            {/* Click hint */}
+            {!hoveredNode.isCurrent && (
+              <p className="text-[10px] opacity-40 mt-2 pt-1.5 border-t border-current/10">
+                Click to view &middot; Drag to rearrange
+              </p>
+            )}
+          </div>
+        </div>
+        );
+      })()}
+
+      {/* Legend */}
+      <div className="flex flex-wrap gap-x-3 gap-y-1 mt-3 text-[10px] text-[var(--muted)]">
+        {Object.entries(
+          nodes.reduce<Record<string, number>>((acc, n) => {
+            acc[n.category] = (acc[n.category] || 0) + 1;
+            return acc;
+          }, {})
+        )
+          .sort(([, a], [, b]) => b - a)
+          .map(([cat, count]) => (
+            <span key={cat} className="flex items-center gap-1">
+              <span
+                className="w-2 h-2 rounded-full"
+                style={{ backgroundColor: CATEGORY_NODE_COLORS[cat] || "#64748b" }}
+              />
+              {cat} ({count})
+            </span>
+          ))}
+        <span className="opacity-40 ml-auto">
+          Size = mentions &middot; Proximity = semantic similarity &middot; Drag to rearrange
+        </span>
+      </div>
+    </div>
+  );
+}
+
 /* ───── main page component ───── */
 
 export default function ClusterDetailPage() {
@@ -874,9 +1358,14 @@ export default function ClusterDetailPage() {
       {/* ─── 3b. Cross-References Panel (full-width) ─── */}
       {cluster.cross_references && cluster.cross_references.filter(r => r.target_cluster_id !== null).length > 0 && (() => {
         const refs = cluster.cross_references!.filter(r => r.target_cluster_id !== null);
-        const synonyms = refs.filter(r => r.link_type === "same_referent" || r.link_type === "cross_linguistic" || r.link_type === "orthographic_variant");
-        const contested = refs.filter(r => r.link_type === "contested_identity");
-        const related = refs.filter(r => r.link_type === "conceptual_overlap" || r.link_type === "derivation");
+        // Only show forward (non-reverse) refs as synonyms — reverse refs are co-occurrence noise
+        const synonyms = refs.filter(r => !r.is_reverse && (r.link_type === "same_referent" || r.link_type === "cross_linguistic" || r.link_type === "orthographic_variant"));
+        const contested = refs.filter(r => !r.is_reverse && r.link_type === "contested_identity");
+        // Related column includes forward conceptual + all reverse refs (looser relationship)
+        const related = refs.filter(r =>
+          (!r.is_reverse && (r.link_type === "conceptual_overlap" || r.link_type === "derivation")) ||
+          r.is_reverse
+        );
 
         const LINK_TYPE_LABELS: Record<string, { label: string; color: string }> = {
           same_referent: { label: "synonym", color: "bg-emerald-500/15 text-emerald-700 dark:text-emerald-400" },
@@ -888,7 +1377,9 @@ export default function ClusterDetailPage() {
         };
 
         const RefItem = ({ xref: r }: { xref: CrossReference }) => {
-          const typeInfo = LINK_TYPE_LABELS[r.link_type] || { label: r.link_type, color: "bg-gray-500/15 text-gray-600" };
+          const typeInfo = r.is_reverse
+            ? { label: "co-occurs", color: "bg-slate-500/15 text-slate-600 dark:text-slate-400" }
+            : (LINK_TYPE_LABELS[r.link_type] || { label: r.link_type, color: "bg-gray-500/15 text-gray-600" });
           const targetSlug = r.target_cluster_id !== null
             ? (() => {
                 const targetCluster = data.clusters.find(c => c.id === r.target_cluster_id);
@@ -982,10 +1473,10 @@ export default function ClusterDetailPage() {
                 )}
               </div>
 
-              {/* Column 3: Related Entities */}
+              {/* Column 3: Related & Co-occurring */}
               <div>
                 <h4 className="text-[10px] uppercase tracking-wider text-[var(--muted)] font-medium mb-2 pb-1.5 border-b border-[var(--border)]">
-                  Related Entities
+                  Related &amp; Co-occurring
                   {related.length > 0 && (
                     <span className="ml-1.5 font-mono opacity-60">{related.length}</span>
                   )}
@@ -1165,7 +1656,18 @@ export default function ClusterDetailPage() {
         </div>
       </section>
 
-      {/* ─── 7. Navigation ─── */}
+      {/* ─── 7. Semantic Neighborhood ─── */}
+      <section className="mb-8">
+        <h2 className="text-[10px] uppercase tracking-widest text-[var(--muted)] font-medium mb-3">
+          Semantic Neighborhood
+        </h2>
+        <p className="text-xs text-[var(--muted)] mb-3">
+          Entities closest to {cluster.canonical_name} in cross-lingual embedding space. Click a node to navigate.
+        </p>
+        <NeighborhoodGraph clusterId={cluster.id} clusters={data.clusters} books={data.books} />
+      </section>
+
+      {/* ─── 8. Navigation ─── */}
       <nav className="flex items-center justify-between pt-6 border-t border-[var(--border)]">
         {prevSlug !== null ? (
           <Link

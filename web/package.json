@@ -10,6 +10,8 @@
   },
   "dependencies": {
     "@google/generative-ai": "^0.24.1",
+    "d3-force": "^3.0.0",
+    "d3-scale": "^4.0.2",
     "next": "16.1.6",
     "openai": "^6.18.0",
     "react": "19.2.3",
@@ -17,6 +19,8 @@
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",
+    "@types/d3-force": "^3.0.10",
+    "@types/d3-scale": "^4.0.9",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",

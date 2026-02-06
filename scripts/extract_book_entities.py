@@ -23,15 +23,16 @@ load_dotenv(Path(__file__).parent.parent / ".env.local")
 CHUNK_SIZE = 2500
 CHUNK_OVERLAP = 200
 
-# 8-category schema with PLANT and ANIMAL as top-level
-EXTRACTION_PROMPT = """You are an expert in early modern European science, medicine, and natural philosophy.
-Extract ALL named entities from this passage from an early modern text (16th-18th century).
+# 9-category schema with PLANT, ANIMAL, and ANATOMY as top-level
+EXTRACTION_PROMPT = """You are an expert in early modern and 19th-century European science, medicine, natural philosophy, and psychology.
+Extract ALL named entities from this passage from a scientific or medical text (1500-1900).
 
 CATEGORIES AND SUBCATEGORIES:
 
 PERSON - Human agents
-  Subcategories: AUTHORITY (ancient/medieval sources like Galen, Dioscorides),
-                 SCHOLAR (early modern authors), PRACTITIONER (physicians, apothecaries),
+  Subcategories: AUTHORITY (ancient/medieval sources like Galen, Hippocrates),
+                 SCHOLAR (early modern and 19th-century authors, scientists, philosophers),
+                 PRACTITIONER (physicians, apothecaries, experimentalists),
                  PATRON (rulers, sponsors), OTHER_PERSON
 
 PLANT - Botanical species, herbs, trees, roots, seeds, plant products
@@ -40,36 +41,66 @@ PLANT - Botanical species, herbs, trees, roots, seeds, plant products
 ANIMAL - Animal species and animal-derived products
   Subcategories: MAMMAL, BIRD, FISH, INSECT, REPTILE, PRODUCT (honey, milk, musk), OTHER_ANIMAL
 
-SUBSTANCE - Non-living materials and compound preparations
+ANATOMY - Body parts, organs, tissues, and physiological structures
+  Subcategories: ORGAN (heart, liver, lung), BRAIN_REGION (cerebellum, occipital lobe, Broca's convolution),
+                 TISSUE (nerve fiber, grey matter), BODY_PART (hand, finger, eye),
+                 FLUID (blood, bile, humors), OTHER_ANATOMY
+
+SUBSTANCE - Non-living materials, chemicals, and compound preparations
   Subcategories: MINERAL (metals, earths, stones), PREPARATION (compound medicines, distillates),
-                 ANATOMY (body parts, organs, fluids, humors), OTHER_SUBSTANCE
+                 CHEMICAL (alcohol, chloroform, phosphorus), OTHER_SUBSTANCE
 
 PLACE - Geographic locations
   Subcategories: COUNTRY, CITY, REGION, OTHER_PLACE
 
-DISEASE - Medical conditions
-  Subcategories: ACUTE (fever, pleurisy), CHRONIC (dropsy, consumption),
-                 SYMPTOM (pain, swelling), OTHER_DISEASE
+DISEASE - Medical and psychological conditions
+  Subcategories: ACUTE (fever, pleurisy), CHRONIC (dropsy, consumption, epilepsy),
+                 SYMPTOM (pain, swelling, aphasia), PSYCHOLOGICAL (insanity, delirium, amnesia),
+                 OTHER_DISEASE
 
-CONCEPT - Abstract ideas
-  Subcategories: THEORY (humoral theory, astrological medicine),
-                 PRACTICE (bloodletting, distillation), QUALITY (hot, cold, moist, dry),
+CONCEPT - Abstract ideas, theories, mental faculties, and processes
+  Subcategories: THEORY (humoral theory, evolution, natural selection),
+                 SCHOOL_OF_THOUGHT (associationism, empiricism, materialism, vitalism, Galenic medicine),
+                 PRACTICE (bloodletting, distillation, vivisection),
+                 QUALITY (hot, cold, moist, dry),
+                 MENTAL_FACULTY (consciousness, memory, attention, volition, habit),
+                 COGNITIVE_PROCESS (association, perception, reasoning, discrimination),
                  OTHER_CONCEPT
 
+ORGANIZATION - Institutions, societies, and publications
+  Subcategories: INSTITUTION (Harvard, University of Berlin, Royal College of Physicians),
+                 SOCIETY (Royal Society, Académie des Sciences),
+                 JOURNAL (Mind, Brain, Journal of Speculative Philosophy),
+                 OTHER_ORGANIZATION
+
 OBJECT - Artifacts and instruments
-  Subcategories: INSTRUMENT (alembic, furnace), VESSEL (flask, jar),
-                 TOOL (knife, scale), OTHER_OBJECT
+  Subcategories: INSTRUMENT (alembic, kymograph, plethysmograph), VESSEL (flask, jar),
+                 TOOL (knife, scale, electrode), OTHER_OBJECT
+
+IMPORTANT DISAMBIGUATION:
+- "the associationists" / "spiritualists" / "empiricists" = CONCEPT > SCHOOL_OF_THOUGHT (the intellectual
+  tradition), NOT PERSON. Only use PERSON for named individuals (Locke, Wundt, Galen).
+- Academic journals and periodicals = ORGANIZATION > JOURNAL, not CONCEPT.
+- Universities, hospitals, laboratories = ORGANIZATION > INSTITUTION.
+- Scientific academies and societies = ORGANIZATION > SOCIETY.
+- Do NOT extract generic words like "book", "chapter", "page", "figure", "author", "reader".
 
 For each entity provide:
 - name: exactly as it appears (preserve original spelling)
-- category: one of PERSON, PLANT, ANIMAL, SUBSTANCE, PLACE, DISEASE, CONCEPT, OBJECT
+- category: one of PERSON, PLANT, ANIMAL, ANATOMY, SUBSTANCE, PLACE, DISEASE, CONCEPT, OBJECT, ORGANIZATION
 - subcategory: the appropriate subcategory from above
 - context: brief description (max 10 words)
 
 Return ONLY a JSON array. Example:
 [{"name": "Galen", "category": "PERSON", "subcategory": "AUTHORITY", "context": "ancient medical authority"},
  {"name": "Maidenhair", "category": "PLANT", "subcategory": "HERB", "context": "herb for coughs and jaundice"},
- {"name": "yellow Jaundice", "category": "DISEASE", "subcategory": "CHRONIC", "context": "disease of liver obstruction"},
+ {"name": "cerebral hemispheres", "category": "ANATOMY", "subcategory": "BRAIN_REGION", "context": "higher brain structures for thought"},
+ {"name": "aphasia", "category": "DISEASE", "subcategory": "PSYCHOLOGICAL", "context": "loss of speech from brain lesion"},
+ {"name": "consciousness", "category": "CONCEPT", "subcategory": "MENTAL_FACULTY", "context": "awareness of mental states"},
+ {"name": "associationist psychology", "category": "CONCEPT", "subcategory": "SCHOOL_OF_THOUGHT", "context": "school linking ideas by association"},
+ {"name": "Wundt", "category": "PERSON", "subcategory": "SCHOLAR", "context": "founder of experimental psychology"},
+ {"name": "Mind", "category": "ORGANIZATION", "subcategory": "JOURNAL", "context": "British psychology journal"},
+ {"name": "chloroform", "category": "SUBSTANCE", "subcategory": "CHEMICAL", "context": "anaesthetic chemical agent"},
  {"name": "Bezoar stone", "category": "SUBSTANCE", "subcategory": "MINERAL", "context": "antidote stone from animal stomachs"}]
 
 PASSAGE:
@@ -253,7 +284,7 @@ def main():
             author = author_match.group(1).strip()
 
     if not year:
-        year_match = re.search(r'\b(1[5-7]\d{2})\b', text[:2000])
+        year_match = re.search(r'\b(1[5-9]\d{2})\b', text[:2000])
         if year_match:
             year = int(year_match.group(1))
 

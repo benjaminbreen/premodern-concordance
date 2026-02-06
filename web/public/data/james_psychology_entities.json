@@ -1,0 +1,2807 @@
+{
+  "book": {
+    "id": "principles_of_psychology_james_1890",
+    "title": "The Principles of Psychology, Volume 1",
+    "author": "William James",
+    "year": 1890,
+    "language": "English",
+    "description": "Entities extracted from principles_of_psychology_james_1890.txt"
+  },
+  "entities": [
+    {
+      "id": "soul",
+      "name": "soul",
+      "category": "CONCEPT",
+      "subcategory": "OTHER_CONCEPT",
+      "count": 8,
+      "contexts": [
+        "metaphysical entity",
+        "immaterial essence of a person",
+        "seat of the soul",
+        "theory of the soul",
+        "simple entity for mental manifestations"
+      ],
+      "variants": [
+        "Soul",
+        "soul"
+      ]
+    },
+    {
+      "id": "brain",
+      "name": "brain",
+      "category": "ANATOMY",
+      "subcategory": "ORGAN",
+      "count": 7,
+      "contexts": [
+        "physical basis for thoughts and feelings",
+        "central organ of the nervous system",
+        "central organ of nervous system",
+        "organ responsible for thought and memory"
+      ],
+      "variants": [
+        "Brain",
+        "brain",
+        "BRAIN"
+      ]
+    },
+    {
+      "id": "psychology",
+      "name": "Psychology",
+      "category": "CONCEPT",
+      "subcategory": "OTHER_CONCEPT",
+      "count": 6,
+      "contexts": [
+        "subject of the book and classroom instruction",
+        "science of finite individual minds",
+        "science of mental phenomena",
+        "study of the mind and behavior",
+        "Science of Mental Life"
+      ],
+      "variants": [
+        "psychology",
+        "Psychology"
+      ]
+    },
+    {
+      "id": "mind",
+      "name": "mind",
+      "category": "CONCEPT",
+      "subcategory": "OTHER_CONCEPT",
+      "count": 6,
+      "contexts": [
+        "British psychology journal",
+        "mental faculties and awareness",
+        "mental presence and awareness",
+        "mental faculties and consciousness",
+        "seat of consciousness and thought"
+      ],
+      "variants": [
+        "mind",
+        "Mind"
+      ]
+    },
+    {
+      "id": "associationist",
+      "name": "associationist",
+      "category": "PERSON",
+      "subcategory": "OTHER_PERSON",
+      "count": 5,
+      "contexts": [
+        "theory rejected by the author",
+        "proponent of associationist psychology",
+        "school of thought on memory",
+        "adherent of associationism",
+        "proponent of associationist ideas"
+      ],
+      "variants": [
+        "associationist"
+      ]
+    },
+    {
+      "id": "memory",
+      "name": "memory",
+      "category": "CONCEPT",
+      "subcategory": "MENTAL_FACULTY",
+      "count": 5,
+      "contexts": [
+        "ability to retain and recall",
+        "Soul's faculty",
+        "faculty of retaining and recalling information",
+        "faculty for retaining events"
+      ],
+      "variants": [
+        "memory",
+        "Memory"
+      ]
+    },
+    {
+      "id": "ideas",
+      "name": "ideas",
+      "category": "CONCEPT",
+      "subcategory": "OTHER_CONCEPT",
+      "count": 4,
+      "contexts": [
+        "metaphysical entity",
+        "mental representations",
+        "discrete elements in associationism",
+        "mental representations or thoughts"
+      ],
+      "variants": [
+        "ideas",
+        "Ideas"
+      ]
+    },
+    {
+      "id": "consciousness",
+      "name": "consciousness",
+      "category": "CONCEPT",
+      "subcategory": "MENTAL_FACULTY",
+      "count": 4,
+      "contexts": [
+        "awareness of mental states",
+        "personal form, constant change",
+        "state of being aware"
+      ],
+      "variants": [
+        "consciousness",
+        "Consciousness"
+      ]
+    },
+    {
+      "id": "journal_of_speculative_philosophy",
+      "name": "Journal of Speculative Philosophy",
+      "category": "ORGANIZATION",
+      "subcategory": "JOURNAL",
+      "count": 3,
+      "contexts": [
+        "journal where abridgment appeared",
+        "publication where an abridgment appeared",
+        "philosophy journal"
+      ],
+      "variants": [
+        "Journal of Speculative Philosophy"
+      ]
+    },
+    {
+      "id": "spiritualist",
+      "name": "spiritualist",
+      "category": "CONCEPT",
+      "subcategory": "SCHOOL_OF_THOUGHT",
+      "count": 3,
+      "contexts": [
+        "theory rejected by the author",
+        "school of thought on memory",
+        "believer in spiritual existence"
+      ],
+      "variants": [
+        "spiritualist"
+      ]
+    },
+    {
+      "id": "reaction-time",
+      "name": "Reaction-time",
+      "category": "CONCEPT",
+      "subcategory": "OTHER_CONCEPT",
+      "count": 3,
+      "contexts": [
+        "time between stimulus and response",
+        "affected by attention",
+        "time taken to respond"
+      ],
+      "variants": [
+        "reaction-time",
+        "Reaction-time"
+      ]
+    },
+    {
+      "id": "self",
+      "name": "Self",
+      "category": "CONCEPT",
+      "subcategory": "OTHER_CONCEPT",
+      "count": 3,
+      "contexts": [
+        "empirical self, social self, spiritual self",
+        "last fruit of representations",
+        "individual's core identity"
+      ],
+      "variants": [
+        "Self"
+      ]
+    },
+    {
+      "id": "discrimination",
+      "name": "discrimination",
+      "category": "CONCEPT",
+      "subcategory": "COGNITIVE_PROCESS",
+      "count": 3,
+      "contexts": [
+        "affected by attention",
+        "and comparison",
+        "ability to distinguish differences"
+      ],
+      "variants": [
+        "Discrimination",
+        "discrimination"
+      ]
+    },
+    {
+      "id": "harvard_university",
+      "name": "HARVARD UNIVERSITY",
+      "category": "ORGANIZATION",
+      "subcategory": "INSTITUTION",
+      "count": 2,
+      "contexts": [
+        "university where James is professor",
+        "American university"
+      ],
+      "variants": [
+        "HARVARD UNIVERSITY"
+      ]
+    },
+    {
+      "id": "the_spatial_quale",
+      "name": "The Spatial Quale",
+      "category": "OTHER_OBJECT",
+      "subcategory": "OTHER_OBJECT",
+      "count": 2,
+      "contexts": [
+        "abridgment published in a journal",
+        "abridgment of a work"
+      ],
+      "variants": [
+        "The Spatial Quale"
+      ]
+    },
+    {
+      "id": "idealism",
+      "name": "idealism",
+      "category": "CONCEPT",
+      "subcategory": "SCHOOL_OF_THOUGHT",
+      "count": 2,
+      "contexts": [
+        "philosophical doctrine",
+        "philosophical system contrasted with physics"
+      ],
+      "variants": [
+        "idealism"
+      ]
+    },
+    {
+      "id": "wundt",
+      "name": "Wundt",
+      "category": "PERSON",
+      "subcategory": "SCHOLAR",
+      "count": 2,
+      "contexts": [
+        "founder of experimental psychology",
+        "conducted experiments on attention"
+      ],
+      "variants": [
+        "Wundt"
+      ]
+    },
+    {
+      "id": "cerebral_conditions",
+      "name": "Cerebral Conditions",
+      "category": "ANATOMY",
+      "subcategory": "BRAIN_REGION",
+      "count": 2,
+      "contexts": [
+        "physical states of the brain",
+        "brain states influencing mental manifestations"
+      ],
+      "variants": [
+        "Cerebral Conditions"
+      ]
+    },
+    {
+      "id": "thought",
+      "name": "Thought",
+      "category": "CONCEPT",
+      "subcategory": "MENTAL_FACULTY",
+      "count": 2,
+      "contexts": [
+        "mental activity of forming ideas",
+        "stream of thought, cognitive process"
+      ],
+      "variants": [
+        "Thought"
+      ]
+    },
+    {
+      "id": "attention",
+      "name": "Attention",
+      "category": "CONCEPT",
+      "subcategory": "MENTAL_FACULTY",
+      "count": 2,
+      "contexts": [
+        "focusing of mental resources",
+        "focus of cognitive resources"
+      ],
+      "variants": [
+        "Attention",
+        "attention"
+      ]
+    },
+    {
+      "id": "locke",
+      "name": "Locke",
+      "category": "PERSON",
+      "subcategory": "SCHOLAR",
+      "count": 2,
+      "contexts": [
+        "philosopher on consciousness",
+        "philosopher on discrimination"
+      ],
+      "variants": [
+        "Locke"
+      ]
+    },
+    {
+      "id": "psychologist",
+      "name": "psychologist",
+      "category": "PERSON",
+      "subcategory": "SCHOLAR",
+      "count": 2,
+      "contexts": [
+        "viewpoint on cognitive relations",
+        "researcher of mental faculties"
+      ],
+      "variants": [
+        "Psychologist",
+        "psychologist"
+      ]
+    },
+    {
+      "id": "transcendentalist_theory",
+      "name": "transcendentalist theory",
+      "category": "CONCEPT",
+      "subcategory": "THEORY",
+      "count": 2,
+      "contexts": [
+        "theory of self-consciousness",
+        "philosophical theory of perception"
+      ],
+      "variants": [
+        "Transcendentalist theory",
+        "transcendentalist theory"
+      ]
+    },
+    {
+      "id": "conception",
+      "name": "Conception",
+      "category": "CONCEPT",
+      "subcategory": "OTHER_CONCEPT",
+      "count": 2,
+      "contexts": [
+        "sense of sameness, abstract ideas",
+        "mental grasp of an idea"
+      ],
+      "variants": [
+        "Conception"
+      ]
+    },
+    {
+      "id": "abstract_ideas",
+      "name": "Abstract ideas",
+      "category": "CONCEPT",
+      "subcategory": "OTHER_CONCEPT",
+      "count": 2,
+      "contexts": [
+        "related to conception",
+        "ideas not tied to specific instances"
+      ],
+      "variants": [
+        "Abstract ideas"
+      ]
+    },
+    {
+      "id": "universals",
+      "name": "Universals",
+      "category": "CONCEPT",
+      "subcategory": "OTHER_CONCEPT",
+      "count": 2,
+      "contexts": [
+        "related to conception",
+        "general concepts or properties"
+      ],
+      "variants": [
+        "Universals"
+      ]
+    },
+    {
+      "id": "comparison",
+      "name": "comparison",
+      "category": "CONCEPT",
+      "subcategory": "COGNITIVE_PROCESS",
+      "count": 2,
+      "contexts": [
+        "and discrimination",
+        "process of noting similarities and differences"
+      ],
+      "variants": [
+        "comparison",
+        "Comparison"
+      ]
+    },
+    {
+      "id": "ladd",
+      "name": "Ladd",
+      "category": "PERSON",
+      "subcategory": "SCHOLAR",
+      "count": 2,
+      "contexts": [
+        "criticised regarding memory",
+        "Professor who criticised memory measurements"
+      ],
+      "variants": [
+        "Ladd"
+      ]
+    },
+    {
+      "id": "association",
+      "name": "association",
+      "category": "CONCEPT",
+      "subcategory": "COGNITIVE_PROCESS",
+      "count": 2,
+      "contexts": [
+        "linking of thoughts or ideas",
+        "linking of ideas or events"
+      ],
+      "variants": [
+        "association"
+      ]
+    },
+    {
+      "id": "ego",
+      "name": "ego",
+      "category": "CONCEPT",
+      "subcategory": "OTHER_CONCEPT",
+      "count": 2,
+      "contexts": [
+        "last fruit of representations",
+        "individual's sense of self"
+      ],
+      "variants": [
+        "ego"
+      ]
+    },
+    {
+      "id": "exhaustion",
+      "name": "exhaustion",
+      "category": "DISEASE",
+      "subcategory": "OTHER_DISEASE",
+      "count": 2,
+      "contexts": [
+        "condition that enfeebles memory",
+        "state of extreme tiredness"
+      ],
+      "variants": [
+        "exhaustion"
+      ]
+    },
+    {
+      "id": "william_james",
+      "name": "WILLIAM JAMES",
+      "category": "PERSON",
+      "subcategory": "SCHOLAR",
+      "count": 1,
+      "contexts": [
+        "author of The Principles of Psychology"
+      ],
+      "variants": [
+        "WILLIAM JAMES"
+      ]
+    },
+    {
+      "id": "new_york",
+      "name": "NEW YORK",
+      "category": "PLACE",
+      "subcategory": "CITY",
+      "count": 1,
+      "contexts": [
+        "city of publication"
+      ],
+      "variants": [
+        "NEW YORK"
+      ]
+    },
+    {
+      "id": "henry_holt_and_company",
+      "name": "HENRY HOLT AND COMPANY",
+      "category": "ORGANIZATION",
+      "subcategory": "OTHER_ORGANIZATION",
+      "count": 1,
+      "contexts": [
+        "publisher of the book"
+      ],
+      "variants": [
+        "HENRY HOLT AND COMPANY"
+      ]
+    },
+    {
+      "id": "françois_pillon",
+      "name": "FRANÇOIS PILLON",
+      "category": "PERSON",
+      "subcategory": "OTHER_PERSON",
+      "count": 1,
+      "contexts": [
+        "friend to whom the book is dedicated"
+      ],
+      "variants": [
+        "FRANÇOIS PILLON"
+      ]
+    },
+    {
+      "id": "critique_philosophique",
+      "name": "CRITIQUE PHILOSOPHIQUE",
+      "category": "ORGANIZATION",
+      "subcategory": "OTHER_ORGANIZATION",
+      "count": 1,
+      "contexts": [
+        "publication James acknowledges influence from"
+      ],
+      "variants": [
+        "CRITIQUE PHILOSOPHIQUE"
+      ]
+    },
+    {
+      "id": "pleasure_and_pain",
+      "name": "pleasure and pain",
+      "category": "CONCEPT",
+      "subcategory": "OTHER_CONCEPT",
+      "count": 1,
+      "contexts": [
+        "excluded subjects from the work"
+      ],
+      "variants": [
+        "pleasure and pain"
+      ]
+    },
+    {
+      "id": "moral_and_æsthetic_feelings_and_judgments",
+      "name": "moral and æsthetic feelings and judgments",
+      "category": "CONCEPT",
+      "subcategory": "OTHER_CONCEPT",
+      "count": 1,
+      "contexts": [
+        "excluded subjects from the work"
+      ],
+      "variants": [
+        "moral and æsthetic feelings and judgments"
+      ]
+    },
+    {
+      "id": "space-perception",
+      "name": "Space-perception",
+      "category": "CONCEPT",
+      "subcategory": "OTHER_CONCEPT",
+      "count": 1,
+      "contexts": [
+        "chapter topic on spatial awareness"
+      ],
+      "variants": [
+        "Space-perception"
+      ]
+    },
+    {
+      "id": "thoughts_and_feelings",
+      "name": "thoughts and feelings",
+      "category": "CONCEPT",
+      "subcategory": "OTHER_CONCEPT",
+      "count": 1,
+      "contexts": [
+        "data assumed by psychology"
+      ],
+      "variants": [
+        "thoughts and feelings"
+      ]
+    },
+    {
+      "id": "physical_world",
+      "name": "physical world",
+      "category": "CONCEPT",
+      "subcategory": "OTHER_CONCEPT",
+      "count": 1,
+      "contexts": [
+        "world in time and space"
+      ],
+      "variants": [
+        "physical world"
+      ]
+    },
+    {
+      "id": "metaphysics",
+      "name": "metaphysics",
+      "category": "CONCEPT",
+      "subcategory": "OTHER_CONCEPT",
+      "count": 1,
+      "contexts": [
+        "discussion of fundamental elements"
+      ],
+      "variants": [
+        "metaphysics"
+      ]
+    },
+    {
+      "id": "transcendental_ego",
+      "name": "Transcendental Ego",
+      "category": "CONCEPT",
+      "subcategory": "OTHER_CONCEPT",
+      "count": 1,
+      "contexts": [
+        "metaphysical entity"
+      ],
+      "variants": [
+        "Transcendental Ego"
+      ]
+    },
+    {
+      "id": "elementary_units_of_consciousness",
+      "name": "Elementary Units of Consciousness",
+      "category": "CONCEPT",
+      "subcategory": "OTHER_CONCEPT",
+      "count": 1,
+      "contexts": [
+        "metaphysical entity"
+      ],
+      "variants": [
+        "Elementary Units of Consciousness"
+      ]
+    },
+    {
+      "id": "positivistic",
+      "name": "positivistic",
+      "category": "CONCEPT",
+      "subcategory": "SCHOOL_OF_THOUGHT",
+      "count": 1,
+      "contexts": [
+        "point of view adopted"
+      ],
+      "variants": [
+        "positivistic"
+      ]
+    },
+    {
+      "id": "physics",
+      "name": "physics",
+      "category": "CONCEPT",
+      "subcategory": "OTHER_CONCEPT",
+      "count": 1,
+      "contexts": [
+        "natural science"
+      ],
+      "variants": [
+        "physics"
+      ]
+    },
+    {
+      "id": "brain-states",
+      "name": "brain-states",
+      "category": "ANATOMY",
+      "subcategory": "OTHER_ANATOMY",
+      "count": 1,
+      "contexts": [
+        "physical states of the brain"
+      ],
+      "variants": [
+        "brain-states"
+      ]
+    },
+    {
+      "id": "popular_science_monthly",
+      "name": "Popular Science Monthly",
+      "category": "ORGANIZATION",
+      "subcategory": "JOURNAL",
+      "count": 1,
+      "contexts": [
+        "science magazine"
+      ],
+      "variants": [
+        "Popular Science Monthly"
+      ]
+    },
+    {
+      "id": "scribner's_magazine",
+      "name": "Scribner's Magazine",
+      "category": "ORGANIZATION",
+      "subcategory": "JOURNAL",
+      "count": 1,
+      "contexts": [
+        "literary magazine"
+      ],
+      "variants": [
+        "Scribner's Magazine"
+      ]
+    },
+    {
+      "id": "w__volkmann_von_volkmar",
+      "name": "W. Volkmann von Volkmar",
+      "category": "PERSON",
+      "subcategory": "SCHOLAR",
+      "count": 1,
+      "contexts": [
+        "author of psychology textbook"
+      ],
+      "variants": [
+        "W. Volkmann von Volkmar"
+      ]
+    },
+    {
+      "id": "lehrbuch_der_psychologie",
+      "name": "Lehrbuch der Psychologie",
+      "category": "ORGANIZATION",
+      "subcategory": "OTHER_ORGANIZATION",
+      "count": 1,
+      "contexts": [
+        "psychology textbook title"
+      ],
+      "variants": [
+        "Lehrbuch der Psychologie"
+      ]
+    },
+    {
+      "id": "sully",
+      "name": "Sully",
+      "category": "PERSON",
+      "subcategory": "SCHOLAR",
+      "count": 1,
+      "contexts": [
+        "author of psychology text"
+      ],
+      "variants": [
+        "Sully"
+      ]
+    },
+    {
+      "id": "dewey",
+      "name": "Dewey",
+      "category": "PERSON",
+      "subcategory": "SCHOLAR",
+      "count": 1,
+      "contexts": [
+        "author of psychology text"
+      ],
+      "variants": [
+        "Dewey"
+      ]
+    },
+    {
+      "id": "baldwin",
+      "name": "Baldwin",
+      "category": "PERSON",
+      "subcategory": "SCHOLAR",
+      "count": 1,
+      "contexts": [
+        "author of psychology handbook"
+      ],
+      "variants": [
+        "Baldwin"
+      ]
+    },
+    {
+      "id": "j__s__mill",
+      "name": "J. S. Mill",
+      "category": "PERSON",
+      "subcategory": "SCHOLAR",
+      "count": 1,
+      "contexts": [
+        "influential philosopher and economist"
+      ],
+      "variants": [
+        "J. S. Mill"
+      ]
+    },
+    {
+      "id": "lotze",
+      "name": "Lotze",
+      "category": "PERSON",
+      "subcategory": "SCHOLAR",
+      "count": 1,
+      "contexts": [
+        "German philosopher"
+      ],
+      "variants": [
+        "Lotze"
+      ]
+    },
+    {
+      "id": "renouvier",
+      "name": "Renouvier",
+      "category": "PERSON",
+      "subcategory": "SCHOLAR",
+      "count": 1,
+      "contexts": [
+        "French philosopher"
+      ],
+      "variants": [
+        "Renouvier"
+      ]
+    },
+    {
+      "id": "hodgson",
+      "name": "Hodgson",
+      "category": "PERSON",
+      "subcategory": "SCHOLAR",
+      "count": 1,
+      "contexts": [
+        "philosopher and psychologist"
+      ],
+      "variants": [
+        "Hodgson"
+      ]
+    },
+    {
+      "id": "chauncey_wright",
+      "name": "Chauncey Wright",
+      "category": "PERSON",
+      "subcategory": "SCHOLAR",
+      "count": 1,
+      "contexts": [
+        "American philosopher"
+      ],
+      "variants": [
+        "Chauncey Wright"
+      ]
+    },
+    {
+      "id": "charles_peirce",
+      "name": "Charles Peirce",
+      "category": "PERSON",
+      "subcategory": "SCHOLAR",
+      "count": 1,
+      "contexts": [
+        "American philosopher and logician"
+      ],
+      "variants": [
+        "Charles Peirce"
+      ]
+    },
+    {
+      "id": "stanley_hall",
+      "name": "Stanley Hall",
+      "category": "PERSON",
+      "subcategory": "SCHOLAR",
+      "count": 1,
+      "contexts": [
+        "American psychologist"
+      ],
+      "variants": [
+        "Stanley Hall"
+      ]
+    },
+    {
+      "id": "james_putnam",
+      "name": "James Putnam",
+      "category": "PERSON",
+      "subcategory": "SCHOLAR",
+      "count": 1,
+      "contexts": [
+        "American physician and neurologist"
+      ],
+      "variants": [
+        "James Putnam"
+      ]
+    },
+    {
+      "id": "josiah_royce",
+      "name": "Josiah Royce",
+      "category": "PERSON",
+      "subcategory": "SCHOLAR",
+      "count": 1,
+      "contexts": [
+        "American philosopher"
+      ],
+      "variants": [
+        "Josiah Royce"
+      ]
+    },
+    {
+      "id": "reflex",
+      "name": "Reflex",
+      "category": "CONCEPT",
+      "subcategory": "OTHER_CONCEPT",
+      "count": 1,
+      "contexts": [
+        "automatic bodily response"
+      ],
+      "variants": [
+        "Reflex"
+      ]
+    },
+    {
+      "id": "frog",
+      "name": "Frog",
+      "category": "ANIMAL",
+      "subcategory": "OTHER_ANIMAL",
+      "count": 1,
+      "contexts": [
+        "animal used for nerve-centre study"
+      ],
+      "variants": [
+        "Frog"
+      ]
+    },
+    {
+      "id": "hemispheres",
+      "name": "hemispheres",
+      "category": "ANATOMY",
+      "subcategory": "BRAIN_REGION",
+      "count": 1,
+      "contexts": [
+        "major parts of the brain"
+      ],
+      "variants": [
+        "hemispheres"
+      ]
+    },
+    {
+      "id": "meynert",
+      "name": "Meynert",
+      "category": "PERSON",
+      "subcategory": "SCHOLAR",
+      "count": 1,
+      "contexts": [
+        "associated with brain scheme"
+      ],
+      "variants": [
+        "Meynert"
+      ]
+    },
+    {
+      "id": "phrenological",
+      "name": "phrenological",
+      "category": "CONCEPT",
+      "subcategory": "THEORY",
+      "count": 1,
+      "contexts": [
+        "theory of skull shape and character"
+      ],
+      "variants": [
+        "phrenological"
+      ]
+    },
+    {
+      "id": "physiological",
+      "name": "physiological",
+      "category": "CONCEPT",
+      "subcategory": "OTHER_CONCEPT",
+      "count": 1,
+      "contexts": [
+        "relating to the function of living organisms"
+      ],
+      "variants": [
+        "physiological"
+      ]
+    },
+    {
+      "id": "motor_zone",
+      "name": "motor zone",
+      "category": "ANATOMY",
+      "subcategory": "BRAIN_REGION",
+      "count": 1,
+      "contexts": [
+        "brain area for movement"
+      ],
+      "variants": [
+        "motor zone"
+      ]
+    },
+    {
+      "id": "motor_aphasia",
+      "name": "Motor Aphasia",
+      "category": "DISEASE",
+      "subcategory": "PSYCHOLOGICAL",
+      "count": 1,
+      "contexts": [
+        "loss of speech production ability"
+      ],
+      "variants": [
+        "Motor Aphasia"
+      ]
+    },
+    {
+      "id": "sight-centre",
+      "name": "sight-centre",
+      "category": "ANATOMY",
+      "subcategory": "BRAIN_REGION",
+      "count": 1,
+      "contexts": [
+        "brain area for vision"
+      ],
+      "variants": [
+        "sight-centre"
+      ]
+    },
+    {
+      "id": "mental_blindness",
+      "name": "Mental blindness",
+      "category": "DISEASE",
+      "subcategory": "PSYCHOLOGICAL",
+      "count": 1,
+      "contexts": [
+        "inability to recognize objects visually"
+      ],
+      "variants": [
+        "Mental blindness"
+      ]
+    },
+    {
+      "id": "hearing-centre",
+      "name": "hearing-centre",
+      "category": "ANATOMY",
+      "subcategory": "BRAIN_REGION",
+      "count": 1,
+      "contexts": [
+        "brain area for auditory processing"
+      ],
+      "variants": [
+        "hearing-centre"
+      ]
+    },
+    {
+      "id": "sensory_aphasia",
+      "name": "Sensory Aphasia",
+      "category": "DISEASE",
+      "subcategory": "PSYCHOLOGICAL",
+      "count": 1,
+      "contexts": [
+        "difficulty understanding spoken words"
+      ],
+      "variants": [
+        "Sensory Aphasia"
+      ]
+    },
+    {
+      "id": "smell",
+      "name": "smell",
+      "category": "ANATOMY",
+      "subcategory": "BODY_PART",
+      "count": 1,
+      "contexts": [
+        "sense of olfaction"
+      ],
+      "variants": [
+        "smell"
+      ]
+    },
+    {
+      "id": "taste",
+      "name": "taste",
+      "category": "ANATOMY",
+      "subcategory": "BODY_PART",
+      "count": 1,
+      "contexts": [
+        "sense of flavor"
+      ],
+      "variants": [
+        "taste"
+      ]
+    },
+    {
+      "id": "touch-centre",
+      "name": "touch-centre",
+      "category": "ANATOMY",
+      "subcategory": "BRAIN_REGION",
+      "count": 1,
+      "contexts": [
+        "brain area for tactile sensation"
+      ],
+      "variants": [
+        "touch-centre"
+      ]
+    },
+    {
+      "id": "stimuli",
+      "name": "Stimuli",
+      "category": "CONCEPT",
+      "subcategory": "OTHER_CONCEPT",
+      "count": 1,
+      "contexts": [
+        "agents causing a physiological or psychological response"
+      ],
+      "variants": [
+        "Stimuli"
+      ]
+    },
+    {
+      "id": "cerebral_blood-supply",
+      "name": "Cerebral blood-supply",
+      "category": "ANATOMY",
+      "subcategory": "FLUID",
+      "count": 1,
+      "contexts": [
+        "blood flow to the brain"
+      ],
+      "variants": [
+        "Cerebral blood-supply"
+      ]
+    },
+    {
+      "id": "cerebral_thermometry",
+      "name": "Cerebral Thermometry",
+      "category": "PRACTICE",
+      "subcategory": "OTHER_PRACTICE",
+      "count": 1,
+      "contexts": [
+        "measuring brain temperature"
+      ],
+      "variants": [
+        "Cerebral Thermometry"
+      ]
+    },
+    {
+      "id": "phosphorus",
+      "name": "Phosphorus",
+      "category": "SUBSTANCE",
+      "subcategory": "CHEMICAL",
+      "count": 1,
+      "contexts": [
+        "chemical element linked to thought"
+      ],
+      "variants": [
+        "Phosphorus"
+      ]
+    },
+    {
+      "id": "habit",
+      "name": "Habit",
+      "category": "CONCEPT",
+      "subcategory": "MENTAL_FACULTY",
+      "count": 1,
+      "contexts": [
+        "learned automatic behavior"
+      ],
+      "variants": [
+        "Habit"
+      ]
+    },
+    {
+      "id": "neural_matter",
+      "name": "neural matter",
+      "category": "ANATOMY",
+      "subcategory": "TISSUE",
+      "count": 1,
+      "contexts": [
+        "substance of nerves"
+      ],
+      "variants": [
+        "neural matter"
+      ]
+    },
+    {
+      "id": "automaton-theory",
+      "name": "AUTOMATON-THEORY",
+      "category": "CONCEPT",
+      "subcategory": "THEORY",
+      "count": 1,
+      "contexts": [
+        "theory of mechanical functioning"
+      ],
+      "variants": [
+        "AUTOMATON-THEORY"
+      ]
+    },
+    {
+      "id": "mind-stuff_theory",
+      "name": "MIND-STUFF THEORY",
+      "category": "CONCEPT",
+      "subcategory": "THEORY",
+      "count": 1,
+      "contexts": [
+        "theory of mental substance"
+      ],
+      "variants": [
+        "MIND-STUFF THEORY"
+      ]
+    },
+    {
+      "id": "evolutionary_psychology",
+      "name": "Evolutionary Psychology",
+      "category": "CONCEPT",
+      "subcategory": "OTHER_CONCEPT",
+      "count": 1,
+      "contexts": [
+        "psychology considering evolutionary principles"
+      ],
+      "variants": [
+        "Evolutionary Psychology"
+      ]
+    },
+    {
+      "id": "natural_science",
+      "name": "natural Science",
+      "category": "CONCEPT",
+      "subcategory": "OTHER_CONCEPT",
+      "count": 1,
+      "contexts": [
+        "science of the natural world"
+      ],
+      "variants": [
+        "natural Science"
+      ]
+    },
+    {
+      "id": "introspection",
+      "name": "Introspection",
+      "category": "PRACTICE",
+      "subcategory": "OTHER_PRACTICE",
+      "count": 1,
+      "contexts": [
+        "examination of one's own thoughts"
+      ],
+      "variants": [
+        "Introspection"
+      ]
+    },
+    {
+      "id": "psychologist's_fallacy",
+      "name": "Psychologist's fallacy",
+      "category": "CONCEPT",
+      "subcategory": "OTHER_CONCEPT",
+      "count": 1,
+      "contexts": [
+        "error in psychological observation"
+      ],
+      "variants": [
+        "Psychologist's fallacy"
+      ]
+    },
+    {
+      "id": "descartes",
+      "name": "Descartes",
+      "category": "PERSON",
+      "subcategory": "AUTHORITY",
+      "count": 1,
+      "contexts": [
+        "philosopher on mind-body dualism"
+      ],
+      "variants": [
+        "Descartes"
+      ]
+    },
+    {
+      "id": "unconsciousness",
+      "name": "unconsciousness",
+      "category": "DISEASE",
+      "subcategory": "PSYCHOLOGICAL",
+      "count": 1,
+      "contexts": [
+        "lack of awareness"
+      ],
+      "variants": [
+        "unconsciousness"
+      ]
+    },
+    {
+      "id": "hysterics",
+      "name": "hysterics",
+      "category": "DISEASE",
+      "subcategory": "CHRONIC",
+      "count": 1,
+      "contexts": [
+        "nervous disorder with emotional outbursts"
+      ],
+      "variants": [
+        "hysterics"
+      ]
+    },
+    {
+      "id": "minds",
+      "name": "Minds",
+      "category": "CONCEPT",
+      "subcategory": "OTHER_CONCEPT",
+      "count": 1,
+      "contexts": [
+        "mental faculties and consciousness"
+      ],
+      "variants": [
+        "Minds"
+      ]
+    },
+    {
+      "id": "cognitive",
+      "name": "Cognitive",
+      "category": "CONCEPT",
+      "subcategory": "OTHER_CONCEPT",
+      "count": 1,
+      "contexts": [
+        "relating to mental processes"
+      ],
+      "variants": [
+        "Cognitive"
+      ]
+    },
+    {
+      "id": "knowledge",
+      "name": "knowledge",
+      "category": "CONCEPT",
+      "subcategory": "OTHER_CONCEPT",
+      "count": 1,
+      "contexts": [
+        "understanding gained through experience"
+      ],
+      "variants": [
+        "knowledge"
+      ]
+    },
+    {
+      "id": "stream_of_thought",
+      "name": "STREAM OF THOUGHT",
+      "category": "CONCEPT",
+      "subcategory": "OTHER_CONCEPT",
+      "count": 1,
+      "contexts": [
+        "continuous flow of mental activity"
+      ],
+      "variants": [
+        "STREAM OF THOUGHT"
+      ]
+    },
+    {
+      "id": "emotions_of_self",
+      "name": "Emotions of Self",
+      "category": "CONCEPT",
+      "subcategory": "OTHER_CONCEPT",
+      "count": 1,
+      "contexts": [
+        "feelings related to the self"
+      ],
+      "variants": [
+        "Emotions of Self"
+      ]
+    },
+    {
+      "id": "pure_ego",
+      "name": "Pure Ego",
+      "category": "CONCEPT",
+      "subcategory": "OTHER_CONCEPT",
+      "count": 1,
+      "contexts": [
+        "ground of personal identity"
+      ],
+      "variants": [
+        "Pure Ego"
+      ]
+    },
+    {
+      "id": "associationist_theory",
+      "name": "Associationist theory",
+      "category": "CONCEPT",
+      "subcategory": "SCHOOL_OF_THOUGHT",
+      "count": 1,
+      "contexts": [
+        "theory of self-consciousness"
+      ],
+      "variants": [
+        "Associationist theory"
+      ]
+    },
+    {
+      "id": "insane_delusions",
+      "name": "Insane delusions",
+      "category": "DISEASE",
+      "subcategory": "PSYCHOLOGICAL",
+      "count": 1,
+      "contexts": [
+        "mutations of the self"
+      ],
+      "variants": [
+        "Insane delusions"
+      ]
+    },
+    {
+      "id": "alternating_selves",
+      "name": "Alternating selves",
+      "category": "DISEASE",
+      "subcategory": "PSYCHOLOGICAL",
+      "count": 1,
+      "contexts": [
+        "mutations of the self"
+      ],
+      "variants": [
+        "Alternating selves"
+      ]
+    },
+    {
+      "id": "mediumships",
+      "name": "Mediumships",
+      "category": "DISEASE",
+      "subcategory": "PSYCHOLOGICAL",
+      "count": 1,
+      "contexts": [
+        "mutations of the self"
+      ],
+      "variants": [
+        "Mediumships"
+      ]
+    },
+    {
+      "id": "possessions",
+      "name": "possessions",
+      "category": "DISEASE",
+      "subcategory": "PSYCHOLOGICAL",
+      "count": 1,
+      "contexts": [
+        "mutations of the self"
+      ],
+      "variants": [
+        "possessions"
+      ]
+    },
+    {
+      "id": "english_psychologists",
+      "name": "English psychologists",
+      "category": "PERSON",
+      "subcategory": "OTHER_PERSON",
+      "count": 1,
+      "contexts": [
+        "neglected attention"
+      ],
+      "variants": [
+        "English psychologists"
+      ]
+    },
+    {
+      "id": "sensation",
+      "name": "sensation",
+      "category": "CONCEPT",
+      "subcategory": "OTHER_CONCEPT",
+      "count": 1,
+      "contexts": [
+        "affected by attention"
+      ],
+      "variants": [
+        "sensation"
+      ]
+    },
+    {
+      "id": "recollection",
+      "name": "recollection",
+      "category": "CONCEPT",
+      "subcategory": "COGNITIVE_PROCESS",
+      "count": 1,
+      "contexts": [
+        "affected by attention"
+      ],
+      "variants": [
+        "recollection"
+      ]
+    },
+    {
+      "id": "neural_process",
+      "name": "neural process",
+      "category": "ANATOMY",
+      "subcategory": "TISSUE",
+      "count": 1,
+      "contexts": [
+        "in attention"
+      ],
+      "variants": [
+        "neural process"
+      ]
+    },
+    {
+      "id": "sense-organ",
+      "name": "sense-organ",
+      "category": "ANATOMY",
+      "subcategory": "BODY_PART",
+      "count": 1,
+      "contexts": [
+        "accommodation in attention"
+      ],
+      "variants": [
+        "sense-organ"
+      ]
+    },
+    {
+      "id": "martineau",
+      "name": "Martineau",
+      "category": "PERSON",
+      "subcategory": "SCHOLAR",
+      "count": 1,
+      "contexts": [
+        "philosopher on discrimination"
+      ],
+      "variants": [
+        "Martineau"
+      ]
+    },
+    {
+      "id": "weber's_law",
+      "name": "Weber's law",
+      "category": "CONCEPT",
+      "subcategory": "THEORY",
+      "count": 1,
+      "contexts": [
+        "law of discriminative sensibility measurement"
+      ],
+      "variants": [
+        "Weber's law"
+      ]
+    },
+    {
+      "id": "fechner",
+      "name": "Fechner",
+      "category": "PERSON",
+      "subcategory": "SCHOLAR",
+      "count": 1,
+      "contexts": [
+        "interpreted Weber's law as psycho-physic law"
+      ],
+      "variants": [
+        "Fechner"
+      ]
+    },
+    {
+      "id": "psycho-physic_law",
+      "name": "psycho-physic law",
+      "category": "CONCEPT",
+      "subcategory": "THEORY",
+      "count": 1,
+      "contexts": [
+        "Fechner's interpretation of Weber's law"
+      ],
+      "variants": [
+        "psycho-physic law"
+      ]
+    },
+    {
+      "id": "sensations",
+      "name": "sensations",
+      "category": "CONCEPT",
+      "subcategory": "OTHER_CONCEPT",
+      "count": 1,
+      "contexts": [
+        "raw input from senses"
+      ],
+      "variants": [
+        "sensations"
+      ]
+    },
+    {
+      "id": "differences",
+      "name": "differences",
+      "category": "CONCEPT",
+      "subcategory": "OTHER_CONCEPT",
+      "count": 1,
+      "contexts": [
+        "distinctions between things"
+      ],
+      "variants": [
+        "differences"
+      ]
+    },
+    {
+      "id": "analysis",
+      "name": "analysis",
+      "category": "CONCEPT",
+      "subcategory": "COGNITIVE_PROCESS",
+      "count": 1,
+      "contexts": [
+        "breaking down into parts"
+      ],
+      "variants": [
+        "analysis"
+      ]
+    },
+    {
+      "id": "abstraction",
+      "name": "abstraction",
+      "category": "CONCEPT",
+      "subcategory": "COGNITIVE_PROCESS",
+      "count": 1,
+      "contexts": [
+        "forming general ideas"
+      ],
+      "variants": [
+        "abstraction"
+      ]
+    },
+    {
+      "id": "practice",
+      "name": "practice",
+      "category": "CONCEPT",
+      "subcategory": "OTHER_CONCEPT",
+      "count": 1,
+      "contexts": [
+        "repeated exercise of a skill"
+      ],
+      "variants": [
+        "practice"
+      ]
+    },
+    {
+      "id": "interests",
+      "name": "interests",
+      "category": "CONCEPT",
+      "subcategory": "OTHER_CONCEPT",
+      "count": 1,
+      "contexts": [
+        "things that capture attention"
+      ],
+      "variants": [
+        "interests"
+      ]
+    },
+    {
+      "id": "perception",
+      "name": "perception",
+      "category": "CONCEPT",
+      "subcategory": "COGNITIVE_PROCESS",
+      "count": 1,
+      "contexts": [
+        "interpreting sensory information"
+      ],
+      "variants": [
+        "perception"
+      ]
+    },
+    {
+      "id": "likeness",
+      "name": "likeness",
+      "category": "CONCEPT",
+      "subcategory": "OTHER_CONCEPT",
+      "count": 1,
+      "contexts": [
+        "quality of being similar"
+      ],
+      "variants": [
+        "likeness"
+      ]
+    },
+    {
+      "id": "magnitude",
+      "name": "magnitude",
+      "category": "CONCEPT",
+      "subcategory": "OTHER_CONCEPT",
+      "count": 1,
+      "contexts": [
+        "size or extent"
+      ],
+      "variants": [
+        "magnitude"
+      ]
+    },
+    {
+      "id": "discriminative_sensibility",
+      "name": "discriminative sensibility",
+      "category": "CONCEPT",
+      "subcategory": "OTHER_CONCEPT",
+      "count": 1,
+      "contexts": [
+        "ability to detect small differences"
+      ],
+      "variants": [
+        "discriminative sensibility"
+      ]
+    },
+    {
+      "id": "thoughts",
+      "name": "thoughts",
+      "category": "CONCEPT",
+      "subcategory": "OTHER_CONCEPT",
+      "count": 1,
+      "contexts": [
+        "mental activity"
+      ],
+      "variants": [
+        "thoughts"
+      ]
+    },
+    {
+      "id": "mechanical_conditions",
+      "name": "mechanical conditions",
+      "category": "CONCEPT",
+      "subcategory": "OTHER_CONCEPT",
+      "count": 1,
+      "contexts": [
+        "physical or causal factors"
+      ],
+      "variants": [
+        "mechanical conditions"
+      ]
+    },
+    {
+      "id": "objects",
+      "name": "objects",
+      "category": "CONCEPT",
+      "subcategory": "OTHER_CONCEPT",
+      "count": 1,
+      "contexts": [
+        "things perceived or thought about"
+      ],
+      "variants": [
+        "objects"
+      ]
+    },
+    {
+      "id": "law_of_contiguity",
+      "name": "law of contiguity",
+      "category": "CONCEPT",
+      "subcategory": "THEORY",
+      "count": 1,
+      "contexts": [
+        "association based on closeness"
+      ],
+      "variants": [
+        "law of contiguity"
+      ]
+    },
+    {
+      "id": "elementary_law_of_association",
+      "name": "elementary law of association",
+      "category": "CONCEPT",
+      "subcategory": "THEORY",
+      "count": 1,
+      "contexts": [
+        "basic principle of association"
+      ],
+      "variants": [
+        "elementary law of association"
+      ]
+    },
+    {
+      "id": "redintegration",
+      "name": "redintegration",
+      "category": "CONCEPT",
+      "subcategory": "COGNITIVE_PROCESS",
+      "count": 1,
+      "contexts": [
+        "reconstruction of past experiences"
+      ],
+      "variants": [
+        "redintegration"
+      ]
+    },
+    {
+      "id": "ordinary_association",
+      "name": "ordinary association",
+      "category": "CONCEPT",
+      "subcategory": "OTHER_CONCEPT",
+      "count": 1,
+      "contexts": [
+        "common types of association"
+      ],
+      "variants": [
+        "ordinary association"
+      ]
+    },
+    {
+      "id": "mixed_association",
+      "name": "mixed association",
+      "category": "CONCEPT",
+      "subcategory": "OTHER_CONCEPT",
+      "count": 1,
+      "contexts": [
+        "combination of association types"
+      ],
+      "variants": [
+        "mixed association"
+      ]
+    },
+    {
+      "id": "law_of_interest",
+      "name": "law of interest",
+      "category": "CONCEPT",
+      "subcategory": "THEORY",
+      "count": 1,
+      "contexts": [
+        "association based on importance"
+      ],
+      "variants": [
+        "law of interest"
+      ]
+    },
+    {
+      "id": "similarity",
+      "name": "similarity",
+      "category": "CONCEPT",
+      "subcategory": "OTHER_CONCEPT",
+      "count": 1,
+      "contexts": [
+        "quality of being alike"
+      ],
+      "variants": [
+        "similarity"
+      ]
+    },
+    {
+      "id": "voluntary_thought",
+      "name": "voluntary thought",
+      "category": "CONCEPT",
+      "subcategory": "OTHER_CONCEPT",
+      "count": 1,
+      "contexts": [
+        "directed mental activity"
+      ],
+      "variants": [
+        "voluntary thought"
+      ]
+    },
+    {
+      "id": "doctrine_of_association",
+      "name": "doctrine of association",
+      "category": "CONCEPT",
+      "subcategory": "SCHOOL_OF_THOUGHT",
+      "count": 1,
+      "contexts": [
+        "historical development of associationism"
+      ],
+      "variants": [
+        "doctrine of association"
+      ]
+    },
+    {
+      "id": "time-perception",
+      "name": "time-perception",
+      "category": "CONCEPT",
+      "subcategory": "OTHER_CONCEPT",
+      "count": 1,
+      "contexts": [
+        "awareness of duration"
+      ],
+      "variants": [
+        "time-perception"
+      ]
+    },
+    {
+      "id": "sensible_present",
+      "name": "sensible present",
+      "category": "CONCEPT",
+      "subcategory": "OTHER_CONCEPT",
+      "count": 1,
+      "contexts": [
+        "immediate experience of time"
+      ],
+      "variants": [
+        "sensible present"
+      ]
+    },
+    {
+      "id": "durations",
+      "name": "durations",
+      "category": "CONCEPT",
+      "subcategory": "OTHER_CONCEPT",
+      "count": 1,
+      "contexts": [
+        "lengths of time"
+      ],
+      "variants": [
+        "durations"
+      ]
+    },
+    {
+      "id": "time-estimate",
+      "name": "time-estimate",
+      "category": "CONCEPT",
+      "subcategory": "OTHER_CONCEPT",
+      "count": 1,
+      "contexts": [
+        "judgment of duration"
+      ],
+      "variants": [
+        "time-estimate"
+      ]
+    },
+    {
+      "id": "past_time",
+      "name": "past time",
+      "category": "CONCEPT",
+      "subcategory": "OTHER_CONCEPT",
+      "count": 1,
+      "contexts": [
+        "time that has elapsed"
+      ],
+      "variants": [
+        "past time"
+      ]
+    },
+    {
+      "id": "feeling",
+      "name": "feeling",
+      "category": "CONCEPT",
+      "subcategory": "OTHER_CONCEPT",
+      "count": 1,
+      "contexts": [
+        "emotional or sensory experience"
+      ],
+      "variants": [
+        "feeling"
+      ]
+    },
+    {
+      "id": "cerebral_process",
+      "name": "cerebral process",
+      "category": "ANATOMY",
+      "subcategory": "OTHER_ANATOMY",
+      "count": 1,
+      "contexts": [
+        "activity within the brain"
+      ],
+      "variants": [
+        "cerebral process"
+      ]
+    },
+    {
+      "id": "primary_memory",
+      "name": "Primary memory",
+      "category": "CONCEPT",
+      "subcategory": "MENTAL_FACULTY",
+      "count": 1,
+      "contexts": [
+        "immediate recall of information"
+      ],
+      "variants": [
+        "Primary memory"
+      ]
+    },
+    {
+      "id": "retention",
+      "name": "Retention",
+      "category": "CONCEPT",
+      "subcategory": "MENTAL_FACULTY",
+      "count": 1,
+      "contexts": [
+        "holding information in memory"
+      ],
+      "variants": [
+        "Retention"
+      ]
+    },
+    {
+      "id": "reproduction",
+      "name": "reproduction",
+      "category": "CONCEPT",
+      "subcategory": "MENTAL_FACULTY",
+      "count": 1,
+      "contexts": [
+        "recalling stored information"
+      ],
+      "variants": [
+        "reproduction"
+      ]
+    },
+    {
+      "id": "paths_of_association",
+      "name": "paths of association",
+      "category": "ANATOMY",
+      "subcategory": "TISSUE",
+      "count": 1,
+      "contexts": [
+        "neural connections for memory"
+      ],
+      "variants": [
+        "paths of association"
+      ]
+    },
+    {
+      "id": "retentiveness",
+      "name": "retentiveness",
+      "category": "CONCEPT",
+      "subcategory": "MENTAL_FACULTY",
+      "count": 1,
+      "contexts": [
+        "capacity for remembering"
+      ],
+      "variants": [
+        "retentiveness"
+      ]
+    },
+    {
+      "id": "thinking",
+      "name": "thinking",
+      "category": "CONCEPT",
+      "subcategory": "COGNITIVE_PROCESS",
+      "count": 1,
+      "contexts": [
+        "mental process of forming thoughts"
+      ],
+      "variants": [
+        "thinking"
+      ]
+    },
+    {
+      "id": "recognition",
+      "name": "Recognition",
+      "category": "CONCEPT",
+      "subcategory": "COGNITIVE_PROCESS",
+      "count": 1,
+      "contexts": [
+        "identifying something previously encountered"
+      ],
+      "variants": [
+        "Recognition"
+      ]
+    },
+    {
+      "id": "familiarity",
+      "name": "familiarity",
+      "category": "CONCEPT",
+      "subcategory": "OTHER_CONCEPT",
+      "count": 1,
+      "contexts": [
+        "feeling of knowing"
+      ],
+      "variants": [
+        "familiarity"
+      ]
+    },
+    {
+      "id": "forgetting",
+      "name": "Forgetting",
+      "category": "DISEASE",
+      "subcategory": "PSYCHOLOGICAL",
+      "count": 1,
+      "contexts": [
+        "loss of memory"
+      ],
+      "variants": [
+        "Forgetting"
+      ]
+    },
+    {
+      "id": "pathological_cases",
+      "name": "Pathological cases",
+      "category": "DISEASE",
+      "subcategory": "OTHER_DISEASE",
+      "count": 1,
+      "contexts": [
+        "cases of abnormal conditions"
+      ],
+      "variants": [
+        "Pathological cases"
+      ]
+    },
+    {
+      "id": "conceptions",
+      "name": "Conceptions",
+      "category": "CONCEPT",
+      "subcategory": "OTHER_CONCEPT",
+      "count": 1,
+      "contexts": [
+        "mental grasp of ideas"
+      ],
+      "variants": [
+        "Conceptions"
+      ]
+    },
+    {
+      "id": "state_of_mind",
+      "name": "state of mind",
+      "category": "CONCEPT",
+      "subcategory": "OTHER_CONCEPT",
+      "count": 1,
+      "contexts": [
+        "mental condition"
+      ],
+      "variants": [
+        "state of mind"
+      ]
+    },
+    {
+      "id": "mental_life",
+      "name": "Mental Life",
+      "category": "CONCEPT",
+      "subcategory": "OTHER_CONCEPT",
+      "count": 1,
+      "contexts": [
+        "phenomena and their conditions"
+      ],
+      "variants": [
+        "Mental Life"
+      ]
+    },
+    {
+      "id": "feelings",
+      "name": "feelings",
+      "category": "CONCEPT",
+      "subcategory": "OTHER_CONCEPT",
+      "count": 1,
+      "contexts": [
+        "mental phenomena"
+      ],
+      "variants": [
+        "feelings"
+      ]
+    },
+    {
+      "id": "desires",
+      "name": "desires",
+      "category": "CONCEPT",
+      "subcategory": "OTHER_CONCEPT",
+      "count": 1,
+      "contexts": [
+        "mental phenomena"
+      ],
+      "variants": [
+        "desires"
+      ]
+    },
+    {
+      "id": "cognitions",
+      "name": "cognitions",
+      "category": "CONCEPT",
+      "subcategory": "OTHER_CONCEPT",
+      "count": 1,
+      "contexts": [
+        "mental phenomena"
+      ],
+      "variants": [
+        "cognitions"
+      ]
+    },
+    {
+      "id": "reasonings",
+      "name": "reasonings",
+      "category": "CONCEPT",
+      "subcategory": "COGNITIVE_PROCESS",
+      "count": 1,
+      "contexts": [
+        "mental phenomena"
+      ],
+      "variants": [
+        "reasonings"
+      ]
+    },
+    {
+      "id": "decisions",
+      "name": "decisions",
+      "category": "CONCEPT",
+      "subcategory": "OTHER_CONCEPT",
+      "count": 1,
+      "contexts": [
+        "mental phenomena"
+      ],
+      "variants": [
+        "decisions"
+      ]
+    },
+    {
+      "id": "reasoning",
+      "name": "Reasoning",
+      "category": "CONCEPT",
+      "subcategory": "COGNITIVE_PROCESS",
+      "count": 1,
+      "contexts": [
+        "Soul's faculty"
+      ],
+      "variants": [
+        "Reasoning"
+      ]
+    },
+    {
+      "id": "volition",
+      "name": "Volition",
+      "category": "CONCEPT",
+      "subcategory": "MENTAL_FACULTY",
+      "count": 1,
+      "contexts": [
+        "Soul's faculty"
+      ],
+      "variants": [
+        "Volition"
+      ]
+    },
+    {
+      "id": "imagination",
+      "name": "Imagination",
+      "category": "CONCEPT",
+      "subcategory": "MENTAL_FACULTY",
+      "count": 1,
+      "contexts": [
+        "Soul's faculty"
+      ],
+      "variants": [
+        "Imagination"
+      ]
+    },
+    {
+      "id": "appetite",
+      "name": "Appetite",
+      "category": "CONCEPT",
+      "subcategory": "OTHER_CONCEPT",
+      "count": 1,
+      "contexts": [
+        "Soul's faculty"
+      ],
+      "variants": [
+        "Appetite"
+      ]
+    },
+    {
+      "id": "spiritualistic'_theory",
+      "name": "spiritualistic' theory",
+      "category": "CONCEPT",
+      "subcategory": "SCHOOL_OF_THOUGHT",
+      "count": 1,
+      "contexts": [
+        "theory of Soul and its faculties"
+      ],
+      "variants": [
+        "spiritualistic' theory"
+      ]
+    },
+    {
+      "id": "scholasticism",
+      "name": "scholasticism",
+      "category": "CONCEPT",
+      "subcategory": "SCHOOL_OF_THOUGHT",
+      "count": 1,
+      "contexts": [
+        "intellectual tradition"
+      ],
+      "variants": [
+        "scholasticism"
+      ]
+    },
+    {
+      "id": "associationist'_schools",
+      "name": "associationist' schools",
+      "category": "CONCEPT",
+      "subcategory": "SCHOOL_OF_THOUGHT",
+      "count": 1,
+      "contexts": [
+        "schools explaining mental facts by elements"
+      ],
+      "variants": [
+        "associationist' schools"
+      ]
+    },
+    {
+      "id": "herbart",
+      "name": "Herbart",
+      "category": "PERSON",
+      "subcategory": "SCHOLAR",
+      "count": 1,
+      "contexts": [
+        "associationist in Germany"
+      ],
+      "variants": [
+        "Herbart"
+      ]
+    },
+    {
+      "id": "germany",
+      "name": "Germany",
+      "category": "PLACE",
+      "subcategory": "COUNTRY",
+      "count": 1,
+      "contexts": [
+        "location of Herbart's school"
+      ],
+      "variants": [
+        "Germany"
+      ]
+    },
+    {
+      "id": "hume",
+      "name": "Hume",
+      "category": "PERSON",
+      "subcategory": "SCHOLAR",
+      "count": 1,
+      "contexts": [
+        "associationist in Britain"
+      ],
+      "variants": [
+        "Hume"
+      ]
+    },
+    {
+      "id": "the_mills",
+      "name": "the Mills",
+      "category": "PERSON",
+      "subcategory": "SCHOLAR",
+      "count": 1,
+      "contexts": [
+        "associationists in Britain"
+      ],
+      "variants": [
+        "the Mills"
+      ]
+    },
+    {
+      "id": "bain",
+      "name": "Bain",
+      "category": "PERSON",
+      "subcategory": "SCHOLAR",
+      "count": 1,
+      "contexts": [
+        "associationist in Britain"
+      ],
+      "variants": [
+        "Bain"
+      ]
+    },
+    {
+      "id": "britain",
+      "name": "Britain",
+      "category": "PLACE",
+      "subcategory": "COUNTRY",
+      "count": 1,
+      "contexts": [
+        "location of Hume, Mills, Bain"
+      ],
+      "variants": [
+        "Britain"
+      ]
+    },
+    {
+      "id": "psychology_without_a_soul",
+      "name": "psychology without a soul",
+      "category": "CONCEPT",
+      "subcategory": "OTHER_CONCEPT",
+      "count": 1,
+      "contexts": [
+        "psychology based on elements, not soul"
+      ],
+      "variants": [
+        "psychology without a soul"
+      ]
+    },
+    {
+      "id": "reminiscences",
+      "name": "reminiscences",
+      "category": "CONCEPT",
+      "subcategory": "OTHER_CONCEPT",
+      "count": 1,
+      "contexts": [
+        "engendered by idea cohesion"
+      ],
+      "variants": [
+        "reminiscences"
+      ]
+    },
+    {
+      "id": "perceptions",
+      "name": "perceptions",
+      "category": "CONCEPT",
+      "subcategory": "COGNITIVE_PROCESS",
+      "count": 1,
+      "contexts": [
+        "engendered by idea cohesion"
+      ],
+      "variants": [
+        "perceptions"
+      ]
+    },
+    {
+      "id": "emotions",
+      "name": "emotions",
+      "category": "CONCEPT",
+      "subcategory": "OTHER_CONCEPT",
+      "count": 1,
+      "contexts": [
+        "engendered by idea cohesion"
+      ],
+      "variants": [
+        "emotions"
+      ]
+    },
+    {
+      "id": "volitions",
+      "name": "volitions",
+      "category": "CONCEPT",
+      "subcategory": "MENTAL_FACULTY",
+      "count": 1,
+      "contexts": [
+        "engendered by idea cohesion"
+      ],
+      "variants": [
+        "volitions"
+      ]
+    },
+    {
+      "id": "passions",
+      "name": "passions",
+      "category": "CONCEPT",
+      "subcategory": "OTHER_CONCEPT",
+      "count": 1,
+      "contexts": [
+        "engendered by idea cohesion"
+      ],
+      "variants": [
+        "passions"
+      ]
+    },
+    {
+      "id": "theories",
+      "name": "theories",
+      "category": "CONCEPT",
+      "subcategory": "OTHER_CONCEPT",
+      "count": 1,
+      "contexts": [
+        "engendered by idea cohesion"
+      ],
+      "variants": [
+        "theories"
+      ]
+    },
+    {
+      "id": "soul-theory",
+      "name": "soul-theory",
+      "category": "CONCEPT",
+      "subcategory": "THEORY",
+      "count": 1,
+      "contexts": [
+        "explanation based on soul faculties"
+      ],
+      "variants": [
+        "soul-theory"
+      ]
+    },
+    {
+      "id": "cognition",
+      "name": "Cognition",
+      "category": "CONCEPT",
+      "subcategory": "MENTAL_FACULTY",
+      "count": 1,
+      "contexts": [
+        "faculty of knowing and understanding"
+      ],
+      "variants": [
+        "Cognition"
+      ]
+    },
+    {
+      "id": "recollective_power",
+      "name": "Recollective Power",
+      "category": "CONCEPT",
+      "subcategory": "MENTAL_FACULTY",
+      "count": 1,
+      "contexts": [
+        "essence of remembering"
+      ],
+      "variants": [
+        "Recollective Power"
+      ]
+    },
+    {
+      "id": "spiritualists",
+      "name": "spiritualists",
+      "category": "CONCEPT",
+      "subcategory": "SCHOOL_OF_THOUGHT",
+      "count": 1,
+      "contexts": [
+        "adherents of the soul-theory"
+      ],
+      "variants": [
+        "spiritualists"
+      ]
+    },
+    {
+      "id": "illness",
+      "name": "illness",
+      "category": "DISEASE",
+      "subcategory": "OTHER_DISEASE",
+      "count": 1,
+      "contexts": [
+        "condition that enfeebles memory"
+      ],
+      "variants": [
+        "illness"
+      ]
+    },
+    {
+      "id": "fevers",
+      "name": "fevers",
+      "category": "DISEASE",
+      "subcategory": "ACUTE",
+      "count": 1,
+      "contexts": [
+        "condition that can resuscitate memories"
+      ],
+      "variants": [
+        "fevers"
+      ]
+    },
+    {
+      "id": "asphyxia",
+      "name": "asphyxia",
+      "category": "DISEASE",
+      "subcategory": "OTHER_DISEASE",
+      "count": 1,
+      "contexts": [
+        "condition that can resuscitate memories"
+      ],
+      "variants": [
+        "asphyxia"
+      ]
+    },
+    {
+      "id": "faculty",
+      "name": "faculty",
+      "category": "CONCEPT",
+      "subcategory": "OTHER_CONCEPT",
+      "count": 1,
+      "contexts": [
+        "mental capacity or power"
+      ],
+      "variants": [
+        "faculty"
+      ]
+    },
+    {
+      "id": "remembering_faculty",
+      "name": "remembering faculty",
+      "category": "CONCEPT",
+      "subcategory": "MENTAL_FACULTY",
+      "count": 1,
+      "contexts": [
+        "ability to recall past events"
+      ],
+      "variants": [
+        "remembering faculty"
+      ]
+    },
+    {
+      "id": "cue",
+      "name": "cue",
+      "category": "CONCEPT",
+      "subcategory": "OTHER_CONCEPT",
+      "count": 1,
+      "contexts": [
+        "stimulus that triggers recall"
+      ],
+      "variants": [
+        "cue"
+      ]
+    },
+    {
+      "id": "idea",
+      "name": "idea",
+      "category": "CONCEPT",
+      "subcategory": "OTHER_CONCEPT",
+      "count": 1,
+      "contexts": [
+        "mental representation or thought"
+      ],
+      "variants": [
+        "idea"
+      ]
+    },
+    {
+      "id": "fever",
+      "name": "fever",
+      "category": "DISEASE",
+      "subcategory": "ACUTE",
+      "count": 1,
+      "contexts": [
+        "elevated body temperature"
+      ],
+      "variants": [
+        "fever"
+      ]
+    },
+    {
+      "id": "hypnotism",
+      "name": "hypnotism",
+      "category": "CONCEPT",
+      "subcategory": "OTHER_CONCEPT",
+      "count": 1,
+      "contexts": [
+        "induced state of altered consciousness"
+      ],
+      "variants": [
+        "hypnotism"
+      ]
+    },
+    {
+      "id": "old_age",
+      "name": "old age",
+      "category": "DISEASE",
+      "subcategory": "CHRONIC",
+      "count": 1,
+      "contexts": [
+        "natural decline with aging"
+      ],
+      "variants": [
+        "old age"
+      ]
+    },
+    {
+      "id": "order_of_experience",
+      "name": "order of experience",
+      "category": "CONCEPT",
+      "subcategory": "OTHER_CONCEPT",
+      "count": 1,
+      "contexts": [
+        "sequence of sensory input"
+      ],
+      "variants": [
+        "order of experience"
+      ]
+    },
+    {
+      "id": "outer_world",
+      "name": "outer world",
+      "category": "PLACE",
+      "subcategory": "OTHER_PLACE",
+      "count": 1,
+      "contexts": [
+        "external physical environment"
+      ],
+      "variants": [
+        "outer world"
+      ]
+    },
+    {
+      "id": "dance_of_the_ideas",
+      "name": "dance of the ideas",
+      "category": "CONCEPT",
+      "subcategory": "OTHER_CONCEPT",
+      "count": 1,
+      "contexts": [
+        "metaphor for mental associations"
+      ],
+      "variants": [
+        "dance of the ideas"
+      ]
+    },
+    {
+      "id": "order_of_phenomena",
+      "name": "order of phenomena",
+      "category": "CONCEPT",
+      "subcategory": "OTHER_CONCEPT",
+      "count": 1,
+      "contexts": [
+        "sequence of observable events"
+      ],
+      "variants": [
+        "order of phenomena"
+      ]
+    },
+    {
+      "id": "phenomena",
+      "name": "phenomena",
+      "category": "CONCEPT",
+      "subcategory": "OTHER_CONCEPT",
+      "count": 1,
+      "contexts": [
+        "observable events or facts"
+      ],
+      "variants": [
+        "phenomena"
+      ]
+    },
+    {
+      "id": "senses",
+      "name": "senses",
+      "category": "ANATOMY",
+      "subcategory": "OTHER_ANATOMY",
+      "count": 1,
+      "contexts": [
+        "organs of perception"
+      ],
+      "variants": [
+        "senses"
+      ]
+    },
+    {
+      "id": "body",
+      "name": "body",
+      "category": "ANATOMY",
+      "subcategory": "OTHER_ANATOMY",
+      "count": 1,
+      "contexts": [
+        "physical structure of a person"
+      ],
+      "variants": [
+        "body"
+      ]
+    },
+    {
+      "id": "nervous_communication",
+      "name": "nervous communication",
+      "category": "ANATOMY",
+      "subcategory": "TISSUE",
+      "count": 1,
+      "contexts": [
+        "transmission of signals in nerves"
+      ],
+      "variants": [
+        "nervous communication"
+      ]
+    },
+    {
+      "id": "eye",
+      "name": "eye",
+      "category": "ANATOMY",
+      "subcategory": "BODY_PART",
+      "count": 1,
+      "contexts": [
+        "organ of sight"
+      ],
+      "variants": [
+        "eye"
+      ]
+    },
+    {
+      "id": "ear",
+      "name": "ear",
+      "category": "ANATOMY",
+      "subcategory": "BODY_PART",
+      "count": 1,
+      "contexts": [
+        "organ of hearing"
+      ],
+      "variants": [
+        "ear"
+      ]
+    },
+    {
+      "id": "hand",
+      "name": "hand",
+      "category": "ANATOMY",
+      "subcategory": "BODY_PART",
+      "count": 1,
+      "contexts": [
+        "part of the arm used for grasping"
+      ],
+      "variants": [
+        "hand"
+      ]
+    },
+    {
+      "id": "organ",
+      "name": "organ",
+      "category": "ANATOMY",
+      "subcategory": "OTHER_ANATOMY",
+      "count": 1,
+      "contexts": [
+        "part of the body with a specific function"
+      ],
+      "variants": [
+        "organ"
+      ]
+    }
+  ],
+  "stats": {
+    "total_entities": 206,
+    "by_category": {
+      "CONCEPT": 121,
+      "ANATOMY": 23,
+      "PERSON": 29,
+      "ORGANIZATION": 7,
+      "OTHER_OBJECT": 1,
+      "DISEASE": 17,
+      "PLACE": 4,
+      "ANIMAL": 1,
+      "PRACTICE": 2,
+      "SUBSTANCE": 1
+    },
+    "by_subcategory": {
+      "OTHER_CONCEPT": 74,
+      "ORGAN": 1,
+      "OTHER_PERSON": 3,
+      "MENTAL_FACULTY": 15,
+      "JOURNAL": 3,
+      "SCHOOL_OF_THOUGHT": 9,
+      "COGNITIVE_PROCESS": 13,
+      "INSTITUTION": 1,
+      "OTHER_OBJECT": 1,
+      "SCHOLAR": 25,
+      "BRAIN_REGION": 6,
+      "THEORY": 10,
+      "OTHER_DISEASE": 4,
+      "CITY": 1,
+      "OTHER_ORGANIZATION": 3,
+      "OTHER_ANATOMY": 5,
+      "OTHER_ANIMAL": 1,
+      "PSYCHOLOGICAL": 9,
+      "BODY_PART": 6,
+      "FLUID": 1,
+      "OTHER_PRACTICE": 2,
+      "CHEMICAL": 1,
+      "TISSUE": 4,
+      "AUTHORITY": 1,
+      "CHRONIC": 2,
+      "COUNTRY": 2,
+      "ACUTE": 2,
+      "OTHER_PLACE": 1
+    },
+    "extraction_method": "gemini-2.5-flash-lite",
+    "chunks_processed": 10,
+    "chunks_failed": 0
+  }
+}
