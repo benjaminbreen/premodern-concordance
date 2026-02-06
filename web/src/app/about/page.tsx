@@ -9,10 +9,18 @@ interface ClusterSlim {
   members: { name: string; book_id: string }[];
 }
 
+const TICKER_FONTS = [
+  "inherit",
+  "'UnifrakturMaguntia', cursive",
+  "'EB Garamond', serif",
+  "'Space Grotesk', sans-serif",
+];
+
 function ConcordanceTicker() {
   const [names, setNames] = useState<string[]>([]);
   const [pool, setPool] = useState<ClusterSlim[]>([]);
   const [key, setKey] = useState(0);
+  const [fontIdx, setFontIdx] = useState(0);
   const lastIdx = useRef(-1);
 
   // Load cluster data once
@@ -71,7 +79,9 @@ function ConcordanceTicker() {
 
       <div
         key={key}
-        className="whitespace-nowrap animate-scroll-across"
+        className="whitespace-nowrap animate-scroll-across cursor-pointer"
+        style={{ fontFamily: TICKER_FONTS[fontIdx], transition: "font-family 0s" }}
+        onClick={() => setFontIdx((f) => (f + 1) % TICKER_FONTS.length)}
         onAnimationEnd={pickNext}
       >
         {names.map((name, i) => (
