@@ -115,6 +115,7 @@ def build_metadata(cluster: dict) -> dict:
         "note": gt.get("note", ""),
         "family": gt.get("family", ""),
         "semantic_gloss": gt.get("semantic_gloss", ""),
+        "portrait_url": gt.get("portrait_url", ""),
         # All name variants for lexical matching (capped at 30)
         "names": unique_names[:30],
     }

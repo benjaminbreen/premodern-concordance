@@ -37,6 +37,7 @@ interface GroundTruth {
   country?: string;
   modern_term?: string;
   note?: string;
+  portrait_url?: string;
 }
 
 interface Cluster {
@@ -455,7 +456,16 @@ export default function ConcordancePage() {
                 className="w-full px-4 py-3 flex items-center justify-between hover:bg-[var(--border)]/30 transition-colors text-left"
               >
                 <div className="flex items-center gap-3 flex-1 min-w-0">
-                  <span className={`w-2.5 h-2.5 rounded-full shrink-0 ${catColor?.dot || "bg-gray-400"}`} />
+                  {cluster.ground_truth?.portrait_url ? (
+                    // eslint-disable-next-line @next/next/no-img-element
+                    <img
+                      src={cluster.ground_truth.portrait_url}
+                      alt=""
+                      className="w-7 h-7 rounded-full object-cover shrink-0 border border-[var(--border)] bg-[var(--border)]"
+                    />
+                  ) : (
+                    <span className={`w-2.5 h-2.5 rounded-full shrink-0 ${catColor?.dot || "bg-gray-400"}`} />
+                  )}
                   <span className="font-semibold truncate">{cluster.canonical_name}</span>
                   {cluster.ground_truth && cluster.ground_truth.modern_name.toLowerCase() !== cluster.canonical_name.toLowerCase() && (
                     <span className="text-sm text-[var(--muted)] truncate">
@@ -494,10 +504,22 @@ export default function ConcordancePage() {
                   {/* Ground truth identification */}
                   {cluster.ground_truth && (
                     <div className="mt-4 p-3 rounded-lg bg-[var(--background)] border border-[var(--border)]">
-                      <div className="flex items-start gap-3">
-                        {cluster.ground_truth.wikipedia_url && (
+                      <div className="flex items-start gap-4">
+                        {cluster.ground_truth.portrait_url ? (
+                          <div className="shrink-0">
+                            {/* eslint-disable-next-line @next/next/no-img-element */}
+                            <img
+                              src={cluster.ground_truth.portrait_url}
+                              alt={cluster.ground_truth.modern_name}
+                              className="w-20 h-24 rounded object-cover border border-[var(--border)] bg-[var(--border)]"
+                            />
+                            <p className="text-[9px] text-[var(--muted)] mt-1 text-center opacity-50">
+                              Wikimedia Commons
+                            </p>
+                          </div>
+                        ) : cluster.ground_truth.wikipedia_url ? (
                           <WikiThumbnail url={cluster.ground_truth.wikipedia_url} />
-                        )}
+                        ) : null}
                         <div className="flex-1 min-w-0">
                           <div className="flex items-center gap-2 flex-wrap">
                             <span className="text-sm font-semibold">{cluster.ground_truth.modern_name}</span>

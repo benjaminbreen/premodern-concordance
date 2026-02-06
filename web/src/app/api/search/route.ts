@@ -24,6 +24,7 @@ interface SearchEntry {
     note: string;
     family: string;
     semantic_gloss: string;
+    portrait_url: string;
     names: string[];
   };
 }

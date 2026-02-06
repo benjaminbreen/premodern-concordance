@@ -351,7 +351,8 @@
         "description": "Ancient Greek physician, surgeon, and philosopher.",
         "wikidata_id": "Q8778",
         "wikidata_description": "1st-century Greek physician, surgeon and philosopher",
-        "wikipedia_url": "https://en.wikipedia.org/wiki/Galen"
+        "wikipedia_url": "https://en.wikipedia.org/wiki/Galen",
+        "portrait_url": "https://commons.wikimedia.org/w/thumb.php?f=Galenus.jpg&w=400"
       }
     },
     {
@@ -948,7 +949,8 @@
         "description": "Ancient Greek physician, pharmacologist, and botanist.",
         "wikidata_id": "Q297776",
         "wikidata_description": "Greco-Roman physician and pharmacologist (AD c.40-90)",
-        "wikipedia_url": "https://en.wikipedia.org/wiki/Dioscorides"
+        "wikipedia_url": "https://en.wikipedia.org/wiki/Dioscorides",
+        "portrait_url": "https://commons.wikimedia.org/w/thumb.php?f=Illuminated_Manuscripts_%28Middleton%29_figure07.jpg&w=400"
       }
     },
     {
@@ -6499,7 +6501,8 @@
         "description": "Persian polymath, influential physician and philosopher.",
         "wikidata_id": "Q8011",
         "wikidata_description": "Persian polymath, physician and philosopher (c. 980–1037)",
-        "wikipedia_url": "https://en.wikipedia.org/wiki/Avicenna"
+        "wikipedia_url": "https://en.wikipedia.org/wiki/Avicenna",
+        "portrait_url": "https://commons.wikimedia.org/w/thumb.php?f=Avicenna_Portrait_on_Silver_Vase_-_Museum_at_BuAli_Sina_%28Avicenna%29_Mausoleum_-_Hamadan_-_Western_Iran_%287423560860%29.jpg&w=400"
       }
     },
     {
@@ -7059,7 +7062,8 @@
         "note": "Includes 'Socrates' due to OCR error or confusion in the text.",
         "wikidata_id": "Q5264",
         "wikidata_description": "Greek physician (c. 460 – c. 370 BC)",
-        "wikipedia_url": "https://en.wikipedia.org/wiki/Hippocrates"
+        "wikipedia_url": "https://en.wikipedia.org/wiki/Hippocrates",
+        "portrait_url": "https://commons.wikimedia.org/w/thumb.php?f=Hippocrates_rubens.jpg&w=400"
       }
     },
     {
@@ -17463,9 +17467,10 @@
         "birth_year": -371,
         "death_year": -287,
         "description": "Ancient Greek philosopher and botanist, student of Aristotle.",
-        "wikidata_id": "Q83428",
-        "wikidata_description": "Swiss physician, philosopher, theologian, and alchemist (c. 1493–1541)",
-        "wikipedia_url": "https://en.wikipedia.org/wiki/Paracelsus"
+        "wikidata_id": "Q134461",
+        "wikidata_description": "ancient Greek philosopher and botanist",
+        "wikipedia_url": "https://en.wikipedia.org/wiki/Paracelsus",
+        "portrait_url": "https://commons.wikimedia.org/w/thumb.php?f=Portret_van_Flavius_Josephus%2C_RP-P-1906-2507.jpg&w=400"
       }
     },
     {
@@ -19381,7 +19386,8 @@
         "description": "Medical practitioner specializing in manual treatments and surgery.",
         "wikidata_id": "Q774306",
         "wikidata_description": "physician with surgical specialty",
-        "wikipedia_url": "https://en.wikipedia.org/wiki/Surgeon"
+        "wikipedia_url": "https://en.wikipedia.org/wiki/Surgeon",
+        "portrait_url": "https://commons.wikimedia.org/w/thumb.php?f=Surgeon_operating%2C_Fitzsimons_Army_Medical_Center%2C_circa_1990.JPEG&w=400"
       }
     },
     {
@@ -29255,7 +29261,8 @@
         "description": "Renaissance physician and botanist, commentator on Dioscorides.",
         "wikidata_id": "Q455777",
         "wikidata_description": "Portuguese physician (1511-1568)",
-        "wikipedia_url": "https://en.wikipedia.org/wiki/Amatus%20Lusitanus"
+        "wikipedia_url": "https://en.wikipedia.org/wiki/Amatus%20Lusitanus",
+        "portrait_url": "https://commons.wikimedia.org/w/thumb.php?f=Nt-amato-lusitano.jpg&w=400"
       }
     },
     {
@@ -30850,7 +30857,8 @@
         "death_year": 1578,
         "description": "Physician, botanist, and commentator on Dioscorides",
         "wikidata_id": "Q457191",
-        "wikidata_description": "Italian scientist (1501–1578)"
+        "wikidata_description": "Italian scientist (1501–1578)",
+        "portrait_url": "https://commons.wikimedia.org/w/thumb.php?f=Pietro_Andrea_Mattioli%2C_by_Alessandro_Bonvicino_called_il_Moretto.jpg&w=400"
       }
     },
     {
@@ -31960,7 +31968,8 @@
         "description": "Medieval physician, alchemist, and author of medical texts.",
         "wikidata_id": "Q356568",
         "wikidata_description": "physician and alchemist of Crown of Aragon",
-        "wikipedia_url": "https://en.wikipedia.org/wiki/Arnaldus%20de%20Villa%20Nova"
+        "wikipedia_url": "https://en.wikipedia.org/wiki/Arnaldus%20de%20Villa%20Nova",
+        "portrait_url": "https://commons.wikimedia.org/w/thumb.php?f=Arnaldus_de_Villanova.jpg&w=400"
       }
     },
     {
@@ -37616,7 +37625,8 @@
         "death_year": 1280,
         "description": "Medieval philosopher, theologian, and a widely cited authority.",
         "wikidata_id": "Q60059",
-        "wikidata_description": "German-Dominican friar and saint (c. 1200–1280)"
+        "wikidata_description": "German-Dominican friar and saint (c. 1200–1280)",
+        "portrait_url": "https://commons.wikimedia.org/w/thumb.php?f=AlbertusMagnus.jpg&w=400"
       }
     },
     {
@@ -38180,7 +38190,8 @@
         "note": "While 'Agricola' could refer to other figures, Georgius Agricola is the most prominent early modern author associated with natural philosophy and simple medicines in the contexts provided.",
         "wikidata_id": "Q76579",
         "wikidata_description": "German mineralogist (1494-1555)",
-        "wikipedia_url": "https://en.wikipedia.org/wiki/Georgius%20Agricola"
+        "wikipedia_url": "https://en.wikipedia.org/wiki/Georgius%20Agricola",
+        "portrait_url": "https://commons.wikimedia.org/w/thumb.php?f=Georgius_Agricola.jpg&w=400"
       }
     },
     {
@@ -38270,7 +38281,8 @@
         "description": "Ancient Greek philosopher and founder of the Academy in Athens.",
         "wikidata_id": "Q859",
         "wikidata_description": "4th-century BCE Greek philosopher",
-        "wikipedia_url": "https://en.wikipedia.org/wiki/Plato"
+        "wikipedia_url": "https://en.wikipedia.org/wiki/Plato",
+        "portrait_url": "https://commons.wikimedia.org/w/thumb.php?f=Plato_Silanion_Musei_Capitolini_MC1377.jpg&w=400"
       }
     },
     {
@@ -38711,7 +38723,8 @@
         "description": "King of France, major patron of arts and sciences.",
         "wikidata_id": "Q7742",
         "wikidata_description": "King of France from 1643 to 1715 (1638–1715)",
-        "wikipedia_url": "https://en.wikipedia.org/wiki/Louis%20XIV"
+        "wikipedia_url": "https://en.wikipedia.org/wiki/Louis%20XIV",
+        "portrait_url": "https://commons.wikimedia.org/w/thumb.php?f=Louis_XIV_of_France.jpg&w=400"
       }
     },
     {
@@ -43169,7 +43182,8 @@
         "type": "person",
         "description": "A person who steers a ship or aircraft.",
         "wikidata_id": "Q2095549",
-        "wikidata_description": "person controlling an aircraft in flight"
+        "wikidata_description": "person controlling an aircraft in flight",
+        "portrait_url": "https://commons.wikimedia.org/w/thumb.php?f=Amelia_Earhart_-_GPN-2002-000211_%28restored%29.jpg&w=400"
       }
     },
     {
@@ -43514,7 +43528,8 @@
         "note": "The overwhelming presence of 'Orta' in the 'coloquios_da_orta_1563' text, along with mentions of 'M. Orta' and 'Segundo Orta', clearly points to Garcia de Orta, the author of the aforementioned work.",
         "wikidata_id": "Q1493994",
         "wikidata_description": "Portuguese botanist, physician, herbalist and naturalist (1501 – 1568)",
-        "wikipedia_url": "https://en.wikipedia.org/wiki/Garcia%20de%20Orta"
+        "wikipedia_url": "https://en.wikipedia.org/wiki/Garcia%20de%20Orta",
+        "portrait_url": "https://commons.wikimedia.org/w/thumb.php?f=Garcia_de_Orta_-_estatua.jpg&w=400"
       }
     },
     {
@@ -49581,7 +49596,8 @@
         "note": "The mention of 'Humboldt' in relation to scientific works and plant origins strongly points to Alexander von Humboldt. The date of one of the cited texts (1825) also aligns with his active period.",
         "wikidata_id": "Q6694",
         "wikidata_description": "Prussian geographer, naturalist and explorer (1769–1859)",
-        "wikipedia_url": "https://en.wikipedia.org/wiki/Alexander%20von%20Humboldt"
+        "wikipedia_url": "https://en.wikipedia.org/wiki/Alexander%20von%20Humboldt",
+        "portrait_url": "https://commons.wikimedia.org/w/thumb.php?f=Stieler%2C_Joseph_Karl_-_Alexander_von_Humboldt_-_1843.jpg&w=400"
       }
     },
     {
@@ -50425,7 +50441,8 @@
         "description": "Venetian merchant, explorer, and writer, famous for his travels to Asia.",
         "wikidata_id": "Q6101",
         "wikidata_description": "Venetian explorer and merchant who travelled through Asia (1254–1324)",
-        "wikipedia_url": "https://en.wikipedia.org/wiki/Marco%20Polo"
+        "wikipedia_url": "https://en.wikipedia.org/wiki/Marco%20Polo",
+        "portrait_url": "https://commons.wikimedia.org/w/thumb.php?f=Marco_Polo_Mosaic_from_Palazzo_Tursi.jpg&w=400"
       }
     },
     {
@@ -55915,7 +55932,8 @@
         "note": "While 'Roxburgh' appears in 1563, the later citation 'M. Roxburgh' in a text from 1825 is likely William Roxburgh, a prominent botanist. The earlier mention might be an anachronism in the source text or a different person with the same surname, but the scientific context points strongly to the botanist.",
         "wikidata_id": "Q748967",
         "wikidata_description": "British surgeon and botanist (1751–1815)",
-        "wikipedia_url": "https://en.wikipedia.org/wiki/William%20Roxburgh"
+        "wikipedia_url": "https://en.wikipedia.org/wiki/William%20Roxburgh",
+        "portrait_url": "https://commons.wikimedia.org/w/thumb.php?f=William_Roxburgh.jpg&w=400"
       }
     },
     {
@@ -58418,7 +58436,8 @@
         "note": "The text mentions 'King of Poland' which is an error in the provided context for D. João III. He was King of Portugal.",
         "wikidata_id": "Q216789",
         "wikidata_description": "King of Portugal (r. 1521-1557)",
-        "wikipedia_url": "https://en.wikipedia.org/wiki/John%20III%20of%20Portugal"
+        "wikipedia_url": "https://en.wikipedia.org/wiki/John%20III%20of%20Portugal",
+        "portrait_url": "https://commons.wikimedia.org/w/thumb.php?f=D._Jo%C3%A3o_III_-_Crist%C3%B3v%C3%A3o_Lopes_%28attrib%29.png&w=400"
       }
     },
     {
@@ -58485,7 +58504,8 @@
         "note": "The text provides 'Leonardo Fuchsio' as a variant, but Leonardo Fioravanti is the correct and well-known figure.",
         "wikidata_id": "Q348086",
         "wikidata_description": "Italian physician",
-        "wikipedia_url": "https://en.wikipedia.org/wiki/Leonardo%20Fioravanti%20%28doctor%29"
+        "wikipedia_url": "https://en.wikipedia.org/wiki/Leonardo%20Fioravanti%20%28doctor%29",
+        "portrait_url": "https://commons.wikimedia.org/w/thumb.php?f=Leonardo_Fioravanti.jpg&w=400"
       }
     },
     {
@@ -61716,7 +61736,8 @@
         "description": "Spanish historian, chronicler, and naturalist of the Americas.",
         "wikidata_id": "Q919967",
         "wikidata_description": "Spanish naturalist and historian (1478–1557)",
-        "wikipedia_url": "https://en.wikipedia.org/wiki/Gonzalo%20Fern%C3%A1ndez%20de%20Oviedo%20y%20Vald%C3%A9s"
+        "wikipedia_url": "https://en.wikipedia.org/wiki/Gonzalo%20Fern%C3%A1ndez%20de%20Oviedo%20y%20Vald%C3%A9s",
+        "portrait_url": "https://commons.wikimedia.org/w/thumb.php?f=Gonzalo_Fern%C3%A1ndez_de_Oviedo.jpg&w=400"
       }
     },
     {
@@ -63493,7 +63514,8 @@
         "note": "While 'Mefue' and 'Me' are variations, Mesue the Younger (Ibn Masawayh) was a highly cited authority on plants and ancient medicine in the period.",
         "wikidata_id": "Q3297191",
         "wikidata_description": "Syrian physician",
-        "wikipedia_url": "https://en.wikipedia.org/wiki/Masawaih%20al-Mardini"
+        "wikipedia_url": "https://en.wikipedia.org/wiki/Masawaih%20al-Mardini",
+        "portrait_url": "https://commons.wikimedia.org/w/thumb.php?f=Mesue_the_Younger_%28c._1906%29_-_Veloso_Salgado.png&w=400"
       }
     },
     {
@@ -63760,7 +63782,8 @@
         "description": "Influential Swiss physician, alchemist, and astrologer.",
         "wikidata_id": "Q83428",
         "wikidata_description": "Swiss physician, philosopher, theologian, and alchemist (c. 1493–1541)",
-        "wikipedia_url": "https://en.wikipedia.org/wiki/Paracelsus"
+        "wikipedia_url": "https://en.wikipedia.org/wiki/Paracelsus",
+        "portrait_url": "https://commons.wikimedia.org/w/thumb.php?f=Paracelsus.jpg&w=400"
       }
     },
     {
@@ -64372,7 +64395,8 @@
         "note": "The texts refer to Celsus as an ancient authority, consistent with Aulus Cornelius Celsus.",
         "wikidata_id": "Q315370",
         "wikidata_description": "2nd-century Greek philosopher",
-        "wikipedia_url": "https://en.wikipedia.org/wiki/Celsus"
+        "wikipedia_url": "https://en.wikipedia.org/wiki/Celsus",
+        "portrait_url": "https://commons.wikimedia.org/w/thumb.php?f=Bust_philosopher_Louvre_Ma544.jpg&w=400"
       }
     },
     {
@@ -64715,7 +64739,8 @@
         "description": "Practitioner of astrology, influencing medical diagnoses and treatments.",
         "note": "The term 'Astrologers' and 'astrólogos' directly translates to astrologers, who played a role in early modern medical practice.",
         "wikidata_id": "Q155647",
-        "wikidata_description": "person who practices astrology"
+        "wikidata_description": "person who practices astrology",
+        "portrait_url": "https://commons.wikimedia.org/w/thumb.php?f=The-Jyolsyan-Astrologer.jpg&w=400"
       }
     },
     {
@@ -65256,7 +65281,8 @@
         "death_year": 1685,
         "description": "French physician, antiquarian, and numismatist.",
         "wikidata_id": "Q1320032",
-        "wikidata_description": "French archaeologist (1647-1685)"
+        "wikidata_description": "French archaeologist (1647-1685)",
+        "portrait_url": "https://commons.wikimedia.org/w/thumb.php?f=Jacob_Spon.jpg&w=400"
       }
     },
     {
@@ -66571,7 +66597,8 @@
         "description": "Noble patron supporting scientific and medical endeavors",
         "note": "Likely refers to a specific Duke of Bavaria who was a patron of physicians or scholars, such as Albrecht V or William V.",
         "wikidata_id": "Q215086",
-        "wikidata_description": "Catholic archbishop (1700-1761)"
+        "wikidata_description": "Catholic archbishop (1700-1761)",
+        "portrait_url": "https://commons.wikimedia.org/w/thumb.php?f=Clemens_August_of_Bavaria_as_Grand_Master_of_Teutonic_Knights.PNG&w=400"
       }
     },
     {
@@ -70723,7 +70750,8 @@
         "description": "Danish geographer and explorer, documented Arabic countries.",
         "wikidata_id": "Q57420",
         "wikidata_description": "German mathematician, botanist, cartographer and explorer in Danish service (1733–1815)",
-        "wikipedia_url": "https://en.wikipedia.org/wiki/Carsten%20Niebuhr"
+        "wikipedia_url": "https://en.wikipedia.org/wiki/Carsten%20Niebuhr",
+        "portrait_url": "https://commons.wikimedia.org/w/thumb.php?f=Carsten_niebuhr_trimmed.png&w=400"
       }
     },
     {
@@ -76470,7 +76498,8 @@
         "description": "Ancient Greek geographer, historian, and philosopher.",
         "wikidata_id": "Q45936",
         "wikidata_description": "Greek geographer, philosopher and historian (64/63 BC–c.24 AD)",
-        "wikipedia_url": "https://en.wikipedia.org/wiki/Strabo"
+        "wikipedia_url": "https://en.wikipedia.org/wiki/Strabo",
+        "portrait_url": "https://commons.wikimedia.org/w/thumb.php?f=Strabo.jpg&w=400"
       }
     },
     {
@@ -78735,7 +78764,8 @@
         "note": "The name 'Mizaldus' is likely a Latinization of Michel E[a]u, also known as Nostradamus. However, the provided text implies a focus on alchemical secrets, which aligns more with Pierre de Montanier (Mizauldus), a contemporary alchemist, rather than Nostradamus. Given the ambiguity and lack of definitive source text, 'Michel E[a]u' is a plausible candidate if considering a broader interpretation of alchemical physicians.",
         "wikidata_id": "Q39978",
         "wikidata_description": "French seer and astrologer (1503–1566)",
-        "wikipedia_url": "https://en.wikipedia.org/wiki/Nostradamus"
+        "wikipedia_url": "https://en.wikipedia.org/wiki/Nostradamus",
+        "portrait_url": "https://commons.wikimedia.org/w/thumb.php?f=Nostradamus_by_Cesar.jpg&w=400"
       }
     },
     {
@@ -81150,7 +81180,8 @@
         "death_year": 17,
         "description": "Roman poet, author of Metamorphoses, cited for literary references.",
         "wikidata_id": "Q7198",
-        "wikidata_description": "Roman poet (43 BC – 17/18 AD)"
+        "wikidata_description": "Roman poet (43 BC – 17/18 AD)",
+        "portrait_url": "https://commons.wikimedia.org/w/thumb.php?f=Ovid_by_an_anonymous_sculptor.jpg&w=400"
       }
     },
     {
@@ -82406,7 +82437,8 @@
         "description": "French physician and humanist author of medical texts.",
         "wikidata_id": "Q369219",
         "wikidata_description": "French physician",
-        "wikipedia_url": "https://en.wikipedia.org/wiki/Symphorien%20Champier"
+        "wikipedia_url": "https://en.wikipedia.org/wiki/Symphorien%20Champier",
+        "portrait_url": "https://commons.wikimedia.org/w/thumb.php?f=Symphorien_Champier.jpg&w=400"
       }
     },
     {
@@ -84030,7 +84062,8 @@
         "death_year": 1585,
         "description": "Flemish physician and botanist, author of Cruydeboeck",
         "wikidata_id": "Q437466",
-        "wikidata_description": "Flemish physician and botanist (1517–1585)"
+        "wikidata_description": "Flemish physician and botanist (1517–1585)",
+        "portrait_url": "https://commons.wikimedia.org/w/thumb.php?f=Portret_van_Rembertus_Dodonaeus%2C_RP-P-1906-915_%28cropped%29.jpg&w=400"
       }
     },
     {
@@ -84625,7 +84658,8 @@
         "description": "Pope who issued papal bulls concerning exploration and colonization.",
         "wikidata_id": "Q108316",
         "wikidata_description": "pope of the Catholic Church 1492–1503 from the Borgia family",
-        "wikipedia_url": "https://en.wikipedia.org/wiki/Pope%20Alexander%20VI"
+        "wikipedia_url": "https://en.wikipedia.org/wiki/Pope%20Alexander%20VI",
+        "portrait_url": "https://commons.wikimedia.org/w/thumb.php?f=Portrait_of_Pope_Alexander_VI_Borgia_%28Vatican_Museums_-_Musei_Vaticani%2C_Vatican%29.jpg&w=400"
       }
     },
     {
@@ -86295,7 +86329,8 @@
         "description": "Professionals who saw wood, often associated with dust and exertion.",
         "note": "The primary meaning in the context of dust and exertion points to sawyers. 'Serranos' (mountain dwellers) is a less likely interpretation given the dust context.",
         "wikidata_id": "Q1124183",
-        "wikidata_description": "worker who performs the initial harvesting of trees"
+        "wikidata_description": "worker who performs the initial harvesting of trees",
+        "portrait_url": "https://commons.wikimedia.org/w/thumb.php?f=LUMBERJACK_FROM_TUPPER_LAKE_CUTTING_LOGS_INTO_EIGHT_FOOT_SECTIONS_FOR_LOADING._HE_IS_WORKING_ON_INTERNATIONAL_PAPER..._-_NARA_-_554414.jpg&w=400"
       }
     },
     {
@@ -88307,7 +88342,8 @@
         "description": "Biblical king and psalmist, cited for wisdom and praise.",
         "note": "The cluster includes references to King David, the Biblical figure, and also Daniel. However, 'David' is the most consistently represented. The context of 'Rey David' solidifies the identification.",
         "wikidata_id": "Q41370",
-        "wikidata_description": "king of Israel and Judah"
+        "wikidata_description": "king of Israel and Judah",
+        "portrait_url": "https://commons.wikimedia.org/w/thumb.php?f=King_David%2C_the_King_of_Israel.jpg&w=400"
       }
     },
     {
@@ -89118,7 +89154,8 @@
         "type": "person",
         "description": "Practitioners of childbirth, assisting women in labor and delivery.",
         "wikidata_id": "Q185196",
-        "wikidata_description": "medical professional who practices obstetrics as a health science"
+        "wikidata_description": "medical professional who practices obstetrics as a health science",
+        "portrait_url": "https://commons.wikimedia.org/w/thumb.php?f=%D7%9C%D7%99%D7%93%D7%94.jpg&w=400"
       }
     },
     {
@@ -91125,7 +91162,8 @@
         "description": "Spanish scholar, encyclopedist, and Archbishop of Seville",
         "wikidata_id": "Q166876",
         "wikidata_description": "Hispano-Roman scholar, theologian and bishop (c. 560–636)",
-        "wikipedia_url": "https://en.wikipedia.org/wiki/Isidore%20of%20Seville"
+        "wikipedia_url": "https://en.wikipedia.org/wiki/Isidore%20of%20Seville",
+        "portrait_url": "https://commons.wikimedia.org/w/thumb.php?f=Isidore_de_S%C3%A9ville.jpg&w=400"
       }
     },
     {
@@ -93523,7 +93561,8 @@
         "death_year": 1626,
         "description": "English philosopher, statesman, and scientist, proponent of empirical methods.",
         "wikidata_id": "Q37388",
-        "wikidata_description": "English philosopher and statesman (1561–1626)"
+        "wikidata_description": "English philosopher and statesman (1561–1626)",
+        "portrait_url": "https://commons.wikimedia.org/w/thumb.php?f=Somer_Francis_Bacon.jpg&w=400"
       }
     },
     {
@@ -94974,7 +95013,8 @@
         "death_year": 1565,
         "description": "Swiss physician, naturalist, and bibliographer, author of Historia animalium.",
         "wikidata_id": "Q60116",
-        "wikidata_description": "Swiss physician, bibliographer and naturalist (1516–1565)"
+        "wikidata_description": "Swiss physician, bibliographer and naturalist (1516–1565)",
+        "portrait_url": "https://commons.wikimedia.org/w/thumb.php?f=Conrad_Gesner_by_Tobias_Stimmer2.jpg&w=400"
       }
     },
     {
@@ -97023,7 +97063,8 @@
         "description": "Pope who suffered from erysipelas and sent Rontecalli to India.",
         "wikidata_id": "Q101430",
         "wikidata_description": "pope of catholic church 1555-1559",
-        "wikipedia_url": "https://en.wikipedia.org/wiki/Pope%20Paul%20IV"
+        "wikipedia_url": "https://en.wikipedia.org/wiki/Pope%20Paul%20IV",
+        "portrait_url": "https://commons.wikimedia.org/w/thumb.php?f=Pope_Paul_IV_%E2%80%93_Jacopino_Conte_%28Manner%29%2C_ca._1560.jpg&w=400"
       }
     },
     {
@@ -99748,7 +99789,8 @@
         "note": "Both 'Pompey the great' and 'Pompeyo' refer to the historical figure Gnaeus Pompeius Magnus.",
         "wikidata_id": "Q125414",
         "wikidata_description": "Roman general and statesman (106–48 BC)",
-        "wikipedia_url": "https://en.wikipedia.org/wiki/Pompey"
+        "wikipedia_url": "https://en.wikipedia.org/wiki/Pompey",
+        "portrait_url": "https://commons.wikimedia.org/w/thumb.php?f=Pompey_the_Great.jpg&w=400"
       }
     },
     {
@@ -99969,7 +100011,8 @@
         "description": "King of Babylon known for his rebuilding efforts and biblical accounts.",
         "note": "Both references clearly point to the Babylonian king Nebuchadnezzar II.",
         "wikidata_id": "Q12591",
-        "wikidata_description": "King of Babylon"
+        "wikidata_description": "King of Babylon",
+        "portrait_url": "https://commons.wikimedia.org/w/thumb.php?f=Nebukadnessar_II.jpg&w=400"
       }
     },
     {
@@ -100956,7 +100999,8 @@
         "type": "person",
         "description": "Mythological hero, son of Zeus and Alcmene, known for strength.",
         "wikidata_id": "Q948140",
-        "wikidata_description": "city in western Contra Costa County, California, United States"
+        "wikidata_description": "city in western Contra Costa County, California, United States",
+        "portrait_url": "https://commons.wikimedia.org/w/thumb.php?f=Refugio_Valley_Park_Hercules_California.jpg&w=400"
       }
     },
     {
@@ -110652,7 +110696,8 @@
         "description": "Jesuit scholar, polymath, and encyclopedist known for extensive works.",
         "wikidata_id": "Q76738",
         "wikidata_description": "German Jesuit scholar (1601 or 1602-1680)",
-        "wikipedia_url": "https://en.wikipedia.org/wiki/Athanasius%20Kircher"
+        "wikipedia_url": "https://en.wikipedia.org/wiki/Athanasius%20Kircher",
+        "portrait_url": "https://commons.wikimedia.org/w/thumb.php?f=Athanasius_Kircher.jpg&w=400"
       }
     },
     {
@@ -110982,7 +111027,8 @@
         "description": "Italian Renaissance philosopher and humanist scholar",
         "wikidata_id": "Q182128",
         "wikidata_description": "Italian Renaissance philosopher (1463–1494)",
-        "wikipedia_url": "https://en.wikipedia.org/wiki/Giovanni%20Pico%20della%20Mirandola"
+        "wikipedia_url": "https://en.wikipedia.org/wiki/Giovanni%20Pico%20della%20Mirandola",
+        "portrait_url": "https://commons.wikimedia.org/w/thumb.php?f=Pico1.jpg&w=400"
       }
     },
     {

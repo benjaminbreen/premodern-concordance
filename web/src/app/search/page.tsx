@@ -22,6 +22,7 @@ interface ResultMetadata {
   note: string;
   family: string;
   semantic_gloss: string;
+  portrait_url: string;
   names: string[];
 }
 
@@ -402,11 +403,18 @@ export default function SearchPage() {
                         {/* Left: name + identification */}
                         <div className="min-w-0">
                           <div className="flex items-center gap-2 mb-1">
-                            {cat && (
+                            {m.portrait_url ? (
+                              // eslint-disable-next-line @next/next/no-img-element
+                              <img
+                                src={m.portrait_url}
+                                alt=""
+                                className="w-8 h-8 rounded-full object-cover shrink-0 border border-[var(--border)] bg-[var(--border)]"
+                              />
+                            ) : cat ? (
                               <span
                                 className={`w-2.5 h-2.5 rounded-full shrink-0 ${cat.dot}`}
                               />
-                            )}
+                            ) : null}
                             <span className="font-semibold text-lg group-hover:text-[var(--accent)] transition-colors truncate">
                               {highlightMatch(m.canonical_name, query)}
                             </span>
