@@ -61,13 +61,13 @@ function ConcordanceTicker() {
     if (pool.length > 0 && names.length === 0) pickNext();
   }, [pool, names.length, pickNext]);
 
-  if (!names.length) return <div className="h-32" />;
+  if (!names.length) return <div className="h-48" />;
 
   return (
-    <div className="h-32 flex items-center overflow-hidden relative">
+    <div className="h-48 flex items-center overflow-hidden relative mt-8">
       {/* Fade edges */}
-      <div className="absolute left-0 top-0 bottom-0 w-16 z-10 bg-gradient-to-r from-[var(--background)] to-transparent pointer-events-none" />
-      <div className="absolute right-0 top-0 bottom-0 w-16 z-10 bg-gradient-to-l from-[var(--background)] to-transparent pointer-events-none" />
+      <div className="absolute left-0 top-0 bottom-0 w-20 z-10 bg-gradient-to-r from-[var(--background)] to-transparent pointer-events-none" />
+      <div className="absolute right-0 top-0 bottom-0 w-20 z-10 bg-gradient-to-l from-[var(--background)] to-transparent pointer-events-none" />
 
       <div
         key={key}
@@ -77,9 +77,13 @@ function ConcordanceTicker() {
         {names.map((name, i) => (
           <span key={i}>
             {i > 0 && (
-              <span className="mx-4 text-[var(--border)] select-none">&middot;</span>
+              <span className="mx-5 text-[var(--border)] select-none">&middot;</span>
             )}
-            <span className="text-xl tracking-tight text-[var(--muted)]/60">
+            <span className={`text-3xl tracking-tight ${
+              i === 0
+                ? "text-[var(--foreground)] font-medium"
+                : "text-[var(--muted)]/50"
+            }`}>
               {name}
             </span>
           </span>
