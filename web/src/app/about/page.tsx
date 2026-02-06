@@ -1,3 +1,96 @@
+"use client";
+
+import { useEffect, useState, useCallback, useRef } from "react";
+
+// ── Scrolling concordance ticker ──────────────────────────────────────
+
+interface ClusterSlim {
+  canonical_name: string;
+  members: { name: string; book_id: string }[];
+}
+
+function ConcordanceTicker() {
+  const [names, setNames] = useState<string[]>([]);
+  const [pool, setPool] = useState<ClusterSlim[]>([]);
+  const [key, setKey] = useState(0);
+  const lastIdx = useRef(-1);
+
+  // Load cluster data once
+  useEffect(() => {
+    fetch("/data/concordance.json")
+      .then((r) => r.json())
+      .then((data) => {
+        // Keep clusters with 3+ distinct member names for visual interest
+        const good = (data.clusters as ClusterSlim[]).filter((c) => {
+          const unique = new Set(c.members.map((m) => m.name));
+          return unique.size >= 3;
+        });
+        setPool(good);
+      })
+      .catch(() => {});
+  }, []);
+
+  const pickNext = useCallback(() => {
+    if (!pool.length) return;
+    let idx: number;
+    do {
+      idx = Math.floor(Math.random() * pool.length);
+    } while (idx === lastIdx.current && pool.length > 1);
+    lastIdx.current = idx;
+
+    const cluster = pool[idx];
+    // Deduplicate names, canonical first
+    const seen = new Set<string>();
+    const result: string[] = [];
+    const addName = (n: string) => {
+      const lower = n.toLowerCase();
+      if (!seen.has(lower)) {
+        seen.add(lower);
+        result.push(n);
+      }
+    };
+    addName(cluster.canonical_name);
+    for (const m of cluster.members) addName(m.name);
+
+    setNames(result.slice(0, 8));
+    setKey((k) => k + 1);
+  }, [pool]);
+
+  // Pick first cluster when pool loads
+  useEffect(() => {
+    if (pool.length > 0 && names.length === 0) pickNext();
+  }, [pool, names.length, pickNext]);
+
+  if (!names.length) return <div className="h-32" />;
+
+  return (
+    <div className="h-32 flex items-center overflow-hidden relative">
+      {/* Fade edges */}
+      <div className="absolute left-0 top-0 bottom-0 w-16 z-10 bg-gradient-to-r from-[var(--background)] to-transparent pointer-events-none" />
+      <div className="absolute right-0 top-0 bottom-0 w-16 z-10 bg-gradient-to-l from-[var(--background)] to-transparent pointer-events-none" />
+
+      <div
+        key={key}
+        className="whitespace-nowrap animate-scroll-across"
+        onAnimationEnd={pickNext}
+      >
+        {names.map((name, i) => (
+          <span key={i}>
+            {i > 0 && (
+              <span className="mx-4 text-[var(--border)] select-none">&middot;</span>
+            )}
+            <span className="text-xl tracking-tight text-[var(--muted)]/60">
+              {name}
+            </span>
+          </span>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+// ── Page ──────────────────────────────────────────────────────────────
+
 export default function AboutPage() {
   return (
     <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
@@ -34,7 +127,7 @@ export default function AboutPage() {
       </section>
 
       {/* Colophon */}
-      <section>
+      <section className="mb-16">
         <h2 className="text-xs uppercase tracking-widest text-[var(--muted)] font-medium mb-6">
           Colophon
         </h2>
@@ -101,6 +194,9 @@ export default function AboutPage() {
           </div>
         </div>
       </section>
+
+      {/* Concordance ticker */}
+      <ConcordanceTicker />
     </div>
   );
 }
