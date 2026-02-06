@@ -94,6 +94,10 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
+        <script dangerouslySetInnerHTML={{ __html: `
+          (function(){try{var d=document.documentElement,t=localStorage.getItem("theme");
+          if(t==="dark"||(!t&&window.matchMedia("(prefers-color-scheme:dark)").matches))d.classList.add("dark")}catch(e){}})()
+        `}} />
         <title>Premodern Concordance</title>
         <meta name="description" content="Cross-linguistic concordance of early modern natural knowledge" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
