@@ -131,14 +131,14 @@ interface ClusterPreview {
 }
 
 const CAT_COLORS: Record<string, string> = {
-  PLANT: "bg-emerald-100 text-emerald-800 dark:bg-emerald-900/40 dark:text-emerald-300",
-  PERSON: "bg-purple-100 text-purple-800 dark:bg-purple-900/40 dark:text-purple-300",
-  SUBSTANCE: "bg-cyan-100 text-cyan-800 dark:bg-cyan-900/40 dark:text-cyan-300",
-  DISEASE: "bg-red-100 text-red-800 dark:bg-red-900/40 dark:text-red-300",
-  PLACE: "bg-green-100 text-green-800 dark:bg-green-900/40 dark:text-green-300",
-  CONCEPT: "bg-amber-100 text-amber-800 dark:bg-amber-900/40 dark:text-amber-300",
-  ANIMAL: "bg-lime-100 text-lime-800 dark:bg-lime-900/40 dark:text-lime-300",
-  OBJECT: "bg-slate-100 text-slate-800 dark:bg-slate-900/40 dark:text-slate-300",
+  PLANT: "text-emerald-600 dark:text-emerald-400 border-emerald-300 dark:border-emerald-700",
+  PERSON: "text-purple-600 dark:text-purple-400 border-purple-300 dark:border-purple-700",
+  SUBSTANCE: "text-cyan-600 dark:text-cyan-400 border-cyan-300 dark:border-cyan-700",
+  DISEASE: "text-red-600 dark:text-red-400 border-red-300 dark:border-red-700",
+  PLACE: "text-green-600 dark:text-green-400 border-green-300 dark:border-green-700",
+  CONCEPT: "text-amber-600 dark:text-amber-400 border-amber-300 dark:border-amber-700",
+  ANIMAL: "text-lime-600 dark:text-lime-400 border-lime-300 dark:border-lime-700",
+  OBJECT: "text-slate-500 dark:text-slate-400 border-slate-300 dark:border-slate-600",
 };
 
 export default function Home() {
@@ -294,7 +294,7 @@ export default function Home() {
                 >
                   <div className="flex items-center gap-2 mb-1">
                     <span className="font-semibold">{cluster.canonical_name}</span>
-                    <span className={`px-1.5 py-0.5 rounded text-[10px] font-semibold uppercase tracking-wide ${CAT_COLORS[cluster.category] || "bg-gray-100 text-gray-800"}`}>
+                    <span className={`px-1.5 py-0.5 rounded border text-[10px] font-semibold uppercase tracking-wide bg-transparent ${CAT_COLORS[cluster.category] || "text-gray-500 border-gray-300"}`}>
                       {cluster.category}
                     </span>
                   </div>
