@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mockup C — Cluster Detail: Brésil / Brazil</title>
+<style>
+  :root {
+    --background: #fafaf9;
+    --foreground: #1c1917;
+    --muted: #78716c;
+    --border: #e7e5e4;
+    --card: #ffffff;
+    --accent: #059669;
+    --accent-light: #d1fae5;
+    --place: #22c55e;
+    --place-bg: rgba(34,197,94,0.08);
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: var(--background);
+    color: var(--foreground);
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    line-height: 1.5;
+  }
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+
+  .container { max-width: 1040px; margin: 0 auto; padding: 2rem 1.5rem; }
+
+  /* Breadcrumb */
+  .breadcrumb { font-size: 13px; color: var(--muted); margin-bottom: 1.5rem; }
+  .breadcrumb a { color: var(--muted); }
+  .breadcrumb a:hover { color: var(--foreground); }
+  .breadcrumb .sep { margin: 0 6px; }
+
+  /* ── Full-width header with left accent stripe ── */
+  .header {
+    display: grid;
+    grid-template-columns: 4px 1fr auto;
+    gap: 0;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 2rem;
+    background: var(--card);
+  }
+  .header-stripe {
+    background: var(--place);
+  }
+  .header-body { padding: 1.5rem 1.75rem; }
+  .header-top { display: flex; align-items: baseline; gap: 10px; margin-bottom: 2px; }
+  .header h1 { font-size: 1.75rem; font-weight: 700; }
+  .badge {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 11px;
+    font-weight: 600;
+    border: 1px solid;
+  }
+  .badge-place {
+    background: rgba(34,197,94,0.12);
+    color: #16a34a;
+    border-color: rgba(34,197,94,0.3);
+  }
+  .header .modern-name { font-size: 14px; color: var(--muted); margin-bottom: 10px; }
+  .header-stats {
+    display: flex; gap: 20px; font-size: 13px; color: var(--muted);
+  }
+  .header-stats strong { color: var(--foreground); }
+  .header-aside {
+    padding: 1.5rem;
+    border-left: 1px solid var(--border);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 8px;
+    min-width: 180px;
+  }
+  .aside-row { font-size: 13px; display: flex; justify-content: space-between; gap: 12px; }
+  .aside-row .label { color: var(--muted); }
+  .aside-row .value { font-weight: 500; }
+
+  /* ── Tabbed section ── */
+  .tabs {
+    display: flex;
+    border-bottom: 2px solid var(--border);
+    margin-bottom: 1.5rem;
+    gap: 0;
+  }
+  .tab {
+    padding: 8px 20px;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--muted);
+    cursor: pointer;
+    border-bottom: 2px solid transparent;
+    margin-bottom: -2px;
+    transition: color 0.15s, border-color 0.15s;
+  }
+  .tab:hover { color: var(--foreground); }
+  .tab.active {
+    color: var(--foreground);
+    border-bottom-color: var(--accent);
+    font-weight: 600;
+  }
+
+  /* ── Tab 1: Overview (shown by default) ── */
+  .overview-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+  }
+  @media (max-width: 768px) { .overview-grid { grid-template-columns: 1fr; } }
+
+  .card {
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: var(--card);
+    overflow: hidden;
+  }
+  .card-header {
+    padding: 10px 16px;
+    border-bottom: 1px solid var(--border);
+    background: var(--background);
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--muted);
+  }
+  .card-body { padding: 14px 16px; }
+
+  /* Wiki card */
+  .wiki-text {
+    font-size: 13px; color: var(--muted); line-height: 1.65;
+    margin-bottom: 8px;
+  }
+  .wiki-link {
+    font-size: 12px; color: var(--accent);
+    display: inline-flex; align-items: center; gap: 4px;
+  }
+
+  /* Names map card */
+  .name-row {
+    display: grid;
+    grid-template-columns: 60px 1fr;
+    gap: 8px;
+    padding: 6px 0;
+    border-bottom: 1px solid var(--border);
+    font-size: 13px;
+  }
+  .name-row:last-child { border-bottom: none; }
+  .name-row .lang {
+    font-size: 10px;
+    font-weight: 700;
+    color: var(--muted);
+    letter-spacing: 0.03em;
+    padding-top: 2px;
+  }
+  .name-row .names { font-weight: 500; }
+  .name-row .names .alt { color: var(--muted); font-weight: 400; font-size: 12px; }
+
+  /* ── Book evidence cards ── */
+  .book-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1rem;
+    margin-bottom: 2rem;
+  }
+  .book-card {
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: var(--card);
+    overflow: hidden;
+    transition: transform 0.15s, box-shadow 0.15s;
+  }
+  .book-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  }
+  .book-card-header {
+    padding: 12px 16px;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .book-card-header .title { font-weight: 600; font-size: 14px; }
+  .book-card-header .year { font-size: 12px; color: var(--muted); }
+  .lang-tag {
+    font-size: 10px;
+    font-weight: 700;
+    padding: 1px 5px;
+    border-radius: 3px;
+    background: var(--border);
+    color: var(--muted);
+    letter-spacing: 0.03em;
+    margin-right: 4px;
+  }
+  .book-card-body { padding: 14px 16px; }
+  .book-card .entity-name { font-size: 16px; font-weight: 600; margin-bottom: 4px; }
+  .book-card .entity-count { font-size: 12px; color: var(--muted); margin-bottom: 8px; }
+  .book-card .entity-context {
+    font-size: 12px;
+    color: var(--muted);
+    font-style: italic;
+    border-left: 2px solid var(--border);
+    padding-left: 10px;
+    margin-bottom: 10px;
+  }
+  .book-card .variant-pills { display: flex; flex-wrap: wrap; gap: 3px; margin-bottom: 10px; }
+  .variant-pill {
+    padding: 1px 6px;
+    font-size: 11px;
+    border: 1px solid var(--border);
+    border-radius: 3px;
+    background: var(--background);
+  }
+  .book-card .view-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 12px;
+    color: var(--accent);
+    padding: 5px 10px;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    transition: background 0.15s;
+  }
+  .book-card .view-link:hover { background: var(--accent-light); text-decoration: none; }
+
+  /* ── Similarity matrix ── */
+  .sim-matrix {
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: var(--card);
+    padding: 1.25rem;
+    margin-bottom: 2rem;
+  }
+  .sim-matrix h2 { font-size: 15px; font-weight: 600; margin-bottom: 4px; }
+  .sim-matrix .subtitle { font-size: 12px; color: var(--muted); margin-bottom: 12px; }
+  .matrix-grid {
+    display: grid;
+    grid-template-columns: 140px repeat(3, 1fr);
+    gap: 2px;
+    font-size: 12px;
+  }
+  .matrix-header {
+    font-weight: 600;
+    font-size: 11px;
+    color: var(--muted);
+    padding: 8px 6px;
+    text-align: center;
+    background: var(--background);
+    border-radius: 4px;
+  }
+  .matrix-label {
+    font-weight: 500;
+    font-size: 12px;
+    padding: 8px 6px;
+    display: flex;
+    align-items: center;
+    background: var(--background);
+    border-radius: 4px;
+  }
+  .matrix-cell {
+    padding: 8px;
+    text-align: center;
+    border-radius: 4px;
+    font-weight: 500;
+    font-variant-numeric: tabular-nums;
+  }
+  .sim-high { background: rgba(5,150,105,0.15); color: #059669; }
+  .sim-very-high { background: rgba(5,150,105,0.25); color: #047857; }
+  .sim-self { background: var(--border); color: var(--muted); }
+
+  /* Navigation */
+  .back-bar {
+    border-top: 1px solid var(--border);
+    padding-top: 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .back-btn {
+    padding: 8px 16px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    font-size: 13px;
+    background: var(--card);
+    cursor: pointer;
+    color: var(--foreground);
+  }
+  .back-btn:hover { background: var(--border); }
+
+  .section-label {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--muted);
+    font-weight: 600;
+    margin-bottom: 12px;
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+
+  <!-- Breadcrumb -->
+  <nav class="breadcrumb">
+    <a href="#">Concordance</a>
+    <span class="sep">/</span>
+    <span>Br&eacute;sil / Brazil</span>
+  </nav>
+
+  <!-- Full-width header with left accent stripe -->
+  <div class="header">
+    <div class="header-stripe"></div>
+    <div class="header-body">
+      <div class="header-top">
+        <h1>Br&eacute;sil</h1>
+        <span class="badge badge-place">PLACE</span>
+      </div>
+      <p class="modern-name">Brazil &middot; Country in South America</p>
+      <div class="header-stats">
+        <span><strong>3</strong> books</span>
+        <span><strong>123</strong> total mentions</span>
+        <span><strong>3</strong> entries</span>
+      </div>
+    </div>
+    <div class="header-aside">
+      <div class="aside-row"><span class="label">Modern name</span><span class="value">Brazil</span></div>
+      <div class="aside-row"><span class="label">Confidence</span><span class="value">High</span></div>
+      <div class="aside-row"><span class="label">Wikidata</span><span class="value"><a href="#">Q155</a></span></div>
+    </div>
+  </div>
+
+  <!-- Tabs -->
+  <div class="tabs">
+    <div class="tab active">Overview</div>
+    <div class="tab">Source Evidence</div>
+    <div class="tab">Connections</div>
+  </div>
+
+  <!-- Overview (shown) -->
+  <div class="overview-grid">
+    <div class="card">
+      <div class="card-header">Wikipedia</div>
+      <div class="card-body">
+        <div class="wiki-text">
+          Brazil, officially the Federative Republic of Brazil, is the largest country in South America and in Latin America. At 8.5 million square kilometers, Brazil is the world's fifth-largest country by area. With around 214 million people, Brazil is the world's sixth-most populous country.
+          <br><br>
+          In the early modern period, Brazil was a Portuguese colony known for its production of sugar, brazilwood dye, and later gold. It attracted significant attention from European naturalists and physicians interested in its unique flora, fauna, and indigenous medical knowledge.
+        </div>
+        <a href="https://en.wikipedia.org/wiki/Brazil" class="wiki-link" target="_blank">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          Read on Wikipedia
+        </a>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-header">Names Across Texts</div>
+      <div class="card-body">
+        <div class="name-row">
+          <div class="lang">French</div>
+          <div class="names">
+            Br&eacute;sil
+            <span class="alt">&middot; BR&Eacute;SIL &middot; Brasilien &middot; Br&eacute;siliens</span>
+          </div>
+        </div>
+        <div class="name-row">
+          <div class="lang">Portuguese</div>
+          <div class="names">
+            Brasil
+            <span class="alt">&middot; Brazil &middot; BraziL &middot; Braz&iacute;l</span>
+          </div>
+        </div>
+        <div class="name-row">
+          <div class="lang">Portuguese</div>
+          <div class="names">
+            Brasil
+            <span class="alt" style="font-style:italic;">(Semedo, 1697)</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Source evidence as cards -->
+  <div class="section-label">Source Evidence</div>
+  <div class="book-cards">
+
+    <!-- Humboldt -->
+    <div class="book-card">
+      <div class="book-card-header">
+        <div>
+          <span class="lang-tag">FR</span>
+          <span class="title">Relation historique</span>
+        </div>
+        <span class="year">Humboldt, 1825</span>
+      </div>
+      <div class="book-card-body">
+        <div class="entity-name">Br&eacute;sil</div>
+        <div class="entity-count">104 mentions &middot; 5 variants</div>
+        <div class="entity-context">"country in South America"</div>
+        <div class="variant-pills">
+          <span class="variant-pill">Br&eacute;sil</span>
+          <span class="variant-pill">BR&Eacute;SIL</span>
+          <span class="variant-pill">Brasilien</span>
+          <span class="variant-pill">Br&eacute;siliens</span>
+        </div>
+        <a class="view-link" href="/books/relation_historique_humboldt_vol3_1825/entity/brésil">
+          View in Humboldt &rarr;
+        </a>
+      </div>
+    </div>
+
+    <!-- Orta -->
+    <div class="book-card">
+      <div class="book-card-header">
+        <div>
+          <span class="lang-tag">PT</span>
+          <span class="title">Coloquios dos Simples</span>
+        </div>
+        <span class="year">Orta, 1563</span>
+      </div>
+      <div class="book-card-body">
+        <div class="entity-name">Brasil</div>
+        <div class="entity-count">13 mentions &middot; 5 variants</div>
+        <div class="entity-context">"country where amber is found"</div>
+        <div class="variant-pills">
+          <span class="variant-pill">Brasil</span>
+          <span class="variant-pill">Brazil</span>
+          <span class="variant-pill">BraziL</span>
+          <span class="variant-pill">Braz&iacute;l</span>
+        </div>
+        <a class="view-link" href="/books/coloquios_da_orta_1563/entity/brasil">
+          View in Orta &rarr;
+        </a>
+      </div>
+    </div>
+
+    <!-- Semedo -->
+    <div class="book-card">
+      <div class="book-card-header">
+        <div>
+          <span class="lang-tag">PT</span>
+          <span class="title">Polyanthea Medicinal</span>
+        </div>
+        <span class="year">Semedo, 1697</span>
+      </div>
+      <div class="book-card-body">
+        <div class="entity-name">Brasil</div>
+        <div class="entity-count">6 mentions &middot; 1 variant</div>
+        <div class="entity-context">"Estado do Brasil, origin of almecega"</div>
+        <div class="variant-pills">
+          <span class="variant-pill">Brasil</span>
+        </div>
+        <a class="view-link" href="/books/polyanthea_medicinal/entity/brasil">
+          View in Semedo &rarr;
+        </a>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Similarity matrix -->
+  <div class="sim-matrix">
+    <h2>Cross-Book Similarity</h2>
+    <p class="subtitle">Cosine similarity between entity embeddings. Threshold for clustering: 0.84</p>
+    <div class="matrix-grid">
+      <!-- Header row -->
+      <div class="matrix-header"></div>
+      <div class="matrix-header">Humboldt<br><span style="font-weight:400; font-size:10px;">Br&eacute;sil</span></div>
+      <div class="matrix-header">Orta<br><span style="font-weight:400; font-size:10px;">Brasil</span></div>
+      <div class="matrix-header">Semedo<br><span style="font-weight:400; font-size:10px;">Brasil</span></div>
+
+      <!-- Row 1 -->
+      <div class="matrix-label"><span class="lang-tag">FR</span> Humboldt</div>
+      <div class="matrix-cell sim-self">&mdash;</div>
+      <div class="matrix-cell sim-high">0.95</div>
+      <div class="matrix-cell sim-high">0.95</div>
+
+      <!-- Row 2 -->
+      <div class="matrix-label"><span class="lang-tag">PT</span> Orta</div>
+      <div class="matrix-cell sim-high">0.95</div>
+      <div class="matrix-cell sim-self">&mdash;</div>
+      <div class="matrix-cell sim-very-high">1.00</div>
+
+      <!-- Row 3 -->
+      <div class="matrix-label"><span class="lang-tag">PT</span> Semedo</div>
+      <div class="matrix-cell sim-high">0.95</div>
+      <div class="matrix-cell sim-very-high">1.00</div>
+      <div class="matrix-cell sim-self">&mdash;</div>
+    </div>
+  </div>
+
+  <!-- Navigation -->
+  <div class="back-bar">
+    <button class="back-btn">&larr; Previous cluster</button>
+    <a href="#">Back to Concordance</a>
+    <button class="back-btn">Next cluster &rarr;</button>
+  </div>
+
+</div>
+
+</body>
+</html>

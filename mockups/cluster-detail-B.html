@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mockup B — Cluster Detail: Canela/Cinnamon</title>
+<style>
+  :root {
+    --background: #fafaf9;
+    --foreground: #1c1917;
+    --muted: #78716c;
+    --border: #e7e5e4;
+    --card: #ffffff;
+    --accent: #059669;
+    --accent-light: #d1fae5;
+    --plant: #10b981;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: var(--background);
+    color: var(--foreground);
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    line-height: 1.5;
+  }
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+
+  .container { max-width: 1040px; margin: 0 auto; padding: 2rem 1.5rem; }
+
+  /* Breadcrumb */
+  .breadcrumb { font-size: 13px; color: var(--muted); margin-bottom: 1.5rem; }
+  .breadcrumb a { color: var(--muted); }
+  .breadcrumb a:hover { color: var(--foreground); }
+  .breadcrumb .sep { margin: 0 6px; }
+
+  /* ── Compact header (no hero image) ── */
+  .header {
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 1.5rem;
+    margin-bottom: 2rem;
+  }
+  .header-top {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+    margin-bottom: 4px;
+  }
+  .header h1 { font-size: 2rem; font-weight: 700; }
+  .badge {
+    display: inline-block;
+    padding: 2px 10px;
+    border-radius: 4px;
+    font-size: 11px;
+    font-weight: 600;
+    border: 1px solid;
+  }
+  .badge-plant {
+    background: rgba(16,185,129,0.15);
+    color: #059669;
+    border-color: rgba(16,185,129,0.3);
+  }
+  .header .subtitle {
+    font-size: 14px;
+    color: var(--muted);
+    margin-bottom: 12px;
+  }
+  .header .linnaean {
+    font-style: italic;
+    color: var(--plant);
+    font-size: 15px;
+  }
+  .header-stats {
+    display: flex; gap: 20px; font-size: 13px; color: var(--muted); margin-top: 10px;
+  }
+  .header-stats strong { color: var(--foreground); }
+
+  /* ── Three-column info strip ── */
+  .info-strip {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 1rem;
+    margin-bottom: 2rem;
+  }
+  @media (max-width: 768px) { .info-strip { grid-template-columns: 1fr; } }
+  .info-card {
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: var(--card);
+    padding: 1rem 1.25rem;
+  }
+  .info-card h3 {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--muted);
+    margin-bottom: 8px;
+    font-weight: 600;
+  }
+  .info-row { display: flex; justify-content: space-between; font-size: 13px; margin-bottom: 4px; }
+  .info-row .label { color: var(--muted); }
+  .info-row .value { font-weight: 500; }
+  .wiki-extract {
+    font-size: 13px;
+    color: var(--muted);
+    line-height: 1.6;
+  }
+  .wiki-more {
+    display: inline-block;
+    font-size: 12px;
+    color: var(--accent);
+    margin-top: 6px;
+    cursor: pointer;
+  }
+  .variant-pills { display: flex; flex-wrap: wrap; gap: 4px; }
+  .variant-pill {
+    padding: 2px 8px;
+    font-size: 12px;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    background: var(--background);
+  }
+  .variant-lang {
+    font-size: 10px;
+    font-weight: 700;
+    color: var(--muted);
+    margin-top: 8px;
+    margin-bottom: 3px;
+    letter-spacing: 0.03em;
+  }
+
+  /* ── Book comparison table ── */
+  .comparison-section h2 {
+    font-size: 15px; font-weight: 600; margin-bottom: 12px;
+  }
+  .comparison-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+    margin-bottom: 2rem;
+  }
+  .comparison-table thead th {
+    text-align: left;
+    padding: 8px 10px;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--muted);
+    font-weight: 600;
+    border-bottom: 2px solid var(--border);
+    white-space: nowrap;
+  }
+  .comparison-table tbody td {
+    padding: 10px 10px;
+    border-bottom: 1px solid var(--border);
+    vertical-align: top;
+  }
+  .comparison-table tbody tr:hover { background: rgba(5,150,105,0.03); }
+  .lang-tag {
+    font-size: 10px;
+    font-weight: 700;
+    padding: 1px 5px;
+    border-radius: 3px;
+    background: var(--border);
+    color: var(--muted);
+    letter-spacing: 0.03em;
+    margin-right: 4px;
+  }
+  .name-cell .primary { font-weight: 600; }
+  .name-cell .variants {
+    font-size: 11px;
+    color: var(--muted);
+    margin-top: 2px;
+  }
+  .context-cell {
+    font-style: italic;
+    color: var(--muted);
+    font-size: 12px;
+    max-width: 220px;
+  }
+  .count-cell { font-variant-numeric: tabular-nums; }
+  .action-link { font-size: 12px; color: var(--accent); white-space: nowrap; }
+
+  /* Mention bar chart */
+  .bar-chart { margin-bottom: 2rem; }
+  .bar-chart h2 { font-size: 15px; font-weight: 600; margin-bottom: 12px; }
+  .bar-row {
+    display: grid;
+    grid-template-columns: 200px 1fr 40px;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 6px;
+    font-size: 13px;
+  }
+  .bar-label { text-align: right; color: var(--muted); font-size: 12px; }
+  .bar-track {
+    height: 18px;
+    background: var(--border);
+    border-radius: 4px;
+    overflow: hidden;
+  }
+  .bar-fill {
+    height: 100%;
+    background: var(--plant);
+    border-radius: 4px;
+    opacity: 0.7;
+    transition: width 0.4s ease;
+  }
+  .bar-value { font-size: 12px; color: var(--muted); font-variant-numeric: tabular-nums; }
+
+  /* ── Multilingual name mosaic ── */
+  .name-mosaic {
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: var(--card);
+    padding: 1.25rem;
+    margin-bottom: 2rem;
+  }
+  .name-mosaic h2 { font-size: 15px; font-weight: 600; margin-bottom: 12px; }
+  .name-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 10px;
+  }
+  .name-tile {
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 10px 12px;
+    background: var(--background);
+  }
+  .name-tile .lang { font-size: 10px; font-weight: 700; color: var(--muted); letter-spacing: 0.04em; text-transform: uppercase; margin-bottom: 2px; }
+  .name-tile .names { font-size: 14px; font-weight: 500; }
+  .name-tile .names .alt { font-size: 12px; color: var(--muted); font-weight: 400; }
+
+  /* Navigation */
+  .back-bar {
+    border-top: 1px solid var(--border);
+    padding-top: 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .back-btn {
+    padding: 8px 16px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    font-size: 13px;
+    background: var(--card);
+    cursor: pointer;
+    color: var(--foreground);
+  }
+  .back-btn:hover { background: var(--border); }
+</style>
+</head>
+<body>
+
+<div class="container">
+
+  <!-- Breadcrumb -->
+  <nav class="breadcrumb">
+    <a href="#">Concordance</a>
+    <span class="sep">/</span>
+    <span>Canela / Cinnamon</span>
+  </nav>
+
+  <!-- Compact header (no hero image — better for plants/substances) -->
+  <div class="header">
+    <div class="header-top">
+      <h1>Canela</h1>
+      <span class="badge badge-plant">PLANT</span>
+    </div>
+    <p class="subtitle">
+      <span class="linnaean">Cinnamomum verum</span>
+      &nbsp;&middot;&nbsp; Lauraceae
+      &nbsp;&middot;&nbsp; Cinnamon
+    </p>
+    <p style="font-size:13px; color:var(--muted); max-width:600px; margin-bottom:8px;">
+      While 'canela' can refer to other related species, <em>Cinnamomum verum</em> is the most common and historically significant.
+    </p>
+    <div class="header-stats">
+      <span><strong>6</strong> books</span>
+      <span><strong>241</strong> total mentions</span>
+      <span><strong>18</strong> entries</span>
+      <span><strong>5</strong> languages</span>
+    </div>
+  </div>
+
+  <!-- Three-column info strip -->
+  <div class="info-strip">
+    <div class="info-card">
+      <h3>Identification</h3>
+      <div class="info-row"><span class="label">Modern name</span><span class="value">Cinnamon</span></div>
+      <div class="info-row"><span class="label">Linnaean</span><span class="value" style="font-style:italic;">Cinnamomum verum</span></div>
+      <div class="info-row"><span class="label">Family</span><span class="value">Lauraceae</span></div>
+      <div class="info-row"><span class="label">Confidence</span><span class="value">High</span></div>
+      <div class="info-row"><span class="label">Wikidata</span><span class="value"><a href="#">Q28165</a></span></div>
+    </div>
+
+    <div class="info-card">
+      <h3>Wikipedia</h3>
+      <div class="wiki-extract">
+        Cinnamon is a spice obtained from the inner bark of several tree species from the genus <em>Cinnamomum</em>. Cinnamon is used mainly as an aromatic condiment and flavouring additive in a wide variety of cuisines, sweet and savoury dishes, breakfast cereals, snackfoods, bagels...
+      </div>
+      <span class="wiki-more">Keep reading &rarr;</span>
+    </div>
+
+    <div class="info-card">
+      <h3>Variants by Language</h3>
+      <div class="variant-lang">Portuguese</div>
+      <div class="variant-pills">
+        <span class="variant-pill">canela</span>
+        <span class="variant-pill">canella</span>
+        <span class="variant-pill">canela fina</span>
+      </div>
+      <div class="variant-lang">Italian</div>
+      <div class="variant-pills">
+        <span class="variant-pill">cannella</span>
+        <span class="variant-pill">cinnamomo</span>
+        <span class="variant-pill">cinamomo</span>
+      </div>
+      <div class="variant-lang">Spanish</div>
+      <div class="variant-pills">
+        <span class="variant-pill">Canela</span>
+        <span class="variant-pill">Cinamomo</span>
+      </div>
+      <div class="variant-lang">French</div>
+      <div class="variant-pills">
+        <span class="variant-pill">canelle</span>
+      </div>
+      <div class="variant-lang">English</div>
+      <div class="variant-pills">
+        <span class="variant-pill">Cinnamon</span>
+      </div>
+      <div class="variant-lang">Sinhalese</div>
+      <div class="variant-pills">
+        <span class="variant-pill">Aurund&uacute;</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mention distribution bar chart -->
+  <div class="bar-chart">
+    <h2>Mention Distribution</h2>
+    <div class="bar-row">
+      <span class="bar-label"><span class="lang-tag">PT</span> Polyanthea Medicinal</span>
+      <div class="bar-track"><div class="bar-fill" style="width:50%;"></div></div>
+      <span class="bar-value">66</span>
+    </div>
+    <div class="bar-row">
+      <span class="bar-label"><span class="lang-tag">IT</span> Ricettario Fiorentino</span>
+      <div class="bar-track"><div class="bar-fill" style="width:44%;"></div></div>
+      <span class="bar-value">59</span>
+    </div>
+    <div class="bar-row">
+      <span class="bar-label"><span class="lang-tag">PT</span> Coloquios dos Simples</span>
+      <div class="bar-track"><div class="bar-fill" style="width:72%;"></div></div>
+      <span class="bar-value">96</span>
+    </div>
+    <div class="bar-row">
+      <span class="bar-label"><span class="lang-tag">ES</span> Historia Medicinal</span>
+      <div class="bar-track"><div class="bar-fill" style="width:10%;"></div></div>
+      <span class="bar-value">14</span>
+    </div>
+    <div class="bar-row">
+      <span class="bar-label"><span class="lang-tag">EN</span> The English Physitian</span>
+      <div class="bar-track"><div class="bar-fill" style="width:2%;"></div></div>
+      <span class="bar-value">3</span>
+    </div>
+    <div class="bar-row">
+      <span class="bar-label"><span class="lang-tag">FR</span> Relation historique</span>
+      <div class="bar-track"><div class="bar-fill" style="width:1%;"></div></div>
+      <span class="bar-value">1</span>
+    </div>
+  </div>
+
+  <!-- Multilingual name mosaic -->
+  <div class="name-mosaic">
+    <h2>Names Across Texts</h2>
+    <div class="name-grid">
+      <div class="name-tile">
+        <div class="lang">Portuguese (Orta, 1563)</div>
+        <div class="names">
+          canela
+          <span class="alt">&middot; cinamomo &middot; canela fina &middot; Aurund&uacute; &middot; camalea</span>
+        </div>
+      </div>
+      <div class="name-tile">
+        <div class="lang">Spanish (Monardes, 1574)</div>
+        <div class="names">
+          Canela
+          <span class="alt">&middot; Cinamomo</span>
+        </div>
+      </div>
+      <div class="name-tile">
+        <div class="lang">Italian (Ricettario, 1597)</div>
+        <div class="names">
+          cannella
+          <span class="alt">&middot; Cinnamomo</span>
+        </div>
+      </div>
+      <div class="name-tile">
+        <div class="lang">English (Culpeper, 1652)</div>
+        <div class="names">Cinnamon</div>
+      </div>
+      <div class="name-tile">
+        <div class="lang">Portuguese (Semedo, 1697)</div>
+        <div class="names">
+          Canela
+          <span class="alt">&middot; canela fina &middot; canelafina &middot; p&atilde;o da China</span>
+        </div>
+      </div>
+      <div class="name-tile">
+        <div class="lang">French (Humboldt, 1825)</div>
+        <div class="names">canelle</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Book comparison table -->
+  <div class="comparison-section">
+    <h2>All Book Entries</h2>
+    <table class="comparison-table">
+      <thead>
+        <tr>
+          <th></th>
+          <th>Book</th>
+          <th>Name in Text</th>
+          <th>Context</th>
+          <th style="text-align:right;">Count</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="lang-tag">PT</span></td>
+          <td>Polyanthea Medicinal (1697)</td>
+          <td class="name-cell">
+            <span class="primary">Canela</span>
+            <div class="variants">canela, canella</div>
+          </td>
+          <td class="context-cell">spice used in a preparation</td>
+          <td class="count-cell" style="text-align:right;">55</td>
+          <td><a class="action-link" href="#">View &rarr;</a></td>
+        </tr>
+        <tr>
+          <td><span class="lang-tag">IT</span></td>
+          <td>Ricettario Fiorentino (1597)</td>
+          <td class="name-cell">
+            <span class="primary">Cinnamomo</span>
+            <div class="variants">Cinnamomi, cinamomo, cinnamomo</div>
+          </td>
+          <td class="context-cell">spice, cinnamon</td>
+          <td class="count-cell" style="text-align:right;">45</td>
+          <td><a class="action-link" href="#">View &rarr;</a></td>
+        </tr>
+        <tr>
+          <td><span class="lang-tag">PT</span></td>
+          <td>Coloquios dos Simples (1563)</td>
+          <td class="name-cell">
+            <span class="primary">canela</span>
+            <div class="variants">CANELA, Canela, canelia, canella</div>
+          </td>
+          <td class="context-cell">spice discussed in colloquy</td>
+          <td class="count-cell" style="text-align:right;">39</td>
+          <td><a class="action-link" href="#">View &rarr;</a></td>
+        </tr>
+        <tr>
+          <td><span class="lang-tag">PT</span></td>
+          <td>Coloquios dos Simples (1563)</td>
+          <td class="name-cell">
+            <span class="primary">cinamomo</span>
+            <div class="variants">Cinnamomum, cinnamomo, cirmamomo</div>
+          </td>
+          <td class="context-cell">spice discussed in colloquy</td>
+          <td class="count-cell" style="text-align:right;">39</td>
+          <td><a class="action-link" href="#">View &rarr;</a></td>
+        </tr>
+        <tr>
+          <td><span class="lang-tag">IT</span></td>
+          <td>Ricettario Fiorentino (1597)</td>
+          <td class="name-cell">
+            <span class="primary">cannella</span>
+            <div class="variants">Canella, Cannella fine</div>
+          </td>
+          <td class="context-cell">fragrant spice for pounding</td>
+          <td class="count-cell" style="text-align:right;">14</td>
+          <td><a class="action-link" href="#">View &rarr;</a></td>
+        </tr>
+        <tr>
+          <td><span class="lang-tag">PT</span></td>
+          <td>Coloquios dos Simples (1563)</td>
+          <td class="name-cell">
+            <span class="primary">p&aacute;o da China</span>
+            <div class="variants">pao da China, pau da China</div>
+          </td>
+          <td class="context-cell">wood of China, likely referring to cinnamon</td>
+          <td class="count-cell" style="text-align:right;">14</td>
+          <td><a class="action-link" href="#">View &rarr;</a></td>
+        </tr>
+        <tr>
+          <td><span class="lang-tag">ES</span></td>
+          <td>Historia Medicinal (1574)</td>
+          <td class="name-cell">
+            <span class="primary">Canela</span>
+            <div class="variants">Canela dela India</div>
+          </td>
+          <td class="context-cell">spice from the Moluccas Islands</td>
+          <td class="count-cell" style="text-align:right;">13</td>
+          <td><a class="action-link" href="#">View &rarr;</a></td>
+        </tr>
+        <tr>
+          <td><span class="lang-tag">EN</span></td>
+          <td>The English Physitian (1652)</td>
+          <td class="name-cell"><span class="primary">Cinnamon</span></td>
+          <td class="context-cell">spice</td>
+          <td class="count-cell" style="text-align:right;">3</td>
+          <td><a class="action-link" href="#">View &rarr;</a></td>
+        </tr>
+        <tr>
+          <td><span class="lang-tag">FR</span></td>
+          <td>Relation historique (1825)</td>
+          <td class="name-cell"><span class="primary">canelle</span></td>
+          <td class="context-cell">spice to be cultivated</td>
+          <td class="count-cell" style="text-align:right;">1</td>
+          <td><a class="action-link" href="#">View &rarr;</a></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Navigation -->
+  <div class="back-bar">
+    <button class="back-btn">&larr; Previous cluster</button>
+    <a href="#">Back to Concordance</a>
+    <button class="back-btn">Next cluster &rarr;</button>
+  </div>
+
+</div>
+
+</body>
+</html>

@@ -170,13 +170,84 @@ Coverage by category:
 
 Hard negatives include actual false positives from testing (Caffaneo↔Avicenna, vontade↔Vertue, etc.).
 
+### Expert-Reviewed Membership Decisions (Training Data)
+
+**Location:** `data/training/membership_decisions.jsonl` (491 examples) + `data/training/membership_decisions.csv`
+
+Created by expert review (Opus 4.6 with early modern history domain knowledge) of 491 borderline cluster members — entities flagged by low string similarity to their cluster's canonical name. Each example is a labeled pair: does this member belong in this cluster?
+
+| Verdict | Count | Description |
+|---------|-------|-------------|
+| KEEP (label=1) | 401 | Member correctly belongs (cross-language translation, variant spelling, descriptive phrase) |
+| SPLIT (label=0) | 90 | Member is a genuinely different entity (string-similarity false positive) |
+
+**Pattern breakdown:** 136 phrase matches, 129 cross-language translations, 127 variant spellings, 90 mismatches, 9 subtypes.
+
+**Why this data is valuable for fine-tuning:**
+
+This dataset captures the core challenge of cross-linguistic entity resolution in historical texts: distinguishing true semantic equivalence from superficial string similarity. Standard embedding models fail here because:
+
+1. **String similarity is misleading.** "oolithes" (oolitic limestone) has 0.38 similarity to "olio" (oil) — higher than "azeytes" (oils, Spanish) at 0.00. But azeytes IS oil and oolithes is NOT. A fine-tuned model needs to learn that shared substrings across language boundaries carry different weight than shared substrings within a language.
+
+2. **Context disambiguates.** "Stones" in Culpeper (1652) means kidney stones (= pedras/calculus) while "roches" in Humboldt (1825) means geological rocks. The member context field ("hard concretions in kidneys" vs. "geological formations") is the signal a model should learn to exploit.
+
+3. **Cross-linguistic translation is asymmetric.** "eau" (French) = water is obvious to a multilingual model, but "orraca" (Konkani/Arabic) = arrack ≠ mint requires domain knowledge about early modern trade languages. These hard negatives are exactly what contrastive training needs.
+
+**Recommended fine-tuning approach:**
+
+- **Format:** Convert to triplet format (anchor, positive, negative) where the anchor is the cluster description, positives are KEEP members, and negatives are SPLIT members from the *same cluster* (hard negatives). Where a cluster has no SPLIT members, use SPLIT members from same-category clusters.
+- **Model:** Start from BGE-M3 (already multilingual) or `intfloat/multilingual-e5-large`. These handle Latin-script languages well but need tuning for early modern orthography and OCR artifacts.
+- **Loss:** MultipleNegativesRankingLoss or TripletLoss with a margin that accounts for the difficulty gradient — "Ozark" in the "Oxus" cluster is an easy negative, while "Coumarouma" in the "Cocomero" cluster is harder.
+- **Augmentation:** For each KEEP example, generate OCR-corrupted variants (ſ→s, ligature splitting, random character substitution) as additional positives. For each SPLIT example, find the highest-similarity KEEP member in the same cluster to create maximally contrastive pairs.
+- **Evaluation:** Hold out ~10% stratified by pattern type. Key metric is recall@1 for KEEP members while maintaining <5% false acceptance of SPLIT members. The `sim_to_canonical` and `sim_to_modern` scores in the dataset provide a baseline to beat.
+
+### Synonym Chain Detection Training Data
+
+**Location:** `data/training/synonym_chain_examples.jsonl` (75 examples) + `data/training/synonym_chain_examples.csv`
+
+Created by expert curation of second-pass synonym chain extraction results. Each example is a found entity in an excerpt alongside a known entity, labeled with one of 8 relationship types and graduated link strength (0.0–1.0).
+
+| Label | Count | Link Strength | Description |
+|-------|-------|---------------|-------------|
+| cross_linguistic | 28 | 0.9 | Same entity in different language (cassab = calamus, Zafferano = saffron) |
+| true_synonym | 14 | 1.0 | Explicit equivalence claim (pompholige = Spodio, Antimonio = Estibio) |
+| ingredient_cooccurrence | 10 | 0.0 | Recipe ingredients listed together — NOT synonyms |
+| contested_identity | 7 | 0.7 | Early modern authors debated whether A = B (tabaxir ≟ spodium) |
+| subtype_relation | 7 | 0.5 | A is a variety of B (emblic myrobalan ⊂ myrobalan) |
+| authority_cooccurrence | 4 | 0.0 | Person names cited together (Galen + Avicenna) — NOT synonyms |
+| ocr_noise | 3 | 0.0 | OCR garbage mistakenly extracted as entity |
+| generic_term | 2 | 0.0 | Word too generic to be an entity (sale, lattouaro) |
+
+**What this adds beyond membership_decisions.jsonl:**
+- **Hard negatives for synonym detection:** ingredient co-occurrences look like synonym chains (both use "o vero", "cioè" markers) but are fundamentally different relationships
+- **Graduated link strength:** not binary but 0.0–1.0, capturing the spectrum from true equivalence to contested identity to mere co-occurrence
+- **Text excerpts with OCR noise:** real source text with long-s, ligatures, line breaks, allowing models to learn extraction in noisy conditions
+- **Expert reasoning:** each example has a 1–3 sentence explanation of WHY the link is/isn't genuine, usable as chain-of-thought training signal
+
+**Combined training corpus:** 566 expert-labeled examples (491 membership + 75 synonym chain)
+
+### Second-Pass Extraction Results
+
+**Location:** `data/synonym_chains/` (4 files)
+
+The second-pass extraction (`scripts/extract_synonym_chains.py`) scanned 1,629 excerpts with synonym chain markers and found 5,384 new entity mentions. Key outputs:
+
+- `findings.json` — all 5,384 entities with metadata
+- `cross_cluster_links.json` — 1,690 links between existing clusters (1,323 unique pairs)
+- `unmatched_entities.json` — 3,546 entities not yet in concordance
+- `summary.csv` — tabular overview
+
+**Caveat:** ~17% of findings are ingredient co-occurrences from recipes, not true synonym chains. The cross_cluster_links should be treated as candidates for human review, not auto-integrated.
+
 ### Next Steps
 
 1. ~~Convert training data to triplet format for contrastive learning~~ Done
 2. ~~Re-fine-tune BGE-M3 with expanded multilingual training data~~ Done (finetuned-bge-m3-v2)
 3. ~~Run full extraction on Semedo (1922 chunks) and Culpeper (409 chunks)~~ Done
 4. ~~Evaluate improved model on cross-book matching~~ Done (138 matches, 50 auto-accepted on partial data)
-5. Build human review interface for uncertain matches
+5. ~~Second-pass synonym chain extraction~~ Done (5,384 entities, 1,690 cross-links)
+6. Build human review interface for uncertain matches
+7. Integrate high-confidence synonym chain links into concordance
 
 ---
 

@@ -31,7 +31,7 @@ def build_enrichment_prompt(clusters: list[dict]) -> str:
     """Build a prompt for Gemini to identify modern referents for a batch of clusters."""
     lines = [
         "You are a historian of science and medicine with expertise in early modern",
-        "texts (1500-1800) in Portuguese, Spanish, Latin, and English.",
+        "texts (1500-1900) in Portuguese, Spanish, Latin, and English.",
         "",
         "For each entity cluster below from early modern medical/scientific texts,",
         "identify the modern referent. Return a JSON array with one object per cluster.",
@@ -66,7 +66,7 @@ def build_enrichment_prompt(clusters: list[dict]) -> str:
         "",
         "IMPORTANT RULES:",
         "- This is a HISTORICAL RESEARCH project about early modern medicine and natural",
-        "  philosophy (1500-1800). All entities are from this historical domain.",
+        "  philosophy (1500-1900). All entities are from this historical domain.",
         "- For plants, ALWAYS try to give the Linnaean binomial if known",
         "- Use 'low' confidence when the early modern term is genuinely ambiguous",
         "- For contested identifications, explain briefly in 'note'",

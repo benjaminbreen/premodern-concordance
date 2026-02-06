@@ -513,7 +513,7 @@ def build_recheck_prompt(batch: list[dict]) -> str:
 
     clusters_text = "\n\n---\n\n".join(items)
 
-    return f"""You are identifying entities from early modern texts (1500–1800) about natural knowledge, medicine, and exploration.
+    return f"""You are identifying entities from early modern texts (1500–1900) about natural knowledge, medicine, and exploration.
 
 For each cluster below, provide the correct modern identification. These are historical/scientific terms — "Mercury" means the alchemical element, not the planet or musician; "Galen" means the ancient physician.
 

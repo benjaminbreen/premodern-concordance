@@ -142,53 +142,63 @@ def find_suspicious_clusters(clusters: list[dict]) -> list[dict]:
                 if other_n in member_n or member_n in other_n:
                     best_sim_to_others = max(best_sim_to_others, 0.8)
 
-            # ── Flag condition 1: Name is genuinely different from everything ──
-            # Very strict: low similarity to canonical, modern name, linnaean,
-            # AND all other members
+            # ── Context compatibility check ──────────────────────────────
+            # If the member's context mentions key terms related to the
+            # cluster identity, it's probably correct (cross-language translation)
+            contexts = " ".join(m.get("contexts", [])).lower()
+            modern_words = set(
+                w for w in (gt.get("modern_name") or "").lower().split()
+                if len(w) > 3
+            )
+            canonical_words = set(
+                w for w in canonical_n.split() if len(w) > 3
+            )
+            key_terms = modern_words | canonical_words
+            # Also add the category as a key term
+            key_terms.add(c["category"].lower())
+
+            context_confirms = any(term in contexts for term in key_terms)
+
+            # ── Flag condition 1: Name is genuinely alien ──────────────
+            # Extremely strict: very low similarity to everything
             name_is_alien = (
-                sim_canonical < 0.40
-                and sim_modern < 0.40
-                and sim_linnaean < 0.40
-                and best_sim_to_others < 0.45
+                sim_canonical < 0.30
+                and sim_modern < 0.30
+                and sim_linnaean < 0.30
+                and best_sim_to_others < 0.35
                 and len(member_n) > 2
+                and not context_confirms  # context says it belongs → skip
             )
 
-            # ── Flag condition 2: Partial name match but context is wrong ──
-            # The name looks similar but the context describes something different.
-            # Only flag if context clearly contradicts the cluster type.
-            contexts = " ".join(m.get("contexts", [])).lower()
+            # ── Flag condition 2: Context clearly contradicts category ──
             context_strong_mismatch = False
 
             if c["category"] == "PLANT" and any(
                 kw in contexts
                 for kw in [
-                    "a stone", "precious stone", "mineral substance",
-                    "an animal", "animal species", "metal",
+                    "precious stone", "mineral substance",
+                    "animal species", "currency", "metal",
                 ]
             ):
                 context_strong_mismatch = True
             if c["category"] == "ANIMAL" and any(
-                kw in contexts for kw in ["plant species", "a herb", "herbal"]
+                kw in contexts for kw in ["plant species", "currency", "mineral"]
             ):
                 context_strong_mismatch = True
             if c["category"] == "PERSON" and any(
-                kw in contexts for kw in ["plant species", "a herb", "herbal", "mineral"]
-            ):
-                context_strong_mismatch = True
-            if c["category"] == "PLACE" and any(
-                kw in contexts for kw in ["plant species", "a herb", "herbal", "disease"]
+                kw in contexts for kw in ["plant species", "mineral", "currency"]
             ):
                 context_strong_mismatch = True
 
-            # ── Flag condition 3: Moderate name divergence + low count ──
-            # Member has moderate name difference AND is low-frequency
-            # (single-mention members with different names are often noise)
+            # ── Flag condition 3: Moderate divergence + single mention ──
+            # Only flag very low-frequency members with quite different names
             moderate_name_divergence = (
-                sim_canonical < 0.50
-                and sim_modern < 0.50
-                and best_sim_to_others < 0.50
+                sim_canonical < 0.35
+                and sim_modern < 0.35
+                and best_sim_to_others < 0.40
                 and m["count"] <= 2
                 and len(member_n) > 3
+                and not context_confirms
             )
 
             # Combine: flag if alien name, or strong context mismatch,
@@ -278,7 +288,7 @@ def build_validation_prompt(flagged_items: list[dict]) -> str:
 
     clusters_text = "\n\n---\n\n".join(blocks)
 
-    return f"""You are validating entity clusters from a cross-linguistic concordance of early modern texts (1500–1800) in English, Portuguese, Spanish, French, Italian, and Latin.
+    return f"""You are validating entity clusters from a cross-linguistic concordance of early modern texts (1500–1900) in English, Portuguese, Spanish, French, Italian, and Latin.
 
 Each cluster groups references to the SAME entity across books in DIFFERENT LANGUAGES. Members marked ⚑ are suspected of being wrong.
 
@@ -351,7 +361,14 @@ def validate_with_llm(
             time.sleep(2)
             continue
 
+        if not isinstance(results, list):
+            print(f"    Unexpected response type: {type(results)}")
+            time.sleep(2)
+            continue
+
         for r in results:
+            if not isinstance(r, dict):
+                continue
             cid = r.get("cluster_id")
             rejects = r.get("reject", [])
             if cid is not None and rejects:

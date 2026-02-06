@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mockup A — Cluster Detail: Galen</title>
+<style>
+  :root {
+    --background: #fafaf9;
+    --foreground: #1c1917;
+    --muted: #78716c;
+    --border: #e7e5e4;
+    --card: #ffffff;
+    --accent: #059669;
+    --accent-light: #d1fae5;
+    --person: #7c3aed;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: var(--background);
+    color: var(--foreground);
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    line-height: 1.5;
+  }
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+
+  .container { max-width: 960px; margin: 0 auto; padding: 2rem 1.5rem; }
+
+  /* Breadcrumb */
+  .breadcrumb { font-size: 13px; color: var(--muted); margin-bottom: 2rem; }
+  .breadcrumb a { color: var(--muted); }
+  .breadcrumb a:hover { color: var(--foreground); }
+  .breadcrumb .sep { margin: 0 6px; }
+
+  /* Hero */
+  .hero {
+    position: relative;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+    margin-bottom: 2rem;
+    min-height: 220px;
+  }
+  .hero-image {
+    position: absolute; inset: 0;
+    background: url('https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Galenus.jpg/800px-Galenus.jpg') center/cover;
+    mask-image: linear-gradient(to right, transparent 30%, rgba(0,0,0,0.08) 50%, rgba(0,0,0,0.4) 75%, black 100%);
+    -webkit-mask-image: linear-gradient(to right, transparent 30%, rgba(0,0,0,0.08) 50%, rgba(0,0,0,0.4) 75%, black 100%);
+  }
+  .hero-tint {
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse at top right, rgba(147,51,234,0.2) 0%, transparent 60%);
+  }
+  .hero-content {
+    position: relative; z-index: 10;
+    padding: 2.5rem;
+  }
+  .hero h1 { font-size: 2.25rem; font-weight: 700; margin-bottom: 4px; }
+  .hero .subtitle { color: var(--muted); font-size: 14px; margin-bottom: 16px; }
+  .badge {
+    display: inline-block;
+    padding: 2px 10px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: 600;
+    border: 1px solid;
+    margin-left: 12px;
+    vertical-align: middle;
+  }
+  .badge-person {
+    background: rgba(147,51,234,0.15);
+    color: #7c3aed;
+    border-color: rgba(147,51,234,0.3);
+  }
+  .hero-stats {
+    display: flex; gap: 24px; font-size: 13px; color: var(--muted);
+  }
+  .hero-stats strong { color: var(--foreground); }
+
+  /* Two-column layout */
+  .two-col { display: grid; grid-template-columns: 340px 1fr; gap: 2rem; margin-bottom: 2rem; }
+  @media (max-width: 768px) { .two-col { grid-template-columns: 1fr; } }
+
+  /* Left sidebar */
+  .sidebar-card {
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: var(--card);
+    padding: 1.25rem;
+    margin-bottom: 1rem;
+  }
+  .sidebar-card h3 {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--muted);
+    margin-bottom: 10px;
+    font-weight: 600;
+  }
+  .id-row { display: flex; justify-content: space-between; font-size: 13px; margin-bottom: 6px; }
+  .id-row .label { color: var(--muted); }
+  .id-row .value { font-weight: 500; }
+  .wiki-link {
+    display: inline-flex; align-items: center; gap: 4px;
+    font-size: 12px; color: var(--accent);
+    padding: 6px 10px;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    margin-top: 8px;
+    transition: background 0.15s;
+  }
+  .wiki-link:hover { background: var(--accent-light); text-decoration: none; }
+
+  /* Wikipedia extract */
+  .wiki-extract {
+    font-size: 13px;
+    color: var(--muted);
+    line-height: 1.6;
+    border-left: 2px solid var(--border);
+    padding-left: 12px;
+    margin-top: 8px;
+  }
+
+  /* Variant pills */
+  .variant-pills { display: flex; flex-wrap: wrap; gap: 4px; }
+  .variant-pill {
+    padding: 2px 8px;
+    font-size: 12px;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    background: var(--background);
+  }
+
+  /* Main content — source evidence */
+  .book-section {
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: var(--card);
+    margin-bottom: 1rem;
+    overflow: hidden;
+  }
+  .book-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 16px;
+    border-bottom: 1px solid var(--border);
+    background: var(--background);
+  }
+  .book-header .title { font-weight: 600; font-size: 14px; }
+  .book-header .meta { font-size: 12px; color: var(--muted); }
+  .book-body { padding: 12px 16px; }
+  .book-name {
+    font-size: 15px;
+    font-weight: 600;
+    margin-bottom: 4px;
+  }
+  .book-count {
+    font-size: 12px;
+    color: var(--muted);
+    margin-bottom: 8px;
+  }
+  .book-context {
+    font-size: 13px;
+    color: var(--muted);
+    font-style: italic;
+    border-left: 2px solid var(--border);
+    padding-left: 10px;
+    margin-bottom: 8px;
+  }
+  .book-variants {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 3px;
+    margin-top: 6px;
+  }
+  .book-variants span {
+    font-size: 11px;
+    color: var(--muted);
+    padding: 1px 6px;
+    border: 1px solid var(--border);
+    border-radius: 3px;
+  }
+  .entity-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 12px;
+    color: var(--accent);
+    margin-top: 8px;
+  }
+  .entity-link:hover { text-decoration: underline; }
+
+  /* Network section */
+  .network-section {
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: var(--card);
+    padding: 1.25rem;
+    margin-bottom: 2rem;
+  }
+  .network-section h2 {
+    font-size: 15px; font-weight: 600; margin-bottom: 12px;
+  }
+  .edge-table { width: 100%; border-collapse: collapse; font-size: 12px; }
+  .edge-table th {
+    text-align: left; padding: 6px 8px;
+    font-size: 11px; text-transform: uppercase; letter-spacing: 0.03em;
+    color: var(--muted); border-bottom: 1px solid var(--border);
+    font-weight: 600;
+  }
+  .edge-table td {
+    padding: 5px 8px;
+    border-bottom: 1px solid var(--border);
+  }
+  .sim-bar {
+    display: inline-block;
+    height: 6px;
+    border-radius: 3px;
+    background: var(--accent);
+    vertical-align: middle;
+    margin-right: 6px;
+  }
+
+  /* Back link */
+  .back-bar {
+    border-top: 1px solid var(--border);
+    padding-top: 1.5rem;
+    margin-top: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .back-btn {
+    padding: 8px 16px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    font-size: 13px;
+    background: var(--card);
+    cursor: pointer;
+    color: var(--foreground);
+  }
+  .back-btn:hover { background: var(--border); }
+
+  .lang-tag {
+    font-size: 10px;
+    font-weight: 700;
+    padding: 1px 5px;
+    border-radius: 3px;
+    background: var(--border);
+    color: var(--muted);
+    letter-spacing: 0.03em;
+    margin-right: 6px;
+    vertical-align: middle;
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+
+  <!-- Breadcrumb -->
+  <nav class="breadcrumb">
+    <a href="#">Concordance</a>
+    <span class="sep">/</span>
+    <span>Galen</span>
+  </nav>
+
+  <!-- Hero with Wikipedia image -->
+  <div class="hero">
+    <div class="hero-image"></div>
+    <div class="hero-tint"></div>
+    <div class="hero-content">
+      <h1>
+        Galen
+        <span class="badge badge-person">PERSON</span>
+      </h1>
+      <p class="subtitle">Aelius Galenus (129–216 CE) &middot; Ancient Greek physician, surgeon, and philosopher</p>
+      <div class="hero-stats">
+        <span><strong>6</strong> books</span>
+        <span><strong>683</strong> total mentions</span>
+        <span><strong>7</strong> entries</span>
+        <span><strong>5</strong> languages</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Two-column layout -->
+  <div class="two-col">
+
+    <!-- Left: identification + wiki -->
+    <div>
+      <div class="sidebar-card">
+        <h3>Identification</h3>
+        <div class="id-row"><span class="label">Modern name</span><span class="value">Galen</span></div>
+        <div class="id-row"><span class="label">Born</span><span class="value">129 CE, Pergamon</span></div>
+        <div class="id-row"><span class="label">Died</span><span class="value">c. 216 CE, Rome</span></div>
+        <div class="id-row"><span class="label">Type</span><span class="value">Authority</span></div>
+        <div class="id-row"><span class="label">Confidence</span><span class="value">High</span></div>
+        <div class="id-row"><span class="label">Wikidata</span><span class="value"><a href="https://www.wikidata.org/wiki/Q8778">Q8778</a></span></div>
+        <a href="https://en.wikipedia.org/wiki/Galen" class="wiki-link" target="_blank">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          Wikipedia
+        </a>
+      </div>
+
+      <div class="sidebar-card">
+        <h3>Wikipedia</h3>
+        <div class="wiki-extract">
+          Aelius Galenus or Claudius Galenus, often Anglicized as Galen, was a Greek physician, surgeon and philosopher in the Roman Empire. Considered to be one of the most accomplished of all medical researchers of antiquity, Galen influenced the development of various scientific disciplines including anatomy, physiology, pathology, pharmacology, and neurology.
+        </div>
+      </div>
+
+      <div class="sidebar-card">
+        <h3>All Spelling Variants</h3>
+        <div class="variant-pills">
+          <span class="variant-pill">Galen</span>
+          <span class="variant-pill">Galeno</span>
+          <span class="variant-pill">Galenus</span>
+          <span class="variant-pill">Galeni</span>
+          <span class="variant-pill">Galenum</span>
+          <span class="variant-pill">Galenicos</span>
+          <span class="variant-pill">Galieno</span>
+          <span class="variant-pill">Galem</span>
+          <span class="variant-pill">Galenas</span>
+          <span class="variant-pill">Galero</span>
+          <span class="variant-pill">galena</span>
+          <span class="variant-pill">Galon</span>
+          <span class="variant-pill">Galenon</span>
+          <span class="variant-pill">Dr. Galen</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right: source evidence by book -->
+    <div>
+      <h2 style="font-size:15px; font-weight:600; margin-bottom:12px; color:var(--muted);">Source Evidence</h2>
+
+      <!-- Book 1: Semedo -->
+      <div class="book-section">
+        <div class="book-header">
+          <div>
+            <span class="lang-tag">PT</span>
+            <span class="title">Polyanthea Medicinal</span>
+          </div>
+          <span class="meta">Semedo, 1697</span>
+        </div>
+        <div class="book-body">
+          <div class="book-name">Galen</div>
+          <div class="book-count">478 mentions &middot; 15 variants</div>
+          <div class="book-context">"ancient medical authority cited multiple times"</div>
+          <div class="book-variants">
+            <span>Galen</span> <span>Galeno</span> <span>Galenus</span>
+            <span>Galeni</span> <span>Galem</span> <span>Galenicos</span>
+            <span>Galieno</span> <span>Galon</span>
+            <span style="color:var(--muted); border:none; font-style:italic;">+7 more</span>
+          </div>
+          <a class="entity-link" href="#">
+            View full entity page &rarr;
+          </a>
+        </div>
+      </div>
+
+      <!-- Book 2: Orta -->
+      <div class="book-section">
+        <div class="book-header">
+          <div>
+            <span class="lang-tag">PT</span>
+            <span class="title">Coloquios dos Simples</span>
+          </div>
+          <span class="meta">Garcia da Orta, 1563</span>
+        </div>
+        <div class="book-body">
+          <div class="book-name">Galeno</div>
+          <div class="book-count">77 mentions &middot; 5 variants</div>
+          <div class="book-context">"Ancient Greek physician"</div>
+          <div class="book-variants">
+            <span>Galeno</span> <span>Galen</span> <span>Galenus</span>
+            <span>Galenas</span> <span>Gale.</span>
+          </div>
+          <a class="entity-link" href="#">
+            View full entity page &rarr;
+          </a>
+        </div>
+      </div>
+
+      <!-- Book 3: Ricettario -->
+      <div class="book-section">
+        <div class="book-header">
+          <div>
+            <span class="lang-tag">IT</span>
+            <span class="title">Ricettario Fiorentino</span>
+          </div>
+          <span class="meta">1597</span>
+        </div>
+        <div class="book-body">
+          <div class="book-name">Galeno</div>
+          <div class="book-count">62 mentions &middot; 4 variants</div>
+          <div class="book-context">"Ancient medical authority"</div>
+          <div class="book-variants">
+            <span>Galeno</span> <span>Galen</span> <span>Galero</span> <span>galena</span>
+          </div>
+          <a class="entity-link" href="#">
+            View full entity page &rarr;
+          </a>
+        </div>
+      </div>
+
+      <!-- Book 4: Monardes -->
+      <div class="book-section">
+        <div class="book-header">
+          <div>
+            <span class="lang-tag">ES</span>
+            <span class="title">Historia Medicinal</span>
+          </div>
+          <span class="meta">Monardes, 1574</span>
+        </div>
+        <div class="book-body">
+          <div class="book-name">Galeno</div>
+          <div class="book-count">33 mentions &middot; 4 variants</div>
+          <div class="book-context">"ancient author on poisons"</div>
+          <div class="book-variants">
+            <span>Galeno</span> <span>Galen</span> <span>Galenon</span> <span>Gale</span>
+          </div>
+          <a class="entity-link" href="#">
+            View full entity page &rarr;
+          </a>
+        </div>
+      </div>
+
+      <!-- Book 5: Culpeper -->
+      <div class="book-section">
+        <div class="book-header">
+          <div>
+            <span class="lang-tag">EN</span>
+            <span class="title">The English Physitian</span>
+          </div>
+          <span class="meta">Culpeper, 1652</span>
+        </div>
+        <div class="book-body">
+          <div class="book-name">Galen / Dr. Galen</div>
+          <div class="book-count">31 mentions &middot; 3 variants</div>
+          <div class="book-context">"ancient Greek physician and philosopher"</div>
+          <div class="book-variants">
+            <span>Galen</span> <span>Galon</span> <span>Dr. Galen</span>
+          </div>
+          <a class="entity-link" href="#">
+            View full entity page &rarr;
+          </a>
+        </div>
+      </div>
+
+      <!-- Book 6: Humboldt -->
+      <div class="book-section">
+        <div class="book-header">
+          <div>
+            <span class="lang-tag">FR</span>
+            <span class="title">Relation historique</span>
+          </div>
+          <span class="meta">Humboldt, 1825</span>
+        </div>
+        <div class="book-body">
+          <div class="book-name">Galen</div>
+          <div class="book-count">2 mentions &middot; 1 variant</div>
+          <div class="book-context">"ancient medical authority"</div>
+          <a class="entity-link" href="#">
+            View full entity page &rarr;
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Cross-book similarity -->
+  <div class="network-section">
+    <h2>Cross-Book Connections</h2>
+    <p style="font-size:12px; color:var(--muted); margin-bottom:12px;">
+      Cosine similarity between embedding representations of each book's entity. All pairs above 0.84 threshold.
+    </p>
+    <table class="edge-table">
+      <thead>
+        <tr>
+          <th>Source</th>
+          <th>Target</th>
+          <th style="width:180px;">Similarity</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Galeno <span style="color:var(--muted)">(Orta)</span></td>
+          <td>Galeno <span style="color:var(--muted)">(Monardes)</span></td>
+          <td><span class="sim-bar" style="width:100px;"></span> 1.00</td>
+        </tr>
+        <tr>
+          <td>Galeno <span style="color:var(--muted)">(Orta)</span></td>
+          <td>Galeno <span style="color:var(--muted)">(Ricettario)</span></td>
+          <td><span class="sim-bar" style="width:98px;"></span> 0.98</td>
+        </tr>
+        <tr>
+          <td>Galen <span style="color:var(--muted)">(Semedo)</span></td>
+          <td>Galen <span style="color:var(--muted)">(Culpeper)</span></td>
+          <td><span class="sim-bar" style="width:95px;"></span> 0.95</td>
+        </tr>
+        <tr>
+          <td>Galen <span style="color:var(--muted)">(Semedo)</span></td>
+          <td>Galeno <span style="color:var(--muted)">(Orta)</span></td>
+          <td><span class="sim-bar" style="width:93px;"></span> 0.93</td>
+        </tr>
+        <tr>
+          <td>Galen <span style="color:var(--muted)">(Culpeper)</span></td>
+          <td>Galen <span style="color:var(--muted)">(Humboldt)</span></td>
+          <td><span class="sim-bar" style="width:88px;"></span> 0.88</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Navigation -->
+  <div class="back-bar">
+    <button class="back-btn">&larr; Previous cluster</button>
+    <a href="#">Back to Concordance</a>
+    <button class="back-btn">Next cluster &rarr;</button>
+  </div>
+
+</div>
+
+</body>
+</html>

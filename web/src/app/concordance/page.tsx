@@ -118,10 +118,11 @@ const CATEGORY_COLORS: Record<string, { badge: string; dot: string }> = {
 
 const BOOK_SHORT_NAMES: Record<string, string> = {
   "english_physician_1652": "Culpeper",
-  "semedo-polyanthea-1741": "Semedo",
+  "polyanthea_medicinal": "Semedo",
   "coloquios_da_orta_1563": "Da Orta",
   "historia_medicinal_monardes_1574": "Monardes",
   "relation_historique_humboldt_vol3_1825": "Humboldt",
+  "ricettario_fiorentino_1597": "Ricettario",
 };
 
 const BOOK_LANG_FLAGS: Record<string, string> = {
@@ -130,17 +131,125 @@ const BOOK_LANG_FLAGS: Record<string, string> = {
   Spanish: "ES",
   Latin: "LA",
   French: "FR",
+  Italian: "IT",
 };
 
-function BookPill({ bookId, books }: { bookId: string; books: BookMeta[] }) {
-  const book = books.find((b) => b.id === bookId);
-  const shortName = BOOK_SHORT_NAMES[bookId] || bookId;
-  const lang = BOOK_LANG_FLAGS[book?.language || ""] || "";
+function slugify(name: string): string {
+  return name.toLowerCase().trim().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
+}
+
+function clusterSlug(cluster: Cluster, allClusters: Cluster[]): string {
+  const base = slugify(cluster.canonical_name);
+  const hasCollision = allClusters.some(
+    (c) => c.id !== cluster.id && slugify(c.canonical_name) === base
+  );
+  return hasCollision ? `${base}-${cluster.id}` : base;
+}
+
+/** Capitalize first letter of identification text */
+function cap(r: { text: string; italic: boolean }): { text: string; italic: boolean } {
+  if (r.text.length > 0) {
+    return { ...r, text: r.text.charAt(0).toUpperCase() + r.text.slice(1) };
+  }
+  return r;
+}
+
+/** Build a richer identification string for the list row */
+function getIdentification(cluster: Cluster): { text: string; italic: boolean } | null {
+  const gt = cluster.ground_truth;
+  if (!gt) return null;
+  const cat = cluster.category;
+  const canonLower = cluster.canonical_name.toLowerCase();
+
+  if (cat === "PERSON") {
+    // Always show modern_name with dates for persons
+    if (gt.birth_year) {
+      const dates = `(${gt.birth_year}\u2013${gt.death_year || "?"})`;
+      return cap({ text: `${gt.modern_name} ${dates}`, italic: false });
+    }
+    const nameDiffers = gt.modern_name.toLowerCase() !== canonLower;
+    if (nameDiffers) return cap({ text: gt.modern_name, italic: false });
+    if (gt.description) {
+      const d = gt.description;
+      return cap({ text: d.length > 60 ? d.slice(0, 57) + "\u2026" : d, italic: false });
+    }
+    if (gt.wikidata_description) {
+      const d = gt.wikidata_description;
+      return cap({ text: d.length > 60 ? d.slice(0, 57) + "\u2026" : d, italic: false });
+    }
+    return null;
+  }
+
+  if (cat === "PLANT" || cat === "ANIMAL") {
+    if (gt.linnaean) return cap({ text: gt.linnaean, italic: true });
+    if (gt.modern_name.toLowerCase() !== canonLower) return cap({ text: gt.modern_name, italic: false });
+    if (gt.family) return cap({ text: `Fam. ${gt.family}`, italic: true });
+    return null;
+  }
+
+  // SUBSTANCE, CONCEPT, DISEASE, PLACE, OBJECT
+  if (gt.modern_name.toLowerCase() !== canonLower) return cap({ text: gt.modern_name, italic: false });
+  if (gt.modern_term && gt.modern_term.toLowerCase() !== canonLower && gt.modern_term.toLowerCase() !== gt.modern_name.toLowerCase()) {
+    return cap({ text: gt.modern_term, italic: false });
+  }
+  if (gt.description) {
+    const d = gt.description;
+    return cap({ text: d.length > 60 ? d.slice(0, 57) + "\u2026" : d, italic: false });
+  }
+  if (gt.wikidata_description) {
+    const d = gt.wikidata_description;
+    return cap({ text: d.length > 60 ? d.slice(0, 57) + "\u2026" : d, italic: false });
+  }
+  return null;
+}
+
+/** Language-only source tags with hover tooltip */
+function SourceLangs({ bookIds, books }: { bookIds: string[]; books: BookMeta[] }) {
+  const seen = new Set<string>();
+  const langs: string[] = [];
+  bookIds.forEach((bid) => {
+    const book = books.find((b) => b.id === bid);
+    const lang = BOOK_LANG_FLAGS[book?.language || ""] || "?";
+    if (!seen.has(lang)) {
+      seen.add(lang);
+      langs.push(lang);
+    }
+  });
+
+  const bookDetails = bookIds
+    .map((bid) => {
+      const book = books.find((b) => b.id === bid);
+      if (!book) return null;
+      return {
+        lang: BOOK_LANG_FLAGS[book.language] || "?",
+        name: BOOK_SHORT_NAMES[bid] || book.title,
+        year: book.year,
+      };
+    })
+    .filter((b): b is NonNullable<typeof b> => b !== null);
+
   return (
-    <span className="inline-flex items-center gap-1 px-2 py-0.5 text-xs rounded border border-[var(--border)] bg-[var(--card)]">
-      {lang && <span className="text-[var(--muted)] font-mono">{lang}</span>}
-      <span>{shortName}</span>
-    </span>
+    <div className="relative group/src flex gap-1 overflow-visible">
+      {langs.map((lang) => (
+        <span
+          key={lang}
+          className="px-1.5 py-0.5 text-[11px] font-mono rounded border border-[var(--border)] text-[var(--muted)]"
+        >
+          {lang}
+        </span>
+      ))}
+      <div className="pointer-events-none absolute bottom-full left-0 mb-2 opacity-0 group-hover/src:opacity-100 transition-opacity duration-150 z-50">
+        <div className="bg-[var(--foreground)] text-[var(--background)] rounded-lg px-3 py-2 text-xs shadow-lg whitespace-nowrap space-y-0.5">
+          {bookDetails.map((b, i) => (
+            <div key={i} className="flex items-center gap-2">
+              <span className="font-mono opacity-60">{b.lang}</span>
+              <span>{b.name}</span>
+              <span className="opacity-40">{b.year}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
   );
 }
 
@@ -187,8 +296,94 @@ function WikiThumbnail({ url }: { url: string }) {
     <img
       src={thumb}
       alt=""
-      className="w-16 h-16 rounded object-cover shrink-0 border border-[var(--border)]"
+      className="w-24 h-24 rounded object-cover shrink-0 border border-[var(--border)]"
     />
+  );
+}
+
+/** Fetches and displays Wikipedia article extract with expandable reading */
+function WikiExtract({ url }: { url: string }) {
+  const [paragraphs, setParagraphs] = useState<string[]>([]);
+  const [expanded, setExpanded] = useState(false);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    try {
+      const urlObj = new URL(url);
+      const lang = urlObj.hostname.split(".")[0];
+      const title = decodeURIComponent(urlObj.pathname.split("/wiki/")[1] || "");
+      if (!title) { setLoading(false); return; }
+
+      fetch(
+        `https://${lang}.wikipedia.org/w/api.php?action=query&titles=${encodeURIComponent(title)}&prop=extracts&explaintext=true&exsectionformat=plain&format=json&origin=*`
+      )
+        .then((res) => res.json())
+        .then((data) => {
+          const pages = data.query?.pages;
+          if (!pages) { setLoading(false); return; }
+          const pageId = Object.keys(pages)[0];
+          const extract = pages[pageId]?.extract || "";
+          // Split into paragraphs, filter out section headers / tiny fragments
+          const paras = extract.split("\n\n").filter((p: string) => p.length > 40);
+          setParagraphs(paras.slice(0, 6));
+          setLoading(false);
+        })
+        .catch(() => setLoading(false));
+    } catch {
+      setLoading(false);
+    }
+  }, [url]);
+
+  if (loading || paragraphs.length === 0) return null;
+
+  // Truncate first paragraph to ~500 chars at a sentence boundary
+  const PREVIEW_MAX = 500;
+  const firstPara = paragraphs[0];
+  let preview: string;
+  let restOfFirst: string | null = null;
+
+  if (firstPara.length <= PREVIEW_MAX) {
+    preview = firstPara;
+  } else {
+    const cut = firstPara.slice(0, PREVIEW_MAX);
+    const sentenceEnd = cut.lastIndexOf(". ");
+    if (sentenceEnd > 200) {
+      preview = cut.slice(0, sentenceEnd + 1);
+      restOfFirst = firstPara.slice(sentenceEnd + 2);
+    } else {
+      const wordEnd = cut.lastIndexOf(" ");
+      preview = cut.slice(0, wordEnd > 0 ? wordEnd : PREVIEW_MAX) + "\u2026";
+      restOfFirst = firstPara.slice(wordEnd > 0 ? wordEnd + 1 : PREVIEW_MAX);
+    }
+  }
+
+  const hasMore = restOfFirst !== null || paragraphs.length > 1;
+
+  return (
+    <div className="mt-3">
+      <p className="text-sm text-[var(--foreground)]/80 leading-relaxed">
+        {preview}
+      </p>
+      {hasMore && !expanded && (
+        <button
+          onClick={(e) => { e.stopPropagation(); setExpanded(true); }}
+          className="mt-2 text-xs text-[var(--accent)] hover:underline"
+        >
+          Keep reading &rarr;
+        </button>
+      )}
+      {expanded && (
+        <div className="mt-2 max-h-[280px] overflow-y-auto space-y-3 text-sm text-[var(--foreground)]/80 leading-relaxed border-t border-[var(--border)] pt-2">
+          {restOfFirst && <p>{restOfFirst}</p>}
+          {paragraphs.slice(1).map((p, i) => (
+            <p key={i}>{p}</p>
+          ))}
+        </div>
+      )}
+      <p className="text-[9px] text-[var(--muted)] mt-1.5 opacity-40">
+        Source: Wikipedia
+      </p>
+    </div>
   );
 }
 
@@ -271,6 +466,48 @@ export default function ConcordancePage() {
 
     return clusters;
   }, [data, search, categoryFilter, bookFilter]);
+
+  // Keyboard navigation: Escape to close, Left/Right arrows to navigate
+  const handleKeyDown = useCallback((e: KeyboardEvent) => {
+    // Don't interfere with input fields
+    if (e.target instanceof HTMLInputElement || e.target instanceof HTMLSelectElement || e.target instanceof HTMLTextAreaElement) return;
+
+    if (e.key === "Escape") {
+      setExpandedCluster(null);
+      return;
+    }
+
+    if (e.key === "ArrowRight" || e.key === "ArrowLeft") {
+      e.preventDefault();
+      const visible = filteredClusters.slice(0, showCount);
+      if (visible.length === 0) return;
+
+      if (expandedCluster === null) {
+        const target = e.key === "ArrowRight" ? visible[0] : visible[visible.length - 1];
+        setExpandedCluster(target.id);
+        setTimeout(() => {
+          document.getElementById(`cluster-${target.id}`)?.scrollIntoView({ behavior: "smooth", block: "nearest" });
+        }, 50);
+        return;
+      }
+
+      const currentIdx = visible.findIndex((c) => c.id === expandedCluster);
+      if (currentIdx === -1) return;
+
+      const nextIdx = e.key === "ArrowRight" ? currentIdx + 1 : currentIdx - 1;
+      if (nextIdx < 0 || nextIdx >= visible.length) return;
+
+      setExpandedCluster(visible[nextIdx].id);
+      setTimeout(() => {
+        document.getElementById(`cluster-${visible[nextIdx].id}`)?.scrollIntoView({ behavior: "smooth", block: "nearest" });
+      }, 50);
+    }
+  }, [filteredClusters, expandedCluster, showCount]);
+
+  useEffect(() => {
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [handleKeyDown]);
 
   if (loading) {
     return (
@@ -439,7 +676,7 @@ export default function ConcordancePage() {
       </div>
 
       {/* Column header */}
-      <div className="hidden md:grid grid-cols-[1.75rem_1fr_1fr_5.5rem_1fr_3rem_1.5rem] items-center gap-x-3 px-4 py-2 text-[10px] uppercase tracking-widest text-[var(--muted)] font-medium border-b border-[var(--border)]">
+      <div className="hidden md:grid grid-cols-[1.75rem_1fr_1fr_5.5rem_1fr_3rem_1.5rem] items-center gap-x-3 px-4 py-2.5 text-[11px] uppercase tracking-widest text-[var(--muted)] font-medium border-b border-[var(--border)]">
         <span />
         <span>Name</span>
         <span>Identification</span>
@@ -455,17 +692,23 @@ export default function ConcordancePage() {
           const isExpanded = expandedCluster === cluster.id;
           const catColor = CATEGORY_COLORS[cluster.category];
           const bookIds = [...new Set(cluster.members.map((m) => m.book_id))];
+          const identification = getIdentification(cluster);
 
           return (
             <div
               key={cluster.id}
-              className="bg-[var(--card)]"
+              id={`cluster-${cluster.id}`}
+              className="relative bg-[var(--card)] group/row"
             >
+              {/* Left accent bar — visible on hover or when expanded */}
+              <span className={`absolute left-0 top-0 bottom-0 w-0.5 ${catColor?.dot || "bg-gray-400"} ${isExpanded ? "opacity-100" : "opacity-0 group-hover/row:opacity-100"} transition-opacity z-10`} />
+
               {/* Cluster row */}
               <button
                 onClick={() => setExpandedCluster(isExpanded ? null : cluster.id)}
                 className="w-full px-4 py-3 grid grid-cols-[auto_1fr_auto_auto] md:grid-cols-[1.75rem_1fr_1fr_5.5rem_1fr_3rem_1.5rem] items-center gap-x-3 hover:bg-[var(--border)]/30 transition-colors text-left"
               >
+
                 {/* Indicator */}
                 <div className="flex items-center justify-center">
                   {cluster.ground_truth?.portrait_url ? (
@@ -481,15 +724,19 @@ export default function ConcordancePage() {
                 </div>
 
                 {/* Name */}
-                <span className="font-semibold truncate">{cluster.canonical_name}</span>
+                <Link
+                  href={`/concordance/${clusterSlug(cluster, data!.clusters)}`}
+                  onClick={(e) => e.stopPropagation()}
+                  className="font-semibold truncate hover:text-[var(--accent)] transition-colors"
+                >
+                  {cluster.canonical_name}
+                </Link>
 
                 {/* Identification — hidden on mobile */}
                 <span className="hidden md:block text-sm text-[var(--muted)] truncate">
-                  {cluster.ground_truth && cluster.ground_truth.modern_name.toLowerCase() !== cluster.canonical_name.toLowerCase()
-                    ? cluster.ground_truth.linnaean
-                      ? <i>{cluster.ground_truth.linnaean}</i>
-                      : cluster.ground_truth.modern_name
-                    : null}
+                  {identification ? (
+                    identification.italic ? <i>{identification.text}</i> : identification.text
+                  ) : null}
                 </span>
 
                 {/* Category — hidden on mobile */}
@@ -497,16 +744,14 @@ export default function ConcordancePage() {
                   {cluster.category}
                 </span>
 
-                {/* Book pills — hidden on mobile */}
-                <div className="hidden md:flex gap-1 overflow-hidden">
-                  {bookIds.map((bid) => (
-                    <BookPill key={bid} bookId={bid} books={data.books} />
-                  ))}
+                {/* Source language tags — hidden on mobile */}
+                <div className="hidden md:block overflow-visible">
+                  <SourceLangs bookIds={bookIds} books={data.books} />
                 </div>
 
                 {/* Mention count */}
-                <span className="text-sm text-[var(--muted)] font-mono text-right">
-                  {cluster.total_mentions}&times;
+                <span className="text-sm text-[var(--muted)] font-mono text-right tabular-nums">
+                  {cluster.total_mentions}
                 </span>
 
                 {/* Chevron */}
@@ -520,172 +765,184 @@ export default function ConcordancePage() {
 
               {/* Expanded detail */}
               {isExpanded && (
-                <div className="px-4 pb-4 border-t border-[var(--border)]">
-                  {/* Ground truth identification */}
-                  {cluster.ground_truth && (
-                    <div className="mt-4 p-3 rounded-lg bg-[var(--background)] border border-[var(--border)]">
-                      <div className="flex items-start gap-3">
-                        {cluster.ground_truth.portrait_url ? (
-                          <div className="shrink-0">
-                            {/* eslint-disable-next-line @next/next/no-img-element */}
-                            <img
-                              src={cluster.ground_truth.portrait_url}
-                              alt={cluster.ground_truth.modern_name}
-                              className="w-16 h-20 rounded object-cover border border-[var(--border)] bg-[var(--border)]"
-                            />
-                            <p className="text-[9px] text-[var(--muted)] mt-1 text-center opacity-40">
-                              Wikimedia Commons
-                            </p>
-                          </div>
-                        ) : cluster.ground_truth.wikipedia_url ? (
-                          <WikiThumbnail url={cluster.ground_truth.wikipedia_url} />
-                        ) : null}
-                        <div className="flex-1 min-w-0">
-                          <div className="flex items-center gap-2 flex-wrap">
-                            <span className="text-sm font-semibold">{cluster.ground_truth.modern_name}</span>
-                            {cluster.ground_truth.linnaean && (
-                              <span className="text-sm italic text-[var(--muted)]">{cluster.ground_truth.linnaean}</span>
-                            )}
-                            <span className={`px-1.5 py-0.5 rounded text-xs font-medium ${
-                              cluster.ground_truth.confidence === "high" ? "bg-green-500/20 text-green-600 dark:text-green-400" :
-                              cluster.ground_truth.confidence === "medium" ? "bg-yellow-500/20 text-yellow-600 dark:text-yellow-400" :
-                              "bg-red-500/20 text-red-600 dark:text-red-400"
-                            }`}>
-                              {cluster.ground_truth.confidence}
-                            </span>
-                          </div>
-                          {cluster.ground_truth.description && (
-                            <p className="text-sm text-[var(--muted)] mt-1 leading-relaxed max-w-[60ch]">{cluster.ground_truth.description}</p>
-                          )}
-                          {cluster.ground_truth.wikidata_description && !cluster.ground_truth.description && (
-                            <p className="text-sm text-[var(--muted)] mt-1 leading-relaxed max-w-[60ch]">{cluster.ground_truth.wikidata_description}</p>
-                          )}
-                          {cluster.ground_truth.family && (
-                            <p className="text-xs text-[var(--muted)] mt-2">Family: {cluster.ground_truth.family}</p>
-                          )}
-                          {cluster.ground_truth.birth_year && (
-                            <p className="text-xs text-[var(--muted)] mt-0.5">
-                              {cluster.ground_truth.birth_year}–{cluster.ground_truth.death_year || "?"}
-                            </p>
-                          )}
-                          {cluster.ground_truth.country && (
-                            <p className="text-xs text-[var(--muted)] mt-0.5">{cluster.ground_truth.country}</p>
-                          )}
-                          {cluster.ground_truth.modern_term && cluster.ground_truth.modern_term !== cluster.ground_truth.modern_name && (
-                            <p className="text-xs text-[var(--muted)] mt-0.5">Modern: {cluster.ground_truth.modern_term}</p>
-                          )}
-                          {cluster.ground_truth.note && (
-                            <p className="text-xs text-[var(--muted)] mt-2 border-l-2 border-[var(--border)] pl-2">
-                              {cluster.ground_truth.note}
-                            </p>
-                          )}
-                          <div className="flex items-center gap-2 mt-2 flex-wrap">
-                            {cluster.ground_truth.wikipedia_url && (
-                              <a
-                                href={cluster.ground_truth.wikipedia_url}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="inline-flex items-center gap-1 px-2 py-1 rounded text-xs border border-[var(--border)] hover:bg-[var(--border)] transition-colors"
-                              >
-                                <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="currentColor"><path d="M12.09 13.119c-.936 1.932-2.217 4.548-2.853 5.728-.616 1.074-1.127.931-1.532.029-1.406-3.321-4.293-9.144-5.651-12.409-.251-.601-.441-.987-.619-1.139-.181-.15-.554-.224-1.122-.224L.203 5.104c-.196 0-.302-.099-.302-.296S.035 4.5.231 4.5h4.717c.196 0 .294.099.294.296s-.098.312-.294.312c-.635 0-1.067.078-1.3.234-.238.155-.244.467-.06.931 1.283 3.223 3.944 8.502 5.283 11.727.477-1.054 2.067-4.287 2.772-5.821C10.791 10.485 9.25 7.35 8.187 5.104c-.196-.439-.36-.685-.535-.789-.173-.104-.583-.156-1.225-.156l-.022-.312c-.196 0-.302-.099-.302-.296S6.207 3.24 6.403 3.24h4.43c.196 0 .294.099.294.296s-.098.312-.294.312c-.523 0-.885.078-1.085.234-.205.155-.178.39.024.693 1.095 2.23 2.256 4.475 2.93 5.737.384-.747 1.665-3.324 2.466-4.957.354-.786.456-1.357.129-1.619-.191-.164-.616-.246-1.27-.246l-.022-.312c-.196 0-.302-.099-.302-.296s.106-.312.302-.312h4.068c.196 0 .294.099.294.296s-.098.312-.294.312c-.466 0-.86.078-1.181.234-.322.155-.662.5-1.019 1.035-.638.862-2.096 3.785-2.709 5.01.634 1.259 2.627 5.532 3.423 7.142.424-.811 2.464-5.014 3.241-6.661.344-.746.395-1.357.017-1.619-.227-.164-.662-.246-1.303-.246l-.022-.312c-.196 0-.302-.099-.302-.296s.106-.312.302-.312h3.686c.196 0 .294.099.294.296s-.098.312-.294.312c-.487 0-.89.078-1.211.234-.322.155-.705.5-1.15 1.035-.8 1.094-2.722 5.236-3.592 7.136-.453.987-1.024 2.145-1.49 3.124-.556 1.074-1.073.931-1.478.029L12.09 13.119z"/></svg>
-                                Wikipedia
-                              </a>
-                            )}
-                            {cluster.ground_truth.wikidata_id && (
-                              <a
-                                href={`https://www.wikidata.org/wiki/${cluster.ground_truth.wikidata_id}`}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="inline-flex items-center gap-1 px-2 py-1 rounded text-xs border border-[var(--border)] hover:bg-[var(--border)] transition-colors font-mono text-[var(--muted)]"
-                                title={cluster.ground_truth.wikidata_id}
-                              >
-                                {cluster.ground_truth.wikidata_id}
-                              </a>
-                            )}
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  )}
-
-                  {/* Members by book */}
-                  <div className="mt-4 space-y-4">
-                    {data.books
-                      .filter((b) => cluster.members.some((m) => m.book_id === b.id))
-                      .map((book) => {
-                        const bookMembers = cluster.members.filter((m) => m.book_id === book.id);
-                        return (
-                          <div key={book.id} className="pl-3 border-l-2 border-[var(--border)]">
-                            <div className="flex items-center gap-2 mb-2">
-                              <span className="text-sm font-medium">{book.title}</span>
-                              <span className="text-xs text-[var(--muted)]">({book.language}, {book.year})</span>
-                            </div>
-                            {bookMembers.map((member) => (
-                              <div key={member.entity_id} className="ml-2 mb-2">
-                                <div className="flex items-center gap-2">
-                                  <Link
-                                    href={`/books/${book.id}/entity/${member.entity_id}`}
-                                    className="text-sm font-medium text-[var(--accent)] hover:underline"
-                                  >
-                                    {member.name}
-                                  </Link>
-                                  <span className="text-xs text-[var(--muted)] font-mono">
-                                    {member.count}x
-                                  </span>
-                                </div>
-                                {member.variants.length > 1 && (
-                                  <div className="flex flex-wrap gap-1 mt-1">
-                                    {member.variants.slice(0, 8).map((v, i) => (
-                                      <span key={i} className="text-xs px-1.5 py-0.5 rounded bg-[var(--border)]">
-                                        {v}
-                                      </span>
-                                    ))}
-                                    {member.variants.length > 8 && (
-                                      <span className="text-xs text-[var(--muted)]">
-                                        +{member.variants.length - 8} more
-                                      </span>
-                                    )}
-                                  </div>
+                <div className="px-4 pb-5 border-t border-[var(--border)] animate-expand">
+                  <div className="md:flex md:gap-6 mt-4">
+                    {/* Left panel: Identification */}
+                    {cluster.ground_truth && (
+                      <div className="md:w-2/5 md:shrink-0">
+                        <div className="p-3 rounded-lg bg-[var(--background)] border border-[var(--border)]">
+                          <div className="flex items-start gap-3">
+                            {cluster.ground_truth.portrait_url ? (
+                              <div className="shrink-0">
+                                {/* eslint-disable-next-line @next/next/no-img-element */}
+                                <img
+                                  src={cluster.ground_truth.portrait_url}
+                                  alt={cluster.ground_truth.modern_name}
+                                  className="w-14 h-[4.5rem] rounded object-cover border border-[var(--border)] bg-[var(--border)]"
+                                />
+                              </div>
+                            ) : cluster.ground_truth.wikipedia_url ? (
+                              <WikiThumbnail url={cluster.ground_truth.wikipedia_url} />
+                            ) : null}
+                            <div className="flex-1 min-w-0">
+                              <div className="flex items-center gap-2 flex-wrap">
+                                <span className="text-sm font-semibold">{cluster.ground_truth.modern_name}</span>
+                                {cluster.ground_truth.linnaean && (
+                                  <span className="text-sm italic text-[var(--muted)]">{cluster.ground_truth.linnaean}</span>
                                 )}
-                                {member.contexts.length > 0 && (
-                                  <p className="text-xs text-[var(--muted)] mt-1 italic">
-                                    {member.contexts[0]}
-                                  </p>
+                                <span className={`px-1.5 py-0.5 rounded text-[10px] font-medium ${
+                                  cluster.ground_truth.confidence === "high" ? "bg-green-500/20 text-green-600 dark:text-green-400" :
+                                  cluster.ground_truth.confidence === "medium" ? "bg-yellow-500/20 text-yellow-600 dark:text-yellow-400" :
+                                  "bg-red-500/20 text-red-600 dark:text-red-400"
+                                }`}>
+                                  {cluster.ground_truth.confidence}
+                                </span>
+                              </div>
+                              {cluster.ground_truth.description && (
+                                <p className="text-xs text-[var(--muted)] mt-1.5 leading-relaxed">{cluster.ground_truth.description}</p>
+                              )}
+                              {cluster.ground_truth.wikidata_description && !cluster.ground_truth.description && (
+                                <p className="text-xs text-[var(--muted)] mt-1.5 leading-relaxed">{cluster.ground_truth.wikidata_description}</p>
+                              )}
+                              <div className="flex flex-wrap gap-x-3 gap-y-0.5 mt-2 text-xs text-[var(--muted)]">
+                                {cluster.ground_truth.family && <span>Family: {cluster.ground_truth.family}</span>}
+                                {cluster.ground_truth.birth_year && (
+                                  <span>{cluster.ground_truth.birth_year}&ndash;{cluster.ground_truth.death_year || "?"}</span>
+                                )}
+                                {cluster.ground_truth.country && <span>{cluster.ground_truth.country}</span>}
+                                {cluster.ground_truth.modern_term && cluster.ground_truth.modern_term !== cluster.ground_truth.modern_name && (
+                                  <span>Modern: {cluster.ground_truth.modern_term}</span>
                                 )}
                               </div>
-                            ))}
+                              {cluster.ground_truth.note && (
+                                <p className="text-xs text-[var(--muted)] mt-2 border-l-2 border-[var(--border)] pl-2 leading-relaxed">
+                                  {cluster.ground_truth.note}
+                                </p>
+                              )}
+                              <div className="flex items-center gap-2 mt-2 flex-wrap">
+                                {cluster.ground_truth.wikipedia_url && (
+                                  <a
+                                    href={cluster.ground_truth.wikipedia_url}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="inline-flex items-center gap-1 px-2 py-0.5 rounded text-xs border border-[var(--border)] hover:bg-[var(--border)] transition-colors"
+                                  >
+                                    <svg className="w-3 h-3" viewBox="0 0 24 24" fill="currentColor"><path d="M12.09 13.119c-.936 1.932-2.217 4.548-2.853 5.728-.616 1.074-1.127.931-1.532.029-1.406-3.321-4.293-9.144-5.651-12.409-.251-.601-.441-.987-.619-1.139-.181-.15-.554-.224-1.122-.224L.203 5.104c-.196 0-.302-.099-.302-.296S.035 4.5.231 4.5h4.717c.196 0 .294.099.294.296s-.098.312-.294.312c-.635 0-1.067.078-1.3.234-.238.155-.244.467-.06.931 1.283 3.223 3.944 8.502 5.283 11.727.477-1.054 2.067-4.287 2.772-5.821C10.791 10.485 9.25 7.35 8.187 5.104c-.196-.439-.36-.685-.535-.789-.173-.104-.583-.156-1.225-.156l-.022-.312c-.196 0-.302-.099-.302-.296S6.207 3.24 6.403 3.24h4.43c.196 0 .294.099.294.296s-.098.312-.294.312c-.523 0-.885.078-1.085.234-.205.155-.178.39.024.693 1.095 2.23 2.256 4.475 2.93 5.737.384-.747 1.665-3.324 2.466-4.957.354-.786.456-1.357.129-1.619-.191-.164-.616-.246-1.27-.246l-.022-.312c-.196 0-.302-.099-.302-.296s.106-.312.302-.312h4.068c.196 0 .294.099.294.296s-.098.312-.294.312c-.466 0-.86.078-1.181.234-.322.155-.662.5-1.019 1.035-.638.862-2.096 3.785-2.709 5.01.634 1.259 2.627 5.532 3.423 7.142.424-.811 2.464-5.014 3.241-6.661.344-.746.395-1.357.017-1.619-.227-.164-.662-.246-1.303-.246l-.022-.312c-.196 0-.302-.099-.302-.296s.106-.312.302-.312h3.686c.196 0 .294.099.294.296s-.098.312-.294.312c-.487 0-.89.078-1.211.234-.322.155-.705.5-1.15 1.035-.8 1.094-2.722 5.236-3.592 7.136-.453.987-1.024 2.145-1.49 3.124-.556 1.074-1.073.931-1.478.029L12.09 13.119z"/></svg>
+                                    Wikipedia
+                                  </a>
+                                )}
+                                {cluster.ground_truth.wikidata_id && (
+                                  <a
+                                    href={`https://www.wikidata.org/wiki/${cluster.ground_truth.wikidata_id}`}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="inline-flex items-center gap-1 px-2 py-0.5 rounded text-xs border border-[var(--border)] hover:bg-[var(--border)] transition-colors font-mono text-[var(--muted)]"
+                                    title={cluster.ground_truth.wikidata_id}
+                                  >
+                                    {cluster.ground_truth.wikidata_id}
+                                  </a>
+                                )}
+                              </div>
+                            </div>
                           </div>
-                        );
-                      })}
+                        </div>
+                        {/* Wikipedia extract */}
+                        {cluster.ground_truth?.wikipedia_url && (
+                          <WikiExtract url={cluster.ground_truth.wikipedia_url} />
+                        )}
+                      </div>
+                    )}
+
+                    {/* Right panel: Members by book */}
+                    <div className={`flex-1 min-w-0 ${cluster.ground_truth ? "mt-4 md:mt-0" : ""}`}>
+                      <h4 className="text-[10px] uppercase tracking-widest text-[var(--muted)] font-medium mb-2">Source Evidence</h4>
+                      <div className="space-y-3">
+                        {data.books
+                          .filter((b) => cluster.members.some((m) => m.book_id === b.id))
+                          .map((book) => {
+                            const bookMembers = cluster.members.filter((m) => m.book_id === book.id);
+                            return (
+                              <div key={book.id} className="pl-3 border-l-2 border-[var(--border)]">
+                                <div className="flex items-baseline gap-2 mb-1">
+                                  <span className="text-xs font-medium">{BOOK_SHORT_NAMES[book.id] || book.title}</span>
+                                  <span className="text-[11px] text-[var(--muted)] font-mono">{BOOK_LANG_FLAGS[book.language] || ""}</span>
+                                  <span className="text-[11px] text-[var(--muted)]">{book.year}</span>
+                                </div>
+                                {bookMembers.map((member) => (
+                                  <div key={member.entity_id} className="mb-2.5 last:mb-0">
+                                    <div className="flex items-baseline gap-2 flex-wrap">
+                                      <Link
+                                        href={`/books/${book.id}/entity/${member.entity_id}`}
+                                        className="text-sm font-medium text-[var(--accent)] hover:underline"
+                                      >
+                                        {member.name}
+                                      </Link>
+                                      <span className="text-xs text-[var(--muted)] font-mono tabular-nums">
+                                        {member.count}
+                                      </span>
+                                      {member.variants.length > 1 && (
+                                        <span className="text-xs text-[var(--muted)]">
+                                          {member.variants.slice(0, 5).join(", ")}
+                                          {member.variants.length > 5 && ` +${member.variants.length - 5}`}
+                                        </span>
+                                      )}
+                                    </div>
+                                    {member.contexts.length > 0 && (
+                                      <div className="mt-1.5 pl-3 border-l border-[var(--border)]">
+                                        {member.contexts.slice(0, 2).map((ctx, i) => (
+                                          <p key={i} className="text-sm text-[var(--muted)] italic leading-relaxed mb-1 last:mb-0">
+                                            &ldquo;{ctx.length > 200 ? ctx.slice(0, 197) + "\u2026" : ctx}&rdquo;
+                                          </p>
+                                        ))}
+                                      </div>
+                                    )}
+                                  </div>
+                                ))}
+                              </div>
+                            );
+                          })}
+                      </div>
+                    </div>
                   </div>
 
-                  {/* Cross-book similarity edges */}
+                  {/* Cross-book similarity — full width */}
                   {cluster.edges.length > 0 && (
                     <div className="mt-4 pt-3 border-t border-[var(--border)]">
-                      <h4 className="text-xs font-medium text-[var(--muted)] mb-2">Cross-book Similarity</h4>
-                      <div className="space-y-1.5">
+                      <h4 className="text-[10px] uppercase tracking-widest text-[var(--muted)] font-medium mb-2">Cross-book Connections</h4>
+                      <div className="space-y-1">
                         {cluster.edges.slice(0, 6).map((edge, idx) => (
                           <div key={idx} className="flex items-center gap-2 text-xs">
-                            <span className="text-[var(--muted)]">
+                            <span className="text-[var(--muted)] shrink-0">
                               {BOOK_SHORT_NAMES[edge.source_book] || edge.source_book}:
                             </span>
-                            <span>{edge.source_name}</span>
+                            <span className="shrink-0">{edge.source_name}</span>
                             <span className="text-[var(--muted)]">&harr;</span>
-                            <span className="text-[var(--muted)]">
+                            <span className="text-[var(--muted)] shrink-0">
                               {BOOK_SHORT_NAMES[edge.target_book] || edge.target_book}:
                             </span>
-                            <span>{edge.target_name}</span>
-                            <SimilarityBar value={edge.similarity} />
+                            <span className="shrink-0">{edge.target_name}</span>
+                            <span className="font-mono text-[var(--muted)] ml-auto tabular-nums">{Math.round(edge.similarity * 100)}%</span>
                           </div>
                         ))}
                         {cluster.edges.length > 6 && (
-                          <p className="text-xs text-[var(--muted)]">
+                          <p className="text-xs text-[var(--muted)] mt-1">
                             +{cluster.edges.length - 6} more connections
                           </p>
                         )}
                       </div>
                     </div>
                   )}
+
+                  {/* View full details link */}
+                  <div className="mt-4 pt-3 border-t border-[var(--border)]">
+                    <Link
+                      href={`/concordance/${clusterSlug(cluster, data!.clusters)}`}
+                      className="inline-flex items-center gap-1.5 text-sm text-[var(--accent)] hover:underline"
+                      onClick={(e) => e.stopPropagation()}
+                    >
+                      View full details &rarr;
+                    </Link>
+                  </div>
                 </div>
               )}
             </div>

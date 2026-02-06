@@ -1,0 +1,492 @@
+verdict,cluster_name,modern_name,category,member_name,source_lang,pattern,reason,sim_canonical,sim_modern
+SPLIT,pedras,Calculus (medicine),SUBSTANCE,roches,French,mismatch,"rocks/geological formations; not kidney stones",0.17,0.11
+SPLIT,agua,Water,SUBSTANCE,rcaux,French,mismatch,"currency unit (réaux); not water",0.2,0.0
+SPLIT,agua,Water,SUBSTANCE,riccio,Italian,mismatch,"sugar candy; not water",0.0,0.0
+SPLIT,Ciatica,Sciatica,DISEASE,Catarros,Spanish,mismatch,"catarrh (cold); not sciatica",0.25,0.12
+SPLIT,madre,Dura mater,SUBSTANCE,mammas,Portuguese,mismatch,"breasts of dugongs; not dura mater",0.33,0.3
+SPLIT,ar,air,SUBSTANCE,arratel,French,mismatch,"unit of weight (arratel); not air",0.29,0.29
+SPLIT,ar,air,SUBSTANCE,arpens,French,mismatch,"unit of land measurement (arpent); not air",0.33,0.17
+SPLIT,ar,air,SUBSTANCE,arphait,Italian,mismatch,"substance from Dead Sea (asphalt?); not air",0.29,0.29
+SPLIT,ar,air,SUBSTANCE,goma arabia,Portuguese,mismatch,"gum arabic; not air",0.18,0.18
+SPLIT,cor,Cordial,CONCEPT,corzimento,Portuguese,mismatch,"cooking/digestion process (cozimento); not cordial",0.3,0.4
+SPLIT,Nitro,Saltpeter,SUBSTANCE,nilã,Portuguese,mismatch,"sapphire/lapis lazuli; not saltpeter",0.4,0.11
+SPLIT,réis,Real,SUBSTANCE,riisias,French,mismatch,"type of fabric; not currency",0.43,0.29
+SPLIT,réis,Real,SUBSTANCE,ragia,Italian,mismatch,"resin/turpentine; not currency",0.4,0.2
+SPLIT,réis,Real,SUBSTANCE,rayo,Portuguese,mismatch,"condition/vapor; not currency",0.25,0.25
+SPLIT,tristeza,Sadness,DISEASE,terciárias,Portuguese,mismatch,"tertian fever type; not sadness",0.3,0.1
+SPLIT,mercadores,Merchants,PERSON,Commerson,French,mismatch,"Philibert Commerson; naturalist; not a merchant",0.1,0.11
+SPLIT,olio,oil,SUBSTANCE,oolithes,French,mismatch,"oolitic limestone (geological); not oil",0.38,0.25
+SPLIT,cap.,Chapter reference,OBJECT,caxas,French,mismatch,"boxes for sugar/treasuries; not chapter references",0.4,0.12
+SPLIT,cap.,Chapter reference,OBJECT,cabane,French,mismatch,"small dwelling; not chapter reference",0.33,0.24
+SPLIT,Calicut,Kozhikode,PLACE,Coraçone,Portuguese,mismatch,"different Indian region (Coromandel?); not Calicut",0.25,0.33
+SPLIT,Calicut,Kozhikode,PLACE,Corientes,French,mismatch,"Cape Corrientes; not Calicut",0.33,0.22
+SPLIT,Calicut,Kozhikode,PLACE,Corcovado,French,mismatch,"coastal peak (Corcovado); not Calicut",0.11,0.22
+SPLIT,hortela,Mint,PLANT,orraca,Portuguese,mismatch,"distilled palm sap spirit (arrack); not mint",0.43,0.0
+SPLIT,calamo aromático,Acorus Calamus,PLANT,Hyera,Portuguese,mismatch,"Hiera (purgative compound); not calamus",0.12,0.14
+SPLIT,calamo aromático,Acorus Calamus,PLANT,hetre,Portuguese,mismatch,"food for the sick; not calamus",0.06,0.07
+SPLIT,Capricorn,Tropic of Capricorn,CONCEPT,Escorpião,Portuguese,mismatch,"Scorpio zodiac sign; not Capricorn",0.11,0.26
+SPLIT,Thymo,Thyme,PLANT,tomat,Spanish,mismatch,"tomato; not thyme",0.2,0.2
+SPLIT,tabaschir,Tabasheer,SUBSTANCE,tabac torcido,French,mismatch,"rolled tobacco product; not tabasheer (bamboo sugar)",0.38,0.38
+SPLIT,turibitti,Turpeth,SUBSTANCE,turritclics,French,mismatch,"turritella fossil in limestone; not turpeth",0.45,0.36
+SPLIT,monçam,Monsoon,CONCEPT,Monſtris,Portuguese,mismatch,"monsters (topic of cited work); not monsoon",0.38,0.38
+SPLIT,monçam,Monsoon,CONCEPT,mas,Portuguese,mismatch,"Portuguese word 'but'; not monsoon",0.33,0.29
+SPLIT,caricuru,Gold,SUBSTANCE,kichuris,Portuguese,mismatch,"food for horses; not gold",0.25,0.0
+SPLIT,caricuru,Gold,SUBSTANCE,Carabe,Portuguese,mismatch,"amber/ambergris remedy; not gold",0.38,0.0
+SPLIT,tornillo,screw press,OBJECT,trombeta,Portuguese,mismatch,"trumpet/shell instrument; not screw press",0.12,0.18
+SPLIT,ovo,Egg,ANIMAL,ovelhas,Portuguese,mismatch,"sheep (animal); not egg",0.29,0.14
+SPLIT,pedra,Calculus,DISEASE,contaram,Portuguese,mismatch,"verb/noise word; not calculus",0.25,0.12
+SPLIT,Eryfipela,erysipelas,DISEASE,Eſcrophulas,Spanish,mismatch,"scrofula; different disease from erysipelas",0.36,0.45
+SPLIT,Panama,Panama,PLACE,Pemba,Portuguese,mismatch,"Pemba Island (Africa); not Panama",0.33,0.33
+SPLIT,Quinaquina,Cinchona,PLANT,Quinces,English,mismatch,"quince fruit; not cinchona/quinine",0.4,0.25
+SPLIT,ardores,Burning sensation,DISEASE,Carde,Spanish,mismatch,"disease causing twisting; not burning sensation",0.43,0.12
+SPLIT,trachyte,Trachyte,SUBSTANCE,tartaro,Portuguese,mismatch,"tartar (chemical/dental deposit); not trachyte rock",0.25,0.25
+SPLIT,Rhewm,Phlegm,SUBSTANCE,renum,Portuguese,mismatch,"kidney (renum); not phlegm",0.4,0.17
+SPLIT,rofmaninho,Rosemary,PLANT,Espique,Portuguese,mismatch,"spikenard (Espique); not rosemary",0.1,0.12
+SPLIT,rofmaninho,Rosemary,PLANT,Espes,Portuguese,mismatch,"different plant; not rosemary",0.0,0.12
+SPLIT,cabrito,Kid goat,ANIMAL,carabe,Portuguese,mismatch,"amber/ambergris substance; not kid goat",0.43,0.0
+SPLIT,papoulas,Poppy,PLANT,Rhewn,Portuguese,mismatch,"different plant species; not poppy",0.0,0.0
+SPLIT,funcho,Fennel,PLANT,ferula,Italian,mismatch,"Ferula (giant fennel/asafoetida); different genus from fennel",0.17,0.33
+SPLIT,funcho,Fennel,PLANT,ferula,Portuguese,mismatch,"Ferula (giant fennel/asafoetida); different genus from fennel",0.17,0.33
+SPLIT,feu volcanique,Volcanic activity,CONCEPT,feus,Portuguese,mismatch,"Latin pronoun 'suis'; not volcanic activity",0.21,0.0
+SPLIT,redness,Hoarseness,DISEASE,raucedine,Portuguese,mismatch,"hoarseness (raucedine); not redness",0.33,0.2
+SPLIT,Timor,Timor,PLACE,Tayrona,French,mismatch,"Tayrona (Colombia); not Timor",0.29,0.29
+SPLIT,excrementos,Excrement,SUBSTANCE,escrupulos,Spanish,mismatch,"scruple (unit of weight); not excrement",0.45,0.3
+SPLIT,Moçambique,Mozambique,PLACE,Motagua,French,mismatch,"Motagua River (Central America); not Mozambique",0.4,0.4
+SPLIT,Moçambique,Mozambique,PLACE,Moluques,French,mismatch,"Moluccas (Indonesia); not Mozambique",0.4,0.4
+SPLIT,Cotopaxi,Cotopaxi,PLACE,Cotamaluquo,Portuguese,mismatch,"Golconda/Cotalmaluco (India); not Cotopaxi volcano",0.36,0.36
+SPLIT,Thibet,Tibet,PLACE,Taïti,French,mismatch,"Tahiti (Pacific island); not Tibet",0.33,0.2
+SPLIT,Cocomero,Watermelon,PLANT,Coumarouma,French,mismatch,"Coumarouma (tonka bean tree); not watermelon",0.4,0.0
+SPLIT,Been bianco,White beans,SUBSTANCE,blanco,French,mismatch,"white sugar; not white beans",0.45,0.18
+SPLIT,crusados,Cruisado,OBJECT,croix,French,mismatch,"cross (religious object); not cruisado coin",0.25,0.38
+SPLIT,Margarita,Pearl,SUBSTANCE,Aleffandrino,Italian,mismatch,"alexandrine substance; not pearl",0.25,0.25
+SPLIT,mordaz,acrid,CONCEPT,mollesse,French,mismatch,"softness (opposite of acrid); not acrid",0.25,0.0
+SPLIT,Ortiz,Ortiz,PLACE,Oríxá,Portuguese,mismatch,"Orissa/Odisha (India); not Ortiz (Venezuela)",0.4,0.4
+SPLIT,Jeru,Jericho,PLACE,Jezreel,Portuguese,mismatch,"Jezreel (different biblical city); not Jericho",0.43,0.29
+SPLIT,Dandrif,Dandruff,DISEASE,damarefia,Portuguese,mismatch,"condition causing nausea; not dandruff",0.44,0.44
+SPLIT,Oxus,Amu Darya,PLACE,Ozark,French,mismatch,"Ozark Mountains (North America); not Oxus/Amu Darya",0.2,0.22
+SPLIT,Nurses,Nurses,PERSON,Nurcino,Portuguese,mismatch,"lithotomist surgeon (from Norcia); not a nurse",0.43,0.43
+SPLIT,corado,Reddish complexion,CONCEPT,cator,Spanish,mismatch,"heat (calor); not reddish complexion",0.33,0.11
+SPLIT,nacidas,Boils,DISEASE,Freekles,English,mismatch,"freckles (skin discoloration); not boils",0.12,0.25
+SPLIT,Ava,Ava,PLACE,Avidi,French,mismatch,"Monts Abibe; not Ava (Myanmar)",0.4,0.4
+SPLIT,estoraque,Storax,PLANT,torchis,French,mismatch,"torchis (building material); not storax resin",0.33,0.29
+SPLIT,expectoraçao,Expectoration,DISEASE,excrecencias,Portuguese,mismatch,"excrescences/growths; not expectoration",0.33,0.31
+SPLIT,Leaõ,Lion,ANIMAL,Leech,English,mismatch,"leech (annelid for bloodletting); not lion",0.4,0.2
+SPLIT,MU e uma noites,One Thousand and One Nights,CONCEPT,noite,Portuguese,mismatch,"generic 'night'; not the book 1001 Nights",0.33,0.15
+SPLIT,houiller,Coal,SUBSTANCE,Hieiro,Spanish,mismatch,"iron (hierro); not coal",0.25,0.0
+SPLIT,San Fernando,San Fernando,PLACE,San Filippe,Italian,mismatch,"San Filippo (different place); not San Fernando",0.42,0.42
+SPLIT,pão,Bread,SUBSTANCE,lacre de pão,Portuguese,mismatch,"lac/lacquer in cake form; not bread",0.25,0.25
+SPLIT,Sack,sack wine,PLANT,sukku,Portuguese,mismatch,"dried ginger (Sanskrit name); not sack wine",0.4,0.22
+SPLIT,Nearcho,Nearchus,PERSON,Neighbors,English,mismatch,"generic 'neighbors'; not Nearchus the admiral",0.33,0.33
+SPLIT,kala,Banana,CONCEPT,kelte,French,mismatch,"Celtic language family; not banana",0.4,0.0
+SPLIT,fangrados,Phlebotomy,CONCEPT,fanões,Portuguese,mismatch,"fanão (coin); not phlebotomy",0.44,0.1
+SPLIT,coando-se,Cervix mucus,CONCEPT,couvade,French,mismatch,"couvade ritual; not cervix mucus",0.33,0.17
+SPLIT,Nifperos,quince,PLANT,nenufaro,Italian,mismatch,"nenúfar (water lily); not quince",0.25,0.12
+SPLIT,Cerracca,Lac,SUBSTANCE,Ceruicabras,Spanish,mismatch,"cervicabra (hybrid creature); not lac",0.45,0.09
+SPLIT,mambum,Arenga pinnata,PLANT,mamillo,Portuguese,mismatch,"mamillo/nipple; not arenga palm",0.43,0.14
+SPLIT,meçuá,,PLACE,minhacaſa,Portuguese,mismatch,"'my house' (minha casa); not a place name",0.33,0
+SPLIT,bengali,Bengali language,CONCEPT,banharſe,Portuguese,mismatch,"bathing (bañarse); not Bengali language",0.38,0.25
+SPLIT,Lyão,Lyon,PLACE,Lyſia,Portuguese,mismatch,"Lisbon (Lysia); not Lyon",0.4,0.4
+SPLIT,ficymas,phlegm,SUBSTANCE,fireixos,Portuguese,mismatch,"ash trees (freixos); not phlegm",0.38,0.12
+SPLIT,Horn-Church,Hornchurch,PLACE,Horn,French,mismatch,"Cape Horn (navigation); not Hornchurch",0.36,0.4
+SPLIT,Dog-wood,Cornus mas,PLANT,DOGE,Portuguese,mismatch,"doge (title); not dogwood plant",0.38,0.1
+KEEP,calor,heat,CONCEPT,warm,English,translation,"Cross-linguistic match: 'warm' (English) = heat",0.2,0.0
+KEEP,calor,heat,CONCEPT,caliente,Spanish,variant,"Variant spelling/form of calor: 'caliente'",0.38,0.25
+KEEP,calor,heat,CONCEPT,calordas partes exteriores,Portuguese,phrase,"Contains 'calor' — descriptive phrase for heat",0.19,0.08
+KEEP,calor,heat,CONCEPT,calor brando,Portuguese,phrase,"Contains 'calor' — descriptive phrase for heat",0.42,0.08
+KEEP,pedras,Calculus (medicine),SUBSTANCE,Stones,English,translation,"Cross-linguistic match: 'Stones' (English) = Calculus (medicine)",0.17,0.16
+KEEP,cold,cold,CONCEPT,cooling,English,variant,"Variant spelling/form of cold: 'cooling'",0.43,0.43
+KEEP,Medicina,Medicine,CONCEPT,medicina mussulmana,Portuguese,phrase,"Contains 'medicina' — descriptive phrase for Medicine",0.42,0.37
+KEEP,terra,earth,SUBSTANCE,terrain houiller,French,phrase,"Contains 'terra' — descriptive phrase for earth",0.31,0.19
+KEEP,terra,earth,SUBSTANCE,terra ambehte,Italian,phrase,"Contains 'terra' — descriptive phrase for earth",0.38,0.23
+KEEP,humores,humors,SUBSTANCE,humor phleugmatico,Portuguese,variant,"Variant spelling/form of humores: 'humor phleugmatico'",0.33,0.28
+KEEP,febre,fever,DISEASE,fièvres épidémiques,French,translation,"French term for fever: context confirms 'fever' meaning",0.21,0.21
+KEEP,febre,fever,DISEASE,arida eftuantequefebre,Portuguese,phrase,"Contains 'febre' — descriptive phrase for fever",0.23,0.18
+KEEP,febre,fever,DISEASE,fezes ardentes,Portuguese,translation,"Portuguese term for fever: context confirms 'fever' meaning",0.29,0.29
+KEEP,agua,Water,SUBSTANCE,eau,French,translation,"Cross-linguistic match: 'eau' (French) = Water",0.25,0.2
+KEEP,agua,Water,SUBSTANCE,agua fria,Spanish,phrase,"Contains 'agua' — descriptive phrase for Water",0.44,0.22
+KEEP,agua,Water,SUBSTANCE,agua de la corteza,Spanish,phrase,"Contains 'agua' — descriptive phrase for Water",0.22,0.17
+KEEP,agua,Water,SUBSTANCE,agua salgada,Portuguese,phrase,"Contains 'agua' — descriptive phrase for Water",0.33,0.08
+KEEP,agua,Water,SUBSTANCE,agua salgada,Portuguese,phrase,"Contains 'agua' — descriptive phrase for Water",0.33,0.08
+KEEP,Hydropeſia,Dropsy,DISEASE,Hydropick diseases,English,variant,"Variant spelling/form of Hydropeſia: 'Hydropick diseases'",0.44,0.28
+KEEP,purga,purging,CONCEPT,mannd purgativa,Portuguese,phrase,"Contains 'purga' — descriptive phrase for purging",0.33,0.33
+KEEP,purga,purging,CONCEPT,Tutius purgari,Portuguese,phrase,"Contains 'purga' — descriptive phrase for purging",0.36,0.29
+KEEP,purga,purging,CONCEPT,purga alviduca,Portuguese,phrase,"Contains 'purga' — descriptive phrase for purging",0.36,0.36
+KEEP,purga,purging,CONCEPT,neceſſidade de purgar,Portuguese,phrase,"Contains 'purga' — descriptive phrase for purging",0.24,0.14
+KEEP,dry,Dryness,CONCEPT,hot and dry,English,phrase,"Contains 'dry' — descriptive phrase for Dryness",0.27,0.09
+KEEP,dry,Dryness,CONCEPT,hot, cold, moist, dry,Spanish,phrase,"Contains 'dry' — descriptive phrase for Dryness",0.14,0.1
+KEEP,dry,Dryness,CONCEPT,hot, cold, moist, dry,Portuguese,phrase,"Contains 'dry' — descriptive phrase for Dryness",0.14,0.1
+KEEP,dry,Dryness,CONCEPT,hot, cold, moist, dry,Italian,phrase,"Contains 'dry' — descriptive phrase for Dryness",0.14,0.1
+KEEP,dry,Dryness,CONCEPT,hot, cold, moist, dry,Portuguese,phrase,"Contains 'dry' — descriptive phrase for Dryness",0.14,0.1
+KEEP,Herb,herb,PLANT,Herba cali,Italian,phrase,"Contains 'herb' — descriptive phrase for herb",0.4,0.4
+KEEP,Herb,herb,PLANT,herbe frciche,Italian,phrase,"Contains 'herb' — descriptive phrase for herb",0.31,0.31
+KEEP,Canela,Cinnamon,PLANT,Aurundú,Portuguese,translation,"Portuguese term for Cinnamon: context confirms 'cinnamon' meaning",0.0,0.0
+KEEP,Canela,Cinnamon,PLANT,aureo,Portuguese,translation,"Cross-linguistic match: 'aureo' (Portuguese) = Cinnamon",0.17,0.12
+KEEP,carne,Meat,ANIMAL,Chicken,English,translation,"Cross-linguistic match: 'Chicken' (English) = Meat",0.29,0.0
+KEEP,carne,Meat,ANIMAL,rim de carneiro,Portuguese,phrase,"Contains 'carne' — descriptive phrase for Meat",0.33,0.2
+KEEP,cera,Wax,SUBSTANCE,di ceraio,Italian,phrase,"Contains 'cera' — descriptive phrase for Wax",0.44,0.11
+KEEP,Plant,Plant,PLANT,plantes dicotylédones,French,phrase,"Contains 'plant' — descriptive phrase for Plant",0.24,0.24
+KEEP,Plant,Plant,PLANT,plantes équinoxiales,French,phrase,"Contains 'plant' — descriptive phrase for Plant",0.25,0.25
+KEEP,humida,Moisture,CONCEPT,iftufa humida,Italian,phrase,"Contains 'humida' — descriptive phrase for Moisture",0.46,0.08
+KEEP,Roma,Rome,PLACE,Impero Romano,Italian,phrase,"Contains 'roma' — descriptive phrase for Rome",0.31,0.23
+KEEP,Índia,India,PLACE,Indie orientali,Italian,variant,"Variant spelling/form of Índia: 'Indie orientali'",0.33,0.33
+KEEP,sangue,Blood,SUBSTANCE,sangue di becco,Italian,phrase,"Contains 'sangue' — descriptive phrase for Blood",0.4,0.07
+KEEP,fluxos,Fluxes,DISEASE,fluxo de vientre,Spanish,variant,"Variant spelling/form of fluxos: 'fluxo de vientre'",0.31,0.31
+KEEP,figado,Liver,SUBSTANCE,Fieli,Italian,variant,"Variant spelling/form of figado: 'Fieli'",0.33,0.2
+KEEP,folhas,leaves,PLANT,folhas do feto,Portuguese,phrase,"Contains 'folhas' — descriptive phrase for leaves",0.43,0.21
+KEEP,Ciatica,Sciatica,DISEASE,ciragra,Portuguese,variant,"Variant spelling/form of Ciatica: 'ciragra'",0.43,0.38
+KEEP,Goa,Goa,PLACE,cidade de Goa,Portuguese,phrase,"Contains 'goa' — descriptive phrase for Goa",0.23,0.23
+KEEP,nervos,Nerves,SUBSTANCE,nervos auditórios,Portuguese,phrase,"Contains 'nervos' — descriptive phrase for Nerves",0.35,0.29
+KEEP,madre,Dura mater,SUBSTANCE,Mother,English,variant,"Variant spelling/form of madre: 'Mother'",0.33,0.3
+KEEP,Seed,Seed,PLANT,semilla,Spanish,translation,"Spanish term for Seed: context confirms 'seed' meaning",0.29,0.29
+KEEP,Swellings,swellings,DISEASE,inchaços,Portuguese,translation,"Portuguese term for swellings: context confirms 'swellings' meaning",0.11,0.11
+KEEP,Swellings,swellings,DISEASE,inchaços,Portuguese,translation,"Portuguese term for swellings: context confirms 'swellings' meaning",0.11,0.11
+KEEP,Swellings,swellings,DISEASE,inchaços peſtilentes,Portuguese,translation,"Portuguese term for swellings: context confirms 'swellings' meaning",0.25,0.25
+KEEP,Body,Human body,SUBSTANCE,corpo,Portuguese,translation,"Cross-linguistic match: 'corpo' (Portuguese) = Human body",0.2,0.1
+KEEP,Body,Human body,SUBSTANCE,Corpo,Italian,translation,"Italian term related to Body: context mentions 'body'",0.2,0.1
+KEEP,Body,Human body,SUBSTANCE,corpo,Portuguese,translation,"Portuguese term related to Body: context mentions 'body'",0.2,0.1
+KEEP,Body,Human body,SUBSTANCE,body parts,Portuguese,phrase,"Contains 'body' — descriptive phrase for Human body",0.4,0.0
+KEEP,Greci,Greeks,PERSON,Gregos antiguos,Portuguese,translation,"Cross-linguistic match: 'Gregos antiguos' (Portuguese) = Greeks",0.27,0.27
+KEEP,Greci,Greeks,PERSON,Græcor.,Portuguese,variant,"Variant spelling/form of Greci: 'Græcor.'",0.43,0.29
+KEEP,Sol,Sun,OBJECT,chapeo de Sol,Portuguese,phrase,"Contains 'sol' — descriptive phrase for Sun",0.23,0.08
+KEEP,Rosewater,Rosewater,SUBSTANCE,agua rosada,Spanish,translation,"Cross-linguistic match: 'agua rosada' (Spanish) = Rosewater",0.09,0.09
+KEEP,Rosewater,Rosewater,SUBSTANCE,agua rosada,Portuguese,translation,"Cross-linguistic match: 'agua rosada' (Portuguese) = Rosewater",0.09,0.09
+KEEP,Rosewater,Rosewater,SUBSTANCE,agua rosada,Portuguese,translation,"Cross-linguistic match: 'agua rosada' (Portuguese) = Rosewater",0.09,0.09
+KEEP,ventosidades,Flatulence,DISEASE,Windiness,English,translation,"Cross-linguistic match: 'Windiness' (English) = Flatulence",0.25,0.1
+KEEP,ventosidades,Flatulence,DISEASE,vento,Portuguese,variant,"Variant spelling/form of ventosidades: 'vento'",0.42,0.2
+KEEP,Oximel,Oxymel,SUBSTANCE,oximel simplez,Portuguese,phrase,"Contains 'oximel' — descriptive phrase for Oxymel",0.43,0.36
+KEEP,cidra,Citron,PLANT,caſquinha de cidra,Portuguese,phrase,"Contains 'cidra' — descriptive phrase for Citron",0.28,0.11
+KEEP,Cordova,Córdoba,PLACE,Cordova del Tucuman,French,phrase,"Contains 'cordova' — descriptive phrase for Córdoba",0.37,0.32
+KEEP,Nitro,Saltpeter,SUBSTANCE,Stumiadi nitro,Italian,phrase,"Contains 'nitro' — descriptive phrase for Saltpeter",0.36,0.21
+KEEP,Nitro,Saltpeter,SUBSTANCE,nitro diaphoretico,Portuguese,phrase,"Contains 'nitro' — descriptive phrase for Saltpeter",0.28,0.17
+KEEP,oliveira,Olive tree,PLANT,Oyl Olive,English,variant,"Variant spelling/form of oliveira: 'Oyl Olive'",0.33,0.2
+KEEP,pez,Pitch,SUBSTANCE,pez liquido,Portuguese,phrase,"Contains 'pez' — descriptive phrase for Pitch",0.27,0.18
+KEEP,Acacia,Acacia,PLANT,Acacia cornigera,French,phrase,"Contains 'acacia' — descriptive phrase for Acacia",0.38,0.38
+KEEP,color,Color,CONCEPT,de couleur,French,variant,"Variant spelling/form of color: 'de couleur'",0.4,0.4
+KEEP,color,Color,CONCEPT,cor negra,Portuguese,translation,"Portuguese term for Color: context confirms 'color' meaning",0.33,0.33
+KEEP,veas,Vein,SUBSTANCE,vea do artelho,Portuguese,translation,"Portuguese term for Vein: context confirms 'vein' meaning",0.21,0.14
+KEEP,veas,Vein,SUBSTANCE,veas subclaveas,Portuguese,phrase,"Contains 'veas' — descriptive phrase for Vein",0.27,0.13
+KEEP,veas,Vein,SUBSTANCE,Veas Guides,Portuguese,phrase,"Contains 'veas' — descriptive phrase for Vein",0.36,0.27
+KEEP,veas,Vein,SUBSTANCE,veas que estaó detraz dasorelhas,Portuguese,phrase,"Contains 'veas' — descriptive phrase for Vein",0.12,0.06
+KEEP,veas,Vein,SUBSTANCE,veas Emul. gentes,Portuguese,phrase,"Contains 'veas' — descriptive phrase for Vein",0.24,0.18
+KEEP,Europe,Europe,PLACE,nations de l'Europe,French,phrase,"Contains 'europe' — descriptive phrase for Europe",0.32,0.32
+KEEP,Europe,Europe,PLACE,Europe orientale,French,phrase,"Contains 'europe' — descriptive phrase for Europe",0.38,0.38
+KEEP,Root,Root,PLANT,grass Roots,English,phrase,"Contains 'root' — descriptive phrase for Root",0.36,0.36
+KEEP,Root,Root,PLANT,raiz,Portuguese,translation,"Cross-linguistic match: 'raiz' (Portuguese) = Root",0.25,0.25
+KEEP,camaras,Choleric flux,DISEASE,Camaras cholericas,Spanish,phrase,"Contains 'camaras' — descriptive phrase for Choleric flux",0.39,0.28
+KEEP,camaras,Choleric flux,DISEASE,ogenerode camaras,Portuguese,phrase,"Contains 'camaras' — descriptive phrase for Choleric flux",0.41,0.18
+KEEP,olio,oil,SUBSTANCE,gi-Oliodi cofto,Italian,phrase,"Contains 'olio' — descriptive phrase for oil",0.27,0.13
+KEEP,olio,oil,SUBSTANCE,azeyte ordinario,Portuguese,translation,"Portuguese term for oil: context confirms 'oil' meaning",0.19,0.12
+KEEP,olio,oil,SUBSTANCE,azeytes,Spanish,translation,"Spanish term for oil: context confirms 'oil' meaning",0.0,0.0
+KEEP,rins,kidney,SUBSTANCE,regiaó dos rins,Portuguese,phrase,"Contains 'rins' — descriptive phrase for kidney",0.27,0.13
+KEEP,Urine,urine,SUBSTANCE,Passages of Urine,English,phrase,"Contains 'urine' — descriptive phrase for urine",0.29,0.29
+KEEP,bexiga,bladder,SUBSTANCE,bexiga resfriada,Portuguese,phrase,"Contains 'bexiga' — descriptive phrase for bladder",0.38,0.25
+KEEP,bexiga,bladder,SUBSTANCE,bexiga paralytica,Portuguese,phrase,"Contains 'bexiga' — descriptive phrase for bladder",0.35,0.18
+KEEP,Wounds,wounds,DISEASE,inward Wounds,English,phrase,"Contains 'wounds' — descriptive phrase for wounds",0.46,0.46
+KEEP,Wounds,wounds,DISEASE,bleeding Wounds,English,phrase,"Contains 'wounds' — descriptive phrase for wounds",0.4,0.4
+KEEP,Wounds,wounds,DISEASE,contusões,Portuguese,variant,"Variant spelling/form of Wounds: 'contusões'",0.33,0.33
+KEEP,Wounds,wounds,DISEASE,feridas,Portuguese,translation,"Portuguese term for wounds: context confirms 'wounds' meaning",0.29,0.29
+KEEP,Wine,wine,SUBSTANCE,Wine Lees,English,phrase,"Contains 'wine' — descriptive phrase for wine",0.44,0.44
+KEEP,Malabar,Malabar Coast,PLACE,Gates du Malabar,French,phrase,"Contains 'malabar' — descriptive phrase for Malabar Coast",0.44,0.19
+KEEP,Eyes,Eyes,SUBSTANCE,olhos,Portuguese,translation,"Cross-linguistic match: 'olhos' (Portuguese) = Eyes",0.2,0.2
+KEEP,Eyes,Eyes,SUBSTANCE,olhos,Portuguese,translation,"Portuguese term for Eyes: context confirms 'eyes' meaning",0.2,0.2
+KEEP,Asthma,Asthma,DISEASE,Astmatick,English,translation,"English term for Asthma: context confirms 'asthma' meaning",0.44,0.44
+KEEP,Trinidad,Trinidad,PLACE,Tueblo de la Trinidad,French,phrase,"Contains 'trinidad' — descriptive phrase for Trinidad",0.38,0.38
+KEEP,Ruybarbo,Rhubarb,PLANT,ruy,Portuguese,variant,"Variant spelling/form of Ruybarbo: 'ruy'",0.38,0.29
+KEEP,lombrigas,Worms,DISEASE,llagas,Spanish,variant,"Variant spelling/form of lombrigas: 'llagas'",0.44,0.17
+KEEP,lombrigas,Worms,DISEASE,lombrigas torradas como carvão,Portuguese,phrase,"Contains 'lombrigas' — descriptive phrase for Worms",0.3,0.1
+KEEP,Lisboa,Lisbon,PLACE,Caſtello de Lisboa,Portuguese,phrase,"Contains 'lisboa' — descriptive phrase for Lisbon",0.33,0.28
+KEEP,Gout,Gout,DISEASE,pains of the Gout,English,phrase,"Contains 'gout' — descriptive phrase for Gout",0.24,0.24
+KEEP,Gout,Gout,DISEASE,gota coral,Spanish,translation,"Spanish term for Gout: context confirms 'gout' meaning",0.2,0.2
+KEEP,Gout,Gout,DISEASE,gota coral,Portuguese,translation,"Portuguese term for Gout: context confirms 'gout' meaning",0.2,0.2
+KEEP,Gout,Gout,DISEASE,Artetica,Portuguese,translation,"Cross-linguistic match: 'Artetica' (Portuguese) = Gout",0.12,0.12
+KEEP,Gout,Gout,DISEASE,artetica,Portuguese,translation,"Portuguese term for Gout: context confirms 'gout' meaning",0.12,0.12
+KEEP,cap.,Chapter reference,OBJECT,capitulo,Portuguese,variant,"Variant spelling/form of cap.: 'capitulo'",0.38,0.18
+KEEP,cap.,Chapter reference,OBJECT,Cap. 59. n. pag. 568,Portuguese,phrase,"Contains 'cap.' — descriptive phrase for Chapter reference",0.2,0.15
+KEEP,Santiago de Cuba,Santiago de Cuba,PLACE,Cuba,Portuguese,translation,"Cross-linguistic match: 'Cuba' (Portuguese) = Santiago de Cuba",0.25,0.25
+KEEP,calamo aromático,Acorus Calamus,PLANT,calamo,Portuguese,variant,"Variant spelling/form of calamo aromático: 'calamo'",0.38,0.36
+KEEP,calamo aromático,Acorus Calamus,PLANT,Heger,Portuguese,translation,"Cross-linguistic match: 'Heger' (Portuguese) = Acorus Calamus",0.06,0.0
+KEEP,Summer,Summer season,CONCEPT,verano,Spanish,subtype,"Related term in Spanish: 'verano' for Summer season",0.0,0.31
+KEEP,Decoction,Decoction,SUBSTANCE,cozimentos de legumes,Portuguese,translation,"Portuguese term for Decoction: context confirms 'decoction' meaning",0.1,0.1
+KEEP,cozimento,Cooking,CONCEPT,cottura,Italian,translation,"Italian term for Cooking: context confirms 'cooking' meaning",0.22,0.29
+KEEP,alimentos,Food,SUBSTANCE,comestibles,French,translation,"French term for Food: context confirms 'food' meaning",0.27,0.09
+KEEP,alimentos,Food,SUBSTANCE,comida,Spanish,translation,"Spanish term for Food: context confirms 'food' meaning",0.11,0.33
+KEEP,alimentos,Food,SUBSTANCE,cibum,Portuguese,translation,"Portuguese term for Food: context confirms 'food' meaning",0.11,0.0
+KEEP,alimentos,Food,SUBSTANCE,Cimge,Italian,translation,"Cross-linguistic match: 'Cimge' (Italian) = Food",0.22,0.0
+KEEP,porco,Pig,ANIMAL,porco espinho,Portuguese,phrase,"Contains 'porco' — descriptive phrase for Pig",0.38,0.15
+KEEP,porco,Pig,ANIMAL,porco montez,Portuguese,phrase,"Contains 'porco' — descriptive phrase for Pig",0.42,0.08
+KEEP,palo,stick,PLANT,palmeta,French,variant,"Variant spelling/form of palo: 'palmeta'",0.43,0.0
+KEEP,palo,stick,PLANT,Palo de Lèche,French,phrase,"Contains 'palo' — descriptive phrase for stick",0.31,0.08
+KEEP,palo,stick,PLANT,paluftre,Italian,variant,"Variant spelling/form of palo: 'paluftre'",0.38,0.0
+KEEP,opilações,Obstruction,DISEASE,opilação das veas lacteas,Portuguese,translation,"Portuguese term for Obstruction: context confirms 'obstruction' meaning",0.36,0.16
+KEEP,Oppio,Opium,SUBSTANCE,opium thebaicum,Portuguese,phrase,"Contains 'oppio' — descriptive phrase for Opium",0.2,0.33
+KEEP,Angelica,Angelica,PLANT,Angélica archangelica,Portuguese,phrase,"Contains 'angelica' — descriptive phrase for Angelica",0.38,0.38
+KEEP,evacuado,Evacuation,CONCEPT,evacuaciones vniuerfales,Spanish,translation,"Spanish term for Evacuation: context confirms 'evacuation' meaning",0.29,0.38
+KEEP,Apollo,Apollo,PERSON,Apollon. Rhod.,French,phrase,"Contains 'apollo' — descriptive phrase for Apollo",0.43,0.43
+KEEP,Canará,Canary Islands,PLACE,Isole Canarie,Italian,variant,"Variant spelling/form of Canará: 'Isole Canarie'",0.38,0.14
+KEEP,Ferdinand,Frederick III, Holy Roman Emperor,PERSON,Ferdinand the Emperor,English,phrase,"Contains 'ferdinand' — descriptive phrase for Frederick III; Holy Roman Emperor",0.43,0.39
+KEEP,Ferdinand,Frederick III, Holy Roman Emperor,PERSON,Frederico I,Portuguese,subtype,"Related term in Portuguese: 'Frederico I' for Frederick III; Holy Roman Emperor",0.27,0.3
+KEEP,bagno Maria,Bain-marie,OBJECT,banho chamado de Maria,Portuguese,variant,"Variant spelling/form of bagno Maria: 'banho chamado de Maria'",0.41,0.27
+KEEP,fuligens,Soot,SUBSTANCE,faujil,Portuguese,translation,"Cross-linguistic match: 'faujil' (Portuguese) = Soot",0.25,0.0
+KEEP,casa da índia,Casa da Índia,PLACE,casa,Spanish,variant,"Variant spelling/form of casa da índia: 'casa'",0.31,0.31
+KEEP,casa da índia,Casa da Índia,PLACE,casa,Portuguese,variant,"Variant spelling/form of casa da índia: 'casa'",0.31,0.31
+KEEP,Pologne,Poland,PLACE,royaume de Pologne,French,phrase,"Contains 'pologne' — descriptive phrase for Poland",0.39,0.22
+KEEP,navigation,Navigation,CONCEPT,navegaçao por mar,Portuguese,translation,"Portuguese term for Navigation: context confirms 'navigation' meaning",0.35,0.35
+KEEP,aromi,Aroma,SUBSTANCE,olores,Spanish,translation,"Cross-linguistic match: 'olores' (Spanish) = Aroma",0.17,0.17
+KEEP,nero,Black,CONCEPT,negro lúcido,Portuguese,variant,"Variant spelling/form of nero: 'negro lúcido'",0.33,0.17
+KEEP,moneda,Coin,OBJECT,moeda de cobre,Portuguese,translation,"Portuguese term for Coin: context confirms 'coin' meaning",0.29,0.14
+KEEP,Rob,Rob (confection),SUBSTANCE,Rob fombucif,Portuguese,phrase,"Contains 'rob' — descriptive phrase for Rob (confection)",0.25,0.44
+KEEP,reino,Kingdom,PLACE,Reyes,French,variant,"Variant spelling/form of reino: 'Reyes'",0.4,0.0
+KEEP,reino,Kingdom,PLACE,Realm,English,variant,"Variant spelling/form of reino: 'Realm'",0.4,0.14
+KEEP,reino,Kingdom,PLACE,royaume,French,translation,"French term for Kingdom: context confirms 'kingdom' meaning",0.14,0.0
+KEEP,Animal,Animal body,CONCEPT,animales actiones,Portuguese,phrase,"Contains 'animal' — descriptive phrase for Animal body",0.35,0.47
+KEEP,botânica,Botany,CONCEPT,Botanique agricole,French,variant,"Variant spelling/form of botânica: 'Botanique agricole'",0.39,0.28
+KEEP,monçam,Monsoon,CONCEPT,mausim,Portuguese,translation,"Portuguese term for Monsoon: context confirms 'monsoon' meaning",0.33,0.29
+KEEP,falsificaçam,Falsification,CONCEPT,fraude,French,translation,"Cross-linguistic match: 'fraude' (French) = Falsification",0.17,0.15
+KEEP,cana,Crucible,OBJECT,cadinhos,Portuguese,variant,"Variant spelling/form of cana: 'cadinhos'",0.38,0.12
+KEEP,cana,Crucible,OBJECT,caraffa,Italian,variant,"Variant spelling/form of cana: 'caraffa'",0.43,0.12
+KEEP,Comment,Commentary,OBJECT,Commentar. de Peſte,Portuguese,phrase,"Contains 'comment' — descriptive phrase for Commentary",0.37,0.47
+KEEP,pecado,Sin,CONCEPT,pecado do primeiro padre,Portuguese,phrase,"Contains 'pecado' — descriptive phrase for Sin",0.25,0.04
+KEEP,Orta,Garcia de Orta,PERSON,Segundo Orta,Portuguese,phrase,"Contains 'orta' — descriptive phrase for Garcia de Orta",0.33,0.43
+KEEP,Antilles,Caribbean,PLACE,Archipel des Antilles,French,phrase,"Contains 'antilles' — descriptive phrase for Caribbean",0.38,0.24
+KEEP,Amérique,America,PLACE,America intertropical,Portuguese,phrase,"Contains 'amérique' — descriptive phrase for America",0.29,0.33
+KEEP,Havane,Havana,PLACE,Obs. de la Havane,French,phrase,"Contains 'havane' — descriptive phrase for Havana",0.35,0.29
+KEEP,Cuba,Cuba,PLACE,Ile de Cuba,French,phrase,"Contains 'cuba' — descriptive phrase for Cuba",0.36,0.36
+KEEP,ovo,Egg,ANIMAL,gemas de ovos,Portuguese,phrase,"Contains 'ovo' — descriptive phrase for Egg",0.23,0.08
+KEEP,ovo,Egg,ANIMAL,gemas de ovos,Portuguese,phrase,"Contains 'ovo' — descriptive phrase for Egg",0.23,0.08
+KEEP,Parleſia,Paralysis,DISEASE,parleſia legitima,Portuguese,phrase,"Contains 'parleſia' — descriptive phrase for Paralysis",0.47,0.35
+KEEP,caldo,Broth,SUBSTANCE,caldode farinha,Portuguese,phrase,"Contains 'caldo' — descriptive phrase for Broth",0.33,0.13
+KEEP,caldo,Broth,SUBSTANCE,carnes caldos,Portuguese,phrase,"Contains 'caldo' — descriptive phrase for Broth",0.38,0.08
+KEEP,pedra,Calculus,DISEASE,pedra da bixigua,Portuguese,phrase,"Contains 'pedra' — descriptive phrase for Calculus",0.31,0.12
+KEEP,Zucchero,Sugar,SUBSTANCE,açucar mascavado,Portuguese,translation,"Cross-linguistic match: 'açucar mascavado' (Portuguese) = Sugar",0.25,0.19
+KEEP,Gallinha,Chicken,ANIMAL,pollo,Spanish,translation,"Spanish term for Chicken: context confirms 'chicken' meaning",0.25,0.0
+KEEP,Gallinha,Chicken,ANIMAL,pollo,Italian,translation,"Italian term for Chicken: context confirms 'chicken' meaning",0.25,0.0
+KEEP,panela de barro,Clay pot,OBJECT,panellas,Portuguese,variant,"Variant spelling/form of panela de barro: 'panellas'",0.4,0.0
+KEEP,noz noſcada,Nutmeg,PLANT,noz,Portuguese,translation,"Cross-linguistic match: 'noz' (Portuguese) = Nutmeg",0.27,0.17
+KEEP,noz noſcada,Nutmeg,PLANT,nut-meg trees,Portuguese,subtype,"Related term in Portuguese: 'nut-meg trees' for Nutmeg",0.08,0.46
+KEEP,Mer du Sud,Pacific Ocean,PLACE,îles de la Mer du Sud,French,phrase,"Contains 'mer du sud' — descriptive phrase for Pacific Ocean",0.48,0.1
+KEEP,Fistula's,Fistula,DISEASE,fimplez,Portuguese,variant,"Variant spelling/form of Fistula's: 'fimplez'",0.33,0.29
+KEEP,Fistula's,Fistula,DISEASE,fástios,Portuguese,variant,"Variant spelling/form of Fistula's: 'fástios'",0.44,0.43
+KEEP,Tremores,Tremors,DISEASE,tremores convulfivos,Portuguese,phrase,"Contains 'tremores' — descriptive phrase for Tremors",0.4,0.35
+KEEP,Obstructions,Obstructions,DISEASE,obstructionelevium arteriarum,Portuguese,variant,"Variant spelling/form of Obstructions: 'obstructionelevium arteriarum'",0.38,0.38
+KEEP,Obstructions,Obstructions,DISEASE,Lienis obstructio,Portuguese,variant,"Variant spelling/form of Obstructions: 'Lienis obstructio'",0.47,0.47
+KEEP,distilled Water,Distilled water,SUBSTANCE,agua destilada,Spanish,translation,"Spanish term for Distilled water: context confirms 'distilled water' meaning",0.13,0.13
+KEEP,Lungs,Lungs,SUBSTANCE,Pipes and passages of the Lungs,English,phrase,"Contains 'lungs' — descriptive phrase for Lungs",0.16,0.16
+KEEP,palpitações do coraçao,Heart Palpitations,DISEASE,temblores de coraçon,Portuguese,variant,"Variant spelling/form of palpitações do coraçao: 'temblores de coraçon'",0.45,0.2
+KEEP,remedios,Remedies,SUBSTANCE,virtude dos remedios,Portuguese,phrase,"Contains 'remedios' — descriptive phrase for Remedies",0.4,0.35
+KEEP,Oriente,East,PLACE,Extremo Oriente,Portuguese,phrase,"Contains 'oriente' — descriptive phrase for East",0.47,0.13
+KEEP,alforvas,Cardamom,PLANT,alaf,Portuguese,variant,"Variant spelling/form of alforvas: 'alaf'",0.38,0.25
+KEEP,aloés,Aloe,PLANT,cliucllinas,Spanish,translation,"Cross-linguistic match: 'cliucllinas' (Spanish) = Aloe",0.18,0.09
+KEEP,aloés,Aloe,PLANT,cauallino,Italian,translation,"Italian term for Aloe: context confirms 'aloe' meaning",0.22,0.22
+KEEP,ardores,Burning sensation,DISEASE,Cardialgiam,Portuguese,translation,"Cross-linguistic match: 'Cardialgiam' (Portuguese) = Burning sensation",0.27,0.18
+KEEP,Uvas,Grapes,PLANT,uvas ferraes,Portuguese,phrase,"Contains 'uvas' — descriptive phrase for Grapes",0.33,0.25
+KEEP,Venemous Beasts,Venomous animals,ANIMAL,animal venenoſo,Portuguese,translation,"Cross-linguistic match: 'animal venenoſo' (Portuguese) = Venomous animals",0.13,0.19
+KEEP,chumbo,lead,SUBSTANCE,affucar de chumbo,Portuguese,phrase,"Contains 'chumbo' — descriptive phrase for lead",0.35,0.12
+KEEP,chumbo,lead,SUBSTANCE,Chumbo dos Filofofos,Portuguese,phrase,"Contains 'chumbo' — descriptive phrase for lead",0.3,0.05
+KEEP,Wind,Wind,CONCEPT,windy humors,English,phrase,"Contains 'wind' — descriptive phrase for Wind",0.33,0.33
+KEEP,Burnings,Burn,DISEASE,incendio,Portuguese,translation,"Cross-linguistic match: 'incendio' (Portuguese) = Burn",0.0,0.12
+KEEP,Spring,Spring,CONCEPT,Primavera,Portuguese,translation,"Portuguese term for Spring: context confirms 'spring' meaning",0.22,0.22
+KEEP,Murta,Myrtle,PLANT,murta verde,Portuguese,phrase,"Contains 'murta' — descriptive phrase for Myrtle",0.45,0.36
+KEEP,suffocação,Suffocation,DISEASE,suffocation of the Mother,English,phrase,"Contains 'suffocação' — descriptive phrase for Suffocation",0.32,0.44
+KEEP,Arroz,Rice,PLANT,arroztorrado,Portuguese,phrase,"Contains 'arroz' — descriptive phrase for Rice",0.42,0.08
+KEEP,manna,Manna,SUBSTANCE,Manna eletta,Italian,phrase,"Contains 'manna' — descriptive phrase for Manna",0.42,0.42
+KEEP,Jupiter,Jupiter,CONCEPT,satellites de Jupiter,French,phrase,"Contains 'jupiter' — descriptive phrase for Jupiter",0.33,0.33
+KEEP,linho,Flax,PLANT,linho alcanave,Portuguese,phrase,"Contains 'linho' — descriptive phrase for Flax",0.36,0.14
+KEEP,linho,Flax,PLANT,ſementede linho,Portuguese,phrase,"Contains 'linho' — descriptive phrase for Flax",0.33,0.07
+KEEP,papoulas,Poppy,PLANT,Rheados,Portuguese,translation,"Portuguese term for Poppy: context confirms 'poppy' meaning",0.12,0.0
+KEEP,Alquitira,Bitumen,SUBSTANCE,argile avec bitume,French,translation,"French term for Bitumen: context confirms 'bitumen' meaning",0.22,0.28
+KEEP,cura,Healing,DISEASE,adoença curavel,Portuguese,phrase,"Contains 'cura' — descriptive phrase for Healing",0.27,0.13
+KEEP,guaiacam,Guaiacum,PLANT,legno santo,Italian,translation,"Cross-linguistic match: 'legno santo' (Italian) = Guaiacum",0.18,0.18
+KEEP,guaiacam,Guaiacum,PLANT,Palo santto,Spanish,translation,"Cross-linguistic match: 'Palo santto' (Spanish) = Guaiacum",0.09,0.09
+KEEP,Antigos,Ancient authorities,PERSON,louvadopelos antigos,Portuguese,phrase,"Contains 'antigos' — descriptive phrase for Ancient authorities",0.35,0.15
+KEEP,Glossary,Glossary,OBJECT,Dictionario,Portuguese,translation,"Cross-linguistic match: 'Dictionario' (Portuguese) = Glossary",0.18,0.18
+KEEP,Relation historique,Historical relation,OBJECT,Relaciones,Portuguese,variant,"Variant spelling/form of Relation historique: 'Relaciones'",0.42,0.26
+KEEP,gallica,Gallicism,CONCEPT,gale-irlandois,French,variant,"Variant spelling/form of gallica: 'gale-irlandois'",0.36,0.36
+KEEP,mar Vermelho,Red Sea,PLACE,Mare Rubrum,Portuguese,variant,"Variant spelling/form of mar Vermelho: 'Mare Rubrum'",0.33,0.18
+KEEP,Medlar,Medlar,PLANT,nefpoie,Italian,translation,"Italian term for Medlar: context confirms 'medlar' meaning",0.14,0.14
+KEEP,Medlar,Medlar,PLANT,nefperas,Portuguese,translation,"Cross-linguistic match: 'nefperas' (Portuguese) = Medlar",0.25,0.25
+KEEP,Carlos V.,Charles V, Holy Roman Emperor,PERSON,Imperador Carlos V,Portuguese,variant,"Variant spelling/form of Carlos V.: 'Imperador Carlos V'",0.39,0.14
+KEEP,Hist. de las Indias,Historia de las Indias,OBJECT,The history of Índia,Portuguese,variant,"Variant spelling/form of Hist. de las Indias: 'The history of Índia'",0.4,0.41
+KEEP,cabras,Goat,ANIMAL,Bode,Portuguese,translation,"Portuguese term for Goat: context confirms 'goat' meaning",0.17,0.25
+KEEP,cabras,Goat,ANIMAL,bode,Portuguese,translation,"Portuguese term for Goat: context confirms 'goat' meaning",0.17,0.25
+KEEP,Rheumatismos,Rheumatism,DISEASE,inflamações rheumaticas,Portuguese,variant,"Variant spelling/form of Rheumatismos: 'inflamações rheumaticas'",0.35,0.35
+KEEP,Guts,Intestines,SUBSTANCE,guelade,Portuguese,translation,"Cross-linguistic match: 'guelade' (Portuguese) = Intestines",0.29,0.2
+KEEP,Guts,Intestines,SUBSTANCE,Tripas,Portuguese,translation,"Portuguese term for Intestines: context confirms 'intestines' meaning",0.17,0.3
+KEEP,Guts,Intestines,SUBSTANCE,tripas,Spanish,translation,"Spanish term for Intestines: context confirms 'intestines' meaning",0.17,0.3
+KEEP,Guts,Intestines,SUBSTANCE,tripas,Portuguese,translation,"Portuguese term for Intestines: context confirms 'intestines' meaning",0.17,0.3
+KEEP,onça,Ounce,SUBSTANCE,huma onça,Portuguese,phrase,"Contains 'onça' — descriptive phrase for Ounce",0.44,0.33
+KEEP,Methodo Medendi,Method of Healing,OBJECT,Methodo,Spanish,variant,"Variant spelling/form of Methodo Medendi: 'Methodo'",0.47,0.41
+KEEP,çumo,Juice,SUBSTANCE,çumo cirinaico,Portuguese,phrase,"Contains 'çumo' — descriptive phrase for Juice",0.29,0.21
+KEEP,çumo,Juice,SUBSTANCE,çumo de cevada,Portuguese,phrase,"Contains 'çumo' — descriptive phrase for Juice",0.29,0.21
+KEEP,Rhewms,Rheum,DISEASE,rerhea,Portuguese,subtype,"Related term in Portuguese: 'rerhea' for Rheum",0.17,0.33
+KEEP,Jacobus Sponius,Jacobus Sponius,PERSON,Jacob,French,variant,"Variant spelling/form of Jacobus Sponius: 'Jacob'",0.33,0.33
+KEEP,Cruzes da Sè,Cruzes da Sé,PLACE,Cruz de Piedra,French,variant,"Variant spelling/form of Cruzes da Sè: 'Cruz de Piedra'",0.43,0.43
+KEEP,secret parts,Genitalia,SUBSTANCE,partes occultas,Portuguese,translation,"Cross-linguistic match: 'partes occultas' (Portuguese) = Genitalia",0.27,0.2
+KEEP,anil,Indigofera tinctoria,PLANT,alani,Portuguese,variant,"Variant spelling/form of anil: 'alani'",0.4,0.15
+KEEP,Bumeo,Bouma,PLACE,Uembo,French,variant,"Variant spelling/form of Bumeo: 'Uembo'",0.4,0.0
+KEEP,alcalicos,Alkali,SUBSTANCE,substances alcalines,French,translation,"French term for Alkali: context confirms 'alkali' meaning",0.35,0.25
+KEEP,chaux,Lime,SUBSTANCE,chuna,Portuguese,variant,"Variant spelling/form of chaux: 'chuna'",0.4,0.0
+KEEP,Tortola,Tortola,PLACE,Tordesillas,Portuguese,variant,"Variant spelling/form of Tortola: 'Tordesillas'",0.45,0.45
+KEEP,Arica,Arica,PLACE,Acra,Portuguese,variant,"Variant spelling/form of Arica: 'Acra'",0.4,0.4
+KEEP,Mysore,Mysore,PLACE,Plateau du Mysore,French,phrase,"Contains 'mysore' — descriptive phrase for Mysore",0.35,0.35
+KEEP,Tripoli,Tripoli,PLACE,Tripoli da Syria,Portuguese,phrase,"Contains 'tripoli' — descriptive phrase for Tripoli",0.44,0.44
+KEEP,Margarita,Pearl,SUBSTANCE,aljoufar,Portuguese,translation,"Portuguese term for Pearl: context confirms 'pearl' meaning",0.11,0.12
+KEEP,cevada,Barley,PLANT,cevada deſcalcada,Portuguese,phrase,"Contains 'cevada' — descriptive phrase for Barley",0.35,0.12
+KEEP,cera branca,Beeswax,ANIMAL,cera,Portuguese,variant,"Variant spelling/form of cera branca: 'cera'",0.36,0.29
+KEEP,verde,Verdigris,PLANT,verdegamtre,Portuguese,phrase,"Contains 'verde' — descriptive phrase for Verdigris",0.45,0.45
+KEEP,Pao,Pam,PLACE,Páang,Portuguese,translation,"Portuguese term for Pam: context confirms 'pam' meaning",0.4,0.4
+KEEP,Concan,Chachapoyas,PLACE,Conchucos,French,variant,"Variant spelling/form of Concan: 'Conchucos'",0.44,0.45
+KEEP,pulso,Pulse,DISEASE,pulso desordenado,Spanish,phrase,"Contains 'pulso' — descriptive phrase for Pulse",0.29,0.29
+KEEP,pulso,Pulse,DISEASE,pulso caydo,Spanish,phrase,"Contains 'pulso' — descriptive phrase for Pulse",0.45,0.36
+KEEP,Corpo Santo,Corpo Santo,PLACE,ruadireyta do Corpo Santo,Portuguese,phrase,"Contains 'corpo santo' — descriptive phrase for Corpo Santo",0.44,0.44
+KEEP,croco indiaco,Indian Crocus,PLANT,croco,Portuguese,variant,"Variant spelling/form of croco indiaco: 'croco'",0.38,0.31
+KEEP,chirurgía,Surgery,CONCEPT,cirurgicas operaciones,Portuguese,variant,"Variant spelling/form of chirurgía: 'cirurgicas operaciones'",0.32,0.23
+KEEP,Sudorificos,Diaphoretics,CONCEPT,sudor,Spanish,variant,"Variant spelling/form of Sudorificos: 'sudor'",0.45,0.17
+KEEP,aeris,Air,CONCEPT,AIR CONTNENTAL,French,phrase,"Contains 'aeris' — descriptive phrase for Air",0.14,0.21
+KEEP,aeris,Air,CONCEPT,air serein,French,phrase,"Contains 'aeris' — descriptive phrase for Air",0.4,0.3
+KEEP,Indi,Myrobalan,PLANT,gotim,Portuguese,translation,"Portuguese term for Myrobalan: context confirms 'myrobalan' meaning",0.2,0.11
+KEEP,Indi,Myrobalan,PLANT,goys,Portuguese,translation,"Cross-linguistic match: 'goys' (Portuguese) = Myrobalan",0.0,0.11
+KEEP,fel de gallo,Rooster's bile,ANIMAL,fel,Portuguese,translation,"Cross-linguistic match: 'fel' (Portuguese) = Rooster's bile",0.25,0.14
+KEEP,boy,Ox gall,ANIMAL,Aboſtade boy,Portuguese,phrase,"Contains 'boy' — descriptive phrase for Ox gall",0.25,0.08
+KEEP,boy,Ox gall,ANIMAL,fel de boy,Portuguese,phrase,"Contains 'boy' — descriptive phrase for Ox gall",0.3,0.1
+KEEP,poissons,Fish,ANIMAL,pesci,Italian,translation,"Italian term for Fish: context confirms 'fish' meaning",0.25,0.2
+KEEP,SAISONS,Seasons,CONCEPT,influence des saisons,French,phrase,"Contains 'saisons' — descriptive phrase for Seasons",0.33,0.29
+KEEP,Opening,Opening,CONCEPT,aperta,Portuguese,translation,"Cross-linguistic match: 'aperta' (Portuguese) = Opening",0.29,0.29
+KEEP,hernias,throat hernia,DISEASE,Hiernia Carnosa,English,variant,"Variant spelling/form of hernias: 'Hiernia Carnosa'",0.47,0.33
+KEEP,herrumbre,rust,SUBSTANCE,hermeja,French,variant,"Variant spelling/form of herrumbre: 'hermeja'",0.44,0.14
+KEEP,Weberus,William Webb,PERSON,Webb,French,variant,"Variant spelling/form of Weberus: 'Webb'",0.43,0.33
+KEEP,Eſpinal Medulla,Spinal cord,SUBSTANCE,medulla,Portuguese,variant,"Variant spelling/form of Eſpinal Medulla: 'medulla'",0.47,0.09
+KEEP,ragie,Cane root,PLANT,rayz de caña,Spanish,translation,"Spanish term for Cane root: context confirms 'cane root' meaning",0.25,0.25
+KEEP,nacidas,Boils,DISEASE,frunculos,Portuguese,translation,"Portuguese term for Boils: context confirms 'boils' meaning",0.22,0.22
+KEEP,sentimento,Sensation,CONCEPT,Feeling,English,variant,"Variant spelling/form of sentimento: 'Feeling'",0.3,0.22
+KEEP,formation contemporaine,Stratigraphy,CONCEPT,formação,Portuguese,variant,"Variant spelling/form of formation contemporaine: 'formação'",0.3,0.17
+KEEP,Franconie,Franconia,PLACE,Franguístan,Portuguese,variant,"Variant spelling/form of Franconie: 'Franguístan'",0.36,0.45
+KEEP,Hematites,Hematite,SUBSTANCE,piedra de Sangre,Spanish,translation,"Cross-linguistic match: 'piedra de Sangre' (Spanish) = Hematite",0.19,0.19
+KEEP,Hematites,Hematite,SUBSTANCE,pedra sanguinha,Portuguese,translation,"Cross-linguistic match: 'pedra sanguinha' (Portuguese) = Hematite",0.2,0.2
+KEEP,Hematites,Hematite,SUBSTANCE,Pedra de estancar sangue,Portuguese,translation,"Cross-linguistic match: 'Pedra de estancar sangue' (Portuguese) = Hematite",0.17,0.17
+KEEP,capullos,Maidenhair fern,PLANT,Capelvenere,Italian,translation,"Italian term for Maidenhair fern: context confirms 'maidenhair fern' meaning",0.36,0.27
+KEEP,capullos,Maidenhair fern,PLANT,capi,Italian,variant,"Variant spelling/form of capullos: 'capi'",0.38,0.13
+KEEP,Republica,Republic,CONCEPT,republica Chriſtiana,Spanish,phrase,"Contains 'republica' — descriptive phrase for Republic",0.45,0.4
+KEEP,Armenaja,Armenian stone,SUBSTANCE,Ager Armeny,Portuguese,translation,"Portuguese term for Armenian stone: context confirms 'armenian stone' meaning",0.27,0.29
+KEEP,pulso,Pulse,SUBSTANCE,pulso dos pes,Portuguese,phrase,"Contains 'pulso' — descriptive phrase for Pulse",0.38,0.38
+KEEP,milho miudo,Small millet,PLANT,milho,Portuguese,variant,"Variant spelling/form of milho miudo: 'milho'",0.45,0.25
+KEEP,asp,Asp,ANIMAL,Aspidas,Portuguese,phrase,"Contains 'asp' — descriptive phrase for Asp",0.43,0.43
+KEEP,esquinancia,Uvulitis,DISEASE,escoriaçam,Portuguese,variant,"Variant spelling/form of esquinancia: 'escoriaçam'",0.36,0.1
+KEEP,Poppy Seed,Poppy Seed,PLANT,Poppi,Italian,variant,"Variant spelling/form of Poppy Seed: 'Poppi'",0.4,0.4
+KEEP,OLIO IRINO DI,Orris Oil,SUBSTANCE,Oleum Irinum,English,variant,"Variant spelling/form of OLIO IRINO DI: 'Oleum Irinum'",0.46,0.25
+KEEP,ligamentos,Ligaments,SUBSTANCE,Limbs,English,variant,"Variant spelling/form of ligamentos: 'Limbs'",0.4,0.44
+KEEP,consommation intérieure,Internal Consumption,CONCEPT,consumo,Portuguese,subtype,"Related term in Portuguese: 'consumo' for Internal Consumption",0.26,0.35
+KEEP,aurora boréal,Aurora Borealis,CONCEPT,Aurora,Portuguese,variant,"Variant spelling/form of aurora boréal: 'Aurora'",0.46,0.4
+KEEP,Sacuima,Sacuima,PLACE,Satiguam,Portuguese,variant,"Variant spelling/form of Sacuima: 'Satiguam'",0.38,0.38
+KEEP,Puerta,Puerta de Mérida,PLACE,Gate,Portuguese,translation,"Cross-linguistic match: 'Gate' (Portuguese) = Puerta de Mérida",0.17,0.12
+KEEP,Pançor,Pancor,PLACE,Pansitarà,French,variant,"Variant spelling/form of Pançor: 'Pansitarà'",0.44,0.44
+KEEP,Biblia,Bible,OBJECT,Bibl. univ.,French,variant,"Variant spelling/form of Biblia: 'Bibl. univ.'",0.45,0.36
+KEEP,Arithmetica,Arithmetic,CONCEPT,mathématique,French,variant,"Variant spelling/form of Arithmetica: 'mathématique'",0.33,0.33
+KEEP,Cano,Cano,PLACE,cano Real,Portuguese,phrase,"Contains 'cano' — descriptive phrase for Cano",0.44,0.44
+KEEP,Ebano,Ebony,SUBSTANCE,Eibibio,Portuguese,variant,"Variant spelling/form of Ebano: 'Eibibio'",0.43,0.29
+KEEP,alhigado,Albugineous humor,SUBSTANCE,alvi,Portuguese,variant,"Variant spelling/form of alhigado: 'alvi'",0.38,0.18
+KEEP,alhigado,Albugineous humor,SUBSTANCE,alhcyos,Portuguese,variant,"Variant spelling/form of alhigado: 'alhcyos'",0.38,0.24
+KEEP,pão,Bread,SUBSTANCE,pão de ló,Portuguese,phrase,"Contains 'pão' — descriptive phrase for Bread",0.33,0.11
+KEEP,pão,Bread,SUBSTANCE,pane buffetto,Italian,translation,"Italian term for Bread: context confirms 'bread' meaning",0.23,0.15
+KEEP,unhas,Donkey hoof,ANIMAL,unhas de burro,Portuguese,phrase,"Contains 'unhas' — descriptive phrase for Donkey hoof",0.36,0.07
+KEEP,North parts,Northern regions,PLACE,norte,Portuguese,variant,"Variant spelling/form of North parts: 'norte'",0.36,0.31
+KEEP,Pulp,Pulp,SUBSTANCE,pulpe végétale,French,phrase,"Contains 'pulp' — descriptive phrase for Pulp",0.29,0.29
+KEEP,voice,Voice,SUBSTANCE,voz,Portuguese,translation,"Portuguese term for Voice: context confirms 'voice' meaning",0.4,0.4
+KEEP,Tunicles,Tunica,SUBSTANCE,tunica viloſa,Portuguese,phrase,"Contains 'tunicles' — descriptive phrase for Tunica",0.46,0.46
+KEEP,Tunicles,Tunica,SUBSTANCE,tunica interior,Portuguese,phrase,"Contains 'tunicles' — descriptive phrase for Tunica",0.4,0.4
+KEEP,stupidity,Stupidity,DISEASE,stupid∣stupid∣ness,English,variant,"Variant spelling/form of stupidity: 'stupid∣stupid∣ness'",0.39,0.39
+KEEP,honey,Honey,SUBSTANCE,Honey of R••es,English,phrase,"Contains 'honey' — descriptive phrase for Honey",0.36,0.36
+KEEP,inflammaçoens dos olhos,Eye inflammation,DISEASE,Inflamations in the Eyes,English,variant,"Variant spelling/form of inflammaçoens dos olhos: 'Inflamations in the Eyes'",0.42,0.25
+KEEP,villages,Villages,PLACE,pueblos,Spanish,translation,"Cross-linguistic match: 'pueblos' (Spanish) = Villages",0.12,0.12
+KEEP,Décadas,Décadas da Ásia,OBJECT,Décade ég'pt.,French,variant,"Variant spelling/form of Décadas: 'Décade ég'pt.'",0.38,0.4
+KEEP,rito romano,Roman Rite,CONCEPT,rite grec,French,variant,"Variant spelling/form of rito romano: 'rite grec'",0.36,0.2
+KEEP,Liguftico,Levisticum officinale,PLANT,lithophites,French,translation,"Cross-linguistic match: 'lithophites' (French) = Levisticum officinale",0.27,0.24
+KEEP,Limoeyro,Limousin,PLACE,Liamoac,French,variant,"Variant spelling/form of Limoeyro: 'Liamoac'",0.38,0.38
+KEEP,economia natural,Natural economy,CONCEPT,richesse naturelle,French,variant,"Variant spelling/form of economia natural: 'richesse naturelle'",0.39,0.06
+KEEP,Lypiria,Influenza,DISEASE,lièvres,French,translation,"Cross-linguistic match: 'lièvres' (French) = Influenza",0.29,0.11
+KEEP,thermas,Hot springs,PLACE,sources thermales,French,variant,"Variant spelling/form of thermas: 'sources thermales'",0.41,0.24
+KEEP,thermas,Hot springs,PLACE,aguas calientes,French,translation,"French term for Hot springs: context confirms 'hot springs' meaning",0.13,0.27
+KEEP,thermas,Hot springs,PLACE,agua das Caldas,Portuguese,translation,"Cross-linguistic match: 'agua das Caldas' (Portuguese) = Hot springs",0.13,0.2
+KEEP,proportion,Proportion,CONCEPT,pour cent,French,variant,"Variant spelling/form of proportion: 'pour cent'",0.3,0.3
+KEEP,frescas,Cool,CONCEPT,fraîche,French,translation,"French term for Cool: context confirms 'cool' meaning",0.43,0.0
+KEEP,Hyoidis,Hyoid bone,SUBSTANCE,os hyoïde,French,variant,"Variant spelling/form of Hyoidis: 'os hyoïde'",0.44,0.3
+KEEP,laryngis mufculi,muscles of the larynx,SUBSTANCE,larynx,French,variant,"Variant spelling/form of laryngis mufculi: 'larynx'",0.31,0.29
+KEEP,partoperigoso,difficult childbirth,DISEASE,parto,Portuguese,variant,"Variant spelling/form of partoperigoso: 'parto'",0.38,0.1
+KEEP,fputofanguinis,Hemoptysis,DISEASE,fpafmo,Spanish,translation,"Cross-linguistic match: 'fpafmo' (Spanish) = Hemoptysis",0.21,0.1
+KEEP,abſorbe,Absorption,CONCEPT,ablandar,Spanish,translation,"Cross-linguistic match: 'ablandar' (Spanish) = Absorption",0.25,0.2
+KEEP,medicam,Medical Recipes,OBJECT,Símpliduíln medicamentorum,Portuguese,phrase,"Contains 'medicam' — descriptive phrase for Medical Recipes",0.27,0.27
+KEEP,flammaçaodofigado,Hepatitis,DISEASE,fuxzo demaliado,Spanish,translation,"Cross-linguistic match: 'fuxzo demaliado' (Spanish) = Hepatitis",0.29,0.2
+KEEP,nardirt,Coconut oil,SUBSTANCE,narikela,Portuguese,variant,"Variant spelling/form of nardirt: 'narikela'",0.38,0.09
+KEEP,laniger,Toadflax,PLANT,linaria,Portuguese,translation,"Cross-linguistic match: 'linaria' (Portuguese) = Toadflax",0.29,0.12
+KEEP,cão danado,Rabies,DISEASE,doença do cão,Portuguese,variant,"Variant spelling/form of cão danado: 'doença do cão'",0.31,0.08
+KEEP,queijos,Cheese,ANIMAL,queijo de ovelhas,Portuguese,translation,"Portuguese term for Cheese: context confirms 'cheese' meaning",0.41,0.18
+KEEP,expelir,Expulsion,CONCEPT,exficcantur,Portuguese,translation,"Cross-linguistic match: 'exficcantur' (Portuguese) = Expulsion",0.27,0.18
+KEEP,çumo de limões,Lemon juice,PLANT,çumo de raiz de lirio,Portuguese,variant,"Variant spelling/form of çumo de limões: 'çumo de raiz de lirio'",0.48,0.24
+KEEP,Differtatione,dissertation,CONCEPT,distinçam,Portuguese,subtype,"Related term in Portuguese: 'distinçam' for dissertation",0.23,0.33
+KEEP,Civil,Civil society,CONCEPT,société civile,French,phrase,"Contains 'civil' — descriptive phrase for Civil society",0.36,0.21
+KEEP,Pompey the great,Pompey the Great,PERSON,Pompeyo,Spanish,variant,"Variant spelling/form of Pompey the great: 'Pompeyo'",0.38,0.38
+KEEP,Printing,Printing,CONCEPT,arte de emprimir,Portuguese,translation,"Portuguese term for Printing: context confirms 'printing' meaning",0.12,0.12
+KEEP,round,Spherical,CONCEPT,redondeza,Portuguese,variant,"Variant spelling/form of round: 'redondeza'",0.33,0.0
+KEEP,discussing,Debate,CONCEPT,discussões de palavras,Portuguese,translation,"Portuguese term for Debate: context confirms 'debate' meaning",0.32,0.14
+KEEP,Salt tast,Salty taste,CONCEPT,gosto de sal,Portuguese,translation,"Cross-linguistic match: 'gosto de sal' (Portuguese) = Salty taste",0.25,0.25
+KEEP,attractive faculty,Attractive faculty,CONCEPT,faculdade atractiva,Portuguese,translation,"Cross-linguistic match: 'faculdade atractiva' (Portuguese) = Attractive faculty",0.16,0.16
+KEEP,Prayer,Prayer,CONCEPT,Oração,Portuguese,variant,"Variant spelling/form of Prayer: 'Oração'",0.33,0.33
+KEEP,Love,Love,CONCEPT,amor,Portuguese,translation,"Cross-linguistic match: 'amor' (Portuguese) = Love",0.0,0.0
+KEEP,Obstructions of the Brain,Cerebral obstruction,DISEASE,obftrucções do cerebro,Portuguese,variant,"Variant spelling/form of Obstructions of the Brain: 'obftrucções do cerebro'",0.48,0.14
+KEEP,flowing,Flow,CONCEPT,fluido,Portuguese,variant,"Variant spelling/form of flowing: 'fluido'",0.43,0.33
+KEEP,Gors,Gorse,PLANT,gràos,Portuguese,variant,"Variant spelling/form of Gors: 'gràos'",0.4,0.2
+KEEP,oppressed Stomach,Stomach oppression,DISEASE,de Stomachi dolore,Portuguese,subtype,"Related term in Portuguese: 'de Stomachi dolore' for Stomach oppression",0.11,0.33
+KEEP,deflexions from the Head,Defluxion,DISEASE,deftillações da cabeça ao peyto,Portuguese,translation,"Cross-linguistic match: 'deftillações da cabeça ao peyto' (Portuguese) = Defluxion",0.29,0.16
+KEEP,hot Medicines,Heating Medicines,SUBSTANCE,remedios quentes,Portuguese,variant,"Variant spelling/form of hot Medicines: 'remedios quentes'",0.31,0.24
+KEEP,Dreams,Dreams,CONCEPT,sonho,Portuguese,translation,"Cross-linguistic match: 'sonho' (Portuguese) = Dreams",0.0,0.0
+KEEP,Forgetfulness,Forgetfulness,DISEASE,esquecimentos,Portuguese,translation,"Portuguese term for Forgetfulness: context confirms 'forgetfulness' meaning",0.23,0.23
+KEEP,Pucheri,Leek,PLANT,puerros,Spanish,translation,"Cross-linguistic match: 'puerros' (Spanish) = Leek",0.29,0.14
+KEEP,Chica,Chicory,SUBSTANCE,citerne,Italian,translation,"Cross-linguistic match: 'citerne' (Italian) = Chicory",0.14,0.29
+KEEP,Miega,Miega,PLANT,Miganilla,Spanish,variant,"Variant spelling/form of Miega: 'Miganilla'",0.33,0.33
+KEEP,cloches,Clock,OBJECT,Relojes,Spanish,translation,"Spanish term for Clock: context confirms 'clock' meaning",0.43,0.29
+KEEP,Origen de los Indios,Orígenes de los indios de la América septentrional y meridional,OBJECT,Les Orig. Indo-européennes,Portuguese,variant,"Variant spelling/form of Origen de los Indios: 'Les Orig. Indo-européennes'",0.31,0.24
+KEEP,Maniqui,Maniquí,PLACE,Maquien,Portuguese,variant,"Variant spelling/form of Maniqui: 'Maquien'",0.43,0.43
+KEEP,RocctMountains,Atlas Mountains,PLACE,rocas,Portuguese,variant,"Variant spelling/form of RocctMountains: 'rocas'",0.36,0.2
+KEEP,Valais,Valais,PLACE,Valença,Portuguese,variant,"Variant spelling/form of Valais: 'Valença'",0.43,0.43
+KEEP,nageipuhe,Rough diamond,SUBSTANCE,naifes,Portuguese,translation,"Portuguese term for Rough diamond: context confirms 'rough diamond' meaning",0.33,0.08
+KEEP,conservation physique,Physical conservation,CONCEPT,conservação,Portuguese,variant,"Variant spelling/form of conservation physique: 'conservação'",0.43,0.43
+KEEP,Medina del Campo,Medina del Campo,PLACE,Medina,Portuguese,variant,"Variant spelling/form of Medina del Campo: 'Medina'",0.38,0.38
+KEEP,fort,Fort,OBJECT,fortaleza,Portuguese,phrase,"Contains 'fort' — descriptive phrase for Fort",0.44,0.44
+KEEP,arholedas,Preparedness,CONCEPT,aparelhada,Portuguese,variant,"Variant spelling/form of arholedas: 'aparelhada'",0.3,0.33
+KEEP,Colombo,Colombo,PLACE,Colombo (porto de Ceyláo),Portuguese,phrase,"Contains 'colombo' — descriptive phrase for Colombo",0.28,0.28
+KEEP,Gambie,Ganges River,PLACE,Gamguaj,Portuguese,translation,"Portuguese term for Ganges River: context confirms 'ganges river' meaning",0.43,0.25
+KEEP,Bixa Orellana,Annatto,PLANT,branca orsina,Italian,variant,"Variant spelling/form of Bixa Orellana: 'branca orsina'",0.38,0.23
+KEEP,covirges,Unknown,PLANT,coagonaz,Italian,translation,"Cross-linguistic match: 'coagonaz' (Italian) = Unknown",0.25,0.12
+KEEP,ochracé,Ochre,SUBSTANCE,ocra cotta,Italian,translation,"Italian term for Ochre: context confirms 'ochre' meaning",0.4,0.2
+KEEP,ulves,Ulva,PLANT,ulivaftri,Italian,variant,"Variant spelling/form of ulves: 'ulivaftri'",0.33,0.44
+KEEP,veines spathiques,Spathic ore,SUBSTANCE,vena,Italian,translation,"Cross-linguistic match: 'vena' (Italian) = Spathic ore",0.24,0.0
+KEEP,bafazo,Sugar cane juice,SUBSTANCE,Bafsii co,Italian,variant,"Variant spelling/form of bafazo: 'Bafsii co'",0.44,0.19
+KEEP,tempêtes,Storm,DISEASE,tormenta,Portuguese,subtype,"Related term in Portuguese: 'tormenta' for Storm",0.25,0.38
+KEEP,Mom.,Internal medicine,CONCEPT,Mom.intern.,Portuguese,phrase,"Contains 'mom.' — descriptive phrase for Internal medicine",0.36,0.18
+KEEP,Vienne,Vienna,PLACE,Vienade França,Portuguese,variant,"Variant spelling/form of Vienne: 'Vienade França'",0.36,0.43
+KEEP,sécurité,Turbidity,CONCEPT,turva,Portuguese,subtype,"Related term in Portuguese: 'turva' for Turbidity",0.25,0.33
+KEEP,Navio Aiigel,Ship,OBJECT,navio,Portuguese,variant,"Variant spelling/form of Navio Aiigel: 'navio'",0.42,0.2
+KEEP,partes,Region,PLACE,outras muytas partes,Portuguese,phrase,"Contains 'partes' — descriptive phrase for Region",0.3,0.05
+KEEP,Pinones,Pine nut,PLANT,Pinocchi bianchi,Italian,translation,"Italian term for Pine nut: context confirms 'pine nut' meaning",0.31,0.31
+KEEP,permixtos,Mixed,CONCEPT,mixturado,Portuguese,translation,"Portuguese term for Mixed: context confirms 'mixed' meaning",0.11,0.44
+KEEP,Gelea,Jelly,SUBSTANCE,geſlo,Portuguese,variant,"Variant spelling/form of Gelea: 'geſlo'",0.4,0.4
+KEEP,agua resfada,Cooled water,SUBSTANCE,agua hydroptica,Portuguese,variant,"Variant spelling/form of agua resfada: 'agua hydroptica'",0.47,0.13
+KEEP,medicinas venenosas,Poisonous medicines,SUBSTANCE,remedio venenoſo,Portuguese,variant,"Variant spelling/form of medicinas venenosas: 'remedio venenoſo'",0.47,0.16
+KEEP,pluma,Feather,OBJECT,penna,Portuguese,variant,"Variant spelling/form of pluma: 'penna'",0.4,0.14
+KEEP,pordetluras,Pordetluras,DISEASE,Porrig.,Portuguese,translation,"Cross-linguistic match: 'Porrig.' (Portuguese) = Pordetluras",0.27,0.27
+KEEP,Opinion comun,Common opinion,CONCEPT,opiniões tamdifferentes,Portuguese,variant,"Variant spelling/form of Opinion comun: 'opiniões tamdifferentes'",0.39,0.17
+KEEP,Ciudad de Dios,The City of God,CONCEPT,Civitate Dei,Portuguese,variant,"Variant spelling/form of Ciudad de Dios: 'Civitate Dei'",0.36,0.2
+KEEP,cura preta,black spirit,SUBSTANCE,cure,Italian,variant,"Variant spelling/form of cura preta: 'cure'",0.4,0.17
+KEEP,râkcka,crab,ANIMAL,rane,Italian,translation,"Italian term for crab: context confirms 'crab' meaning",0.33,0.25
+KEEP,cosi,Costus root,PLANT,coſto,Portuguese,translation,"Portuguese term for Costus root: context confirms 'costus root' meaning",0.4,0.36
+KEEP,apothecas,Apothecary,PLACE,apoſento,Portuguese,variant,"Variant spelling/form of apothecas: 'apoſento'",0.44,0.4
+KEEP,alcatifas,carpet,OBJECT,alfinetes,Portuguese,variant,"Variant spelling/form of alcatifas: 'alfinetes'",0.33,0.22
+KEEP,Alcobaça,Alcobaça,PLACE,Coutos de Alcobaça,Portuguese,phrase,"Contains 'alcobaça' — descriptive phrase for Alcobaça",0.44,0.44
+KEEP,parceria,partnership,CONCEPT,camarade,Portuguese,translation,"Cross-linguistic match: 'camarade' (Portuguese) = partnership",0.12,0.18
+KEEP,De Magia naturalis et cabala,Natural Magic,CONCEPT,Magia natural,Portuguese,translation,"Portuguese term for Natural Magic: context confirms 'natural magic' meaning",0.46,0.15
+KEEP,indigestam,indigestion,DISEASE,inedia,Portuguese,variant,"Variant spelling/form of indigestam: 'inedia'",0.4,0.36
+KEEP,chiara d'huouo,egg white,SUBSTANCE,ourinahe crùa,Portuguese,translation,"Cross-linguistic match: 'ourinahe crùa' (Portuguese) = egg white",0.14,0.08
+KEEP,faccheta,sachet,SUBSTANCE,faccharum faturni,Portuguese,variant,"Variant spelling/form of faccheta: 'faccharum faturni'",0.35,0.24
+KEEP,deccozione,decoction,CONCEPT,descaſcada,Portuguese,variant,"Variant spelling/form of deccozione: 'descaſcada'",0.3,0.3
+KEEP,Urna boccia,Jar,OBJECT,urnas,Portuguese,variant,"Variant spelling/form of Urna boccia: 'urnas'",0.36,0.2
+KEEP,Elifsire,Distillate,SUBSTANCE,Eflibio,Portuguese,variant,"Variant spelling/form of Elifsire: 'Eflibio'",0.38,0.1
+KEEP,Impiaftro di formento,Wheat plaster,SUBSTANCE,formento,Portuguese,variant,"Variant spelling/form of Impiaftro di formento: 'formento'",0.38,0.08

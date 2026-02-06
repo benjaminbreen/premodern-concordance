@@ -26,7 +26,7 @@ export async function POST(request: NextRequest) {
   }
 
   const prompt = [
-    `Translate the following excerpt from an early modern ${language} text (1500-1800) into clear modern English.`,
+    `Translate the following excerpt from an early modern ${language} text (1500-1900) into clear modern English.`,
     `This is from a historical medical or natural-philosophical source. Preserve the meaning faithfully,`,
     `but render archaic vocabulary and spelling into understandable modern English.`,
     `Return ONLY the translated text, no commentary or notes.`,

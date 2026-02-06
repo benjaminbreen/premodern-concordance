@@ -29,14 +29,14 @@ def build_gloss_prompt(clusters: list[dict]) -> str:
     """Build a prompt for Gemini to generate semantic glosses for a batch of clusters."""
     lines = [
         "You are a historian of science and medicine with deep expertise in early modern",
-        "texts (1500-1800) in Portuguese, Spanish, Latin, and English.",
+        "texts (1500-1900) in Portuguese, Spanish, Latin, and English.",
         "",
         "For each entity cluster below from a database of early modern medical/scientific texts,",
         "write a SHORT semantic gloss (2-3 sentences) describing its thematic and conceptual",
         "associations in the early modern period.",
         "",
         "IMPORTANT RULES:",
-        "- This is a HISTORICAL DATABASE covering 1500-1800. Interpret everything in that context.",
+        "- This is a HISTORICAL DATABASE covering 1500-1900. Interpret everything in that context.",
         '  "Mercury" = the alchemical element/planet, NOT a musician or spacecraft.',
         '  "Dragon" = a real or mythical creature in natural history, NOT a fantasy game creature.',
         "- Focus on THEMATIC and CONCEPTUAL associations, not encyclopedic facts.",
