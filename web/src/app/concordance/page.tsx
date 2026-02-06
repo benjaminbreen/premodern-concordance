@@ -364,25 +364,22 @@ function WikiExtract({ url }: { url: string }) {
       <p className="text-sm text-[var(--foreground)]/80 leading-relaxed">
         {preview}
       </p>
-      {hasMore && !expanded && (
-        <button
-          onClick={(e) => { e.stopPropagation(); setExpanded(true); }}
-          className="mt-2 text-xs text-[var(--accent)] hover:underline"
-        >
-          Keep reading &rarr;
-        </button>
-      )}
       {expanded && (
-        <div className="mt-2 max-h-[280px] overflow-y-auto space-y-3 text-sm text-[var(--foreground)]/80 leading-relaxed border-t border-[var(--border)] pt-2">
+        <div className="max-h-[280px] overflow-y-auto space-y-3 text-sm text-[var(--foreground)]/80 leading-relaxed">
           {restOfFirst && <p>{restOfFirst}</p>}
           {paragraphs.slice(1).map((p, i) => (
             <p key={i}>{p}</p>
           ))}
         </div>
       )}
-      <p className="text-[9px] text-[var(--muted)] mt-1.5 opacity-40">
-        Source: Wikipedia
-      </p>
+      {hasMore && (
+        <button
+          onClick={(e) => { e.stopPropagation(); setExpanded(!expanded); }}
+          className="mt-2 text-xs text-[var(--accent)] hover:underline"
+        >
+          {expanded ? "Less" : "More"}
+        </button>
+      )}
     </div>
   );
 }

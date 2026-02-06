@@ -213,6 +213,16 @@ async function fetchWikipediaData(entityName: string, bookLanguage?: string): Pr
   return null;
 }
 
+function slugify(name: string): string {
+  return name.toLowerCase().trim().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
+}
+
+interface ConcordanceCluster {
+  id: number;
+  canonical_name: string;
+  members: { entity_id: string; book_id: string }[];
+}
+
 export default function EntityDetailPage() {
   const params = useParams();
   const router = useRouter();
@@ -223,6 +233,8 @@ export default function EntityDetailPage() {
   const [wikiData, setWikiData] = useState<WikiData | null>(null);
   const [entityIds, setEntityIds] = useState<string[]>([]);
   const [currentIndex, setCurrentIndex] = useState(-1);
+  const [concordanceSlug, setConcordanceSlug] = useState<string | null>(null);
+  const [concordanceName, setConcordanceName] = useState<string | null>(null);
 
   useEffect(() => {
     const bookFiles: Record<string, string> = {
@@ -264,6 +276,33 @@ export default function EntityDetailPage() {
       setLoading(false);
     });
   }, [params.id, params.entityId]);
+
+  // Find matching concordance cluster for this entity
+  useEffect(() => {
+    if (!entity) return;
+    // Map URL book IDs to concordance book IDs (only Semedo differs)
+    const urlBookId = params.id as string;
+    const bookId = urlBookId === "semedo-polyanthea-1741" ? "polyanthea_medicinal" : urlBookId;
+    const entityId = decodeURIComponent(params.entityId as string).normalize("NFC");
+
+    fetch("/data/concordance.json")
+      .then((res) => res.json())
+      .then((data) => {
+        const clusters: ConcordanceCluster[] = data.clusters;
+        const match = clusters.find((c) =>
+          c.members.some((m) => m.book_id === bookId && m.entity_id === entityId)
+        );
+        if (match) {
+          const base = slugify(match.canonical_name);
+          const hasCollision = clusters.some(
+            (c) => c.id !== match.id && slugify(c.canonical_name) === base
+          );
+          setConcordanceSlug(hasCollision ? `${base}-${match.id}` : base);
+          setConcordanceName(match.canonical_name);
+        }
+      })
+      .catch(() => {});
+  }, [entity, params.id, params.entityId]);
 
   // Fetch Wikipedia data when entity loads
   useEffect(() => {
@@ -379,19 +418,35 @@ export default function EntityDetailPage() {
 
         {/* Content layer — normal page colors */}
         <div className="relative z-10 px-8 py-10" style={{ minHeight: "200px" }}>
-          <div className="flex items-start gap-4 mb-3">
-            <h1 className="text-4xl font-bold">{entity.name}</h1>
-            <span className={`${badgeClass} px-3 py-1 rounded text-sm font-medium border mt-2`}>
-              {entity.category}
-            </span>
-          </div>
-          {entity.subcategory && entity.subcategory !== `OTHER_${entity.category}` && (
-            <p className="text-[var(--muted)] text-sm mb-4">{entity.subcategory.toLowerCase()}</p>
-          )}
-          <div className="flex gap-6 text-sm text-[var(--muted)]">
-            <span><strong className="text-[var(--foreground)]">{entity.count}</strong> occurrences</span>
-            <span><strong className="text-[var(--foreground)]">{mentions.length}</strong> excerpts</span>
-            <span><strong className="text-[var(--foreground)]">{entity.variants.length}</strong> variants</span>
+          <div className="flex items-start justify-between gap-4">
+            <div>
+              <div className="flex items-start gap-4 mb-3">
+                <h1 className="text-4xl font-bold">{entity.name}</h1>
+                <span className={`${badgeClass} px-3 py-1 rounded text-sm font-medium border mt-2`}>
+                  {entity.category}
+                </span>
+              </div>
+              {entity.subcategory && entity.subcategory !== `OTHER_${entity.category}` && (
+                <p className="text-[var(--muted)] text-sm mb-4">{entity.subcategory.toLowerCase()}</p>
+              )}
+              <div className="flex gap-6 text-sm text-[var(--muted)]">
+                <span><strong className="text-[var(--foreground)]">{entity.count}</strong> occurrences</span>
+                <span><strong className="text-[var(--foreground)]">{mentions.length}</strong> excerpts</span>
+                <span><strong className="text-[var(--foreground)]">{entity.variants.length}</strong> variants</span>
+              </div>
+            </div>
+            {concordanceSlug && (
+              <Link
+                href={`/concordance/${concordanceSlug}`}
+                title={`View the cross-book concordance page for ${concordanceName}`}
+                className="shrink-0 mt-2 inline-flex items-center gap-2 px-4 py-2.5 rounded-lg border border-[var(--border)] bg-[var(--card)]/80 backdrop-blur-sm text-sm font-medium hover:bg-[var(--border)]/60 hover:border-[var(--foreground)]/20 transition-colors"
+              >
+                <svg className="w-4 h-4 text-[var(--muted)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3.75 6A2.25 2.25 0 016 3.75h2.25A2.25 2.25 0 0110.5 6v2.25a2.25 2.25 0 01-2.25 2.25H6a2.25 2.25 0 01-2.25-2.25V6zM3.75 15.75A2.25 2.25 0 016 13.5h2.25a2.25 2.25 0 012.25 2.25V18a2.25 2.25 0 01-2.25 2.25H6A2.25 2.25 0 013.75 18v-2.25zM13.5 6a2.25 2.25 0 012.25-2.25H18A2.25 2.25 0 0120.25 6v2.25A2.25 2.25 0 0118 10.5h-2.25a2.25 2.25 0 01-2.25-2.25V6zM13.5 15.75a2.25 2.25 0 012.25-2.25H18a2.25 2.25 0 012.25 2.25V18A2.25 2.25 0 0118 20.25h-2.25A2.25 2.25 0 0113.5 18v-2.25z" />
+                </svg>
+                Concordance
+              </Link>
+            )}
           </div>
         </div>
       </div>

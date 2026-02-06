@@ -2,7 +2,7 @@
 
 import { useEffect, useState, useCallback, useMemo } from "react";
 import Link from "next/link";
-import { useParams, useRouter } from "next/navigation";
+import { useParams, useRouter, useSearchParams } from "next/navigation";
 
 /* ───── shared types (duplicated from concordance/page.tsx) ───── */
 
@@ -41,6 +41,21 @@ interface GroundTruth {
   modern_term?: string;
   note?: string;
   portrait_url?: string;
+  semantic_gloss?: string;
+}
+
+interface CrossReference {
+  found_name: string;
+  link_type: string;
+  link_strength: number;
+  target_cluster_id: number | null;
+  target_cluster_name: string | null;
+  source_book: string;
+  evidence_snippet: string;
+  confidence: number;
+  auto_label: string;
+  found_relationship: string;
+  is_reverse?: boolean;
 }
 
 interface Cluster {
@@ -53,6 +68,7 @@ interface Cluster {
   members: ClusterMember[];
   edges: ClusterEdge[];
   ground_truth?: GroundTruth;
+  cross_references?: CrossReference[];
 }
 
 interface BookMeta {
@@ -119,6 +135,10 @@ const CATEGORY_COLORS: Record<string, { badge: string; dot: string }> = {
     badge: "bg-slate-500/20 text-slate-600 dark:text-slate-400 border-slate-500/30",
     dot: "bg-slate-500",
   },
+  ANATOMY: {
+    badge: "bg-rose-500/20 text-rose-600 dark:text-rose-400 border-rose-500/30",
+    dot: "bg-rose-500",
+  },
 };
 
 const CATEGORY_BAR_COLORS: Record<string, string> = {
@@ -130,6 +150,19 @@ const CATEGORY_BAR_COLORS: Record<string, string> = {
   DISEASE: "bg-red-500",
   PLACE: "bg-green-500",
   OBJECT: "bg-slate-500",
+  ANATOMY: "bg-rose-500",
+};
+
+const CATEGORY_TINT: Record<string, string> = {
+  PERSON: "rgba(147, 51, 234, 0.25)",
+  PLANT: "rgba(16, 185, 129, 0.25)",
+  ANIMAL: "rgba(132, 204, 22, 0.25)",
+  SUBSTANCE: "rgba(6, 182, 212, 0.25)",
+  CONCEPT: "rgba(245, 158, 11, 0.25)",
+  DISEASE: "rgba(239, 68, 68, 0.25)",
+  PLACE: "rgba(34, 197, 94, 0.25)",
+  OBJECT: "rgba(100, 116, 139, 0.25)",
+  ANATOMY: "rgba(244, 63, 94, 0.25)",
 };
 
 const BOOK_SHORT_NAMES: Record<string, string> = {
@@ -308,7 +341,7 @@ function WikiThumbnail({ url, size = "sm" }: { url: string; size?: "sm" | "lg" }
   );
 }
 
-function WikiExtract({ url }: { url: string }) {
+function WikiExtract({ url, wikiUrl }: { url: string; wikiUrl?: string }) {
   const [paragraphs, setParagraphs] = useState<string[]>([]);
   const [expanded, setExpanded] = useState(false);
   const [loading, setLoading] = useState(true);
@@ -366,23 +399,71 @@ function WikiExtract({ url }: { url: string }) {
   return (
     <div>
       <p className="text-sm text-[var(--foreground)]/80 leading-relaxed">{preview}</p>
-      {hasMore && !expanded && (
-        <button
-          onClick={() => setExpanded(true)}
-          className="mt-2 text-xs text-[var(--accent)] hover:underline"
-        >
-          Keep reading &rarr;
-        </button>
-      )}
       {expanded && (
-        <div className="mt-2 max-h-[280px] overflow-y-auto space-y-3 text-sm text-[var(--foreground)]/80 leading-relaxed border-t border-[var(--border)] pt-2">
+        <div className="max-h-[280px] overflow-y-auto space-y-3 text-sm text-[var(--foreground)]/80 leading-relaxed">
           {restOfFirst && <p>{restOfFirst}</p>}
           {paragraphs.slice(1).map((p, i) => (
             <p key={i}>{p}</p>
           ))}
         </div>
       )}
-      <p className="text-[9px] text-[var(--muted)] mt-1.5 opacity-40">Source: Wikipedia</p>
+      <div className="flex items-center gap-3 mt-2">
+        {hasMore && (
+          <button
+            onClick={() => setExpanded(!expanded)}
+            className="text-xs text-[var(--accent)] hover:underline"
+          >
+            {expanded ? "Less" : "More"}
+          </button>
+        )}
+        {expanded && wikiUrl && (
+          <a
+            href={wikiUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-xs text-[var(--accent)] hover:underline"
+          >
+            Read on Wikipedia &rarr;
+          </a>
+        )}
+      </div>
+    </div>
+  );
+}
+
+/** Wikipedia card — receives resolved URL from parent */
+function WikiCard({ url, searching }: { url: string | null; searching: boolean }) {
+  if (searching) {
+    return (
+      <div className="p-4 rounded-lg border border-[var(--border)] bg-[var(--card)]">
+        <h3 className="text-[10px] uppercase tracking-widest text-[var(--muted)] font-medium mb-3">
+          Wikipedia
+        </h3>
+        <div className="flex items-center gap-2 text-xs text-[var(--muted)]">
+          <div className="w-3 h-3 border border-[var(--muted)] border-t-transparent rounded-full animate-spin" />
+          Looking up article...
+        </div>
+      </div>
+    );
+  }
+
+  if (!url) {
+    return (
+      <div className="p-4 rounded-lg border border-[var(--border)] bg-[var(--card)]">
+        <h3 className="text-[10px] uppercase tracking-widest text-[var(--muted)] font-medium mb-3">
+          Wikipedia
+        </h3>
+        <p className="text-xs text-[var(--muted)]">No Wikipedia article found.</p>
+      </div>
+    );
+  }
+
+  return (
+    <div className="p-4 rounded-lg border border-[var(--border)] bg-[var(--card)]">
+      <h3 className="text-[10px] uppercase tracking-widest text-[var(--muted)] font-medium mb-3">
+        Wikipedia
+      </h3>
+      <WikiExtract url={url} wikiUrl={url} />
     </div>
   );
 }
@@ -392,10 +473,15 @@ function WikiExtract({ url }: { url: string }) {
 export default function ClusterDetailPage() {
   const params = useParams();
   const router = useRouter();
+  const searchParams = useSearchParams();
   const slug = params.slug as string;
+  const fromSlug = searchParams.get("from");
 
   const [data, setData] = useState<ConcordanceData | null>(null);
   const [loading, setLoading] = useState(true);
+  const [wikiUrl, setWikiUrl] = useState<string | null>(null);
+  const [wikiImage, setWikiImage] = useState<string | null>(null);
+  const [wikiSearching, setWikiSearching] = useState(false);
 
   useEffect(() => {
     fetch("/data/concordance.json")
@@ -450,6 +536,65 @@ export default function ClusterDetailPage() {
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, [handleKeyDown]);
 
+  // Resolve Wikipedia URL + image from ground_truth or by searching
+  useEffect(() => {
+    setWikiUrl(null);
+    setWikiImage(null);
+    setWikiSearching(false);
+    if (!cluster) return;
+    const gt = cluster.ground_truth;
+    if (!gt) return;
+
+    let cancelled = false;
+
+    async function resolve() {
+      // If we have an explicit wikipedia_url, use it directly
+      if (gt!.wikipedia_url) {
+        setWikiUrl(gt!.wikipedia_url);
+        // Fetch image from the page summary API
+        try {
+          const urlObj = new URL(gt!.wikipedia_url);
+          const lang = urlObj.hostname.split(".")[0];
+          const title = decodeURIComponent(urlObj.pathname.split("/wiki/")[1] || "");
+          if (title) {
+            const res = await fetch(`https://${lang}.wikipedia.org/api/rest_v1/page/summary/${encodeURIComponent(title)}`);
+            if (res.ok) {
+              const d = await res.json();
+              if (d.originalimage?.source && !cancelled) setWikiImage(d.originalimage.source);
+              else if (d.thumbnail?.source && !cancelled) setWikiImage(d.thumbnail.source.replace(/\/\d+px-/, "/800px-"));
+            }
+          }
+        } catch { /* ok */ }
+        return;
+      }
+
+      // Try to find article from linnaean/modern_name
+      const searchTerms = [gt!.linnaean, gt!.modern_name].filter(Boolean) as string[];
+      if (searchTerms.length === 0) return;
+
+      setWikiSearching(true);
+      for (const term of searchTerms) {
+        try {
+          const res = await fetch(`https://en.wikipedia.org/api/rest_v1/page/summary/${encodeURIComponent(term)}`);
+          if (!res.ok) continue;
+          const d = await res.json();
+          if (d.type === "disambiguation") continue;
+          if (d.content_urls?.desktop?.page && !cancelled) {
+            setWikiUrl(d.content_urls.desktop.page);
+            if (d.originalimage?.source) setWikiImage(d.originalimage.source);
+            else if (d.thumbnail?.source) setWikiImage(d.thumbnail.source.replace(/\/\d+px-/, "/800px-"));
+            setWikiSearching(false);
+            return;
+          }
+        } catch { /* try next */ }
+      }
+      if (!cancelled) setWikiSearching(false);
+    }
+
+    resolve();
+    return () => { cancelled = true; };
+  }, [cluster]);
+
   /* ── loading / error states ── */
 
   if (loading) {
@@ -482,6 +627,7 @@ export default function ClusterDetailPage() {
 
   const gt = cluster.ground_truth;
   const catColor = CATEGORY_COLORS[cluster.category];
+  const tintColor = CATEGORY_TINT[cluster.category] || "rgba(100, 116, 139, 0.25)";
   const identification = getIdentification(cluster);
   const bookIds = [...new Set(cluster.members.map((m) => m.book_id))];
   const langCount = new Set(
@@ -512,63 +658,103 @@ export default function ClusterDetailPage() {
         </Link>
         <span>/</span>
         <span className="text-[var(--foreground)]">{cluster.canonical_name}</span>
+        {fromSlug && (() => {
+          const fromCluster = data.clusters.find(c => clusterSlug(c, data.clusters) === fromSlug);
+          if (!fromCluster) return null;
+          return (
+            <span className="ml-auto text-xs">
+              <Link
+                href={`/concordance/${fromSlug}`}
+                className="text-[var(--accent)] hover:underline transition-colors"
+              >
+                &larr; Back to {fromCluster.canonical_name}
+              </Link>
+            </span>
+          );
+        })()}
       </nav>
 
-      {/* ─── 2. Compact Header ─── */}
-      <header className="mb-8">
-        <div className="flex items-start gap-3 flex-wrap">
-          {gt?.portrait_url && (
-            // eslint-disable-next-line @next/next/no-img-element
+      {/* ─── 2. Hero Header with Wikipedia Image ─── */}
+      <div className="relative mb-8 rounded-xl overflow-hidden border border-[var(--border)] bg-[var(--background)]">
+        {/* Image layer — fades from invisible on left to visible on right */}
+        {wikiImage && (
+          <div className="absolute inset-0">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
-              src={gt.portrait_url}
-              alt={cluster.canonical_name}
-              className="w-16 h-20 rounded object-cover border border-[var(--border)] shrink-0"
+              src={wikiImage}
+              alt=""
+              className="absolute inset-0 w-full h-full object-cover"
+              style={{
+                WebkitMaskImage: "linear-gradient(to right, transparent 35%, rgba(0,0,0,0.1) 55%, rgba(0,0,0,0.5) 80%, black 100%)",
+                maskImage: "linear-gradient(to right, transparent 35%, rgba(0,0,0,0.1) 55%, rgba(0,0,0,0.5) 80%, black 100%)",
+              }}
             />
-          )}
-          <div className="flex-1 min-w-0">
-            <div className="flex items-center gap-3 flex-wrap">
-              <h1 className="text-3xl font-bold">{cluster.canonical_name}</h1>
-              <span
-                className={`${catColor?.badge || "bg-[var(--border)]"} px-2.5 py-0.5 rounded text-xs font-medium border`}
+            {/* Category tint on upper-right corner */}
+            <div
+              className="absolute inset-0"
+              style={{
+                background: `radial-gradient(ellipse at top right, ${tintColor} 0%, transparent 60%)`,
+              }}
+            />
+            {/* Subtle bottom fade */}
+            <div className="absolute inset-x-0 bottom-0 h-12 bg-gradient-to-t from-[var(--background)] to-transparent" />
+            {wikiUrl && (
+              <a
+                href={wikiUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="absolute bottom-2 right-3 z-20 text-[10px] text-[var(--muted)] opacity-50 hover:opacity-100 hover:text-[var(--accent)] transition-all cursor-pointer"
               >
-                {cluster.category}
-              </span>
-              {cluster.subcategory && cluster.subcategory !== cluster.category && (
-                <span className="text-xs text-[var(--muted)]">{cluster.subcategory}</span>
+                Image: Wikipedia
+              </a>
+            )}
+          </div>
+        )}
+
+        {/* Content layer */}
+        <div className="relative z-10 px-8 py-10" style={{ minHeight: wikiImage ? "200px" : undefined }}>
+          <div className="flex items-center gap-3 flex-wrap mb-2">
+            <h1 className="text-3xl font-bold">{cluster.canonical_name}</h1>
+            <span
+              className={`${catColor?.badge || "bg-[var(--border)]"} px-2.5 py-0.5 rounded text-xs font-medium border`}
+            >
+              {cluster.category}
+            </span>
+            {cluster.subcategory && cluster.subcategory !== cluster.category && (
+              <span className="text-xs text-[var(--muted)]">{cluster.subcategory}</span>
+            )}
+          </div>
+          {subtitle && (
+            <p className="text-lg text-[var(--muted)] mt-1">
+              {(cluster.category === "PLANT" || cluster.category === "ANIMAL") && gt?.linnaean ? (
+                <i>{subtitle}</i>
+              ) : (
+                subtitle
               )}
-            </div>
-            {subtitle && (
-              <p className="text-lg text-[var(--muted)] mt-1">
-                {(cluster.category === "PLANT" || cluster.category === "ANIMAL") && gt?.linnaean ? (
-                  <i>{subtitle}</i>
-                ) : (
-                  subtitle
-                )}
-              </p>
-            )}
-            {gt?.note && (
-              <blockquote className="text-sm text-[var(--muted)] mt-3 border-l-2 border-[var(--border)] pl-3 leading-relaxed max-w-2xl">
-                {gt.note}
-              </blockquote>
-            )}
-            {/* Stats row */}
-            <div className="flex flex-wrap gap-x-4 gap-y-1 mt-3 text-sm text-[var(--muted)]">
-              <span>
-                <strong className="text-[var(--foreground)]">{cluster.book_count}</strong> book{cluster.book_count !== 1 ? "s" : ""}
-              </span>
-              <span>
-                <strong className="text-[var(--foreground)]">{cluster.total_mentions}</strong> mention{cluster.total_mentions !== 1 ? "s" : ""}
-              </span>
-              <span>
-                <strong className="text-[var(--foreground)]">{cluster.members.length}</strong> entr{cluster.members.length !== 1 ? "ies" : "y"}
-              </span>
-              <span>
-                <strong className="text-[var(--foreground)]">{langCount}</strong> language{langCount !== 1 ? "s" : ""}
-              </span>
-            </div>
+            </p>
+          )}
+          {gt?.note && (
+            <blockquote className="text-sm text-[var(--muted)] mt-3 border-l-2 border-[var(--border)] pl-3 leading-relaxed max-w-2xl">
+              {gt.note}
+            </blockquote>
+          )}
+          {/* Stats row */}
+          <div className="flex flex-wrap gap-x-4 gap-y-1 mt-3 text-sm text-[var(--muted)]">
+            <span>
+              <strong className="text-[var(--foreground)]">{cluster.book_count}</strong> book{cluster.book_count !== 1 ? "s" : ""}
+            </span>
+            <span>
+              <strong className="text-[var(--foreground)]">{cluster.total_mentions}</strong> mention{cluster.total_mentions !== 1 ? "s" : ""}
+            </span>
+            <span>
+              <strong className="text-[var(--foreground)]">{cluster.members.length}</strong> entr{cluster.members.length !== 1 ? "ies" : "y"}
+            </span>
+            <span>
+              <strong className="text-[var(--foreground)]">{langCount}</strong> language{langCount !== 1 ? "s" : ""}
+            </span>
           </div>
         </div>
-      </header>
+      </div>
 
       {/* ─── 3. Three-Column Info Strip ─── */}
       <div className="grid md:grid-cols-3 gap-4 mb-8">
@@ -638,6 +824,11 @@ export default function ClusterDetailPage() {
                   </a>
                 )}
               </div>
+              {gt.semantic_gloss && (
+                <p className="text-xs text-[var(--foreground)]/70 leading-relaxed mt-3 pt-3 border-t border-[var(--border)]">
+                  {gt.semantic_gloss}
+                </p>
+              )}
             </div>
           ) : (
             <p className="text-xs text-[var(--muted)]">No identification available.</p>
@@ -645,29 +836,7 @@ export default function ClusterDetailPage() {
         </div>
 
         {/* Card 2: Wikipedia */}
-        {gt?.wikipedia_url ? (
-          <div className="p-4 rounded-lg border border-[var(--border)] bg-[var(--card)]">
-            <h3 className="text-[10px] uppercase tracking-widest text-[var(--muted)] font-medium mb-3">
-              Wikipedia
-            </h3>
-            <WikiExtract url={gt.wikipedia_url} />
-            <a
-              href={gt.wikipedia_url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-1 mt-3 text-xs text-[var(--accent)] hover:underline"
-            >
-              Read on Wikipedia &rarr;
-            </a>
-          </div>
-        ) : (
-          <div className="p-4 rounded-lg border border-[var(--border)] bg-[var(--card)]">
-            <h3 className="text-[10px] uppercase tracking-widest text-[var(--muted)] font-medium mb-3">
-              Wikipedia
-            </h3>
-            <p className="text-xs text-[var(--muted)]">No Wikipedia article linked.</p>
-          </div>
-        )}
+        <WikiCard url={wikiUrl} searching={wikiSearching} />
 
         {/* Card 3: Variants by Language */}
         <div className="p-4 rounded-lg border border-[var(--border)] bg-[var(--card)]">
@@ -701,6 +870,143 @@ export default function ClusterDetailPage() {
           </div>
         </div>
       </div>
+
+      {/* ─── 3b. Cross-References Panel (full-width) ─── */}
+      {cluster.cross_references && cluster.cross_references.filter(r => r.target_cluster_id !== null).length > 0 && (() => {
+        const refs = cluster.cross_references!.filter(r => r.target_cluster_id !== null);
+        const synonyms = refs.filter(r => r.link_type === "same_referent" || r.link_type === "cross_linguistic" || r.link_type === "orthographic_variant");
+        const contested = refs.filter(r => r.link_type === "contested_identity");
+        const related = refs.filter(r => r.link_type === "conceptual_overlap" || r.link_type === "derivation");
+
+        const LINK_TYPE_LABELS: Record<string, { label: string; color: string }> = {
+          same_referent: { label: "synonym", color: "bg-emerald-500/15 text-emerald-700 dark:text-emerald-400" },
+          cross_linguistic: { label: "translation", color: "bg-blue-500/15 text-blue-700 dark:text-blue-400" },
+          orthographic_variant: { label: "variant", color: "bg-slate-500/15 text-slate-700 dark:text-slate-400" },
+          contested_identity: { label: "contested", color: "bg-amber-500/15 text-amber-700 dark:text-amber-400" },
+          conceptual_overlap: { label: "related", color: "bg-purple-500/15 text-purple-700 dark:text-purple-400" },
+          derivation: { label: "derived", color: "bg-cyan-500/15 text-cyan-700 dark:text-cyan-400" },
+        };
+
+        const RefItem = ({ xref: r }: { xref: CrossReference }) => {
+          const typeInfo = LINK_TYPE_LABELS[r.link_type] || { label: r.link_type, color: "bg-gray-500/15 text-gray-600" };
+          const targetSlug = r.target_cluster_id !== null
+            ? (() => {
+                const targetCluster = data.clusters.find(c => c.id === r.target_cluster_id);
+                return targetCluster ? clusterSlug(targetCluster, data.clusters) : null;
+              })()
+            : null;
+          return (
+            <div className="flex items-start gap-2 py-1.5 group">
+              <span className={`shrink-0 px-1.5 py-0.5 rounded text-[10px] font-medium mt-0.5 ${typeInfo.color}`}>
+                {typeInfo.label}
+              </span>
+              <div className="flex-1 min-w-0">
+                <div className="flex items-baseline gap-1.5 flex-wrap">
+                  {targetSlug ? (
+                    <Link
+                      href={`/concordance/${targetSlug}?from=${encodeURIComponent(slug)}`}
+                      className="text-sm font-medium hover:text-[var(--accent)] transition-colors"
+                    >
+                      {r.found_name}
+                    </Link>
+                  ) : (
+                    <span className="text-sm font-medium">{r.found_name}</span>
+                  )}
+                  {r.target_cluster_name && r.target_cluster_name !== r.found_name && (
+                    <span className="text-xs text-[var(--muted)]">
+                      ({r.target_cluster_name})
+                    </span>
+                  )}
+                  <span className="text-[10px] text-[var(--muted)] font-mono">
+                    {BOOK_SHORT_NAMES[r.source_book] || r.source_book}
+                  </span>
+                </div>
+                {r.evidence_snippet && (
+                  <p className="text-[11px] text-[var(--muted)] leading-relaxed mt-0.5 line-clamp-2">
+                    &ldquo;{r.evidence_snippet.slice(0, 150)}{r.evidence_snippet.length > 150 ? "\u2026" : ""}&rdquo;
+                  </p>
+                )}
+              </div>
+            </div>
+          );
+        };
+
+        // Check if we have content for at least one column
+        const hasContent = synonyms.length > 0 || contested.length > 0 || related.length > 0;
+        if (!hasContent) return null;
+
+        return (
+          <div className="p-4 rounded-lg border border-[var(--border)] bg-[var(--card)] mb-8">
+            <div className="grid md:grid-cols-3 gap-6">
+              {/* Column 1: Synonyms & Translations */}
+              <div>
+                <h4 className="text-[10px] uppercase tracking-wider text-[var(--muted)] font-medium mb-2 pb-1.5 border-b border-[var(--border)]">
+                  Synonyms &amp; Translations
+                  {synonyms.length > 0 && (
+                    <span className="ml-1.5 font-mono opacity-60">{synonyms.length}</span>
+                  )}
+                </h4>
+                {synonyms.length > 0 ? (
+                  <div className="divide-y divide-[var(--border)]/40">
+                    {synonyms.slice(0, 8).map((r, i) => <RefItem key={i} xref={r} />)}
+                    {synonyms.length > 8 && (
+                      <p className="text-[10px] text-[var(--muted)] pt-2">
+                        +{synonyms.length - 8} more
+                      </p>
+                    )}
+                  </div>
+                ) : (
+                  <p className="text-xs text-[var(--muted)] opacity-50 py-2">None found</p>
+                )}
+              </div>
+
+              {/* Column 2: Contested Identities */}
+              <div>
+                <h4 className="text-[10px] uppercase tracking-wider text-[var(--muted)] font-medium mb-2 pb-1.5 border-b border-[var(--border)]">
+                  Contested Identities
+                  {contested.length > 0 && (
+                    <span className="ml-1.5 font-mono opacity-60">{contested.length}</span>
+                  )}
+                </h4>
+                {contested.length > 0 ? (
+                  <div className="divide-y divide-[var(--border)]/40">
+                    {contested.slice(0, 8).map((r, i) => <RefItem key={i} xref={r} />)}
+                    {contested.length > 8 && (
+                      <p className="text-[10px] text-[var(--muted)] pt-2">
+                        +{contested.length - 8} more
+                      </p>
+                    )}
+                  </div>
+                ) : (
+                  <p className="text-xs text-[var(--muted)] opacity-50 py-2">None found</p>
+                )}
+              </div>
+
+              {/* Column 3: Related Entities */}
+              <div>
+                <h4 className="text-[10px] uppercase tracking-wider text-[var(--muted)] font-medium mb-2 pb-1.5 border-b border-[var(--border)]">
+                  Related Entities
+                  {related.length > 0 && (
+                    <span className="ml-1.5 font-mono opacity-60">{related.length}</span>
+                  )}
+                </h4>
+                {related.length > 0 ? (
+                  <div className="divide-y divide-[var(--border)]/40">
+                    {related.slice(0, 8).map((r, i) => <RefItem key={i} xref={r} />)}
+                    {related.length > 8 && (
+                      <p className="text-[10px] text-[var(--muted)] pt-2">
+                        +{related.length - 8} more
+                      </p>
+                    )}
+                  </div>
+                ) : (
+                  <p className="text-xs text-[var(--muted)] opacity-50 py-2">None found</p>
+                )}
+              </div>
+            </div>
+          </div>
+        );
+      })()}
 
       {/* ─── 4. Mention Distribution Chart ─── */}
       <section className="mb-8">
