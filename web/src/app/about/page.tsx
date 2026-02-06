@@ -1,10 +1,50 @@
+"use client";
+
+import { useState, useEffect } from "react";
+
+const FONTS = [
+  "system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
+  "'UnifrakturMaguntia', cursive",
+  "'EB Garamond', serif",
+  "'Space Grotesk', sans-serif",
+];
+
+function CyclingName() {
+  const [index, setIndex] = useState(0);
+  const [fading, setFading] = useState(false);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setFading(true);
+      setTimeout(() => {
+        setIndex((i) => (i + 1) % FONTS.length);
+        setFading(false);
+      }, 400);
+    }, 3200);
+    return () => clearInterval(interval);
+  }, []);
+
+  return (
+    <span
+      className="inline-block"
+      style={{
+        fontFamily: FONTS[index],
+        transition: "opacity 0.4s ease, font-family 0s",
+        opacity: fading ? 0 : 1,
+      }}
+    >
+      Premodern Concordance
+    </span>
+  );
+}
+
 export default function AboutPage() {
   return (
     <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
       {/* Title */}
       <h1 className="text-3xl font-bold mb-3">About</h1>
       <p className="text-[var(--muted)] max-w-2xl mb-12 leading-relaxed">
-        The Premodern Concordance is a prototype for a larger project that will use
+        The <CyclingName /> is a prototype for a larger project that will use
         computational methods to link named entities &mdash; people, plants,
         substances, places, diseases, and concepts &mdash; across multilingual
         early modern texts relating to natural and scientific knowledge. The goal is to make the unstable, polyglot terminology
