@@ -36,6 +36,7 @@ import argparse
 BASE_DIR = Path(__file__).resolve().parent.parent
 CLASSIFIED_PATH = BASE_DIR / "data" / "synonym_chains" / "classified_findings.json"
 CONCORDANCE_PATH = BASE_DIR / "web" / "public" / "data" / "concordance.json"
+OLD_CONCORDANCE_PATH = BASE_DIR / "web" / "public" / "data" / "concordance.json.bak3"
 
 
 # ─────────────────────────────────────────────────────────────
@@ -63,24 +64,36 @@ def map_link_type(finding: dict) -> str:
 
     # LLM-classified genuine links — infer type from relationship field
     if label in ("llm_genuine", "probable_link", "possible_link", "entity_in_recipe"):
+        # Guard: geographic/contextual co-occurrences are NOT synonyms
+        if any(kw in relationship for kw in [
+            "region", "port", "place", "found in", "grows in", "traded",
+            "ingredient", "used with", "mixed with", "combined",
+            "mentioned alongside", "compared to", "related to",
+            "source of", "origin", "comes from", "exported",
+            "territory", "province", "kingdom", "island", "city",
+            "people of", "natives", "inhabitants", "merchants",
+            "remedy for", "cure for", "treatment", "disease",
+            "brought from", "shipped from", "imported",
+        ]):
+            return "conceptual_overlap"
         # Cross-linguistic signals
         if any(kw in relationship for kw in ["called", "name used", "known as",
                                                "named", "translation", "language",
                                                "vernacular", "local name"]):
             return "cross_linguistic"
         # Derivation signals
-        if any(kw in relationship for kw in ["source of", "derived", "extracted",
+        if any(kw in relationship for kw in ["derived", "extracted",
                                                "made from", "product", "part of"]):
             return "derivation"
         # Subtype/overlap signals
         if any(kw in relationship for kw in ["type of", "variety", "kind of",
                                                "similar", "comparison", "related"]):
             return "conceptual_overlap"
-        # Default for LLM-genuine without specific signal
-        return "same_referent"
+        # Default: safe fallback to conceptual_overlap instead of same_referent
+        return "conceptual_overlap"
 
-    # Fallback
-    return "same_referent"
+    # Fallback: unknown labels get safe default
+    return "conceptual_overlap"
 
 
 def map_link_strength(link_type: str) -> float:
@@ -199,10 +212,73 @@ def deduplicate_refs(refs: list[dict]) -> list[dict]:
     return result
 
 
+def build_id_remap(old_path: Path, current_clusters: list[dict]) -> dict[int, int]:
+    """
+    Build a mapping from old cluster IDs → current cluster IDs
+    by matching on (canonical_name.lower(), category).
+    Returns dict: old_id → new_id. Unmappable IDs are omitted.
+    """
+    if not old_path.exists():
+        return {}
+
+    with open(old_path) as f:
+        old_data = json.load(f)
+
+    # Build lookup: (name, category) → current ID
+    current_by_key = {}
+    for c in current_clusters:
+        key = (c["canonical_name"].lower(), c["category"])
+        current_by_key[key] = c["id"]
+
+    remap = {}
+    for c in old_data["clusters"]:
+        key = (c["canonical_name"].lower(), c["category"])
+        if key in current_by_key:
+            remap[c["id"]] = current_by_key[key]
+
+    return remap
+
+
+def remap_findings(findings: list[dict], remap: dict[int, int]) -> list[dict]:
+    """
+    Remap cluster IDs in findings from old → current.
+    Drops findings whose source cluster can't be mapped.
+    """
+    if not remap:
+        return findings
+
+    remapped = []
+    dropped = 0
+    for f in findings:
+        old_source = f["source_cluster_id"]
+        new_source = remap.get(old_source)
+        if new_source is None:
+            dropped += 1
+            continue
+
+        f2 = dict(f)
+        f2["source_cluster_id"] = new_source
+
+        # Remap matched_cluster_ids
+        new_matched = []
+        for tid in f2.get("matched_cluster_ids", []):
+            new_tid = remap.get(tid)
+            if new_tid is not None:
+                new_matched.append(new_tid)
+        f2["matched_cluster_ids"] = new_matched
+
+        remapped.append(f2)
+
+    print(f"  Remapped {len(remapped)} findings, dropped {dropped} (unmappable source clusters)")
+    return remapped
+
+
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--dry-run", action="store_true",
                         help="Print stats without modifying concordance.json")
+    parser.add_argument("--remap-from", type=str, default=None,
+                        help="Path to old concordance.json to remap cluster IDs from")
     args = parser.parse_args()
 
     # Load data
@@ -216,6 +292,16 @@ def main():
         data = json.load(f)
     cluster_map = {c["id"]: c for c in data["clusters"]}
     print(f"  {len(data['clusters'])} clusters")
+
+    # Remap IDs if needed (findings reference old cluster IDs)
+    old_path = Path(args.remap_from) if args.remap_from else OLD_CONCORDANCE_PATH
+    if old_path.exists():
+        print(f"\nRemapping cluster IDs from {old_path.name}...")
+        remap = build_id_remap(old_path, data["clusters"])
+        print(f"  Mapped {len(remap)} old IDs → current IDs")
+        findings = remap_findings(findings, remap)
+    else:
+        print("  No old concordance found, assuming IDs match current data")
 
     # Build cross-references
     print("\nBuilding cross-references...")

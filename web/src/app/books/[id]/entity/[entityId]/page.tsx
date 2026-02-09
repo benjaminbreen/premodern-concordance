@@ -1,8 +1,10 @@
 "use client";
 
-import React, { useEffect, useState, useCallback } from "react";
+import React, { useEffect, useState, useCallback, useRef } from "react";
 import Link from "next/link";
 import { useParams, useRouter } from "next/navigation";
+import { LinkedExcerpt, buildPersonLinks, type PersonLinkInfo } from "@/components/LinkedExcerpt";
+import { CAT_BADGE as CATEGORY_COLORS, CAT_TINT as CATEGORY_TINT } from "@/lib/colors";
 
 interface Mention {
   offset: number;
@@ -21,30 +23,11 @@ interface Entity {
   mentions?: Mention[];
 }
 
-const CATEGORY_COLORS: Record<string, string> = {
-  PERSON: "bg-purple-500/20 text-purple-600 dark:text-purple-400 border-purple-500/30",
-  PLANT: "bg-emerald-500/20 text-emerald-600 dark:text-emerald-400 border-emerald-500/30",
-  ANIMAL: "bg-lime-500/20 text-lime-600 dark:text-lime-400 border-lime-500/30",
-  SUBSTANCE: "bg-cyan-500/20 text-cyan-600 dark:text-cyan-400 border-cyan-500/30",
-  CONCEPT: "bg-amber-500/20 text-amber-600 dark:text-amber-400 border-amber-500/30",
-  DISEASE: "bg-red-500/20 text-red-600 dark:text-red-400 border-red-500/30",
-  PLACE: "bg-green-500/20 text-green-600 dark:text-green-400 border-green-500/30",
-  OBJECT: "bg-slate-500/20 text-slate-600 dark:text-slate-400 border-slate-500/30",
-};
 
-
-const CATEGORY_TINT: Record<string, string> = {
-  PERSON: "rgba(147, 51, 234, 0.25)",
-  PLANT: "rgba(16, 185, 129, 0.25)",
-  ANIMAL: "rgba(132, 204, 22, 0.25)",
-  SUBSTANCE: "rgba(6, 182, 212, 0.25)",
-  CONCEPT: "rgba(245, 158, 11, 0.25)",
-  DISEASE: "rgba(239, 68, 68, 0.25)",
-  PLACE: "rgba(34, 197, 94, 0.25)",
-  OBJECT: "rgba(100, 116, 139, 0.25)",
-};
-
-function HighlightedExcerpt({ excerpt, term }: { excerpt: string; term: string }) {
+function HighlightedExcerpt({ excerpt, term, personLinks }: { excerpt: string; term: string; personLinks?: PersonLinkInfo[] }) {
+  if (personLinks && personLinks.length > 0) {
+    return <LinkedExcerpt excerpt={excerpt} matchedTerm={term} personLinks={personLinks} />;
+  }
   const escaped = term.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
   const parts = excerpt.split(new RegExp(`(${escaped})`, "gi"));
   return (
@@ -62,94 +45,246 @@ function HighlightedExcerpt({ excerpt, term }: { excerpt: string; term: string }
   );
 }
 
-function TranslatableExcerpt({
-  excerpt,
-  term,
-  language,
+function ExcerptCard({
+  mention,
+  idx,
+  bookId,
+  bookLanguage,
+  bookTitle,
+  bookAuthor,
+  bookYear,
+  personLinks,
+  pageMap,
+  pageNums,
+  pageMapIaId,
 }: {
-  excerpt: string;
-  term: string;
-  language: string;
+  mention: Mention;
+  idx: number;
+  bookId: string;
+  bookLanguage: string;
+  bookTitle: string;
+  bookAuthor: string;
+  bookYear: number;
+  personLinks?: PersonLinkInfo[];
+  pageMap: Record<string, number> | null;
+  pageNums: Record<string, string> | null;
+  pageMapIaId: string | null;
 }) {
   const [showTranslation, setShowTranslation] = useState(false);
   const [translation, setTranslation] = useState<string | null>(null);
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(false);
+  const [translating, setTranslating] = useState(false);
+  const [translateError, setTranslateError] = useState(false);
+  const [citeOpen, setCiteOpen] = useState(false);
+  const [copied, setCopied] = useState<string | null>(null);
+  const citeRef = useRef<HTMLDivElement>(null);
 
-  const handleClick = useCallback(async () => {
-    // If we already have a translation, just toggle
+  const isEnglish = bookLanguage === "English";
+
+  const handleTranslate = useCallback(async () => {
     if (translation) {
       setShowTranslation((prev) => !prev);
       return;
     }
-
-    // Fetch translation
-    setLoading(true);
-    setError(false);
+    setTranslating(true);
+    setTranslateError(false);
     try {
       const res = await fetch("/api/translate", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ text: excerpt, language }),
+        body: JSON.stringify({ text: mention.excerpt, language: bookLanguage }),
       });
       const data = await res.json();
       if (data.error) {
-        setError(true);
+        setTranslateError(true);
       } else {
         setTranslation(data.translation);
         setShowTranslation(true);
       }
     } catch {
-      setError(true);
+      setTranslateError(true);
     } finally {
-      setLoading(false);
+      setTranslating(false);
     }
-  }, [excerpt, language, translation]);
+  }, [mention.excerpt, bookLanguage, translation]);
 
-  // Don't offer translation for English texts
-  const isEnglish = language === "English";
+  // Close cite dropdown on outside click
+  useEffect(() => {
+    if (!citeOpen) return;
+    const handler = (e: MouseEvent) => {
+      if (citeRef.current && !citeRef.current.contains(e.target as Node)) {
+        setCiteOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", handler);
+    return () => document.removeEventListener("mousedown", handler);
+  }, [citeOpen]);
+
+  // Page/source lookup
+  const offsetStr = String(mention.offset);
+  const leaf = pageMap?.[offsetStr];
+  const printedPage = pageNums?.[offsetStr];
+  const iaId = pageMapIaId || BOOK_IA_IDS[bookId];
+  const directPageUrl =
+    leaf && iaId ? `https://archive.org/details/${iaId}/page/n${leaf}` : null;
+  const iaUrl =
+    directPageUrl ||
+    buildIASearchUrl(bookId, mention.excerpt, mention.matched_term);
+  const displayPage = printedPage || (leaf ? String(leaf) : null);
+
+  // Citation generation
+  const authorParts = bookAuthor.split(" ");
+  const lastName = authorParts[authorParts.length - 1];
+  const firstName = authorParts.slice(0, -1).join(" ");
+  const pg = displayPage;
+
+  const formats = [
+    {
+      key: "chicago",
+      label: "Chicago",
+      plain: `${bookAuthor}, ${bookTitle} (${bookYear})${pg ? ", " + pg : ""}.`,
+      rendered: (
+        <>
+          {bookAuthor}, <em>{bookTitle}</em> ({bookYear})
+          {pg ? `, ${pg}` : ""}.
+        </>
+      ),
+    },
+    {
+      key: "apa",
+      label: "APA",
+      plain: `${lastName}, ${firstName ? firstName[0] + ". " : ""}(${bookYear}). ${bookTitle}.${pg ? " p. " + pg + "." : ""}`,
+      rendered: (
+        <>
+          {lastName}, {firstName ? firstName[0] + ". " : ""}({bookYear}).{" "}
+          <em>{bookTitle}</em>.{pg ? ` p. ${pg}.` : ""}
+        </>
+      ),
+    },
+    {
+      key: "mla",
+      label: "MLA",
+      plain: `${lastName}, ${firstName}. ${bookTitle}. ${bookYear}${pg ? ", p. " + pg : ""}.`,
+      rendered: (
+        <>
+          {lastName}, {firstName}. <em>{bookTitle}</em>. {bookYear}
+          {pg ? `, p. ${pg}` : ""}.
+        </>
+      ),
+    },
+  ];
+
+  const handleCopy = async (key: string) => {
+    const fmt = formats.find((f) => f.key === key);
+    if (!fmt) return;
+    await navigator.clipboard.writeText(fmt.plain);
+    setCopied(key);
+    setTimeout(() => setCopied(null), 1500);
+  };
 
   return (
-    <div>
-      <div className="text-sm leading-relaxed">
-        {showTranslation && translation ? (
-          <span className="text-[var(--muted)]">
-            ...{translation}...
-          </span>
-        ) : (
-          <HighlightedExcerpt excerpt={excerpt} term={term} />
-        )}
-      </div>
-      {!isEnglish && (
-        <button
-          onClick={handleClick}
-          disabled={loading}
-          className="mt-1.5 inline-flex items-center gap-1.5 text-xs text-[var(--muted)] hover:text-[var(--accent)] transition-colors disabled:opacity-50"
-        >
-          {loading ? (
-            <>
-              <div className="w-3 h-3 border border-[var(--accent)] border-t-transparent rounded-full animate-spin" />
-              Translating...
-            </>
-          ) : error ? (
-            <span className="text-red-500">Translation failed - click to retry</span>
-          ) : showTranslation ? (
-            <>
-              <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129" />
-              </svg>
-              Show original
-            </>
+    <div className="p-4 rounded-lg border border-[var(--border)] bg-[var(--card)]">
+      <div className="flex items-start gap-3">
+        <span className="text-xs text-[var(--muted)] font-mono mt-1 shrink-0">
+          {idx + 1}.
+        </span>
+        <div className="flex-1 min-w-0 text-sm leading-relaxed">
+          {showTranslation && translation ? (
+            <span className="text-[var(--muted)]">...{translation}...</span>
           ) : (
-            <>
-              <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129" />
-              </svg>
-              Translate to English
-            </>
+            <HighlightedExcerpt
+              excerpt={mention.excerpt}
+              term={mention.matched_term}
+              personLinks={personLinks}
+            />
           )}
-        </button>
-      )}
+        </div>
+      </div>
+
+      {/* Toolbar */}
+      <div className="grid grid-cols-3 items-center mt-3 pt-2 border-t border-[var(--border)]/40">
+        {/* Left: Translate */}
+        <div>
+          {!isEnglish && (
+            <button
+              onClick={handleTranslate}
+              disabled={translating}
+              className="text-[11px] px-2.5 py-1 rounded border border-[var(--border)] text-[var(--muted)] hover:border-[var(--accent)] hover:text-[var(--accent)] transition-all disabled:opacity-50 tracking-wide"
+            >
+              {translating
+                ? "Translating\u2026"
+                : translateError
+                  ? "Retry"
+                  : showTranslation
+                    ? "Original"
+                    : "Translate"}
+            </button>
+          )}
+        </div>
+
+        {/* Center: Page / Source */}
+        <div className="text-center">
+          {iaUrl && (
+            <a
+              href={iaUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-[11px] text-[var(--muted)] hover:text-[var(--accent)] transition-colors tracking-wide inline-flex items-center gap-1 justify-center"
+            >
+              {displayPage ? (
+                <span className="font-mono">p.&thinsp;{displayPage}</span>
+              ) : (
+                "Source text"
+              )}
+              <svg
+                className="w-2.5 h-2.5 opacity-50"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+                />
+              </svg>
+            </a>
+          )}
+        </div>
+
+        {/* Right: Cite */}
+        <div className="text-right relative" ref={citeRef}>
+          <button
+            onClick={() => setCiteOpen((o) => !o)}
+            className="text-[11px] px-2.5 py-1 rounded border border-[var(--border)] text-[var(--muted)] hover:border-[var(--accent)] hover:text-[var(--accent)] transition-all tracking-wide"
+          >
+            Cite
+          </button>
+          {citeOpen && (
+            <div className="absolute right-0 bottom-full mb-2 w-72 bg-[var(--card)] border border-[var(--border)] rounded-lg shadow-lg z-50 p-1">
+              {formats.map(({ key, label, rendered }) => (
+                <button
+                  key={key}
+                  onClick={() => handleCopy(key)}
+                  className="w-full text-left px-3 py-2.5 rounded-md hover:bg-[var(--accent)]/10 transition-colors cursor-pointer group"
+                >
+                  <span className="flex items-center justify-between mb-1">
+                    <span className="text-[10px] uppercase tracking-[0.15em] text-[var(--muted)] group-hover:text-[var(--accent)] transition-colors">
+                      {label}
+                    </span>
+                    <span className={`text-[10px] transition-colors ${copied === key ? "text-[var(--accent)]" : "text-[var(--muted)] opacity-0 group-hover:opacity-100"}`}>
+                      {copied === key ? "Copied!" : "Click to copy"}
+                    </span>
+                  </span>
+                  <p className="text-xs leading-relaxed text-[var(--foreground)]">
+                    {rendered}
+                  </p>
+                </button>
+              ))}
+            </div>
+          )}
+        </div>
+      </div>
     </div>
   );
 }
@@ -213,6 +348,36 @@ async function fetchWikipediaData(entityName: string, bookLanguage?: string): Pr
   return null;
 }
 
+const BOOK_IA_IDS: Record<string, string> = {
+  "english_physician_1652": "b30335310",
+  "polyanthea_medicinal": "b3040941x",
+  "coloquios_da_orta_1563": "coloquiosdossimp01ortauoft",
+  "historia_medicinal_monardes_1574": "primeraysegunda01monagoog",
+  "relation_historique_humboldt_vol3_1825": "relationhistoriq03humb",
+  "ricettario_fiorentino_1597": "hin-wel-all-00000667-001",
+  "principles_of_psychology_james_1890": "theprinciplesofp01jameuoft",
+};
+
+function buildIASearchUrl(bookId: string, excerpt: string, term: string): string | null {
+  const iaId = BOOK_IA_IDS[bookId];
+  if (!iaId) return null;
+  // Clean excerpt: remove line-break hyphens, OCR artifacts, normalize whitespace
+  const cleaned = excerpt
+    .replace(/\u00AD/g, "")       // soft hyphens
+    .replace(/-\s+/g, "")         // line-break hyphens
+    .replace(/[^\w\s\u00C0-\u024F]/g, " ")  // strip punctuation
+    .replace(/\s+/g, " ")
+    .trim();
+  const words = cleaned.split(" ").filter(w => w.length > 1);
+  if (words.length < 2) return null;
+  // Pick 3 words from near the middle of the excerpt (less likely to be cut off)
+  const mid = Math.floor(words.length / 2);
+  const start = Math.max(0, mid - 1);
+  const phrase = words.slice(start, start + 3).join(" ");
+  // Wrap in quotes for exact phrase matching on IA
+  return `https://archive.org/details/${iaId}?q=${encodeURIComponent(`"${phrase}"`)}`;
+}
+
 function slugify(name: string): string {
   return name.toLowerCase().trim().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
 }
@@ -220,6 +385,7 @@ function slugify(name: string): string {
 interface ConcordanceCluster {
   id: number;
   canonical_name: string;
+  category: string;
   members: { entity_id: string; book_id: string }[];
 }
 
@@ -228,6 +394,8 @@ export default function EntityDetailPage() {
   const router = useRouter();
   const [entity, setEntity] = useState<Entity | null>(null);
   const [bookTitle, setBookTitle] = useState("");
+  const [bookAuthor, setBookAuthor] = useState("");
+  const [bookYear, setBookYear] = useState(0);
   const [bookLanguage, setBookLanguage] = useState("");
   const [loading, setLoading] = useState(true);
   const [wikiData, setWikiData] = useState<WikiData | null>(null);
@@ -235,15 +403,23 @@ export default function EntityDetailPage() {
   const [currentIndex, setCurrentIndex] = useState(-1);
   const [concordanceSlug, setConcordanceSlug] = useState<string | null>(null);
   const [concordanceName, setConcordanceName] = useState<string | null>(null);
+  const [allEntities, setAllEntities] = useState<Entity[]>([]);
+  const [personLinks, setPersonLinks] = useState<PersonLinkInfo[]>([]);
+  const [pageMap, setPageMap] = useState<Record<string, number> | null>(null);
+  const [pageNums, setPageNums] = useState<Record<string, string> | null>(null);
+  const [pageMapIaId, setPageMapIaId] = useState<string | null>(null);
 
   useEffect(() => {
     const bookFiles: Record<string, string> = {
       "semedo-polyanthea-1741": "/data/semedo_entities.json",
+      "polyanthea_medicinal": "/data/semedo_entities.json",
       "english_physician_1652": "/data/culpeper_entities.json",
       "coloquios_da_orta_1563": "/data/orta_entities.json",
       "historia_medicinal_monardes_1574": "/data/monardes_entities.json",
       "relation_historique_humboldt_vol3_1825": "/data/humboldt_entities.json",
       "ricettario_fiorentino_1597": "/data/ricettario_entities.json",
+      "principles_of_psychology_james_1890": "/data/james_psychology_entities.json",
+      "origin_of_species_darwin_1859": "/data/darwin_origin_entities.json",
     };
 
     const dataFile = bookFiles[params.id as string];
@@ -256,6 +432,8 @@ export default function EntityDetailPage() {
         if (!data) continue;
         if (dataFile || data.book.id === params.id) {
           setBookTitle(data.book.title);
+          setBookAuthor(data.book.author || "");
+          setBookYear(data.book.year || 0);
           setBookLanguage(data.book.language || "");
           // Store the full entity ID list (sorted by count desc, matching book page order)
           const ids = data.entities.map((e: Entity) => e.id);
@@ -269,6 +447,7 @@ export default function EntityDetailPage() {
           );
           if (found) {
             setEntity(found);
+            setAllEntities(data.entities);
             break;
           }
         }
@@ -277,7 +456,7 @@ export default function EntityDetailPage() {
     });
   }, [params.id, params.entityId]);
 
-  // Find matching concordance cluster for this entity
+  // Find matching concordance cluster + build person links for auto-linking
   useEffect(() => {
     if (!entity) return;
     // Map URL book IDs to concordance book IDs (only Semedo differs)
@@ -300,9 +479,34 @@ export default function EntityDetailPage() {
           setConcordanceSlug(hasCollision ? `${base}-${match.id}` : base);
           setConcordanceName(match.canonical_name);
         }
+        // Build person links using concordance data
+        if (allEntities.length > 0) {
+          setPersonLinks(buildPersonLinks(allEntities, bookId, clusters));
+        }
+      })
+      .catch(() => {
+        // Fallback: link to book entity pages only
+        if (allEntities.length > 0) {
+          const bookId = (params.id as string) === "semedo-polyanthea-1741" ? "polyanthea_medicinal" : params.id as string;
+          setPersonLinks(buildPersonLinks(allEntities, bookId));
+        }
+      });
+  }, [entity, allEntities, params.id, params.entityId]);
+
+  // Load page map for IA page links
+  useEffect(() => {
+    const bookId = (params.id as string) === "semedo-polyanthea-1741" ? "polyanthea_medicinal" : params.id as string;
+    fetch(`/data/page_maps/${bookId}.json`)
+      .then((res) => (res.ok ? res.json() : null))
+      .then((data) => {
+        if (data?.leaves) {
+          setPageMap(data.leaves);
+          setPageMapIaId(data.ia_id);
+          if (data.pages) setPageNums(data.pages);
+        }
       })
       .catch(() => {});
-  }, [entity, params.id, params.entityId]);
+  }, [params.id]);
 
   // Fetch Wikipedia data when entity loads
   useEffect(() => {
@@ -510,23 +714,25 @@ export default function EntityDetailPage() {
           <p className="text-[var(--muted)] text-sm">No text excerpts found for this entity.</p>
         ) : (
           <div className="space-y-3">
-            {mentions.map((mention, idx) => (
-              <div
-                key={idx}
-                className="p-4 rounded-lg border border-[var(--border)] bg-[var(--card)]"
-              >
-                <div className="flex items-start gap-3">
-                  <span className="text-xs text-[var(--muted)] font-mono mt-1 shrink-0">
-                    {idx + 1}.
-                  </span>
-                  <TranslatableExcerpt
-                    excerpt={mention.excerpt}
-                    term={mention.matched_term}
-                    language={bookLanguage}
-                  />
-                </div>
-              </div>
-            ))}
+            {mentions.map((mention, idx) => {
+              const resolvedBookId = (params.id as string) === "semedo-polyanthea-1741" ? "polyanthea_medicinal" : params.id as string;
+              return (
+                <ExcerptCard
+                  key={idx}
+                  mention={mention}
+                  idx={idx}
+                  bookId={resolvedBookId}
+                  bookLanguage={bookLanguage}
+                  bookTitle={bookTitle}
+                  bookAuthor={bookAuthor}
+                  bookYear={bookYear}
+                  personLinks={personLinks}
+                  pageMap={pageMap}
+                  pageNums={pageNums}
+                  pageMapIaId={pageMapIaId}
+                />
+              );
+            })}
           </div>
         )}
       </div>

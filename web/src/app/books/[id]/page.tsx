@@ -3,64 +3,14 @@
 import React, { useEffect, useState, useMemo } from "react";
 import Link from "next/link";
 import { useParams } from "next/navigation";
-
-interface Mention {
-  offset: number;
-  matched_term: string;
-  excerpt: string;
-}
-
-interface Entity {
-  id: string;
-  name: string;
-  category: string;
-  subcategory?: string;
-  count: number;
-  contexts: string[];
-  variants: string[];
-  mentions?: Mention[];
-}
-
-interface BookData {
-  book: {
-    id: string;
-    title: string;
-    author: string;
-    year: number;
-    language: string;
-    description: string;
-  };
-  entities: Entity[];
-  stats: {
-    total_entities: number;
-    by_category: Record<string, number>;
-    extraction_method: string;
-    chunks_processed: number;
-  };
-}
+import { LinkedExcerpt, buildPersonLinks, type PersonLinkInfo } from "@/components/LinkedExcerpt";
+import { useBookContext } from "./BookContext";
+import { CAT_BADGE as CATEGORY_COLORS } from "@/lib/colors";
+import { BOOK_TEXTS } from "@/lib/books";
 
 type SortKey = "name" | "count" | "category";
 type SortDir = "asc" | "desc";
 
-const BOOK_TEXTS: Record<string, string> = {
-  "polyanthea_medicinal": "/texts/polyanthea_medicinal.txt",
-  "english_physician_1652": "/texts/english_physician_1652.txt",
-  "coloquios_da_orta_1563": "/texts/coloquios_da_orta_1563.txt",
-  "historia_medicinal_monardes_1574": "/texts/historia_medicinal_monardes_1574.txt",
-  "relation_historique_humboldt_vol3_1825": "/texts/relation_historique_humboldt_vol3_1825.txt",
-  "ricettario_fiorentino_1597": "/texts/ricettario_fiorentino_1597.txt",
-};
-
-const CATEGORY_COLORS: Record<string, string> = {
-  PERSON: "bg-purple-500/20 text-purple-600 dark:text-purple-400 border-purple-500/30",
-  PLANT: "bg-emerald-500/20 text-emerald-600 dark:text-emerald-400 border-emerald-500/30",
-  ANIMAL: "bg-lime-500/20 text-lime-600 dark:text-lime-400 border-lime-500/30",
-  SUBSTANCE: "bg-cyan-500/20 text-cyan-600 dark:text-cyan-400 border-cyan-500/30",
-  CONCEPT: "bg-amber-500/20 text-amber-600 dark:text-amber-400 border-amber-500/30",
-  DISEASE: "bg-red-500/20 text-red-600 dark:text-red-400 border-red-500/30",
-  PLACE: "bg-green-500/20 text-green-600 dark:text-green-400 border-green-500/30",
-  OBJECT: "bg-slate-500/20 text-slate-600 dark:text-slate-400 border-slate-500/30",
-};
 
 function CategoryBadge({ category, subcategory }: { category: string; subcategory?: string }) {
   const badgeClass = CATEGORY_COLORS[category] || "bg-[var(--border)]";
@@ -79,52 +29,27 @@ function CategoryBadge({ category, subcategory }: { category: string; subcategor
 
 export default function BookDetailPage() {
   const params = useParams();
-  const [data, setData] = useState<BookData | null>(null);
-  const [loading, setLoading] = useState(true);
+  const { bookData: data, concordanceData } = useBookContext();
   const [search, setSearch] = useState("");
   const [categoryFilter, setCategoryFilter] = useState<string>("ALL");
   const [sortKey, setSortKey] = useState<SortKey>("count");
   const [sortDir, setSortDir] = useState<SortDir>("desc");
   const [page, setPage] = useState(0);
   const [expandedEntity, setExpandedEntity] = useState<string | null>(null);
+  const [personLinks, setPersonLinks] = useState<PersonLinkInfo[]>([]);
   const pageSize = 50;
 
+  // Build person links for auto-linking names in excerpts
   useEffect(() => {
-    // Map book IDs to data files
-    const bookFiles: Record<string, string> = {
-      "semedo-polyanthea-1741": "/data/semedo_entities.json",
-      "polyanthea_medicinal": "/data/semedo_entities.json",
-      "english_physician_1652": "/data/culpeper_entities.json",
-      "coloquios_da_orta_1563": "/data/orta_entities.json",
-      "historia_medicinal_monardes_1574": "/data/monardes_entities.json",
-      "relation_historique_humboldt_vol3_1825": "/data/humboldt_entities.json",
-      "ricettario_fiorentino_1597": "/data/ricettario_entities.json",
-    };
-    const dataFile = bookFiles[params.id as string];
-    if (!dataFile) {
-      // Try all files and match by ID
-      const allFiles = Object.values(bookFiles);
-      Promise.all(
-        allFiles.map((f) => fetch(f).then((res) => res.json()).catch(() => null))
-      ).then((results) => {
-        const match = results.find((r) => r?.book?.id === params.id);
-        if (match) setData(match);
-        setLoading(false);
-      });
-      return;
+    const bookId = data.book.id;
+    if (concordanceData) {
+      setPersonLinks(buildPersonLinks(data.entities, bookId, concordanceData.clusters));
+    } else {
+      setPersonLinks(buildPersonLinks(data.entities, bookId));
     }
-    fetch(dataFile)
-      .then((res) => res.json())
-      .then((bookData) => {
-        setData(bookData);
-        setLoading(false);
-      })
-      .catch(() => setLoading(false));
-  }, [params.id]);
+  }, [data, concordanceData]);
 
   const filteredEntities = useMemo(() => {
-    if (!data) return [];
-
     let entities = data.entities;
 
     // Filter by search
@@ -174,40 +99,11 @@ export default function BookDetailPage() {
     setPage(0);
   };
 
-  if (loading) {
-    return (
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div className="animate-pulse space-y-4">
-          <div className="h-8 bg-[var(--border)] rounded w-1/4"></div>
-          <div className="h-4 bg-[var(--border)] rounded w-1/2"></div>
-          <div className="h-64 bg-[var(--border)] rounded"></div>
-        </div>
-      </div>
-    );
-  }
-
-  if (!data) {
-    return (
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <p>Book not found.</p>
-      </div>
-    );
-  }
-
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-      {/* Breadcrumb */}
-      <nav className="mb-6 text-sm">
-        <Link href="/books" className="text-[var(--muted)] hover:text-[var(--foreground)]">
-          Books
-        </Link>
-        <span className="text-[var(--muted)] mx-3">/</span>
-        <span>{data.book.title}</span>
-      </nav>
-
+    <>
       {/* Header */}
       <div className="mb-4">
-        <div className="flex items-start justify-between">
+        <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-3">
           <div>
             <h1 className="text-3xl font-bold mb-2">{data.book.title}</h1>
             <p className="text-[var(--muted)] text-lg">{data.book.author}, {data.book.year}</p>
@@ -396,14 +292,11 @@ export default function BookDetailPage() {
                               key={mIdx}
                               className="text-sm border-l-2 border-[var(--accent)] pl-3 py-1"
                             >
-                              <span className="text-[var(--muted)]">...{mention.excerpt.replace(
-                                new RegExp(`(${mention.matched_term.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')})`, 'gi'),
-                                '**$1**'
-                              ).split('**').map((part, pIdx) =>
-                                pIdx % 2 === 1
-                                  ? <strong key={pIdx} className="text-[var(--foreground)]">{part}</strong>
-                                  : part
-                              )}...</span>
+                              <LinkedExcerpt
+                                excerpt={mention.excerpt}
+                                matchedTerm={mention.matched_term}
+                                personLinks={personLinks}
+                              />
                             </div>
                           ))}
                           <Link
@@ -454,6 +347,6 @@ export default function BookDetailPage() {
           Extracted using {data.stats.extraction_method} • {data.stats.chunks_processed} text chunks processed
         </p>
       </div>
-    </div>
+    </>
   );
 }

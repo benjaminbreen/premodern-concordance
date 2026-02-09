@@ -1,7 +1,10 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
+import { createPortal } from "react-dom";
+import { CAT_HEX as CATEGORY_COLORS, CATEGORY_ORDER } from "@/lib/colors";
+import { BOOK_COVERS, BOOK_TEXTS } from "@/lib/books";
 
 interface BookData {
   book: {
@@ -20,7 +23,98 @@ interface BookData {
 
 type SortKey = "title" | "author" | "year" | "language" | "entities";
 type SortDir = "asc" | "desc";
-type ViewMode = "cards" | "list";
+type ViewMode = "cards" | "list" | "rings";
+
+
+function CategoryTooltip({ byCategory, total, anchorRef }: { byCategory: Record<string, number>; total: number; anchorRef: React.RefObject<HTMLElement | null> }) {
+  const sorted = CATEGORY_ORDER
+    .filter((c) => byCategory[c] && byCategory[c] > 0)
+    .map((c) => ({ category: c, count: byCategory[c] }));
+
+  Object.entries(byCategory).forEach(([c, count]) => {
+    if (count > 0 && !CATEGORY_ORDER.includes(c)) {
+      sorted.push({ category: c, count });
+    }
+  });
+
+  sorted.sort((a, b) => b.count - a.count);
+
+  const rect = anchorRef.current?.getBoundingClientRect();
+  if (!rect) return null;
+
+  const tooltipWidth = 224; // w-56 = 14rem = 224px
+  let left = rect.left + rect.width / 2 - tooltipWidth / 2;
+  // Clamp to viewport
+  left = Math.max(8, Math.min(left, window.innerWidth - tooltipWidth - 8));
+
+  return createPortal(
+    <div
+      className="fixed z-[9999] w-56 p-3 rounded-lg border border-[var(--border)] bg-[var(--card)] shadow-xl text-xs pointer-events-none"
+      style={{ top: rect.top - 8, left, transform: "translateY(-100%)" }}
+    >
+      {/* Stacked bar */}
+      <div className="flex h-2 rounded-full overflow-hidden mb-2.5">
+        {sorted.map(({ category, count }) => (
+          <div
+            key={category}
+            style={{
+              width: `${(count / total) * 100}%`,
+              backgroundColor: CATEGORY_COLORS[category] || "#888",
+            }}
+          />
+        ))}
+      </div>
+      {/* Labels */}
+      <div className="space-y-1">
+        {sorted.slice(0, 6).map(({ category, count }) => (
+          <div key={category} className="flex items-center justify-between gap-2">
+            <span className="flex items-center gap-1.5 text-[var(--muted)]">
+              <span
+                className="inline-block w-2 h-2 rounded-sm shrink-0"
+                style={{ backgroundColor: CATEGORY_COLORS[category] || "#888" }}
+              />
+              {category.charAt(0) + category.slice(1).toLowerCase()}
+            </span>
+            <span className="font-mono text-[var(--foreground)]">{count.toLocaleString()}</span>
+          </div>
+        ))}
+        {sorted.length > 6 && (
+          <div className="text-[var(--muted)] opacity-60 text-center pt-0.5">
+            +{sorted.length - 6} more
+          </div>
+        )}
+      </div>
+      {/* Arrow */}
+      <div
+        className="fixed w-0 h-0 border-l-[6px] border-l-transparent border-r-[6px] border-r-transparent border-t-[6px] border-t-[var(--border)]"
+        style={{ top: rect.top - 8, left: rect.left + rect.width / 2 - 6 }}
+      />
+    </div>,
+    document.body
+  );
+}
+
+function EntityCountWithTooltip({ bookId, byCategory, total, label }: { bookId: string; byCategory: Record<string, number>; total: number; label?: string }) {
+  const [hovered, setHovered] = useState(false);
+  const ref = useRef<HTMLSpanElement>(null);
+  return (
+    <span
+      ref={ref}
+      className="relative font-mono cursor-default"
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
+    >
+      {total.toLocaleString()}{label ? ` ${label}` : ""}
+      {hovered && (
+        <CategoryTooltip
+          byCategory={byCategory}
+          total={total}
+          anchorRef={ref}
+        />
+      )}
+    </span>
+  );
+}
 
 // Muted, archival tones — not app-bright, more like ink or dye colors
 const LANG_COLORS: Record<string, string> = {
@@ -31,23 +125,221 @@ const LANG_COLORS: Record<string, string> = {
   Italian:    "#8b6b6b",  // dusty rose
 };
 
-const BOOK_COVERS: Record<string, string> = {
-  "polyanthea_medicinal": "/images/covers/semedo.png",
-  "english_physician_1652": "/images/covers/culpeper.png",
-  "coloquios_da_orta_1563": "/images/covers/orta.png",
-  "historia_medicinal_monardes_1574": "/images/covers/monardes.png",
-  "relation_historique_humboldt_vol3_1825": "/images/covers/humboldt.png",
-  "ricettario_fiorentino_1597": "/images/covers/ricettario.png",
-};
 
-const BOOK_TEXTS: Record<string, string> = {
-  "polyanthea_medicinal": "/texts/polyanthea_medicinal.txt",
-  "english_physician_1652": "/texts/english_physician_1652.txt",
-  "coloquios_da_orta_1563": "/texts/coloquios_da_orta_1563.txt",
-  "historia_medicinal_monardes_1574": "/texts/historia_medicinal_monardes_1574.txt",
-  "relation_historique_humboldt_vol3_1825": "/texts/relation_historique_humboldt_vol3_1825.txt",
-  "ricettario_fiorentino_1597": "/texts/ricettario_fiorentino_1597.txt",
-};
+function getGlobalCategoryOrder(books: BookData[]): string[] {
+  const sums: Record<string, number> = {};
+  for (const b of books) {
+    for (const [cat, count] of Object.entries(b.stats.by_category)) {
+      sums[cat] = (sums[cat] || 0) + count;
+    }
+  }
+  return Object.entries(sums)
+    .sort((a, b) => b[1] - a[1])
+    .map(([cat]) => cat);
+}
+
+function getCategorySorted(byCategory: Record<string, number>) {
+  const sorted = CATEGORY_ORDER
+    .filter((c) => byCategory[c] && byCategory[c] > 0)
+    .map((c) => ({ category: c, count: byCategory[c] }));
+  Object.entries(byCategory).forEach(([c, count]) => {
+    if (count > 0 && !CATEGORY_ORDER.includes(c)) sorted.push({ category: c, count });
+  });
+  sorted.sort((a, b) => b.count - a.count);
+  return sorted;
+}
+
+function CategoryRing({ byCategory, total, size = 120, order }: { byCategory: Record<string, number>; total: number; size?: number; order?: string[] }) {
+  const r = size / 2;
+  const strokeWidth = size * 0.1;
+  const innerR = r - strokeWidth / 2 - 1;
+  const circumference = 2 * Math.PI * innerR;
+  const catOrder = order || CATEGORY_ORDER;
+
+  let offset = 0;
+
+  return (
+    <svg width={size} height={size} viewBox={`0 0 ${size} ${size}`}>
+      {catOrder.map((category) => {
+        const count = byCategory[category] || 0;
+        if (count === 0) return null;
+        const pct = count / total;
+        const dash = pct * circumference;
+        const gap = circumference - dash;
+        const currentOffset = offset;
+        offset += dash;
+        return (
+          <circle
+            key={category}
+            cx={r}
+            cy={r}
+            r={innerR}
+            fill="none"
+            stroke={CATEGORY_COLORS[category] || "#888"}
+            strokeWidth={strokeWidth}
+            strokeDasharray={`${dash} ${gap}`}
+            strokeDashoffset={-currentOffset}
+            strokeLinecap="butt"
+            transform={`rotate(-90 ${r} ${r})`}
+          />
+        );
+      })}
+    </svg>
+  );
+}
+
+function RingWithLabels({ byCategory, total, size, order, hovered }: { byCategory: Record<string, number>; total: number; size: number; order: string[]; hovered: boolean }) {
+  const [hoveredSegment, setHoveredSegment] = useState<string | null>(null);
+  const r = size / 2;
+  const strokeWidth = size * 0.1;
+  const innerR = r - strokeWidth / 2 - 1;
+  const labelR = r + 26;
+
+  // Build segments in fixed order
+  const segments: { category: string; count: number; startAngle: number; endAngle: number }[] = [];
+  let angleSoFar = -90; // start at 12 o'clock
+  for (const cat of order) {
+    const count = byCategory[cat] || 0;
+    if (count === 0) continue;
+    const sweep = (count / total) * 360;
+    segments.push({ category: cat, count, startAngle: angleSoFar, endAngle: angleSoFar + sweep });
+    angleSoFar += sweep;
+  }
+
+  // Labels for segments >4%, plus any directly-hovered small segment
+  const largeSegments = segments.filter(s => s.count / total > 0.04);
+  const pad = 44;
+  return (
+    <div className="relative" style={{ width: size + pad * 2, height: size + pad * 2 }}>
+      {/* Ring with glow effect */}
+      <div
+        className="absolute"
+        style={{
+          left: pad, top: pad,
+          filter: hovered
+            ? 'saturate(1.45) brightness(1.1) drop-shadow(0 0 10px rgba(180,160,220,0.35)) drop-shadow(0 0 4px rgba(120,100,200,0.2))'
+            : 'saturate(1) brightness(1) drop-shadow(0 0 0px rgba(180,160,220,0))',
+          transform: hovered ? 'scale(1.04)' : 'scale(1)',
+          transition: 'filter 600ms ease, transform 500ms ease',
+        }}
+      >
+        <CategoryRing byCategory={byCategory} total={total} size={size} order={order} />
+      </div>
+      {/* Invisible arc hit targets for segment hover */}
+      <svg
+        className="absolute"
+        style={{ left: pad, top: pad }}
+        width={size}
+        height={size}
+        viewBox={`0 0 ${size} ${size}`}
+      >
+        {segments.map((seg) => {
+          const startRad = (seg.startAngle * Math.PI) / 180;
+          const endRad = (seg.endAngle * Math.PI) / 180;
+          const x1 = r + innerR * Math.cos(startRad);
+          const y1 = r + innerR * Math.sin(startRad);
+          const x2 = r + innerR * Math.cos(endRad);
+          const y2 = r + innerR * Math.sin(endRad);
+          const largeArc = seg.endAngle - seg.startAngle > 180 ? 1 : 0;
+          return (
+            <path
+              key={seg.category}
+              d={`M ${x1} ${y1} A ${innerR} ${innerR} 0 ${largeArc} 1 ${x2} ${y2}`}
+              fill="none"
+              stroke="transparent"
+              strokeWidth={strokeWidth + 6}
+              pointerEvents="stroke"
+              onMouseEnter={() => setHoveredSegment(seg.category)}
+              onMouseLeave={() => setHoveredSegment(null)}
+              style={{ cursor: 'pointer' }}
+            />
+          );
+        })}
+      </svg>
+      {/* Clock labels — staggered fade in/out, highlight on segment hover */}
+      {segments.map((seg) => {
+        const isLarge = seg.count / total > 0.04;
+        const isActive = hoveredSegment === seg.category;
+        const shouldShow = hovered && (isLarge || isActive);
+        const staggerIdx = largeSegments.indexOf(seg);
+        const midAngle = ((seg.startAngle + seg.endAngle) / 2) * (Math.PI / 180);
+        const cx = (size / 2) + pad;
+        const cy = (size / 2) + pad;
+        const x = cx + labelR * Math.cos(midAngle);
+        const y = cy + labelR * Math.sin(midAngle);
+        const label = seg.category.charAt(0) + seg.category.slice(1).toLowerCase();
+        return (
+          <span
+            key={seg.category}
+            className={`absolute flex flex-col items-center text-[9px] tracking-wide pointer-events-none ${
+              isActive
+                ? 'font-bold text-[var(--foreground)]'
+                : 'font-medium text-[var(--muted)]'
+            }`}
+            style={{
+              left: x,
+              top: y,
+              transform: `translate(-50%, -50%) ${shouldShow ? 'translateY(0)' : 'translateY(2px)'}`,
+              opacity: shouldShow ? 1 : 0,
+              transition: 'opacity 350ms ease, transform 350ms ease, color 200ms ease',
+              transitionDelay: (hovered && staggerIdx >= 0) ? `${380 + staggerIdx * 100}ms` : '0ms',
+            }}
+          >
+            <span className="whitespace-nowrap">{label}</span>
+            {isActive && (
+              <span className="text-[8px] font-mono font-normal text-[var(--muted)] leading-tight">{seg.count}</span>
+            )}
+          </span>
+        );
+      })}
+    </div>
+  );
+}
+
+function RingCard({ bookData, globalCatOrder }: { bookData: BookData; globalCatOrder: string[] }) {
+  const [hovered, setHovered] = useState(false);
+
+  return (
+    <Link
+      href={`/books/${bookData.book.id}`}
+      className="flex flex-col items-center py-3 px-3 rounded-lg"
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
+    >
+      <RingWithLabels
+        byCategory={bookData.stats.by_category}
+        total={bookData.stats.total_entities}
+        size={130}
+        order={globalCatOrder}
+        hovered={hovered}
+      />
+      <div className="text-center mt-1 max-w-[200px]">
+        <p
+          className="text-[14px] font-bold leading-snug text-[var(--foreground)] line-clamp-2"
+          style={{
+            opacity: hovered ? 1 : 0,
+            transform: hovered ? 'translateY(0)' : 'translateY(4px)',
+            transition: 'opacity 400ms ease, transform 400ms ease',
+            transitionDelay: hovered ? '60ms' : '0ms',
+          }}
+        >
+          {bookData.book.title}
+        </p>
+        <p
+          className="text-[12px] text-[var(--muted)] mt-0.5"
+          style={{
+            opacity: hovered ? 1 : 0,
+            transform: hovered ? 'translateY(0)' : 'translateY(4px)',
+            transition: 'opacity 400ms ease, transform 400ms ease',
+            transitionDelay: hovered ? '160ms' : '0ms',
+          }}
+        >
+          {bookData.book.author} <span className="font-mono">{bookData.book.year}</span>
+        </p>
+      </div>
+    </Link>
+  );
+}
 
 function LangDot({ language }: { language: string }) {
   const color = LANG_COLORS[language] || "var(--muted)";
@@ -95,7 +387,7 @@ export default function BooksPage() {
 
   useEffect(() => {
     const saved = localStorage.getItem("books-view-mode");
-    if (saved === "cards" || saved === "list") setViewMode(saved);
+    if (saved === "cards" || saved === "list" || saved === "rings") setViewMode(saved);
   }, []);
 
   useEffect(() => {
@@ -110,6 +402,8 @@ export default function BooksPage() {
       "/data/monardes_entities.json",
       "/data/humboldt_entities.json",
       "/data/ricettario_entities.json",
+      "/data/james_psychology_entities.json",
+      "/data/darwin_origin_entities.json",
     ];
     Promise.all(
       bookFiles.map((f) => fetch(f).then((res) => res.json()).catch(() => null))
@@ -139,6 +433,7 @@ export default function BooksPage() {
   });
 
   const totalEntities = books.reduce((sum, b) => sum + b.stats.total_entities, 0);
+  const globalCatOrder = useMemo(() => getGlobalCategoryOrder(books), [books]);
 
   if (loading) {
     return (
@@ -163,7 +458,7 @@ export default function BooksPage() {
 
       {/* Controls */}
       <div className="flex items-center justify-between mb-6 text-sm">
-        <div className="flex items-center gap-1 text-[var(--muted)]">
+        <div className={`flex items-center gap-1 text-[var(--muted)] ${viewMode === "rings" ? "invisible" : ""}`}>
           <span className="mr-1">Sort</span>
           {(["year", "title", "entities"] as SortKey[]).map((key) => (
             <button
@@ -210,6 +505,17 @@ export default function BooksPage() {
               <rect x="9" y="2" width="5" height="5" rx="1" />
               <rect x="2" y="9" width="5" height="5" rx="1" />
               <rect x="9" y="9" width="5" height="5" rx="1" />
+            </svg>
+          </button>
+          <button
+            onClick={() => setViewMode("rings")}
+            className={`p-1 rounded transition-colors ${
+              viewMode === "rings" ? "bg-[var(--border)] text-[var(--foreground)]" : "text-[var(--muted)] hover:text-[var(--foreground)]"
+            }`}
+            aria-label="Rings view"
+          >
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5">
+              <circle cx="8" cy="8" r="5.5" />
             </svg>
           </button>
         </div>
@@ -275,7 +581,11 @@ export default function BooksPage() {
                     </span>
                   </td>
                   <td className="px-4 py-3 text-right font-mono text-xs text-[var(--muted)]">
-                    {bookData.stats.total_entities.toLocaleString()}
+                    <EntityCountWithTooltip
+                      bookId={bookData.book.id}
+                      byCategory={bookData.stats.by_category}
+                      total={bookData.stats.total_entities}
+                    />
                   </td>
                   <td className="px-4 py-3 text-right">
                     {BOOK_TEXTS[bookData.book.id] && (
@@ -336,9 +646,12 @@ export default function BooksPage() {
                     {bookData.book.author}
                   </p>
                   <div className="flex items-center gap-3 text-xs text-[var(--muted)]">
-                    <span className="font-mono">
-                      {bookData.stats.total_entities.toLocaleString()} entities
-                    </span>
+                    <EntityCountWithTooltip
+                      bookId={bookData.book.id}
+                      byCategory={bookData.stats.by_category}
+                      total={bookData.stats.total_entities}
+                      label="entities"
+                    />
                     <span className="opacity-40">&middot;</span>
                     <span className="inline-flex items-center gap-1.5">
                       <LangDot language={bookData.book.language} />
@@ -363,6 +676,19 @@ export default function BooksPage() {
               </div>
             );
           })}
+        </div>
+      )}
+
+      {/* Rings View */}
+      {viewMode === "rings" && (
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+          {sorted.map((bookData) => (
+            <RingCard
+              key={bookData.book.id}
+              bookData={bookData}
+              globalCatOrder={globalCatOrder}
+            />
+          ))}
         </div>
       )}
 

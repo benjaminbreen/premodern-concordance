@@ -3,6 +3,8 @@
 import { useEffect, useState, useCallback, useMemo, useRef } from "react";
 import Link from "next/link";
 import { useParams, useRouter, useSearchParams } from "next/navigation";
+import { CATEGORY_COLORS, CAT_DOT as CATEGORY_BAR_COLORS, CAT_TINT as CATEGORY_TINT } from "@/lib/colors";
+import { BOOK_SHORT_NAMES } from "@/lib/books";
 import {
   forceSimulation,
   forceLink,
@@ -111,78 +113,6 @@ interface ConcordanceData {
 }
 
 /* ───── constants ───── */
-
-const CATEGORY_COLORS: Record<string, { badge: string; dot: string }> = {
-  PERSON: {
-    badge: "bg-purple-500/20 text-purple-600 dark:text-purple-400 border-purple-500/30",
-    dot: "bg-purple-500",
-  },
-  PLANT: {
-    badge: "bg-emerald-500/20 text-emerald-600 dark:text-emerald-400 border-emerald-500/30",
-    dot: "bg-emerald-500",
-  },
-  ANIMAL: {
-    badge: "bg-lime-500/20 text-lime-600 dark:text-lime-400 border-lime-500/30",
-    dot: "bg-lime-500",
-  },
-  SUBSTANCE: {
-    badge: "bg-cyan-500/20 text-cyan-600 dark:text-cyan-400 border-cyan-500/30",
-    dot: "bg-cyan-500",
-  },
-  CONCEPT: {
-    badge: "bg-amber-500/20 text-amber-600 dark:text-amber-400 border-amber-500/30",
-    dot: "bg-amber-500",
-  },
-  DISEASE: {
-    badge: "bg-red-500/20 text-red-600 dark:text-red-400 border-red-500/30",
-    dot: "bg-red-500",
-  },
-  PLACE: {
-    badge: "bg-green-500/20 text-green-600 dark:text-green-400 border-green-500/30",
-    dot: "bg-green-500",
-  },
-  OBJECT: {
-    badge: "bg-slate-500/20 text-slate-600 dark:text-slate-400 border-slate-500/30",
-    dot: "bg-slate-500",
-  },
-  ANATOMY: {
-    badge: "bg-rose-500/20 text-rose-600 dark:text-rose-400 border-rose-500/30",
-    dot: "bg-rose-500",
-  },
-};
-
-const CATEGORY_BAR_COLORS: Record<string, string> = {
-  PERSON: "bg-purple-500",
-  PLANT: "bg-emerald-500",
-  ANIMAL: "bg-lime-500",
-  SUBSTANCE: "bg-cyan-500",
-  CONCEPT: "bg-amber-500",
-  DISEASE: "bg-red-500",
-  PLACE: "bg-green-500",
-  OBJECT: "bg-slate-500",
-  ANATOMY: "bg-rose-500",
-};
-
-const CATEGORY_TINT: Record<string, string> = {
-  PERSON: "rgba(147, 51, 234, 0.25)",
-  PLANT: "rgba(16, 185, 129, 0.25)",
-  ANIMAL: "rgba(132, 204, 22, 0.25)",
-  SUBSTANCE: "rgba(6, 182, 212, 0.25)",
-  CONCEPT: "rgba(245, 158, 11, 0.25)",
-  DISEASE: "rgba(239, 68, 68, 0.25)",
-  PLACE: "rgba(34, 197, 94, 0.25)",
-  OBJECT: "rgba(100, 116, 139, 0.25)",
-  ANATOMY: "rgba(244, 63, 94, 0.25)",
-};
-
-const BOOK_SHORT_NAMES: Record<string, string> = {
-  english_physician_1652: "Culpeper",
-  polyanthea_medicinal: "Semedo",
-  coloquios_da_orta_1563: "Da Orta",
-  historia_medicinal_monardes_1574: "Monardes",
-  relation_historique_humboldt_vol3_1825: "Humboldt",
-  ricettario_fiorentino_1597: "Ricettario",
-};
 
 const BOOK_LANG_FLAGS: Record<string, string> = {
   English: "EN",
@@ -1377,6 +1307,11 @@ export default function ClusterDetailPage() {
         };
 
         const RefItem = ({ xref: r }: { xref: CrossReference }) => {
+          const [translation, setTranslation] = useState<string | null>(null);
+          const [showTranslation, setShowTranslation] = useState(false);
+          const [translating, setTranslating] = useState(false);
+          const [fadeState, setFadeState] = useState<"visible" | "fading-out" | "fading-in">("visible");
+
           const typeInfo = r.is_reverse
             ? { label: "co-occurs", color: "bg-slate-500/15 text-slate-600 dark:text-slate-400" }
             : (LINK_TYPE_LABELS[r.link_type] || { label: r.link_type, color: "bg-gray-500/15 text-gray-600" });
@@ -1386,6 +1321,57 @@ export default function ClusterDetailPage() {
                 return targetCluster ? clusterSlug(targetCluster, data.clusters) : null;
               })()
             : null;
+
+          const bookLang = data.books.find(b => b.id === r.source_book)?.language || "";
+          const isNonEnglish = bookLang && bookLang !== "English";
+
+          const handleSnippetClick = async () => {
+            if (!isNonEnglish || !r.evidence_snippet) return;
+
+            if (translation) {
+              // Toggle: crossfade between original and translation
+              setFadeState("fading-out");
+              setTimeout(() => {
+                setShowTranslation(prev => !prev);
+                setFadeState("fading-in");
+                setTimeout(() => setFadeState("visible"), 50);
+              }, 250);
+              return;
+            }
+
+            // First click: fetch translation
+            setTranslating(true);
+            try {
+              const res = await fetch("/api/translate", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ text: r.evidence_snippet, language: bookLang }),
+              });
+              const result = await res.json();
+              if (result.translation) {
+                setTranslation(result.translation);
+                // Crossfade to translation
+                setFadeState("fading-out");
+                setTimeout(() => {
+                  setShowTranslation(true);
+                  setFadeState("fading-in");
+                  setTimeout(() => setFadeState("visible"), 50);
+                }, 250);
+              }
+            } catch {
+              // silently fail
+            } finally {
+              setTranslating(false);
+            }
+          };
+
+          const snippetText = showTranslation && translation
+            ? translation.slice(0, 200)
+            : r.evidence_snippet?.slice(0, 150) || "";
+          const isTruncated = showTranslation
+            ? (translation?.length || 0) > 200
+            : (r.evidence_snippet?.length || 0) > 150;
+
           return (
             <div className="flex items-start gap-2 py-1.5 group">
               <span className={`shrink-0 px-1.5 py-0.5 rounded text-[10px] font-medium mt-0.5 ${typeInfo.color}`}>
@@ -1408,13 +1394,37 @@ export default function ClusterDetailPage() {
                       ({r.target_cluster_name})
                     </span>
                   )}
-                  <span className="text-[10px] text-[var(--muted)] font-mono">
+                  <Link
+                    href={`/books/${encodeURIComponent(r.source_book)}`}
+                    className="text-[10px] text-[var(--muted)] font-mono hover:text-[var(--accent)] transition-colors"
+                  >
                     {BOOK_SHORT_NAMES[r.source_book] || r.source_book}
-                  </span>
+                  </Link>
                 </div>
                 {r.evidence_snippet && (
-                  <p className="text-[11px] text-[var(--muted)] leading-relaxed mt-0.5 line-clamp-2">
-                    &ldquo;{r.evidence_snippet.slice(0, 150)}{r.evidence_snippet.length > 150 ? "\u2026" : ""}&rdquo;
+                  <p
+                    className={`text-[11px] leading-relaxed mt-0.5 line-clamp-2 transition-opacity duration-250 ease-in-out ${
+                      isNonEnglish ? "cursor-pointer hover:text-[var(--foreground)]" : ""
+                    } ${showTranslation ? "text-[var(--foreground)]/80 italic" : "text-[var(--muted)]"} ${
+                      fadeState === "fading-out" ? "opacity-0" : fadeState === "fading-in" ? "opacity-0" : "opacity-100"
+                    }`}
+                    onClick={handleSnippetClick}
+                    title={isNonEnglish ? (showTranslation ? "Click to show original" : "Click to translate") : undefined}
+                    style={{ transition: "opacity 250ms ease" }}
+                  >
+                    {translating ? (
+                      <span className="inline-flex items-center gap-1.5 text-[var(--muted)] not-italic">
+                        <span className="w-2.5 h-2.5 border border-[var(--accent)] border-t-transparent rounded-full animate-spin inline-block" />
+                        Translating...
+                      </span>
+                    ) : (
+                      <>
+                        &ldquo;{snippetText}{isTruncated ? "\u2026" : ""}&rdquo;
+                        {showTranslation && (
+                          <span className="text-[10px] text-[var(--accent)] ml-1 not-italic font-medium">EN</span>
+                        )}
+                      </>
+                    )}
                   </p>
                 )}
               </div>
@@ -1514,9 +1524,12 @@ export default function ClusterDetailPage() {
                   <span className="font-mono text-[var(--muted)]">
                     {BOOK_LANG_FLAGS[book?.language || ""] || "?"}
                   </span>
-                  <span className="truncate">
+                  <Link
+                    href={`/books/${encodeURIComponent(book_id)}`}
+                    className="truncate hover:text-[var(--accent)] transition-colors"
+                  >
                     {BOOK_SHORT_NAMES[book_id] || book?.title || book_id}
-                  </span>
+                  </Link>
                 </div>
                 <div className="flex-1 h-5 bg-[var(--border)]/30 rounded overflow-hidden">
                   <div
@@ -1546,7 +1559,12 @@ export default function ClusterDetailPage() {
               return (
                 <div key={book.id}>
                   <h3 className="text-xs font-medium mb-2 flex items-center gap-2">
-                    <span>{BOOK_SHORT_NAMES[book.id] || book.title}</span>
+                    <Link
+                      href={`/books/${encodeURIComponent(book.id)}`}
+                      className="hover:text-[var(--accent)] transition-colors"
+                    >
+                      {BOOK_SHORT_NAMES[book.id] || book.title}
+                    </Link>
                     <span className="text-[var(--muted)]">{book.year}</span>
                     <span className="font-mono text-[var(--muted)] text-[11px]">
                       {BOOK_LANG_FLAGS[book.language] || "?"}
@@ -1621,7 +1639,12 @@ export default function ClusterDetailPage() {
                           {BOOK_LANG_FLAGS[book?.language || ""] || "?"}
                         </td>
                         <td className="px-3 py-2 text-xs">
-                          {BOOK_SHORT_NAMES[member.book_id] || book?.title || member.book_id}
+                          <Link
+                            href={`/books/${encodeURIComponent(member.book_id)}`}
+                            className="hover:text-[var(--accent)] transition-colors"
+                          >
+                            {BOOK_SHORT_NAMES[member.book_id] || book?.title || member.book_id}
+                          </Link>
                         </td>
                         <td className="px-3 py-2">
                           <span className="font-medium">{member.name}</span>

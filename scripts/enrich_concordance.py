@@ -20,7 +20,10 @@ import urllib.request
 import urllib.parse
 from pathlib import Path
 
+from dotenv import load_dotenv
 from google import genai
+
+load_dotenv(Path(__file__).parent.parent / ".env.local")
 
 DEFAULT_PATH = Path(__file__).parent.parent / "web" / "public" / "data" / "concordance.json"
 

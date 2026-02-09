@@ -40,9 +40,69 @@ See [futureworkflow.md](futureworkflow.md) for a detailed plan on scaling from 4
 - Entity convergence projections (why 5,000 books doesn't mean 5,000x entities)
 - Tiered entity model (specific referents vs. domain concepts vs. generic vocabulary)
 - UI redesign from browsable list to search engine with entity profile pages
-- Architecture migration path (JSON → SQLite → PostgreSQL + pgvector)
+- Architecture migration path (current: cluster-based JSON, planned: Turso/libSQL entity registry, optional later PostgreSQL + pgvector)
 - Concrete use cases for botanists, medical historians, pharmacologists, linguists
 - Phased implementation roadmap
+
+---
+
+## Planned Work (Later February 2026): Canonical Entity Pages + Database Registry
+
+**Status:** Planned for later in February 2026 (not implemented yet).
+
+### Why this was initiated (Galton example)
+
+Current UX gap:
+- Searching for "Galton" in global search returns nothing.
+- "Galton" exists only as a book-local page in James (e.g. `/books/principles_of_psychology_james_1890/entity/galton`).
+- Concordance/search currently prioritizes cross-book clusters, so single-book entities are hard to discover globally.
+
+Goal:
+- Make entities discoverable and stable from day one, even before they appear in multiple books.
+- Add richer canonical profiles (e.g. biography panel, thumbnail, category-aware labels) above excerpts.
+
+### Product decision for scale (500-book target)
+
+For now:
+- Keep **semantic search** focused on the concordance list (cross-book cluster layer).
+- Use **lexical search** (prefix/fuzzy) for broad entity lookup (e.g. typing "GALT" finds "Galton").
+
+This avoids immediate need for vector search across all entities while still supporting large-scale discoverability.
+
+### Architecture plan
+
+1. Introduce a canonical entity registry in a database with stable IDs/slugs (`/entity/[slug]`).
+2. Keep existing book-local entity pages for provenance and excerpt context.
+3. Model concordance as a **view over canonical entities** (entities with `book_count >= 2`), not a separate ontology.
+4. Keep extraction stateless; add a resolver stage that links new local entities to existing canonical entities when confidence is high.
+
+### Galton lifecycle under the new model
+
+1. First mention (James only): create canonical entity "Galton" with one attestation.
+2. Later mention in another book: resolver links the new local entity to the same canonical ID.
+3. No URL migration or structural rewrite needed; only `book_count` increases and concordance visibility updates automatically.
+
+### Rollout phases (later Feb 2026)
+
+1. **Phase 1:** Core DB + migration from JSON (books, canonical entities, local attestations, mentions, memberships).
+2. **Phase 2:** Canonical routes and API (`/entity/[slug]`) + category-aware top panel content.
+3. **Phase 3:** Search split (semantic concordance search + lexical entity search).
+4. **Phase 4:** Resolver + human review queue for uncertain links.
+
+### Transition rule and non-goals (important)
+
+- **Current production model remains cluster-based** until the migration phases above are completed.
+- During transition, cluster pages and book-local entity pages continue to work as-is.
+- **Non-goal for this phase:** full semantic vector search over all entities. Full-entity search can remain lexical (prefix/fuzzy).
+
+### Database schema
+
+See [`docs/entity_registry_schema.md`](docs/entity_registry_schema.md) for the full proposed schema (6 tables: `books`, `entities`, `attestations`, `mentions`, `entity_links`, `pending_entities`).
+
+### Hosting decision (current recommendation)
+
+- Start with **Turso/libSQL** for this phase (cost-effective and sufficient for DB-backed canonical pages + lexical entity search).
+- Defer PostgreSQL/pgvector migration until/if semantic search over the full entity universe becomes a core requirement.
 
 ---
 
@@ -369,43 +429,7 @@ Adding a new book is O(n) where n = number of entities in the new book, regardle
 
 ### Data Model
 
-```sql
--- Concordance clusters
-CREATE TABLE clusters (
-  id            INTEGER PRIMARY KEY AUTOINCREMENT,
-  canonical_name TEXT NOT NULL,
-  category      TEXT NOT NULL,
-  description   TEXT,           -- LLM-generated description
-  member_count  INTEGER DEFAULT 1,
-  book_count    INTEGER DEFAULT 1  -- how many distinct books
-);
-
--- Cluster membership
-CREATE TABLE cluster_members (
-  id            INTEGER PRIMARY KEY AUTOINCREMENT,
-  cluster_id    INTEGER NOT NULL REFERENCES clusters(id),
-  entity_id     TEXT NOT NULL,
-  book_id       TEXT NOT NULL,
-  entity_name   TEXT NOT NULL,  -- the surface form in this book
-  link_type     TEXT NOT NULL,  -- ORTHOGRAPHIC_VARIANT, SAME_REFERENT, etc.
-  explanation   TEXT,           -- LLM-generated explanation
-  similarity    REAL,           -- cosine similarity to cluster centroid
-  status        TEXT DEFAULT 'auto'  -- 'auto', 'confirmed', 'rejected'
-);
-
--- Embeddings stored as binary blobs for FAISS rebuild
-CREATE TABLE embeddings (
-  entity_id     TEXT PRIMARY KEY,
-  book_id       TEXT NOT NULL,
-  vector        BLOB NOT NULL   -- float32 array, 1024 dims for BGE-M3
-);
-
-CREATE INDEX idx_cluster_members_cluster ON cluster_members(cluster_id);
-CREATE INDEX idx_cluster_members_book ON cluster_members(book_id);
-CREATE INDEX idx_cluster_members_entity ON cluster_members(entity_id);
-CREATE INDEX idx_clusters_category ON clusters(category);
-CREATE INDEX idx_clusters_name ON clusters(canonical_name);
-```
+> **Current production model (as of February 2026).** The app currently runs on the cluster-based schema (`clusters` + `cluster_members` + `embeddings`). A migration to a unified canonical entity registry is planned for later February 2026; see [`docs/entity_registry_schema.md`](docs/entity_registry_schema.md).
 
 ### Concordance UI
 
@@ -419,121 +443,110 @@ The concordance page shows:
 3. **Network view** (optional) — graph showing books as nodes, concordance entries as edges, thickness = number of shared entities
 4. **Stats dashboard** — how many shared entities between each book pair, by category, by link type
 
-### Dependencies
+---
 
-- `faiss-cpu` (pip) — fast approximate nearest neighbor search
-- `sentence-transformers` (pip) — already installed for BGE-M3
-- `python-louvain` or `networkx` (pip) — community detection
-- Gemini 2.5 Flash Lite API — link type classification
-- `better-sqlite3` (npm) — for serving concordance data to frontend
+## Database Migration Plan
 
-### File Structure
+> **Planned work (not yet implemented).** Current production still uses static JSON + cluster architecture. The migration target is the canonical entity registry described in the [Planned Work](#planned-work-later-february-2026-canonical-entity-pages--database-registry) section above, hosted on **Turso/libSQL**. See [`docs/entity_registry_schema.md`](docs/entity_registry_schema.md) for the proposed schema.
 
-```
-scripts/
-  build_concordance.py      -- main pipeline: embed → cluster → classify
-  add_book_to_concordance.py -- incremental: add one new book
-data/
-  concordance.db            -- SQLite database
-  embeddings.faiss          -- FAISS index file
-  embeddings_meta.json      -- entity ID → index mapping
-```
+### Why migrate from JSON
+
+The current architecture serves entity data as static JSON files loaded entirely by the browser. This works at 8 books but doesn't scale to the 500-book target:
+
+- At 100 books, total JSON could reach several gigabytes
+- The browser downloads and parses everything even to display one entity
+- Cross-book queries require loading all books into memory
+- Single-book entities are invisible to search
 
 ---
 
-## SQLite Migration Plan
+## Data Interoperability & External Access (Feb 2026)
 
-### Why
+Roadmap for making the concordance machine-readable, AI-accessible, and interoperable with the scholarly linked data web. Ordered by priority and effort.
 
-The current architecture serves entity data as static JSON files loaded entirely by the browser. This works for 2-3 books but doesn't scale:
+### JSON-LD (high priority, ~1 afternoon)
 
-- Semedo's entity file is **50 MB** (105K text excerpts at ~314 chars each)
-- Culpeper is 13 MB. Da Orta and Monardes will be 15-30 MB each.
-- At 100 books, total JSON could reach several gigabytes
-- The browser downloads and parses everything even to display one entity
-- Cross-book queries (the concordance) require loading all books into memory
+Add `@context` to API responses (or static JSON exports) mapping fields to standard vocabularies. Wikidata QIDs already present on many entities make this natural. No data shape changes — just a context header.
 
-SQLite is the right fix: a single `.db` file, no server, instant queries, and the frontend only receives exactly what it needs.
-
-### Schema
-
-```sql
-CREATE TABLE books (
-  id          TEXT PRIMARY KEY,   -- e.g. "semedo-polyanthea-1741"
-  title       TEXT NOT NULL,
-  author      TEXT,
-  year        INTEGER,
-  language    TEXT,               -- "Portuguese", "English", "Spanish"
-  source_file TEXT                -- original text filename
-);
-
-CREATE TABLE entities (
-  id          TEXT PRIMARY KEY,   -- e.g. "sangue"
-  book_id     TEXT NOT NULL REFERENCES books(id),
-  name        TEXT NOT NULL,
-  category    TEXT NOT NULL,      -- PERSON, SUBSTANCE, DISEASE, etc.
-  subcategory TEXT,
-  count       INTEGER DEFAULT 1,
-  contexts    TEXT,               -- JSON array of description strings
-  variants    TEXT                -- JSON array of spelling variants
-);
-
-CREATE TABLE mentions (
-  id          INTEGER PRIMARY KEY AUTOINCREMENT,
-  entity_id   TEXT NOT NULL REFERENCES entities(id),
-  book_id     TEXT NOT NULL REFERENCES books(id),
-  offset      INTEGER,           -- char offset in source text
-  matched_term TEXT,
-  excerpt     TEXT
-);
-
-CREATE TABLE concordance (
-  id          INTEGER PRIMARY KEY AUTOINCREMENT,
-  entity_a    TEXT NOT NULL,
-  book_a      TEXT NOT NULL,
-  entity_b    TEXT NOT NULL,
-  book_b      TEXT NOT NULL,
-  similarity  REAL,
-  link_type   TEXT,              -- "same_referent", "orthographic_variant", etc.
-  status      TEXT DEFAULT 'pending'
-);
-
-CREATE INDEX idx_entities_book ON entities(book_id);
-CREATE INDEX idx_entities_category ON entities(book_id, category);
-CREATE INDEX idx_entities_name ON entities(name);
-CREATE INDEX idx_mentions_entity ON mentions(entity_id);
-CREATE INDEX idx_mentions_book ON mentions(book_id);
-CREATE INDEX idx_concordance_entity ON concordance(entity_a);
-CREATE INDEX idx_concordance_books ON concordance(book_a, book_b);
+```json
+{
+  "@context": {
+    "@vocab": "https://schema.org/",
+    "wikidata_id": { "@id": "sameAs", "@type": "@id" },
+    "category": "additionalType",
+    "canonical_name": "name",
+    "members": "hasPart"
+  },
+  "@type": "DefinedTerm",
+  "canonical_name": "Mercury",
+  "wikidata_id": "https://www.wikidata.org/entity/Q925"
+}
 ```
 
-### API Routes
+Vocabularies: Schema.org for basics, CIDOC-CRM (`crm:E55_Type`, `crm:P1_is_identified_by`) for cultural heritage relationships if granularity needed. Can implement pre-API as a "Download JSON-LD" client-side export button alongside existing CSV/TXT.
 
-Replace static JSON fetches with Next.js API routes:
+### HuggingFace Dataset (high priority, ~1 afternoon)
 
-- `GET /api/books` — list of all books with stats
-- `GET /api/entities?book={id}&page={n}&limit={n}&category={cat}&search={term}` — paginated entity list
-- `GET /api/entity/{id}?book={bookId}` — single entity (no mentions)
-- `GET /api/mentions?entity={id}&book={bookId}&page={n}` — paginated mentions for one entity
-- `GET /api/concordance?book={id}` or `?entity={id}` — cross-book matches
-- `GET /api/search?q={term}` — cross-book entity search
+Publish as `datasets` package. Parquet splits: `clusters`, `members`, `edges`, `books`. One-liner access: `ds = load_dataset("username/premodern-concordance")`. Immediate visibility to ML/NLP researchers. Update on each data release. Include dataset card with schema, citation, license.
 
-### Migration Steps
+### TEI Export (moderate priority, ~1-2 days)
 
-1. `npm install better-sqlite3 @types/better-sqlite3`
-2. Create `scripts/migrate_to_sqlite.py` — reads existing JSON, inserts into SQLite
-3. Create `data/concordance.db` by running migration
-4. Create API routes in `web/src/app/api/`
-5. Update frontend fetch calls (minimal UI changes)
-6. Move large JSON files out of `web/public/data/`
+XML export using TEI P5. Category-to-element mapping:
 
-### Dependencies
+| Category | TEI Element | Key Attributes |
+|----------|-------------|----------------|
+| PERSON | `<listPerson><person>` | `<persName>`, `@ref` to Wikidata |
+| PLACE | `<listPlace><place>` | `<placeName>`, `@ref` to Pelagios gazetteer |
+| PLANT/ANIMAL | `<list type="entities"><item>` | `<name>`, `<idno type="Wikidata">`, `<idno type="Linnaean">` |
+| SUBSTANCE/OBJECT | `<list type="entities"><item>` | `<name>`, `<idno type="Wikidata">` |
+| DISEASE/CONCEPT | `<list type="entities"><item>` | `<term>`, `<gloss>` |
 
-- `better-sqlite3` (npm) — fast native SQLite for Node.js
-- No cloud services, no accounts, no credentials
+Expose as "Download TEI-XML" button on `/data` page. ~200 lines of export code. Useful when collaborators request it for integration with oXygen, XSLT pipelines, collation tools.
 
-### Deployment
+### MCP Server (~200 lines TypeScript)
 
-- **Vercel**: SQLite bundles with serverless functions (up to ~250 MB)
-- **Any VPS**: Works perfectly, no size limits
-- **Local dev**: Just works
+Model Context Protocol server exposing concordance as AI-agent-accessible tools:
+
+- `search_concordance(query, category?, book?)` — semantic search across clusters
+- `get_cluster(id)` — full cluster with members, edges, ground truth
+- `list_books()` — corpus metadata
+- `get_stats()` — quantitative summary
+
+Any MCP-compatible AI (Claude Code, etc.) can query the concordance mid-conversation. Compelling DH + AI demo. Low effort, high novelty.
+
+### OpenAPI Spec (do alongside API build)
+
+Publish Swagger/OpenAPI 3.0 spec for the REST API. AI coding assistants auto-generate client code from the spec. Even before the full API exists, the spec documents intent and allows tooling.
+
+### DH Network Integrations (longer term)
+
+**Pelagios / Linked Pasts**: Connect PLACE clusters (303 currently) to historical gazetteers via Pelagios network. Established DH infrastructure for geospatial linked data. Adoption = visibility in ancient/early modern DH community.
+
+**Recogito**: Collaborative semantic annotation platform (built on W3C Web Annotation model). If building user annotations, adopt Recogito's data model rather than inventing a new one. Could potentially integrate directly — Recogito supports custom vocabularies.
+
+**IIIF**: Only relevant if adding facsimile page images from source texts. Low priority unless project moves toward digital edition territory.
+
+**Zotero**: Export book metadata as CSL-JSON/BibTeX. Minor feature, trivial to implement.
+
+### For AI Agents / Vibe Coders
+
+Priority order:
+1. **HuggingFace dataset** — standard ML ecosystem, `pip install`-able
+2. **OpenAPI spec** — AI assistants generate typed clients automatically
+3. **MCP server** — direct tool-use from AI coding environments
+4. **Stable raw JSON URL** — `/data/concordance.json` already works; just needs schema docs
+5. **JSON-LD** — machines parse entity relationships without custom code
+
+### Hosting Context
+
+Current recommendation: **Turso/libSQL** (SQLite-compatible, 9GB free tier, edge replicas). Revisit PostgreSQL + pgvector when/if semantic vector search over the full entity universe becomes a core requirement.
+
+| Books | Est. DB Size | Turso Free Tier (9GB) |
+|-------|-------------|----------------------|
+| 8 | ~30 MB | Comfortable |
+| 50 | ~150 MB | Comfortable |
+| 200 | ~500 MB | Comfortable |
+| 500 | ~1.5 GB | Comfortable |
+| 2,000 | ~5 GB | Comfortable |
+
+Pipeline bottleneck shifts from database to NER/clustering at ~200 books. At 1k+, pairwise entity comparison needs approximate nearest neighbors (FAISS with IVF index) instead of brute-force.

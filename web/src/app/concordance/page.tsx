@@ -2,6 +2,8 @@
 
 import { useEffect, useState, useMemo, useCallback } from "react";
 import Link from "next/link";
+import { CATEGORY_COLORS } from "@/lib/colors";
+import { BOOK_SHORT_NAMES } from "@/lib/books";
 
 interface ClusterMember {
   entity_id: string;
@@ -81,49 +83,6 @@ interface ConcordanceData {
   clusters: Cluster[];
 }
 
-const CATEGORY_COLORS: Record<string, { badge: string; dot: string }> = {
-  PERSON: {
-    badge: "bg-purple-500/20 text-purple-600 dark:text-purple-400 border-purple-500/30",
-    dot: "bg-purple-500",
-  },
-  PLANT: {
-    badge: "bg-emerald-500/20 text-emerald-600 dark:text-emerald-400 border-emerald-500/30",
-    dot: "bg-emerald-500",
-  },
-  ANIMAL: {
-    badge: "bg-lime-500/20 text-lime-600 dark:text-lime-400 border-lime-500/30",
-    dot: "bg-lime-500",
-  },
-  SUBSTANCE: {
-    badge: "bg-cyan-500/20 text-cyan-600 dark:text-cyan-400 border-cyan-500/30",
-    dot: "bg-cyan-500",
-  },
-  CONCEPT: {
-    badge: "bg-amber-500/20 text-amber-600 dark:text-amber-400 border-amber-500/30",
-    dot: "bg-amber-500",
-  },
-  DISEASE: {
-    badge: "bg-red-500/20 text-red-600 dark:text-red-400 border-red-500/30",
-    dot: "bg-red-500",
-  },
-  PLACE: {
-    badge: "bg-green-500/20 text-green-600 dark:text-green-400 border-green-500/30",
-    dot: "bg-green-500",
-  },
-  OBJECT: {
-    badge: "bg-slate-500/20 text-slate-600 dark:text-slate-400 border-slate-500/30",
-    dot: "bg-slate-500",
-  },
-};
-
-const BOOK_SHORT_NAMES: Record<string, string> = {
-  "english_physician_1652": "Culpeper",
-  "polyanthea_medicinal": "Semedo",
-  "coloquios_da_orta_1563": "Da Orta",
-  "historia_medicinal_monardes_1574": "Monardes",
-  "relation_historique_humboldt_vol3_1825": "Humboldt",
-  "ricettario_fiorentino_1597": "Ricettario",
-};
 
 const BOOK_LANG_FLAGS: Record<string, string> = {
   English: "EN",
@@ -157,7 +116,7 @@ function cap(r: { text: string; italic: boolean }): { text: string; italic: bool
 /** Build a richer identification string for the list row */
 function getIdentification(cluster: Cluster): { text: string; italic: boolean } | null {
   const gt = cluster.ground_truth;
-  if (!gt) return null;
+  if (!gt || !gt.modern_name) return null;
   const cat = cluster.category;
   const canonLower = cluster.canonical_name.toLowerCase();
 

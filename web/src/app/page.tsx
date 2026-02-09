@@ -257,18 +257,22 @@ export default function Home() {
           <div className="border-t border-[var(--border)]" />
           <div className="flex flex-wrap gap-x-10 gap-y-4 py-6 items-baseline">
             {[
-              { value: stats.total_clusters.toLocaleString(), label: "clusters" },
-              { value: String(books.length), label: "books" },
-              { value: String(languages.length), label: "languages" },
-              ...(totalMentions ? [{ value: totalMentions.toLocaleString(), label: "mentions" }] : []),
-              ...(books.length >= 2 ? [{ value: `${Math.min(...books.map(b => b.year))}–${Math.max(...books.map(b => b.year))}`, label: "timespan" }] : []),
+              { value: stats.total_clusters.toLocaleString(), label: "clusters", href: "/concordance" },
+              { value: String(books.length), label: "books", href: "/books" },
+              { value: String(languages.length), label: "languages", href: "/data" },
+              ...(totalMentions ? [{ value: totalMentions.toLocaleString(), label: "mentions", href: "/data" }] : []),
+              ...(books.length >= 2 ? [{ value: `${Math.min(...books.map(b => b.year))}–${Math.max(...books.map(b => b.year))}`, label: "timespan", href: "/timeline" }] : []),
             ].map((stat) => (
-              <div key={stat.value + stat.label} className="flex items-baseline gap-2">
-                <span className="text-3xl font-bold tracking-tight">
+              <Link
+                key={stat.value + stat.label}
+                href={stat.href}
+                className="flex items-baseline gap-2 group"
+              >
+                <span className="text-3xl font-bold tracking-tight group-hover:text-[var(--accent)] transition-colors">
                   {stat.value}
                 </span>
-                {stat.label && <span className="text-sm text-[var(--muted)]">{stat.label}</span>}
-              </div>
+                {stat.label && <span className="text-sm text-[var(--muted)] group-hover:text-[var(--accent)] transition-colors">{stat.label}</span>}
+              </Link>
             ))}
           </div>
           <div className="border-t border-[var(--border)]" />

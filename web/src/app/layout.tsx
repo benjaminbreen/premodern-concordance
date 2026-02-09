@@ -121,6 +121,9 @@ export default function RootLayout({
                   <Link href="/concordance" className="text-[var(--muted)] hover:text-[var(--foreground)] transition-colors">
                     Concordance
                   </Link>
+                  <Link href="/timeline" className="text-[var(--muted)] hover:text-[var(--foreground)] transition-colors">
+                    Timeline
+                  </Link>
                   <Link href="/search" className="text-[var(--muted)] hover:text-[var(--foreground)] transition-colors">
                     Search
                   </Link>
@@ -154,7 +157,9 @@ export default function RootLayout({
                 <ul className="space-y-2.5 text-sm">
                   <li><Link href="/books" className="footer-link text-[#fafaf9]/70">Books</Link></li>
                   <li><Link href="/concordance" className="footer-link text-[#fafaf9]/70">Concordance</Link></li>
+                  <li><Link href="/timeline" className="footer-link text-[#fafaf9]/70">Timeline</Link></li>
                   <li><Link href="/search" className="footer-link text-[#fafaf9]/70">Search</Link></li>
+                  <li><Link href="/data" className="footer-link text-[#fafaf9]/70">Data</Link></li>
                 </ul>
               </div>
 
@@ -164,6 +169,7 @@ export default function RootLayout({
                 <ul className="space-y-2.5 text-sm">
                   <li><Link href="/methodology" className="footer-link text-[#fafaf9]/70">Methodology</Link></li>
                   <li><Link href="/about" className="footer-link text-[#fafaf9]/70">About</Link></li>
+                  <li><Link href="/developers" className="footer-link text-[#fafaf9]/70">API</Link></li>
                   <li><a href="https://github.com" target="_blank" rel="noopener noreferrer" className="footer-link text-[#fafaf9]/70">GitHub</a></li>
                 </ul>
               </div>
