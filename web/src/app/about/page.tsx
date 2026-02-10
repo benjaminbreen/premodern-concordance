@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState, useCallback, useRef } from "react";
+import Link from "next/link";
 
 // ── Scrolling concordance ticker ──────────────────────────────────────
 
@@ -110,13 +111,24 @@ export default function AboutPage() {
     <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
       {/* Title */}
       <h1 className="text-3xl font-bold mb-3">About</h1>
-      <p className="text-[var(--muted)] max-w-2xl mb-12 leading-relaxed">
+      <p className="text-[var(--muted)] max-w-2xl mb-8 leading-relaxed">
         The Premodern Concordance is a prototype for a larger project that will use
         computational methods to link named entities &mdash; people, plants,
         substances, places, diseases, and concepts &mdash; across multilingual
         early modern texts relating to natural and scientific knowledge. The goal is to make the unstable, polyglot terminology
         of premodern natural knowledge searchable and comparable across languages,
         centuries, and traditions, and then to explore new research possibilities and questions unlocked by this.
+      </p>
+
+      <p className="text-lg leading-relaxed mb-12">
+        Our methodology is described{" "}
+        <Link href="/methodology" className="underline underline-offset-4 decoration-[var(--border)] hover:decoration-[var(--foreground)] transition-colors">
+          here
+        </Link>, and a full data set is available{" "}
+        <Link href="/data" className="underline underline-offset-4 decoration-[var(--border)] hover:decoration-[var(--foreground)] transition-colors">
+          here
+        </Link>{" "}
+        <span className="text-[var(--muted)]">(in progress)</span>.
       </p>
 
       {/* Personnel */}

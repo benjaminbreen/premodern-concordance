@@ -118,6 +118,9 @@ export default function RootLayout({
                   <Link href="/books" className="text-[var(--muted)] hover:text-[var(--foreground)] transition-colors">
                     Books
                   </Link>
+                  <Link href="/entities" className="text-[var(--muted)] hover:text-[var(--foreground)] transition-colors">
+                    Entities
+                  </Link>
                   <Link href="/concordance" className="text-[var(--muted)] hover:text-[var(--foreground)] transition-colors">
                     Concordance
                   </Link>
@@ -126,9 +129,6 @@ export default function RootLayout({
                   </Link>
                   <Link href="/search" className="text-[var(--muted)] hover:text-[var(--foreground)] transition-colors">
                     Search
-                  </Link>
-                  <Link href="/methodology" className="text-[var(--muted)] hover:text-[var(--foreground)] transition-colors">
-                    Methodology
                   </Link>
                   <Link href="/about" className="text-[var(--muted)] hover:text-[var(--foreground)] transition-colors">
                     About
@@ -156,6 +156,7 @@ export default function RootLayout({
                 <h3 className="text-xs uppercase tracking-widest font-medium opacity-50 mb-4">Corpus</h3>
                 <ul className="space-y-2.5 text-sm">
                   <li><Link href="/books" className="footer-link text-[#fafaf9]/70">Books</Link></li>
+                  <li><Link href="/entities" className="footer-link text-[#fafaf9]/70">Entities</Link></li>
                   <li><Link href="/concordance" className="footer-link text-[#fafaf9]/70">Concordance</Link></li>
                   <li><Link href="/timeline" className="footer-link text-[#fafaf9]/70">Timeline</Link></li>
                   <li><Link href="/search" className="footer-link text-[#fafaf9]/70">Search</Link></li>

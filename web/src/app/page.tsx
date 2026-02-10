@@ -259,8 +259,8 @@ export default function Home() {
             {[
               { value: stats.total_clusters.toLocaleString(), label: "clusters", href: "/concordance" },
               { value: String(books.length), label: "books", href: "/books" },
-              { value: String(languages.length), label: "languages", href: "/data" },
-              ...(totalMentions ? [{ value: totalMentions.toLocaleString(), label: "mentions", href: "/data" }] : []),
+              { value: String(languages.length), label: "languages", href: "/data#languages" },
+              ...(totalMentions ? [{ value: totalMentions.toLocaleString(), label: "entities", href: "/entities" }] : []),
               ...(books.length >= 2 ? [{ value: `${Math.min(...books.map(b => b.year))}–${Math.max(...books.map(b => b.year))}`, label: "timespan", href: "/timeline" }] : []),
             ].map((stat) => (
               <Link

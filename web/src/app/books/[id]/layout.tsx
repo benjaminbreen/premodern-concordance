@@ -94,19 +94,22 @@ export default function BookDetailLayout({
   }
 
   // Determine active tab from pathname
-  const activeTab = pathname.endsWith("/about")
-    ? "about"
-    : pathname.endsWith("/research")
-      ? "research"
+  const activeTab = pathname.endsWith("/research")
+    ? "research"
+    : pathname.endsWith("/entities")
+      ? "entities"
       : pathname.endsWith("/knowledge-graph")
         ? "knowledge-graph"
-        : "entities";
+        : pathname.endsWith("/consult")
+          ? "consult"
+          : "about";
 
   const tabs = [
-    { key: "entities", label: "Entities", href: `/books/${bookData.book.id}` },
     { key: "about", label: "About", href: `/books/${bookData.book.id}/about` },
-    { key: "knowledge-graph", label: "Knowledge Graph", href: `/books/${bookData.book.id}/knowledge-graph` },
     { key: "research", label: "Research", href: `/books/${bookData.book.id}/research` },
+    { key: "entities", label: "Entities", href: `/books/${bookData.book.id}/entities` },
+    { key: "knowledge-graph", label: "Knowledge Graph", href: `/books/${bookData.book.id}/knowledge-graph` },
+    { key: "consult", label: "Consult", href: `/books/${bookData.book.id}/consult` },
   ];
 
   return (

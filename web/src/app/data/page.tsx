@@ -136,6 +136,13 @@ interface DerivedStats {
     avgSimilarity: number;
     buckets: { label: string; count: number; pct: number }[];
   };
+  languageStats: {
+    language: string;
+    books: string[];
+    totalEntities: number;
+    totalMentions: number;
+    categories: { category: string; count: number; pct: number }[];
+  }[];
 }
 
 function computeStats(data: ConcordanceData): DerivedStats {
@@ -263,6 +270,45 @@ function computeStats(data: ConcordanceData): DerivedStats {
     }
   }
 
+  // Language stats
+  const bookLangMap = new Map<string, string>();
+  const langBooksMap = new Map<string, string[]>();
+  for (const b of data.books) {
+    bookLangMap.set(b.id, b.language);
+    const arr = langBooksMap.get(b.language) || [];
+    arr.push(b.title);
+    langBooksMap.set(b.language, arr);
+  }
+  const langCatMap = new Map<string, Map<string, number>>();
+  const langMentionMap = new Map<string, number>();
+  const langEntityMap = new Map<string, number>();
+  for (const c of clusters) {
+    for (const m of c.members) {
+      const lang = bookLangMap.get(m.book_id);
+      if (!lang) continue;
+      const cats = langCatMap.get(lang) || new Map<string, number>();
+      cats.set(c.category, (cats.get(c.category) || 0) + 1);
+      langCatMap.set(lang, cats);
+      langMentionMap.set(lang, (langMentionMap.get(lang) || 0) + m.count);
+      langEntityMap.set(lang, (langEntityMap.get(lang) || 0) + 1);
+    }
+  }
+  const languageStats = Array.from(langCatMap.entries())
+    .map(([language, cats]) => {
+      const totalEntities = langEntityMap.get(language) || 0;
+      const catArr = Array.from(cats.entries())
+        .map(([category, count]) => ({ category, count, pct: totalEntities > 0 ? (count / totalEntities) * 100 : 0 }))
+        .sort((a, b) => b.count - a.count);
+      return {
+        language,
+        books: langBooksMap.get(language) || [],
+        totalEntities,
+        totalMentions: langMentionMap.get(language) || 0,
+        categories: catArr,
+      };
+    })
+    .sort((a, b) => b.totalEntities - a.totalEntities);
+
   return {
     totalClusters,
     entitiesMatched,
@@ -276,6 +322,7 @@ function computeStats(data: ConcordanceData): DerivedStats {
     clusterDistribution,
     enrichment,
     crossRefs,
+    languageStats,
     network: {
       totalEdges,
       avgSimilarity: totalEdges > 0 ? simSum / totalEdges : 0,
@@ -472,6 +519,18 @@ export default function DataPage() {
   }, []);
 
   const stats = useMemo(() => (data ? computeStats(data) : null), [data]);
+
+  // Scroll to hash anchor after data loads (browser can't find the element during loading skeleton)
+  useEffect(() => {
+    if (!data) return;
+    const hash = window.location.hash;
+    if (hash) {
+      requestAnimationFrame(() => {
+        const el = document.querySelector(hash);
+        if (el) el.scrollIntoView({ behavior: "smooth" });
+      });
+    }
+  }, [data]);
 
   if (loading) {
     return (
@@ -732,6 +791,99 @@ export default function DataPage() {
           </div>
         </section>
       )}
+
+      {/* ── Languages ── */}
+      <section id="languages" className="mb-16 animate-fade-up delay-5 scroll-mt-24">
+        <SectionHeader>Languages</SectionHeader>
+        <p className="text-sm text-[var(--muted)] mb-6 max-w-2xl">
+          How entity categories distribute across the five languages in the corpus reveals
+          different epistemic priorities: Portuguese texts emphasize materia medica (plants, substances,
+          diseases), Humboldt&rsquo;s French foregrounds geography, and the Italian <em>Ricettario</em> focuses
+          on pharmacological substances and preparations.
+        </p>
+
+        {/* Stacked bar comparison */}
+        <div className="space-y-5 mb-10">
+          {stats.languageStats.map((lang) => {
+            const allCats = ["PLANT", "SUBSTANCE", "PLACE", "CONCEPT", "DISEASE", "PERSON", "ANIMAL", "OBJECT", "ANATOMY", "ORGANIZATION"];
+            return (
+              <div key={lang.language}>
+                <div className="flex items-baseline justify-between mb-1.5">
+                  <div className="flex items-baseline gap-2">
+                    <span className="text-sm font-medium">{lang.language}</span>
+                    <span className="text-xs text-[var(--muted)]">
+                      {lang.books.length} {lang.books.length === 1 ? "book" : "books"}
+                    </span>
+                  </div>
+                  <span className="text-xs text-[var(--muted)] font-mono tabular-nums">
+                    {lang.totalEntities.toLocaleString()} entities
+                  </span>
+                </div>
+                {/* Stacked bar */}
+                <div className="h-6 rounded flex overflow-hidden">
+                  {allCats.map((cat) => {
+                    const entry = lang.categories.find((c) => c.category === cat);
+                    if (!entry || entry.pct < 1) return null;
+                    const colors = CATEGORY_COLORS[cat] || CATEGORY_COLORS.OBJECT;
+                    return (
+                      <div
+                        key={cat}
+                        className={`${colors.bar} opacity-80 relative group`}
+                        style={{ width: `${entry.pct}%` }}
+                        title={`${cat}: ${entry.count} (${entry.pct.toFixed(1)}%)`}
+                      >
+                        {entry.pct >= 8 && (
+                          <span className="absolute inset-0 flex items-center justify-center text-[10px] text-black font-bold">
+                            {cat.slice(0, 4)}
+                          </span>
+                        )}
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
+            );
+          })}
+        </div>
+
+        {/* Detailed per-language breakdowns */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {stats.languageStats.map((lang) => (
+            <div key={lang.language} className="border border-[var(--border)] rounded-lg p-5 bg-[var(--card)]">
+              <div className="flex items-baseline justify-between mb-1">
+                <h3 className="font-semibold text-sm">{lang.language}</h3>
+                <span className="text-xs text-[var(--muted)] font-mono tabular-nums">
+                  {lang.totalMentions.toLocaleString()} mentions
+                </span>
+              </div>
+              <p className="text-[10px] text-[var(--muted)] mb-3">
+                {lang.books.join(" / ")}
+              </p>
+              <div className="space-y-1.5">
+                {lang.categories.slice(0, 8).map((cat) => {
+                  const colors = CATEGORY_COLORS[cat.category] || CATEGORY_COLORS.OBJECT;
+                  const maxPct = lang.categories[0]?.pct || 1;
+                  return (
+                    <div key={cat.category} className="flex items-center gap-2">
+                      <span className={`w-2 h-2 rounded-full shrink-0 ${colors.dot}`} />
+                      <span className="text-xs w-20 truncate shrink-0">{cat.category}</span>
+                      <div className="flex-1 h-1.5 rounded-full bg-[var(--border)] overflow-hidden">
+                        <div
+                          className={`h-1.5 rounded-full ${colors.bar} opacity-70`}
+                          style={{ width: `${(cat.pct / maxPct) * 100}%` }}
+                        />
+                      </div>
+                      <span className="text-[10px] font-mono tabular-nums text-[var(--muted)] w-10 text-right">
+                        {cat.pct.toFixed(1)}%
+                      </span>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
 
       {/* ── Cross-References (only if data has them) ── */}
       {stats.crossRefs.total > 0 && (

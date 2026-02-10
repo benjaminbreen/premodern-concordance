@@ -1,10 +1,15 @@
 "use client";
 
-import React, { useEffect, useState, useCallback, useRef } from "react";
+import React, { useEffect, useState, useCallback, useRef, useMemo } from "react";
 import Link from "next/link";
 import { useParams, useRouter } from "next/navigation";
-import { LinkedExcerpt, buildPersonLinks, type PersonLinkInfo } from "@/components/LinkedExcerpt";
 import { CAT_BADGE as CATEGORY_COLORS, CAT_TINT as CATEGORY_TINT } from "@/lib/colors";
+import {
+  buildEntityNameIndex,
+  buildSlugMap,
+  AutoLinkedText,
+  type ClusterPreview,
+} from "@/components/EntityHoverCard";
 
 interface Mention {
   offset: number;
@@ -24,10 +29,17 @@ interface Entity {
 }
 
 
-function HighlightedExcerpt({ excerpt, term, personLinks }: { excerpt: string; term: string; personLinks?: PersonLinkInfo[] }) {
-  if (personLinks && personLinks.length > 0) {
-    return <LinkedExcerpt excerpt={excerpt} matchedTerm={term} personLinks={personLinks} />;
-  }
+function HighlightedExcerpt({
+  excerpt,
+  term,
+  nameIndex,
+  excludeClusterId,
+}: {
+  excerpt: string;
+  term: string;
+  nameIndex?: Map<string, ClusterPreview>;
+  excludeClusterId?: number;
+}) {
   const escaped = term.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
   const parts = excerpt.split(new RegExp(`(${escaped})`, "gi"));
   return (
@@ -37,6 +49,8 @@ function HighlightedExcerpt({ excerpt, term, personLinks }: { excerpt: string; t
           <strong key={i} className="text-[var(--foreground)] bg-[var(--accent)]/10 px-0.5 rounded">
             {part}
           </strong>
+        ) : nameIndex && nameIndex.size > 0 ? (
+          <AutoLinkedText key={i} text={part} nameIndex={nameIndex} excludeClusterId={excludeClusterId} />
         ) : (
           <React.Fragment key={i}>{part}</React.Fragment>
         )
@@ -53,7 +67,8 @@ function ExcerptCard({
   bookTitle,
   bookAuthor,
   bookYear,
-  personLinks,
+  nameIndex,
+  excludeClusterId,
   pageMap,
   pageNums,
   pageMapIaId,
@@ -65,7 +80,8 @@ function ExcerptCard({
   bookTitle: string;
   bookAuthor: string;
   bookYear: number;
-  personLinks?: PersonLinkInfo[];
+  nameIndex?: Map<string, ClusterPreview>;
+  excludeClusterId?: number;
   pageMap: Record<string, number> | null;
   pageNums: Record<string, string> | null;
   pageMapIaId: string | null;
@@ -194,7 +210,8 @@ function ExcerptCard({
             <HighlightedExcerpt
               excerpt={mention.excerpt}
               term={mention.matched_term}
-              personLinks={personLinks}
+              nameIndex={nameIndex}
+              excludeClusterId={excludeClusterId}
             />
           )}
         </div>
@@ -403,11 +420,19 @@ export default function EntityDetailPage() {
   const [currentIndex, setCurrentIndex] = useState(-1);
   const [concordanceSlug, setConcordanceSlug] = useState<string | null>(null);
   const [concordanceName, setConcordanceName] = useState<string | null>(null);
+  const [concordanceClusterId, setConcordanceClusterId] = useState<number | undefined>(undefined);
   const [allEntities, setAllEntities] = useState<Entity[]>([]);
-  const [personLinks, setPersonLinks] = useState<PersonLinkInfo[]>([]);
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const [concordanceClusters, setConcordanceClusters] = useState<any[]>([]);
   const [pageMap, setPageMap] = useState<Record<string, number> | null>(null);
   const [pageNums, setPageNums] = useState<Record<string, string> | null>(null);
   const [pageMapIaId, setPageMapIaId] = useState<string | null>(null);
+
+  const nameIndex = useMemo(() => {
+    if (concordanceClusters.length === 0) return new Map<string, ClusterPreview>();
+    const slugMap = buildSlugMap(concordanceClusters);
+    return buildEntityNameIndex(concordanceClusters, slugMap);
+  }, [concordanceClusters]);
 
   useEffect(() => {
     const bookFiles: Record<string, string> = {
@@ -456,7 +481,7 @@ export default function EntityDetailPage() {
     });
   }, [params.id, params.entityId]);
 
-  // Find matching concordance cluster + build person links for auto-linking
+  // Find matching concordance cluster + load clusters for entity hover cards
   useEffect(() => {
     if (!entity) return;
     // Map URL book IDs to concordance book IDs (only Semedo differs)
@@ -468,6 +493,8 @@ export default function EntityDetailPage() {
       .then((res) => res.json())
       .then((data) => {
         const clusters: ConcordanceCluster[] = data.clusters;
+        // Store full clusters for nameIndex building
+        setConcordanceClusters(data.clusters);
         const match = clusters.find((c) =>
           c.members.some((m) => m.book_id === bookId && m.entity_id === entityId)
         );
@@ -478,20 +505,11 @@ export default function EntityDetailPage() {
           );
           setConcordanceSlug(hasCollision ? `${base}-${match.id}` : base);
           setConcordanceName(match.canonical_name);
-        }
-        // Build person links using concordance data
-        if (allEntities.length > 0) {
-          setPersonLinks(buildPersonLinks(allEntities, bookId, clusters));
+          setConcordanceClusterId(match.id);
         }
       })
-      .catch(() => {
-        // Fallback: link to book entity pages only
-        if (allEntities.length > 0) {
-          const bookId = (params.id as string) === "semedo-polyanthea-1741" ? "polyanthea_medicinal" : params.id as string;
-          setPersonLinks(buildPersonLinks(allEntities, bookId));
-        }
-      });
-  }, [entity, allEntities, params.id, params.entityId]);
+      .catch(() => {});
+  }, [entity, params.id, params.entityId]);
 
   // Load page map for IA page links
   useEffect(() => {
@@ -726,7 +744,8 @@ export default function EntityDetailPage() {
                   bookTitle={bookTitle}
                   bookAuthor={bookAuthor}
                   bookYear={bookYear}
-                  personLinks={personLinks}
+                  nameIndex={nameIndex}
+                  excludeClusterId={concordanceClusterId}
                   pageMap={pageMap}
                   pageNums={pageNums}
                   pageMapIaId={pageMapIaId}

@@ -3,8 +3,9 @@
 import { useEffect, useState, useCallback, useMemo, useRef } from "react";
 import Link from "next/link";
 import { useParams, useRouter, useSearchParams } from "next/navigation";
-import { CATEGORY_COLORS, CAT_DOT as CATEGORY_BAR_COLORS, CAT_TINT as CATEGORY_TINT } from "@/lib/colors";
+import { CATEGORY_COLORS, CAT_DOT as CATEGORY_BAR_COLORS, CAT_TINT as CATEGORY_TINT, CAT_HEX } from "@/lib/colors";
 import { BOOK_SHORT_NAMES } from "@/lib/books";
+import { buildEntityNameIndex, AutoLinkedText } from "@/components/EntityHoverCard";
 import {
   forceSimulation,
   forceLink,
@@ -919,6 +920,31 @@ export default function ClusterDetailPage() {
     };
   }, [data, cluster]);
 
+  // Build slug map + entity name index for hover cards
+  const slugMap = useMemo(() => {
+    if (!data) return new Map<number, string>();
+    return new Map(data.clusters.map((c) => [c.id, clusterSlug(c, data.clusters)]));
+  }, [data]);
+
+  const nameIndex = useMemo(() => {
+    if (!data) return new Map();
+    return buildEntityNameIndex(data.clusters, slugMap);
+  }, [data, slugMap]);
+
+  // Fetch neighbor data at page level for "Also appears with"
+  const [neighborData, setNeighborData] = useState<{
+    k: number;
+    count: number;
+    neighbors: Record<string, { id: number; sim: number }[]>;
+  } | null>(null);
+
+  useEffect(() => {
+    fetch("/data/cluster_neighbors.json")
+      .then((r) => r.json())
+      .then((d) => setNeighborData(d))
+      .catch(() => {});
+  }, []);
+
   // Keyboard navigation
   const handleKeyDown = useCallback(
     (e: KeyboardEvent) => {
@@ -1654,10 +1680,18 @@ export default function ClusterDetailPage() {
                             </span>
                           )}
                         </td>
-                        <td className="px-3 py-2 text-xs text-[var(--muted)] hidden md:table-cell max-w-xs truncate">
-                          {member.contexts[0]
-                            ? `"${member.contexts[0].length > 100 ? member.contexts[0].slice(0, 97) + "\u2026" : member.contexts[0]}"`
-                            : ""}
+                        <td className="px-3 py-2 text-xs text-[var(--muted)] hidden md:table-cell max-w-xs">
+                          {member.contexts[0] ? (
+                            <span className="line-clamp-2">
+                              &ldquo;
+                              <AutoLinkedText
+                                text={member.contexts[0].length > 100 ? member.contexts[0].slice(0, 97) + "\u2026" : member.contexts[0]}
+                                nameIndex={nameIndex}
+                                excludeClusterId={cluster.id}
+                              />
+                              &rdquo;
+                            </span>
+                          ) : ""}
                         </td>
                         <td className="px-3 py-2 text-right font-mono text-xs tabular-nums">
                           {member.count}
@@ -1689,6 +1723,68 @@ export default function ClusterDetailPage() {
         </p>
         <NeighborhoodGraph clusterId={cluster.id} clusters={data.clusters} books={data.books} />
       </section>
+
+      {/* ─── 7b. Also Appears With ─── */}
+      {neighborData && (() => {
+        const neighbors = neighborData.neighbors[String(cluster.id)];
+        if (!neighbors || neighbors.length === 0) return null;
+        const top8 = neighbors.slice(0, 8);
+        const maxSim = top8[0]?.sim || 1;
+        const clusterMap = new Map(data.clusters.map((c) => [c.id, c]));
+
+        return (
+          <section className="mb-8">
+            <h2 className="text-[10px] uppercase tracking-widest text-[var(--muted)] font-medium mb-3">
+              Also Appears With
+            </h2>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+              {top8.map((n) => {
+                const nc = clusterMap.get(n.id);
+                if (!nc) return null;
+                const nSlug = slugMap.get(n.id) || "";
+                const gt = nc.ground_truth;
+                const subtitle = gt?.modern_name && gt.modern_name.toLowerCase() !== nc.canonical_name.toLowerCase()
+                  ? gt.modern_name
+                  : nc.members[0]?.contexts[0]
+                    ? (nc.members[0].contexts[0].length > 60 ? nc.members[0].contexts[0].slice(0, 57) + "\u2026" : nc.members[0].contexts[0])
+                    : null;
+                const dotClass = CATEGORY_BAR_COLORS[nc.category] || "bg-slate-500";
+                const barPct = (n.sim / maxSim) * 100;
+                const hexColor = CAT_HEX[nc.category] || "#64748b";
+
+                return (
+                  <Link
+                    key={n.id}
+                    href={`/concordance/${nSlug}?from=${encodeURIComponent(slug)}`}
+                    className="flex items-center gap-3 px-3 py-2.5 rounded-lg border border-[var(--border)] bg-[var(--card)] hover:bg-[var(--border)]/40 transition-colors group/neighbor"
+                  >
+                    <span className={`w-2.5 h-2.5 rounded-full shrink-0 ${dotClass}`} />
+                    <div className="flex-1 min-w-0">
+                      <p className="text-sm font-medium truncate group-hover/neighbor:text-[var(--accent)] transition-colors">
+                        {nc.canonical_name}
+                      </p>
+                      {subtitle && (
+                        <p className="text-[11px] text-[var(--muted)] truncate">{subtitle}</p>
+                      )}
+                    </div>
+                    <div className="w-16 shrink-0 flex items-center gap-1.5">
+                      <div className="flex-1 h-1 bg-[var(--border)]/50 rounded-full overflow-hidden">
+                        <div
+                          className="h-full rounded-full"
+                          style={{ width: `${barPct}%`, backgroundColor: hexColor }}
+                        />
+                      </div>
+                      <span className="text-[10px] font-mono text-[var(--muted)] tabular-nums w-7 text-right">
+                        {Math.round(n.sim * 100)}
+                      </span>
+                    </div>
+                  </Link>
+                );
+              })}
+            </div>
+          </section>
+        );
+      })()}
 
       {/* ─── 8. Navigation ─── */}
       <nav className="flex items-center justify-between pt-6 border-t border-[var(--border)]">

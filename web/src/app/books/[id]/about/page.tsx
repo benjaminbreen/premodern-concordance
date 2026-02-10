@@ -452,21 +452,24 @@ export default function BookAboutPage() {
 
             {/* Stat cards */}
             <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
-              <div className="p-4 rounded-lg border border-[var(--border)] bg-[var(--card)]">
-                <div className="text-2xl font-bold tabular-nums">
+              <Link
+                href={`/books/${bookData.book.id}/entities`}
+                className="p-4 rounded-lg border border-[var(--border)] bg-[var(--card)] hover:bg-[var(--border)]/50 transition-colors group"
+              >
+                <div className="text-2xl font-bold tabular-nums group-hover:text-[var(--accent)] transition-colors">
                   {bookData.stats.total_entities.toLocaleString()}
                 </div>
-                <div className="text-xs text-[var(--muted)] mt-1">Total entities</div>
-              </div>
+                <div className="text-xs text-[var(--muted)] mt-1">Total entities &rarr;</div>
+              </Link>
               <div className="p-4 rounded-lg border border-[var(--border)] bg-[var(--card)]">
                 <div className="text-2xl font-bold tabular-nums">
-                  {concordanceStats?.total ?? "—"}
+                  {concordanceStats?.total ?? "\u2014"}
                 </div>
                 <div className="text-xs text-[var(--muted)] mt-1">Concordance clusters</div>
               </div>
               <div className="p-4 rounded-lg border border-[var(--border)] bg-[var(--card)]">
                 <div className="text-2xl font-bold tabular-nums">
-                  {concordanceStats?.shared ?? "—"}
+                  {concordanceStats?.shared ?? "\u2014"}
                 </div>
                 <div className="text-xs text-[var(--muted)] mt-1">Shared across books</div>
               </div>
@@ -518,6 +521,13 @@ export default function BookAboutPage() {
                 </Link>
               ))}
             </div>
+            <Link
+              href={`/books/${bookData.book.id}/entities`}
+              className="inline-flex items-center gap-1.5 mt-4 text-sm font-medium text-[var(--foreground)] border border-[var(--border)] rounded-lg px-4 py-2 hover:bg-[var(--border)] transition-colors"
+            >
+              View all {bookData.stats.total_entities.toLocaleString()} entities
+              <span className="text-[var(--muted)]">&rarr;</span>
+            </Link>
           </section>
 
           {/* 4. Key Passages */}
@@ -550,6 +560,13 @@ export default function BookAboutPage() {
                   </div>
                 ))}
               </div>
+              <Link
+                href={`/books/${bookData.book.id}/research`}
+                className="inline-flex items-center gap-1.5 mt-4 text-sm font-medium text-[var(--foreground)] border border-[var(--border)] rounded-lg px-4 py-2 hover:bg-[var(--border)] transition-colors"
+              >
+                Learn more about this book
+                <span className="text-[var(--muted)]">&rarr;</span>
+              </Link>
             </section>
           )}
 
@@ -591,7 +608,55 @@ export default function BookAboutPage() {
             </section>
           )}
 
-          {/* 6. External Resources */}
+          {/* 6. Explore Further */}
+          <section>
+            <h2 className="text-sm font-medium uppercase tracking-wider text-[var(--muted)] mb-4">
+              Explore Further
+            </h2>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <Link
+                href={`/books/${bookData.book.id}/knowledge-graph`}
+                className="p-5 rounded-lg border border-[var(--border)] hover:border-[var(--accent)]/40 hover:bg-[var(--card)] transition-all group"
+              >
+                <div className="flex items-center gap-3 mb-2">
+                  <span className="w-8 h-8 rounded-lg bg-blue-500/10 flex items-center justify-center shrink-0">
+                    <svg className="w-4 h-4 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <circle cx="12" cy="5" r="2" strokeWidth={2} />
+                      <circle cx="5" cy="19" r="2" strokeWidth={2} />
+                      <circle cx="19" cy="19" r="2" strokeWidth={2} />
+                      <path strokeLinecap="round" strokeWidth={2} d="M12 7v4m-5.5 5.5L10 14m4 0l3.5 2.5" />
+                    </svg>
+                  </span>
+                  <span className="text-sm font-semibold group-hover:text-[var(--accent)] transition-colors">
+                    Knowledge Graph
+                  </span>
+                </div>
+                <p className="text-xs text-[var(--muted)] leading-relaxed">
+                  Visualize how entities in this book connect to each other and to entities across the full concordance. Explore networks of substances, people, places, and concepts.
+                </p>
+              </Link>
+              <Link
+                href={`/books/${bookData.book.id}/consult`}
+                className="p-5 rounded-lg border border-[var(--border)] hover:border-[var(--accent)]/40 hover:bg-[var(--card)] transition-all group"
+              >
+                <div className="flex items-center gap-3 mb-2">
+                  <span className="w-8 h-8 rounded-lg bg-amber-500/10 flex items-center justify-center shrink-0">
+                    <svg className="w-4 h-4 text-amber-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" />
+                    </svg>
+                  </span>
+                  <span className="text-sm font-semibold group-hover:text-[var(--accent)] transition-colors">
+                    Consult the Author
+                  </span>
+                </div>
+                <p className="text-xs text-[var(--muted)] leading-relaxed">
+                  Ask questions and receive answers in the voice of {bookData.book.author}, drawing on the entities and frameworks found in this text. Powered by an epistemological profile and retrieval-augmented generation.
+                </p>
+              </Link>
+            </div>
+          </section>
+
+          {/* 7. External Resources */}
           {meta && (
             <section>
               <h2 className="text-sm font-medium uppercase tracking-wider text-[var(--muted)] mb-4">

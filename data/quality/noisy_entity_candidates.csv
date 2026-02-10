@@ -1,0 +1,1534 @@
+id,slug,canonical_name,category,book_count,total_mentions,reason_count,reasons,books
+ent_2f842893ce90,pa-wote-jer,Pa/Wote .<^»jer.,OBJECT,1,1,5,ocr_noise_char;slash_noise;symbol_noise;wrapped_punctuation;high_punctuation_ratio,relation_historique_humboldt_vol3_1825
+ent_ea17e38b4977,ic,.^îc/»,PLACE,1,1,5,ocr_noise_char;slash_noise;wrapped_punctuation;high_punctuation_ratio;bounded_by_nonword,relation_historique_humboldt_vol3_1825
+ent_fddc27f3a726,1563,1563,CONCEPT,1,2,4,year_or_page_token;numeric_only;non_latin_low_count;high_digit_ratio,polyanthea_medicinal
+ent_db2be92e6a98,1510,1510,CONCEPT,1,2,4,year_or_page_token;numeric_only;non_latin_low_count;high_digit_ratio,coloquios_da_orta_1563
+ent_2608faeb2b82,entity,♀ ♈,CONCEPT,1,1,4,ocr_noise_char;punctuation_only;non_latin_low_count;bounded_by_nonword,english_physician_1652
+ent_0beb7f34d667,oisf-n,Oisf./«n.,CONCEPT,1,1,4,ocr_noise_char;slash_noise;wrapped_punctuation;high_punctuation_ratio,relation_historique_humboldt_vol3_1825
+ent_8fe028433cf0,c-i-f-i,C>i:f.i/<.,CONCEPT,1,1,4,slash_noise;symbol_noise;wrapped_punctuation;high_punctuation_ratio,relation_historique_humboldt_vol3_1825
+ent_a9db5d09b850,1879,1879,OTHER_CONCEPT,1,1,4,year_or_page_token;numeric_only;non_latin_low_count;high_digit_ratio,principles_of_psychology_james_1890
+ent_6cb927d96815,1870,1870,CONCEPT,1,1,4,year_or_page_token;numeric_only;non_latin_low_count;high_digit_ratio,coloquios_da_orta_1563
+ent_9e0aefee091f,1870-principles,1870,CONCEPT,1,1,4,year_or_page_token;numeric_only;non_latin_low_count;high_digit_ratio,principles_of_psychology_james_1890
+ent_63e292706877,1867,1867,CONCEPT,1,1,4,year_or_page_token;numeric_only;non_latin_low_count;high_digit_ratio,principles_of_psychology_james_1890
+ent_2e38899e998c,1865,1865,OTHER_CONCEPT,1,1,4,year_or_page_token;numeric_only;non_latin_low_count;high_digit_ratio,principles_of_psychology_james_1890
+ent_a3f83cfaf2d0,1852,1852,OTHER_CONCEPT,1,1,4,year_or_page_token;numeric_only;non_latin_low_count;high_digit_ratio,principles_of_psychology_james_1890
+ent_c2056b08e820,1850,1850,CONCEPT,1,1,4,year_or_page_token;numeric_only;non_latin_low_count;high_digit_ratio,principles_of_psychology_james_1890
+ent_ebf522e3ab4c,1699,1699,PLACE,1,1,4,year_or_page_token;numeric_only;non_latin_low_count;high_digit_ratio,polyanthea_medicinal
+ent_72519730d548,1651,1651,CONCEPT,1,1,4,year_or_page_token;numeric_only;non_latin_low_count;high_digit_ratio,english_physician_1652
+ent_cddfc6e38377,1642,1642,CONCEPT,1,1,4,year_or_page_token;numeric_only;non_latin_low_count;high_digit_ratio,polyanthea_medicinal
+ent_0f05caf33039,1617,1617,CONCEPT,1,1,4,year_or_page_token;numeric_only;non_latin_low_count;high_digit_ratio,coloquios_da_orta_1563
+ent_0400b2ebb852,1574,1574,OBJECT,1,1,4,year_or_page_token;numeric_only;non_latin_low_count;high_digit_ratio,historia_medicinal_monardes_1574
+ent_92e0b23bb2ae,1543,1543,CONCEPT,1,1,4,year_or_page_token;numeric_only;non_latin_low_count;high_digit_ratio,coloquios_da_orta_1563
+ent_7e4cb4c0a93f,1534,1534,CONCEPT,1,1,4,year_or_page_token;numeric_only;non_latin_low_count;high_digit_ratio,coloquios_da_orta_1563
+ent_e341f8a71987,1340,1340,CONCEPT,1,1,4,year_or_page_token;numeric_only;non_latin_low_count;high_digit_ratio,coloquios_da_orta_1563
+ent_476c0f028830,1252,1252,CONCEPT,1,1,4,year_or_page_token;numeric_only;non_latin_low_count;high_digit_ratio,coloquios_da_orta_1563
+ent_511f23072f01,1228,1228,CONCEPT,1,1,4,year_or_page_token;numeric_only;non_latin_low_count;high_digit_ratio,coloquios_da_orta_1563
+ent_97cc80a7b78b,1822,1822,CONCEPT,1,57,3,year_or_page_token;numeric_only;high_digit_ratio,relation_historique_humboldt_vol3_1825
+ent_129085f05e9d,1686,1686,CONCEPT,1,26,3,year_or_page_token;numeric_only;high_digit_ratio,polyanthea_medicinal
+ent_ca8781901efe,v,V.,PLACE,1,3,3,very_short_low_count;wrapped_punctuation;high_punctuation_ratio,relation_historique_humboldt_vol3_1825
+ent_fc6a244e424c,f-relation,F.,CONCEPT,1,3,3,very_short_low_count;wrapped_punctuation;high_punctuation_ratio,relation_historique_humboldt_vol3_1825
+ent_6b25498d2133,t,t.,OBJECT,1,2,3,very_short_low_count;wrapped_punctuation;high_punctuation_ratio,relation_historique_humboldt_vol3_1825
+ent_a572778e533e,l,L.,PERSON,1,2,3,very_short_low_count;wrapped_punctuation;high_punctuation_ratio,relation_historique_humboldt_vol3_1825
+ent_90be7fc17276,d,D.,PERSON,1,2,3,very_short_low_count;wrapped_punctuation;high_punctuation_ratio,historia_medicinal_monardes_1574
+ent_4a096f3d84b1,29,29.,OBJECT,1,2,3,wrapped_punctuation;numeric_only;non_latin_low_count,polyanthea_medicinal
+ent_ce803c64772a,z-y-garis,Z.y»/-garis,PLANT,1,1,3,ocr_noise_char;slash_noise;high_punctuation_ratio,coloquios_da_orta_1563
+ent_22c69a6e8a74,w,W.,PERSON,1,1,3,very_short_low_count;wrapped_punctuation;high_punctuation_ratio,principles_of_psychology_james_1890
+ent_457c774e8441,voyez-mon-iec-d-obs-astr-tora-i-inirod-p-lxx,"Voyez mon /îec. d'Obs, astr.^ Tora. I, Inirod., p. lxx.",CONCEPT,1,1,3,ocr_noise_char;slash_noise;wrapped_punctuation,relation_historique_humboldt_vol3_1825
+ent_9b8f7122d868,po-5,PO_{5},SUBSTANCE,1,1,3,ocr_noise_char;wrapped_punctuation;high_punctuation_ratio,principles_of_psychology_james_1890
+ent_f4a3ff015036,on-r-ll,on^r<ll>,CONCEPT,1,1,3,ocr_noise_char;symbol_noise;high_punctuation_ratio,coloquios_da_orta_1563
+ent_b613433dd4a6,oma-io-o,OMa/io/«o?,PLACE,1,1,3,ocr_noise_char;slash_noise;high_punctuation_ratio,relation_historique_humboldt_vol3_1825
+ent_555da19a1675,no-coloquios,no:{,PLANT,1,1,3,ocr_noise_char;wrapped_punctuation;high_punctuation_ratio,coloquios_da_orta_1563
+ent_39630815630e,j-li,j^li',PLANT,1,1,3,ocr_noise_char;wrapped_punctuation;high_punctuation_ratio,coloquios_da_orta_1563
+ent_b89b2335aba3,henrique-innite-l,Henrique (In£nite l^.),PERSON,1,1,3,ocr_noise_char;symbol_noise;wrapped_punctuation,coloquios_da_orta_1563
+ent_63471ca5c85e,h-2,H_{2},SUBSTANCE,1,1,3,ocr_noise_char;wrapped_punctuation;high_punctuation_ratio,principles_of_psychology_james_1890
+ent_b4308ae73d22,g-place,G.,PLACE,1,1,3,very_short_low_count;wrapped_punctuation;high_punctuation_ratio,relation_historique_humboldt_vol3_1825
+ent_cd04d1cd11c6,g,g',CONCEPT,1,1,3,very_short_low_count;wrapped_punctuation;high_punctuation_ratio,principles_of_psychology_james_1890
+ent_0af4e3646121,fr-j-d-o,fr. J<»d&o,PERSON,1,1,3,ocr_noise_char;symbol_noise;high_punctuation_ratio,coloquios_da_orta_1563
+ent_db293455d6d0,eiipl-oitl-ia-rfiimoalll-willd,Eiipl&oiTl>ia rFiimoalll» Willd.,PLANT,1,1,3,ocr_noise_char;symbol_noise;wrapped_punctuation,coloquios_da_orta_1563
+ent_df5d88ebe842,d-nt,D^^nt),PLANT,1,1,3,ocr_noise_char;wrapped_punctuation;high_punctuation_ratio,coloquios_da_orta_1563
+ent_d99103e55e55,c-v-ka,C:/)v^K«a,PERSON,1,1,3,ocr_noise_char;slash_noise;high_punctuation_ratio,relation_historique_humboldt_vol3_1825
+ent_cb49513dd6bc,b-o-go-d-end,B^-O'^go d'End.,SUBSTANCE,1,1,3,ocr_noise_char;wrapped_punctuation;high_punctuation_ratio,ricettario_fiorentino_1597
+ent_a03273dd72e2,4,4?!,OBJECT,1,1,3,numeric_only;punctuation_only;non_latin_low_count,relation_historique_humboldt_vol3_1825
+ent_1b053c0b8733,468,468.,CONCEPT,1,1,3,wrapped_punctuation;numeric_only;non_latin_low_count,polyanthea_medicinal
+ent_dfbb31526b0b,31,31.,OBJECT,1,1,3,wrapped_punctuation;numeric_only;non_latin_low_count,polyanthea_medicinal
+ent_8b97fa1b45cf,282,282,CONCEPT,1,1,3,year_or_page_token;numeric_only;non_latin_low_count,relation_historique_humboldt_vol3_1825
+ent_a5e49183abaa,15141,15141,OBJECT,1,1,3,numeric_only;non_latin_low_count;high_digit_ratio,coloquios_da_orta_1563
+ent_6be8083b13b7,i,(I),CONCEPT,1,1,3,wrapped_punctuation;high_punctuation_ratio;bounded_by_nonword,origin_of_species_darwin_1859
+ent_c7803aed9ee2,f,(F),CONCEPT,1,1,3,wrapped_punctuation;high_punctuation_ratio;bounded_by_nonword,origin_of_species_darwin_1859
+ent_909618234c4e,a,(A),CONCEPT,1,1,3,wrapped_punctuation;high_punctuation_ratio;bounded_by_nonword,origin_of_species_darwin_1859
+ent_99e1d50154cc,a-person,A.,PERSON,1,10,2,wrapped_punctuation;high_punctuation_ratio,polyanthea_medicinal
+ent_67ae045b021c,j-r-g-s,J. R. G. S.,OBJECT,1,4,2,wrapped_punctuation;high_punctuation_ratio,coloquios_da_orta_1563
+ent_1c5e902b1a3a,fen-6-lib-4-tract-4-cap-9,Fen 6. lib. 4. tract. 4. cap.9.,OBJECT,1,4,2,bibliographic_fragment;wrapped_punctuation,polyanthea_medicinal
+ent_bcdddb644bfe,w-j,W. J.,PERSON,1,3,2,wrapped_punctuation;high_punctuation_ratio,principles_of_psychology_james_1890
+ent_004a7d4bde71,s-m-c,S. M.C.,PERSON,1,3,2,wrapped_punctuation;high_punctuation_ratio,relation_historique_humboldt_vol3_1825
+ent_6985d03d9810,s-a,S.A.,PERSON,1,2,2,wrapped_punctuation;high_punctuation_ratio,ricettario_fiorentino_1597
+ent_5df5d04a33a5,niccouo-lefand,NiccoUo ^lefand.,PERSON,1,2,2,ocr_noise_char;wrapped_punctuation,ricettario_fiorentino_1597
+ent_756705aa7ae9,n-61,n.61.,CONCEPT,1,2,2,wrapped_punctuation;high_punctuation_ratio,polyanthea_medicinal
+ent_b319c305b87b,n-y,N. Y.,PLACE,1,2,2,wrapped_punctuation;high_punctuation_ratio,principles_of_psychology_james_1890
+ent_aa29234dc753,l-c,L. c.,CONCEPT,1,2,2,wrapped_punctuation;high_punctuation_ratio,relation_historique_humboldt_vol3_1825
+ent_8fdbf22a609b,d-c,D. C.,PERSON,1,2,2,wrapped_punctuation;high_punctuation_ratio,coloquios_da_orta_1563
+ent_aa5f09d6fa38,p,••p,ANIMAL,1,1,2,ocr_noise_char;high_punctuation_ratio,english_physician_1652
+ent_851134bcf3bf,z-a-ca-ayeras,Z/a« Ca/ayeras,PLACE,1,1,2,ocr_noise_char;slash_noise,relation_historique_humboldt_vol3_1825
+ent_f62e763d10dd,ygl-o,ygl^?^^■o,OBJECT,1,1,2,ocr_noise_char;high_punctuation_ratio,relation_historique_humboldt_vol3_1825
+ent_22a20ee7aa8a,vnaltro-5imle-cygno-di,VNALTRO 5IM£LE CYGNO DI/,SUBSTANCE,1,1,2,slash_noise;symbol_noise,ricettario_fiorentino_1597
+ent_080cc9d0a77c,vgnadipo-c-f,Vgnadipo|c<>f,SUBSTANCE,1,1,2,ocr_noise_char;symbol_noise,ricettario_fiorentino_1597
+ent_881ba896b56e,ut-ai-5g-4o,Ut. ai» 5G'4o',CONCEPT,1,1,2,ocr_noise_char;wrapped_punctuation,relation_historique_humboldt_vol3_1825
+ent_e7364053638a,udi-efu,Udi<^efu€,PLANT,1,1,2,ocr_noise_char;symbol_noise,ricettario_fiorentino_1597
+ent_78144511dc03,trat-3-descreve-fea-ormacaodos-olhos-tunicas-cap-1-num-94-pag-719,"Trat.3. : Deſcreve-fea ormaçãodos olhos , tunicas, & cap.1.num.94.pag. 719...",PERSON,1,1,2,bibliographic_fragment;wrapped_punctuation,polyanthea_medicinal
+ent_5227fd586915,tralian-hb-7-cap-14-mihi-fol-236,Tralian. hb.7.cap. 14.mihi fol.236.,PERSON,1,1,2,bibliographic_fragment;wrapped_punctuation,polyanthea_medicinal
+ent_01e177c2d2bb,tract-decurat-dysent-cap-6,tract.deCurat.dyſent.cap.6.,CONCEPT,1,1,2,bibliographic_fragment;wrapped_punctuation,polyanthea_medicinal
+ent_29c3e46cad9d,tpnmitk-urthoncfiie-er,TpnmitK (urthoncfiie/er),SUBSTANCE,1,1,2,slash_noise;wrapped_punctuation,relation_historique_humboldt_vol3_1825
+ent_679b2baef756,te-rv-moy,TE>rV. MOY.,CONCEPT,1,1,2,symbol_noise;wrapped_punctuation,relation_historique_humboldt_vol3_1825
+ent_d694587eb076,t-o-d,T. O. D.,ANATOMY,1,1,2,wrapped_punctuation;high_punctuation_ratio,principles_of_psychology_james_1890
+ent_4d5c9cb88876,s-w,S.W.,CONCEPT,1,1,2,wrapped_punctuation;high_punctuation_ratio,coloquios_da_orta_1563
+ent_538da23ab9fa,rof-mo-aa,rof^mo/Aa,SUBSTANCE,1,1,2,ocr_noise_char;slash_noise,coloquios_da_orta_1563
+ent_346ca7e491b6,rai,rai:(^,PLANT,1,1,2,ocr_noise_char;high_punctuation_ratio,coloquios_da_orta_1563
+ent_bcea04f1d322,r-w,R. W.,PERSON,1,1,2,wrapped_punctuation;high_punctuation_ratio,principles_of_psychology_james_1890
+ent_de5793dc8ad9,r-parc,R. Parc},PLACE,1,1,2,ocr_noise_char;wrapped_punctuation,relation_historique_humboldt_vol3_1825
+ent_91d5885c2e60,r-n-f,R. N. F.,ANATOMY,1,1,2,wrapped_punctuation;high_punctuation_ratio,principles_of_psychology_james_1890
+ent_c8d29f625f8f,r-i-principles,R. I.,PLACE,1,1,2,wrapped_punctuation;high_punctuation_ratio,principles_of_psychology_james_1890
+ent_f8a454a73fc2,punte-de-j-m,Punte de J/?</(M,PLACE,1,1,2,slash_noise;symbol_noise,relation_historique_humboldt_vol3_1825
+ent_a6b6321fcf64,prndulvm-ej-per-iis-i-t,Prndulvm Ej-per.iiS'i^t),OBJECT,1,1,2,ocr_noise_char;wrapped_punctuation,relation_historique_humboldt_vol3_1825
+ent_b9fccd2e01d3,poll,Poll^.,ANIMAL,1,1,2,ocr_noise_char;wrapped_punctuation,ricettario_fiorentino_1597
+ent_25754d64d64a,pipex-ii-ifl-i-ixm9-linn,Pipex* ii.ifl^i*ixm9 Linn.,PLANT,1,1,2,ocr_noise_char;wrapped_punctuation,coloquios_da_orta_1563
+ent_c905a6c2a29a,parte-tr-z,PARTE T£R:Z^,CONCEPT,1,1,2,ocr_noise_char;symbol_noise,ricettario_fiorentino_1597
+ent_309891ab2208,pareus-lib-21-de-peft-cap-25-fol-mihi-473-ibi-multorum-experimenditisantimonium-prdicatur,Pareus lib. 21. de Peft. cap.25.fol . mihi 473.ibi : Multorum experimenditisAntimonium prædicatur.,OBJECT,1,1,2,bibliographic_fragment;wrapped_punctuation,polyanthea_medicinal
+ent_ef43eccd108e,p-o,"P<""""<;o",PLACE,1,1,2,symbol_noise;high_punctuation_ratio,relation_historique_humboldt_vol3_1825
+ent_bbb498592baa,p-o-c,P. O. C.,ANATOMY,1,1,2,wrapped_punctuation;high_punctuation_ratio,principles_of_psychology_james_1890
+ent_1e6ad661140e,o-jaig,o^^-jaig,CONCEPT,1,1,2,ocr_noise_char;high_punctuation_ratio,coloquios_da_orta_1563
+ent_14b0eeeed725,o-s,O. S.,ANATOMY,1,1,2,wrapped_punctuation;high_punctuation_ratio,principles_of_psychology_james_1890
+ent_215498fb6d4b,o-d,O. D.,ANATOMY,1,1,2,wrapped_punctuation;high_punctuation_ratio,principles_of_psychology_james_1890
+ent_df6357c643b5,o-queyxo-de,O queyxo de .........,ANIMAL,1,1,2,wrapped_punctuation;high_punctuation_ratio,polyanthea_medicinal
+ent_13d415e6dec8,negres-joza-e,nègres (Joza^e*),PERSON,1,1,2,ocr_noise_char;wrapped_punctuation,relation_historique_humboldt_vol3_1825
+ent_739bcf88c1e4,mw-ero-atq-coiat,Mw^^ero(atQ coìat..,SUBSTANCE,1,1,2,ocr_noise_char;wrapped_punctuation,ricettario_fiorentino_1597
+ent_bdfe0d8ed718,morse-jvew-system-o-mod-geogr,"Morse, JVew-System o/Mod. Geogr.",PERSON,1,1,2,slash_noise;wrapped_punctuation,relation_historique_humboldt_vol3_1825
+ent_d9d11040f43b,mihi-fol-229,mihi fol.229.,OBJECT,1,1,2,bibliographic_fragment;wrapped_punctuation,polyanthea_medicinal
+ent_bee9ae30515b,marojalib-1-de-intern-morb-curat-cap-24-fol-mihi-196-col-1,Marojalib.1.de intern.morb.curat cap.24.fol . mihi 196. col. 1 .,OBJECT,1,1,2,bibliographic_fragment;wrapped_punctuation,polyanthea_medicinal
+ent_fa1eba7b2a7f,m-a,M.A.,CONCEPT,1,1,2,wrapped_punctuation;high_punctuation_ratio,origin_of_species_darwin_1859
+ent_6a58387c1525,lieutenance-tenencia-de-gobierno,Lieutenance {tenencia de gobierno),PLACE,1,1,2,ocr_noise_char;wrapped_punctuation,relation_historique_humboldt_vol3_1825
+ent_036cfcdae782,lib-r-pharmacop-spagyr,lib.r. Pharmacop. Spagyr.,OBJECT,1,1,2,bibliographic_fragment;wrapped_punctuation,polyanthea_medicinal
+ent_84dbc629923d,lib-deoctim-part,lib.deOctim part.,OBJECT,1,1,2,bibliographic_fragment;wrapped_punctuation,polyanthea_medicinal
+ent_d4af1105b7f1,lib-dealiment,lib.deAliment.,OBJECT,1,1,2,bibliographic_fragment;wrapped_punctuation,polyanthea_medicinal
+ent_ed00c5ea47bd,lib-de-compofitione-medicament,lib.de Compofitione medicament.,SUBSTANCE,1,1,2,bibliographic_fragment;wrapped_punctuation,polyanthea_medicinal
+ent_c364e2387e56,lib-6-de-part-morb-sympt,lib.6.de Part.morb.& ſympt.,OBJECT,1,1,2,bibliographic_fragment;wrapped_punctuation,polyanthea_medicinal
+ent_3b368c4d92df,lib-6-de-loc-affect-cap-2-fol-36-verf,lib.6.de Loc.affect.cap. 2. fol. 36. verf.,OBJECT,1,1,2,bibliographic_fragment;wrapped_punctuation,polyanthea_medicinal
+ent_20a6206e00fa,lib-5-part-1-cap-29,lib.5. part. 1. cap. 29.,CONCEPT,1,1,2,bibliographic_fragment;wrapped_punctuation,polyanthea_medicinal
+ent_892074b88d28,lib-5-cap-1-anatom,lib.5. cap. 1. Anatom.,OBJECT,1,1,2,bibliographic_fragment;wrapped_punctuation,polyanthea_medicinal
+ent_f3042cb7c597,lib-2-observationum-obferv,lib.2.Obſervationum obferv .,OBJECT,1,1,2,bibliographic_fragment;wrapped_punctuation,polyanthea_medicinal
+ent_489692589c60,lib-1-inftitutionum-medic,lib.1. inftitutionum Medic.,OBJECT,1,1,2,bibliographic_fragment;wrapped_punctuation,polyanthea_medicinal
+ent_8c6ad052cc10,lib-2-de-febribus-cap-30,lib. 2. de febribus cap.30.,OBJECT,1,1,2,bibliographic_fragment;wrapped_punctuation,polyanthea_medicinal
+ent_abd714d0fad1,lia,lia.^,PLACE,1,1,2,ocr_noise_char;high_punctuation_ratio,coloquios_da_orta_1563
+ent_5d432657692b,letters-from-the-havana-to-john-jviuon-croher-esq,Letters from the Havana to John JViUon Croher^Esq.,OBJECT,1,1,2,ocr_noise_char;wrapped_punctuation,relation_historique_humboldt_vol3_1825
+ent_0c8ccedfd06e,lat-5-3,Lat. 5°:;_3»,CONCEPT,1,1,2,ocr_noise_char;high_punctuation_ratio,relation_historique_humboldt_vol3_1825
+ent_cdac8efe6e8c,lat-56-33,lat. 56» 33',CONCEPT,1,1,2,ocr_noise_char;wrapped_punctuation,relation_historique_humboldt_vol3_1825
+ent_58f1c8f6c82b,lat-33-oi,"Lat. 33« — ôi""",CONCEPT,1,1,2,ocr_noise_char;wrapped_punctuation,relation_historique_humboldt_vol3_1825
+ent_6c990ae891a1,la-sr,lA^SR.,CONCEPT,1,1,2,ocr_noise_char;wrapped_punctuation,relation_historique_humboldt_vol3_1825
+ent_6e0becd0ba38,l-6,L.6',CONCEPT,1,1,2,wrapped_punctuation;high_punctuation_ratio,relation_historique_humboldt_vol3_1825
+ent_a52e8ba6b437,l-t-f,L. T. F.,ANATOMY,1,1,2,wrapped_punctuation;high_punctuation_ratio,principles_of_psychology_james_1890
+ent_69a3358c668f,john-jviuon-croher-esq,John JViUon Croher^Esq.,PERSON,1,1,2,ocr_noise_char;wrapped_punctuation,relation_historique_humboldt_vol3_1825
+ent_ab5b314caf09,j-ova-gen,J^ova Gen.,CONCEPT,1,1,2,ocr_noise_char;wrapped_punctuation,relation_historique_humboldt_vol3_1825
+ent_9d5ba130031a,j-fam,j^/fam,PLANT,1,1,2,ocr_noise_char;slash_noise,coloquios_da_orta_1563
+ent_59842fa67d4a,j-v,J. V.,PERSON,1,1,2,wrapped_punctuation;high_punctuation_ratio,principles_of_psychology_james_1890
+ent_3a8225b9d267,iu,Iu••,PERSON,1,1,2,ocr_noise_char;high_punctuation_ratio,english_physician_1652
+ent_48aa5cd398a7,imceleast-iiick-mckrflfajriti-f-ez-ci9-linn,IMCeleasT^iiick mckrflfajriti-f*ez*ci9 Linn.,ANIMAL,1,1,2,ocr_noise_char;wrapped_punctuation,coloquios_da_orta_1563
+ent_ec788887e7d2,idem-depart-morb-fol-mihi-zor,Idem dePart. morb. fol.mihi zor.,OBJECT,1,1,2,bibliographic_fragment;wrapped_punctuation,polyanthea_medicinal
+ent_35782da904f2,ibid-cap-32-per-tot-pag-10,ibid.cap.32. per tot. pag.10.,PERSON,1,1,2,bibliographic_fragment;wrapped_punctuation,polyanthea_medicinal
+ent_61d27d25290a,ibid-cap-9-num-70-pag-72-para-os-accidentes-uterinos-ibid-cap-90-num-9-pag-488,"ibid. cap. 9. num.70 pag. 72. & para os accidentes uterinos, ibid.cap.90.num.9.pag 488 .",CONCEPT,1,1,2,bibliographic_fragment;wrapped_punctuation,polyanthea_medicinal
+ent_64d371f04374,i-pex-oflleinel-inaxn-c-dc,I^pex* oflleineL-inaxn C. DC.,PLANT,1,1,2,ocr_noise_char;wrapped_punctuation,coloquios_da_orta_1563
+ent_b3f0d1af83e6,i-pex-loitflriui-linn,I^pex* loitflriui& Linn.,PLANT,1,1,2,ocr_noise_char;wrapped_punctuation,coloquios_da_orta_1563
+ent_2062f6c83b82,galenus-lib-4-de-locis-affectis-cap,"Galenus lib.4. de Locis affectis,cap.",OBJECT,1,1,2,bibliographic_fragment;wrapped_punctuation,polyanthea_medicinal
+ent_4be201833b94,g-c,G.C.,PERSON,1,1,2,wrapped_punctuation;high_punctuation_ratio,ricettario_fiorentino_1597
+ent_3247eb3c405d,fragmeti-di-me-mera-idi-pnencah-an-j-i,Fragméti di (me- mera Idi pnencah ^an.j-i.,SUBSTANCE,1,1,2,ocr_noise_char;wrapped_punctuation,ricettario_fiorentino_1597
+ent_fff215ec4659,f-o,F. O.,ANATOMY,1,1,2,wrapped_punctuation;high_punctuation_ratio,principles_of_psychology_james_1890
+ent_dcac786e58dc,f-l-d,F. L. D.,ANATOMY,1,1,2,wrapped_punctuation;high_punctuation_ratio,principles_of_psychology_james_1890
+ent_e75e44d62ddc,f-c-s,F. C. S.,ANATOMY,1,1,2,wrapped_punctuation;high_punctuation_ratio,principles_of_psychology_james_1890
+ent_cbf77d6ce1ae,empyr-cap-da5,Empyr.cap.DA5.,CONCEPT,1,1,2,bibliographic_fragment;wrapped_punctuation,polyanthea_medicinal
+ent_dc57b2798023,e-v,E. V.,PERSON,1,1,2,wrapped_punctuation;high_punctuation_ratio,origin_of_species_darwin_1859
+ent_c746efcbdf91,dipo-ipo-io,dipo'ipo<^io,PLANT,1,1,2,ocr_noise_char;symbol_noise,ricettario_fiorentino_1597
+ent_ed281fcf3b2b,d-v-a-s,D. V.A.S.,PERSON,1,1,2,wrapped_punctuation;high_punctuation_ratio,ricettario_fiorentino_1597
+ent_9ca87ef34539,cordj-fe-re-fe-californie,Cordj/fe're <fe Californie,PLACE,1,1,2,slash_noise;symbol_noise,relation_historique_humboldt_vol3_1825
+ent_6aeeb4b962ac,confili-dell-z-rtcy,Confili dell' z/^rtCy,PERSON,1,1,2,ocr_noise_char;slash_noise,ricettario_fiorentino_1597
+ent_b8fab854ce62,chatigam-c-hittagong,Chatígam (C^hittagong),PLACE,1,1,2,ocr_noise_char;wrapped_punctuation,coloquios_da_orta_1563
+ent_8a4e97034bf9,cego-plant,Cego^^^^»^*^*»!,PLANT,1,1,2,ocr_noise_char;high_punctuation_ratio,ricettario_fiorentino_1597
+ent_fcf574c2f910,catho-concept,Catho},CONCEPT,1,1,2,ocr_noise_char;wrapped_punctuation,coloquios_da_orta_1563
+ent_6f0af4d9b009,cara-a-as,CARA^a>AS,PLANT,1,1,2,ocr_noise_char;symbol_noise,coloquios_da_orta_1563
+ent_30523467f4ad,cap-101-1-6-p-532,Cap.101.1.6.p.532,CONCEPT,1,1,2,bibliographic_fragment;high_digit_ratio,polyanthea_medicinal
+ent_7b1e2d964acb,cap-10-mihi-fol-313,cap. 10. mihi fol.313.,CONCEPT,1,1,2,bibliographic_fragment;wrapped_punctuation,polyanthea_medicinal
+ent_8ea279f896d4,bastel-lib-3-de-vict-rat-fol-mihi-75,Baſtel lib.3.de Vict. rat.fol mihi 75.,PERSON,1,1,2,bibliographic_fragment;wrapped_punctuation,polyanthea_medicinal
+ent_9a49f485afca,ba-substance,ba..,SUBSTANCE,1,1,2,wrapped_punctuation;high_punctuation_ratio,polyanthea_medicinal
+ent_d703c1ec2007,b-c,B.C.,CONCEPT,1,1,2,wrapped_punctuation;high_punctuation_ratio,principles_of_psychology_james_1890
+ent_138a02577718,ainna,A••i••nna,PERSON,1,1,2,ocr_noise_char;high_punctuation_ratio,english_physician_1652
+ent_97476de94b8d,ati-cennserpk,Atí* cenn«Ser«pk>,PERSON,1,1,2,ocr_noise_char;symbol_noise,coloquios_da_orta_1563
+ent_3fcf25869c5b,ant-o-hindoo-med,Ant. o/Hindoo med.,OBJECT,1,1,2,slash_noise;wrapped_punctuation,coloquios_da_orta_1563
+ent_c01617952327,angen-lib-1-epift-2-fol-mihi-14,Angen. lib.1. Epift. 2. fol. mihi 14.,OBJECT,1,1,2,bibliographic_fragment;wrapped_punctuation,polyanthea_medicinal
+ent_90ad0aab95a3,a-e-oex,a^é^oex^,SUBSTANCE,1,1,2,ocr_noise_char;high_punctuation_ratio,coloquios_da_orta_1563
+ent_452ceefe81e2,a-oaoia-isiuiia-kurz,"A.oa«oia« íSiuiia, Kurz.",PLANT,1,1,2,ocr_noise_char;wrapped_punctuation,coloquios_da_orta_1563
+ent_55b3d6340ea8,a-d,A.D.,CONCEPT,1,1,2,wrapped_punctuation;high_punctuation_ratio,principles_of_psychology_james_1890
+ent_37174fca6dcd,a-d-c,A. D.C.,CONCEPT,1,1,2,wrapped_punctuation;high_punctuation_ratio,coloquios_da_orta_1563
+ent_485cde92ed61,a-principles,a''',CONCEPT,1,1,2,wrapped_punctuation;high_punctuation_ratio,principles_of_psychology_james_1890
+ent_625f180244e2,5a,5a(.,CONCEPT,1,1,2,wrapped_punctuation;high_punctuation_ratio,relation_historique_humboldt_vol3_1825
+ent_91f20f96d55a,3fa-mei,3fa^ mei.,CONCEPT,1,1,2,ocr_noise_char;wrapped_punctuation,coloquios_da_orta_1563
+ent_eb00a10bd8c9,100-fol-mihi-297,"100, fol.mihi 297.",CONCEPT,1,1,2,bibliographic_fragment;wrapped_punctuation,polyanthea_medicinal
+ent_21a86471d939,trat,Trat.,CONCEPT,1,75,1,wrapped_punctuation,polyanthea_medicinal
+ent_b0ebedbfe31d,mat-med,Mat. med.,OBJECT,1,61,1,wrapped_punctuation,coloquios_da_orta_1563
+ent_48506af217c9,cap,cap.,OBJECT,3,61,1,wrapped_punctuation,coloquios_da_orta_1563;polyanthea_medicinal;relation_historique_humboldt_vol3_1825
+ent_106329c9a960,linn,Linn.,PERSON,1,41,1,wrapped_punctuation,coloquios_da_orta_1563
+ent_89ba4a0754cf,ibid,ibid.,CONCEPT,1,40,1,wrapped_punctuation,polyanthea_medicinal
+ent_6fd02184d181,observ,Obſerv.,OBJECT,1,38,1,wrapped_punctuation,polyanthea_medicinal
+ent_2ec8d3c1423f,fabr,Fabr.,PERSON,1,33,1,wrapped_punctuation,polyanthea_medicinal
+ent_06268a9e4534,physiol-psych,Physiol. Psych.,ORGANIZATION,1,23,1,wrapped_punctuation,principles_of_psychology_james_1890
+ent_dc94a9725e07,prax-medic,Prax.Medic.,OBJECT,1,21,1,wrapped_punctuation,polyanthea_medicinal
+ent_8d1ddda7234d,obfervat-medic,Obfervat. Medic.,CONCEPT,1,17,1,wrapped_punctuation,polyanthea_medicinal
+ent_238daf99cbea,kilog,kilog.,SUBSTANCE,1,16,1,wrapped_punctuation,relation_historique_humboldt_vol3_1825
+ent_609970bc62d3,joann-fabr,Joann. Fabr.,PERSON,1,16,1,wrapped_punctuation,polyanthea_medicinal
+ent_031bcf130732,carlos-v,Carlos V.,PERSON,2,15,1,wrapped_punctuation,coloquios_da_orta_1563;polyanthea_medicinal
+ent_a746aed1b077,prax,Prax.,CONCEPT,1,14,1,wrapped_punctuation,polyanthea_medicinal
+ent_a510469e5652,petr-mart,Petr. Mart.,PERSON,1,13,1,wrapped_punctuation,relation_historique_humboldt_vol3_1825
+ent_aba8e173c24d,ne,NE.,CONCEPT,1,10,1,wrapped_punctuation,relation_historique_humboldt_vol3_1825
+ent_44f63ebfe226,cap-33-num-1-p-211,cap. 33. num.1.p.211 .,PERSON,1,10,1,wrapped_punctuation,polyanthea_medicinal
+ent_e600c65123da,lib-polyanthea,lib.,OBJECT,1,9,1,wrapped_punctuation,polyanthea_medicinal
+ent_a7796157dc16,dist-lun,Dist. lun.,CONCEPT,1,9,1,wrapped_punctuation,relation_historique_humboldt_vol3_1825
+ent_f0679553f184,os,os,SUBSTANCE,1,8,1,very_short_low_count,polyanthea_medicinal
+ent_40edd86df289,mat-med-concept,"Mat, med.",CONCEPT,1,8,1,wrapped_punctuation,coloquios_da_orta_1563
+ent_f45bb5782311,mala-franc-os,mala Franc^os,DISEASE,1,8,1,ocr_noise_char,coloquios_da_orta_1563
+ent_1a9f742ef828,lat,lat.,CONCEPT,1,8,1,wrapped_punctuation,relation_historique_humboldt_vol3_1825
+ent_92813f605b75,herb-amb,Herb. Amb.,OBJECT,3,8,1,wrapped_punctuation,coloquios_da_orta_1563;english_physician_1652;relation_historique_humboldt_vol3_1825
+ent_66ab7289db23,filippe-iii,Filippe III.,PERSON,1,8,1,wrapped_punctuation,polyanthea_medicinal
+ent_b7403abce723,dict,Dict.,OBJECT,1,8,1,wrapped_punctuation,coloquios_da_orta_1563
+ent_9436c0e2414b,curat,Curat.,CONCEPT,1,8,1,wrapped_punctuation,polyanthea_medicinal
+ent_1c907af889d6,chriftophorus-bened,Chriftophorus Bened.,PERSON,1,8,1,wrapped_punctuation,polyanthea_medicinal
+ent_8caf3da1bdb9,aphor,Aphor.,OBJECT,1,8,1,wrapped_punctuation,polyanthea_medicinal
+ent_b0ffcc7c99bb,malasp,Malasp.,PERSON,1,7,1,wrapped_punctuation,relation_historique_humboldt_vol3_1825
+ent_585c71c7ad6c,lexicon-medic,Lexicon Medic.,OBJECT,1,7,1,wrapped_punctuation,polyanthea_medicinal
+ent_1b1ca3e394d4,fol,fol.,PLANT,1,7,1,wrapped_punctuation,polyanthea_medicinal
+ent_a02e5b9352ba,anatom,Anatom.,CONCEPT,4,7,1,wrapped_punctuation,coloquios_da_orta_1563;polyanthea_medicinal;principles_of_psychology_james_1890;relation_historique_humboldt_vol3_1825
+ent_4737dbdb7822,plater,Plater.,PERSON,1,6,1,wrapped_punctuation,polyanthea_medicinal
+ent_65538aa73d90,ly,Ly,SUBSTANCE,1,6,1,very_short_low_count,english_physician_1652
+ent_032be06ba068,henrique-iv,Henrique IV.,PERSON,1,6,1,wrapped_punctuation,polyanthea_medicinal
+ent_102183b99fab,dd,DD.,PERSON,1,6,1,wrapped_punctuation,polyanthea_medicinal
+ent_c671281c8861,amat,Amat.,PERSON,1,6,1,wrapped_punctuation,polyanthea_medicinal
+ent_9b1d8a0ff453,veig-lufitan,Veig. Lufitan.,PERSON,1,5,1,wrapped_punctuation,polyanthea_medicinal
+ent_b0b0e7049a16,thefaur-vit-human,Thefaur. vit. human.,OBJECT,1,5,1,wrapped_punctuation,polyanthea_medicinal
+ent_4814a5ad12fa,singult,Singult.,DISEASE,1,5,1,wrapped_punctuation,polyanthea_medicinal
+ent_4f89d2262825,rey-dom-joao-o-iv,Rey Dom Joao o IV.,PERSON,1,5,1,wrapped_punctuation,polyanthea_medicinal
+ent_8edc8424e1d5,pract-chymic,Pract. Chymic.,OBJECT,1,5,1,wrapped_punctuation,polyanthea_medicinal
+ent_4832e3d561ea,phrenit,Phrenit.,DISEASE,1,5,1,wrapped_punctuation,polyanthea_medicinal
+ent_46d9f1368218,humb,Humb.,PERSON,1,5,1,wrapped_punctuation,relation_historique_humboldt_vol3_1825
+ent_2a373b2ec4f4,duquep-costa,DuqueP. Costa.,PERSON,1,5,1,wrapped_punctuation,polyanthea_medicinal
+ent_1f6822588f94,carol-rayger,Carol. Rayger.,PERSON,1,5,1,wrapped_punctuation,polyanthea_medicinal
+ent_ee202b45f690,capit,capit.,CONCEPT,1,5,1,wrapped_punctuation,polyanthea_medicinal
+ent_4d79c712f90a,xa,xá,CONCEPT,1,4,1,very_short_low_count,coloquios_da_orta_1563
+ent_4f86aa05ff11,voya-c-a-t-amazone,Voya^'C à t* Amazone,OBJECT,1,4,1,ocr_noise_char,relation_historique_humboldt_vol3_1825
+ent_8a2850710511,variol,Variol.,DISEASE,1,4,1,wrapped_punctuation,polyanthea_medicinal
+ent_ac579897de15,rhod,Rhod.,PERSON,1,4,1,wrapped_punctuation,polyanthea_medicinal
+ent_5b4dea87112d,rai-angelica,rai^ angélica,PLANT,1,4,1,ocr_noise_char,coloquios_da_orta_1563
+ent_5c377c15ebc8,psychol,Psychol.,ORGANIZATION,1,4,1,wrapped_punctuation,principles_of_psychology_james_1890
+ent_8920ed7dfdcb,pag,pag.,CONCEPT,1,4,1,wrapped_punctuation,polyanthea_medicinal
+ent_d3a567f2baa0,opilat,opilat.,CONCEPT,1,4,1,wrapped_punctuation,polyanthea_medicinal
+ent_54bbec1348a0,ocean-object,Océan.,OBJECT,1,4,1,wrapped_punctuation,relation_historique_humboldt_vol3_1825
+ent_f6fb54b56b35,occull,Occull.,CONCEPT,2,4,1,wrapped_punctuation,polyanthea_medicinal;relation_historique_humboldt_vol3_1825
+ent_ea40013fda90,ni,Ni,OBJECT,1,4,1,very_short_low_count,polyanthea_medicinal
+ent_7762d9f9596f,n-52-p-451,n.52.p.451,CONCEPT,1,4,1,high_digit_ratio,polyanthea_medicinal
+ent_d8be3a353637,meth,Meth.,CONCEPT,1,4,1,wrapped_punctuation,polyanthea_medicinal
+ent_8850f8ea6a32,menezes-d-christovio-de,Menezes (D. Chrístovio de),PERSON,1,4,1,wrapped_punctuation,coloquios_da_orta_1563
+ent_b1a708dd8082,lumbr,Lumbr.,DISEASE,1,4,1,wrapped_punctuation,polyanthea_medicinal
+ent_c25f2bfdf60f,lact,Lact.,PLANT,1,4,1,wrapped_punctuation,polyanthea_medicinal
+ent_a61bdcabbdb7,ib,ib.,CONCEPT,1,4,1,wrapped_punctuation,polyanthea_medicinal
+ent_f7c6a615aee6,hanb,Hanb.,PERSON,1,4,1,wrapped_punctuation,coloquios_da_orta_1563
+ent_a8f6915675b9,guid,Guid.,PERSON,1,4,1,wrapped_punctuation,polyanthea_medicinal
+ent_dc7cb53d6bb1,fiorav,Fiorav.,PERSON,1,4,1,wrapped_punctuation,polyanthea_medicinal
+ent_5be7673f16af,dec,Dec.,OBJECT,1,4,1,wrapped_punctuation,relation_historique_humboldt_vol3_1825
+ent_4f6764bc9205,cent,Cent.,CONCEPT,1,4,1,wrapped_punctuation,polyanthea_medicinal
+ent_9cc67b3442de,cent-substance,cent.,SUBSTANCE,1,4,1,wrapped_punctuation,relation_historique_humboldt_vol3_1825
+ent_65a0ebcd13ba,cardamomo-mm,Cardamomo mm.,PLANT,1,4,1,wrapped_punctuation,ricettario_fiorentino_1597
+ent_e386424e6f8f,bonet-polyanthea,Bonet.,PERSON,1,4,1,wrapped_punctuation,polyanthea_medicinal
+ent_84b97bc3d113,armament-chirurg,Armament. Chirurg.,OBJECT,1,4,1,wrapped_punctuation,polyanthea_medicinal
+ent_bae747299453,vierteljsch-f-wiss-phil,Vierteljsch. f. wiss. Phil.,ORGANIZATION,1,3,1,wrapped_punctuation,principles_of_psychology_james_1890
+ent_122a2f2a2c2f,ud,ud,PLANT,1,3,1,very_short_low_count,coloquios_da_orta_1563
+ent_ad6f443868b2,tom,Tom.,CONCEPT,1,3,1,wrapped_punctuation,relation_historique_humboldt_vol3_1825
+ent_4fa0951c0d7d,thom-wil,Thom. Wil.,PERSON,1,3,1,wrapped_punctuation,polyanthea_medicinal
+ent_42a60e5af376,therapeut,Therapeut.,CONCEPT,2,3,1,wrapped_punctuation,english_physician_1652;polyanthea_medicinal
+ent_efefe19a3ec0,sympath,Sympath.,CONCEPT,1,3,1,wrapped_punctuation,polyanthea_medicinal
+ent_0ce313c0b9df,sat,Sat.,CONCEPT,1,3,1,wrapped_punctuation,relation_historique_humboldt_vol3_1825
+ent_b8a5d5f9545a,sal-place,Sal.,PLACE,1,3,1,wrapped_punctuation,relation_historique_humboldt_vol3_1825
+ent_08a3a45516be,ruland,Ruland.,PERSON,1,3,1,wrapped_punctuation,polyanthea_medicinal
+ent_043b7c0c8388,roxb,Roxb.,PERSON,1,3,1,wrapped_punctuation,coloquios_da_orta_1563
+ent_fac97dd0b138,re,re,CONCEPT,1,3,1,very_short_low_count,polyanthea_medicinal
+ent_835a11f75b92,rai-de-cus,rai^ de çus,PLANT,1,3,1,ocr_noise_char,coloquios_da_orta_1563
+ent_5a46033a8f1e,psychol-als-w,Psychol. als W.,ORGANIZATION,1,3,1,wrapped_punctuation,principles_of_psychology_james_1890
+ent_db67c6fdb91e,prognoft,Prognoft.,OBJECT,1,3,1,wrapped_punctuation,polyanthea_medicinal
+ent_97a93b852ea9,plin-lib,Plin. lib.,PERSON,1,3,1,wrapped_punctuation,polyanthea_medicinal
+ent_6ad2e2d0fdaf,phil-tr,Phil. Tr.,OBJECT,1,3,1,wrapped_punctuation,relation_historique_humboldt_vol3_1825
+ent_5085e40cfdb4,pari-aiaco,pari^aíaco,PLANT,1,3,1,ocr_noise_char,coloquios_da_orta_1563
+ent_676ef1018115,pa-ahr,pa^ahr,SUBSTANCE,1,3,1,ocr_noise_char,coloquios_da_orta_1563
+ent_564a0c5bdac6,oltm,Oltm.,PERSON,1,3,1,wrapped_punctuation,relation_historique_humboldt_vol3_1825
+ent_acbd6f526de5,ollni,Ollni.,PERSON,1,3,1,wrapped_punctuation,relation_historique_humboldt_vol3_1825
+ent_0fd2f6d66202,nees-von-es,Nees von Es.,PERSON,1,3,1,wrapped_punctuation,coloquios_da_orta_1563
+ent_85497b8e2670,n-18-p-550,n.18.p.550,CONCEPT,1,3,1,high_digit_ratio,polyanthea_medicinal
+ent_6bcad9663d36,morb,morb.,DISEASE,1,3,1,wrapped_punctuation,polyanthea_medicinal
+ent_34671ebbaa59,modem-geogr,Modem. Géogr.,OBJECT,1,3,1,wrapped_punctuation,relation_historique_humboldt_vol3_1825
+ent_8d719774efe8,method-polyanthea,Method.,CONCEPT,1,3,1,wrapped_punctuation,polyanthea_medicinal
+ent_0efb844e191a,medend-morb,Medend. morb.,CONCEPT,1,3,1,wrapped_punctuation,polyanthea_medicinal
+ent_d8eb9bd4f8b8,libro-2,libro 2.,OBJECT,1,3,1,wrapped_punctuation,polyanthea_medicinal
+ent_45ae78681a06,journ-de-phys,Journ. de Phys.,SUBSTANCE,1,3,1,wrapped_punctuation,relation_historique_humboldt_vol3_1825
+ent_54acca29965c,hy,Hy,CONCEPT,1,3,1,very_short_low_count,polyanthea_medicinal
+ent_8b3b95a21a0a,hitt-plant,Hitt. Plant.,OBJECT,1,3,1,wrapped_punctuation,coloquios_da_orta_1563
+ent_47e9bdad596e,hippocrates-lib-deflatibus,Hippocrates lib.deFlatibus,OBJECT,1,3,1,bibliographic_fragment,polyanthea_medicinal
+ent_114e6a1a8196,herb-amb-concept,"Herb, Amb.",CONCEPT,2,3,1,wrapped_punctuation,coloquios_da_orta_1563;polyanthea_medicinal
+ent_06509cda26fc,gordon-polyanthea,Gordon.,PERSON,1,3,1,wrapped_punctuation,polyanthea_medicinal
+ent_d602da48aa09,gloss,Gloss.,OBJECT,1,3,1,wrapped_punctuation,coloquios_da_orta_1563
+ent_07c8382b7eaf,geau-i,geau^^i,PLANT,1,3,1,ocr_noise_char,coloquios_da_orta_1563
+ent_9aa61e7cd38e,galen-lib-14-meth-cap-8,Galen.lib.14. meth.cap.8,PERSON,1,3,1,bibliographic_fragment,polyanthea_medicinal
+ent_a24b805de1e0,gaf-de-pharm,Gaf. de Pharm.,OBJECT,1,3,1,wrapped_punctuation,coloquios_da_orta_1563
+ent_19c683059245,felida-x,Félida X.,PERSON,1,3,1,wrapped_punctuation,principles_of_psychology_james_1890
+ent_63ae60c988d7,filip-pe-iv,Filip- pe IV.,PERSON,1,3,1,wrapped_punctuation,polyanthea_medicinal
+ent_d765f6a569c5,fernel,Fernel.,PERSON,1,3,1,wrapped_punctuation,polyanthea_medicinal
+ent_0bda42998fac,ferm,ferm.,CONCEPT,1,3,1,wrapped_punctuation,polyanthea_medicinal
+ent_b3aaf356a378,falop,Falop.,PERSON,1,3,1,wrapped_punctuation,polyanthea_medicinal
+ent_75ab642b327c,epift,Epift.,OBJECT,1,3,1,wrapped_punctuation,polyanthea_medicinal
+ent_d5df5c5f1839,edinb-phil-journ,Edinb.Phil. Journ.,OBJECT,1,3,1,wrapped_punctuation,relation_historique_humboldt_vol3_1825
+ent_3f0c6d932ddb,don-apouinario-diezde-la-fefe,Don ApoUinario Diezde la F«e»fe,PERSON,1,3,1,ocr_noise_char,relation_historique_humboldt_vol3_1825
+ent_da7c77d905a9,delle-navig,Delle navig.,OBJECT,1,3,1,wrapped_punctuation,coloquios_da_orta_1563
+ent_8bbc9338cefa,de,de,CONCEPT,1,3,1,very_short_low_count,polyanthea_medicinal
+ent_76ec09010daf,d-g-nstantino,D. G>nstantino,PERSON,1,3,1,symbol_noise,coloquios_da_orta_1563
+ent_fae87613f18e,conf-med,Conf. Med.,CONCEPT,1,3,1,wrapped_punctuation,polyanthea_medicinal
+ent_98fa763e8fb4,carlos-ix,Carlos IX.,PERSON,1,3,1,wrapped_punctuation,polyanthea_medicinal
+ent_1b3dd96521f2,bayr,Bayr.,PERSON,1,3,1,wrapped_punctuation,polyanthea_medicinal
+ent_d9739c8d548e,avic,Avic.,PERSON,1,3,1,wrapped_punctuation,polyanthea_medicinal
+ent_664125917256,auroramedic,AuroraMedic.,OBJECT,1,3,1,wrapped_punctuation,polyanthea_medicinal
+ent_8d1aedd57334,argos-de-bucnos-yrea,Argos de Bucnos-^yrea,OBJECT,1,3,1,ocr_noise_char,relation_historique_humboldt_vol3_1825
+ent_58d59d0c1989,argenter,Argenter.,PERSON,1,3,1,wrapped_punctuation,polyanthea_medicinal
+ent_090d1bb049cf,archiv-f-anat-u-physiol,Archiv f. (Anat. u.) Physiol.,ORGANIZATION,1,3,1,wrapped_punctuation,principles_of_psychology_james_1890
+ent_475e81947ea0,arch-amer,Arch. Amer.,OBJECT,1,3,1,wrapped_punctuation,relation_historique_humboldt_vol3_1825
+ent_2f6eaf3b84c2,afonso-d-albuquerque,Afonso d^ Albuquerque,PERSON,1,3,1,ocr_noise_char,coloquios_da_orta_1563
+ent_d2efb9218931,actuar,Actuar.,PERSON,1,3,1,wrapped_punctuation,polyanthea_medicinal
+ent_b0e99fb46999,ca-ra,ça^ra,SUBSTANCE,1,2,1,ocr_noise_char,coloquios_da_orta_1563
+ent_288292a55d27,ambar-almendeli,âmbar «almendeli»,SUBSTANCE,1,2,1,ocr_noise_char,coloquios_da_orta_1563
+ent_d13996767a9a,zodiac-gal,Zodiac.Gal.,CONCEPT,1,2,1,wrapped_punctuation,polyanthea_medicinal
+ent_8f24dbf8195c,wien-sitzungsberichte-math-naturw,"Wien. Sitzungsberichte, Math. Naturw.",ORGANIZATION,1,2,1,wrapped_punctuation,principles_of_psychology_james_1890
+ent_5224b837e851,voyages-and-descr,Voyages and Descr.,OBJECT,1,2,1,wrapped_punctuation,relation_historique_humboldt_vol3_1825
+ent_ea91764b18f8,vademec,Vademec.,OBJECT,1,2,1,wrapped_punctuation,polyanthea_medicinal
+ent_7d50aa66b354,uumb,Uumb.,PERSON,1,2,1,wrapped_punctuation,relation_historique_humboldt_vol3_1825
+ent_d436b8bc4229,ut,ut,OBJECT,1,2,1,very_short_low_count,polyanthea_medicinal
+ent_f66c46cbed30,ur,Ur,PLACE,1,2,1,very_short_low_count,coloquios_da_orta_1563
+ent_fae35d0b53da,tratado-ii-cap-xxv,Tratado II.Cap. XXV.,PLACE,1,2,1,wrapped_punctuation,polyanthea_medicinal
+ent_f326e189d2da,trans-unn-soe,Trans. Unn. Soe.,OBJECT,1,2,1,wrapped_punctuation,coloquios_da_orta_1563
+ent_dbac14747bcf,tract-de-cucurb,Tract. de Cucurb.,OBJECT,1,2,1,wrapped_punctuation,polyanthea_medicinal
+ent_e492e61092a0,tomo-1-confult-47,tomo 1. Confult. 47.,OBJECT,1,2,1,wrapped_punctuation,polyanthea_medicinal
+ent_fe189a76c830,titul-1,titul. 1.,OBJECT,1,2,1,wrapped_punctuation,polyanthea_medicinal
+ent_a59514b46101,thefauri-medicina-pract,Thefauri Medicina pract.,CONCEPT,1,2,1,wrapped_punctuation,polyanthea_medicinal
+ent_8d627ebc12fa,th,Th.,SUBSTANCE,1,2,1,wrapped_punctuation,relation_historique_humboldt_vol3_1825
+ent_3310d11910c4,ta-ccnl,TA. ccnl.,SUBSTANCE,1,2,1,wrapped_punctuation,relation_historique_humboldt_vol3_1825
+ent_857d17c21146,ta-ts-in,Ta-ts^in,PLACE,1,2,1,ocr_noise_char,coloquios_da_orta_1563
+ent_cd2207023a15,strum,Strum.,DISEASE,1,2,1,wrapped_punctuation,polyanthea_medicinal
+ent_e2ea5dd31c0c,stib,Stib.,SUBSTANCE,1,2,1,wrapped_punctuation,polyanthea_medicinal
+ent_4b30a0222fab,stephanus-rodrig-de-caft,Stephanus Rodrig. de Caft.,PERSON,1,2,1,wrapped_punctuation,polyanthea_medicinal
+ent_e8bc48c924ab,specul-chirurg,Specul. Chirurg.,CONCEPT,1,2,1,wrapped_punctuation,polyanthea_medicinal
+ent_60f994fcde58,societies-for-psychical-research,Societies for 'Psychical Research',ORGANIZATION,1,2,1,wrapped_punctuation,principles_of_psychology_james_1890
+ent_3278dd6448de,so-concept,SO.,CONCEPT,1,2,1,wrapped_punctuation,relation_historique_humboldt_vol3_1825
+ent_a2643951b21c,slat,Slat.,OBJECT,1,2,1,wrapped_punctuation,relation_historique_humboldt_vol3_1825
+ent_d1d7a6f01a56,schock,Schock.,PERSON,1,2,1,wrapped_punctuation,polyanthea_medicinal
+ent_b56081e4e385,savonar,Savonar.,PERSON,1,2,1,wrapped_punctuation,polyanthea_medicinal
+ent_bd694bca8b03,rb,R•b,SUBSTANCE,1,2,1,ocr_noise_char,english_physician_1652
+ent_b3d856ddd2f3,rhodolog,Rhodolog.,CONCEPT,1,2,1,wrapped_punctuation,polyanthea_medicinal
+ent_b3df8eadf7ca,rai-do-espirito-santo,rai^ do espirito santo,PLANT,1,2,1,ocr_noise_char,coloquios_da_orta_1563
+ent_c99bc69619e5,r-no-de-far-uque,R^no de Far-Uque,PLACE,1,2,1,ocr_noise_char,coloquios_da_orta_1563
+ent_be403d906307,po,pô,SUBSTANCE,1,2,1,very_short_low_count,polyanthea_medicinal
+ent_0a933f86ea85,prufe-i,prufe^i^,SUBSTANCE,1,2,1,ocr_noise_char,coloquios_da_orta_1563
+ent_a42af4a774ad,prax-medic-person,Prax. Medic.,PERSON,1,2,1,wrapped_punctuation,polyanthea_medicinal
+ent_99e59d541170,plin,Plin.,PERSON,1,2,1,wrapped_punctuation,coloquios_da_orta_1563
+ent_85ce94f44b96,phaseolus-mungo-linn,Phaseolus Mungo Linn.,PLANT,1,2,1,wrapped_punctuation,coloquios_da_orta_1563
+ent_4c9b590e5508,pereyra,Pereyra.,PERSON,1,2,1,wrapped_punctuation,polyanthea_medicinal
+ent_6a27ac1287c9,peregrin,Peregrin.,OBJECT,1,2,1,wrapped_punctuation,coloquios_da_orta_1563
+ent_1df208e38bb3,pass-de-merc,Pass. de Merc.,CONCEPT,1,2,1,wrapped_punctuation,relation_historique_humboldt_vol3_1825
+ent_f2092742e6ba,part-morb,Part. morb.,DISEASE,1,2,1,wrapped_punctuation,polyanthea_medicinal
+ent_5bb466e54dec,palo-de-f-aca,Palo de f^aca,PLANT,1,2,1,ocr_noise_char,relation_historique_humboldt_vol3_1825
+ent_48f6954adda9,pagode-de-tremelle,pagode de «Tremelle»,OBJECT,1,2,1,ocr_noise_char,coloquios_da_orta_1563
+ent_072be50c36c4,num,num.,CONCEPT,1,2,1,wrapped_punctuation,polyanthea_medicinal
+ent_04a320cb542c,niccolo-ale-mdrino,Niccolò Ale^mdrìno,PERSON,1,2,1,ocr_noise_char,ricettario_fiorentino_1597
+ent_42a167f0de3b,mem,Mém.,OBJECT,1,2,1,wrapped_punctuation,relation_historique_humboldt_vol3_1825
+ent_d4ae408a08f1,morb-curand,morb.curand.,CONCEPT,1,2,1,wrapped_punctuation,polyanthea_medicinal
+ent_7d19e7a88ded,morb-mulier,Morb. mulier.,DISEASE,1,2,1,wrapped_punctuation,polyanthea_medicinal
+ent_3f28050b6deb,morb-comitial,Morb. Comitial.,DISEASE,1,2,1,wrapped_punctuation,polyanthea_medicinal
+ent_8843247f36c9,monardeslu,Monardeslu.,PERSON,1,2,1,wrapped_punctuation,historia_medicinal_monardes_1574
+ent_c89fb9b96ae2,mom,Mom.,CONCEPT,2,2,1,wrapped_punctuation,polyanthea_medicinal;relation_historique_humboldt_vol3_1825
+ent_8521876bed58,mo,mo',PLANT,1,2,1,wrapped_punctuation,ricettario_fiorentino_1597
+ent_920c1de940a9,midollo-di-ceru,Midollo di ceru.,ANIMAL,1,2,1,wrapped_punctuation,ricettario_fiorentino_1597
+ent_8a233b33d306,mental-physiol,Mental Physiol.,ORGANIZATION,1,2,1,wrapped_punctuation,principles_of_psychology_james_1890
+ent_3109c96f4688,mem-de-los-nav-esp,Mem. de los Nav. Esp.,OBJECT,1,2,1,wrapped_punctuation,relation_historique_humboldt_vol3_1825
+ent_1c4433c6828d,med-psych,Med. Psych.,ORGANIZATION,1,2,1,wrapped_punctuation,principles_of_psychology_james_1890
+ent_ae5dc215f20c,matth,Matth.,PERSON,1,2,1,wrapped_punctuation,polyanthea_medicinal
+ent_d014f1d2c10b,malign-curat,Malign. curat.,CONCEPT,1,2,1,wrapped_punctuation,polyanthea_medicinal
+ent_2ad6d3ab5232,makh-an-el-adwiya,Makh^an-el Adwiya,OBJECT,1,2,1,ocr_noise_char,coloquios_da_orta_1563
+ent_facefbc3d5f7,macha-ari,macha^ari,PLANT,1,2,1,ocr_noise_char,coloquios_da_orta_1563
+ent_eaed44ac363b,ma,Ma,PERSON,1,2,1,very_short_low_count,historia_medicinal_monardes_1574
+ent_f81be2fef082,la-animal,Lã,ANIMAL,1,2,1,very_short_low_count,polyanthea_medicinal
+ent_ed50c902859c,luis-viii,Luis VIII.,PERSON,1,2,1,wrapped_punctuation,polyanthea_medicinal
+ent_92d3bb8d1839,longs-expcd,Longs Expcd.,PERSON,1,2,1,wrapped_punctuation,relation_historique_humboldt_vol3_1825
+ent_8dcda110a2bd,long-relation,long.,CONCEPT,1,2,1,wrapped_punctuation,relation_historique_humboldt_vol3_1825
+ent_a5e65f687a7b,lehrb-d-psychol,Lehrb. d. Psychol.,ORGANIZATION,1,2,1,wrapped_punctuation,principles_of_psychology_james_1890
+ent_bbfe836d3f61,lat-0-4o,Lat. 0° 4o',CONCEPT,1,2,1,wrapped_punctuation,relation_historique_humboldt_vol3_1825
+ent_84de0146243b,ju,Ju,CONCEPT,1,2,1,very_short_low_count,english_physician_1652
+ent_e48a0413da4c,it,it,CONCEPT,1,2,1,very_short_low_count,principles_of_psychology_james_1890
+ent_e59b84e1f335,ipomcea-odnirpetliiuity-r-bro-wn,Ipomcea ODnirpetliiuity R. Bro^wn,PLANT,1,2,1,ocr_noise_char,coloquios_da_orta_1563
+ent_d7f5c9904f54,ina-ant,Iná. Ant.,CONCEPT,1,2,1,wrapped_punctuation,coloquios_da_orta_1563
+ent_1fdeba933c8d,instu-medic,Instu. Medic.,OBJECT,1,2,1,wrapped_punctuation,polyanthea_medicinal
+ent_4073806c4fea,illustrations-of-the-bril-emp,Illustrations of the Bril. Emp.,OBJECT,1,2,1,wrapped_punctuation,relation_historique_humboldt_vol3_1825
+ent_27f8612ef967,iii,III.,PERSON,1,2,1,wrapped_punctuation,polyanthea_medicinal
+ent_f301bf148969,ibid-n-24-pag-402,ibid.n. 24. pag.402.,PERSON,1,2,1,wrapped_punctuation,polyanthea_medicinal
+ent_d64a06d956ff,i-cpe-lungo,I^cpe lungo,PLANT,1,2,1,ocr_noise_char,ricettario_fiorentino_1597
+ent_abc961434fc3,hygr,hygr.,OBJECT,1,2,1,wrapped_punctuation,relation_historique_humboldt_vol3_1825
+ent_f783c70d2d8a,herr-m,Herr M.,PERSON,1,2,1,wrapped_punctuation,principles_of_psychology_james_1890
+ent_42feeca9a707,hermann-s-hdbch,Hermann's Hdbch.,ORGANIZATION,1,2,1,wrapped_punctuation,principles_of_psychology_james_1890
+ent_1d926ba5ac21,herbert-w,"Herbert, W.",PERSON,1,2,1,wrapped_punctuation,origin_of_species_darwin_1859
+ent_2ec2c40d870f,heer-o,"Heer, O.",PERSON,1,2,1,wrapped_punctuation,origin_of_species_darwin_1859
+ent_d5f42e00eb8a,hdbch-d-physiol,Hdbch. d. Physiol.,ORGANIZATION,1,2,1,wrapped_punctuation,principles_of_psychology_james_1890
+ent_ad2e5145ec11,geogr-relation,Géogr.,OBJECT,1,2,1,wrapped_punctuation,relation_historique_humboldt_vol3_1825
+ent_de4b35970dff,grcor,Græcor.,PERSON,1,2,1,wrapped_punctuation,polyanthea_medicinal
+ent_4e5ada37df83,gonoco-nuiiio-jao,Gonoco-nuiiio (Jao),PLACE,1,2,1,wrapped_punctuation,relation_historique_humboldt_vol3_1825
+ent_1c92b27ed0aa,galenus-lib-3-deloc-8,Galenus lib. 3.deLoc.8.,PERSON,1,2,1,wrapped_punctuation,polyanthea_medicinal
+ent_1eff358cd76a,fe,fé,CONCEPT,1,2,1,very_short_low_count,coloquios_da_orta_1563
+ent_a072ecaecae9,farina-di-aue,farina di ^aue,SUBSTANCE,1,2,1,ocr_noise_char,ricettario_fiorentino_1597
+ent_72c128463ea4,fahr,Fahr.,SUBSTANCE,1,2,1,wrapped_punctuation,relation_historique_humboldt_vol3_1825
+ent_bbdd487f3ad8,epistol-medic,Epistol. Medic.,OBJECT,1,2,1,wrapped_punctuation,polyanthea_medicinal
+ent_e172f0576c54,eo,eo,OBJECT,1,2,1,very_short_low_count,polyanthea_medicinal
+ent_d34492b9855f,empirische-psychol,Empirische Psychol.,ORGANIZATION,1,2,1,wrapped_punctuation,principles_of_psychology_james_1890
+ent_d693ab7efa9f,e-and-w,E. and W.,ORGANIZATION,1,2,1,wrapped_punctuation,principles_of_psychology_james_1890
+ent_387e7f569de9,dymock-mat-med,"Dymock, Mat* med^",OBJECT,1,2,1,ocr_noise_char,coloquios_da_orta_1563
+ent_4bf5dc3a23c6,dy,Dy,DISEASE,1,2,1,very_short_low_count,polyanthea_medicinal
+ent_2845a65ba574,diuret,Diuret.,CONCEPT,1,2,1,wrapped_punctuation,polyanthea_medicinal
+ent_b2f44079833f,delapide-be-aar,Delapide Be^aar,PLANT,1,2,1,ocr_noise_char,coloquios_da_orta_1563
+ent_27fc900f1179,d-aug,D.Aug.,PERSON,1,2,1,wrapped_punctuation,polyanthea_medicinal
+ent_cbafcdf8eac3,cuv,Cuv.,PERSON,1,2,1,wrapped_punctuation,coloquios_da_orta_1563
+ent_f25ebe136e02,curf-chymic,Curf. Chymic.,OBJECT,1,2,1,wrapped_punctuation,polyanthea_medicinal
+ent_441535fc634e,crattva-marmelos,Crat€tva Marmelos,PLANT,1,2,1,symbol_noise,coloquios_da_orta_1563
+ent_d06cfbbc374a,confil-medic,confil. medic.,CONCEPT,1,2,1,wrapped_punctuation,polyanthea_medicinal
+ent_0879cc280a7d,confecio-ex-moscho-ornara-e-dulcisj,Confecio ex moscho ornara^ e dulcisj,CONCEPT,1,2,1,ocr_noise_char,coloquios_da_orta_1563
+ent_b0aa53fc3170,composit-medic,Compoſit.Medic.,OBJECT,1,2,1,wrapped_punctuation,polyanthea_medicinal
+ent_8309948b3cc4,colomb-nav,"Colomb., Nav.",OBJECT,1,2,1,wrapped_punctuation,relation_historique_humboldt_vol3_1825
+ent_f68b9aa3d288,colic,colic.,DISEASE,1,2,1,wrapped_punctuation,polyanthea_medicinal
+ent_8b493713bd6b,claudin-empiric,Claudin. Empiric.,PERSON,1,2,1,wrapped_punctuation,polyanthea_medicinal
+ent_45d78e619f96,ck-racones,Ck>raçones,PERSON,1,2,1,symbol_noise,coloquios_da_orta_1563
+ent_ce999dc891fb,cinnamomum-burmanni-blume,"Cinnamomum Burmanni, Blume.",PLANT,1,2,1,wrapped_punctuation,coloquios_da_orta_1563
+ent_c59c279c9de3,ci-yiini,Ci(yiini),PLACE,1,2,1,wrapped_punctuation,relation_historique_humboldt_vol3_1825
+ent_39787fb0a7e4,churchill-coll,Churchill. Coll.,OBJECT,1,2,1,wrapped_punctuation,relation_historique_humboldt_vol3_1825
+ent_40d75d2b48dd,cb,Cb,ANATOMY,1,2,1,very_short_low_count,principles_of_psychology_james_1890
+ent_0b0d8ddc96fb,calcaire-de-transition-ou-identique-avec-le-zechstein,calcaire (de transition ou identique avec le zechstein?),SUBSTANCE,1,2,1,wrapped_punctuation,relation_historique_humboldt_vol3_1825
+ent_e9ced925659e,caftr,Caftr.,PERSON,1,2,1,wrapped_punctuation,polyanthea_medicinal
+ent_760a9254c4e7,breviar,Breviar.,OBJECT,1,2,1,wrapped_punctuation,polyanthea_medicinal
+ent_d69f8e845b42,botankal-maga-inej,Botankal maga^inej,OBJECT,1,2,1,ocr_noise_char,coloquios_da_orta_1563
+ent_b094dca84ae6,berlin-akad-stzgsb,Berlin Akad. Stzgsb.,ORGANIZATION,1,2,1,wrapped_punctuation,principles_of_psychology_james_1890
+ent_4dac167613f3,be-ar,be^ar,SUBSTANCE,1,2,1,ocr_noise_char,coloquios_da_orta_1563
+ent_2b8ebe5a73bd,barreira-fr-isidoro-de,Barreira (Fr. Isidoro de),PERSON,1,2,1,wrapped_punctuation,coloquios_da_orta_1563
+ent_1261089177be,bafilic-chym,Bafilic. Chym.,OBJECT,1,2,1,wrapped_punctuation,polyanthea_medicinal
+ent_0329f9cd60bd,atlas-geogr,Atlas géogr.,OBJECT,1,2,1,wrapped_punctuation,relation_historique_humboldt_vol3_1825
+ent_2b4eda04543d,arvore-da-no,arvore da no^,PLANT,1,2,1,ocr_noise_char,coloquios_da_orta_1563
+ent_c1884a77e695,articul,Articul.,DISEASE,1,2,1,wrapped_punctuation,polyanthea_medicinal
+ent_14bc4c302135,arb-jdigbi,Arb<jdigbi,PLANT,1,2,1,symbol_noise,ricettario_fiorentino_1597
+ent_f61998515f98,ar-concept,ar,CONCEPT,1,2,1,very_short_low_count,coloquios_da_orta_1563
+ent_6cd560bd898b,anti-stii-u,Anti-stii/u,PLACE,1,2,1,slash_noise,relation_historique_humboldt_vol3_1825
+ent_a002793fcd79,andres-de-s,Andrés de S.,PERSON,1,2,1,wrapped_punctuation,coloquios_da_orta_1563
+ent_86549a58e8ef,amomum-zingiber-linn,"Amomum Zingiber, Linn.",PLANT,1,2,1,wrapped_punctuation,coloquios_da_orta_1563
+ent_0e9e8fd703be,ali-plant,ali/,PLANT,1,2,1,slash_noise,coloquios_da_orta_1563
+ent_62d7a686c8ac,alexander-porredg,Alexan†der Porredg,SUBSTANCE,1,2,1,ocr_noise_char,english_physician_1652
+ent_7eaad0a1b352,afol-med,Afol. med.,CONCEPT,1,2,1,wrapped_punctuation,coloquios_da_orta_1563
+ent_d87402a2457b,in-non-latin-alphabet,〈 in non-Latin alphabet 〉,DISEASE,1,1,1,ocr_noise_char,english_physician_1652
+ent_f00a2488182b,centaury,☉ Centaury,PLANT,1,1,1,ocr_noise_char,english_physician_1652
+ent_451a4dafb15b,pus-cyrenaicum,€pus cyrenaicum,PLANT,1,1,1,symbol_noise,coloquios_da_orta_1563
+ent_0aa55ababfdb,ennel,•ennel,PLANT,1,1,1,ocr_noise_char,english_physician_1652
+ent_818045c2e488,entity-2,εὶδέναι,CONCEPT,1,1,1,non_latin_low_count,principles_of_psychology_james_1890
+ent_6e3bc6b9e73c,entity-principles,γνῶναι,CONCEPT,1,1,1,non_latin_low_count,principles_of_psychology_james_1890
+ent_55f9306d622a,oleo-especia,óleo especia],ANIMAL,1,1,1,wrapped_punctuation,coloquios_da_orta_1563
+ent_f40e762da17b,india-port,índia port.,PLACE,1,1,1,wrapped_punctuation,coloquios_da_orta_1563
+ent_ce9134952070,ciaggi-memet-hadj-mohammed,Çiaggi Memet (Hadj Mohammed),PERSON,1,1,1,wrapped_punctuation,coloquios_da_orta_1563
+ent_b223220cc8db,tiustetrabil,ÆtiusTetrabil.,CONCEPT,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_d2b21203dfcf,neid,Æneid.,OBJECT,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_453519b9715e,av6pa,áv6pa(,CONCEPT,1,1,1,wrapped_punctuation,coloquios_da_orta_1563
+ent_4e8397280163,siquisfe-yoresmedicos,§. Siquisfe- yoresMedicos,CONCEPT,1,1,1,ocr_noise_char,polyanthea_medicinal
+ent_a78db8df9803,iai-du-ciel,£IAI DU CIEL,SUBSTANCE,1,1,1,symbol_noise,relation_historique_humboldt_vol3_1825
+ent_cf044c9d01af,zyjj-phoiormr,zyJj[}pHoIormr,SUBSTANCE,1,1,1,ocr_noise_char,ricettario_fiorentino_1597
+ent_7071e8300523,zuari-no,Zuarí (no),PLANT,1,1,1,wrapped_punctuation,coloquios_da_orta_1563
+ent_8ef9bd13be77,zodiac-medic,Zodiac. Medic.,OBJECT,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_93f6d44dbfb8,zlnfl-bex-of-fioinale-roscoe,"Zlnfl^bex* of^ fioinale, Roscoe",PLANT,1,1,1,ocr_noise_char,coloquios_da_orta_1563
+ent_b2246e7925fa,zeitschr-f-volkerpsychologie-u-s-w,Zeitschr. f. Völkerpsychologie u. s. w.,ORGANIZATION,1,1,1,wrapped_punctuation,principles_of_psychology_james_1890
+ent_e9faa958c6e7,zaff-rano,Zaff(.^rano,PLANT,1,1,1,ocr_noise_char,ricettario_fiorentino_1597
+ent_3f5457ddecd1,zach-s-monatl-corresp,Zach's Monatl. Corresp.,OBJECT,1,1,1,wrapped_punctuation,relation_historique_humboldt_vol3_1825
+ent_df5372694dd3,z-a-guayra,Z^a Guayra,PLACE,1,1,1,ocr_noise_char,relation_historique_humboldt_vol3_1825
+ent_6298cdf7a0d4,yule-heniy,Yule (Heniy),PERSON,1,1,1,wrapped_punctuation,coloquios_da_orta_1563
+ent_2a90ace7448a,ye,ye,PLACE,1,1,1,very_short_low_count,english_physician_1652
+ent_65bfc5dfadd6,xapu-uxxov,xapu:^uXXov,PLANT,1,1,1,ocr_noise_char,coloquios_da_orta_1563
+ent_eb99efafdb40,xa-cupo,xa^cupo,PLANT,1,1,1,ocr_noise_char,coloquios_da_orta_1563
+ent_8f40131f1f63,xa-person,Xa^,PERSON,1,1,1,ocr_noise_char,coloquios_da_orta_1563
+ent_53a60fbcf4dc,x-xxoc,x^xxoc,SUBSTANCE,1,1,1,ocr_noise_char,coloquios_da_orta_1563
+ent_5e235341de3c,x-vroc,x^vroc,PLANT,1,1,1,ocr_noise_char,coloquios_da_orta_1563
+ent_80c1407e41a1,x-lniii-a-tllooli-iuii,x^lniii A^(«tllooli.iuii,PLANT,1,1,1,ocr_noise_char,coloquios_da_orta_1563
+ent_83a2889837fc,x-l-epe-bianco,X l^epe bianco,PLANT,1,1,1,ocr_noise_char,ricettario_fiorentino_1597
+ent_7f2154ff3909,wuld,WUld.,PERSON,1,1,1,wrapped_punctuation,coloquios_da_orta_1563
+ent_f9f6e9c69272,wiener-sitzungsb,Wiener Sitzungsb.,ORGANIZATION,1,1,1,wrapped_punctuation,principles_of_psychology_james_1890
+ent_6ae8517cbee5,wiener-sitzgsb,Wiener Sitzgsb.,ORGANIZATION,1,1,1,wrapped_punctuation,principles_of_psychology_james_1890
+ent_2f88536b1025,west-ind,West-Ind.,OBJECT,1,1,1,wrapped_punctuation,relation_historique_humboldt_vol3_1825
+ent_0d142305381e,wenceslao-3,Wenceslao 3.,PERSON,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_7d6e37ba61c1,ways-of-the-shop,ways of the 'shop',CONCEPT,1,1,1,wrapped_punctuation,principles_of_psychology_james_1890
+ent_d05f78035d64,wasse,Wasse/,PERSON,1,1,1,slash_noise,relation_historique_humboldt_vol3_1825
+ent_dcf27f4abd02,vues-des-cordilleres-et-monumens-amer,Vues des Cordillères et Monumens amer.,OBJECT,1,1,1,wrapped_punctuation,relation_historique_humboldt_vol3_1825
+ent_b4275be45446,vocab,Vocab.,OBJECT,1,1,1,wrapped_punctuation,coloquios_da_orta_1563
+ent_2cce0b9c02c2,vo-agt-0-south-america,Vo^agt (0 South America,OBJECT,1,1,1,ocr_noise_char,relation_historique_humboldt_vol3_1825
+ent_22a2482a1e1a,vitruv,Vitruv.,PERSON,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_f6b09b310105,vitr,Vitr.,SUBSTANCE,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_0d0a174128e9,vintede-setembro-de-1668,vintede Setembro de 1668,CONCEPT,1,1,1,date_phrase,polyanthea_medicinal
+ent_a546e4aae389,vinte-de-fevereiro-de-1699,Vinte de Fevereiro de 1699,PLACE,1,1,1,date_phrase,polyanthea_medicinal
+ent_047b03ff6514,vino-di-txjeia-ane,Vino di txjeia^ane^,SUBSTANCE,1,1,1,ocr_noise_char,ricettario_fiorentino_1597
+ent_ad7245f2a557,vierteljahrschrift-f-wiss-philos,Vierteljahrschrift f. wiss. Philos.,ORGANIZATION,1,1,1,wrapped_punctuation,principles_of_psychology_james_1890
+ent_05558d0e0f2a,vierteljahrsch-f-wiss-philos,Vierteljahrsch. f. wiss. Philos.,ORGANIZATION,1,1,1,wrapped_punctuation,principles_of_psychology_james_1890
+ent_5544a618e7b7,vesic-aquof,Veſic.aquof.,DISEASE,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_28903570da5c,veter-medic,Veter. Medic.,CONCEPT,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_5af034611108,verf,verf.,OBJECT,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_a3644022f211,vera-medendi-methodo-lib-2-capit-12,vera medendi methodo lib. 2. capit. 12.,OBJECT,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_c72d1a38c10a,venust,Venust.,PERSON,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_d302703e69f0,ventricul-symptom,ventricul. ſymptom.,DISEASE,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_2ed230747fbb,ven-fect,ven. fect.,CONCEPT,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_c70dde4cd467,veigalib-2,Veigalib.2.,PERSON,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_3f4d59083de8,veig-lufft,Veig.Lufft.,PERSON,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_6abc8dbde36f,veig-lufit-polyanthea,Veig. Lufit.,PERSON,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_a2b394773a79,veig,Veig.,PERSON,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_6f30fa81c67b,vegetable-mat-med,Vegetable mat. med.,OBJECT,1,1,1,wrapped_punctuation,coloquios_da_orta_1563
+ent_eac1bc9d6c75,vbya-tf-en-arabie,Vbya^tf en Arabie,OBJECT,1,1,1,ocr_noise_char,coloquios_da_orta_1563
+ent_871e9617d7be,vbya-e5,Vbya^e5,OBJECT,1,1,1,ocr_noise_char,coloquios_da_orta_1563
+ent_0a5d209f176a,valeriol-lib-2-observ-4-fol-mihi-125,Valeriol.lib. 2. obſerv.4. fol. mihi 125.,CONCEPT,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_0c4598b3a9b9,valer-loc,Valer. Loc.,PERSON,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_5dca285bc2b8,va-cxxio,va^cXXio,SUBSTANCE,1,1,1,ocr_noise_char,coloquios_da_orta_1563
+ent_3bacbc3c41fa,v-lto-de-las-minas,V^lto de Las Minas,PLACE,1,1,1,ocr_noise_char,relation_historique_humboldt_vol3_1825
+ent_b71a3db5d447,v-paracoinacei,V-/paracoinaceì,SUBSTANCE,1,1,1,slash_noise,ricettario_fiorentino_1597
+ent_134f13e8fbe8,v-n-a-t-r-o-magi-hrale-em-lice,V N'A T R O MAGI- Hrale [em^lice,OTHER,1,1,1,ocr_noise_char,ricettario_fiorentino_1597
+ent_405ffa1df4ce,uygr,Uygr.,OBJECT,1,1,1,wrapped_punctuation,relation_historique_humboldt_vol3_1825
+ent_8cbae6ceb67d,uterifuffocat,Uterifuffocat.,DISEASE,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_7b2f77415c44,uter-disease,Uter.,DISEASE,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_69064dae9d53,univers-de-serpent,Univerſ. de Serpent.,OBJECT,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_1d350deb4215,um,Um.,SUBSTANCE,1,1,1,wrapped_punctuation,ricettario_fiorentino_1597
+ent_9590510de66c,uisl-phys-des-ant-franc,Uisl. phys. des Ant. franc.,OBJECT,1,1,1,wrapped_punctuation,relation_historique_humboldt_vol3_1825
+ent_dc51bf2ebb5b,ugo-di-logoriz,Ugo di logoriz.,PLANT,1,1,1,wrapped_punctuation,ricettario_fiorentino_1597
+ent_16f0e321a4b4,tw-bit,tw^bit,PLANT,1,1,1,ocr_noise_char,coloquios_da_orta_1563
+ent_50083292fa43,tuckei,Tuckei/,PERSON,1,1,1,slash_noise,relation_historique_humboldt_vol3_1825
+ent_52e06c06ad09,ttmcx,Ttmcx»,PERSON,1,1,1,ocr_noise_char,coloquios_da_orta_1563
+ent_9fe2469ae65e,trecce-di-apore,trecce di/apore,SUBSTANCE,1,1,1,slash_noise,ricettario_fiorentino_1597
+ent_031c732df576,travels-in-satcth-amer,Travels in Satcth Amer.,OBJECT,1,1,1,wrapped_punctuation,relation_historique_humboldt_vol3_1825
+ent_cfbb668a3f4a,trat-2-cap-56-n-39-p-gas,Trat.2.cap.56.n. 39.p.gas,CONCEPT,1,1,1,bibliographic_fragment,polyanthea_medicinal
+ent_4ea3aaffd8df,trat-2-cap-45-num-16-pag-254,Trat.2.Cap.45. num. 16. pag. 254,OBJECT,1,1,1,bibliographic_fragment,polyanthea_medicinal
+ent_385ef16ee2c4,trat-2,Trat.2.,PERSON,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_349e9a923c28,trat-3-cap-3-n-8-pag-735,Trat. 3. cap.3.n. 8.pag.735,PLACE,1,1,1,bibliographic_fragment,polyanthea_medicinal
+ent_43d394e16a55,trat-3-cap-1-n-10-p-695,Trat. 3. cap. 1.n.10 p.695...,PERSON,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_78a324be5534,trat-2-cap-105-n-57-p-568,Trat. 2. cap.105.n.57.p.568,PLACE,1,1,1,bibliographic_fragment,polyanthea_medicinal
+ent_dcc1306c0cf1,trat-2-cap-52-num-13-pag-298-cap-55-num-22-pag-308-cap-85-num-26-pag-466-trat-3-cap-4-num-3-pag-737-num-29-feq-pag-743,Trat. 2. cap. 52. num. 13. pag. 298. &cap. 55. num. 22. pag.308. & cap. 85. num. 26.pag.466. & Trat. 3. cap.4. num. 3. pag. 737.& num. 29. &feq. pag.743,PLACE,1,1,1,bibliographic_fragment,polyanthea_medicinal
+ent_c77d3566e18b,trans,Trans.,CONCEPT,1,1,1,wrapped_punctuation,relation_historique_humboldt_vol3_1825
+ent_9506a066acc4,trana-ofthe-historical-committee-oftheamer-philos-soc,Trana. ofthe historical Committee oftheAmer. Philos. Soc.,OBJECT,1,1,1,wrapped_punctuation,relation_historique_humboldt_vol3_1825
+ent_cec2580b2350,tran-of-the-utm-soe,Tran. of the Utm. Soe.,CONCEPT,1,1,1,wrapped_punctuation,coloquios_da_orta_1563
+ent_f38a64a91735,traite-de-miner,Traité de miner.,OBJECT,1,1,1,wrapped_punctuation,coloquios_da_orta_1563
+ent_007d91dd2387,tractat-de-origine-conftizutione-artis-medic,"Tractat. de Origine ,& Conftizutione Artis Medic.",CONCEPT,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_18349f2a573b,tract-detumoribus-cap,tract. detumoribus cap.,CONCEPT,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_eb047fdb20fc,tract-4-de-febr-malign,Tract. 4. de Febr. malign.,CONCEPT,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_b6d6795a5d9f,tomo-3,tomo 3.,OBJECT,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_8d124b5b8d00,tom-2-mihi-fol-193-col-1-lit-e,tom. 2. mihi fol. 193. col. 1. lit.E.,OBJECT,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_2c2f0235854f,timpan,Timpan.,DISEASE,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_aed36e60623b,tiar,Tiar.,OBJECT,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_8a3376a3e479,thome-pires-carta-na-gasf-de-pharmaaa,"Thomé Pires, Carta, na Gasf, de Pharmaaa^",PERSON,1,1,1,ocr_noise_char,coloquios_da_orta_1563
+ent_f46650cc1b8f,thesaur-parmac,Thesaur. Parmac.,OBJECT,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_cab1d34c5092,ther-lib-7,Ther.lib.7,OBJECT,1,1,1,bibliographic_fragment,polyanthea_medicinal
+ent_63ac07ae99fc,theolog-hippocrat,Theolog. Hippocrat.,CONCEPT,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_e2efb10747ec,thefaur-pharmaceut,Thefaur. Pharmaceut.,OBJECT,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_80d25deac3d0,thefaur-pharmac,Thefaur. Pharmac.,CONCEPT,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_b416f82f23e2,thad-dun,Thad. Dun.,PERSON,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_0c5f8804d07c,tetrab-4-ferm-1-cap-84-fol-674-strangulatis,Tetrab. 4. ferm. 1. cap. 84. fol. 674. §. Strangulatis,OBJECT,1,1,1,ocr_noise_char,polyanthea_medicinal
+ent_62307422f90e,teoria-lib-xxviu,Teoria lib.xxviu,OTHER,1,1,1,bibliographic_fragment,ricettario_fiorentino_1597
+ent_c7ee95031f82,tbupeaat,TBUPéaAT.,CONCEPT,1,1,1,wrapped_punctuation,relation_historique_humboldt_vol3_1825
+ent_8b6f02dc76b6,taschcnb,Taschcnb.,SUBSTANCE,1,1,1,wrapped_punctuation,relation_historique_humboldt_vol3_1825
+ent_ac73dc0e368d,tarant,Tarant.,PERSON,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_218d46ad7cde,tap-iueriai,Tap/iueriai,PLANT,1,1,1,slash_noise,ricettario_fiorentino_1597
+ent_ca0380ffe500,tabed,Tabed.,PERSON,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_3a50533ff7d0,t-olcancuos,T^olcancUos,PLACE,1,1,1,ocr_noise_char,relation_historique_humboldt_vol3_1825
+ent_b65b44f20154,t-esoro,T^esoro,OBJECT,1,1,1,ocr_noise_char,coloquios_da_orta_1563
+ent_0b64f9710fa2,t-ememma,T^ememma,SUBSTANCE,1,1,1,ocr_noise_char,ricettario_fiorentino_1597
+ent_f4a59e6344ba,sllet-oyl,S•llet Oyl,ANIMAL,1,1,1,ocr_noise_char,english_physician_1652
+ent_3625268073a6,sa,Sá,PLACE,1,1,1,very_short_low_count,historia_medicinal_monardes_1574
+ent_10d4a19476cf,sympt-part-extern,Sympt.part.extern.,DISEASE,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_d89d94a0ad76,swellings-abou-the-throat,Swellings abou• the Throat,DISEASE,1,1,1,ocr_noise_char,english_physician_1652
+ent_9dcf6b5d0b80,sudorifera-magne-sunt-efficacie-in-febribus-tam-continuis-quam-intermittetibus-in-malignis-om-hibentur-neferunt-punctum-quoenimcitiusexvenenum-pessumeofacilius-datur-foras-eliminatur,"Sudorifera magne sunt efficacie in febribus tam continuis, quàm intermittětibus; in malignis om- hibentur, neferunt punctum , quoenimcitiusexvenenum peſſumeofacilius datur, &foras eliminatur.",DISEASE,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_f498ec30ce8b,suc-pancreat,Suc. Pancreat.,SUBSTANCE,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_1ea04a0cf7d7,subsl-0-the-debate-ofthe-hoiise-of-commons,Subsl. 0/ the debate ofthe hoiise of Commons,OBJECT,1,1,1,slash_noise,relation_historique_humboldt_vol3_1825
+ent_4e9cc7ee7ff8,su-altexx,Su^AltexX,PERSON,1,1,1,ocr_noise_char,ricettario_fiorentino_1597
+ent_1b1c8e8a1e6a,st-rgceroga,St^rgceroGa,SUBSTANCE,1,1,1,ocr_noise_char,ricettario_fiorentino_1597
+ent_68a6efad67e9,st,St.,DISEASE,1,1,1,wrapped_punctuation,english_physician_1652
+ent_1c478751b676,sr-hou,sr. Hou^,PERSON,1,1,1,ocr_noise_char,coloquios_da_orta_1563
+ent_f0a367653716,sr,Sr.,PERSON,1,1,1,wrapped_punctuation,english_physician_1652
+ent_1e7711f141f2,spon-fects-therapeut,Spon.fects. Therapeut.,CONCEPT,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_bf1dcf9f1450,specul-med-pract,Specul. Med. Pract.,OBJECT,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_8b77ca6163fb,species-n-14-to-z-14,species (_n_14 to _z_14),CONCEPT,1,1,1,wrapped_punctuation,origin_of_species_darwin_1859
+ent_1ebca37f2a3a,species-a-14-to-m-14,species (_a_14 to _m_14),CONCEPT,1,1,1,wrapped_punctuation,origin_of_species_darwin_1859
+ent_25e935f79a3b,sp-eziedihicrapicra,Sp^eziedihicrapicra,SUBSTANCE,1,1,1,ocr_noise_char,ricettario_fiorentino_1597
+ent_38169b81b616,sp-ze-di-hi-ra,Sp?z»e di Hi?ra,PLANT,1,1,1,ocr_noise_char,ricettario_fiorentino_1597
+ent_42c6f8d5338a,sonn,Sonn.,PERSON,1,1,1,wrapped_punctuation,coloquios_da_orta_1563
+ent_053741c05f03,solenand-sect-5-verf-conf-15,Solenand. ſect.5. verf.conf. 15.,OBJECT,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_47dd29ee585a,solenand-polyanthea,Solenand.,PERSON,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_06e96994c455,soe-de-geogr,Soe. de Géogr.,CONCEPT,1,1,1,wrapped_punctuation,coloquios_da_orta_1563
+ent_329ba5378599,so,so,SUBSTANCE,1,1,1,very_short_low_count,polyanthea_medicinal
+ent_4796c94fc177,sn,Sn•,OBJECT,1,1,1,ocr_noise_char,english_physician_1652
+ent_68e5d58077b8,sl,SL,CONCEPT,1,1,1,very_short_low_count,english_physician_1652
+ent_b4f2ad098667,sir-j,Sir J.,PERSON,1,1,1,wrapped_punctuation,origin_of_species_darwin_1859
+ent_c8dc198804ff,simplic-medic,Simplic. medic.,OBJECT,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_18adb4240411,simagnum-a-malig-nititate-impendeat-periculum-quodple-rumque-accidit-mox-post-primarum-viarum-evacuationem-ad-alexipharmaca-fudorifera-accedendum-perataprecipue-fi-tamen-illanonfuf-ficiant-pluscommodi-exmalignemadias-non-nihilcalidioposla-fuar-te-ajudara-portodos-os-meyos-poffiveis-metendo-os-em-aposento-radiscufione-quamex-aliquali-colore-accenfooritur-poteftque-medicamentis-adbibitis-iterum-facile-temperari,"Simagnum à malig-nititate impendeat periculum,(quodple-rumque accidit) mox post primarum viarum evacuationem , ad alexipharmaca, & fudorifera accedendum,perataprecipuè;fi tamen illanonfuf-ficiant,pluscommodi exmalignemadias non nihilcalidiopoſla fuar, te ajudarà portodos os meyos poffiveis ,metendo-os em apoſento radiſcufione, quàmex aliquali colore accenfooritur,poteftque medicamentis adbibitis iterum facilè temperari.",CONCEPT,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_884f42efceea,sierra-rumucuraii-c,Sierra rumucuraîi/c,PLACE,1,1,1,slash_noise,relation_historique_humboldt_vol3_1825
+ent_f758781916ce,sief-d-incenso-di-v-jj-f,SIEF D- INCENSO DI V^^-jj^f-,SUBSTANCE,1,1,1,ocr_noise_char,ricettario_fiorentino_1597
+ent_1bbb7a688c0e,si-arasola,Si/arasola,PLANT,1,1,1,slash_noise,coloquios_da_orta_1563
+ent_e21fd3839ecb,si-fernando-de-apure,Si • Fernando de Apure,PLACE,1,1,1,ocr_noise_char,relation_historique_humboldt_vol3_1825
+ent_9f2bc1e48f78,sesada,Sesa»da?,PERSON,1,1,1,ocr_noise_char,coloquios_da_orta_1563
+ent_9b7f33c038bb,serpig,Serpig.,DISEASE,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_2facfbec3c2b,serapionis-aggreg-de-simpl-comm,Serapionis aggreg. de simpL comm.,OBJECT,1,1,1,wrapped_punctuation,coloquios_da_orta_1563
+ent_ec2cae1dc84d,septal,Septal.,PERSON,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_0b73cabc51c5,sensory-wernicke,sensory ('Wernicke'),DISEASE,1,1,1,wrapped_punctuation,principles_of_psychology_james_1890
+ent_136dc99fbfce,sena-a-omefinicmolio,Sena^a^omefinicMolio,SUBSTANCE,1,1,1,ocr_noise_char,ricettario_fiorentino_1597
+ent_c9d0cc02074a,seize-the-very-first-possible-opportunity-to-act-on-every-resolution-you-make-and-on-every-emotional-prompting-you-may-experience-in-the-direction-of-the-habits-you-aspire-to-gain,"Seize the very first possible opportunity to act on every resolution you make, and on every emotional prompting you may experience in the direction of the habits you aspire to gain.",CONCEPT,1,1,1,wrapped_punctuation,principles_of_psychology_james_1890
+ent_866e004da671,secretor-fublimiumtract-5,Secretor. fublimiumTract.5.,CONCEPT,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_56609d562928,sebright-sir-j,"Sebright, Sir J.",PERSON,1,1,1,wrapped_punctuation,origin_of_species_darwin_1859
+ent_29399c89e4ce,schrad,Schrad.,PERSON,1,1,1,wrapped_punctuation,coloquios_da_orta_1563
+ent_42d9ce5f1864,scholt,Scholt.,PERSON,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_994ef7fe0915,schol,Schol.,OBJECT,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_5f1064f873a7,schiste-ahg1leux-thonschiefeb,SCHISTE AHG1LEUX (thONSCHIEFEb),SUBSTANCE,1,1,1,wrapped_punctuation,relation_historique_humboldt_vol3_1825
+ent_e636de04f3d9,schimid,Schimid.,PERSON,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_7d5c05f6c316,sao-domin,Saó Domin.,PLACE,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_4f3dfd91467b,satcth-amer,Satcth Amer.,PLACE,1,1,1,wrapped_punctuation,relation_historique_humboldt_vol3_1825
+ent_604524af01f9,sansk,sansk.,CONCEPT,1,1,1,wrapped_punctuation,coloquios_da_orta_1563
+ent_0430022c345f,san-juam-del-norte,San Juam (del Norte),PLACE,1,1,1,wrapped_punctuation,relation_historique_humboldt_vol3_1825
+ent_aa07b995e6cb,san-joe,San Jo»e,PLACE,1,1,1,ocr_noise_char,relation_historique_humboldt_vol3_1825
+ent_f5a32caddc78,saia-de-malha,Saia de malha^,PLACE,1,1,1,ocr_noise_char,coloquios_da_orta_1563
+ent_87d1bef6b1e7,sah-i,sah^i,PLANT,1,1,1,ocr_noise_char,coloquios_da_orta_1563
+ent_79c2acfffddd,sachaifa,sachaifa^,DISEASE,1,1,1,ocr_noise_char,coloquios_da_orta_1563
+ent_e733036ac94f,s-rapinp,S^rapinp,PLANT,1,1,1,ocr_noise_char,ricettario_fiorentino_1597
+ent_fc01ed79ae8a,s-thomas-de-la-nuta-guayana,S. Thomas de la Nu«Ta Guayana,PLACE,1,1,1,ocr_noise_char,relation_historique_humboldt_vol3_1825
+ent_1c3f67eddd77,s-cent,S Cent.,PLANT,1,1,1,wrapped_punctuation,relation_historique_humboldt_vol3_1825
+ent_668d1246e8a1,ra,Rã,ANIMAL,1,1,1,very_short_low_count,polyanthea_medicinal
+ent_5af7c040a06f,rakcka,râkcka^,ANIMAL,1,1,1,ocr_noise_char,coloquios_da_orta_1563
+ent_e6dae9bf5122,rot-a-macha,RoT^a macha,SUBSTANCE,1,1,1,ocr_noise_char,coloquios_da_orta_1563
+ent_69ce35654333,roche-crt,Roche/crt,PERSON,1,1,1,slash_noise,relation_historique_humboldt_vol3_1825
+ent_dc68f4eca149,roc-ct-mountains,Roc/ct/Mountains,PLACE,1,1,1,slash_noise,relation_historique_humboldt_vol3_1825
+ent_3dea37da9f4c,river-lib-2-prax-medic-cap-1,River.lib. 2. Prax.Medic.cap. 1.,OBJECT,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_8204b623fcc3,river-observ-31-de-arthrit,River. Obſerv. 31. de Arthrit.,PERSON,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_2b95d27a0006,river-lib-16-prax-cap-dedo,River. lib. 16. Prax. cap.deDo-,PERSON,1,1,1,bibliographic_fragment,polyanthea_medicinal
+ent_74f96505de01,rio-des-amaz,Rio. des Amaz.,PLACE,1,1,1,wrapped_punctuation,relation_historique_humboldt_vol3_1825
+ent_167e2845b6c1,rio-sinu-zenu,Rio Sinù (Zenu),PLACE,1,1,1,wrapped_punctuation,relation_historique_humboldt_vol3_1825
+ent_a3f8aa1c13e5,rio-san-juan-de-charambira-relation,Rio San Juan (de Charambira),PLACE,1,1,1,wrapped_punctuation,relation_historique_humboldt_vol3_1825
+ent_295fb58bd72c,rio-cliimala-a,Rio Cliimala})a,PLACE,1,1,1,ocr_noise_char,relation_historique_humboldt_vol3_1825
+ent_26de0ef9c3c7,richardson-sir-j,"Richardson, Sir J.",PERSON,1,1,1,wrapped_punctuation,origin_of_species_darwin_1859
+ent_dab81b2f754a,richard-ii,Richard II.,ORGANIZATION,1,1,1,wrapped_punctuation,principles_of_psychology_james_1890
+ent_c709b197cb0f,rheinland-feslph,Rheinland-Feslph.,PLACE,1,1,1,wrapped_punctuation,relation_historique_humboldt_vol3_1825
+ent_11a6f6133792,rgl-n-c-e-n-s-o,Rgl^ N c E n s o,PLANT,1,1,1,ocr_noise_char,ricettario_fiorentino_1597
+ent_7113454569a4,revue-philos,Revue Philos.,ORGANIZATION,1,1,1,wrapped_punctuation,principles_of_psychology_james_1890
+ent_1e7c67a9dd74,reverendis-episcop-s-marc,Reverendis. Epiſcop. S. Marc.,PERSON,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_748f0395ba25,rev-philos,Rev. Philos.,ORGANIZATION,1,1,1,wrapped_punctuation,principles_of_psychology_james_1890
+ent_cc10235373b5,represecitncion-ciel-ayiuitaniienlo-consulado-y-sociedad-palriolica,Represecitncion ciel Ayiuitaniienlo ^ Consulado y Sociedad palriolica,OBJECT,1,1,1,ocr_noise_char,relation_historique_humboldt_vol3_1825
+ent_37c3dbe97bb9,relat-hist,Relat. hist.,OBJECT,1,1,1,wrapped_punctuation,relation_historique_humboldt_vol3_1825
+ent_9e49190266bc,relal-hist,Relal. hist.,OBJECT,1,1,1,wrapped_punctuation,relation_historique_humboldt_vol3_1825
+ent_c39f36638a5d,relal-hisl,Relal. hisl.,OBJECT,1,1,1,wrapped_punctuation,relation_historique_humboldt_vol3_1825
+ent_f79dacf166b4,relacionei-de-pedro-teixeira-d-d-origen-descendencia-y-succession-de-los-reyes-de-persia-y-de-harmw,"Relacionei de Pedro Teixeira d^d orígen, descendência y succession de los Reyes de Pérsia y de Harmw",OBJECT,1,1,1,ocr_noise_char,coloquios_da_orta_1563
+ent_d07eaed03694,relacion-det-f-iage-tl-estreclio-de-fuca,Relacion det f'iage <tl Estreclio de Fuca,OBJECT,1,1,1,symbol_noise,relation_historique_humboldt_vol3_1825
+ent_4549d89801d1,rel-hist,Rel. hist.,OBJECT,1,1,1,wrapped_punctuation,relation_historique_humboldt_vol3_1825
+ent_7060fdfc152d,rel-hisl,Rel. hisl.,SUBSTANCE,1,1,1,wrapped_punctuation,relation_historique_humboldt_vol3_1825
+ent_eb30cc492333,reise-um-des-weit,Reise um des Weit.,OBJECT,1,1,1,wrapped_punctuation,relation_historique_humboldt_vol3_1825
+ent_59864fa8f602,reiner-solenand-polyanthea,Reiner. Solenand.,PERSON,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_a1903cbd28b1,regum,Regum,PERSON,1,1,1,bibliographic_fragment,polyanthea_medicinal
+ent_f124d7582a12,recueil-d-olis-asir,Recueil d'Olis. asir.,OBJECT,1,1,1,wrapped_punctuation,relation_historique_humboldt_vol3_1825
+ent_b266cda89c4d,recidiva-hemorr,Recidiva hemorr.,DISEASE,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_85df45cecf41,rech-sur-les-modif-de-l-atm,Rech. sur les modif. de l'atm.,OBJECT,1,1,1,wrapped_punctuation,relation_historique_humboldt_vol3_1825
+ent_de3ed6390eac,rech-stat,Rech. Stat.,OBJECT,1,1,1,wrapped_punctuation,relation_historique_humboldt_vol3_1825
+ent_e02b0ce9a0a0,rec-de-mcm-hydr,Rec. de Mcm. hydr.,CONCEPT,1,1,1,wrapped_punctuation,relation_historique_humboldt_vol3_1825
+ent_517679cd2955,rcrf-mar-sa-if-ion,"rcrf mar/, sa/if/ion",SUBSTANCE,1,1,1,slash_noise,relation_historique_humboldt_vol3_1825
+ent_c3a82b8c2f95,rcc-d-obs-astr,Rcc. d'Obs. astr.,OBJECT,1,1,1,wrapped_punctuation,relation_historique_humboldt_vol3_1825
+ent_e0e7419c273a,ratione-carandi-partic-corporis-affect,Ratione carandi partic corporis affect.,CONCEPT,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_da761a96f28d,rat-do-espi-rito-santo,rat\ do Espi-rito Santo,PLANT,1,1,1,slash_noise,coloquios_da_orta_1563
+ent_269e71b233cc,rajtad-almanfore,RaJtad^Almanfore,PERSON,1,1,1,ocr_noise_char,ricettario_fiorentino_1597
+ent_43c06705cf6a,rab-simeon-ap-gal-lib-6,Rab. Simeon ap. Gal.lib.6,PERSON,1,1,1,bibliographic_fragment,polyanthea_medicinal
+ent_a6cd3aa832c0,r-ner,R^ner,PERSON,1,1,1,ocr_noise_char,relation_historique_humboldt_vol3_1825
+ent_ff2f6116ab91,r-br,R. Br.,PERSON,1,1,1,wrapped_punctuation,coloquios_da_orta_1563
+ent_47c6a0a2dcd7,r-i,R I.,PLACE,1,1,1,wrapped_punctuation,principles_of_psychology_james_1890
+ent_94a77aee8d8d,qufit-per-epift,Quæfit. per Epift.,CONCEPT,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_2416ee0856b8,quia-est-in-eo-virtus-dormitiya-cujus-est-natura-sensus-assoupire,"Quia est in eo Virtus dormitíya, Cujus est natura Sensus assoupire.",CONCEPT,1,1,1,wrapped_punctuation,coloquios_da_orta_1563
+ent_93ec98a6a078,questione-14,questione 14.,OBJECT,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_85bdff1b4416,question-med,Question. Med.,CONCEPT,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_995f3f5f6541,quastione-6,quaſtione 6.,OBJECT,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_530ea1d6c2e1,qtiajrtsbo-li-allno,qtiajrtsBO li^allno,SUBSTANCE,1,1,1,ocr_noise_char,coloquios_da_orta_1563
+ent_dbc27c4ba6f6,pyrotech-n-chir,Pyrotech n. Chir.,CONCEPT,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_8fb69a541fa6,pustul-biliof,Pustul. biliof.,DISEASE,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_b2b3a1c444ec,pt-ta-de-guahos,Pt'^TA de Guahos,PLACE,1,1,1,ocr_noise_char,relation_historique_humboldt_vol3_1825
+ent_d5b718e5dd3b,psychol-als-wiss,Psychol. als Wiss.,ORGANIZATION,1,1,1,wrapped_punctuation,principles_of_psychology_james_1890
+ent_42516d796ea7,psychic-overtone-principles,psychic 'overtone',CONCEPT,1,1,1,wrapped_punctuation,principles_of_psychology_james_1890
+ent_0d200459d847,present-state-0-england,Présent state 0/ England,OBJECT,1,1,1,slash_noise,relation_historique_humboldt_vol3_1825
+ent_aabe02177363,prurit,Prurit.,DISEASE,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_4756050a26db,propenis-ulcere,Propenis ulcere.,DISEASE,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_02c8eb6a1216,prompanariofacileparabil,Prompanariofacileparabil.,OBJECT,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_51fa5774cfc0,promontorio-g-ri,promontório G>rí,PLACE,1,1,1,symbol_noise,coloquios_da_orta_1563
+ent_9fec2d06af77,problem,Problem.,CONCEPT,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_161a4293dc4c,principe-luis-ii,Principe Luis II.,PERSON,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_7312f944e512,prestwich-mr,"Prestwich, Mr.",PERSON,1,1,1,wrapped_punctuation,origin_of_species_darwin_1859
+ent_a9505853d2d5,prefentamuyproveytoso-oseguinte,Prefentamuyproveytoſo oſeguinte.,CONCEPT,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_17fe550b8bf8,precipitato-bi-gio-hagthr-ile,PRECIPITATO BI- gio^HagtHr^ile,SUBSTANCE,1,1,1,ocr_noise_char,ricettario_fiorentino_1597
+ent_9ed6772f38fb,pract-cap-57,Pract. cap. 57.,CONCEPT,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_719bbd975ee7,ppp,pPP'?,SUBSTANCE,1,1,1,high_punctuation_ratio,ricettario_fiorentino_1597
+ent_26a18f35fcf8,pour-ueville,Pour/ueville,PERSON,1,1,1,slash_noise,relation_historique_humboldt_vol3_1825
+ent_f618f720f12b,poterins-obfervat,Poterins Obfervat.,PERSON,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_c282eb50ecbd,ports-esp-d-amer,ports esp. d'Amer.,PLACE,1,1,1,wrapped_punctuation,relation_historique_humboldt_vol3_1825
+ent_998ba8e163ed,population-du-departement-oriental-de-l-l,"POPULATION DU DÉPARTEMENT ORIENTAL DE L',l|",PLACE,1,1,1,ocr_noise_char,relation_historique_humboldt_vol3_1825
+ent_f9c4a77e1402,popriaijol-de-l-iie-db-clba,POPriAIJOl» DE l'iIE DB ClBA,PLACE,1,1,1,ocr_noise_char,relation_historique_humboldt_vol3_1825
+ent_061d5ac57289,poole-col,"Poole, Col.",PERSON,1,1,1,wrapped_punctuation,origin_of_species_darwin_1859
+ent_f3cc081dfdd6,pomidiman-j-ora,pomidiMan-J^ora,PLANT,1,1,1,ocr_noise_char,ricettario_fiorentino_1597
+ent_53c32d829fa6,pom,POM/,SUBSTANCE,1,1,1,slash_noise,ricettario_fiorentino_1597
+ent_c8a368593c75,polyanthea-tratado-iii-capitulo-iv,Polyanthea Tratado III.Capitulo IV.,OBJECT,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_462b938dcf04,pli,Plí.,PERSON,1,1,1,wrapped_punctuation,coloquios_da_orta_1563
+ent_166f33865adf,plpp-h,plpp^h,PLANT,1,1,1,ocr_noise_char,coloquios_da_orta_1563
+ent_a8ef95abcf78,plio-ntico,plio^ntico,SUBSTANCE,1,1,1,ocr_noise_char,ricettario_fiorentino_1597
+ent_e5fce30af379,plin-lib-7-cap-12,Plin. lib. 7. cap. 12.,CONCEPT,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_a8c3d82fcb42,plant-eqnin,"Plant, eqnin.",CONCEPT,1,1,1,wrapped_punctuation,relation_historique_humboldt_vol3_1825
+ent_3695bd434cd6,plaines-llanos,Plaines (Llanos),PLACE,1,1,1,wrapped_punctuation,relation_historique_humboldt_vol3_1825
+ent_cc0ffbd43a91,pipboarfp-e,Pipboarfp^e,SUBSTANCE,1,1,1,ocr_noise_char,ricettario_fiorentino_1597
+ent_c7937d6f885a,piombo-ai-b-e-uuato,"Piombo ai {b,e Uuato",SUBSTANCE,1,1,1,ocr_noise_char,ricettario_fiorentino_1597
+ent_ecbf98786802,pies-u-st,Pies. U. St.,PERSON,1,1,1,wrapped_punctuation,relation_historique_humboldt_vol3_1825
+ent_fd7aa5af5114,pieds-mesure-francoise,pieds (mesure françoise),CONCEPT,1,1,1,wrapped_punctuation,relation_historique_humboldt_vol3_1825
+ent_ffc832e48deb,physiol,Physiol.,ORGANIZATION,1,1,1,wrapped_punctuation,principles_of_psychology_james_1890
+ent_adfe4ac55d44,phys-psych,Phys. Psych.,ORGANIZATION,1,1,1,wrapped_punctuation,principles_of_psychology_james_1890
+ent_614d2b3682c8,philos-trans,Philos. Trans.,ORGANIZATION,1,1,1,wrapped_punctuation,principles_of_psychology_james_1890
+ent_dd4a142a00c0,philad,Philad.,PLACE,1,1,1,wrapped_punctuation,relation_historique_humboldt_vol3_1825
+ent_054ac8013273,phil-jud-lib-de-infom,Phil. Jud. lib. de infom.,PERSON,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_1f7bc4c4d8d6,phat-tnacopoeia-0-india,Phat'tnacopoeia 0/ índia,OBJECT,1,1,1,slash_noise,coloquios_da_orta_1563
+ent_d8d2c9fa6b1e,pharamund,Pharamund.,PERSON,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_bdfe4b807ed8,pfalm-104-verf-15,Pfalm. 104. verf. 15.,CONCEPT,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_912057f618b7,pf-ampum,Pf^ampum,OBJECT,1,1,1,ocr_noise_char,relation_historique_humboldt_vol3_1825
+ent_827642b8f40d,petrus-pachecus-referente-riverio-in-obf,"Petrus Pachecus,referente Riverio in Obf.",PERSON,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_500d5e69f523,petrus-lothic,Petrus Lothic.,PERSON,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_4694a0d86e9f,petro-eiinp,Petro/eiìnp,SUBSTANCE,1,1,1,slash_noise,ricettario_fiorentino_1597
+ent_c13470612587,petr-mich-de-hered,Petr. Mich. de Hered.,PERSON,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_229756a511c3,petr-martyr,Petr. Martyr.,PERSON,1,1,1,wrapped_punctuation,relation_historique_humboldt_vol3_1825
+ent_0f79a6061eb9,petr-garcia-carreyr,Petr. Garcia Carreyr.,PERSON,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_92489a64ed33,personshave-o-late-heen-guilty-of-cuttiogoffand-depriving-slaves-of-their-ears,personshave o/late heen guilty of cuttiogoffand depriving slaves of their ears,DISEASE,1,1,1,slash_noise,relation_historique_humboldt_vol3_1825
+ent_7e3c10d3bd22,pers,Pers.,PERSON,1,1,1,wrapped_punctuation,coloquios_da_orta_1563
+ent_e5b36370f337,perpung-alph,Perpung. alph.,CONCEPT,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_fe7a2e9f74dd,perlas-place,Perlas ^,PLACE,1,1,1,ocr_noise_char,relation_historique_humboldt_vol3_1825
+ent_f51f7ab90b73,per-a,Per/a,SUBSTANCE,1,1,1,slash_noise,ricettario_fiorentino_1597
+ent_1d5b14ea351a,peppr,Pepp•r,PLANT,1,1,1,ocr_noise_char,english_physician_1652
+ent_efb535ccab21,pendul-exper,Pendul. Exper.,OBJECT,1,1,1,wrapped_punctuation,relation_historique_humboldt_vol3_1825
+ent_9fb0642307e7,pen-ts-ao-kang-mu,Pen Ts^ao Kang Mu,OBJECT,1,1,1,ocr_noise_char,coloquios_da_orta_1563
+ent_8379e23d6702,peidithtm-ea-j-c,Peidithtm Ea:j)c>:,OBJECT,1,1,1,symbol_noise,relation_historique_humboldt_vol3_1825
+ent_54a59f261218,peft,Peft»,SUBSTANCE,1,1,1,ocr_noise_char,ricettario_fiorentino_1597
+ent_e60e1e191c4a,pefcrsigi-r-zeifacanyi,Pefcrsi«gi?r ZeifacAnyï,OBJECT,1,1,1,ocr_noise_char,relation_historique_humboldt_vol3_1825
+ent_d8bcdc91cdce,pau-bra-u,pau bra{U,PLANT,1,1,1,ocr_noise_char,coloquios_da_orta_1563
+ent_f0dec7856ba3,path-disease,Path.,DISEASE,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_0895bf321acf,partibus-jacob-de,Partibus (Jacob de),PERSON,1,1,1,wrapped_punctuation,coloquios_da_orta_1563
+ent_44080c9bb904,part-morb-fymp,Part.morb.&fymp.,CONCEPT,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_4c0101366b6a,part-2-cap-21,part. 2. cap. 21.,CONCEPT,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_80e01999b5be,part,part.,CONCEPT,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_e2fd2eeb55e5,part-morb-polyanthea,part morb.,DISEASE,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_51cc007eb97e,papayer-somni-erum,Papayer somni/erum,PLANT,1,1,1,slash_noise,coloquios_da_orta_1563
+ent_d7972e5ddf21,panthei-hygiastic,Panthei Hygiaſtic.,OBJECT,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_e517e5e567d4,pantaleio-de-aveiro-fr,Pantaleio de Aveiro (Fr.),PERSON,1,1,1,wrapped_punctuation,coloquios_da_orta_1563
+ent_89c5f9268308,panp-cqu,panp^cqu*,SUBSTANCE,1,1,1,ocr_noise_char,ricettario_fiorentino_1597
+ent_fb759f586431,panipat-batalha-de,Panipát (batalha de),CONCEPT,1,1,1,wrapped_punctuation,coloquios_da_orta_1563
+ent_343aa4896750,panchymici-libr-5-sect-2-capit-8,Panchymici libr. 5.sect.2. capit. 8.,OBJECT,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_0455625124aa,panchymic,Panchymic.,CONCEPT,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_e4900d91e982,pam-pahang-paang,"Pam (Pahang, Páang)",PLACE,1,1,1,wrapped_punctuation,coloquios_da_orta_1563
+ent_138016f883e6,palo-de-z-ec-re,Palo de Z/ec/re,PLANT,1,1,1,slash_noise,relation_historique_humboldt_vol3_1825
+ent_6e5b143b9193,paleacate-puhcat,Paleacate (PuHcat),PLACE,1,1,1,wrapped_punctuation,coloquios_da_orta_1563
+ent_b5f98b7e91f7,paflule-purg-jte,Paflule purg^Jte,SUBSTANCE,1,1,1,ocr_noise_char,ricettario_fiorentino_1597
+ent_26c77c8ffb95,paffion-colic,Paffion. Colic.,DISEASE,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_1ce2ea0c613b,padre-ignado-santo-ignacio-de-loyola,Padre Ignado (Santo Ignacio de Loyola),PERSON,1,1,1,wrapped_punctuation,coloquios_da_orta_1563
+ent_6c62de33e597,pacheco-duarte,Pacheco (Duarte),PERSON,1,1,1,wrapped_punctuation,coloquios_da_orta_1563
+ent_56f3a45a0305,pachec-person,Pachec.,PERSON,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_fdfd5d43dd68,pa-ar,pa^ar,SUBSTANCE,1,1,1,ocr_noise_char,coloquios_da_orta_1563
+ent_0ef385be72d7,pa-hnache,pa/hnache,PLANT,1,1,1,slash_noise,ricettario_fiorentino_1597
+ent_0366e57a591a,pa,pa,OBJECT,1,1,1,very_short_low_count,polyanthea_medicinal
+ent_a6e32e6aaf80,p-olcan-de-agiia,p^olcan de agiia,CONCEPT,1,1,1,ocr_noise_char,relation_historique_humboldt_vol3_1825
+ent_4e08bb1087c2,p-a-oupa-en,p^a^^ oupa^én,ANIMAL,1,1,1,ocr_noise_char,coloquios_da_orta_1563
+ent_0daeda5015e3,oment,O••ment,SUBSTANCE,1,1,1,ocr_noise_char,english_physician_1652
+ent_241c7e2d611b,oi-oraatoo,Oî<oraatoo,PLACE,1,1,1,symbol_noise,relation_historique_humboldt_vol3_1825
+ent_d14e174694f3,outlines-of-psychol,Outlines of Psychol.,ORGANIZATION,1,1,1,wrapped_punctuation,principles_of_psychology_james_1890
+ent_28a7aa79f32f,ouseley-william,Ouseley (William),PERSON,1,1,1,wrapped_punctuation,coloquios_da_orta_1563
+ent_cbdbd0acc223,ossem-foss,Ossem. foss.,OBJECT,1,1,1,wrapped_punctuation,relation_historique_humboldt_vol3_1825
+ent_ecbea4fe40dc,ortx-iillu8-vul-a-x-ii8,"Ortx*iillu8 vul(|^a,x*ii8",PLANT,1,1,1,ocr_noise_char,coloquios_da_orta_1563
+ent_cdede54b8a89,or,or,SUBSTANCE,1,1,1,very_short_low_count,polyanthea_medicinal
+ent_fcbb0cc23d34,optical-erinnerungsfeld,optical 'Erinnerungsfeld',ANATOMY,1,1,1,wrapped_punctuation,principles_of_psychology_james_1890
+ent_d280175939e4,oper-med,Oper.Med.,CONCEPT,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_592eed347207,ooirdierl-te,ooirdierl^te,SUBSTANCE,1,1,1,ocr_noise_char,coloquios_da_orta_1563
+ent_dd1c74f3927b,oman-costa-de,Oman (costa de),PLACE,1,1,1,wrapped_punctuation,coloquios_da_orta_1563
+ent_3d26503742e6,olio-rofato-comune-magiur,Olio rofato comune magiUr.,SUBSTANCE,1,1,1,wrapped_punctuation,ricettario_fiorentino_1597
+ent_12d6944466ea,olio-rejato-lombricato-mag,Olio rejato lombricato mag.,SUBSTANCE,1,1,1,wrapped_punctuation,ricettario_fiorentino_1597
+ent_0f88eaa0a656,olie-1-iila-9-retz,Olie-1>iila.9 Retz,PLANT,1,1,1,symbol_noise,coloquios_da_orta_1563
+ent_5b824bb03476,olamoaromat,Olamoaromat.,PLANT,1,1,1,wrapped_punctuation,ricettario_fiorentino_1597
+ent_0e6b9d397add,oi70ol-eryl,oi70ol>eryl,SUBSTANCE,1,1,1,symbol_noise,coloquios_da_orta_1563
+ent_7f56a2f27f20,ofjic-correspond-with-the-brit-commiss,"Ofjic. Correspond, with the Brit, Commiss.",OBJECT,1,1,1,wrapped_punctuation,relation_historique_humboldt_vol3_1825
+ent_e7b1cb502d56,offo-di-cuor-di-cer,Offo dì cuor.di cer.,SUBSTANCE,1,1,1,wrapped_punctuation,ricettario_fiorentino_1597
+ent_c5fce2dfe656,odorico-de-pordenone-fr,Odoríco de Pordenone (Fr.),PERSON,1,1,1,wrapped_punctuation,coloquios_da_orta_1563
+ent_53bd98b2105e,oculorum-morb,Oculorum morb.,DISEASE,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_0f6d2a5811c4,ocin-ao-oriental,ocin/Ao oriental,SUBSTANCE,1,1,1,slash_noise,coloquios_da_orta_1563
+ent_c3973912a148,occult,Occult.,CONCEPT,1,1,1,wrapped_punctuation,relation_historique_humboldt_vol3_1825
+ent_61c67718bd2d,observ-40,Obſerv. 40.,CONCEPT,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_f99a5d83b1ed,observat-morbor,Observat. morbor.,CONCEPT,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_a7f84fa1a824,observ-medic,Observ.Medic.,CONCEPT,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_5c0308ffcfbe,obs-astron,Obs. astron.,OBJECT,1,1,1,wrapped_punctuation,relation_historique_humboldt_vol3_1825
+ent_dff7f6ff9ff9,obs-astr,Obs. astr.,OBJECT,1,1,1,wrapped_punctuation,relation_historique_humboldt_vol3_1825
+ent_b1a715bfb664,obs-asiron,Obs. asiron.,OBJECT,1,1,1,wrapped_punctuation,relation_historique_humboldt_vol3_1825
+ent_2ac49f1bc92c,obfervat-medicin,Obfervat. Medicin.,CONCEPT,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_d5a86d1a7bed,obf,obf.,OBJECT,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_63303aa14220,o-fa,o/fá,PLANT,1,1,1,slash_noise,coloquios_da_orta_1563
+ent_665bdeeaa84f,o-io-d-vlme-n-acure,O io d vlme n^acure,SUBSTANCE,1,1,1,ocr_noise_char,ricettario_fiorentino_1597
+ent_d57dd67f8e29,novemb,Novemb.,CONCEPT,1,1,1,wrapped_punctuation,english_physician_1652
+ent_f7b590552b4e,nova-gen-et-spec,Nova Gen. et Spec.,OBJECT,1,1,1,wrapped_punctuation,relation_historique_humboldt_vol3_1825
+ent_502c52ae66a8,nov-ccnera-et-spee,Nov Ccnera et Spee.,SUBSTANCE,1,1,1,wrapped_punctuation,relation_historique_humboldt_vol3_1825
+ent_0e4c15e46c4a,nouv-esp,Nouv. Esp.,OBJECT,1,1,1,wrapped_punctuation,relation_historique_humboldt_vol3_1825
+ent_f921af118a56,notions-of-a-railroad-king,notions of a 'railroad king',CONCEPT,1,1,1,wrapped_punctuation,principles_of_psychology_james_1890
+ent_872ccf7ce4a4,nota-i,Nota (i),CONCEPT,1,1,1,wrapped_punctuation,coloquios_da_orta_1563
+ent_93fb58ea413e,nonv-esp,Nonv. Esp.,PLACE,1,1,1,wrapped_punctuation,relation_historique_humboldt_vol3_1825
+ent_ed3f6478ceae,no-x-libri,NO^'X.lIBRi,SUBSTANCE,1,1,1,ocr_noise_char,relation_historique_humboldt_vol3_1825
+ent_b0aad07f4ac8,no-ejibre,NO^'EJIBRE,CONCEPT,1,1,1,ocr_noise_char,relation_historique_humboldt_vol3_1825
+ent_fc336c88fe7a,no,no,PLANT,1,1,1,very_short_low_count,coloquios_da_orta_1563
+ent_01657fc4635b,nicholson-jour,"Nicholson, Jour.",OBJECT,1,1,1,wrapped_punctuation,relation_historique_humboldt_vol3_1825
+ent_97c1c4f0a6db,nichols,Nichols.,PERSON,1,1,1,wrapped_punctuation,relation_historique_humboldt_vol3_1825
+ent_2d8bb86a2e4f,new-series-of-thc-med-reposil,New Séries of thc Med. Reposil.,OBJECT,1,1,1,wrapped_punctuation,relation_historique_humboldt_vol3_1825
+ent_d307bff48ff6,new-monthly-mag,New Monthly Mag.,OBJECT,1,1,1,wrapped_punctuation,relation_historique_humboldt_vol3_1825
+ent_ee356a9b120a,new-improved-map-0-india-1822,New improved map 0/ India 1822,OBJECT,1,1,1,slash_noise,relation_historique_humboldt_vol3_1825
+ent_9251dd121d95,negro-slavery-in-tlie-v-st-of-america-an-7amafca,Negro-Slavery in tlie V. St- of America an(/7âmafca,OBJECT,1,1,1,slash_noise,relation_historique_humboldt_vol3_1825
+ent_da05de13362e,neeset-eberm,Neeset Eberm.,PERSON,1,1,1,wrapped_punctuation,coloquios_da_orta_1563
+ent_69b3ebc699a7,nay,Nay.,OBJECT,1,1,1,wrapped_punctuation,coloquios_da_orta_1563
+ent_1c6b4cc31b77,natural-facult,natural. facult.,CONCEPT,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_718a69b42a21,nat-vulp,Nat. Vulp.,CONCEPT,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_b67dc4351b7e,naing,Naing.,CONCEPT,1,1,1,wrapped_punctuation,coloquios_da_orta_1563
+ent_679bdd53106b,nac,nac.,OBJECT,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_4ee419fad84f,n-26-p-333,n.26.p.333,OBJECT,1,1,1,high_digit_ratio,polyanthea_medicinal
+ent_83181e4f3a5d,n-16-p-696,n.16.p.696,OBJECT,1,1,1,high_digit_ratio,polyanthea_medicinal
+ent_171083552d61,n-11-p-329,n.11.p.329,OBJECT,1,1,1,high_digit_ratio,polyanthea_medicinal
+ent_9eda52d6adf4,mo-recb,Mó^recB^,PLANT,1,1,1,ocr_noise_char,coloquios_da_orta_1563
+ent_1e5823e81545,mem-de-l-acad,Mém. de l'Acad.,CONCEPT,1,1,1,wrapped_punctuation,relation_historique_humboldt_vol3_1825
+ent_81dc918f25e9,melanges-philos,Mélanges Philos.,ORGANIZATION,1,1,1,wrapped_punctuation,principles_of_psychology_james_1890
+ent_ffac082d5126,ma-a,mã/ã,CONCEPT,1,1,1,slash_noise,coloquios_da_orta_1563
+ent_deed243027ef,myrtace-e,Myrtace^e,CONCEPT,1,1,1,ocr_noise_char,coloquios_da_orta_1563
+ent_79b116852488,mynjksl-engler,MynJkSL^ Engler,PERSON,1,1,1,ocr_noise_char,coloquios_da_orta_1563
+ent_ba8923674889,muric-ii,Muric/ii,PLANT,1,1,1,slash_noise,relation_historique_humboldt_vol3_1825
+ent_1b701e0725af,mund-conf,Mund. Conf.,CONCEPT,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_7ebe5790b457,mu,Mu,PLANT,1,1,1,very_short_low_count,coloquios_da_orta_1563
+ent_95be6844a9ec,msnov-gen,MsNov. gen.,CONCEPT,1,1,1,wrapped_punctuation,relation_historique_humboldt_vol3_1825
+ent_0604532b4306,mr-h-c,Mr. H. C.,PERSON,1,1,1,wrapped_punctuation,origin_of_species_darwin_1859
+ent_fce09f9b4ba9,mr-c,Mr. C.,PERSON,1,1,1,wrapped_punctuation,principles_of_psychology_james_1890
+ent_83b40126cd16,mr,Mr.,PERSON,1,1,1,wrapped_punctuation,origin_of_species_darwin_1859
+ent_db67c7b4ab01,motor-broca,motor ('Broca'),DISEASE,1,1,1,wrapped_punctuation,principles_of_psychology_james_1890
+ent_6ab2b87c74b7,morph-mihifol,Morph.mihifol.,CONCEPT,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_0675fc50404f,morph-impetig-serpig,Morph.Impetig.&Serpig.,DISEASE,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_0a10e1be47d5,morph,Morph.,DISEASE,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_5d8a86a1cd1b,morbil,Morbil.,DISEASE,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_dab43903e7c7,morb-gallic-polyanthea,Morb.Gallic.,DISEASE,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_6f3bc4ec3202,morb-cutan-disease,Morb.cutan.,DISEASE,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_17de380a2863,morb-pueror,Morb. pueror.,DISEASE,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_d784b6651516,morb-occult,morb. occult.,DISEASE,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_5b1a7730ce4e,morb-intern,Morb. intern.,CONCEPT,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_70e448f3ab22,morb-infim-ventr,Morb. infim. ventr.,DISEASE,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_8675cd3e4af6,morb-gallic,Morb. Gallic.,DISEASE,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_f4af4acea7f9,morb-facr,Morb. facr.,CONCEPT,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_f4d91f7a2524,morb-cutan,Morb. cutan.,CONCEPT,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_914c2380c286,monte-cor,monte Cor',PLACE,1,1,1,wrapped_punctuation,coloquios_da_orta_1563
+ent_630da0462f1e,modern-geogr,Modern Geogr.,OBJECT,1,1,1,wrapped_punctuation,relation_historique_humboldt_vol3_1825
+ent_4f87a72b0d59,miracul-sanat-lunat,Miracul. Sanat. lunat.,CONCEPT,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_cc838cafe512,mimosa-catechu-linn,"Mimosa Catechu, Linn.",PLANT,1,1,1,wrapped_punctuation,coloquios_da_orta_1563
+ent_9818af3e8dfd,mihi-fol-504-col-r,mihi fol. 504.col. r.,OBJECT,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_101d798b4586,mihi-933,mihi 933.,OBJECT,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_751cf5b923fa,mihi-146-col-1,mihi 146. col. 1.,OBJECT,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_be6ee2231fb0,michael-angel-rot,Michael Angel. Rot.,PERSON,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_905d8dd2b37c,mercat-de-recto-prfidior,Mercat. de Recto præfidior.,OBJECT,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_c8343a51fd55,mento-di-lefne,mento di^lefne,PLANT,1,1,1,ocr_noise_char,ricettario_fiorentino_1597
+ent_1bbbac0b7e4a,mentiscap-11,mentiscap.11.,CONCEPT,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_71fed1b6ca21,mendonca-andre-furtado-de,Mendonça (André Furtado de),PERSON,1,1,1,wrapped_punctuation,coloquios_da_orta_1563
+ent_01a0311c6409,mello-martim-aifonso-de,Mello (Martim Aifonso de),PERSON,1,1,1,wrapped_punctuation,coloquios_da_orta_1563
+ent_f0dcabcfe11d,melish-geogr,"Melish, Geogr.",PERSON,1,1,1,wrapped_punctuation,relation_historique_humboldt_vol3_1825
+ent_9518629a098b,melcolr,Melcolr),SUBSTANCE,1,1,1,wrapped_punctuation,ricettario_fiorentino_1597
+ent_3406deaf0e44,mekoi,Mekoi^,PLACE,1,1,1,ocr_noise_char,coloquios_da_orta_1563
+ent_2d4e73a6a292,mef,Mef.,PERSON,1,1,1,wrapped_punctuation,ricettario_fiorentino_1597
+ent_f0ab6bdbb6d3,medicinische-psychol,Medicinische Psychol.,ORGANIZATION,1,1,1,wrapped_punctuation,principles_of_psychology_james_1890
+ent_3a81ee1cf61a,medic-prim,Medic.prim.,CONCEPT,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_0a120499c931,medic-fect-7,medic.fect.7.,CONCEPT,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_da52a4b767f5,medic-univers,Medic. Univers.,CONCEPT,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_b5b2c668a1df,medic-penis-morb,Medic. Penis morb.,CONCEPT,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_1256962f4d00,meda-dandrade-d,Meda Dandrade (D.),PERSON,1,1,1,wrapped_punctuation,coloquios_da_orta_1563
+ent_0bc1d96f18e2,med-repos,Med. Repos.,OBJECT,1,1,1,wrapped_punctuation,relation_historique_humboldt_vol3_1825
+ent_477a0ef5ae1a,me-plant,Me,PLANT,1,1,1,very_short_low_count,ricettario_fiorentino_1597
+ent_80bccb60df93,mauro-fra,Mauro (Fra),PERSON,1,1,1,wrapped_punctuation,coloquios_da_orta_1563
+ent_f6be4dfc664e,mau-ind-n,Mau Ind^ n,PLACE,1,1,1,ocr_noise_char,coloquios_da_orta_1563
+ent_64ba833390cf,matth-cap-28-verf,Matth.cap. 28. verf.,PERSON,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_fa882d6540d1,mascarenhas-d-j080,Mascarenhas (D. J080),PERSON,1,1,1,wrapped_punctuation,coloquios_da_orta_1563
+ent_87e837de664b,marignoui-fr-joso-de,MarígnoUi (Fr. JoSo de),PERSON,1,1,1,wrapped_punctuation,coloquios_da_orta_1563
+ent_66f9009a9498,martin-andres-de-s,Martin (Andrés de S.),PERSON,1,1,1,wrapped_punctuation,coloquios_da_orta_1563
+ent_4912d720cc08,marit-geogr,Marit. Geogr.,CONCEPT,1,1,1,wrapped_punctuation,relation_historique_humboldt_vol3_1825
+ent_3e054d3eea2f,march-14th,March 14th,OTHER_CONCEPT,1,1,1,date_phrase,principles_of_psychology_james_1890
+ent_78ee1a5a5077,marc,Marc.,PERSON,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_cee0c464b7f6,mara-ion,Mara/ion,PLACE,1,1,1,slash_noise,relation_historique_humboldt_vol3_1825
+ent_dec30b67b7a2,maquien-makian,Maquien (Makian),PERSON,1,1,1,wrapped_punctuation,coloquios_da_orta_1563
+ent_b2b7d473d123,manuel-el-rei-d,Manuel (El-rei D.),PERSON,1,1,1,wrapped_punctuation,coloquios_da_orta_1563
+ent_251905bbd64c,mantis-spagyr,Mantis Spagyr.,OBJECT,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_a3409e4da08a,manicai-bo,Manicai/bo,PLACE,1,1,1,slash_noise,relation_historique_humboldt_vol3_1825
+ent_f84fd6c3a35b,mange,Mange.,DISEASE,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_773d7517f2cf,manard,Manard.,PERSON,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_c1a267d74ddd,man-eira,man^^eira,PLANT,1,1,1,ocr_noise_char,coloquios_da_orta_1563
+ent_26f16cf48c73,man-fol-88-verf-cap-72,man. fol. 88. verf. cap. 72.,OBJECT,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_76c50b022df2,mambre-michele,Mambré (Michele),PERSON,1,1,1,wrapped_punctuation,coloquios_da_orta_1563
+ent_8af9e4699582,malig,malig.,DISEASE,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_1924610f1ec3,mal-ind-i,MaL Ind^ i,CONCEPT,1,1,1,ocr_noise_char,coloquios_da_orta_1563
+ent_4bf9a3ff4ccb,maiigos-es,Maiigos^es,PLANT,1,1,1,ocr_noise_char,coloquios_da_orta_1563
+ent_200b0665f401,mai-mea,Mai. meã.,CONCEPT,1,1,1,wrapped_punctuation,coloquios_da_orta_1563
+ent_6eaf6aa93ec1,maha-ari,maha\ari,PLANT,1,1,1,slash_noise,coloquios_da_orta_1563
+ent_b18f25a2a29a,magno-alberto,Magno (Alberto),PERSON,1,1,1,wrapped_punctuation,coloquios_da_orta_1563
+ent_cb29f5ba7b03,mag-ftr-mphtf,"Mag,ftr./mphtf",SUBSTANCE,1,1,1,slash_noise,ricettario_fiorentino_1597
+ent_15f483f524d6,maffil-acak,Maffil.Acak.,PERSON,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_9b7e56f53ab1,m-s,M.'s,PERSON,1,1,1,high_punctuation_ratio,principles_of_psychology_james_1890
+ent_d055cfcacbc5,m-roy,M. Roy.,PERSON,1,1,1,wrapped_punctuation,relation_historique_humboldt_vol3_1825
+ent_ed12451954a1,lus,Lus.,OBJECT,1,1,1,wrapped_punctuation,coloquios_da_orta_1563
+ent_def1cf0e6dd7,lufit-lib-prax,Lufit. lib. Prax.,PERSON,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_efca4c12b314,lucret,Lucret.,PERSON,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_f5e119a1e0f0,luc-person,Luc.,PERSON,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_f0f75030d87f,louis-v,Louis V.,PERSON,1,1,1,wrapped_punctuation,principles_of_psychology_james_1890
+ent_9af01d3412e7,long-85-37,long. 85° 37',CONCEPT,1,1,1,wrapped_punctuation,relation_historique_humboldt_vol3_1825
+ent_219416233ddd,lond-priee-curt,Lond. Priée Curt.,OBJECT,1,1,1,wrapped_punctuation,relation_historique_humboldt_vol3_1825
+ent_24add09c816d,lo-ce-hi-o-vero-lincti,LO CE HI» O VERO LINCTI,DISEASE,1,1,1,ocr_noise_char,ricettario_fiorentino_1597
+ent_cfa62c75acb5,lo,Lo,PLACE,1,1,1,very_short_low_count,polyanthea_medicinal
+ent_71b9f97a1fa7,lie,Li•e,DISEASE,1,1,1,ocr_noise_char,english_physician_1652
+ent_2ddd57f03092,livro-xn-43-ed-nisard-cap-19,"livro xn, 43^ ed. Nisard, cap. 19",CONCEPT,1,1,1,ocr_noise_char,coloquios_da_orta_1563
+ent_651f89d23b40,lit-ap,Lit. ap.,CONCEPT,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_3c2b6e633f31,liquor-antepilept,Liquor Antepilept.,SUBSTANCE,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_61a668eba697,linsch,Linsch.,PERSON,1,1,1,wrapped_punctuation,coloquios_da_orta_1563
+ent_c2bed3838ad8,lilogr,Lilogr.,SUBSTANCE,1,1,1,wrapped_punctuation,relation_historique_humboldt_vol3_1825
+ent_910658e2bff7,ligmtm-colubrinum-primum-et-lauaatissimum-gar-ice-ab-horto,Ligmtm colubrinum primum et lauãatissimum Gar^ice ab Horto,PLANT,1,1,1,ocr_noise_char,coloquios_da_orta_1563
+ent_b74e94d3aaf2,lieues-mar-car,lieues mar. car.,SUBSTANCE,1,1,1,wrapped_punctuation,relation_historique_humboldt_vol3_1825
+ent_8e0a3120c2bb,librodemirab-curat,librodeMirab. curat.,OBJECT,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_a46bfeb36a35,lib-deaquis-mine,lib.deaquis mine,OBJECT,1,1,1,bibliographic_fragment,polyanthea_medicinal
+ent_fbcf1d9b1f01,lib-4-cap-21-mihi-fol-512,lib.4 cap.21 mihi fol. 512,OBJECT,1,1,1,bibliographic_fragment,polyanthea_medicinal
+ent_bfb9a3b5e181,lib-3-delocis,lib.3.deLocis,OBJECT,1,1,1,bibliographic_fragment,polyanthea_medicinal
+ent_ab21fe76840f,lib-2-de-pestediz,"lib.2.de peſtediz,",CONCEPT,1,1,1,bibliographic_fragment,polyanthea_medicinal
+ent_8b46c98a1b82,lib-13-meth-cap-14-fol-mi,lib.13.Meth.cap.14.fol. mì,OBJECT,1,1,1,bibliographic_fragment,polyanthea_medicinal
+ent_8c2f82c7eea4,lib-1-delethargo-cap-12,"lib.1.deLethargo,cap.12",CONCEPT,1,1,1,bibliographic_fragment,polyanthea_medicinal
+ent_9b5042ccb284,lib-decur-morb,lib. deCur. morb.,OBJECT,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_1b0efb22321d,lib-de-tremore-cap-5-fol,"lib. de Tremore, cap. 5.fol.",OBJECT,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_1552e107ef78,lib-de-natur-mulieb,lib. de Natur mulieb.,CONCEPT,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_3974fa15f342,lib-8-epiftol-consult,lib. 8. Epiftol. & Conſult.,CONCEPT,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_d09aed05f10b,lib-7-de-venen-ex-animal,lib. 7. de Venen. ex animal.,OBJECT,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_ba427f10e400,lib-5-defebr,lib. 5. deFebr.,OBJECT,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_a48ab4d29742,lib-4-cap-6-de-cur-pestil,lib. 4. cap. 6. de Cur. peſtil.,CONCEPT,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_8a7624328567,lib-4-aphor-17,lib. 4. Aphor. 17.,CONCEPT,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_770ce4b64429,lib-3-tract-t-cap,lib. 3. tract. T. cap.,CONCEPT,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_d86188963daf,lib-3-prax-histor-observ,lib. 3. Prax. hiſtor. obſerv.,OBJECT,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_63696714b01b,lib-3-de-loc-affect,lib. 3. de Loc. affect.,CONCEPT,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_d8796d60d9b4,lib-3-de-dolor-ventricul,lib. 3. de Dolor. ventricul.,OBJECT,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_f0278cddf24d,lib-3-de-ar-medic,lib. 3. de Ar. Medic.,CONCEPT,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_79ccf3f5d3a4,lib-2-logic,lib. 2. Logic.,CONCEPT,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_07ac54400f32,lib-2-institutio-num-medic-cap-12-mihifol-71,lib. 2. inſtitutio- num Medic.cap.12. mihifol.71,OBJECT,1,1,1,bibliographic_fragment,polyanthea_medicinal
+ent_7b8d6b34dfae,lib-2-epistol-fol-mihi-44-verf,lib. 2. Epiſtol. fol. mihi 44. verf.,OBJECT,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_7ad13f97351d,lib-2-cap-6-fol-mihi-76,lib. 2. cap. 6. fol. mihi 76.,OBJECT,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_aa64a733d09b,lib-14-epistolar-4-fol-27,lib. 14. Epiſtolar. 4. fol. 27.,OBJECT,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_d8cb8b15cd17,lib-13-method,lib. 13. method.,OBJECT,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_94d8ba0c13cf,lib-12-de-curand-affect,lib. 12. de curand. affect.,OBJECT,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_db8c26a7b7cb,lib-1-de-intern-morb,lib. 1. de Intern. Morb.,OBJECT,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_68444aeecb98,lib-1-de-art-curat-ad-glauc,lib. 1. de Art. curat ad Glauc.,OBJECT,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_d42f90fb832c,lib-1-de-3-medic-princ-hift,lib. 1. de 3. Medic. princ. hift.,OBJECT,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_9f18f26cdc10,lib,Lib.,OBJECT,1,1,1,wrapped_punctuation,coloquios_da_orta_1563
+ent_7c3b58564404,lib-4-thefaur-vit-hu-man-cap-14-fol-mihi-180-verf,lib . 4.Thefaur. vit.hu- man. cap. 14. fol. mihi 180. verf.,OBJECT,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_0386cd0b66b1,li,Li,CONCEPT,1,1,1,very_short_low_count,english_physician_1652
+ent_47d5dc9d9fe9,letlers-writlcn-in-the-interior-of-cuba-in-fetruary-and-may-1828,Letlers writlcn in the Interior of Cuba in Fetruary and May 1828,OBJECT,1,1,1,date_phrase,relation_historique_humboldt_vol3_1825
+ent_7bcd718e49df,les-maladies-veneriennes-che-les-hebreux-avepoque-biblique,Les maladies vénériennes che^ les Hebreux àVÉpoque Biblique,OBJECT,1,1,1,ocr_noise_char,coloquios_da_orta_1563
+ent_cc9f673a9dbb,les-maladies-de-la-m,Les Maladies de la M.,ORGANIZATION,1,1,1,wrapped_punctuation,principles_of_psychology_james_1890
+ent_c55e5c5e348f,leonardo-celf,Leonardo Celf.,PERSON,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_6b19be01e1d7,leon-jacchin,Leon. Jacchin.,PERSON,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_2194d03c8c15,leipzig-berichte-math-phys-classe,"Leipzig Berichte, Math.-phys. Classe.",ORGANIZATION,1,1,1,wrapped_punctuation,principles_of_psychology_james_1890
+ent_c54e466e52ad,lehrbuch-d-psych,Lehrbuch d. Psych.,ORGANIZATION,1,1,1,wrapped_punctuation,principles_of_psychology_james_1890
+ent_c612249aacf1,lehrb-zur-psychol,Lehrb. zur Psychol.,ORGANIZATION,1,1,1,wrapped_punctuation,principles_of_psychology_james_1890
+ent_e86bdf288829,lectures-on-metaph,Lectures on Metaph.,ORGANIZATION,1,1,1,wrapped_punctuation,principles_of_psychology_james_1890
+ent_c2ba56833bc4,lect-on-met,Lect. on Met.,ORGANIZATION,1,1,1,wrapped_punctuation,principles_of_psychology_james_1890
+ent_5680ff144cc5,le-no-aloe-crudo,Le^no aloè crudo,PLANT,1,1,1,ocr_noise_char,ricettario_fiorentino_1597
+ent_456657091d9e,le-mi,le/mi,SUBSTANCE,1,1,1,slash_noise,ricettario_fiorentino_1597
+ent_02a8425ca037,lbh-d-empir-psych,Lbh. d. empir. Psych.,ORGANIZATION,1,1,1,wrapped_punctuation,principles_of_psychology_james_1890
+ent_26f3a51b549c,laudanoopia,laudanoopia.,SUBSTANCE,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_555329a57d85,lat-j7-23,"Lat. J7"" — 23»",CONCEPT,1,1,1,ocr_noise_char,relation_historique_humboldt_vol3_1825
+ent_26d7d0a12994,lat-i5-x4,Lat. i5» — x4»,CONCEPT,1,1,1,ocr_noise_char,relation_historique_humboldt_vol3_1825
+ent_1cdf46da9f88,lat-bor,LAT. BOR.,CONCEPT,1,1,1,wrapped_punctuation,relation_historique_humboldt_vol3_1825
+ent_8afdd272f3db,las-ci-cuyzas,Las Ci^cuyzas,PLACE,1,1,1,ocr_noise_char,relation_historique_humboldt_vol3_1825
+ent_7f727fbc2264,lart,Lart.,PERSON,1,1,1,wrapped_punctuation,relation_historique_humboldt_vol3_1825
+ent_57f724a135dc,lang-epistol-10-fol-mihi480,Lang. Epiſtol. 10. fol. mihi480.,CONCEPT,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_7e8e7a238b13,lagascea-mollis-cav,Lagascea mollis Cav.,PLANT,1,1,1,wrapped_punctuation,relation_historique_humboldt_vol3_1825
+ent_96ada02536d0,lact-orb-nov,Lact Orb. nov.,OBJECT,1,1,1,wrapped_punctuation,relation_historique_humboldt_vol3_1825
+ent_427275af1a9f,la-una-chica,La- (^una chica,PLACE,1,1,1,ocr_noise_char,relation_historique_humboldt_vol3_1825
+ent_416bb2aab643,la-e-eceria,la e^eceria,PLACE,1,1,1,ocr_noise_char,coloquios_da_orta_1563
+ent_e5d272957e95,la,La,PLANT,1,1,1,very_short_low_count,english_physician_1652
+ent_e585b1e512dc,l-oxide-de-fer,l^oxide de fer,SUBSTANCE,1,1,1,ocr_noise_char,relation_historique_humboldt_vol3_1825
+ent_2df737aa6932,l-ancien-eau,l'Ancien- (eau),PLACE,1,1,1,wrapped_punctuation,relation_historique_humboldt_vol3_1825
+ent_fc5ff729f79b,l-a-g-llc,"l'a,g„,llc",OBJECT,1,1,1,high_punctuation_ratio,relation_historique_humboldt_vol3_1825
+ent_58fd5d865846,kongl-svenska-vetenskaps-akad-handl,"Kongl. Svenska Vetenskaps Akad, Handl.",ORGANIZATION,1,1,1,wrapped_punctuation,principles_of_psychology_james_1890
+ent_8bf084675a7f,kllog,kllog.,SUBSTANCE,1,1,1,wrapped_punctuation,relation_historique_humboldt_vol3_1825
+ent_1706157288fa,kicholstn-joum,"Kicholstn,Joum.",OBJECT,1,1,1,wrapped_punctuation,relation_historique_humboldt_vol3_1825
+ent_15c15388707c,khalf,Khalf.,PERSON,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_9e7f6bbfb9ab,karun-elf,karun/elf,PLANT,1,1,1,slash_noise,coloquios_da_orta_1563
+ent_c847d6726ebf,kapur-japun,kapur ^ Japún,PLANT,1,1,1,ocr_noise_char,coloquios_da_orta_1563
+ent_7fb2ed79c011,jungers-flozgeb,Jùngers Flôzgeb.,SUBSTANCE,1,1,1,wrapped_punctuation,relation_historique_humboldt_vol3_1825
+ent_3cc20031b497,june-1890,June 1890,OTHER_CONCEPT,1,1,1,date_phrase,principles_of_psychology_james_1890
+ent_48d25f7cf51d,july-25-1651,"July, 25. 1651",CONCEPT,1,1,1,date_phrase,english_physician_1652
+ent_a463af49890b,julian,Julian.,PERSON,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_f5d9906d1668,jul-ul,Jul/ul,PLANT,1,1,1,slash_noise,coloquios_da_orta_1563
+ent_18788544b095,judic-6-verl-13,Judic. 6. verl. 13.,CONCEPT,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_d8b3280e1965,journal-of-spec-phil,Journal of Spec. Phil.,ORGANIZATION,1,1,1,wrapped_punctuation,principles_of_psychology_james_1890
+ent_0b5405accbde,journal-of-physiol,Journal of Physiol.,ORGANIZATION,1,1,1,wrapped_punctuation,principles_of_psychology_james_1890
+ent_993434abccc6,journal-0-science,Journal 0/ Science,OBJECT,1,1,1,slash_noise,relation_historique_humboldt_vol3_1825
+ent_5d5c9f77b233,journ-of-spec-phil,Journ. of Spec. Phil.,ORGANIZATION,1,1,1,wrapped_punctuation,principles_of_psychology_james_1890
+ent_4d788f202114,joum-ofihe-roy-instit,Joum. ofihe Roy. Instit.,OBJECT,1,1,1,wrapped_punctuation,relation_historique_humboldt_vol3_1825
+ent_6a76fe9934f6,joum-de-phys,"Joum, de phys.",CONCEPT,1,1,1,wrapped_punctuation,relation_historique_humboldt_vol3_1825
+ent_674fa5bbcea3,jose-sca-ugero,José Sca« Ugero,PERSON,1,1,1,ocr_noise_char,coloquios_da_orta_1563
+ent_a8da75da8ad2,jor-fol-309-col-2,Jor. fol. 309. col. 2.,PERSON,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_4af2cee22478,jones-mr-j-m,"Jones, Mr. J. M.",PERSON,1,1,1,wrapped_punctuation,origin_of_species_darwin_1859
+ent_8c27cbbc04f5,joco-e,Joco^e,OBJECT,1,1,1,ocr_noise_char,relation_historique_humboldt_vol3_1825
+ent_b6ea5bf337a4,joao-lopes-cor,Joao Lopes Cor.,PERSON,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_f3c84e6b0275,joann-virider,Joann. Virider.,PERSON,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_d7e7d0182521,jl-rcitrio-americano,Jl^rcitrio americano,OBJECT,1,1,1,ocr_noise_char,relation_historique_humboldt_vol3_1825
+ent_3491ec34f5ca,jij-xaw,jij^Xaw,PLANT,1,1,1,ocr_noise_char,coloquios_da_orta_1563
+ent_5de9b8d1bb19,jfcle-tuaiftcondo-gduw,Jfcle^tuÀiftcondo GdUw-,PERSON,1,1,1,ocr_noise_char,ricettario_fiorentino_1597
+ent_c7e6b077de7d,jestim-de-la-temp,JEstim. de la temp.,OBJECT,1,1,1,wrapped_punctuation,relation_historique_humboldt_vol3_1825
+ent_114b416c4f91,jeronymo-di-s-stephano,Jeronymo di S.'« Stephano,PERSON,1,1,1,ocr_noise_char,coloquios_da_orta_1563
+ent_7fd6ce14d7ac,jat,Jat.,CONCEPT,1,1,1,wrapped_punctuation,relation_historique_humboldt_vol3_1825
+ent_3e116fca865b,january-4-1888,"January 4, 1888",OTHER_CONCEPT,1,1,1,date_phrase,principles_of_psychology_james_1890
+ent_ff8c5218d988,january-17-1887,"January 17, 1887",OTHER_CONCEPT,1,1,1,date_phrase,principles_of_psychology_james_1890
+ent_8339b47c5ac8,janfon,Janfon.,PERSON,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_7425a9c6cfb3,j-olcancitos,J^olcancitos,PLACE,1,1,1,ocr_noise_char,relation_historique_humboldt_vol3_1825
+ent_fd32226815a9,j-edictnale,J^edictnale,OBJECT,1,1,1,ocr_noise_char,ricettario_fiorentino_1597
+ent_2fe0fc041df2,j-cuy,J^cuy,PLACE,1,1,1,ocr_noise_char,relation_historique_humboldt_vol3_1825
+ent_ea98dd1f03dc,j-ofbritish-india,J^. ofBritish índia,PLACE,1,1,1,ocr_noise_char,coloquios_da_orta_1563
+ent_1453550765d5,j-pie,J<PÌè,SUBSTANCE,1,1,1,symbol_noise,ricettario_fiorentino_1597
+ent_000eabeddd4e,j-integerrima-jacq,J. integerrima Jacq.,PLANT,1,1,1,wrapped_punctuation,relation_historique_humboldt_vol3_1825
+ent_f8f7bfb22814,iv-ot,Iv^ót,PLACE,1,1,1,ocr_noise_char,coloquios_da_orta_1563
+ent_fe86fb1d1faf,iv-uno,Iv^unó,PLACE,1,1,1,ocr_noise_char,coloquios_da_orta_1563
+ent_0368516ac91d,isthme-de-panan-a,isthme de Panan^a,PLACE,1,1,1,ocr_noise_char,relation_historique_humboldt_vol3_1825
+ent_807df544893f,ino-jan,ino Jan.,PLANT,1,1,1,wrapped_punctuation,ricettario_fiorentino_1597
+ent_bf7a157bbbb7,innoxia-opiat,Innoxia opiat.,SUBSTANCE,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_caabe35bcd4e,inft-degradib,Inft. degradib.,OBJECT,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_94da846a8672,inflcbnce-du-mouvement-sui-la-ojiul-iiiun,INFLCBnCE du mouvement sui la [>ojiul.iIiun,CONCEPT,1,1,1,symbol_noise,relation_historique_humboldt_vol3_1825
+ent_da59394a4351,inflam-polyanthea,inflam.,DISEASE,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_6029012253d3,ind-recrcal,Ind. Recrcal.,OBJECT,1,1,1,wrapped_punctuation,relation_historique_humboldt_vol3_1825
+ent_2813aedb8cd6,incipit-prohemium-de-proprietatibus-rerum-ratris-bartholomei-anglici,Incipit prohemium de proprietatibus rerum/ratris Bartholomei anglici,OBJECT,1,1,1,slash_noise,coloquios_da_orta_1563
+ent_fd8aced05951,incenso-de-ja-a,incenso de Ja^a,SUBSTANCE,1,1,1,ocr_noise_char,coloquios_da_orta_1563
+ent_861952686a26,incenso-come-ji-ejit,Incenso come Jì^ejìt,CONCEPT,1,1,1,ocr_noise_char,ricettario_fiorentino_1597
+ent_3a1b07021635,incen-omfi-iip,Incen(omfi|iip,PLANT,1,1,1,ocr_noise_char,ricettario_fiorentino_1597
+ent_12bfb2ec49d1,in-principio-morborum-valde-matignorummoxfudorifera-exhibedafunt,In principio morborum valdè matignorummoxfudorifera exhibědafunt.,CONCEPT,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_6956ea547702,illustrat-16,illustrat. 16.,CONCEPT,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_585fea001dfa,ill,Ill.,PLACE,1,1,1,wrapped_punctuation,principles_of_psychology_james_1890
+ent_324ef6bbdeb8,ilac,Ilac.,PERSON,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_0994c1e8c993,ibid-cap-31-num-8-p-208-cap-37-per-tot-pag-216-trat-3-cap-4-0-3-pag7-37-29,ibid.cap.31.num.8.p.208. & cap.37.per tot. pag. 216. & Trat.3.cap.4.0.3.pag7:37 29:,PERSON,1,1,1,bibliographic_fragment,polyanthea_medicinal
+ent_9faeede71d8e,ibid-cap-22-n-24-pag-159-cap-45-num-12-pag-253,ibid.cap.22. n. 24. pag. 159.& cap. 45. num. 12. pag. 253,CONCEPT,1,1,1,bibliographic_fragment,polyanthea_medicinal
+ent_bd67bb346468,ibid-organization,Ibid.,ORGANIZATION,1,1,1,wrapped_punctuation,principles_of_psychology_james_1890
+ent_ca9e12e402bd,i53,i53^,CONCEPT,1,1,1,ocr_noise_char,coloquios_da_orta_1563
+ent_db701381924b,hornen-ou-chlorit-c,Hörnen-ou chlorit;c/,SUBSTANCE,1,1,1,slash_noise,relation_historique_humboldt_vol3_1825
+ent_62839643a5e8,hmorr-scorbut-spir,Hæmorr. ſcorbut. ſpir.,DISEASE,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_8429d80365e2,hut-pfthe-indian-arch,Hut. pfthe Indian Arch.,OBJECT,1,1,1,wrapped_punctuation,relation_historique_humboldt_vol3_1825
+ent_1306cbd4136e,huqib,HuQib.,PERSON,1,1,1,wrapped_punctuation,relation_historique_humboldt_vol3_1825
+ent_c9f47003514f,hunter-j,"Hunter, J.",PERSON,1,1,1,wrapped_punctuation,origin_of_species_darwin_1859
+ent_e2819ee3cc87,humb-iiber-der-lv-tkreis,Humb. iiber der Lv/tkreis,OBJECT,1,1,1,slash_noise,relation_historique_humboldt_vol3_1825
+ent_c07d998e4e80,humb-et-bonpl,Humb. et Bonpl.,PERSON,1,1,1,wrapped_punctuation,relation_historique_humboldt_vol3_1825
+ent_51fe2b4c0766,humb-bel-hitt,"Humb. , Bel. hitt.",OBJECT,1,1,1,wrapped_punctuation,relation_historique_humboldt_vol3_1825
+ent_67f843526a39,hug-desanct-victor,Hug.deSanct.Victor.,PERSON,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_e52cd9da0f5a,huber-p,"Huber, P.",PERSON,1,1,1,wrapped_punctuation,origin_of_species_darwin_1859
+ent_14afe099b2f0,hort-geni,Hort. geni.,OBJECT,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_4c49bc1d751a,horner-mr,"Horner, Mr.",PERSON,1,1,1,wrapped_punctuation,origin_of_species_darwin_1859
+ent_d10a70f23d80,hooker-dr,"Hooker, Dr.",PERSON,1,1,1,wrapped_punctuation,origin_of_species_darwin_1859
+ent_0379168307b5,hoftilianenf,Hoftilianenf.,PERSON,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_f1d2aadcc635,hm,HM,OBJECT,1,1,1,very_short_low_count,coloquios_da_orta_1563
+ent_1ac1ca2a564b,histor-me-dic,Hiſtor. Me-dic.,CONCEPT,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_94e10afbcb0d,hitaspis-batalha-de,Hitaspis (batalha de),CONCEPT,1,1,1,wrapped_punctuation,coloquios_da_orta_1563
+ent_d3752ad75533,hist-relation-0-ceylon,"Hist, relation 0/ Ceylon",OBJECT,1,1,1,slash_noise,coloquios_da_orta_1563
+ent_b632078041fd,hisl-of-ihe-ind-arch,Hisl. of Ihe Ind. Arch.,OBJECT,1,1,1,wrapped_punctuation,relation_historique_humboldt_vol3_1825
+ent_d133a84794ed,his-torta-genealogica,His^ torta genealógica,OBJECT,1,1,1,ocr_noise_char,coloquios_da_orta_1563
+ent_b7da5840c808,hirudin,Hirudin.,ANIMAL,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_6973f354315a,hippocrates-lib-de-internis-affectio-nibus,Hippocrates lib.de Internis affectio- nibus,PERSON,1,1,1,bibliographic_fragment,polyanthea_medicinal
+ent_f771147fe090,hippocrates-fupra-citato-lib-fol,Hippocrates fuprà citato lib. & fol.,PERSON,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_1a9e41b48d6b,hint-medic,Hint. Medic.,CONCEPT,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_ee16ddc8b46c,hilippe-iv,hilippe IV.,PERSON,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_68028c94d537,hieronymus-montuus-centuria-1,Hieronymus Montuus centuria 1.,OBJECT,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_3a781d7ffe5e,hieronym,Hieronym.,PERSON,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_70a500991754,hi,hi,PLANT,1,1,1,very_short_low_count,polyanthea_medicinal
+ent_65b0a0248987,hewitt-mr,"Hewitt, Mr.",PERSON,1,1,1,wrapped_punctuation,origin_of_species_darwin_1859
+ent_c2c8d716aa8d,heurn,Heurn.,PERSON,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_c6060d40ec28,heur,Heur.,SUBSTANCE,1,1,1,wrapped_punctuation,relation_historique_humboldt_vol3_1825
+ent_222100bf16d6,herrmann-s-hdbh-d-physiol,Herrmann's Hdbh. d. Physiol.,ORGANIZATION,1,1,1,wrapped_punctuation,principles_of_psychology_james_1890
+ent_ec4dc9daa665,herrenscl-oei-der,Herrenscl^oei-der,PERSON,1,1,1,ocr_noise_char,relation_historique_humboldt_vol3_1825
+ent_6e182cc64ba5,herr-von-t,Herr von T.,PERSON,1,1,1,wrapped_punctuation,principles_of_psychology_james_1890
+ent_c9cfff69cd01,heron-sir-r,"Heron, Sir R.",PERSON,1,1,1,wrapped_punctuation,origin_of_species_darwin_1859
+ent_3b2dc2a9089e,hermann-s-hdbh,Hermann's Hdbh.,ORGANIZATION,1,1,1,wrapped_punctuation,principles_of_psychology_james_1890
+ent_0f21a24c4201,hercules-medic,Hercules Medic.,OBJECT,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_ca1b7bddb58e,her,Her.,PERSON,1,1,1,wrapped_punctuation,relation_historique_humboldt_vol3_1825
+ent_419a1999fa70,hemorroidib,Hemorroidib.,DISEASE,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_d903f2e0cac1,hemorr,Hemorr.,DISEASE,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_5e8930fca3aa,heliodorus-lib-1-historia-ethio-pix,Heliodorus lib. 1. Hiſtoria Ethio pix.,OBJECT,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_6fb2d3b8af96,hec-d-obs-astr,Hec. d'Obs. astr.,OBJECT,1,1,1,wrapped_punctuation,relation_historique_humboldt_vol3_1825
+ent_8de065f007e4,hcm-tite,hcm:^tite,SUBSTANCE,1,1,1,ocr_noise_char,ricettario_fiorentino_1597
+ent_394d8a0970f5,haut-concept,HAUT.,CONCEPT,1,1,1,wrapped_punctuation,relation_historique_humboldt_vol3_1825
+ent_85890a5accb4,hartung-m,"Hartung, M.",PERSON,1,1,1,wrapped_punctuation,origin_of_species_darwin_1859
+ent_2192d71fdd90,harrisonto,Harrisonto-»,PLACE,1,1,1,ocr_noise_char,relation_historique_humboldt_vol3_1825
+ent_cac33a0c9238,harcourt-mr-e-v,"Harcourt, Mr. E. V.",PERSON,1,1,1,wrapped_punctuation,origin_of_species_darwin_1859
+ent_7767b2744a0a,hanb-pharmacf,Hanb^ PharmaCf,OBJECT,1,1,1,ocr_noise_char,coloquios_da_orta_1563
+ent_b779ec34fd27,hamza-de-i-mhan,Hamza de I^Mhan,PERSON,1,1,1,ocr_noise_char,coloquios_da_orta_1563
+ent_44cc9d833dc7,hamort,Hamort.,DISEASE,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_284a87200804,hai-ah,hai^ah,DISEASE,1,1,1,ocr_noise_char,coloquios_da_orta_1563
+ent_e9f941ae998d,hachai-a,hachai^a,DISEASE,1,1,1,ocr_noise_char,coloquios_da_orta_1563
+ent_c38cea2ea7ae,h-o-h,H-O-H,SUBSTANCE,1,1,1,high_punctuation_ratio,principles_of_psychology_james_1890
+ent_9186c7fbb82e,h,H**,PLANT,1,1,1,high_punctuation_ratio,coloquios_da_orta_1563
+ent_b0cba371ffb0,geogr,Géogr.,OBJECT,1,1,1,wrapped_punctuation,coloquios_da_orta_1563
+ent_32e6cdac9510,geog,géog.,CONCEPT,1,1,1,wrapped_punctuation,relation_historique_humboldt_vol3_1825
+ent_dc2ced11965e,gu-tragacanth,Gu•-Traga•canth,PLANT,1,1,1,ocr_noise_char,english_physician_1652
+ent_3400a81b2f17,gur-partic-humani-corporis-affect,Gur.partic. humani corporis affect.,DISEASE,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_f2e0a8c43304,gul-stivam,Gul/stivam,CONCEPT,1,1,1,slash_noise,relation_historique_humboldt_vol3_1825
+ent_d2d2acdadf58,guilhelm-ballon,Guilhelm. Ballon.,PERSON,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_afa0a30d6362,gres-graawakke,Grès (Graawakke),SUBSTANCE,1,1,1,wrapped_punctuation,relation_historique_humboldt_vol3_1825
+ent_18dbf2c31b7c,gray-dr-j-e,"Gray, Dr. J. E.",PERSON,1,1,1,wrapped_punctuation,origin_of_species_darwin_1859
+ent_119c16681690,grano-in-ch-maniera,Grano In ch^ maniera,CONCEPT,1,1,1,ocr_noise_char,ricettario_fiorentino_1597
+ent_858868a984e0,gramatv-a-de-la-lengua-caribe,Gramatv^a de la lengua Caribe,OBJECT,1,1,1,ocr_noise_char,relation_historique_humboldt_vol3_1825
+ent_c89de4102116,grad-conf,Grad. Conf.,CONCEPT,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_041078cf2ced,gould-mr,"Gould, Mr.",PERSON,1,1,1,wrapped_punctuation,origin_of_species_darwin_1859
+ent_eb7818b95093,gould-dr-a,"Gould, Dr. A.",PERSON,1,1,1,wrapped_punctuation,origin_of_species_darwin_1859
+ent_8ecddbe5b1b2,gottofred-christian,Gottofred. Chriſtian.,PERSON,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_a7aa8f903c9f,gomme-in-che-gtd-ifafi-pefitno,Gomme in che gtd^ìfafi pefitno,CONCEPT,1,1,1,ocr_noise_char,ricettario_fiorentino_1597
+ent_9a0f4de9cf7e,gomma-arabica-cerne-fipcf,Gomma arabica cerne fipcf^^^^,CONCEPT,1,1,1,ocr_noise_char,ricettario_fiorentino_1597
+ent_75d69188071d,gomi,gomi.,SUBSTANCE,1,1,1,wrapped_punctuation,coloquios_da_orta_1563
+ent_1d72eb2103ff,gof-de-pharm,Gof. de Pharm.,CONCEPT,1,1,1,wrapped_punctuation,coloquios_da_orta_1563
+ent_e6cff8f33dfb,godwin-austen-mr,"Godwin-Austen, Mr.",PERSON,1,1,1,wrapped_punctuation,origin_of_species_darwin_1859
+ent_0f0b42aca3d9,goa-ir,goa^ir,PERSON,1,1,1,ocr_noise_char,coloquios_da_orta_1563
+ent_6f7ace648375,gm,Gm.,PERSON,1,1,1,wrapped_punctuation,coloquios_da_orta_1563
+ent_bf1fc351d00c,gluctrad,Gluctrad.,PERSON,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_65810ff9b69d,glont,Glont>,PLACE,1,1,1,symbol_noise,relation_historique_humboldt_vol3_1825
+ent_a42e27faf894,gljrcyrrki-a,Gljrcyrrki^a,PLANT,1,1,1,ocr_noise_char,coloquios_da_orta_1563
+ent_14eb8b24076b,glandul-intestiner,Glandul. inteſtiner.,SUBSTANCE,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_259192a3b320,glac,Glac.,DISEASE,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_486b4b88ca2a,gl,Gl,SUBSTANCE,1,1,1,very_short_low_count,historia_medicinal_monardes_1574
+ent_1cfb7502f8bd,givier,GiVier/,CONCEPT,1,1,1,slash_noise,relation_historique_humboldt_vol3_1825
+ent_ed0a0827f15b,gioss,Gioss.,OBJECT,1,1,1,wrapped_punctuation,coloquios_da_orta_1563
+ent_de96d4196a11,ghates-montes-dos,Ghates (Montes dos),PLACE,1,1,1,wrapped_punctuation,coloquios_da_orta_1563
+ent_d080deb96137,gh,Gh,SUBSTANCE,1,1,1,very_short_low_count,ricettario_fiorentino_1597
+ent_16f4205bc630,george-iii,George III.,PERSON,1,1,1,wrapped_punctuation,principles_of_psychology_james_1890
+ent_0066261d3053,geol,Geol.,SUBSTANCE,1,1,1,wrapped_punctuation,relation_historique_humboldt_vol3_1825
+ent_bc2405aea1e8,geo-a,geo\a,PLANT,1,1,1,slash_noise,coloquios_da_orta_1563
+ent_a509875c9e8a,gauus-la-ajretti,GaUus La/ajretti,ANIMAL,1,1,1,slash_noise,coloquios_da_orta_1563
+ent_531cbed1bca8,ganges-guanga,Ganges (Guanga),PLACE,1,1,1,wrapped_punctuation,coloquios_da_orta_1563
+ent_94e1f65e34bd,gam,Gam.,PERSON,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_a50fa45cff44,gai,gai^,PLANT,1,1,1,ocr_noise_char,coloquios_da_orta_1563
+ent_120376ba2175,gafp-cald,Gafp. Cald.,PERSON,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_376002658046,ga-ar-correa,Ga^ar Corrêa,PERSON,1,1,1,ocr_noise_char,coloquios_da_orta_1563
+ent_eefcd2bb7322,g-ugg-oleu,G>ugg.oleU,PLANT,1,1,1,symbol_noise,ricettario_fiorentino_1597
+ent_18051e7bf47f,g-bos-arsaparillas,g<bos>arsaparillas,PLANT,1,1,1,symbol_noise,historia_medicinal_monardes_1574
+ent_11f665bb2e72,g-sta-christovso-da,G)sta (ChrístovSo da),PERSON,1,1,1,wrapped_punctuation,coloquios_da_orta_1563
+ent_6772cfc2068c,fundum,fundum.,SUBSTANCE,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_0427b670712a,fruto-d-palmeira,fruto d^palmeira,PLANT,1,1,1,ocr_noise_char,coloquios_da_orta_1563
+ent_a69453243306,francifc-guilhelm,Francifc. Guilhelm.,PERSON,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_1c853362845f,fr-bartholomeo-bartholomaeus-urbevetanus,Fr. Bartholomeo (Bartholomaeus Urbevetanus),PERSON,1,1,1,wrapped_punctuation,coloquios_da_orta_1563
+ent_2920db47a506,fr,fr.,SUBSTANCE,1,1,1,wrapped_punctuation,relation_historique_humboldt_vol3_1825
+ent_83472779ab0c,forestus-lib-10-obfervat,Foreſtus lib. 10. Obfervat.,PERSON,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_bd318ee3f0fb,fondo-pmio,fondo PmIo.,OBJECT,1,1,1,wrapped_punctuation,ricettario_fiorentino_1597
+ent_9ff8218560d5,fol-301,fol.301,OBJECT,1,1,1,bibliographic_fragment,polyanthea_medicinal
+ent_9cb8eeac1e4e,fol-123-verf,fol. 123. verf..,CONCEPT,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_301e0cbd6aa0,foglie-d-betonica,Foglie d^ betonica,PLANT,1,1,1,ocr_noise_char,ricettario_fiorentino_1597
+ent_d1f14150f1eb,fo-ra-da-india,fo//râ da índia,PLANT,1,1,1,slash_noise,coloquios_da_orta_1563
+ent_14cc1ec06892,fn,Fn•,DISEASE,1,1,1,ocr_noise_char,english_physician_1652
+ent_39d07a2dc062,flucl-e-hanb-phannae-f,FlucL e Hanb^ Phannae.f,OBJECT,1,1,1,ocr_noise_char,coloquios_da_orta_1563
+ent_a43dfeedf0d5,fluck-e-hanb,Fluck. e Hanb.,PERSON,1,1,1,wrapped_punctuation,coloquios_da_orta_1563
+ent_3694745d02b7,florilegio-medic,Florilegio Medic.,CONCEPT,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_d29e895ff668,florileg-medic,Florileg. Medic.,OBJECT,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_037f9dbe9f4e,flora-qf-tropical-fhca,Flora qf tropical ^fHca,CONCEPT,1,1,1,ocr_noise_char,coloquios_da_orta_1563
+ent_ee707ae6561d,fl-cochinch,Fl. Cochinch.,OBJECT,1,1,1,wrapped_punctuation,coloquios_da_orta_1563
+ent_df6a32d82247,fl-o-brit-india,"Fl, o/Brit, índia",CONCEPT,1,1,1,slash_noise,coloquios_da_orta_1563
+ent_a364db26d10d,fiori-di-camomij,Fiori di camomiJ.>,PLANT,1,1,1,symbol_noise,ricettario_fiorentino_1597
+ent_d95611a96e9b,field-daysies,Field Day†sies,PLANT,1,1,1,ocr_noise_char,english_physician_1652
+ent_bb4c5bc82923,fernel-lib-6-de,fernel.lib.6.de,PERSON,1,1,1,bibliographic_fragment,polyanthea_medicinal
+ent_b7fa8d039a1a,fern-person,Fern.,PERSON,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_139fbdfdfe3c,fen-object,Fen.,OBJECT,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_464d80fc97a6,fen-10-libri-3-tract-3,Fen 10. libri 3. tract. 3.,CONCEPT,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_763992390356,febr-pestil-malign,Febr. pestil. & malign.,DISEASE,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_2e12c1e8a8ec,febr-cur-meth,Febr. cur. Meth.,OBJECT,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_df312b240719,fau-el,fau/el,PLANT,1,1,1,slash_noise,coloquios_da_orta_1563
+ent_ac4b1852ef1b,fas-celf,Fas Celf.,PERSON,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_fcdd66116b6d,fara,fara^,PERSON,1,1,1,ocr_noise_char,coloquios_da_orta_1563
+ent_e4fc0d3fc6d5,fachin,fachin.,PERSON,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_b0b46cbe232b,f-oyet,f^oyet,PERSON,1,1,1,ocr_noise_char,relation_historique_humboldt_vol3_1825
+ent_18d52790742b,f-oycz-mon-essai-sur-te-gisement-des-rvi-nes-dans-les-deux-hemispheres,f^oycz mon Essai sur te gisement des rvi'nes dans les deux hémisphères,OBJECT,1,1,1,ocr_noise_char,relation_historique_humboldt_vol3_1825
+ent_6fe0b72678d7,f-ifarorene,F^ifarorene,SUBSTANCE,1,1,1,ocr_noise_char,ricettario_fiorentino_1597
+ent_a8d0dee91ad6,exscamoniat,exscamoniat.,PLANT,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_e301e94f1527,exercitation-medic,Exercitation. Medic.,OBJECT,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_199c1ce1ff3f,ex-referatavenaju-guleri-libertas-illico-respirandi-de-glutiendifecutaeft,"Ex referatavenaju- guleri libertas illico respirandi,&de- glutiendifecutaeft.",CONCEPT,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_20d0f4f07d24,ex,ex,OBJECT,1,1,1,very_short_low_count,polyanthea_medicinal
+ent_eeea1a43a42b,euprrb-bcssb,EuprRB BCSSB .,PLACE,1,1,1,wrapped_punctuation,relation_historique_humboldt_vol3_1825
+ent_e191f60a5aae,eu,eu,SUBSTANCE,1,1,1,very_short_low_count,ricettario_fiorentino_1597
+ent_ca2d17c5fd68,eta-tinta-in-grana-di-fre,Età tinta in grana di fre^,SUBSTANCE,1,1,1,ocr_noise_char,ricettario_fiorentino_1597
+ent_6a142a9dcea9,etsai-tur-vaprtciation-de-la-oriune-pnvee-au-moyen-age,Etsai tur Vaprtciation de la/oriune pnvée au moyen age,CONCEPT,1,1,1,slash_noise,coloquios_da_orta_1563
+ent_29c95991aaef,essay-conc-h-u,Essay conc. H. U.,ORGANIZATION,1,1,1,wrapped_punctuation,principles_of_psychology_james_1890
+ent_f0a85ec684be,essaipolit,Essaipolit.,OBJECT,1,1,1,wrapped_punctuation,relation_historique_humboldt_vol3_1825
+ent_1bc8ae509811,essai-polit-sur-la-kouv-esp,"Essai Polit, sur la Kouv.-Esp.",OBJECT,1,1,1,wrapped_punctuation,relation_historique_humboldt_vol3_1825
+ent_a138ad237b96,essai-gcogn,Essai gcogn.,SUBSTANCE,1,1,1,wrapped_punctuation,relation_historique_humboldt_vol3_1825
+ent_47a89d93b97d,escl-person,escl.,PERSON,1,1,1,wrapped_punctuation,relation_historique_humboldt_vol3_1825
+ent_54c9a3f4800c,erva-cidr-sh-a,erva cidr/sh-a,PLANT,1,1,1,slash_noise,coloquios_da_orta_1563
+ent_05d3ce9e4377,eraft,Eraft.,PERSON,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_e9555b2495b7,er,er,DISEASE,1,1,1,very_short_low_count,polyanthea_medicinal
+ent_61d816c40566,epistol-lib,Epiſtol.lib.,PERSON,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_1ee923fae6eb,epistol-medicin,Epiſtol. Medicin.,CONCEPT,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_b16dffe999f0,epistol-ad-jul-cap,Epiſtol. ad Jul. Cap.,CONCEPT,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_00b58d925e51,epistol-134-f,Epiſtol. 134.f.,CONCEPT,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_a32e7f93a424,epist-58,Epiſt. 58.,OBJECT,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_d20c77603c2b,epitom-meth-cognofcend-cur-part-corp-afflict,"Epitom, meth cognofcend.&cur.part.corp.Afflict.",CONCEPT,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_a377b4d46b99,epistola-rationem-modumque-propinandi-radicis-chinof-decocti-quo-nuper-invictissimus-carclus-v-imperator-usus-esl,"Epistola rationem^ modumque propinandi radicis Chinof decocti, quo nuper invictissimus Carclus V imperator usus esL",OBJECT,1,1,1,ocr_noise_char,coloquios_da_orta_1563
+ent_fae4488c17cb,epidem-ephemerid,Epidem. & Ephemerid.,DISEASE,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_5317273a827e,epidem,Epidem.,OBJECT,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_1520eec76f30,ephemer-medico-phyficar-germanic,Ephemer. Medico-phyficar. Germanic.,PLACE,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_a4e29aa470c8,encyclopdia-britannica-9th-ed,"Encyclopædia Britannica, 9th Ed.",ORGANIZATION,1,1,1,wrapped_punctuation,principles_of_psychology_james_1890
+ent_eb9ca76f9163,encyclop-britt,Encyclop. Britt.,ORGANIZATION,1,1,1,wrapped_punctuation,principles_of_psychology_james_1890
+ent_b28df29dcfc3,enchirid-medic,Enchirid. Medic.,OBJECT,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_684ef33eacb8,en,en,PLANT,1,1,1,very_short_low_count,polyanthea_medicinal
+ent_a825a2441db0,empiricalib,Empiricalib.,CONCEPT,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_a4a2d633d33c,empir,Empir.,CONCEPT,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_860a40648ce6,elucida-rio,Elucida^rio,OBJECT,1,1,1,ocr_noise_char,coloquios_da_orta_1563
+ent_b6d1778ac92e,efficacimedic-lib,EfficaciMedic.lib.,CONCEPT,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_3aab8adff502,effic-med,Effic. med.,CONCEPT,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_c8dadc7ef373,effect-aquar-mineral,Effect. aquar. mineral.,OBJECT,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_bae22d8d3055,edtmb,Edtmb.,CONCEPT,1,1,1,wrapped_punctuation,relation_historique_humboldt_vol3_1825
+ent_512115eb295a,edrisi-geogr,"Edrísi, Géogr.",OBJECT,1,1,1,wrapped_punctuation,coloquios_da_orta_1563
+ent_4df852dfa17d,edimh-rev,Edimh. Rev.,CONCEPT,1,1,1,wrapped_punctuation,relation_historique_humboldt_vol3_1825
+ent_40c0f479850a,edimb,Edimb.,PLACE,1,1,1,wrapped_punctuation,relation_historique_humboldt_vol3_1825
+ent_671c59f56d9f,ed-liin,Ed. liin.,CONCEPT,1,1,1,wrapped_punctuation,relation_historique_humboldt_vol3_1825
+ent_db62592fc259,ecl-de-sol,Ecl. de sol.,CONCEPT,1,1,1,wrapped_punctuation,relation_historique_humboldt_vol3_1825
+ent_921af292c42c,e-cader,E:{cader,PERSON,1,1,1,ocr_noise_char,coloquios_da_orta_1563
+ent_ba86f5fa3ffe,e-sci-ave-s,E.SCI.AVE.S.,CONCEPT,1,1,1,wrapped_punctuation,relation_historique_humboldt_vol3_1825
+ent_2e41ea39551b,dimes-arenas-decimales-arrendadas,dîmes (arenas décimales arrendadas),CONCEPT,1,1,1,wrapped_punctuation,relation_historique_humboldt_vol3_1825
+ent_dbfd3746b743,decl-magn,Décl. magn.,CONCEPT,1,1,1,wrapped_punctuation,relation_historique_humboldt_vol3_1825
+ent_a4f34cddf832,dymoclu-afiif-mea,Dymoclu Afiif. meá.,PERSON,1,1,1,wrapped_punctuation,coloquios_da_orta_1563
+ent_fd9a88ff4983,dymock-mat-med-person,"Dymock, Mat» med.^",PERSON,1,1,1,ocr_noise_char,coloquios_da_orta_1563
+ent_6ee4579c7ec8,dyfenter,Dyfenter.,DISEASE,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_3b5739854c2f,dx-fenugreco,dx>fenugreco,PLANT,1,1,1,symbol_noise,coloquios_da_orta_1563
+ent_c44302a67873,droport,Drop•ort,DISEASE,1,1,1,ocr_noise_char,english_physician_1652
+ent_fd4e1a9f865e,dragsnt,Dragsnt»,PLANT,1,1,1,ocr_noise_char,ricettario_fiorentino_1597
+ent_5c802c202bb8,dr-f,Dr. F.,PERSON,1,1,1,wrapped_punctuation,principles_of_psychology_james_1890
+ent_b86c87368f7b,dp-kfefuc,dp ^kfefuc,SUBSTANCE,1,1,1,ocr_noise_char,ricettario_fiorentino_1597
+ent_667be5110c44,donar-ant-ab-altomar,Donar.Ant.ab. Altomar.,PERSON,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_aaeb2abb906b,doctr-1,doctr. 1.,CONCEPT,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_0fc2e7fe0ce3,doctor-chriftin,Doctor Chriftin.,PERSON,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_8d713f289fee,do,do,CONCEPT,1,1,1,very_short_low_count,principles_of_psychology_james_1890
+ent_acd3f600dd0f,dn,dn,PLANT,1,1,1,very_short_low_count,coloquios_da_orta_1563
+ent_5b5549707e85,dl-rii-i,Dl^rii^i,PLANT,1,1,1,ocr_noise_char,coloquios_da_orta_1563
+ent_138165621e0c,div-rent,div- rent.),CONCEPT,1,1,1,wrapped_punctuation,relation_historique_humboldt_vol3_1825
+ent_a7da001cc0b4,diun-morfo-de-cani-in-un-pede-ilpri,diun morfo de Cani in un pede ilpri.,DISEASE,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_7f56d6d8aedd,disputat-6,disputat. 6.,CONCEPT,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_38ba024bfb52,discourse-of-wind-breezes-and-currents,"Discourse of Wind» , Breezes and Currents",OBJECT,1,1,1,ocr_noise_char,relation_historique_humboldt_vol3_1825
+ent_5631a721670b,dis-rc7m-uio-geogr-planl,Dis(rc7m(ù»io geogr. planL,OBJECT,1,1,1,ocr_noise_char,relation_historique_humboldt_vol3_1825
+ent_458b255f4963,diosc,Diosc.,PERSON,1,1,1,wrapped_punctuation,relation_historique_humboldt_vol3_1825
+ent_2d1684e41138,diofcorid-lib-5-de-lanatural-del-vin-fol-mihi-508,Diofcorid. lib. 5. De lanatural. del vin. fol. mihi 508.,PERSON,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_577f8bf580fb,dilt-mer-chrou,DilT. mer. chrou.,CONCEPT,1,1,1,wrapped_punctuation,relation_historique_humboldt_vol3_1825
+ent_a1643382f260,diller-mer,Dillér. mer.,CONCEPT,1,1,1,wrapped_punctuation,relation_historique_humboldt_vol3_1825
+ent_23def2ca3abd,diatrib,Diatrib.,OBJECT,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_382cc4c4a133,dialacca-gran-dedimefm,DIALACCA GRAN- dediMefm.,DISEASE,1,1,1,wrapped_punctuation,ricettario_fiorentino_1597
+ent_fae188564430,diaireos-compo,DIAIREOS COMPO.,SUBSTANCE,1,1,1,wrapped_punctuation,ricettario_fiorentino_1597
+ent_25d05d8c6c91,diagri-di-iolutiuo,diagri di^iolutiuo,SUBSTANCE,1,1,1,ocr_noise_char,ricettario_fiorentino_1597
+ent_05ad66244807,di-rhodon-di,DI/RHODON DI,SUBSTANCE,1,1,1,slash_noise,ricettario_fiorentino_1597
+ent_69a37a30f0a1,di-0xc2-0x82-klefue,di <0xC2><0x82>klefue,PLANT,1,1,1,symbol_noise,ricettario_fiorentino_1597
+ent_d545c5566777,dgal,Dgal.,CONCEPT,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_a9f32f514cf0,deutsches-archiv-f-klin-med,Deutsches Archiv f. klin. Med.,ORGANIZATION,1,1,1,wrapped_punctuation,principles_of_psychology_james_1890
+ent_60905d89c5f4,descript-ind-occid,Descript. Ind. Occid.,OBJECT,1,1,1,wrapped_punctuation,relation_historique_humboldt_vol3_1825
+ent_7949974189d3,del,Del.,OBJECT,1,1,1,wrapped_punctuation,relation_historique_humboldt_vol3_1825
+ent_489607539102,dehomine-mihifol-21-confiderandi-hic-veniunt,"DeHomine, mihifol. 21. § Confiderandi hic veniunt",OBJECT,1,1,1,ocr_noise_char,polyanthea_medicinal
+ent_f4e74d182c96,defect-arter-fpermat,Defect. Arter. fpermat.,OBJECT,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_8ecb2d0c6db0,defebr,deFebr.,OBJECT,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_4b127294fea0,deacript,Deacript.,OBJECT,1,1,1,wrapped_punctuation,relation_historique_humboldt_vol3_1825
+ent_804c7323bfff,de-redondo-d-francisco-coutinho,de Redondo (D. Francisco Coutinho),PERSON,1,1,1,wrapped_punctuation,coloquios_da_orta_1563
+ent_f3cdce4d36f6,de-re-med,de Re Med.,PERSON,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_2143eb5fc10a,de-morb-intern,"de Morb, intern.",OBJECT,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_8df1296e5be0,de-medicorum-princip-hiftor,de Medicorum princip.hiftor.,OBJECT,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_24b524f40707,de-caufis-fign-locis-morb,"de Caufis ,fign. & locis morb.",OBJECT,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_1428f9d12c27,dd-polyanthea,DD,PERSON,1,1,1,very_short_low_count,polyanthea_medicinal
+ent_bad964e02a11,daask-roses,Da•ask Roses,PLANT,1,1,1,ocr_noise_char,english_physician_1652
+ent_1cded05188c3,dare-enic,dare^enic,PLANT,1,1,1,ocr_noise_char,coloquios_da_orta_1563
+ent_a01895725990,d-jcdapa,d^jcdapa,PLANT,1,1,1,ocr_noise_char,coloquios_da_orta_1563
+ent_b4ffb85c962a,d-greg-magn,D.Greg.Magn.,PERSON,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_529e15da7ba2,d-bafil,D.Bafil.,PERSON,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_068b44621c69,crof,c£rof,SUBSTANCE,1,1,1,symbol_noise,ricettario_fiorentino_1597
+ent_f176cc6faa06,cutan-affect,Cutan. affect.,DISEASE,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_4c3b27513886,curchill-coll,Curchill Coll.,OBJECT,1,1,1,wrapped_punctuation,relation_historique_humboldt_vol3_1825
+ent_2b9063ff224d,curat-memb,Curat.memb.,CONCEPT,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_c0b00c0a9440,curat-medic,Curat. Medic.,OBJECT,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_1efea092ed93,curat-82-fol-mihi-434,Curat. 82. fol. mihi 434.,CONCEPT,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_0c7465bde1d5,curand-part-corpor-affect,Curand. part. corpor. affect.,DISEASE,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_9723e10fc116,culusbile-omnino-esset-exhaustus,culusbile omnino eſſet exhaustus.,SUBSTANCE,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_ab8c580005a0,cueva-luiz-de,Cueva (Luiz de),PERSON,1,1,1,wrapped_punctuation,coloquios_da_orta_1563
+ent_6f7b68ac7aea,cstello-branco-d-francisco-de,Cstello Branco (D. Francisco de),PERSON,1,1,1,wrapped_punctuation,coloquios_da_orta_1563
+ent_a43d6d1bbac5,crolon-nrgyrop-iyllusj,Crolon nrgyrop/iylluSj,PLANT,1,1,1,slash_noise,relation_historique_humboldt_vol3_1825
+ent_6e6aeba97514,crindle-mac,Crindle (Mac),PERSON,1,1,1,wrapped_punctuation,coloquios_da_orta_1563
+ent_219d7c378002,cremonense-gerardo,Cremonense (Gerardo),PERSON,1,1,1,wrapped_punctuation,coloquios_da_orta_1563
+ent_757b95a91816,crawfurd-dict,"Crawfurd, Dict.",PERSON,1,1,1,wrapped_punctuation,coloquios_da_orta_1563
+ent_f4ef195bbd0b,covarrubias-d-sebastian,Covarrubias (D. Sebastian),PERSON,1,1,1,wrapped_punctuation,coloquios_da_orta_1563
+ent_3bdc7b57f7ae,couto-diogo-do,Couto (Diogo do),PERSON,1,1,1,wrapped_punctuation,coloquios_da_orta_1563
+ent_b5a7a2de0ba6,coui-s,CoUi|s,PERSON,1,1,1,ocr_noise_char,coloquios_da_orta_1563
+ent_24b5635800cd,coui-enb,COUI.EnB.,CONCEPT,1,1,1,wrapped_punctuation,relation_historique_humboldt_vol3_1825
+ent_04673dde852a,cotamaluco-qutb-el-mulk,Cotamaluco (Qutb el-Mulk),PERSON,1,1,1,wrapped_punctuation,coloquios_da_orta_1563
+ent_750814d2343c,cosmogr,Cosmogr.,OBJECT,1,1,1,wrapped_punctuation,relation_historique_humboldt_vol3_1825
+ent_ec087972fb2c,cortical-centre,cortical 'centre',ANATOMY,1,1,1,wrapped_punctuation,principles_of_psychology_james_1890
+ent_9f0105cdbb97,correa-da-serra-transn-linn-5oc,"Corrêa da Serra, TranSn Linn. 5oc.",OBJECT,1,1,1,wrapped_punctuation,coloquios_da_orta_1563
+ent_dacc550c4f45,corred,corred^,PLACE,1,1,1,ocr_noise_char,coloquios_da_orta_1563
+ent_d56e49334bc5,corographia-orasil,Corographia Orasil.,OBJECT,1,1,1,wrapped_punctuation,relation_historique_humboldt_vol3_1825
+ent_211840b0a31d,cordo-valerio,Cordo (Valério),PERSON,1,1,1,wrapped_punctuation,coloquios_da_orta_1563
+ent_ad23debe3329,cooley-desborough,Cooley (Desborough),PERSON,1,1,1,wrapped_punctuation,coloquios_da_orta_1563
+ent_b900441fe472,consult-medic,Conſult. Medic.,CONCEPT,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_8f1ecf795ccf,conti-nicolo-di,Conti (Nicolo di),PERSON,1,1,1,wrapped_punctuation,coloquios_da_orta_1563
+ent_6fe1ffe37bca,contemp-germ-psych,Contemp. Germ. Psych.,ORGANIZATION,1,1,1,wrapped_punctuation,principles_of_psychology_james_1890
+ent_6dd97441799d,contag,contag.,CONCEPT,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_9d821ebdc603,consulado-de-la-p-era-cruz,Consulado de la p^era-Cruz,CONCEPT,1,1,1,ocr_noise_char,relation_historique_humboldt_vol3_1825
+ent_f07f1a2e098f,constantino-de-braganca-d,Constantino de Bragança (D.),PERSON,1,1,1,wrapped_punctuation,coloquios_da_orta_1563
+ent_082478e3e3e4,consejo-de-s-m,Consejo de S. M.,OBJECT,1,1,1,wrapped_punctuation,relation_historique_humboldt_vol3_1825
+ent_bdece270020c,conj,Conj.,CONCEPT,1,1,1,wrapped_punctuation,relation_historique_humboldt_vol3_1825
+ent_3214aedd9df7,conha-bague,conha^bague,PLANT,1,1,1,ocr_noise_char,coloquios_da_orta_1563
+ent_a6d8f6f9e670,congress-of-am-phys-and-surg,Congress of Am. Phys. and Surg.,ORGANIZATION,1,1,1,wrapped_punctuation,principles_of_psychology_james_1890
+ent_80c212f6a291,confili-25,confili. 25.,OBJECT,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_89924a1cf226,conf-1-2-3-8,Conf 1.2.3. & 8.,OBJECT,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_6f979032e69f,concrefcit,concrefcit.,OBJECT,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_cc432035db51,concilmt,ConcilMt.,PERSON,1,1,1,wrapped_punctuation,ricettario_fiorentino_1597
+ent_2cba013cf8be,comte-de-casa-alencia,comte de Casa ^'alencia,PERSON,1,1,1,ocr_noise_char,relation_historique_humboldt_vol3_1825
+ent_7cfa2453fea0,com-ofthe-a-fric-inst,Com. ofthe A fric. Inst.,PERSON,1,1,1,wrapped_punctuation,relation_historique_humboldt_vol3_1825
+ent_46cfab7dfa56,colwort-flowers,Col•wort Flowers,PLANT,1,1,1,ocr_noise_char,english_physician_1652
+ent_58d5d0f24d0c,colombo-porto-de-ceylfio,Colombo (porto de Ceylfio),PLACE,1,1,1,wrapped_punctuation,coloquios_da_orta_1563
+ent_adb692ad3363,colombiad-being-a-statistical-aecount-o-that-country,Colombiad being a statistical aecount o/that country,OBJECT,1,1,1,slash_noise,relation_historique_humboldt_vol3_1825
+ent_5ee18876e86e,col-de-los-descubr-esp,Col. de los descubr. esp.,OBJECT,1,1,1,wrapped_punctuation,relation_historique_humboldt_vol3_1825
+ent_f5747a9a6340,coix-mbia,Coix}MBiA,PLACE,1,1,1,ocr_noise_char,relation_historique_humboldt_vol3_1825
+ent_0b0315e153dc,cocos-nucifera-linn,"Cocos nucifera, Linn.",PLANT,1,1,1,wrapped_punctuation,coloquios_da_orta_1563
+ent_7eb6f9a52411,coceot-wue-fera,Coceot wue^fera,PLANT,1,1,1,ocr_noise_char,coloquios_da_orta_1563
+ent_a4f815fc2227,coca-ricettario,Coca',PLANT,1,1,1,wrapped_punctuation,ricettario_fiorentino_1597
+ent_e2bfb4e15bfd,coacar,Coacar.,PERSON,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_ed708baee15c,coac-object,Coac.,OBJECT,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_61e97e093481,clemente-v,Clemente V.,PERSON,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_18272820aa9f,ck-sius,CK^sius,PERSON,1,1,1,ocr_noise_char,coloquios_da_orta_1563
+ent_08d05dfaa678,ci-hi-o,Ci» Hi« O,CONCEPT,1,1,1,ocr_noise_char,coloquios_da_orta_1563
+ent_911dce35e4a4,circul-fang,Circul. fang.,CONCEPT,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_734f14e7e7eb,cinco-de-outubro-de-1705,cinco de Outubro de 1705,CONCEPT,1,1,1,date_phrase,polyanthea_medicinal
+ent_a2ed52a79209,cimedi-fumoft,Cimedi fumoft.,PLANT,1,1,1,wrapped_punctuation,ricettario_fiorentino_1597
+ent_df147b6d7404,cienef-a,Cienef^a,PLACE,1,1,1,ocr_noise_char,relation_historique_humboldt_vol3_1825
+ent_840190bd01f6,chymic-pharmacop-medic,Chymic. Pharmacop.Medic.,OBJECT,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_c87ca2d01e7d,chyli-receptacul,Chyli receptacul.,CONCEPT,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_5e9d74337e01,chss,Chss.,CONCEPT,1,1,1,wrapped_punctuation,coloquios_da_orta_1563
+ent_1e1c8b8bcbd9,chryfoft-de-caftit-homil-joann-fobriet,Chryfoft. de Caftit. homil. Joann. &fobriet.,PERSON,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_1b05f7050aa9,chron,Chron.,CONCEPT,1,1,1,wrapped_punctuation,relation_historique_humboldt_vol3_1825
+ent_87ddb27fe20b,chmc,chmc^,SUBSTANCE,1,1,1,ocr_noise_char,ricettario_fiorentino_1597
+ent_d0b178d0c542,chincheo-chang-chau,Chincheo (Chang-chau),PLACE,1,1,1,wrapped_punctuation,coloquios_da_orta_1563
+ent_1f583e90c15b,chilam-baixos-de,Chilam (baixos de),PLACE,1,1,1,wrapped_punctuation,coloquios_da_orta_1563
+ent_b792127d6835,chifra-m,Chifra M^,CONCEPT,1,1,1,ocr_noise_char,coloquios_da_orta_1563
+ent_dd486d0bbbea,chermes-di-mefue,chermes di Mefue.,SUBSTANCE,1,1,1,wrapped_punctuation,ricettario_fiorentino_1597
+ent_71955b7c3d73,chapters-on-mental-physiol,Chapters on Mental Physiol.,ORGANIZATION,1,1,1,wrapped_punctuation,principles_of_psychology_james_1890
+ent_194a840d302b,ch-trpcnucr,Ch^trpcnUcr,PERSON,1,1,1,ocr_noise_char,relation_historique_humboldt_vol3_1825
+ent_f2828115f45b,cfl-fliick,Cfl Fliick.,PERSON,1,1,1,wrapped_punctuation,coloquios_da_orta_1563
+ent_54fd3e62f3b9,cerro-de-la-po-ja,Cerro de la Po/ja,PLACE,1,1,1,slash_noise,relation_historique_humboldt_vol3_1825
+ent_794969a8aa08,cerotto-grafia-dei-magistr,Cerotto grafia dei magistr.,SUBSTANCE,1,1,1,wrapped_punctuation,ricettario_fiorentino_1597
+ent_279e2450756e,cephal,Cephal.,DISEASE,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_3ff9b7a91888,centuria-2-observ-66,centuria 2. obſerv. 66.,CONCEPT,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_49c0dd6c9400,centur,Centur.,CONCEPT,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_cd6b078542e0,cent-4-curat-56-fol-426,Cent.4. curat. 56.fol. 426.,CONCEPT,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_15c8347202f8,cd-elujaharagi,cd/elujaharagi,SUBSTANCE,1,1,1,slash_noise,coloquios_da_orta_1563
+ent_dee4bb5d9eff,ccnkay-and-the-wc-thither,Ccnkay and the wc^ thither,CONCEPT,1,1,1,ocr_noise_char,coloquios_da_orta_1563
+ent_577f05b05def,catifa-el-qatif,Catifa (El-Qatif),PLACE,1,1,1,wrapped_punctuation,coloquios_da_orta_1563
+ent_16d092259301,castro-d-joio-de,Castro (D. Joio de),PERSON,1,1,1,wrapped_punctuation,coloquios_da_orta_1563
+ent_b072a079c2c1,castro-balthazar-de,Castro (Balthazar de),PERSON,1,1,1,wrapped_punctuation,coloquios_da_orta_1563
+ent_5f0a319d880f,castillo-dcl-jy-orro,Castillo dcl jy/orro,PLACE,1,1,1,slash_noise,relation_historique_humboldt_vol3_1825
+ent_42889a55b7c3,casa-alencia,Casa ^'alencia,PLACE,1,1,1,ocr_noise_char,relation_historique_humboldt_vol3_1825
+ent_089c6c1893ed,carta-en-firica-dol-3iht-ae-tas-antill-is-y-ac-lua-costan-de-tierra-firme-dcsde-la-isla-de-h-trinidad-hasta-elgolfo-de-honduras,Carta en/firica dol 3Iht ae tas Antill'is y ac lua Costan de Tierra Firme dcsde la isla de h Trinidad hasta elgolfo de Honduras,OBJECT,1,1,1,slash_noise,relation_historique_humboldt_vol3_1825
+ent_53d2d0bdeacc,carol-pifode-morb,Carol. Pifode Morb.,PERSON,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_8bdf1847946b,cards-water,Card•s Water,SUBSTANCE,1,1,1,ocr_noise_char,english_physician_1652
+ent_f0934d5e18b1,cardan-lib-cur-admir-num-29-ibi,Cardan.lib.Cur.admir.num. 29.ibi,OBJECT,1,1,1,bibliographic_fragment,polyanthea_medicinal
+ent_3b99b7aeeeef,car-co-ijue-bull-amp-coll,Car. Co- ijue!. Bull. amp. Coll.,OBJECT,1,1,1,wrapped_punctuation,relation_historique_humboldt_vol3_1825
+ent_db56b2be78de,car-person,Car.,PERSON,1,1,1,wrapped_punctuation,ricettario_fiorentino_1597
+ent_75295c192102,capivac-lib-5-sect-1-dearti,Capivac.lib.5. Sect. 1. deArti-,PERSON,1,1,1,bibliographic_fragment,polyanthea_medicinal
+ent_e1f724e15e88,cap-n-27-feq-pag-445-n-35-feq-pag-448-n-43-pag-450,cap.n. 27.& feq.pag.445 & n.35.& feq.pag.448.&.n.43. pag 450,CONCEPT,1,1,1,bibliographic_fragment,polyanthea_medicinal
+ent_7d504ac1fa86,cap-94-n-9-pag-508,cap.94.n.9.pag.508,CONCEPT,1,1,1,bibliographic_fragment,polyanthea_medicinal
+ent_f197aba134be,cap-67-n-3-p-373,cap.67.n.3.P-373,CONCEPT,1,1,1,bibliographic_fragment,polyanthea_medicinal
+ent_e33ff9f99b27,cap-8-mihifol-sos,cap. 8. mihifol. sos.,OBJECT,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_1e117ddce779,cap-7,cap. 7.,CONCEPT,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_0764a436bed5,cap-12-de-evacuatione-per-sudorem-mihi-fol-172-3-ibi,"cap. 12. de evacuatione per ſudorem , mihi fol . 172. §. 3. ibi:",OBJECT,1,1,1,ocr_noise_char,polyanthea_medicinal
+ent_ada3a67a076b,cap-1,cap. 1.,CONCEPT,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_1585e5220f02,cap-se,Cap SE.,PLACE,1,1,1,wrapped_punctuation,relation_historique_humboldt_vol3_1825
+ent_35cb8c2c4fc8,cap-jtfat-si,cap Jtfat/si,PLACE,1,1,1,slash_noise,relation_historique_humboldt_vol3_1825
+ent_02d1f2374075,cap-de-vierges,cap de> Vierges,PLACE,1,1,1,symbol_noise,relation_historique_humboldt_vol3_1825
+ent_20f68fb8f231,cantilo-kuaog-cheu,CantiLo (Kuaog-cheu),PLACE,1,1,1,wrapped_punctuation,coloquios_da_orta_1563
+ent_15d4f7087f6b,can-ora,can/ora,PLANT,1,1,1,slash_noise,coloquios_da_orta_1563
+ent_3862ab914fef,campo-de-3iar-c,Campo de 3Iar/c,PLACE,1,1,1,slash_noise,relation_historique_humboldt_vol3_1825
+ent_f648d076706d,camphle,Camphl•e,PLANT,1,1,1,ocr_noise_char,english_physician_1652
+ent_dc012faa8138,calcaires-noir,"calcaires noir»,",SUBSTANCE,1,1,1,ocr_noise_char,relation_historique_humboldt_vol3_1825
+ent_380bc21513a3,calcaire-jurassique-2,Calcaire (jurassique?),SUBSTANCE,1,1,1,wrapped_punctuation,relation_historique_humboldt_vol3_1825
+ent_2e543bff47a9,calcaire-jurassique-relation,calcaire (jurassique),SUBSTANCE,1,1,1,wrapped_punctuation,relation_historique_humboldt_vol3_1825
+ent_d4001a5aa836,calcaire-alpin-relation,calcaire (alpin),SUBSTANCE,1,1,1,wrapped_punctuation,relation_historique_humboldt_vol3_1825
+ent_77019f4910be,cal-person,Cal.,PERSON,1,1,1,wrapped_punctuation,ricettario_fiorentino_1597
+ent_53d5d0587ab7,caisses-com-de-azucar,caisses (com de azucar),OBJECT,1,1,1,wrapped_punctuation,relation_historique_humboldt_vol3_1825
+ent_ed41ae464b16,cabrol,Cabrol.,PERSON,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_139ae9675039,cabeca-de-ali-ante,cabeça de ali/ante,ANIMAL,1,1,1,slash_noise,coloquios_da_orta_1563
+ent_2f9161831c8f,cabeta,cabe§ta,DISEASE,1,1,1,ocr_noise_char,polyanthea_medicinal
+ent_61b9058e44e8,ca,Ca,PLANT,1,1,1,very_short_low_count,english_physician_1652
+ent_9935e34bb7c0,c-lfnff,C^lfnff,PERSON,1,1,1,ocr_noise_char,ricettario_fiorentino_1597
+ent_63089687f768,c-is-teeta,C^is Teeta,PLANT,1,1,1,ocr_noise_char,coloquios_da_orta_1563
+ent_e2099cd26881,c-trin,C'trin.,SUBSTANCE,1,1,1,wrapped_punctuation,ricettario_fiorentino_1597
+ent_36c4804f73ca,bdder,B•dder,SUBSTANCE,1,1,1,ocr_noise_char,english_physician_1652
+ent_c6260b5af82f,ba-n-nn-ahyss-nia-meridional,Bá^n nn Ahyss*nía meridional,PLACE,1,1,1,ocr_noise_char,coloquios_da_orta_1563
+ent_50de78a055e4,bull-de-la-soc-philom,"Bull, de la Soc. philom.",OBJECT,1,1,1,wrapped_punctuation,relation_historique_humboldt_vol3_1825
+ent_af251067a540,bri-s,Brí^s,PERSON,1,1,1,ocr_noise_char,coloquios_da_orta_1563
+ent_63e6a57efd9c,brit-emp,Brit. Emp.,PLACE,1,1,1,wrapped_punctuation,relation_historique_humboldt_vol3_1825
+ent_a3a722efb3bf,bridget-f,Bridget F.,PERSON,1,1,1,wrapped_punctuation,principles_of_psychology_james_1890
+ent_008de52f9bc7,boston-med-and-surg-journ,Boston Med. and Surg. Journ.,ORGANIZATION,1,1,1,wrapped_punctuation,principles_of_psychology_james_1890
+ent_4de4c1662c92,bos-wellia-blian-dcyiaiaa,Bos^wellia. Blian-Dcyiaiâa»,PLANT,1,1,1,ocr_noise_char,coloquios_da_orta_1563
+ent_75a3404261dd,bos-rel-lia-oairteirl,Bos^rel-lia. Oairteirl,PLANT,1,1,1,ocr_noise_char,coloquios_da_orta_1563
+ent_610b59afd75a,borel-cent-1-observ-7-fol-mihi-11-ibi-clavili-duofpontefallianatu-ra-anno-eodemquopater-cafu-claudus-factusfuerat,Borel. cent.1.obſerv. 7. fol. mihi 11.ibi:Clavili duofpontefalliànatu-ra anno eodemquopater cafu claudus factusfuerat.,CONCEPT,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_109f77725de7,bomeenec-h,boméeneC» H^,SUBSTANCE,1,1,1,ocr_noise_char,coloquios_da_orta_1563
+ent_8e42eea368e4,boiss,Boiss.,PERSON,1,1,1,wrapped_punctuation,coloquios_da_orta_1563
+ent_9e82b5f2c4fe,boi-samodendron-myrrha-nees,Boi'samodendron Myrrha^ Nees,PLANT,1,1,1,ocr_noise_char,coloquios_da_orta_1563
+ent_32dc85febda0,boduct-cap-13,Boduct. cap.13,OBJECT,1,1,1,bibliographic_fragment,polyanthea_medicinal
+ent_540ed84978e9,blyth-mr,"Blyth, Mr.",PERSON,1,1,1,wrapped_punctuation,origin_of_species_darwin_1859
+ent_368b391591c9,blaf-aftart,Blaf. Aftart.,PERSON,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_3b46829ef766,bisl-nat-des-ind,Bisl. nat. des Ind.,CONCEPT,1,1,1,wrapped_punctuation,relation_historique_humboldt_vol3_1825
+ent_df8c3230fdec,birdword-dr,Birdword (Dr.),PERSON,1,1,1,wrapped_punctuation,coloquios_da_orta_1563
+ent_0bbc0517223a,biopliy-nm-sensitivuiii,Biopliy^nm sensitivuiii*,PLANT,1,1,1,ocr_noise_char,coloquios_da_orta_1563
+ent_e51a4b7769f6,bifantjnp-cpmpotto-x-f-tta,BifantJnP cpmpotto X^^f^tta,SUBSTANCE,1,1,1,ocr_noise_char,ricettario_fiorentino_1597
+ent_6bbee565a7e3,bif-api,Bif^Api,PLANT,1,1,1,ocr_noise_char,ricettario_fiorentino_1597
+ent_c8adabe19b06,bicer,Bic••er,PERSON,1,1,1,ocr_noise_char,english_physician_1652
+ent_565ccd826294,bicc-re,bicc^re,OBJECT,1,1,1,ocr_noise_char,ricettario_fiorentino_1597
+ent_6890ae2d0e06,bibliot-medica-tom-2,Bibliot. medica tom.2.,OBJECT,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_cb7015fee915,bentham-mr,"Bentham, Mr.",PERSON,1,1,1,wrapped_punctuation,origin_of_species_darwin_1859
+ent_f8e9715fa62c,beniven-deabdit-morb-cauf-cap,Beniven.deAbdit.morb.cauf.cap.,PERSON,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_d296174877ac,bellunense-andre,Bellunense (André),PERSON,1,1,1,wrapped_punctuation,coloquios_da_orta_1563
+ent_793768afe0ff,bellon-pedro,Bellon (Pedro),PERSON,1,1,1,wrapped_punctuation,coloquios_da_orta_1563
+ent_219258041fd8,bel-hitt,Bel. hitt.,OBJECT,1,1,1,wrapped_punctuation,relation_historique_humboldt_vol3_1825
+ent_835b0e24e56d,bel-hist,Bel. hist.,OBJECT,1,1,1,wrapped_punctuation,relation_historique_humboldt_vol3_1825
+ent_4a8450e21191,beil,Beil.,CONCEPT,1,1,1,wrapped_punctuation,relation_historique_humboldt_vol3_1825
+ent_313913c8407e,beatriz-infenta-d,Beatriz (Infenta D.),PERSON,1,1,1,wrapped_punctuation,coloquios_da_orta_1563
+ent_52602d41bbfb,be-udeum,be^udeum,PLANT,1,1,1,ocr_noise_char,coloquios_da_orta_1563
+ent_58028775e679,be-oard-ellagique,be^oard ellagique,SUBSTANCE,1,1,1,ocr_noise_char,coloquios_da_orta_1563
+ent_162708acd2d9,be-baj,be^baj,PLANT,1,1,1,ocr_noise_char,coloquios_da_orta_1563
+ent_e8b52ff8bc02,be-j-ojeroffe,Be.J^OJeroffe,PLANT,1,1,1,ocr_noise_char,ricettario_fiorentino_1597
+ent_a1806118e7e8,bastao-do-cravo,bastão (do cravo),PLANT,1,1,1,wrapped_punctuation,coloquios_da_orta_1563
+ent_c3a77ccec207,bas-orenof-ue,Bas-Orénof|ue,PLACE,1,1,1,ocr_noise_char,relation_historique_humboldt_vol3_1825
+ent_33479f35a825,barreto-antonio-monix,Barreto (António Monix),PERSON,1,1,1,wrapped_punctuation,coloquios_da_orta_1563
+ent_dc7cfaa209e0,barrande-m,"Barrande, M.",PERSON,1,1,1,wrapped_punctuation,origin_of_species_darwin_1859
+ent_b9c45588e130,bar,bar.,OBJECT,1,1,1,wrapped_punctuation,relation_historique_humboldt_vol3_1825
+ent_75c8346f6323,bap,Bap.,PERSON,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_4274fe057ac2,baltanas-fr-domingos-de,Baltanas (Fr. Domingos de),PERSON,1,1,1,wrapped_punctuation,coloquios_da_orta_1563
+ent_e6ca6b5e2621,baln,Baln.,OBJECT,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_93c2ee8240e9,bahar-baar-bar,"bahar (baar, bar)",CONCEPT,1,1,1,wrapped_punctuation,coloquios_da_orta_1563
+ent_bde433f46249,bacham-batchian,Bacham (Batchian),PLANT,1,1,1,wrapped_punctuation,coloquios_da_orta_1563
+ent_e43767ad9cd1,babington-mr,"Babington, Mr.",PERSON,1,1,1,wrapped_punctuation,origin_of_species_darwin_1859
+ent_adba0a500e58,b-vcahr,b<vçahr,SUBSTANCE,1,1,1,symbol_noise,coloquios_da_orta_1563
+ent_7ec890c7c7ad,b-acc-laqata,B'acc^laqata,SUBSTANCE,1,1,1,ocr_noise_char,ricettario_fiorentino_1597
+ent_d1a839d2b3e8,apect,A•pect•,CONCEPT,1,1,1,ocr_noise_char,english_physician_1652
+ent_e69daee337fe,ainslie-mat-ind,Aínslie Mat. ind.,OBJECT,1,1,1,wrapped_punctuation,coloquios_da_orta_1563
+ent_b7bef12aea92,acajram-da-ten-a,açajram da ten^a,PLANT,1,1,1,ocr_noise_char,coloquios_da_orta_1563
+ent_5e721ef56dc5,a-btosandc,A« Btosandc*,PERSON,1,1,1,ocr_noise_char,coloquios_da_orta_1563
+ent_f6fcdfe671e1,aucar-candi,a§ucar candi,PLANT,1,1,1,ocr_noise_char,polyanthea_medicinal
+ent_d20da5192ece,aucar-branco,a§ucar branco,PLANT,1,1,1,ocr_noise_char,polyanthea_medicinal
+ent_970f2263ea90,a-aro,A{àro,PLANT,1,1,1,ocr_noise_char,ricettario_fiorentino_1597
+ent_2dabdf724117,ayres-diogo,Ayres (Diogo),PERSON,1,1,1,wrapped_punctuation,coloquios_da_orta_1563
+ent_67a6b02945b9,ayictm-jau-ibam,Ayictm Jau^ibam,PLANT,1,1,1,ocr_noise_char,coloquios_da_orta_1563
+ent_ce3fa9596b10,averr-3-colig-mihi-fol-24,Averr.3 . Colig. mihi fol. 24.,PERSON,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_15ca1fc4ad9c,avenzoar-lib-1-tract-9-cap-16,Avenzoar lib. 1. tract. 9. cap. 16.,CONCEPT,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_c8ceda658893,auson-gall,Auſon.Gall.,PERSON,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_70bff54e12f6,auvei-e,Auvei^e,PLACE,1,1,1,ocr_noise_char,relation_historique_humboldt_vol3_1825
+ent_8e047a2e473a,authortetrab-2-ferm-4-cap-49-fol-404-desuffosatoram-revocatione,Authortetrab. 2 ferm. 4. cap.49.fol. 404 desuffosatoram revocatione,OBJECT,1,1,1,bibliographic_fragment,polyanthea_medicinal
+ent_885c9660412e,aurel-severin,Aurel. Severin.,PERSON,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_20c3cccfea9f,aur-menf,Aur. menf.,CONCEPT,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_2cd58cad7e91,august-vafq,August.Vafq.,PERSON,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_6bb15fd5cfd1,auguft-polyanthea,Auguft.,PERSON,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_9e1caa56cbb8,augen-lib-9-epistol-confult-medic-fol-135-vert-ibi,Augen. lib. 9. Epiſtol. &Confult. Medic.fol.135.vert.ibi:,OBJECT,1,1,1,bibliographic_fragment,polyanthea_medicinal
+ent_fe6b528dd518,aubl,Aubl.,PERSON,1,1,1,wrapped_punctuation,relation_historique_humboldt_vol3_1825
+ent_d19dd2942331,atomistic-ideas,atomistic 'ideas',CONCEPT,1,1,1,wrapped_punctuation,principles_of_psychology_james_1890
+ent_e9bd73dc43ca,athayde-tristio-de,Athayde (Trístio de),PERSON,1,1,1,wrapped_punctuation,coloquios_da_orta_1563
+ent_d487d8660e73,astr-nachr,Astr.Nachr.,CONCEPT,1,1,1,wrapped_punctuation,relation_historique_humboldt_vol3_1825
+ent_0b78e4e2a58d,asiat-i2wmrca,Asiat. i2wMrcA.,OBJECT,1,1,1,wrapped_punctuation,relation_historique_humboldt_vol3_1825
+ent_1fd4e53f9df3,aripo-praia-de,Arípo (praia de),PLACE,1,1,1,wrapped_punctuation,coloquios_da_orta_1563
+ent_f3ea5df52376,arvore-do-crat-o,arvore do crat^o,PLANT,1,1,1,ocr_noise_char,coloquios_da_orta_1563
+ent_f0dddac7faac,artooarpus-inteflprirolia-linn,"artooarpus inteflprirolia, Linn.",PLANT,1,1,1,wrapped_punctuation,coloquios_da_orta_1563
+ent_996e1fb1be13,art-curat,Art. Curat.,CONCEPT,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_ebfa7ecc0332,arr,Arr.,PERSON,1,1,1,wrapped_punctuation,coloquios_da_orta_1563
+ent_39250288551a,arquizano-martin-iniguez-de,Arquizano (Martin Iniguez de),PERSON,1,1,1,wrapped_punctuation,coloquios_da_orta_1563
+ent_40f3afb5b4c1,aromat,aromat.,SUBSTANCE,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_e8c15e0d9455,arnoldo-d-vilu,Arnoldo d^VilU,PERSON,1,1,1,ocr_noise_char,ricettario_fiorentino_1597
+ent_c6bad0e5b385,armada-he-muihola,armada he^Muihola,OBJECT,1,1,1,ocr_noise_char,coloquios_da_orta_1563
+ent_a09691d4e076,ariftoteles-lib-10-probl-12,Ariftoteles lib. 10. probl. 12.,OBJECT,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_128d5214f833,ariftotel-lib-8-de-hiftor-animal,Ariftotel.lib. 8.de Hiftor.animal.,CONCEPT,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_98283dfc2008,ariftotel-libro-1-de-gener-anim,Ariftotel . libro 1. de Gener. anim.,CONCEPT,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_1b22b70acc44,archiv-f-die-ges-physiol,Archiv f. die ges. Physiol.,ORGANIZATION,1,1,1,wrapped_punctuation,principles_of_psychology_james_1890
+ent_350cf32dfc08,archiv-f-d-gesammt-physiol,Archiv f. d. gesammt. Physiol.,ORGANIZATION,1,1,1,wrapped_punctuation,principles_of_psychology_james_1890
+ent_8eb21b9ffdd6,archiv-f-anat-u-physiol-principles,Archiv f. Anat. u. Physiol.,ORGANIZATION,1,1,1,wrapped_punctuation,principles_of_psychology_james_1890
+ent_5dc6e805c815,arcebispo-de-goa-d-gaspar,arcebispo de Goa (D. Gaspar),PERSON,1,1,1,wrapped_punctuation,coloquios_da_orta_1563
+ent_9e0159f2dd80,aquar-mineral,aquar. mineral.,SUBSTANCE,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_39ecbadb027a,aqua-intercut,Aqua intercut.,DISEASE,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_68e04b31d295,ap,Ap€,SUBSTANCE,1,1,1,symbol_noise,ricettario_fiorentino_1597
+ent_668a96081321,apocal,Apocal.,CONCEPT,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_f9a529ebd9a5,aphrodisiacus-sive-de-lue-venerea,Aphrodisiacus^ sive de lue venérea,DISEASE,1,1,1,ocr_noise_char,coloquios_da_orta_1563
+ent_f5708bbccf47,aphrodis,Aphrodis.,PERSON,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_80062d2a580a,aphorifm-hippoc,Aphorifm. Hippoc.,PERSON,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_fa7a52cfaa2c,anto-aa,ANTO^aA,PERSON,1,1,1,ocr_noise_char,coloquios_da_orta_1563
+ent_b7316c72a88b,anteprax-medic,Anteprax. Medic.,OBJECT,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_ab9bf7becbac,ant-of-hind-med,Ant. of Hind. med.,CONCEPT,1,1,1,wrapped_punctuation,coloquios_da_orta_1563
+ent_7f3ebd41bbe0,ant-object,Ant.,OBJECT,1,1,1,wrapped_punctuation,coloquios_da_orta_1563
+ent_4f91f79df769,ans-5-an-a,ans. |5 an a,CONCEPT,1,1,1,ocr_noise_char,relation_historique_humboldt_vol3_1825
+ent_9ab9247d6ae0,anph,Anph.,OBJECT,1,1,1,wrapped_punctuation,coloquios_da_orta_1563
+ent_ed950c27fcd2,annaea-das-sciencias-dos-arte-e-das-letras,"Annaea das Sciencias, dos Arte» e das Letras",OBJECT,1,1,1,ocr_noise_char,relation_historique_humboldt_vol3_1825
+ent_87922ca6ec91,ann-der-physik,Ann.der physik.,CONCEPT,1,1,1,wrapped_punctuation,relation_historique_humboldt_vol3_1825
+ent_0de3848f5046,ann-du-bur-des-long,Ann. du Bur. des Long.,CONCEPT,1,1,1,wrapped_punctuation,relation_historique_humboldt_vol3_1825
+ent_0f2f3ce6c52c,animoniacdthy,AnimoniacDthy.,SUBSTANCE,1,1,1,wrapped_punctuation,ricettario_fiorentino_1597
+ent_40c500457945,animadverf-med,Animadverf.Med.,PERSON,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_5933c70c32bb,animadverf-inpharmac-augustan,Animadverf. inPharmac. Augustan.,OBJECT,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_11e3c91b3ebb,angu,angu.,DISEASE,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_063ec16911ea,andropogon-avenaceus-scbrad,Andropogon avenaceus Scbrad.,PLANT,1,1,1,wrapped_punctuation,relation_historique_humboldt_vol3_1825
+ent_53e646af8768,andernac-polyanthea,Andernac.,PERSON,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_459a55f94456,anatomia-vitriol,Anatomia vitriol.,CONCEPT,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_3fa546f4f564,an-oncn,an^oncn,SUBSTANCE,1,1,1,ocr_noise_char,ricettario_fiorentino_1597
+ent_ee39cd8ea2df,an-siang,an-^ siang,SUBSTANCE,1,1,1,ocr_noise_char,coloquios_da_orta_1563
+ent_88aadcea7b0f,an-historical-and-archofological-account-o-the-idana-of-angediva,An historical and archofological account o/the idanã of Angediva,OBJECT,1,1,1,slash_noise,coloquios_da_orta_1563
+ent_84caab0f3d41,amomum-maximum-roxb,"Amomum maximum, Roxb.",PLANT,1,1,1,wrapped_punctuation,coloquios_da_orta_1563
+ent_5c62260bcddd,amman,Amman.,PERSON,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_e724d9a2c74f,aml-edla,Aml £Edla,PLANT,1,1,1,symbol_noise,coloquios_da_orta_1563
+ent_f57573d3c189,amer-phil-soe,Amer. Phil. Soe.,OBJECT,1,1,1,wrapped_punctuation,relation_historique_humboldt_vol3_1825
+ent_d6576f850351,amer,Amer.,PLACE,1,1,1,wrapped_punctuation,relation_historique_humboldt_vol3_1825
+ent_65e67aa444ad,amarello-rio,Amarello (rio),PLACE,1,1,1,wrapped_punctuation,coloquios_da_orta_1563
+ent_11f7dc60d8ea,alv-adstr,Alv. adſtr.,CONCEPT,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_457ac404c049,altt-n,altt/n,SUBSTANCE,1,1,1,slash_noise,relation_historique_humboldt_vol3_1825
+ent_3c838382f7c8,alphonf-barrof,Alphonf. Barrof.,PERSON,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_8519feff9775,alph,Alph.,DISEASE,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_01080930af16,aljofar-de-hainan,aljôfar de «hainan»,SUBSTANCE,1,1,1,ocr_noise_char,coloquios_da_orta_1563
+ent_0f1a88c9cb44,alcacova-femio-de,Alcáçova (Femio de),PERSON,1,1,1,wrapped_punctuation,coloquios_da_orta_1563
+ent_a45066c516dd,alcala-pedro-de,Alcalá (Pedro de),PERSON,1,1,1,wrapped_punctuation,coloquios_da_orta_1563
+ent_66db60409c15,albuquerque-aifonso-de,Albuquerque (Aífonso de),PERSON,1,1,1,wrapped_punctuation,coloquios_da_orta_1563
+ent_85cff3002a16,al-a-y-omega,Al/a y Oméga,PLACE,1,1,1,slash_noise,relation_historique_humboldt_vol3_1825
+ent_4c59270225dc,ainslie-mtt-ind,"Ainslie, Mtt. Ind.",OBJECT,1,1,1,wrapped_punctuation,coloquios_da_orta_1563
+ent_5a5df1ce3552,ainsiie-mal-ind,"Ainsiie, MàL Ind.",OBJECT,1,1,1,wrapped_punctuation,coloquios_da_orta_1563
+ent_52d342c9b4e7,ah-biqdb-uebidionals,Ah^biqdb uÉBiDioNALS,PLACE,1,1,1,ocr_noise_char,relation_historique_humboldt_vol3_1825
+ent_5ed47a72540b,afimng-compm,Afímng Compm^,OBJECT,1,1,1,ocr_noise_char,coloquios_da_orta_1563
+ent_e00647df1478,afcarid,Afcarid.,ANIMAL,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_e502bbdba055,afat-ind,Afat Ind.,CONCEPT,1,1,1,wrapped_punctuation,coloquios_da_orta_1563
+ent_070eedd6cd16,af,Af,PERSON,1,1,1,very_short_low_count,polyanthea_medicinal
+ent_3bffa0303253,additions,ADDITIONS.,CONCEPT,1,1,1,wrapped_punctuation,relation_historique_humboldt_vol3_1825
+ent_f41b56fd93da,adans,Adans.,OBJECT,1,1,1,wrapped_punctuation,coloquios_da_orta_1563
+ent_e6bee3d0f632,ad,ad,CONCEPT,1,1,1,very_short_low_count,polyanthea_medicinal
+ent_5a8967a379db,actuar-meth-medend-lib-6-capit-6,Actuar.Meth.Medend.lib.6.capit.6,PERSON,1,1,1,bibliographic_fragment,polyanthea_medicinal
+ent_f9b294f04ed2,acriguid,acriGuid.,CONCEPT,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_b7dfbbe93307,acqua-di-l-lata-da-vo-cj-odi-vi-ole,Acqua di l lata da vo^Cj^òdi vi ole,SUBSTANCE,1,1,1,ocr_noise_char,ricettario_fiorentino_1597
+ent_3e0254a91991,acqua-della-pi-nra,acqua della pi;»nra,SUBSTANCE,1,1,1,ocr_noise_char,ricettario_fiorentino_1597
+ent_d6c7e9b25958,acosta-christoval,Acosta (Chrístoval),PERSON,1,1,1,wrapped_punctuation,coloquios_da_orta_1563
+ent_86467150ba68,aci-helv,AcI. Helv.,SUBSTANCE,1,1,1,wrapped_punctuation,relation_historique_humboldt_vol3_1825
+ent_2f47cf769ac7,abrocai-o,abrocai>o,PLANT,1,1,1,symbol_noise,ricettario_fiorentino_1597
+ent_0dfe77cb596b,abril-i8o4,Abril i8o4,CONCEPT,1,1,1,date_phrase,relation_historique_humboldt_vol3_1825
+ent_f4e083d7db68,abd-er-raak,Abd-er-Ra§ak,PERSON,1,1,1,ocr_noise_char,coloquios_da_orta_1563
+ent_29a846bba199,aa-mv-jrchologia-americana,Aa^mV Jrchœologia Americana,OBJECT,1,1,1,ocr_noise_char,relation_historique_humboldt_vol3_1825
+ent_b7e574f39f5e,a-ianistan,A^ianistan,PLACE,1,1,1,ocr_noise_char,coloquios_da_orta_1563
+ent_4d4d2f001261,a-ette,a^etTe,PLANT,1,1,1,ocr_noise_char,coloquios_da_orta_1563
+ent_a2750c79fc39,a-eeri,a/éeri,PLANT,1,1,1,slash_noise,coloquios_da_orta_1563
+ent_641f4ca08ca0,a-nuisanas,A/nuisanas,PERSON,1,1,1,slash_noise,relation_historique_humboldt_vol3_1825
+ent_fefd7f02af30,a-qiiila-x-la-alil-allooli-a-9-roxb,A.qiiila.x*la. .áLil^allooli.a.9 Roxb^,PLANT,1,1,1,ocr_noise_char,coloquios_da_orta_1563
+ent_3006ef2fba0d,a-oaoia-oateelm-willd,"A.OAOÍA OAteelm, Willd.",PLANT,1,1,1,wrapped_punctuation,coloquios_da_orta_1563
+ent_1399985adacb,a-new-system-o-geography,A new System o/Geography,OBJECT,1,1,1,slash_noise,relation_historique_humboldt_vol3_1825
+ent_99a8aa3fbbf8,actus-purus-intellectus,_actus purus intellectus_,CONCEPT,1,1,1,wrapped_punctuation,principles_of_psychology_james_1890
+ent_d261f435575b,uiccnna,^uiccnna,PERSON,1,1,1,ocr_noise_char,ricettario_fiorentino_1597
+ent_d82d5a73b76c,5podir,5podir>,PLANT,1,1,1,symbol_noise,ricettario_fiorentino_1597
+ent_44adaefdd261,23-de-agosto-do-anno-de-1-585,23 de agosto do anno de 1 585,CONCEPT,1,1,1,date_phrase,coloquios_da_orta_1563
+ent_02391de74c95,21-de-fevereyro-de-1699,21. de Fevereyro de 1699.,CONCEPT,1,1,1,wrapped_punctuation,polyanthea_medicinal
+ent_4eea173cfe80,2-regum,2. Regum,OBJECT,1,1,1,bibliographic_fragment,polyanthea_medicinal
+ent_eeae75fef001,169g,169g,CONCEPT,1,1,1,year_or_page_token,relation_historique_humboldt_vol3_1825
+ent_a1c917bf282b,14-de-abril-de-1700,14. de Abril de 1700,CONCEPT,1,1,1,date_phrase,polyanthea_medicinal
+ent_1adedc35fb81,1-timoth,1.Timoth,PERSON,1,1,1,bibliographic_fragment,polyanthea_medicinal
+ent_6be61591cecf,arames,/arames,PERSON,1,1,1,slash_noise,coloquios_da_orta_1563
+ent_86f5a4503de7,as-cweua,//as Cweua*,PLACE,1,1,1,slash_noise,relation_historique_humboldt_vol3_1825
+ent_9628eda394ba,bundle-theory-of-mind,'bundle'-theory of mind,CONCEPT,1,1,1,wrapped_punctuation,principles_of_psychology_james_1890
