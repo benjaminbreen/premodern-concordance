@@ -50,16 +50,23 @@ def build_embedding_text(cluster: dict) -> str:
     if gt.get("semantic_gloss"):
         parts.append(gt["semantic_gloss"])
 
-    # All variant names from members
+    # All variant names and context descriptions from members
     variant_names = set()
+    context_phrases = []
     for member in cluster.get("members", []):
         variant_names.add(member["name"])
         # Add a selection of variants (not all — some clusters have hundreds)
         for v in member.get("variants", [])[:10]:
             variant_names.add(v)
+        # Include context descriptions — these contain thematic keywords
+        for ctx in member.get("contexts", [])[:3]:
+            if ctx and ctx not in context_phrases:
+                context_phrases.append(ctx)
     variant_names.discard(cluster["canonical_name"])
     if variant_names:
         parts.append(" | ".join(sorted(variant_names)[:20]))
+    if context_phrases:
+        parts.append(" | ".join(context_phrases[:10]))
     if gt.get("modern_name"):
         parts.append(gt["modern_name"])
     if gt.get("linnaean"):
@@ -74,12 +81,17 @@ def build_embedding_text(cluster: dict) -> str:
         # Truncate long notes
         parts.append(gt["note"][:200])
 
+    # Wikipedia extract — rich keyword-dense text for semantic + lexical matching
+    if gt.get("wikipedia_extract"):
+        parts.append(gt["wikipedia_extract"])
+
     return " | ".join(parts)
 
 
 def build_metadata(cluster: dict) -> dict:
     """Extract searchable metadata for lexical matching."""
     gt = cluster.get("ground_truth", {})
+    display_name = gt.get("modern_name") or cluster["canonical_name"]
 
     # Collect all name variants for lexical search
     all_names = [cluster["canonical_name"]]
@@ -100,6 +112,8 @@ def build_metadata(cluster: dict) -> dict:
 
     return {
         "id": cluster["id"],
+        "stable_key": cluster.get("stable_key", ""),
+        "display_name": display_name,
         "canonical_name": cluster["canonical_name"],
         "category": cluster["category"],
         "subcategory": cluster.get("subcategory", ""),
@@ -109,13 +123,15 @@ def build_metadata(cluster: dict) -> dict:
         "modern_name": gt.get("modern_name", ""),
         "linnaean": gt.get("linnaean", ""),
         "wikidata_id": gt.get("wikidata_id", ""),
-        "wikidata_description": gt.get("wikidata_description", ""),
+        "wikidata_description": gt.get("wikidata_description") or gt.get("description", ""),
         "wikipedia_url": gt.get("wikipedia_url", ""),
         "confidence": gt.get("confidence", ""),
         "note": gt.get("note", ""),
         "family": gt.get("family", ""),
-        "semantic_gloss": gt.get("semantic_gloss", ""),
+        "semantic_gloss": gt.get("semantic_gloss") or gt.get("description", ""),
         "portrait_url": gt.get("portrait_url", ""),
+        # Wikipedia extract for lexical matching
+        "wikipedia_extract": gt.get("wikipedia_extract", ""),
         # All name variants for lexical matching (capped at 30)
         "names": unique_names[:30],
     }

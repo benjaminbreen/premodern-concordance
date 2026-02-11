@@ -127,10 +127,20 @@ export default function CanonicalEntityPage() {
 
   return (
     <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-      <nav className="mb-5 text-sm">
-        <Link href="/entities" className="text-[var(--muted)] hover:text-[var(--foreground)]">Entities</Link>
-        <span className="mx-2 text-[var(--muted)]">/</span>
-        <span>{entity.canonical_name}</span>
+      <nav className="flex items-center gap-2 text-sm text-[var(--muted)] mb-6">
+        <Link href="/entities" className="hover:text-[var(--foreground)] transition-colors">Entities</Link>
+        <span>/</span>
+        <span className="text-[var(--foreground)]">{entity.canonical_name}</span>
+        {entity.is_concordance && (
+          <span className="ml-auto text-xs">
+            <Link
+              href={`/concordance?highlight=${encodeURIComponent(entity.canonical_name)}`}
+              className="text-[var(--accent)] hover:underline transition-colors"
+            >
+              View in concordance &rarr;
+            </Link>
+          </span>
+        )}
       </nav>
 
       <section className="border border-[var(--border)] rounded-xl bg-[var(--card)] p-6 mb-6">
@@ -210,21 +220,21 @@ export default function CanonicalEntityPage() {
                 </div>
 
                 {a.contexts.length > 0 && (
-                  <p className="text-sm text-[var(--muted)] mb-3">
+                  <span className="block text-sm text-[var(--muted)] mb-3">
                     {nameIndex.size > 0 ? (
                       <AutoLinkedText text={a.contexts[0]} nameIndex={nameIndex} excludeClusterId={excludeClusterId} />
                     ) : a.contexts[0]}
-                  </p>
+                  </span>
                 )}
 
                 {a.excerpt_samples.length > 0 && (
                   <div className="space-y-2 mb-3">
                     {a.excerpt_samples.slice(0, 2).map((ex, idx) => (
-                      <p key={idx} className="text-xs text-[var(--muted)] leading-relaxed border-l-2 border-[var(--border)] pl-3">
+                      <span key={idx} className="block text-xs text-[var(--muted)] leading-relaxed border-l-2 border-[var(--border)] pl-3">
                         ...{nameIndex.size > 0 ? (
                           <AutoLinkedText text={ex} nameIndex={nameIndex} excludeClusterId={excludeClusterId} />
                         ) : ex}...
-                      </p>
+                      </span>
                     ))}
                   </div>
                 )}

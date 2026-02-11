@@ -102,6 +102,46 @@ export default function MethodologyPage() {
 
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      {/* Mobile table of contents */}
+      <details className="lg:hidden mb-8 border border-[var(--border)] rounded-lg">
+        <summary className="px-4 py-3 text-sm font-medium cursor-pointer select-none flex items-center gap-2 hover:bg-[var(--border)]/30 transition-colors">
+          <svg className="w-4 h-4 text-[var(--muted)] transition-transform toc-chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+          </svg>
+          Contents
+        </summary>
+        <nav className="px-4 pb-3 border-t border-[var(--border)]">
+          <ul className="space-y-1 pt-2">
+            {SECTIONS.map((s) => {
+              const isStep = s.label.match(/^\d\./);
+              return (
+                <li key={s.id}>
+                  <a
+                    href={`#${s.id}`}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      document.getElementById(s.id)?.scrollIntoView({ behavior: "smooth" });
+                      // Close the details on navigation
+                      const details = (e.target as HTMLElement).closest("details");
+                      if (details) details.open = false;
+                    }}
+                    className={`block py-1 text-sm transition-colors ${
+                      isStep ? "pl-4" : ""
+                    } ${
+                      activeSection === s.id
+                        ? "text-[var(--foreground)] font-medium"
+                        : "text-[var(--muted)] hover:text-[var(--foreground)]"
+                    }`}
+                  >
+                    {s.label}
+                  </a>
+                </li>
+              );
+            })}
+          </ul>
+        </nav>
+      </details>
+
       <div className="grid grid-cols-1 lg:grid-cols-[220px_1fr] gap-12 lg:gap-16">
 
         {/* ── Floating navigation ─────────────────────────── */}
@@ -172,9 +212,9 @@ export default function MethodologyPage() {
                   Scale
                 </h3>
                 <p className="text-sm leading-relaxed">
-                  Six texts spanning 1552&ndash;1825 in five languages (English, Portuguese,
-                  Spanish, French, Italian), producing approximately 1,400 concordance clusters
-                  from thousands of extracted entities with over 40,000 total mentions.
+                  Eight texts spanning 1563&ndash;1890 in five languages (English, Portuguese,
+                  Spanish, French, Italian), producing over 1,500 concordance clusters
+                  from thousands of extracted entities with nearly 37,000 total mentions.
                 </p>
               </div>
               <div>
@@ -196,9 +236,10 @@ export default function MethodologyPage() {
           <section id="corpus" className="mb-20 animate-fade-up delay-1">
             <h2 className="text-2xl font-bold tracking-tight mb-6">Corpus</h2>
             <p className="text-[var(--muted)] leading-relaxed mb-6 max-w-2xl">
-              The concordance currently draws on six early modern texts concerned with
-              natural knowledge &mdash; materia medica, botany, pharmacy, natural history,
-              and exploration. These were selected for their overlapping subject matter
+              The concordance currently draws on eight texts from the early modern period
+              through the nineteenth century, concerned with natural knowledge &mdash; materia
+              medica, botany, pharmacy, natural history, exploration, evolutionary biology,
+              and psychology. These were selected for their overlapping subject matter
               and linguistic diversity.
             </p>
 
@@ -210,6 +251,8 @@ export default function MethodologyPage() {
                 { title: "The English Physitian", author: "Nicholas Culpeper", year: 1652, lang: "English", desc: "A vernacular herbal linking plants to astrological governance and Galenic humoral medicine, written to make pharmaceutical knowledge accessible beyond Latin." },
                 { title: "Polyanthea Medicinal", author: "Jo\u00e3o Curvo Semedo", year: 1741, lang: "Portuguese", desc: "An encyclopaedic medical compendium blending Galenic, chemical, and empirical approaches, reflecting the eclectic pharmacy of early eighteenth-century Portugal." },
                 { title: "Relation historique du voyage, Tome III", author: "Alexander von Humboldt", year: 1825, lang: "French", desc: "The third volume of Humboldt\u2019s narrative of his American expedition, rich with observations on geography, botany, indigenous knowledge, and natural phenomena." },
+                { title: "On the Origin of Species", author: "Charles Darwin", year: 1859, lang: "English", desc: "Darwin\u2019s foundational text on evolution by natural selection, dense with references to species, varieties, geological formations, and the naturalists whose observations informed his theory." },
+                { title: "The Principles of Psychology, Volume 1", author: "William James", year: 1890, lang: "English", desc: "James\u2019s comprehensive treatise on the science of mind, covering sensation, perception, memory, emotion, and consciousness through both philosophical argument and physiological evidence." },
               ].map((book) => (
                 <div key={book.year} className="bg-[var(--card)] p-5 grid grid-cols-[1fr_auto] gap-4 items-start">
                   <div>
@@ -268,7 +311,7 @@ export default function MethodologyPage() {
                     <span className="font-semibold text-sm">{step.title}</span>
                   </div>
                   <p className="text-xs text-[var(--muted)] leading-relaxed">{step.desc}</p>
-                  <span className="inline-block mt-2 text-[10px] font-mono px-1.5 py-0.5 rounded bg-[var(--foreground)]/5 text-[var(--muted)]">
+                  <span className="inline-block mt-2 text-xs font-mono px-1.5 py-0.5 rounded bg-[var(--foreground)]/5 text-[var(--muted)]">
                     {step.model}
                   </span>
                 </a>
@@ -292,8 +335,8 @@ export default function MethodologyPage() {
             <p className="text-[var(--muted)] leading-relaxed mb-6 max-w-2xl">
               Each source text is chunked and passed through a large language model
               for structured named entity recognition. The LLM identifies entities and
-              classifies them into a controlled taxonomy of eight categories and
-              thirty-eight subcategories.
+              classifies them into a controlled taxonomy of ten categories, each with
+              specific subcategories.
             </p>
 
             <h3 className="text-xs uppercase tracking-widest text-[var(--muted)] font-medium mb-3 mt-8">
@@ -327,23 +370,33 @@ export default function MethodologyPage() {
             <h3 className="text-xs uppercase tracking-widest text-[var(--muted)] font-medium mb-3 mt-8">
               Entity taxonomy
             </h3>
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-px bg-[var(--border)] border border-[var(--border)] rounded-lg overflow-hidden my-4">
+            <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-5 gap-px bg-[var(--border)] border border-[var(--border)] rounded-lg overflow-hidden my-4">
               {[
-                { cat: "PERSON", subs: "Authority, Scholar, Practitioner, Historical Figure, Mythological" },
-                { cat: "PLANT", subs: "Herb, Tree, Root, Fruit, Seed, Flower, Bark, Resin" },
-                { cat: "ANIMAL", subs: "Mammal, Bird, Fish, Insect, Reptile, Marine" },
-                { cat: "SUBSTANCE", subs: "Mineral, Chemical, Preparation, Metal, Earth, Oil" },
-                { cat: "PLACE", subs: "City, Region, Country, Body of Water, Mountain" },
-                { cat: "DISEASE", subs: "Fever, Infection, Humoral, Chronic, Acute, Symptom" },
-                { cat: "CONCEPT", subs: "Quality, Process, Humoral Concept, Medical Term" },
-                { cat: "OBJECT", subs: "Instrument, Vessel, Textile, Tool, Book" },
+                { cat: "PERSON", subs: "Authority, Scholar, Practitioner, Patron" },
+                { cat: "PLANT", subs: "Herb, Tree, Root, Seed, Resin" },
+                { cat: "ANIMAL", subs: "Mammal, Bird, Fish, Insect, Reptile, Product" },
+                { cat: "ANATOMY", subs: "Organ, Brain Region, Tissue, Body Part, Fluid" },
+                { cat: "SUBSTANCE", subs: "Mineral, Chemical, Preparation" },
+                { cat: "PLACE", subs: "Country, City, Region" },
+                { cat: "DISEASE", subs: "Acute, Chronic, Psychological, Symptom" },
+                { cat: "CONCEPT", subs: "Theory, Practice, Quality, School of Thought, Mental Faculty" },
+                { cat: "ORGANIZATION", subs: "Institution, Journal, Society" },
+                { cat: "OBJECT", subs: "Instrument, Vessel, Tool" },
               ].map((c) => (
                 <div key={c.cat} className="bg-[var(--card)] p-3">
                   <span className="text-xs font-bold uppercase tracking-wide">{c.cat}</span>
-                  <p className="text-[10px] text-[var(--muted)] mt-1 leading-relaxed">{c.subs}</p>
+                  <p className="text-xs text-[var(--muted)] mt-1 leading-relaxed">{c.subs}</p>
                 </div>
               ))}
             </div>
+
+            <p className="text-xs text-[var(--muted)] leading-relaxed max-w-2xl mb-4">
+              Each category also includes a catch-all &ldquo;Other&rdquo; subcategory for entities
+              that don&rsquo;t fit neatly into a specific subcategory. The original six-book corpus
+              primarily produced the first eight categories; Anatomy and Organization emerged as
+              distinct categories after adding nineteenth-century scientific texts (Darwin, James)
+              with their richer anatomical and institutional vocabularies.
+            </p>
 
             <h3 className="text-xs uppercase tracking-widest text-[var(--muted)] font-medium mb-3 mt-8">
               Per-entity output
@@ -571,7 +624,7 @@ export default function MethodologyPage() {
               Suspicion heuristics
             </h3>
             <p className="text-sm leading-relaxed mb-4 max-w-2xl">
-              Rather than reviewing all 1,400+ clusters, the system flags those that
+              Rather than reviewing all 1,500+ clusters, the system flags those that
               exhibit patterns correlated with false matches:
             </p>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-px bg-[var(--border)] border border-[var(--border)] rounded-lg overflow-hidden my-4">
@@ -585,7 +638,7 @@ export default function MethodologyPage() {
               ].map((h) => (
                 <div key={h.flag} className="bg-[var(--card)] p-3">
                   <span className="text-xs font-semibold">{h.flag}</span>
-                  <p className="text-[10px] text-[var(--muted)] mt-1">{h.desc}</p>
+                  <p className="text-xs text-[var(--muted)] mt-1">{h.desc}</p>
                 </div>
               ))}
             </div>
@@ -609,8 +662,9 @@ export default function MethodologyPage() {
               <h2 className="text-2xl font-bold tracking-tight">Enrichment &amp; Identification</h2>
             </div>
             <p className="text-[var(--muted)] leading-relaxed mb-6 max-w-2xl">
-              Verified clusters are enriched with modern identifications using a two-stage
-              process: LLM identification followed by Wikidata entity linking.
+              Verified clusters are enriched with modern identifications. Currently, an LLM
+              identification pass provides modern names, descriptions, and Linnaean binomials.
+              Wikidata entity linking is planned for a future iteration.
             </p>
 
             <h3 className="text-xs uppercase tracking-widest text-[var(--muted)] font-medium mb-3 mt-8">
@@ -624,11 +678,12 @@ export default function MethodologyPage() {
             </p>
 
             <h3 className="text-xs uppercase tracking-widest text-[var(--muted)] font-medium mb-3 mt-8">
-              Wikidata linking
+              Wikidata linking <span className="text-[var(--muted)] normal-case tracking-normal font-normal">(planned)</span>
             </h3>
             <p className="text-sm leading-relaxed mb-4 max-w-2xl">
-              The LLM also suggests a Wikidata search term. This term is used to query the
-              Wikidata API, and results are scored by domain relevance:
+              A planned enrichment step will have the LLM suggest a Wikidata search term for
+              each cluster. This term will be used to query the Wikidata API, with results
+              scored by domain relevance:
             </p>
             <div className="grid grid-cols-2 gap-4 my-4 text-sm">
               <div className="border border-[var(--accent)]/30 rounded-lg p-3 bg-[var(--accent)]/5">
@@ -654,16 +709,15 @@ export default function MethodologyPage() {
             </InfoBox>
 
             <h3 className="text-xs uppercase tracking-widest text-[var(--muted)] font-medium mb-3 mt-8">
-              Semantic glosses
+              Semantic glosses <span className="text-[var(--muted)] normal-case tracking-normal font-normal">(planned)</span>
             </h3>
             <p className="text-sm leading-relaxed mb-4 max-w-2xl">
-              A separate enrichment pass generates a 2&ndash;3 sentence &ldquo;semantic
-              gloss&rdquo; for each cluster &mdash; a thematic description grounded in
-              how the entity appears in the source texts. Unlike the Wikidata description
-              (which is modern and encyclopedic), the semantic gloss captures the early
-              modern context: &ldquo;Venomous snakes considered extremely dangerous in
-              early modern medicine. Associated with poison, antidotes, theriac
-              preparations, and fear.&rdquo;
+              A planned enrichment pass will generate 2&ndash;3 sentence &ldquo;semantic
+              glosses&rdquo; for each cluster &mdash; thematic descriptions grounded in
+              how the entity appears in the source texts. Unlike encyclopedic descriptions,
+              these glosses will capture historical context: e.g. &ldquo;Venomous snakes
+              considered extremely dangerous in early modern medicine. Associated with poison,
+              antidotes, theriac preparations, and fear.&rdquo;
             </p>
 
             <h3 className="text-xs uppercase tracking-widest text-[var(--muted)] font-medium mb-3 mt-8">
@@ -671,17 +725,23 @@ export default function MethodologyPage() {
             </h3>
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-px bg-[var(--border)] border border-[var(--border)] rounded-lg overflow-hidden my-4">
               {[
-                { val: "99.9%", label: "Clusters identified" },
-                { val: "66%", label: "With Wikidata ID" },
-                { val: "35%", label: "With Wikipedia URL" },
-                { val: "16%", label: "With Linnaean name" },
+                { val: "73%", label: "With ground truth" },
+                { val: "61%", label: "With modern name" },
+                { val: "61%", label: "With description" },
+                { val: "8%", label: "With Linnaean name" },
               ].map((s) => (
                 <div key={s.label} className="bg-[var(--card)] p-4 text-center">
                   <span className="text-xl font-bold">{s.val}</span>
-                  <p className="text-[10px] text-[var(--muted)] mt-1">{s.label}</p>
+                  <p className="text-xs text-[var(--muted)] mt-1">{s.label}</p>
                 </div>
               ))}
             </div>
+
+            <p className="text-xs text-[var(--muted)] leading-relaxed max-w-2xl">
+              Wikidata linking and Wikipedia URL resolution are planned but not yet integrated
+              into the current dataset. Semantic glosses are similarly pending a future
+              enrichment pass.
+            </p>
           </section>
 
           {/* ── STEP 8: SEARCH INDEX ─────────────────────── */}
@@ -719,7 +779,7 @@ export default function MethodologyPage() {
               ["Model", "OpenAI text-embedding-3-small", "Fast, affordable semantic search"],
               ["Dimensions", "512", "Matryoshka truncation from 1,536"],
               ["Batch size", "100", "Per API call"],
-              ["Index size", "~16 MB", "1,422 entries"],
+              ["Index size", "~16 MB", "1,549 entries"],
             ]} />
 
             <h3 className="text-xs uppercase tracking-widest text-[var(--muted)] font-medium mb-3 mt-8">
@@ -804,7 +864,7 @@ export default function MethodologyPage() {
                     <strong className="text-[var(--foreground)]">Solution:</strong> Category
                     and subcategory constraints prevent cross-domain confusion (Mercury the
                     SUBSTANCE won&rsquo;t merge with Mercury the PLACE). The LLM extraction prompt
-                    is tuned for historical database context (1500&ndash;1800), and Wikidata
+                    is tuned for historical and scientific context (1500&ndash;1900), and Wikidata
                     scoring heavily penalizes modern pop-culture matches. When identification
                     is genuinely contested, the enrichment system preserves a &ldquo;note&rdquo;
                     field explaining the ambiguity.

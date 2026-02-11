@@ -12,8 +12,11 @@ Usage:
 """
 
 import argparse
+import hashlib
 import json
+import re
 import time
+import unicodedata
 from pathlib import Path
 from collections import defaultdict
 
@@ -29,6 +32,48 @@ OUTPUT_PATH = DATA_DIR / "concordance.json"
 MATCH_THRESHOLD = 0.84
 PERSON_THRESHOLD = 0.80   # Lower for persons across languages (Galen/Galeno)
 MIN_ENTITY_COUNT = 1      # Minimum occurrence count to include
+
+
+def normalize_for_key(text: str) -> str:
+    """Normalize a name for stable-key signature generation."""
+    text = unicodedata.normalize("NFD", (text or "").lower())
+    text = "".join(ch for ch in text if unicodedata.category(ch) != "Mn")
+    text = re.sub(r"[^a-z0-9]+", "-", text)
+    text = re.sub(r"-{2,}", "-", text).strip("-")
+    return text
+
+
+def build_cluster_stable_key(cluster: dict) -> str:
+    """Build a deterministic key from category + normalized member names."""
+    names = set()
+    for member in cluster.get("members", []):
+        n = normalize_for_key(member.get("name", ""))
+        if n:
+            names.add(n)
+        normalized_variants = sorted(
+            {normalize_for_key(variant) for variant in member.get("variants", []) if variant}
+        )
+        for v in normalized_variants[:5]:
+            if v:
+                names.add(v)
+
+    # Keep signature bounded while remaining deterministic.
+    signature_names = sorted(names)[:16]
+    signature = f"{cluster.get('category', '').lower()}|{'|'.join(signature_names)}"
+    digest = hashlib.sha1(signature.encode("utf-8")).hexdigest()[:16]
+    return f"clu_{digest}"
+
+
+def assign_stable_keys(clusters: list[dict]) -> None:
+    """Assign unique stable keys to all clusters in-place."""
+    seen = defaultdict(int)
+    for cluster in clusters:
+        base = build_cluster_stable_key(cluster)
+        seen[base] += 1
+        if seen[base] == 1:
+            cluster["stable_key"] = base
+        else:
+            cluster["stable_key"] = f"{base}-{seen[base]}"
 
 
 def load_book_entities(filepath: Path) -> dict:
@@ -471,6 +516,9 @@ def main():
     clusters, merge_count = merge_near_duplicates(clusters)
     if merge_count:
         print(f"  Merged {merge_count} cluster pairs")
+
+    # Assign deterministic cluster keys for stable references across rebuilds.
+    assign_stable_keys(clusters)
 
     # Stats
     entities_in_clusters = sum(len(c["members"]) for c in clusters)

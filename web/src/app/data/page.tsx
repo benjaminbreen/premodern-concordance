@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState, useMemo } from "react";
+import { useEffect, useState, useMemo, useCallback } from "react";
 import Link from "next/link";
 import { CAT_DOT } from "@/lib/colors";
 
@@ -508,7 +508,8 @@ export default function DataPage() {
   const [data, setData] = useState<ConcordanceData | null>(null);
   const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
+  const loadData = useCallback(() => {
+    setLoading(true);
     fetch("/data/concordance.json")
       .then((res) => res.json())
       .then((d: ConcordanceData) => {
@@ -517,6 +518,8 @@ export default function DataPage() {
       })
       .catch(() => setLoading(false));
   }, []);
+
+  useEffect(() => { loadData(); }, [loadData]);
 
   const stats = useMemo(() => (data ? computeStats(data) : null), [data]);
 
@@ -555,6 +558,12 @@ export default function DataPage() {
     return (
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <p className="text-[var(--muted)]">Failed to load concordance data.</p>
+        <button
+          onClick={loadData}
+          className="mt-3 text-sm text-[var(--accent)] hover:underline"
+        >
+          Try again
+        </button>
       </div>
     );
   }
@@ -833,7 +842,7 @@ export default function DataPage() {
                         title={`${cat}: ${entry.count} (${entry.pct.toFixed(1)}%)`}
                       >
                         {entry.pct >= 8 && (
-                          <span className="absolute inset-0 flex items-center justify-center text-[10px] text-black font-bold">
+                          <span className="absolute inset-0 flex items-center justify-center text-xs text-black font-bold">
                             {cat.slice(0, 4)}
                           </span>
                         )}
@@ -856,7 +865,7 @@ export default function DataPage() {
                   {lang.totalMentions.toLocaleString()} mentions
                 </span>
               </div>
-              <p className="text-[10px] text-[var(--muted)] mb-3">
+              <p className="text-xs text-[var(--muted)] mb-3">
                 {lang.books.join(" / ")}
               </p>
               <div className="space-y-1.5">
@@ -873,7 +882,7 @@ export default function DataPage() {
                           style={{ width: `${(cat.pct / maxPct) * 100}%` }}
                         />
                       </div>
-                      <span className="text-[10px] font-mono tabular-nums text-[var(--muted)] w-10 text-right">
+                      <span className="text-xs font-mono tabular-nums text-[var(--muted)] w-10 text-right">
                         {cat.pct.toFixed(1)}%
                       </span>
                     </div>

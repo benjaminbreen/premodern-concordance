@@ -26,6 +26,7 @@ interface ClusterMember {
 
 interface Cluster {
   id: number;
+  stable_key?: string;
   canonical_name: string;
   category: string;
   book_count: number;
@@ -67,6 +68,10 @@ function slugify(name: string): string {
     .trim()
     .replace(/[^a-z0-9]+/g, "-")
     .replace(/^-|-$/g, "");
+}
+
+function clusterPath(cluster: { stable_key?: string; canonical_name: string }): string {
+  return `/concordance/${cluster.stable_key || slugify(cluster.canonical_name)}`;
 }
 
 /** Compute category counts per book from clusters — single pass O(total_members) */
@@ -193,6 +198,31 @@ export default function TimelinePage() {
   const [expandedTrace, setExpandedTrace] = useState<number | null>(null);
   const searchRef = useRef<HTMLDivElement>(null);
   const freqContainerRef = useRef<HTMLDivElement>(null);
+
+  // Read URL params on mount
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    const tab = params.get("tab");
+    const cat = params.get("category");
+    if (tab === "explore") setActiveTab("explore");
+    if (cat) setHighlightedCategory(cat);
+  }, []);
+
+  // Sync tab and category filter to URL
+  useEffect(() => {
+    const url = new URL(window.location.href);
+    if (activeTab !== "overview") {
+      url.searchParams.set("tab", activeTab);
+    } else {
+      url.searchParams.delete("tab");
+    }
+    if (highlightedCategory) {
+      url.searchParams.set("category", highlightedCategory);
+    } else {
+      url.searchParams.delete("category");
+    }
+    window.history.replaceState({}, "", url.toString());
+  }, [activeTab, highlightedCategory]);
 
   useEffect(() => {
     fetch("/data/concordance.json")
@@ -682,7 +712,7 @@ export default function TimelinePage() {
                     onClick={() =>
                       setHighlightedCategory(isActive ? null : cat)
                     }
-                    className={`flex items-center gap-1.5 px-1.5 py-0.5 rounded transition-all cursor-pointer ${
+                    className={`flex items-center gap-1.5 px-2 py-1.5 rounded transition-all cursor-pointer ${
                       isActive
                         ? "ring-1 ring-[var(--foreground)]/30 bg-[var(--border)]/30"
                         : "hover:bg-[var(--border)]/20"
@@ -696,7 +726,7 @@ export default function TimelinePage() {
                       className="w-2.5 h-2.5 rounded-full"
                       style={{ backgroundColor: CAT_HEX[cat] }}
                     />
-                    <span className="text-[10px] uppercase tracking-[0.15em] text-[var(--muted)]">
+                    <span className="text-xs uppercase tracking-[0.15em] text-[var(--muted)]">
                       {cat}
                     </span>
                   </button>
@@ -705,7 +735,7 @@ export default function TimelinePage() {
             </div>
 
             {/* Absolute / Relative toggle */}
-            <div className="flex items-center gap-0.5 p-0.5 rounded-md bg-[var(--border)]/50 text-[10px] uppercase tracking-[0.1em]">
+            <div className="flex items-center gap-0.5 p-0.5 rounded-md bg-[var(--border)]/50 text-xs uppercase tracking-[0.1em]">
               {(["absolute", "relative"] as const).map((mode) => (
                 <button
                   key={mode}
@@ -949,7 +979,7 @@ export default function TimelinePage() {
                                 className="w-1.5 h-1.5 rounded-full shrink-0"
                                 style={{ backgroundColor: CAT_HEX[cat] }}
                               />
-                              <span className="text-[var(--muted)] w-16 truncate text-[10px] uppercase">{cat}</span>
+                              <span className="text-[var(--muted)] w-16 truncate text-xs uppercase">{cat}</span>
                               <div className="w-16 h-1.5 bg-[var(--border)]/50 rounded-full overflow-hidden">
                                 <div
                                   className="h-full rounded-full"
@@ -1010,7 +1040,7 @@ export default function TimelinePage() {
               <div className="space-y-1.5 mb-5">
                 {selectedBookCats.map(([cat, count]) => (
                   <div key={cat} className="flex items-center gap-2">
-                    <span className="text-[10px] uppercase tracking-[0.15em] text-[var(--muted)] w-24 text-right shrink-0">
+                    <span className="text-xs uppercase tracking-[0.15em] text-[var(--muted)] w-24 text-right shrink-0">
                       {cat}
                     </span>
                     <div className="flex-1 h-3 bg-[var(--border)]/50 rounded-full overflow-hidden">
@@ -1031,14 +1061,14 @@ export default function TimelinePage() {
               </div>
 
               {/* Top entities */}
-              <h4 className="text-[10px] uppercase tracking-[0.15em] text-[var(--muted)] font-medium mb-2">
+              <h4 className="text-xs uppercase tracking-[0.15em] text-[var(--muted)] font-medium mb-2">
                 Top entities
               </h4>
               <div className="flex flex-wrap gap-1.5">
                 {selectedBookTopEntities.map((cluster) => (
                   <Link
                     key={cluster.id}
-                    href={`/concordance/${slugify(cluster.canonical_name)}`}
+                    href={clusterPath(cluster)}
                     className="inline-flex items-center gap-1.5 px-2 py-1 rounded-full border border-[var(--border)] text-xs hover:bg-[var(--border)]/50 transition-colors"
                   >
                     <span
@@ -1154,7 +1184,7 @@ export default function TimelinePage() {
                 </span>
               ))}
               {traces.length < 5 && (
-                <span className="text-[10px] text-[var(--muted)]">
+                <span className="text-xs text-[var(--muted)]">
                   {5 - traces.length} more available
                 </span>
               )}
@@ -1163,7 +1193,7 @@ export default function TimelinePage() {
 
           {/* Popular chips (always visible) */}
           <div className="mb-6">
-            <h3 className="text-[10px] uppercase tracking-[0.15em] text-[var(--muted)] font-medium mb-2">
+            <h3 className="text-xs uppercase tracking-[0.15em] text-[var(--muted)] font-medium mb-2">
               {traces.length > 0 ? "Suggestions" : "Popular entities"}
             </h3>
             <div className="flex flex-wrap gap-1.5">
@@ -1197,7 +1227,7 @@ export default function TimelinePage() {
             <div className="mb-6 p-4 rounded-lg border border-[var(--border)] bg-[var(--card)]" ref={freqContainerRef}>
               {/* Chart header + controls */}
               <div className="flex flex-wrap items-center justify-between gap-3 mb-3">
-                <h3 className="text-[10px] uppercase tracking-[0.15em] text-[var(--muted)] font-medium">
+                <h3 className="text-xs uppercase tracking-[0.15em] text-[var(--muted)] font-medium">
                   Mention density
                   <span className="normal-case tracking-normal ml-2 font-normal">
                     (per 1,000 mentions in each book)
@@ -1206,7 +1236,7 @@ export default function TimelinePage() {
                 <div className="flex items-center gap-3">
                   {/* Smoothing slider */}
                   <div className="flex items-center gap-2">
-                    <label className="text-[10px] text-[var(--muted)] uppercase tracking-[0.1em]">
+                    <label className="text-xs text-[var(--muted)] uppercase tracking-[0.1em]">
                       Smoothing
                     </label>
                     <input
@@ -1218,7 +1248,7 @@ export default function TimelinePage() {
                       onChange={(e) => setSmoothing(Number(e.target.value))}
                       className="w-20 h-1 accent-[var(--accent)]"
                     />
-                    <span className="text-[10px] font-mono text-[var(--muted)] w-3 text-right tabular-nums">
+                    <span className="text-xs font-mono text-[var(--muted)] w-3 text-right tabular-nums">
                       {smoothing}
                     </span>
                   </div>
@@ -1554,14 +1584,14 @@ export default function TimelinePage() {
                         style={{ backgroundColor: traceColor }}
                       />
                       <Link
-                        href={`/concordance/${slugify(cluster.canonical_name)}`}
+                        href={clusterPath(cluster)}
                         onClick={(e) => e.stopPropagation()}
                         className="font-semibold text-sm hover:text-[var(--accent)] transition-colors"
                       >
                         {cluster.canonical_name}
                       </Link>
                       <span
-                        className={`px-1.5 py-0.5 rounded text-[10px] font-medium border ${
+                        className={`px-1.5 py-0.5 rounded text-xs font-medium border ${
                           catColor?.badge || "bg-[var(--border)]"
                         }`}
                       >
@@ -1617,7 +1647,7 @@ export default function TimelinePage() {
                                   {a.variants.slice(0, 3).join(", ")}
                                 </span>
                               )}
-                              <span className="text-[var(--muted)] ml-auto text-[10px]">
+                              <span className="text-[var(--muted)] ml-auto text-xs">
                                 {a.language}
                               </span>
                             </div>
@@ -1634,13 +1664,13 @@ export default function TimelinePage() {
           {/* Comparison table */}
           {traces.length >= 2 && (
             <div className="overflow-x-auto mb-8">
-              <h3 className="text-[10px] uppercase tracking-[0.15em] text-[var(--muted)] font-medium mb-3">
+              <h3 className="text-xs uppercase tracking-[0.15em] text-[var(--muted)] font-medium mb-3">
                 Comparison
               </h3>
               <table className="w-full text-sm border-collapse">
                 <thead>
                   <tr className="border-b border-[var(--border)]">
-                    <th className="py-2 pr-4 text-left text-[10px] uppercase tracking-[0.15em] text-[var(--muted)] font-medium" />
+                    <th className="py-2 pr-4 text-left text-xs uppercase tracking-[0.15em] text-[var(--muted)] font-medium" />
                     {traces.map((t, idx) => (
                       <th
                         key={t.id}

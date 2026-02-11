@@ -2,13 +2,23 @@
 
 import Link from "next/link";
 import { useState, useCallback, useRef, useEffect } from "react";
-import { CATEGORY_COLORS as CAT_COLORS } from "@/lib/colors";
-import { BOOK_SHORT_NAMES } from "@/lib/books";
+import { CATEGORY_COLORS as CAT_COLORS, CAT_HEX } from "@/lib/colors";
+import { BOOK_SHORT_NAMES, BOOK_TITLES, BOOK_YEARS, BOOK_LANGS } from "@/lib/books";
 
 // ── Types ──────────────────────────────────────────────────────────────
 
+interface MemberDetail {
+  book_id: string;
+  entity_id: string;
+  name: string;
+  count: number;
+  context: string;
+}
+
 interface ResultMetadata {
   id: string;
+  stable_key?: string;
+  display_name?: string;
   canonical_name: string;
   category: string;
   subcategory: string;
@@ -26,6 +36,7 @@ interface ResultMetadata {
   semantic_gloss: string;
   portrait_url: string;
   names: string[];
+  members?: MemberDetail[];
 }
 
 interface SearchResult {
@@ -43,8 +54,15 @@ interface SearchResponse {
   error?: string;
 }
 
-// ── Constants ──────────────────────────────────────────────────────────
+// ── Helpers ─────────────────────────────────────────────────────────────
 
+function slugify(name: string): string {
+  return name.toLowerCase().trim().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
+}
+
+const TOTAL_BOOKS = Object.keys(BOOK_YEARS).length;
+
+// ── Constants ──────────────────────────────────────────────────────────
 
 const CATEGORIES = [
   "ALL",
@@ -71,6 +89,9 @@ export default function SearchPage() {
   const [categoryFilter, setCategoryFilter] = useState("ALL");
   const [hasSearched, setHasSearched] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [expandedId, setExpandedId] = useState<string | null>(null);
+  const [showAllMembers, setShowAllMembers] = useState<Set<string>>(new Set());
+  const [hoveredNode, setHoveredNode] = useState<string | null>(null); // "clusterId-bookId"
   const debounceRef = useRef<NodeJS.Timeout | null>(null);
   const inputRef = useRef<HTMLInputElement>(null);
 
@@ -116,6 +137,7 @@ export default function SearchPage() {
 
     setLoading(true);
     setError(null);
+    setExpandedId(null);
     syncUrl(q, cat);
 
     try {
@@ -183,7 +205,7 @@ export default function SearchPage() {
         </h1>
 
         {/* Search input — full width, large */}
-        <div className="relative mb-8">
+        <div className="relative mb-8 rounded-xl has-[:focus]:ring-2 has-[:focus]:ring-[var(--accent)] has-[:focus]:shadow-md transition-shadow">
           <svg
             className="absolute left-4 md:left-5 top-1/2 -translate-y-1/2 w-5 h-5 text-[var(--muted)]"
             fill="none"
@@ -202,14 +224,34 @@ export default function SearchPage() {
             type="text"
             value={query}
             onChange={(e) => handleInputChange(e.target.value)}
+            onKeyDown={(e) => {
+              if (e.key === "Escape") {
+                handleInputChange("");
+                inputRef.current?.blur();
+              }
+            }}
             placeholder="Entity, plant, person, place, concept..."
             className="w-full pl-12 md:pl-14 pr-12 py-4 md:py-5 rounded-xl border border-[var(--border)] bg-[var(--card)] text-xl md:text-2xl placeholder:text-[var(--muted)]/50 focus:outline-none focus:ring-2 focus:ring-[var(--accent)] focus:border-transparent transition-all shadow-sm"
           />
-          {loading && (
-            <div className="absolute right-4 top-1/2 -translate-y-1/2">
+          <div className="absolute right-4 top-1/2 -translate-y-1/2 flex items-center gap-2">
+            {loading && (
               <div className="w-5 h-5 border-2 border-[var(--accent)] border-t-transparent rounded-full animate-spin" />
-            </div>
-          )}
+            )}
+            {!loading && query.length > 0 && (
+              <button
+                onClick={() => {
+                  handleInputChange("");
+                  inputRef.current?.focus();
+                }}
+                className="p-1 rounded-full hover:bg-[var(--border)] transition-colors text-[var(--muted)] hover:text-[var(--foreground)]"
+                aria-label="Clear search"
+              >
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              </button>
+            )}
+          </div>
         </div>
 
         {/* Description grid below search */}
@@ -228,6 +270,11 @@ export default function SearchPage() {
             )}
           </div>
         </div>
+      </div>
+
+      {/* Cross-link to concordance */}
+      <div className="text-sm text-[var(--muted)] mb-2 animate-fade-in delay-2">
+        Or <Link href="/concordance" className="text-[var(--accent)] hover:underline">browse the full concordance</Link> with category and book filters.
       </div>
 
       {/* Category filter strip */}
@@ -258,12 +305,11 @@ export default function SearchPage() {
               </button>
             );
           })}
-
         </div>
         <div className="border-t border-[var(--border)]" />
       </div>
 
-      {/* Example searches — gap-px grid like home page clusters */}
+      {/* Example searches */}
       {!hasSearched && !loading && (
         <div className="py-12 animate-fade-up delay-5">
           <h2 className="text-xs uppercase tracking-widest text-[var(--muted)] font-medium mb-5">
@@ -317,260 +363,270 @@ export default function SearchPage() {
           </div>
 
           {results.length > 0 ? (
-            <>
-              {/* Top results — full-width rows */}
-              <div className="border border-[var(--border)] rounded-lg overflow-hidden mb-8">
-                {results.slice(0, 3).map((result, idx) => {
-                  const m = result.metadata;
-                  const cat = CAT_COLORS[m.category];
-                  const pct = Math.round(result.score * 100);
-                  const description =
-                    m.semantic_gloss || m.wikidata_description || "";
+            <div className="divide-y divide-[var(--border)]">
+              {results.map((result) => {
+                const m = result.metadata;
+                const cat = CAT_COLORS[m.category];
+                const catHex = CAT_HEX[m.category] || "#888";
+                const description = m.semantic_gloss || m.wikidata_description || "";
+                const displayName = m.display_name || m.modern_name || m.canonical_name;
+                const showCanonical = displayName.toLowerCase() !== m.canonical_name.toLowerCase();
+                const identification = m.linnaean || "";
+                const members = m.members || [];
+                const rid = String(m.id);
+                const isExpanded = expandedId === rid;
+                const clusterSlug = m.stable_key || slugify(m.canonical_name);
 
-                  const q = query.toLowerCase();
-                  const matchedVariants =
-                    query.length >= 2
-                      ? m.names
-                          .filter(
-                            (n) =>
-                              n.toLowerCase().includes(q) &&
-                              n.toLowerCase() !== m.canonical_name.toLowerCase() &&
-                              n.toLowerCase() !== m.modern_name.toLowerCase()
-                          )
-                          .slice(0, 3)
-                      : [];
-
-                  // Book pills for top results
-                  const bookPills = m.books.slice(0, 5);
-
-                  return (
-                    <Link
-                      key={m.id}
-                      href={`/concordance?highlight=${encodeURIComponent(m.canonical_name)}&from_search=${encodeURIComponent(query)}`}
-                      className={`block bg-[var(--card)] hover:bg-[var(--border)]/30 transition-colors group relative ${
-                        idx > 0 ? "border-t border-[var(--border)]" : ""
-                      }`}
+                return (
+                  <div key={rid}>
+                    {/* Collapsed row — clickable */}
+                    <button
+                      onClick={() => setExpandedId(isExpanded ? null : rid)}
+                      className="w-full text-left py-6 md:py-8 hover:bg-[var(--card)]/50 transition-colors cursor-pointer group"
                     >
-                      {/* Score bar — thin line at top */}
-                      <div className="absolute top-0 left-0 right-0 h-[2px] bg-[var(--border)]">
-                        <div
-                          className="h-full bg-[var(--accent)] transition-all"
-                          style={{ width: `${pct}%` }}
-                        />
-                      </div>
-
-                      <div className="grid grid-cols-1 md:grid-cols-[1fr_2fr_auto] gap-4 md:gap-8 p-5 md:px-6 md:py-5 items-start">
-                        {/* Left: name + identification */}
-                        <div className="min-w-0">
-                          <div className="flex items-center gap-2 mb-1">
-                            {m.portrait_url ? (
-                              // eslint-disable-next-line @next/next/no-img-element
-                              <img
-                                src={m.portrait_url}
-                                alt=""
-                                className="w-8 h-8 rounded-full object-cover shrink-0 border border-[var(--border)] bg-[var(--border)]"
-                              />
-                            ) : cat ? (
-                              <span
-                                className={`w-2.5 h-2.5 rounded-full shrink-0 ${cat.dot}`}
-                              />
-                            ) : null}
-                            <span className="font-semibold text-lg group-hover:text-[var(--accent)] transition-colors truncate">
-                              {highlightMatch(m.canonical_name, query)}
-                            </span>
-                          </div>
-                          {(m.modern_name || m.linnaean) && (
-                            <div className="text-sm text-[var(--muted)] truncate">
-                              {m.modern_name &&
-                                m.modern_name.toLowerCase() !==
-                                  m.canonical_name.toLowerCase() && (
-                                  <span>
-                                    {highlightMatch(m.modern_name, query)}
-                                  </span>
-                                )}
-                              {m.linnaean && (
-                                <span className="italic ml-1">
-                                  {highlightMatch(m.linnaean, query)}
-                                </span>
-                              )}
-                            </div>
-                          )}
-                        </div>
-
-                        {/* Center: description + metadata */}
-                        <div className="min-w-0">
-                          {description && (
-                            <p className="text-sm text-[var(--muted)] mb-2 line-clamp-2 leading-relaxed">
-                              {description}
-                            </p>
-                          )}
-                          <div className="flex items-center flex-wrap gap-2 text-[10px] text-[var(--muted)]">
-                            <span
-                              className={`px-1.5 py-0.5 rounded font-semibold uppercase tracking-wide ${
-                                cat?.badge || "bg-[var(--border)]"
-                              }`}
-                            >
-                              {m.category}
-                            </span>
-                            <span className="font-mono">
-                              {m.book_count}b &middot; {m.total_mentions.toLocaleString()}&times;
-                            </span>
-                            {bookPills.map((b) => (
-                              <span
-                                key={b}
-                                className="px-1.5 py-0.5 rounded bg-[var(--border)]"
-                              >
-                                {BOOK_SHORT_NAMES[b] || b}
-                              </span>
-                            ))}
-                            {matchedVariants.length > 0 && (
-                              <>
-                                <span className="opacity-40">|</span>
-                                {matchedVariants.map((v) => (
-                                  <span
-                                    key={v}
-                                    className="px-1.5 py-0.5 rounded bg-[var(--background)]"
-                                  >
-                                    {highlightMatch(v, query)}
-                                  </span>
-                                ))}
-                              </>
-                            )}
-                          </div>
-                        </div>
-
-                        {/* Right: score */}
-                        <div className="hidden md:flex items-center gap-3 shrink-0 self-center">
-                          <span className="text-2xl font-bold tracking-tight tabular-nums">
-                            {pct}
+                      {/* Header with expand chevron at right */}
+                      <div className="flex items-start justify-between gap-4 mb-1.5">
+                        <div className="flex items-baseline gap-3 flex-wrap min-w-0">
+                          <span className="font-bold text-2xl group-hover:text-[var(--accent)] transition-colors">
+                            {highlightMatch(displayName, query)}
                           </span>
-                          <span className="text-xs text-[var(--muted)]">%</span>
-                        </div>
-                      </div>
-                    </Link>
-                  );
-                })}
-              </div>
-
-              {/* More results */}
-              {results.length > 3 && (
-                <>
-                  <h2 className="text-xs uppercase tracking-widest text-[var(--muted)] font-medium mb-5">
-                    More results
-                  </h2>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-px bg-[var(--border)] border border-[var(--border)] rounded-lg overflow-hidden">
-                    {results.slice(3).map((result) => {
-                      const m = result.metadata;
-                      const cat = CAT_COLORS[m.category];
-                      const pct = Math.round(result.score * 100);
-                      const description =
-                        m.semantic_gloss || m.wikidata_description || "";
-
-                      const q = query.toLowerCase();
-                      const matchedVariants =
-                        query.length >= 2
-                          ? m.names
-                              .filter(
-                                (n) =>
-                                  n.toLowerCase().includes(q) &&
-                                  n.toLowerCase() !== m.canonical_name.toLowerCase() &&
-                                  n.toLowerCase() !== m.modern_name.toLowerCase()
-                              )
-                              .slice(0, 2)
-                          : [];
-
-                      return (
-                        <Link
-                          key={m.id}
-                          href={`/concordance?highlight=${encodeURIComponent(m.canonical_name)}&from_search=${encodeURIComponent(query)}`}
-                          className="bg-[var(--card)] p-5 hover:bg-[var(--border)]/30 transition-colors block group relative"
-                        >
-                          <div className="absolute top-0 left-0 right-0 h-[2px] bg-[var(--border)]">
-                            <div
-                              className="h-full bg-[var(--accent)] transition-all"
-                              style={{ width: `${pct}%` }}
-                            />
-                          </div>
-
-                          <div className="flex items-center gap-2 mb-1.5">
-                            {cat && (
-                              <span
-                                className={`w-2 h-2 rounded-full shrink-0 ${cat.dot}`}
-                              />
-                            )}
-                            <span className="font-semibold group-hover:text-[var(--accent)] transition-colors truncate">
+                          {showCanonical && (
+                            <span className="text-sm text-[var(--muted)]">
                               {highlightMatch(m.canonical_name, query)}
                             </span>
-                          </div>
+                          )}
+                          {identification && (
+                            <span className="text-base text-[var(--muted)] italic">
+                              {highlightMatch(identification, query)}
+                            </span>
+                          )}
+                          <span
+                            className={`px-2 py-1 rounded text-xs font-semibold uppercase tracking-wide border ${
+                              cat?.badge || "bg-[var(--border)]"
+                            }`}
+                          >
+                            {m.category}
+                          </span>
+                        </div>
+                        <svg
+                          className={`w-4 h-4 shrink-0 mt-2 text-[var(--muted)] transition-transform ${isExpanded ? "rotate-180" : ""}`}
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                        >
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19 9l-7 7-7-7" />
+                        </svg>
+                      </div>
 
-                          {(m.modern_name || m.linnaean) && (
-                            <div className="text-sm text-[var(--muted)] mb-1 truncate">
-                              {m.modern_name &&
-                                m.modern_name.toLowerCase() !==
-                                  m.canonical_name.toLowerCase() && (
-                                  <span>
-                                    {highlightMatch(m.modern_name, query)}
-                                  </span>
+                      {/* Description */}
+                      {description && (
+                        <p className="text-sm text-[var(--muted)] mb-5 leading-relaxed max-w-3xl">
+                          {description}
+                        </p>
+                      )}
+
+                      {/* Timeline strip */}
+                      {members.length > 0 && (() => {
+                        const MAX_VISIBLE = 7;
+                        const allRevealed = showAllMembers.has(rid);
+                        const hasOverflow = members.length > MAX_VISIBLE;
+                        const visible = allRevealed ? members : members.slice(0, MAX_VISIBLE);
+                        const isMobile = typeof window !== "undefined" && window.innerWidth < 640;
+                        const nodeWidth = isMobile ? 120 : 180;
+                        const lineWidth = (visible.length - 1) * nodeWidth;
+
+                        return (
+                          <div className="mb-2">
+                            <div className="flex items-start">
+                              <div className="relative">
+                                {/* Connecting line behind dots */}
+                                {visible.length > 1 && (
+                                  <div
+                                    className="absolute h-px top-[7px]"
+                                    style={{
+                                      backgroundColor: catHex,
+                                      opacity: 0.25,
+                                      left: `${nodeWidth / 2}px`,
+                                      width: `${lineWidth}px`,
+                                    }}
+                                  />
                                 )}
-                              {m.linnaean && (
-                                <span className="italic ml-1">
-                                  {highlightMatch(m.linnaean, query)}
-                                </span>
+                                <div className="flex items-start gap-0">
+                                  {visible.map((member) => {
+                                    const year = BOOK_YEARS[member.book_id] || 0;
+                                    const nodeKey = `${rid}-${member.book_id}`;
+                                    const isNodeHovered = hoveredNode === nodeKey;
+                                    const shortName = BOOK_SHORT_NAMES[member.book_id] || "";
+                                    const title = BOOK_TITLES[member.book_id] || "";
+
+                                    return (
+                                      <div
+                                        key={member.book_id}
+                                        className="flex flex-col items-center text-center relative w-[120px] sm:w-[180px]"
+                                        onMouseEnter={() => setHoveredNode(nodeKey)}
+                                        onMouseLeave={() => setHoveredNode(null)}
+                                      >
+                                        {/* Tooltip — floats above-right of the dot */}
+                                        <div
+                                          className="absolute bottom-full mb-2 left-2 px-2.5 py-1.5 rounded bg-[var(--foreground)] text-[var(--background)] text-xs leading-tight whitespace-nowrap pointer-events-none z-20"
+                                          style={{
+                                            opacity: isNodeHovered ? 1 : 0,
+                                            transform: isNodeHovered ? "translateY(0)" : "translateY(4px)",
+                                            transition: "opacity 200ms ease, transform 200ms ease",
+                                          }}
+                                        >
+                                          <span className="font-semibold">{shortName}</span>
+                                          {title && <span className="opacity-70"> — {title}</span>}
+                                        </div>
+                                        {/* Dot */}
+                                        <div
+                                          className="w-[14px] h-[14px] rounded-full shrink-0 relative z-10"
+                                          style={{
+                                            backgroundColor: catHex,
+                                            transform: isNodeHovered ? "scale(1.35)" : "scale(1)",
+                                            transition: "transform 200ms ease",
+                                          }}
+                                        />
+                                        {/* Year */}
+                                        <span className="text-xs text-[var(--muted)] mt-2 font-mono">
+                                          {year}
+                                        </span>
+                                        {/* Local name */}
+                                        <span className="text-sm font-semibold mt-0.5 leading-tight">
+                                          {member.name}
+                                        </span>
+                                        {/* Context snippet */}
+                                        <span className="text-xs text-[var(--muted)] mt-0.5 leading-snug line-clamp-2 italic px-1">
+                                          {member.context || "—"}
+                                        </span>
+                                      </div>
+                                    );
+                                  })}
+                                </div>
+                              </div>
+
+                              {/* "See more" button for overflow */}
+                              {hasOverflow && !allRevealed && (
+                                <button
+                                  onClick={(e) => {
+                                    e.stopPropagation();
+                                    setShowAllMembers((prev) => {
+                                      const next = new Set(prev);
+                                      next.add(rid);
+                                      return next;
+                                    });
+                                  }}
+                                  className="ml-2 shrink-0 flex items-center gap-1 text-xs text-[var(--accent)] hover:underline self-center"
+                                >
+                                  +{members.length - MAX_VISIBLE} more
+                                  <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                                  </svg>
+                                </button>
                               )}
                             </div>
-                          )}
+                          </div>
+                        );
+                      })()}
 
-                          {description && (
-                            <p className="text-xs text-[var(--muted)] mb-3 line-clamp-2 leading-relaxed">
-                              {description}
-                            </p>
-                          )}
+                      {/* Stats — quiet footer line */}
+                      <div className="text-xs text-[var(--muted)]/60 mt-1 text-right">
+                        {m.total_mentions.toLocaleString()} mentions &middot; {m.book_count} of {TOTAL_BOOKS} books
+                      </div>
+                    </button>
 
-                          <div className="flex items-center gap-2 text-[10px] text-[var(--muted)]">
-                            <span
-                              className={`px-1.5 py-0.5 rounded font-semibold uppercase tracking-wide ${
-                                cat?.badge || "bg-[var(--border)]"
-                              }`}
-                            >
-                              {m.category}
-                            </span>
-                            <span className="font-mono">
-                              {m.book_count}b &middot; {m.total_mentions.toLocaleString()}&times;
-                            </span>
-                            <span className="ml-auto font-mono opacity-60">
-                              {pct}%
+                    {/* Expanded: comparative table */}
+                    {isExpanded && members.length > 0 && (
+                      <div className="pb-8 animate-fade-in">
+                        <div className="border border-[var(--border)] rounded-lg bg-[var(--card)] overflow-hidden">
+                          {/* Table header */}
+                          <div className="px-5 py-3 border-b border-[var(--border)] bg-[var(--background)]">
+                            <span className="text-xs uppercase tracking-widest text-[var(--muted)] font-semibold">
+                              Attestations across the corpus
                             </span>
                           </div>
 
-                          {matchedVariants.length > 0 && (
-                            <div className="mt-2 flex flex-wrap gap-1">
-                              {matchedVariants.map((v) => (
-                                <span
-                                  key={v}
-                                  className="text-[10px] px-1.5 py-0.5 rounded bg-[var(--background)] text-[var(--muted)]"
-                                >
-                                  {highlightMatch(v, query)}
-                                </span>
-                              ))}
-                            </div>
-                          )}
-                        </Link>
-                      );
-                    })}
+                          {/* Table */}
+                          <div className="overflow-x-auto">
+                            <table className="w-full text-sm">
+                              <thead>
+                                <tr className="border-b border-[var(--border)] text-xs uppercase tracking-wider text-[var(--muted)]">
+                                  <th className="text-left px-5 py-2.5 font-medium">Book</th>
+                                  <th className="text-left px-5 py-2.5 font-medium">Name</th>
+                                  <th className="text-left px-5 py-2.5 font-medium">Lang</th>
+                                  <th className="text-right px-5 py-2.5 font-medium">Refs</th>
+                                  <th className="text-left px-5 py-2.5 font-medium hidden md:table-cell">Description</th>
+                                </tr>
+                              </thead>
+                              <tbody className="divide-y divide-[var(--border)]">
+                                {members.map((member) => {
+                                  const year = BOOK_YEARS[member.book_id] || 0;
+                                  const lang = BOOK_LANGS[member.book_id] || "??";
+                                  const shortName = BOOK_SHORT_NAMES[member.book_id] || member.book_id;
+                                  const entityUrl = `/books/${encodeURIComponent(member.book_id)}/entity/${encodeURIComponent(member.entity_id)}`;
+
+                                  return (
+                                    <tr key={member.book_id} className="group/row hover:bg-[var(--background)] border-l-2 border-l-transparent hover:border-l-[var(--accent)] transition-colors">
+                                      <td className="px-5 py-3">
+                                        <Link href={entityUrl} className="block group-hover/row:text-[var(--accent)] transition-colors">
+                                          <div className="font-medium text-sm">{shortName}</div>
+                                          <div className="text-xs text-[var(--muted)] font-mono">{year}</div>
+                                        </Link>
+                                      </td>
+                                      <td className="px-5 py-3">
+                                        <Link href={entityUrl} className="font-medium group-hover/row:text-[var(--accent)] transition-colors">
+                                          {member.name}
+                                        </Link>
+                                      </td>
+                                      <td className="px-5 py-3">
+                                        <span className="px-1.5 py-0.5 rounded text-xs font-mono bg-[var(--border)]">
+                                          {lang}
+                                        </span>
+                                      </td>
+                                      <td className="px-5 py-3 text-right tabular-nums font-mono">{member.count}</td>
+                                      <td className="px-5 py-3 text-[var(--muted)] italic text-xs max-w-[320px] hidden md:table-cell">
+                                        <Link href={entityUrl} className="line-clamp-2 hover:text-[var(--foreground)] transition-colors">
+                                          {member.context || "—"}
+                                        </Link>
+                                      </td>
+                                    </tr>
+                                  );
+                                })}
+                              </tbody>
+                            </table>
+                          </div>
+
+                          {/* Link to cluster page */}
+                          <div className="px-5 py-3 border-t border-[var(--border)]">
+                            <Link
+                              href={`/concordance/${clusterSlug}`}
+                              className="text-sm text-[var(--accent)] hover:underline inline-flex items-center gap-1"
+                            >
+                              View full cluster page
+                              <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                              </svg>
+                            </Link>
+                          </div>
+                        </div>
+                      </div>
+                    )}
                   </div>
-                </>
-              )}
-            </>
+                );
+              })}
+            </div>
           ) : (
             /* No results */
             <div className="py-16 text-center">
               <p className="text-lg font-medium text-[var(--muted)] mb-1">
                 No results found
               </p>
-              <p className="text-sm text-[var(--muted)] opacity-60">
-                Try a different spelling, a modern equivalent, or a broader
-                term.
+              <p className="text-sm text-[var(--muted)] opacity-60 mb-4">
+                Try a different spelling, a modern equivalent, or a broader term.
               </p>
+              <Link href="/concordance" className="text-sm text-[var(--accent)] hover:underline">
+                Browse the full concordance &rarr;
+              </Link>
             </div>
           )}
         </div>

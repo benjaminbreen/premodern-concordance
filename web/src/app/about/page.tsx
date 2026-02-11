@@ -70,7 +70,13 @@ function ConcordanceTicker() {
     if (pool.length > 0 && names.length === 0) pickNext();
   }, [pool, names.length, pickNext]);
 
-  if (!names.length) return <div className="h-48" />;
+  if (!names.length) return (
+    <div className="h-48 flex items-center justify-center overflow-hidden">
+      <span className="text-2xl tracking-tight text-[var(--muted)]/30 select-none">
+        mercury &middot; mercurio &middot; azogue &middot; vif-argent &middot; hydrargyrum
+      </span>
+    </div>
+  );
 
   return (
     <div className="h-48 flex items-center overflow-hidden relative mt-8">

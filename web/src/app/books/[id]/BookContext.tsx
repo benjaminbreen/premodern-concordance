@@ -39,6 +39,7 @@ export interface BookData {
 
 export interface ConcordanceCluster {
   id: number;
+  stable_key?: string;
   canonical_name: string;
   category: string;
   book_count: number;

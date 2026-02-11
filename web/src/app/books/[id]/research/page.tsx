@@ -423,7 +423,7 @@ function BibEntry({ entry }: { entry: BibliographyEntry }) {
           )}
         </div>
         <div className="flex items-center gap-1.5 shrink-0 mt-1">
-          <span className={`px-1.5 py-0.5 rounded text-[10px] font-medium ${typeInfo.color}`}>
+          <span className={`px-1.5 py-0.5 rounded text-xs font-medium ${typeInfo.color}`}>
             {typeInfo.label}
           </span>
           {entry.url && (
@@ -576,7 +576,7 @@ function SharedKnowledgeNetwork() {
           (edge.categoryBreakdown[cluster.category] || 0) + 1;
         edge.topShared.push({
           name: cluster.canonical_name,
-          slug: cluster.canonical_name.toLowerCase().replace(/[^a-z0-9]+/g, "-"),
+          slug: cluster.stable_key || cluster.canonical_name.toLowerCase().replace(/[^a-z0-9]+/g, "-"),
           mentions: cluster.total_mentions,
         });
       }
@@ -1009,7 +1009,7 @@ function SharedKnowledgeNetwork() {
                   </div>
                 )}
                 {!hoveredNode.isCurrent && (
-                  <p className="text-[10px] opacity-50 mt-1.5">Click to visit &rarr;</p>
+                  <p className="text-xs opacity-50 mt-1.5">Click to visit &rarr;</p>
                 )}
               </div>
             </div>

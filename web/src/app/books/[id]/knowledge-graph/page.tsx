@@ -71,6 +71,7 @@ type IdentityMap = Record<string, PersonIdentity>;
 
 interface ConcordanceClusterRef {
   id: number;
+  stable_key?: string;
   canonical_name: string;
   members: { entity_id: string; book_id: string }[];
 }
@@ -111,6 +112,9 @@ function resolveNodeUrl(
   }
 
   if (cluster) {
+    if (cluster.stable_key) {
+      return `/concordance/${cluster.stable_key}`;
+    }
     const base = slugify(cluster.canonical_name);
     const hasCollision = clusters.some(
       c => c.id !== cluster!.id && slugify(c.canonical_name) === base
@@ -913,7 +917,7 @@ function PersonNetwork({
           </button>
           <button
             onClick={() => setVt({ scale: 1, panX: 0, panY: 0 })}
-            className="w-9 h-9 sm:w-8 sm:h-8 flex items-center justify-center rounded-md border border-[var(--border)] bg-[var(--card)] hover:bg-[var(--background)] text-[10px] font-medium transition-colors"
+            className="w-9 h-9 sm:w-8 sm:h-8 flex items-center justify-center rounded-md border border-[var(--border)] bg-[var(--card)] hover:bg-[var(--background)] text-xs font-medium transition-colors"
             title="Reset zoom"
           >
             1:1
@@ -922,7 +926,7 @@ function PersonNetwork({
 
         {/* Zoom level indicator */}
         {vt.scale !== 1 && (
-          <div className="absolute bottom-3 left-3 text-[10px] text-[var(--muted)] bg-[var(--card)]/80 px-2 py-1 rounded border border-[var(--border)]">
+          <div className="absolute bottom-3 left-3 text-xs text-[var(--muted)] bg-[var(--card)]/80 px-2 py-1 rounded border border-[var(--border)]">
             {Math.round(vt.scale * 100)}%
           </div>
         )}
@@ -954,7 +958,7 @@ function PersonNetwork({
           </div>
         ))}
         <div className="flex items-center gap-1.5 ml-auto opacity-60">
-          <span className="text-[10px]">Click node to focus &middot; Drag to rearrange &middot; Scroll to zoom &middot; Drag background to pan</span>
+          <span className="text-xs">Click node to focus &middot; Drag to rearrange &middot; Scroll to zoom &middot; Drag background to pan</span>
         </div>
       </div>
     </div>
@@ -1082,7 +1086,7 @@ function PersonDirectory({
                   {person.name}
                 </span>
                 {ident?.description && (
-                  <span className="block text-[10px] text-[var(--muted)] truncate leading-tight">
+                  <span className="block text-xs text-[var(--muted)] truncate leading-tight">
                     {ident.description}
                   </span>
                 )}
@@ -1192,29 +1196,29 @@ function NodeTooltip({
           <span className="font-semibold text-sm leading-tight">{node.name}</span>
         </div>
         {/* Subcategory + mentions */}
-        <div className="flex items-center gap-2 text-[11px] opacity-60 mb-2">
+        <div className="flex items-center gap-2 text-xs opacity-60 mb-2">
           <span>{identity?.description || SUBCATEGORY_LABELS[node.subcategory] || node.subcategory}</span>
           <span>&middot;</span>
           <span>{node.count} mentions</span>
         </div>
         {/* Context */}
         {node.contexts[0] && (
-          <p className="text-[11px] leading-relaxed opacity-80 mb-2 italic">
+          <p className="text-xs leading-relaxed opacity-80 mb-2 italic">
             {node.contexts[0]}
           </p>
         )}
         {/* Aliases */}
         {node.aliases.length > 1 && (
-          <p className="text-[10px] opacity-50 mb-2">
+          <p className="text-xs opacity-50 mb-2">
             Also: {node.aliases.filter((a) => a !== node.name).slice(0, 3).join(", ")}
           </p>
         )}
         {/* Top connections */}
         {connections.length > 0 && (
           <div className="border-t border-current/10 pt-2 mt-1">
-            <div className="text-[10px] opacity-50 mb-1">Top connections:</div>
+            <div className="text-xs opacity-50 mb-1">Top connections:</div>
             {connections.map((c) => (
-              <div key={c.id} className="text-[11px] leading-snug mb-0.5">
+              <div key={c.id} className="text-xs leading-snug mb-0.5">
                 <span className="opacity-80">{c.name}</span>
                 <span className="opacity-40 ml-1">({c.weight}x)</span>
               </div>

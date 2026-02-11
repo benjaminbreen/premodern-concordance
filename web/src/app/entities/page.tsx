@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useEffect, useMemo, useState, type FocusEvent, type MouseEvent } from "react";
-import { CAT_BADGE } from "@/lib/colors";
+import { CAT_BADGE, CAT_DOT } from "@/lib/colors";
 import { BOOK_SHORT_NAMES } from "@/lib/books";
 
 interface BookFacet {
@@ -327,14 +327,17 @@ export default function EntitiesPage() {
       )}
 
       {data && data.results.length === 0 && (
-        <div className="text-sm text-[var(--muted)] py-8">No matching entities.</div>
+        <div className="py-16 text-center">
+          <p className="text-lg font-medium text-[var(--muted)] mb-1">No matching entities</p>
+          <p className="text-sm text-[var(--muted)] opacity-60">Try a shorter query, check your spelling, or clear the category filter.</p>
+        </div>
       )}
 
       {data && mode === "grid" && compactResults.length > 0 && (
         <>
           <div className="grid grid-cols-1 lg:grid-cols-[6.5rem_minmax(0,1fr)] gap-x-10">
             <aside className="hidden lg:block">
-              <nav className="sticky top-24 h-[calc(100vh-8rem)] pr-4 border-r border-[var(--border)] flex flex-col items-center gap-0.5 text-[11px] uppercase tracking-[0.08em]">
+              <nav className="sticky top-24 h-[calc(100vh-8rem)] pr-4 border-r border-[var(--border)] flex flex-col items-center gap-0.5 text-xs uppercase tracking-[0.08em]">
                 {INITIAL_NAV.map((letter) => (
                   <button
                     key={`jump-${letter}`}
@@ -344,9 +347,9 @@ export default function EntitiesPage() {
                       setSelectedInitial(letter);
                       setPage(1);
                     }}
-                    className={`w-full text-center py-0.5 transition-colors ${
+                    className={`w-full text-center py-1 transition-all rounded ${
                       selectedInitial === letter
-                        ? "text-[var(--foreground)] font-semibold"
+                        ? "text-[var(--accent)] font-semibold bg-[var(--accent)]/10"
                         : "text-[var(--muted)] hover:text-[var(--foreground)]"
                     }`}
                   >
@@ -393,6 +396,7 @@ export default function EntitiesPage() {
                   <div className="columns-2 sm:columns-3 md:columns-3 lg:columns-4 xl:columns-5 [column-gap:1.4rem]">
                     {group.items.map((e) => {
                       const isHovered = hovered?.id === e.id;
+                      const weight = e.book_count >= 6 ? 1 : e.book_count >= 3 ? 0.85 : 0.65;
                       return (
                         <Link
                           key={e.id}
@@ -404,13 +408,22 @@ export default function EntitiesPage() {
                           onFocus={(event) => handleWordFocus(event, e)}
                           onMouseLeave={() => setHovered(null)}
                           onBlur={() => setHovered(null)}
-                          className={`block break-inside-avoid break-words mb-2 text-[17px] leading-[1.15] tracking-tight transition-all duration-300 ease-out ${
+                          className={`block break-inside-avoid break-words mb-2.5 transition-all duration-300 ease-out cursor-pointer ${
                             isHovered
-                              ? "font-bold text-[var(--foreground)]"
-                              : "font-medium text-[var(--foreground)]/72 hover:text-[var(--foreground)]"
+                              ? "text-[var(--foreground)]"
+                              : "hover:text-[var(--foreground)]"
                           }`}
+                          style={{ opacity: isHovered ? 1 : weight }}
                         >
-                          {e.canonical_name}
+                          <span className={`text-[17px] leading-[1.15] tracking-tight ${isHovered ? "font-bold" : "font-medium"}`}>
+                            {e.canonical_name}
+                          </span>
+                          <span className="flex items-center gap-1 mt-0.5">
+                            <span className={`w-1.5 h-1.5 rounded-full ${CAT_DOT[e.category] || "bg-gray-400"}`} />
+                            <span className="text-[11px] text-[var(--muted)]">
+                              {e.book_count === 1 ? "1 book" : `${e.book_count} books`}
+                            </span>
+                          </span>
                         </Link>
                       );
                     })}
@@ -428,14 +441,14 @@ export default function EntitiesPage() {
             {hovered && (
               <div className="space-y-2">
                 <div>
-                  <div className="text-[10px] uppercase tracking-widest text-[var(--muted)] mb-1">
+                  <div className="text-xs uppercase tracking-widest text-[var(--muted)] mb-1">
                     Entity
                   </div>
                   <div className="font-medium text-sm leading-tight">{hovered.canonical_name}</div>
                 </div>
                 <div className="flex items-center gap-2">
                   <span
-                    className={`px-1.5 py-0.5 rounded border text-[10px] ${
+                    className={`px-2 py-1 rounded border text-xs ${
                       CAT_BADGE[hovered.category] || "bg-[var(--border)]"
                     }`}
                   >
@@ -446,13 +459,13 @@ export default function EntitiesPage() {
                   </span>
                 </div>
                 <div>
-                  <div className="text-[10px] uppercase tracking-widest text-[var(--muted)] mb-1">
+                  <div className="text-xs uppercase tracking-widest text-[var(--muted)] mb-1">
                     Books
                   </div>
                   <div className="leading-snug">{hoveredBookLabel || `${hovered.book_count} books`}</div>
                 </div>
                 <div>
-                  <div className="text-[10px] uppercase tracking-widest text-[var(--muted)] mb-1">
+                  <div className="text-xs uppercase tracking-widest text-[var(--muted)] mb-1">
                     Mentions
                   </div>
                   <div className="font-mono">{hovered.total_mentions.toLocaleString()}</div>
@@ -465,7 +478,7 @@ export default function EntitiesPage() {
 
       {data && mode === "list" && fullResults.length > 0 && (
         <div className="border border-[var(--border)] rounded overflow-hidden">
-          <div className="hidden md:grid grid-cols-[2fr_3.5rem_5rem_5rem_1fr_6rem] gap-x-3 px-3 py-2 text-[10px] uppercase tracking-widest text-[var(--muted)] border-b border-[var(--border)] bg-[var(--card)]">
+          <div className="hidden md:grid grid-cols-[2fr_3.5rem_5rem_5rem_1fr_6rem] gap-x-3 px-3 py-2 text-xs uppercase tracking-widest text-[var(--muted)] border-b border-[var(--border)] bg-[var(--card)]">
             <span>Name</span>
             <span>Cat</span>
             <span className="text-right">Books</span>
@@ -481,7 +494,7 @@ export default function EntitiesPage() {
                 className="grid grid-cols-[1fr_auto] md:grid-cols-[2fr_3.5rem_5rem_5rem_1fr_6rem] gap-x-3 px-3 py-2.5 text-sm hover:bg-[var(--card)]"
               >
                 <span className="truncate">{e.canonical_name}</span>
-                <span className={`md:text-[10px] text-[10px] px-1.5 py-0.5 rounded border self-start ${CAT_BADGE[e.category] || "bg-[var(--border)]"}`}>
+                <span className={`md:text-xs text-xs px-1.5 py-0.5 rounded border self-start ${CAT_BADGE[e.category] || "bg-[var(--border)]"}`}>
                   {e.category}
                 </span>
                 <span className="hidden md:block text-right font-mono text-xs">{e.book_count}</span>

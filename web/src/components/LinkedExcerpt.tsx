@@ -113,6 +113,7 @@ export function buildPersonLinks(
   bookId: string,
   concordanceClusters?: {
     id: number;
+    stable_key?: string;
     canonical_name: string;
     category: string;
     members: { entity_id: string; book_id: string }[];
@@ -133,21 +134,25 @@ export function buildPersonLinks(
           )
       );
       if (cluster) {
-        const base = cluster.canonical_name
-          .toLowerCase()
-          .trim()
-          .replace(/[^a-z0-9]+/g, "-")
-          .replace(/^-|-$/g, "");
-        const hasCollision = concordanceClusters.some(
-          (c) =>
-            c.id !== cluster.id &&
-            c.canonical_name
-              .toLowerCase()
-              .trim()
-              .replace(/[^a-z0-9]+/g, "-")
-              .replace(/^-|-$/g, "") === base
-        );
-        href = `/concordance/${hasCollision ? `${base}-${cluster.id}` : base}`;
+        if (cluster.stable_key) {
+          href = `/concordance/${cluster.stable_key}`;
+        } else {
+          const base = cluster.canonical_name
+            .toLowerCase()
+            .trim()
+            .replace(/[^a-z0-9]+/g, "-")
+            .replace(/^-|-$/g, "");
+          const hasCollision = concordanceClusters.some(
+            (c) =>
+              c.id !== cluster.id &&
+              c.canonical_name
+                .toLowerCase()
+                .trim()
+                .replace(/[^a-z0-9]+/g, "-")
+                .replace(/^-|-$/g, "") === base
+          );
+          href = `/concordance/${hasCollision ? `${base}-${cluster.id}` : base}`;
+        }
       }
     }
 

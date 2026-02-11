@@ -1,7 +1,8 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import "./globals.css";
 
 function ThemeToggle() {
@@ -45,6 +46,107 @@ function Logotype() {
     >
       Premodern Concordance
     </Link>
+  );
+}
+
+const NAV_LINKS = [
+  { href: "/books", label: "Books" },
+  { href: "/entities", label: "Entities" },
+  { href: "/concordance", label: "Concordance" },
+  { href: "/timeline", label: "Timeline" },
+  { href: "/search", label: "Search" },
+  { href: "/about", label: "About" },
+];
+
+function NavLink({ href, label }: { href: string; label: string }) {
+  const pathname = usePathname();
+  const isActive = pathname === href || pathname.startsWith(href + "/");
+  return (
+    <Link
+      href={href}
+      className={`transition-colors ${
+        isActive
+          ? "text-[var(--foreground)] font-medium"
+          : "text-[var(--muted)] hover:text-[var(--foreground)]"
+      }`}
+    >
+      {label}
+    </Link>
+  );
+}
+
+function MobileNavLink({ href, label, onClick }: { href: string; label: string; onClick: () => void }) {
+  const pathname = usePathname();
+  const isActive = pathname === href || pathname.startsWith(href + "/");
+  return (
+    <Link
+      href={href}
+      onClick={onClick}
+      className={`px-3 py-2.5 rounded-md transition-colors text-sm ${
+        isActive
+          ? "text-[var(--foreground)] font-medium bg-[var(--border)]/40"
+          : "text-[var(--muted)] hover:text-[var(--foreground)] active:bg-[var(--border)]"
+      }`}
+    >
+      {label}
+    </Link>
+  );
+}
+
+function MobileMenu() {
+  const [open, setOpen] = useState(false);
+  const menuRef = useRef<HTMLDivElement>(null);
+
+  // Close on outside click
+  useEffect(() => {
+    if (!open) return;
+    function handleClick(e: MouseEvent) {
+      if (menuRef.current && !menuRef.current.contains(e.target as Node)) {
+        setOpen(false);
+      }
+    }
+    document.addEventListener("mousedown", handleClick);
+    return () => document.removeEventListener("mousedown", handleClick);
+  }, [open]);
+
+  // Close on route change (escape key too)
+  useEffect(() => {
+    if (!open) return;
+    function handleKey(e: KeyboardEvent) {
+      if (e.key === "Escape") setOpen(false);
+    }
+    window.addEventListener("keydown", handleKey);
+    return () => window.removeEventListener("keydown", handleKey);
+  }, [open]);
+
+  return (
+    <div ref={menuRef} className="sm:hidden">
+      <button
+        onClick={() => setOpen(!open)}
+        className="p-2 rounded-lg hover:bg-[var(--border)] active:bg-[var(--border)] transition-colors"
+        aria-label="Toggle menu"
+        aria-expanded={open}
+      >
+        {open ? (
+          <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        ) : (
+          <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        )}
+      </button>
+      {open && (
+        <nav className="absolute top-full left-0 right-0 bg-[var(--background)] border-b border-[var(--border)] shadow-lg z-50">
+          <div className="max-w-7xl mx-auto px-4 py-3 flex flex-col gap-1">
+            {NAV_LINKS.map((link) => (
+              <MobileNavLink key={link.href} href={link.href} label={link.label} onClick={() => setOpen(false)} />
+            ))}
+          </div>
+        </nav>
+      )}
+    </div>
   );
 }
 
@@ -102,6 +204,7 @@ export default function RootLayout({
           (function(){try{var d=document.documentElement,t=localStorage.getItem("theme");
           if(t==="dark"||(!t&&window.matchMedia("(prefers-color-scheme:dark)").matches))d.classList.add("dark")}catch(e){}})()
         `}} />
+        <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
         <title>Premodern Concordance</title>
         <meta name="description" content="Cross-linguistic concordance of early modern natural knowledge" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -109,33 +212,21 @@ export default function RootLayout({
         <link href="https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&family=EB+Garamond:ital,wght@0,400;0,700;1,400&family=Space+Grotesk:wght@400;700&display=swap" rel="stylesheet" />
       </head>
       <body className="min-h-screen flex flex-col bg-[var(--background)] text-[var(--foreground)]">
-        <header className="sticky top-0 z-50 border-b border-[var(--border)] bg-[var(--background)]/80 backdrop-blur-sm">
+        <header className="sticky top-0 z-50 border-b border-[var(--border)] bg-[var(--background)]/80 backdrop-blur-sm relative">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex items-center justify-between h-16">
               <div className="flex items-center gap-8">
                 <Logotype />
                 <nav className="hidden sm:flex items-center gap-6">
-                  <Link href="/books" className="text-[var(--muted)] hover:text-[var(--foreground)] transition-colors">
-                    Books
-                  </Link>
-                  <Link href="/entities" className="text-[var(--muted)] hover:text-[var(--foreground)] transition-colors">
-                    Entities
-                  </Link>
-                  <Link href="/concordance" className="text-[var(--muted)] hover:text-[var(--foreground)] transition-colors">
-                    Concordance
-                  </Link>
-                  <Link href="/timeline" className="text-[var(--muted)] hover:text-[var(--foreground)] transition-colors">
-                    Timeline
-                  </Link>
-                  <Link href="/search" className="text-[var(--muted)] hover:text-[var(--foreground)] transition-colors">
-                    Search
-                  </Link>
-                  <Link href="/about" className="text-[var(--muted)] hover:text-[var(--foreground)] transition-colors">
-                    About
-                  </Link>
+                  {NAV_LINKS.map((link) => (
+                    <NavLink key={link.href} href={link.href} label={link.label} />
+                  ))}
                 </nav>
               </div>
-              <ThemeToggle />
+              <div className="flex items-center gap-2">
+                <ThemeToggle />
+                <MobileMenu />
+              </div>
             </div>
           </div>
         </header>

@@ -60,7 +60,7 @@ The concordance links entities across books and languages through embedding simi
 
 ## The Pipeline
 
-The concordance is built through an eight-stage pipeline. Each stage is a standalone Python script that reads JSON and writes JSON, making the process auditable, resumable, and individually re-runnable.
+The concordance is built through a nine-stage pipeline. Each stage is a standalone Python script that reads JSON and writes JSON, making the process auditable, resumable, and individually re-runnable.
 
 ```
   ┌─────────────┐     ┌──────────────┐     ┌──────────────┐     ┌──────────────┐
@@ -84,6 +84,10 @@ The concordance is built through an eight-stage pipeline. Each stage is a standa
 | **6. Verify** | `verify_concordance.py` | LLM review of suspicious clusters (flagged by heuristics) | Gemini 2.5 Flash Lite |
 | **7. Enrich** | `enrich_concordance.py` | Ground truth ID + Wikidata linking + semantic glosses | Gemini 2.5 Flash Lite |
 | **8. Index** | `build_search_index.py` | Semantic search embeddings (512-dim) for the web interface | OpenAI text-embedding-3-small |
+| **9. Neighbors** | `build_neighbor_graph.py` | Precompute nearest-neighbor graph for concordance detail pages | Local cosine over index |
+
+Validation utility:
+- `verify_pipeline_artifacts.py` — checks concordance/search/neighbor file consistency (IDs, counts, stable keys)
 
 ### Why Fine-Tune?
 

@@ -73,6 +73,7 @@ interface CrossReference {
 
 interface Cluster {
   id: number;
+  stable_key?: string;
   canonical_name: string;
   category: string;
   subcategory: string;
@@ -136,6 +137,7 @@ function slugify(name: string): string {
 
 /** Build a slug for a cluster, appending ID if the base slug collides */
 function clusterSlug(cluster: Cluster, allClusters: Cluster[]): string {
+  if (cluster.stable_key) return cluster.stable_key;
   const base = slugify(cluster.canonical_name);
   const hasCollision = allClusters.some(
     (c) => c.id !== cluster.id && slugify(c.canonical_name) === base
@@ -145,6 +147,10 @@ function clusterSlug(cluster: Cluster, allClusters: Cluster[]): string {
 
 /** Find a cluster by its slug (try base match first, then id-suffixed) */
 function findClusterBySlug(slug: string, clusters: Cluster[]): Cluster | null {
+  // First try stable_key exact match.
+  const stable = clusters.find((c) => c.stable_key === slug);
+  if (stable) return stable;
+
   // First try exact base-slug match (unique names)
   const baseMatches = clusters.filter((c) => slugify(c.canonical_name) === slug);
   if (baseMatches.length === 1) return baseMatches[0];
@@ -162,6 +168,10 @@ function findClusterBySlug(slug: string, clusters: Cluster[]): Cluster | null {
 
 /* ───── helpers ───── */
 
+function displayName(cluster: Cluster): string {
+  return cluster.ground_truth?.modern_name || cluster.canonical_name;
+}
+
 function cap(r: { text: string; italic: boolean }): { text: string; italic: boolean } {
   if (r.text.length > 0) {
     return { ...r, text: r.text.charAt(0).toUpperCase() + r.text.slice(1) };
@@ -173,14 +183,14 @@ function getIdentification(cluster: Cluster): { text: string; italic: boolean } 
   const gt = cluster.ground_truth;
   if (!gt) return null;
   const cat = cluster.category;
-  const canonLower = cluster.canonical_name.toLowerCase();
+  const labelLower = displayName(cluster).toLowerCase();
 
   if (cat === "PERSON") {
     if (gt.birth_year) {
       const dates = `(${gt.birth_year}\u2013${gt.death_year || "?"})`;
       return cap({ text: `${gt.modern_name} ${dates}`, italic: false });
     }
-    const nameDiffers = gt.modern_name.toLowerCase() !== canonLower;
+    const nameDiffers = gt.modern_name.toLowerCase() !== labelLower;
     if (nameDiffers) return cap({ text: gt.modern_name, italic: false });
     if (gt.description) {
       const d = gt.description;
@@ -195,13 +205,13 @@ function getIdentification(cluster: Cluster): { text: string; italic: boolean } 
 
   if (cat === "PLANT" || cat === "ANIMAL") {
     if (gt.linnaean) return cap({ text: gt.linnaean, italic: true });
-    if (gt.modern_name.toLowerCase() !== canonLower) return cap({ text: gt.modern_name, italic: false });
+    if (gt.modern_name.toLowerCase() !== labelLower) return cap({ text: gt.modern_name, italic: false });
     if (gt.family) return cap({ text: `Fam. ${gt.family}`, italic: true });
     return null;
   }
 
-  if (gt.modern_name.toLowerCase() !== canonLower) return cap({ text: gt.modern_name, italic: false });
-  if (gt.modern_term && gt.modern_term.toLowerCase() !== canonLower && gt.modern_term.toLowerCase() !== gt.modern_name.toLowerCase()) {
+  if (gt.modern_name.toLowerCase() !== labelLower) return cap({ text: gt.modern_name, italic: false });
+  if (gt.modern_term && gt.modern_term.toLowerCase() !== labelLower && gt.modern_term.toLowerCase() !== gt.modern_name.toLowerCase()) {
     return cap({ text: gt.modern_term, italic: false });
   }
   if (gt.description) {
@@ -377,7 +387,7 @@ function WikiCard({ url, searching }: { url: string | null; searching: boolean }
   if (searching) {
     return (
       <div className="p-4 rounded-lg border border-[var(--border)] bg-[var(--card)]">
-        <h3 className="text-[10px] uppercase tracking-widest text-[var(--muted)] font-medium mb-3">
+        <h3 className="text-xs uppercase tracking-widest text-[var(--muted)] font-medium mb-3">
           Wikipedia
         </h3>
         <div className="flex items-center gap-2 text-xs text-[var(--muted)]">
@@ -391,7 +401,7 @@ function WikiCard({ url, searching }: { url: string | null; searching: boolean }
   if (!url) {
     return (
       <div className="p-4 rounded-lg border border-[var(--border)] bg-[var(--card)]">
-        <h3 className="text-[10px] uppercase tracking-widest text-[var(--muted)] font-medium mb-3">
+        <h3 className="text-xs uppercase tracking-widest text-[var(--muted)] font-medium mb-3">
           Wikipedia
         </h3>
         <p className="text-xs text-[var(--muted)]">No Wikipedia article found.</p>
@@ -401,7 +411,7 @@ function WikiCard({ url, searching }: { url: string | null; searching: boolean }
 
   return (
     <div className="p-4 rounded-lg border border-[var(--border)] bg-[var(--card)]">
-      <h3 className="text-[10px] uppercase tracking-widest text-[var(--muted)] font-medium mb-3">
+      <h3 className="text-xs uppercase tracking-widest text-[var(--muted)] font-medium mb-3">
         Wikipedia
       </h3>
       <WikiExtract url={url} wikiUrl={url} />
@@ -501,8 +511,10 @@ function NeighborhoodGraph({
   useEffect(() => {
     if (!neighborData) return;
     const clusterMap = new Map(clusters.map((c) => [c.id, c]));
-    const neighborList = neighborData.neighbors[String(clusterId)];
-    if (!neighborList) return;
+    const rawNeighborList = neighborData.neighbors[String(clusterId)];
+    if (!rawNeighborList) return;
+    // Filter out neighbors whose clusters were removed from the dataset
+    const neighborList = rawNeighborList.filter((n) => clusterMap.has(n.id));
     const current = clusterMap.get(clusterId);
     if (!current) return;
     const { width, height } = dimensions;
@@ -521,7 +533,7 @@ function NeighborhoodGraph({
       );
       return {
         id: c.id,
-        name: c.canonical_name,
+        name: displayName(c),
         category: c.category,
         mentions: c.total_mentions,
         isCurrent,
@@ -819,7 +831,7 @@ function NeighborhoodGraph({
               <span className="font-semibold text-sm leading-tight">{hoveredNode.name}</span>
             </div>
             {/* Category + mentions */}
-            <div className="flex items-center gap-2 text-[11px] opacity-60 mb-2">
+            <div className="flex items-center gap-2 text-xs opacity-60 mb-2">
               <span>{hoveredNode.category}</span>
               <span>&middot;</span>
               <span>{hoveredNode.mentions} mentions</span>
@@ -832,13 +844,13 @@ function NeighborhoodGraph({
             </div>
             {/* Gloss */}
             {hoveredNode.gloss && (
-              <p className="text-[11px] leading-relaxed opacity-80 mb-2">
+              <p className="text-xs leading-relaxed opacity-80 mb-2">
                 {hoveredNode.gloss}
               </p>
             )}
             {/* Top books */}
             {hoveredNode.topBooks.length > 0 && (
-              <div className="flex flex-wrap gap-x-2 gap-y-0.5 text-[10px] opacity-50">
+              <div className="flex flex-wrap gap-x-2 gap-y-0.5 text-xs opacity-50">
                 {hoveredNode.topBooks.map((b, i) => (
                   <span key={i}>
                     {b.name} ({b.year})
@@ -848,7 +860,7 @@ function NeighborhoodGraph({
             )}
             {/* Click hint */}
             {!hoveredNode.isCurrent && (
-              <p className="text-[10px] opacity-40 mt-2 pt-1.5 border-t border-current/10">
+              <p className="text-xs opacity-40 mt-2 pt-1.5 border-t border-current/10">
                 Click to view &middot; Drag to rearrange
               </p>
             )}
@@ -858,7 +870,7 @@ function NeighborhoodGraph({
       })()}
 
       {/* Legend */}
-      <div className="flex flex-wrap gap-x-3 gap-y-1 mt-3 text-[10px] text-[var(--muted)]">
+      <div className="flex flex-wrap gap-x-3 gap-y-1 mt-3 text-xs text-[var(--muted)]">
         {Object.entries(
           nodes.reduce<Record<string, number>>((acc, n) => {
             acc[n.category] = (acc[n.category] || 0) + 1;
@@ -1076,6 +1088,7 @@ export default function ClusterDetailPage() {
   const mentionsByBook = getMentionsByBook(cluster.members);
   const maxMentions = Math.max(...mentionsByBook.map((b) => b.count), 1);
   const variantsByLang = getVariantsByLanguage(cluster.members, data.books);
+  const clusterDisplayName = displayName(cluster);
 
   // Subtitle line
   let subtitle: string | null = null;
@@ -1084,8 +1097,8 @@ export default function ClusterDetailPage() {
       subtitle = gt.linnaean;
     } else if (cluster.category === "PERSON" && gt.birth_year) {
       subtitle = `${gt.birth_year}\u2013${gt.death_year || "?"}`;
-    } else if (gt.modern_name && gt.modern_name.toLowerCase() !== cluster.canonical_name.toLowerCase()) {
-      subtitle = gt.modern_name;
+    } else if (clusterDisplayName.toLowerCase() !== cluster.canonical_name.toLowerCase()) {
+      subtitle = cluster.canonical_name;
     }
   }
 
@@ -1097,9 +1110,9 @@ export default function ClusterDetailPage() {
           Concordance
         </Link>
         <span>/</span>
-        <span className="text-[var(--foreground)]">{cluster.canonical_name}</span>
+        <span className="text-[var(--foreground)]">{clusterDisplayName}</span>
         {fromSlug && (() => {
-          const fromCluster = data.clusters.find(c => clusterSlug(c, data.clusters) === fromSlug);
+          const fromCluster = findClusterBySlug(fromSlug, data.clusters);
           if (!fromCluster) return null;
           return (
             <span className="ml-auto text-xs">
@@ -1107,7 +1120,7 @@ export default function ClusterDetailPage() {
                 href={`/concordance/${fromSlug}`}
                 className="text-[var(--accent)] hover:underline transition-colors"
               >
-                &larr; Back to {fromCluster.canonical_name}
+                &larr; Back to {displayName(fromCluster)}
               </Link>
             </span>
           );
@@ -1143,7 +1156,7 @@ export default function ClusterDetailPage() {
                 href={wikiUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="absolute bottom-2 right-3 z-20 text-[10px] text-[var(--muted)] opacity-50 hover:opacity-100 hover:text-[var(--accent)] transition-all cursor-pointer"
+                className="absolute bottom-2 right-3 z-20 text-xs text-[var(--muted)] opacity-50 hover:opacity-100 hover:text-[var(--accent)] transition-all cursor-pointer"
               >
                 Image: Wikipedia
               </a>
@@ -1154,7 +1167,7 @@ export default function ClusterDetailPage() {
         {/* Content layer */}
         <div className="relative z-10 px-8 py-10" style={{ minHeight: wikiImage ? "200px" : undefined }}>
           <div className="flex items-center gap-3 flex-wrap mb-2">
-            <h1 className="text-3xl font-bold">{cluster.canonical_name}</h1>
+            <h1 className="text-3xl font-bold">{clusterDisplayName}</h1>
             <span
               className={`${catColor?.badge || "bg-[var(--border)]"} px-2.5 py-0.5 rounded text-xs font-medium border`}
             >
@@ -1200,7 +1213,7 @@ export default function ClusterDetailPage() {
       <div className="grid md:grid-cols-3 gap-4 mb-8">
         {/* Card 1: Identification */}
         <div className="p-4 rounded-lg border border-[var(--border)] bg-[var(--card)]">
-          <h3 className="text-[10px] uppercase tracking-widest text-[var(--muted)] font-medium mb-3">
+          <h3 className="text-xs uppercase tracking-widest text-[var(--muted)] font-medium mb-3">
             Identification
           </h3>
           {gt ? (
@@ -1243,7 +1256,7 @@ export default function ClusterDetailPage() {
               )}
               <div className="flex items-center gap-2 flex-wrap pt-1">
                 <span
-                  className={`px-1.5 py-0.5 rounded text-[10px] font-medium ${
+                  className={`px-1.5 py-0.5 rounded text-xs font-medium ${
                     gt.confidence === "high"
                       ? "bg-green-500/20 text-green-600 dark:text-green-400"
                       : gt.confidence === "medium"
@@ -1258,7 +1271,7 @@ export default function ClusterDetailPage() {
                     href={`https://www.wikidata.org/wiki/${gt.wikidata_id}`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-[10px] font-mono text-[var(--muted)] hover:text-[var(--foreground)] transition-colors"
+                    className="text-xs font-mono text-[var(--muted)] hover:text-[var(--foreground)] transition-colors"
                   >
                     {gt.wikidata_id}
                   </a>
@@ -1280,7 +1293,7 @@ export default function ClusterDetailPage() {
 
         {/* Card 3: Variants by Language */}
         <div className="p-4 rounded-lg border border-[var(--border)] bg-[var(--card)]">
-          <h3 className="text-[10px] uppercase tracking-widest text-[var(--muted)] font-medium mb-3">
+          <h3 className="text-xs uppercase tracking-widest text-[var(--muted)] font-medium mb-3">
             Variants by Language
           </h3>
           <div className="space-y-2.5">
@@ -1294,13 +1307,13 @@ export default function ClusterDetailPage() {
                   {variants.slice(0, 10).map((v) => (
                     <span
                       key={v}
-                      className="px-1.5 py-0.5 text-[11px] rounded bg-[var(--border)]/50 text-[var(--foreground)]"
+                      className="px-1.5 py-0.5 text-xs rounded bg-[var(--border)]/50 text-[var(--foreground)]"
                     >
                       {v}
                     </span>
                   ))}
                   {variants.length > 10 && (
-                    <span className="px-1.5 py-0.5 text-[11px] text-[var(--muted)]">
+                    <span className="px-1.5 py-0.5 text-xs text-[var(--muted)]">
                       +{variants.length - 10} more
                     </span>
                   )}
@@ -1400,7 +1413,7 @@ export default function ClusterDetailPage() {
 
           return (
             <div className="flex items-start gap-2 py-1.5 group">
-              <span className={`shrink-0 px-1.5 py-0.5 rounded text-[10px] font-medium mt-0.5 ${typeInfo.color}`}>
+              <span className={`shrink-0 px-1.5 py-0.5 rounded text-xs font-medium mt-0.5 ${typeInfo.color}`}>
                 {typeInfo.label}
               </span>
               <div className="flex-1 min-w-0">
@@ -1422,14 +1435,14 @@ export default function ClusterDetailPage() {
                   )}
                   <Link
                     href={`/books/${encodeURIComponent(r.source_book)}`}
-                    className="text-[10px] text-[var(--muted)] font-mono hover:text-[var(--accent)] transition-colors"
+                    className="text-xs text-[var(--muted)] font-mono hover:text-[var(--accent)] transition-colors"
                   >
                     {BOOK_SHORT_NAMES[r.source_book] || r.source_book}
                   </Link>
                 </div>
                 {r.evidence_snippet && (
                   <p
-                    className={`text-[11px] leading-relaxed mt-0.5 line-clamp-2 transition-opacity duration-250 ease-in-out ${
+                    className={`text-xs leading-relaxed mt-0.5 line-clamp-2 transition-opacity duration-250 ease-in-out ${
                       isNonEnglish ? "cursor-pointer hover:text-[var(--foreground)]" : ""
                     } ${showTranslation ? "text-[var(--foreground)]/80 italic" : "text-[var(--muted)]"} ${
                       fadeState === "fading-out" ? "opacity-0" : fadeState === "fading-in" ? "opacity-0" : "opacity-100"
@@ -1447,7 +1460,7 @@ export default function ClusterDetailPage() {
                       <>
                         &ldquo;{snippetText}{isTruncated ? "\u2026" : ""}&rdquo;
                         {showTranslation && (
-                          <span className="text-[10px] text-[var(--accent)] ml-1 not-italic font-medium">EN</span>
+                          <span className="text-xs text-[var(--accent)] ml-1 not-italic font-medium">EN</span>
                         )}
                       </>
                     )}
@@ -1467,7 +1480,7 @@ export default function ClusterDetailPage() {
             <div className="grid md:grid-cols-3 gap-6">
               {/* Column 1: Synonyms & Translations */}
               <div>
-                <h4 className="text-[10px] uppercase tracking-wider text-[var(--muted)] font-medium mb-2 pb-1.5 border-b border-[var(--border)]">
+                <h4 className="text-xs uppercase tracking-wider text-[var(--muted)] font-medium mb-2 pb-1.5 border-b border-[var(--border)]">
                   Synonyms &amp; Translations
                   {synonyms.length > 0 && (
                     <span className="ml-1.5 font-mono opacity-60">{synonyms.length}</span>
@@ -1477,7 +1490,7 @@ export default function ClusterDetailPage() {
                   <div className="divide-y divide-[var(--border)]/40">
                     {synonyms.slice(0, 8).map((r, i) => <RefItem key={i} xref={r} />)}
                     {synonyms.length > 8 && (
-                      <p className="text-[10px] text-[var(--muted)] pt-2">
+                      <p className="text-xs text-[var(--muted)] pt-2">
                         +{synonyms.length - 8} more
                       </p>
                     )}
@@ -1489,7 +1502,7 @@ export default function ClusterDetailPage() {
 
               {/* Column 2: Contested Identities */}
               <div>
-                <h4 className="text-[10px] uppercase tracking-wider text-[var(--muted)] font-medium mb-2 pb-1.5 border-b border-[var(--border)]">
+                <h4 className="text-xs uppercase tracking-wider text-[var(--muted)] font-medium mb-2 pb-1.5 border-b border-[var(--border)]">
                   Contested Identities
                   {contested.length > 0 && (
                     <span className="ml-1.5 font-mono opacity-60">{contested.length}</span>
@@ -1499,7 +1512,7 @@ export default function ClusterDetailPage() {
                   <div className="divide-y divide-[var(--border)]/40">
                     {contested.slice(0, 8).map((r, i) => <RefItem key={i} xref={r} />)}
                     {contested.length > 8 && (
-                      <p className="text-[10px] text-[var(--muted)] pt-2">
+                      <p className="text-xs text-[var(--muted)] pt-2">
                         +{contested.length - 8} more
                       </p>
                     )}
@@ -1511,7 +1524,7 @@ export default function ClusterDetailPage() {
 
               {/* Column 3: Related & Co-occurring */}
               <div>
-                <h4 className="text-[10px] uppercase tracking-wider text-[var(--muted)] font-medium mb-2 pb-1.5 border-b border-[var(--border)]">
+                <h4 className="text-xs uppercase tracking-wider text-[var(--muted)] font-medium mb-2 pb-1.5 border-b border-[var(--border)]">
                   Related &amp; Co-occurring
                   {related.length > 0 && (
                     <span className="ml-1.5 font-mono opacity-60">{related.length}</span>
@@ -1521,7 +1534,7 @@ export default function ClusterDetailPage() {
                   <div className="divide-y divide-[var(--border)]/40">
                     {related.slice(0, 8).map((r, i) => <RefItem key={i} xref={r} />)}
                     {related.length > 8 && (
-                      <p className="text-[10px] text-[var(--muted)] pt-2">
+                      <p className="text-xs text-[var(--muted)] pt-2">
                         +{related.length - 8} more
                       </p>
                     )}
@@ -1537,7 +1550,7 @@ export default function ClusterDetailPage() {
 
       {/* ─── 4. Mention Distribution Chart ─── */}
       <section className="mb-8">
-        <h2 className="text-[10px] uppercase tracking-widest text-[var(--muted)] font-medium mb-3">
+        <h2 className="text-xs uppercase tracking-widest text-[var(--muted)] font-medium mb-3">
           Mention Distribution
         </h2>
         <div className="space-y-2">
@@ -1574,7 +1587,7 @@ export default function ClusterDetailPage() {
 
       {/* ─── 5. Names Across Texts Mosaic ─── */}
       <section className="mb-8">
-        <h2 className="text-[10px] uppercase tracking-widest text-[var(--muted)] font-medium mb-3">
+        <h2 className="text-xs uppercase tracking-widest text-[var(--muted)] font-medium mb-3">
           Names Across Texts
         </h2>
         <div className="space-y-4">
@@ -1592,7 +1605,7 @@ export default function ClusterDetailPage() {
                       {BOOK_SHORT_NAMES[book.id] || book.title}
                     </Link>
                     <span className="text-[var(--muted)]">{book.year}</span>
-                    <span className="font-mono text-[var(--muted)] text-[11px]">
+                    <span className="font-mono text-[var(--muted)] text-xs">
                       {BOOK_LANG_FLAGS[book.language] || "?"}
                     </span>
                   </h3>
@@ -1610,7 +1623,7 @@ export default function ClusterDetailPage() {
                           {member.count}
                         </span>
                         {member.variants.length > 1 && (
-                          <span className="text-[10px] text-[var(--muted)] ml-1.5">
+                          <span className="text-xs text-[var(--muted)] ml-1.5">
                             ({member.variants.length} variants)
                           </span>
                         )}
@@ -1625,7 +1638,7 @@ export default function ClusterDetailPage() {
 
       {/* ─── 6. Comparison Table ─── */}
       <section className="mb-8">
-        <h2 className="text-[10px] uppercase tracking-widest text-[var(--muted)] font-medium mb-3">
+        <h2 className="text-xs uppercase tracking-widest text-[var(--muted)] font-medium mb-3">
           All Entries
         </h2>
         <div className="border border-[var(--border)] rounded-lg overflow-hidden">
@@ -1633,19 +1646,19 @@ export default function ClusterDetailPage() {
             <table className="w-full text-sm">
               <thead>
                 <tr className="border-b border-[var(--border)] bg-[var(--card)]">
-                  <th className="text-left px-3 py-2 text-[10px] uppercase tracking-widest text-[var(--muted)] font-medium w-10">
+                  <th className="text-left px-3 py-2 text-xs uppercase tracking-widest text-[var(--muted)] font-medium w-10">
                     Lang
                   </th>
-                  <th className="text-left px-3 py-2 text-[10px] uppercase tracking-widest text-[var(--muted)] font-medium">
+                  <th className="text-left px-3 py-2 text-xs uppercase tracking-widest text-[var(--muted)] font-medium">
                     Book
                   </th>
-                  <th className="text-left px-3 py-2 text-[10px] uppercase tracking-widest text-[var(--muted)] font-medium">
+                  <th className="text-left px-3 py-2 text-xs uppercase tracking-widest text-[var(--muted)] font-medium">
                     Name
                   </th>
-                  <th className="text-left px-3 py-2 text-[10px] uppercase tracking-widest text-[var(--muted)] font-medium hidden md:table-cell">
+                  <th className="text-left px-3 py-2 text-xs uppercase tracking-widest text-[var(--muted)] font-medium hidden md:table-cell">
                     Context
                   </th>
-                  <th className="text-right px-3 py-2 text-[10px] uppercase tracking-widest text-[var(--muted)] font-medium w-14">
+                  <th className="text-right px-3 py-2 text-xs uppercase tracking-widest text-[var(--muted)] font-medium w-14">
                     Count
                   </th>
                   <th className="px-3 py-2 w-16" />
@@ -1715,11 +1728,11 @@ export default function ClusterDetailPage() {
 
       {/* ─── 7. Semantic Neighborhood ─── */}
       <section className="mb-8">
-        <h2 className="text-[10px] uppercase tracking-widest text-[var(--muted)] font-medium mb-3">
+        <h2 className="text-xs uppercase tracking-widest text-[var(--muted)] font-medium mb-3">
           Semantic Neighborhood
         </h2>
         <p className="text-xs text-[var(--muted)] mb-3">
-          Entities closest to {cluster.canonical_name} in cross-lingual embedding space. Click a node to navigate.
+          Entities closest to {clusterDisplayName} in cross-lingual embedding space. Click a node to navigate.
         </p>
         <NeighborhoodGraph clusterId={cluster.id} clusters={data.clusters} books={data.books} />
       </section>
@@ -1734,7 +1747,7 @@ export default function ClusterDetailPage() {
 
         return (
           <section className="mb-8">
-            <h2 className="text-[10px] uppercase tracking-widest text-[var(--muted)] font-medium mb-3">
+            <h2 className="text-xs uppercase tracking-widest text-[var(--muted)] font-medium mb-3">
               Also Appears With
             </h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
@@ -1743,8 +1756,9 @@ export default function ClusterDetailPage() {
                 if (!nc) return null;
                 const nSlug = slugMap.get(n.id) || "";
                 const gt = nc.ground_truth;
-                const subtitle = gt?.modern_name && gt.modern_name.toLowerCase() !== nc.canonical_name.toLowerCase()
-                  ? gt.modern_name
+                const name = displayName(nc);
+                const subtitle = name.toLowerCase() !== nc.canonical_name.toLowerCase()
+                  ? nc.canonical_name
                   : nc.members[0]?.contexts[0]
                     ? (nc.members[0].contexts[0].length > 60 ? nc.members[0].contexts[0].slice(0, 57) + "\u2026" : nc.members[0].contexts[0])
                     : null;
@@ -1761,10 +1775,10 @@ export default function ClusterDetailPage() {
                     <span className={`w-2.5 h-2.5 rounded-full shrink-0 ${dotClass}`} />
                     <div className="flex-1 min-w-0">
                       <p className="text-sm font-medium truncate group-hover/neighbor:text-[var(--accent)] transition-colors">
-                        {nc.canonical_name}
+                        {name}
                       </p>
                       {subtitle && (
-                        <p className="text-[11px] text-[var(--muted)] truncate">{subtitle}</p>
+                        <p className="text-xs text-[var(--muted)] truncate">{subtitle}</p>
                       )}
                     </div>
                     <div className="w-16 shrink-0 flex items-center gap-1.5">
@@ -1774,7 +1788,7 @@ export default function ClusterDetailPage() {
                           style={{ width: `${barPct}%`, backgroundColor: hexColor }}
                         />
                       </div>
-                      <span className="text-[10px] font-mono text-[var(--muted)] tabular-nums w-7 text-right">
+                      <span className="text-xs font-mono text-[var(--muted)] tabular-nums w-7 text-right">
                         {Math.round(n.sim * 100)}
                       </span>
                     </div>
@@ -1823,7 +1837,7 @@ export default function ClusterDetailPage() {
       </nav>
 
       {/* Keyboard hint */}
-      <p className="text-[10px] text-[var(--muted)] mt-4 text-center opacity-40">
+      <p className="text-xs text-[var(--muted)] mt-4 text-center opacity-40">
         Use arrow keys to navigate between clusters &middot; Escape to return to list
       </p>
     </div>

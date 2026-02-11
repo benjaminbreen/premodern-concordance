@@ -15,6 +15,10 @@ const bookFiles: Record<string, string> = {
   ricettario_fiorentino_1597: "/data/ricettario_entities.json",
   principles_of_psychology_james_1890: "/data/james_psychology_entities.json",
   origin_of_species_darwin_1859: "/data/darwin_origin_entities.json",
+  pseudodoxia_epidemica_browne_1646: "/data/browne_entities.json",
+  first_principles_spencer_1862: "/data/spencer_entities.json",
+  connexion_physical_sciences_somerville_1858: "/data/somerville_entities.json",
+  kosmos_humboldt_1845: "/data/kosmos_entities.json",
 };
 
 export default function BookDetailLayout({

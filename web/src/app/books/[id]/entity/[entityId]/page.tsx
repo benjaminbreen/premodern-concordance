@@ -225,7 +225,7 @@ function ExcerptCard({
             <button
               onClick={handleTranslate}
               disabled={translating}
-              className="text-[11px] px-2.5 py-1 rounded border border-[var(--border)] text-[var(--muted)] hover:border-[var(--accent)] hover:text-[var(--accent)] transition-all disabled:opacity-50 tracking-wide"
+              className="text-xs px-2.5 py-1 rounded border border-[var(--border)] text-[var(--muted)] hover:border-[var(--accent)] hover:text-[var(--accent)] transition-all disabled:opacity-50 tracking-wide"
             >
               {translating
                 ? "Translating\u2026"
@@ -245,7 +245,7 @@ function ExcerptCard({
               href={iaUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-[11px] text-[var(--muted)] hover:text-[var(--accent)] transition-colors tracking-wide inline-flex items-center gap-1 justify-center"
+              className="text-xs text-[var(--muted)] hover:text-[var(--accent)] transition-colors tracking-wide inline-flex items-center gap-1 justify-center"
             >
               {displayPage ? (
                 <span className="font-mono">p.&thinsp;{displayPage}</span>
@@ -273,7 +273,7 @@ function ExcerptCard({
         <div className="text-right relative" ref={citeRef}>
           <button
             onClick={() => setCiteOpen((o) => !o)}
-            className="text-[11px] px-2.5 py-1 rounded border border-[var(--border)] text-[var(--muted)] hover:border-[var(--accent)] hover:text-[var(--accent)] transition-all tracking-wide"
+            className="text-xs px-2.5 py-1 rounded border border-[var(--border)] text-[var(--muted)] hover:border-[var(--accent)] hover:text-[var(--accent)] transition-all tracking-wide"
           >
             Cite
           </button>
@@ -286,10 +286,10 @@ function ExcerptCard({
                   className="w-full text-left px-3 py-2.5 rounded-md hover:bg-[var(--accent)]/10 transition-colors cursor-pointer group"
                 >
                   <span className="flex items-center justify-between mb-1">
-                    <span className="text-[10px] uppercase tracking-[0.15em] text-[var(--muted)] group-hover:text-[var(--accent)] transition-colors">
+                    <span className="text-xs uppercase tracking-[0.15em] text-[var(--muted)] group-hover:text-[var(--accent)] transition-colors">
                       {label}
                     </span>
-                    <span className={`text-[10px] transition-colors ${copied === key ? "text-[var(--accent)]" : "text-[var(--muted)] opacity-0 group-hover:opacity-100"}`}>
+                    <span className={`text-xs transition-colors ${copied === key ? "text-[var(--accent)]" : "text-[var(--muted)] opacity-0 group-hover:opacity-100"}`}>
                       {copied === key ? "Copied!" : "Click to copy"}
                     </span>
                   </span>
@@ -401,6 +401,7 @@ function slugify(name: string): string {
 
 interface ConcordanceCluster {
   id: number;
+  stable_key?: string;
   canonical_name: string;
   category: string;
   members: { entity_id: string; book_id: string }[];
@@ -445,6 +446,10 @@ export default function EntityDetailPage() {
       "ricettario_fiorentino_1597": "/data/ricettario_entities.json",
       "principles_of_psychology_james_1890": "/data/james_psychology_entities.json",
       "origin_of_species_darwin_1859": "/data/darwin_origin_entities.json",
+      "pseudodoxia_epidemica_browne_1646": "/data/browne_entities.json",
+      "first_principles_spencer_1862": "/data/spencer_entities.json",
+      "connexion_physical_sciences_somerville_1858": "/data/somerville_entities.json",
+      "kosmos_humboldt_1845": "/data/kosmos_entities.json",
     };
 
     const dataFile = bookFiles[params.id as string];
@@ -499,11 +504,15 @@ export default function EntityDetailPage() {
           c.members.some((m) => m.book_id === bookId && m.entity_id === entityId)
         );
         if (match) {
-          const base = slugify(match.canonical_name);
-          const hasCollision = clusters.some(
-            (c) => c.id !== match.id && slugify(c.canonical_name) === base
-          );
-          setConcordanceSlug(hasCollision ? `${base}-${match.id}` : base);
+          if (match.stable_key) {
+            setConcordanceSlug(match.stable_key);
+          } else {
+            const base = slugify(match.canonical_name);
+            const hasCollision = clusters.some(
+              (c) => c.id !== match.id && slugify(c.canonical_name) === base
+            );
+            setConcordanceSlug(hasCollision ? `${base}-${match.id}` : base);
+          }
           setConcordanceName(match.canonical_name);
           setConcordanceClusterId(match.id);
         }
@@ -631,7 +640,7 @@ export default function EntityDetailPage() {
               href={wikiData.pageUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="absolute bottom-2 right-3 z-20 text-[10px] text-[var(--muted)] opacity-50 hover:opacity-100 hover:text-[var(--accent)] transition-all cursor-pointer"
+              className="absolute bottom-2 right-3 z-20 text-xs text-[var(--muted)] opacity-50 hover:opacity-100 hover:text-[var(--accent)] transition-all cursor-pointer"
             >
               Image: Wikipedia
             </a>

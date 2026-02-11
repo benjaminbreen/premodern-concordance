@@ -3,6 +3,8 @@
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useEffect, useState, useRef, useCallback } from "react";
+import { BOOK_COVERS } from "@/lib/books";
+import { CAT_BADGE } from "@/lib/colors";
 
 // ── Multilingual title translations ────────────────────────────────────
 
@@ -100,6 +102,44 @@ function InteractiveTitle() {
   );
 }
 
+// ── Book cover thumbnail with hover reveal ─────────────────────────────
+
+function BookCoverThumb({
+  bookId,
+  coverSrc,
+  title,
+  author,
+  year,
+}: {
+  bookId: string;
+  coverSrc: string;
+  title: string;
+  author: string;
+  year: number;
+}) {
+  return (
+    <Link
+      href={`/books/${bookId}`}
+      className="flex flex-col items-center group"
+    >
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img
+        src={coverSrc}
+        alt={title}
+        className="w-16 md:w-20 h-auto rounded shadow-md border border-[var(--border)] transition-transform duration-300 group-hover:scale-105 group-hover:shadow-lg"
+      />
+      <div className="text-center mt-2 max-w-[120px]">
+        <p className="text-xs font-semibold leading-snug text-[var(--foreground)] line-clamp-2 opacity-0 translate-y-1 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-400 delay-[60ms]">
+          {title}
+        </p>
+        <p className="text-xs text-[var(--muted)] mt-0.5 opacity-0 translate-y-1 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-400 delay-[160ms]">
+          {author} <span className="font-mono">{year}</span>
+        </p>
+      </div>
+    </Link>
+  );
+}
+
 // ── Types ──────────────────────────────────────────────────────────────
 
 interface ConcordanceStats {
@@ -130,16 +170,88 @@ interface ClusterPreview {
   };
 }
 
-const CAT_COLORS: Record<string, string> = {
-  PLANT: "text-emerald-700 dark:text-emerald-400 border-emerald-300 dark:border-emerald-700",
-  PERSON: "text-purple-700 dark:text-purple-400 border-purple-300 dark:border-purple-700",
-  SUBSTANCE: "text-cyan-700 dark:text-cyan-400 border-cyan-300 dark:border-cyan-700",
-  DISEASE: "text-red-700 dark:text-red-400 border-red-300 dark:border-red-700",
-  PLACE: "text-green-700 dark:text-green-400 border-green-300 dark:border-green-700",
-  CONCEPT: "text-amber-700 dark:text-amber-400 border-amber-300 dark:border-amber-700",
-  ANIMAL: "text-lime-700 dark:text-lime-400 border-lime-300 dark:border-lime-700",
-  OBJECT: "text-slate-600 dark:text-slate-400 border-slate-300 dark:border-slate-600",
-};
+
+// ── Hover-scroll book carousel ─────────────────────────────────────
+
+function CorpusCarousel({ books }: { books: BookMeta[] }) {
+  const scrollRef = useRef<HTMLDivElement>(null);
+  const rafRef = useRef<number | null>(null);
+  const speedRef = useRef(0); // px per frame
+
+  const startScroll = useCallback((direction: "left" | "right") => {
+    speedRef.current = direction === "right" ? 1.5 : -1.5;
+    const tick = () => {
+      const el = scrollRef.current;
+      if (!el) return;
+      el.scrollLeft += speedRef.current;
+      rafRef.current = requestAnimationFrame(tick);
+    };
+    if (rafRef.current) cancelAnimationFrame(rafRef.current);
+    rafRef.current = requestAnimationFrame(tick);
+  }, []);
+
+  const stopScroll = useCallback(() => {
+    speedRef.current = 0;
+    if (rafRef.current) {
+      cancelAnimationFrame(rafRef.current);
+      rafRef.current = null;
+    }
+  }, []);
+
+  useEffect(() => {
+    return () => { if (rafRef.current) cancelAnimationFrame(rafRef.current); };
+  }, []);
+
+  const sorted = [...books].sort((a, b) => a.year - b.year);
+
+  return (
+    <div className="py-12 animate-fade-up delay-5">
+      <h2 className="text-xs uppercase tracking-widest text-[var(--muted)] font-medium mb-6">
+        The corpus
+      </h2>
+      <div className="relative group/carousel">
+        {/* Left hover zone */}
+        <div
+          className="absolute left-0 top-0 bottom-0 w-16 z-10 cursor-w-resize"
+          onMouseEnter={() => startScroll("left")}
+          onMouseLeave={stopScroll}
+        />
+        {/* Right hover zone */}
+        <div
+          className="absolute right-0 top-0 bottom-0 w-16 z-10 cursor-e-resize"
+          onMouseEnter={() => startScroll("right")}
+          onMouseLeave={stopScroll}
+        />
+        {/* Fade edges — visible only when scrollable */}
+        <div className="absolute left-0 top-0 bottom-0 w-12 bg-gradient-to-r from-[var(--background)] to-transparent pointer-events-none z-[5] opacity-0 group-hover/carousel:opacity-100 transition-opacity" />
+        <div className="absolute right-0 top-0 bottom-0 w-12 bg-gradient-to-l from-[var(--background)] to-transparent pointer-events-none z-[5] opacity-0 group-hover/carousel:opacity-100 transition-opacity" />
+
+        {/* Scrollable track */}
+        <div
+          ref={scrollRef}
+          className="flex gap-6 md:gap-8 overflow-x-auto scrollbar-none pb-2"
+          style={{ scrollBehavior: "auto" }}
+        >
+          {sorted.map((book) => {
+            const cover = BOOK_COVERS[book.id];
+            if (!cover) return null;
+            return (
+              <div key={book.id} className="flex-shrink-0">
+                <BookCoverThumb
+                  bookId={book.id}
+                  coverSrc={cover}
+                  title={book.title}
+                  author={book.author}
+                  year={book.year}
+                />
+              </div>
+            );
+          })}
+        </div>
+      </div>
+    </div>
+  );
+}
 
 export default function Home() {
   const router = useRouter();
@@ -245,7 +357,7 @@ export default function Home() {
               href="/books"
               className="px-5 py-2.5 border border-[var(--border)] rounded-lg text-sm font-medium hover:bg-[var(--border)] transition-colors"
             >
-              Browse corpus
+              View all books
             </Link>
           </div>
         </div>
@@ -279,6 +391,11 @@ export default function Home() {
         </div>
       )}
 
+      {/* Book covers — hover-scroll carousel */}
+      {books.length > 0 && (
+        <CorpusCarousel books={books} />
+      )}
+
       {/* Example clusters */}
       {examples.length > 0 && (
         <div className="py-16 animate-fade-up delay-7">
@@ -298,7 +415,7 @@ export default function Home() {
                 >
                   <div className="flex items-center gap-2 mb-1">
                     <span className="font-semibold">{cluster.canonical_name}</span>
-                    <span className={`px-1.5 py-0.5 rounded border text-[10px] font-semibold uppercase tracking-wide bg-transparent ${CAT_COLORS[cluster.category] || "text-gray-500 border-gray-300"}`}>
+                    <span className={`px-1.5 py-0.5 rounded border text-xs font-semibold uppercase tracking-wide ${CAT_BADGE[cluster.category] || "bg-[var(--border)]"}`}>
                       {cluster.category}
                     </span>
                   </div>

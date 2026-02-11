@@ -29,6 +29,7 @@ interface GroundTruth {
 
 interface Cluster {
   id: number;
+  stable_key?: string;
   canonical_name: string;
   category: string;
   subcategory: string;
@@ -148,7 +149,11 @@ function slugify(name: string): string {
 }
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-function clusterSlugLocal(cluster: { id: number; canonical_name: string }, allClusters: { id: number; canonical_name: string }[]): string {
+function clusterSlugLocal(
+  cluster: { id: number; canonical_name: string; stable_key?: string },
+  allClusters: { id: number; canonical_name: string; stable_key?: string }[]
+): string {
+  if (cluster.stable_key) return cluster.stable_key;
   const base = slugify(cluster.canonical_name);
   const hasCollision = allClusters.some(
     (c) => c.id !== cluster.id && slugify(c.canonical_name) === base
@@ -160,7 +165,9 @@ function clusterSlugLocal(cluster: { id: number; canonical_name: string }, allCl
  * Build a Map<cluster id, slug string> from clusters array.
  * Exported so consumers don't need to duplicate slug logic.
  */
-export function buildSlugMap(clusters: { id: number; canonical_name: string }[]): Map<number, string> {
+export function buildSlugMap(
+  clusters: { id: number; canonical_name: string; stable_key?: string }[]
+): Map<number, string> {
   return new Map(clusters.map((c) => [c.id, clusterSlugLocal(c, clusters)]));
 }
 
@@ -206,10 +213,10 @@ function EntityHoverCard({ preview }: { preview: ClusterPreview }) {
       </div>
       {/* Identification */}
       {preview.identification && (
-        <p className="text-[11px] opacity-70 mb-1 truncate">{preview.identification}</p>
+        <p className="text-xs opacity-70 mb-1 truncate">{preview.identification}</p>
       )}
       {/* Stats */}
-      <div className="flex items-center gap-2 text-[10px] opacity-50 mb-1.5">
+      <div className="flex items-center gap-2 text-xs opacity-50 mb-1.5">
         <span>{preview.category}</span>
         <span>&middot;</span>
         <span>{preview.book_count} book{preview.book_count !== 1 ? "s" : ""}</span>
@@ -218,12 +225,12 @@ function EntityHoverCard({ preview }: { preview: ClusterPreview }) {
       </div>
       {/* Description */}
       {preview.description && (
-        <p className="text-[11px] leading-relaxed opacity-75 line-clamp-3">
+        <p className="text-xs leading-relaxed opacity-75 line-clamp-3">
           {preview.description}
         </p>
       )}
       {/* Click hint */}
-      <p className="text-[10px] opacity-40 mt-2 pt-1.5 border-t border-current/10">
+      <p className="text-xs opacity-40 mt-2 pt-1.5 border-t border-current/10">
         Click to view
       </p>
     </div>

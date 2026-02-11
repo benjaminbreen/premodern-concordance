@@ -44,6 +44,7 @@ interface GroundTruth {
 
 interface Cluster {
   id: number;
+  stable_key?: string;
   canonical_name: string;
   category: string;
   subcategory: string;
@@ -98,11 +99,16 @@ function slugify(name: string): string {
 }
 
 function clusterSlug(cluster: Cluster, allClusters: Cluster[]): string {
+  if (cluster.stable_key) return cluster.stable_key;
   const base = slugify(cluster.canonical_name);
   const hasCollision = allClusters.some(
     (c) => c.id !== cluster.id && slugify(c.canonical_name) === base
   );
   return hasCollision ? `${base}-${cluster.id}` : base;
+}
+
+function displayName(cluster: Cluster): string {
+  return cluster.ground_truth?.modern_name || cluster.canonical_name;
 }
 
 /** Capitalize first letter of identification text */
@@ -118,7 +124,7 @@ function getIdentification(cluster: Cluster): { text: string; italic: boolean } 
   const gt = cluster.ground_truth;
   if (!gt || !gt.modern_name) return null;
   const cat = cluster.category;
-  const canonLower = cluster.canonical_name.toLowerCase();
+  const labelLower = displayName(cluster).toLowerCase();
 
   if (cat === "PERSON") {
     // Always show modern_name with dates for persons
@@ -126,7 +132,7 @@ function getIdentification(cluster: Cluster): { text: string; italic: boolean } 
       const dates = `(${gt.birth_year}\u2013${gt.death_year || "?"})`;
       return cap({ text: `${gt.modern_name} ${dates}`, italic: false });
     }
-    const nameDiffers = gt.modern_name.toLowerCase() !== canonLower;
+    const nameDiffers = gt.modern_name.toLowerCase() !== labelLower;
     if (nameDiffers) return cap({ text: gt.modern_name, italic: false });
     if (gt.description) {
       const d = gt.description;
@@ -141,14 +147,14 @@ function getIdentification(cluster: Cluster): { text: string; italic: boolean } 
 
   if (cat === "PLANT" || cat === "ANIMAL") {
     if (gt.linnaean) return cap({ text: gt.linnaean, italic: true });
-    if (gt.modern_name.toLowerCase() !== canonLower) return cap({ text: gt.modern_name, italic: false });
+    if (gt.modern_name.toLowerCase() !== labelLower) return cap({ text: gt.modern_name, italic: false });
     if (gt.family) return cap({ text: `Fam. ${gt.family}`, italic: true });
     return null;
   }
 
   // SUBSTANCE, CONCEPT, DISEASE, PLACE, OBJECT
-  if (gt.modern_name.toLowerCase() !== canonLower) return cap({ text: gt.modern_name, italic: false });
-  if (gt.modern_term && gt.modern_term.toLowerCase() !== canonLower && gt.modern_term.toLowerCase() !== gt.modern_name.toLowerCase()) {
+  if (gt.modern_name.toLowerCase() !== labelLower) return cap({ text: gt.modern_name, italic: false });
+  if (gt.modern_term && gt.modern_term.toLowerCase() !== labelLower && gt.modern_term.toLowerCase() !== gt.modern_name.toLowerCase()) {
     return cap({ text: gt.modern_term, italic: false });
   }
   if (gt.description) {
@@ -192,7 +198,7 @@ function SourceLangs({ bookIds, books }: { bookIds: string[]; books: BookMeta[] 
       {langs.map((lang) => (
         <span
           key={lang}
-          className="px-1.5 py-0.5 text-[11px] font-mono rounded border border-[var(--border)] text-[var(--muted)]"
+          className="px-1.5 py-0.5 text-xs font-mono rounded border border-[var(--border)] text-[var(--muted)]"
         >
           {lang}
         </span>
@@ -229,23 +235,27 @@ function WikiThumbnail({ url }: { url: string }) {
   const [thumb, setThumb] = useState<string | null>(null);
 
   useEffect(() => {
+    const controller = new AbortController();
+    const timeout = setTimeout(() => controller.abort(), 8000);
     try {
       const urlObj = new URL(url);
       const lang = urlObj.hostname.split(".")[0];
       const title = decodeURIComponent(urlObj.pathname.split("/wiki/")[1] || "");
-      if (!title) return;
+      if (!title) { clearTimeout(timeout); return; }
 
-      fetch(`https://${lang}.wikipedia.org/api/rest_v1/page/summary/${encodeURIComponent(title)}`)
+      fetch(`https://${lang}.wikipedia.org/api/rest_v1/page/summary/${encodeURIComponent(title)}`, { signal: controller.signal })
         .then((res) => res.json())
         .then((data) => {
           if (data.thumbnail?.source) {
             setThumb(data.thumbnail.source);
           }
         })
-        .catch(() => {});
+        .catch(() => {})
+        .finally(() => clearTimeout(timeout));
     } catch {
-      // invalid URL
+      clearTimeout(timeout);
     }
+    return () => { controller.abort(); clearTimeout(timeout); };
   }, [url]);
 
   if (!thumb) return null;
@@ -267,14 +277,17 @@ function WikiExtract({ url }: { url: string }) {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+    const controller = new AbortController();
+    const timeout = setTimeout(() => controller.abort(), 10000);
     try {
       const urlObj = new URL(url);
       const lang = urlObj.hostname.split(".")[0];
       const title = decodeURIComponent(urlObj.pathname.split("/wiki/")[1] || "");
-      if (!title) { setLoading(false); return; }
+      if (!title) { setLoading(false); clearTimeout(timeout); return; }
 
       fetch(
-        `https://${lang}.wikipedia.org/w/api.php?action=query&titles=${encodeURIComponent(title)}&prop=extracts&explaintext=true&exsectionformat=plain&format=json&origin=*`
+        `https://${lang}.wikipedia.org/w/api.php?action=query&titles=${encodeURIComponent(title)}&prop=extracts&explaintext=true&exsectionformat=plain&format=json&origin=*`,
+        { signal: controller.signal }
       )
         .then((res) => res.json())
         .then((data) => {
@@ -282,15 +295,17 @@ function WikiExtract({ url }: { url: string }) {
           if (!pages) { setLoading(false); return; }
           const pageId = Object.keys(pages)[0];
           const extract = pages[pageId]?.extract || "";
-          // Split into paragraphs, filter out section headers / tiny fragments
           const paras = extract.split("\n\n").filter((p: string) => p.length > 40);
           setParagraphs(paras.slice(0, 6));
           setLoading(false);
         })
-        .catch(() => setLoading(false));
+        .catch(() => setLoading(false))
+        .finally(() => clearTimeout(timeout));
     } catch {
       setLoading(false);
+      clearTimeout(timeout);
     }
+    return () => { controller.abort(); clearTimeout(timeout); };
   }, [url]);
 
   if (loading || paragraphs.length === 0) return null;
@@ -348,15 +363,47 @@ export default function ConcordancePage() {
   const [loading, setLoading] = useState(true);
   const [search, setSearch] = useState("");
   const [fromSearch, setFromSearch] = useState<string | null>(null);
+  const [categoryFilter, setCategoryFilter] = useState("ALL");
+  const [bookFilter, setBookFilter] = useState("ALL");
+  const [expandedCluster, setExpandedCluster] = useState<number | null>(null);
+  const [showCount, setShowCount] = useState(50);
+  const [corpusExpanded, setCorpusExpanded] = useState(false);
 
-  // Read highlight param from URL on mount
+  // Read all URL params on mount
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
     const highlight = params.get("highlight");
     const searchQuery = params.get("from_search");
+    const cat = params.get("category");
+    const book = params.get("book");
+    const q = params.get("q");
     if (highlight) setSearch(highlight);
+    else if (q) setSearch(q);
     if (searchQuery) setFromSearch(searchQuery);
+    if (cat) setCategoryFilter(cat);
+    if (book) setBookFilter(book);
   }, []);
+
+  // Sync filter state to URL
+  useEffect(() => {
+    const url = new URL(window.location.href);
+    if (search && !url.searchParams.has("highlight")) {
+      url.searchParams.set("q", search);
+    } else if (!search) {
+      url.searchParams.delete("q");
+    }
+    if (categoryFilter !== "ALL") {
+      url.searchParams.set("category", categoryFilter);
+    } else {
+      url.searchParams.delete("category");
+    }
+    if (bookFilter !== "ALL") {
+      url.searchParams.set("book", bookFilter);
+    } else {
+      url.searchParams.delete("book");
+    }
+    window.history.replaceState({}, "", url.toString());
+  }, [search, categoryFilter, bookFilter]);
 
   // Auto-expand exact match when navigating from search
   useEffect(() => {
@@ -365,15 +412,12 @@ export default function ConcordancePage() {
     const highlight = params.get("highlight");
     if (!highlight) return;
     const match = data.clusters.find(
-      (c) => c.canonical_name.toLowerCase() === highlight.toLowerCase()
+      (c) =>
+        c.canonical_name.toLowerCase() === highlight.toLowerCase()
+        || displayName(c).toLowerCase() === highlight.toLowerCase()
     );
     if (match) setExpandedCluster(match.id);
   }, [data, search]);
-  const [categoryFilter, setCategoryFilter] = useState("ALL");
-  const [bookFilter, setBookFilter] = useState("ALL");
-  const [expandedCluster, setExpandedCluster] = useState<number | null>(null);
-  const [showCount, setShowCount] = useState(50);
-  const [corpusExpanded, setCorpusExpanded] = useState(false);
 
   useEffect(() => {
     fetch("/data/concordance.json")
@@ -399,6 +443,7 @@ export default function ConcordancePage() {
       clusters = clusters.filter(
         (c) =>
           c.canonical_name.toLowerCase().includes(q) ||
+          displayName(c).toLowerCase().includes(q) ||
           c.ground_truth?.modern_name?.toLowerCase().includes(q) ||
           c.ground_truth?.linnaean?.toLowerCase().includes(q) ||
           c.ground_truth?.wikidata_id?.toLowerCase().includes(q) ||
@@ -516,7 +561,7 @@ export default function ConcordancePage() {
       <div className="mb-6">
         <button
           onClick={() => setCorpusExpanded(!corpusExpanded)}
-          className="flex items-center gap-2 text-sm text-[var(--muted)] hover:text-[var(--foreground)] transition-colors"
+          className="flex items-center gap-2 text-sm text-[var(--muted)] hover:text-[var(--foreground)] px-3 py-1.5 -ml-3 rounded-lg hover:bg-[var(--border)]/40 transition-all"
         >
           <svg
             className={`w-3.5 h-3.5 transition-transform ${corpusExpanded ? "rotate-90" : ""}`}
@@ -575,7 +620,8 @@ export default function ConcordancePage() {
         <select
           value={categoryFilter}
           onChange={(e) => { setCategoryFilter(e.target.value); setShowCount(50); }}
-          className="px-3 py-2 rounded-lg border border-[var(--border)] bg-[var(--card)] text-sm focus:outline-none"
+          className="px-3 py-2 rounded-lg border border-[var(--border)] bg-[var(--card)] text-sm focus:outline-none focus:ring-2 focus:ring-[var(--accent)] focus:border-transparent cursor-pointer hover:border-[var(--muted)] transition-colors appearance-none bg-[length:1.25rem] bg-[position:right_0.5rem_center] bg-no-repeat"
+          style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%2378716c'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'/%3E%3C/svg%3E")`, paddingRight: "2rem" }}
         >
           <option value="ALL">All categories</option>
           {categories.map((cat) => (
@@ -587,7 +633,8 @@ export default function ConcordancePage() {
         <select
           value={bookFilter}
           onChange={(e) => { setBookFilter(e.target.value); setShowCount(50); }}
-          className="px-3 py-2 rounded-lg border border-[var(--border)] bg-[var(--card)] text-sm focus:outline-none"
+          className="px-3 py-2 rounded-lg border border-[var(--border)] bg-[var(--card)] text-sm focus:outline-none focus:ring-2 focus:ring-[var(--accent)] focus:border-transparent cursor-pointer hover:border-[var(--muted)] transition-colors appearance-none bg-[length:1.25rem] bg-[position:right_0.5rem_center] bg-no-repeat"
+          style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%2378716c'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'/%3E%3C/svg%3E")`, paddingRight: "2rem" }}
         >
           <option value="ALL">All books</option>
           {data.books.map((book) => (
@@ -626,13 +673,21 @@ export default function ConcordancePage() {
           })}
       </div>
 
-      <div className="text-xs text-[var(--muted)] mb-3">
-        {filteredClusters.length} clusters
-        {search && ` matching "${search}"`}
+      <div className="flex items-baseline gap-2 mb-3 flex-wrap">
+        <span className="text-sm font-medium">{filteredClusters.length.toLocaleString()} clusters</span>
+        {(search || categoryFilter !== "ALL" || bookFilter !== "ALL") && (
+          <span className="text-xs text-[var(--muted)]">
+            of {data.clusters.length.toLocaleString()} total
+            {search && <> matching &ldquo;{search}&rdquo;</>}
+          </span>
+        )}
+        <span className="text-xs text-[var(--muted)] ml-auto">
+          Looking for something specific? Try <a href="/search" className="text-[var(--accent)] hover:underline">semantic search</a>
+        </span>
       </div>
 
       {/* Column header */}
-      <div className="hidden md:grid grid-cols-[1.75rem_1fr_1fr_5.5rem_1fr_3rem_1.5rem] items-center gap-x-3 px-4 py-2.5 text-[11px] uppercase tracking-widest text-[var(--muted)] font-medium border-b border-[var(--border)]">
+      <div className="hidden md:grid grid-cols-[1.75rem_1fr_1fr_5.5rem_1fr_3rem_1.5rem] items-center gap-x-3 px-4 py-2.5 text-xs uppercase tracking-widest text-[var(--muted)] font-medium border-b border-[var(--border)] sticky top-16 bg-[var(--background)] z-20">
         <span />
         <span>Name</span>
         <span>Identification</span>
@@ -643,6 +698,12 @@ export default function ConcordancePage() {
       </div>
 
       {/* Cluster rows */}
+      {filteredClusters.length === 0 && (
+        <div className="py-16 text-center">
+          <p className="text-lg font-medium text-[var(--muted)] mb-1">No matching clusters</p>
+          <p className="text-sm text-[var(--muted)] opacity-60">Try adjusting your filters or clearing the search.</p>
+        </div>
+      )}
       <div className="divide-y divide-[var(--border)] border-b border-[var(--border)]">
         {filteredClusters.slice(0, showCount).map((cluster) => {
           const isExpanded = expandedCluster === cluster.id;
@@ -679,21 +740,40 @@ export default function ConcordancePage() {
                   )}
                 </div>
 
-                {/* Name */}
-                <Link
-                  href={`/concordance/${clusterSlug(cluster, data!.clusters)}`}
-                  onClick={(e) => e.stopPropagation()}
-                  className="font-semibold truncate hover:text-[var(--accent)] transition-colors"
-                >
-                  {cluster.canonical_name}
-                </Link>
+                {/* Name + mobile description */}
+                <div className="min-w-0">
+                  <Link
+                    href={`/concordance/${clusterSlug(cluster, data!.clusters)}`}
+                    onClick={(e) => e.stopPropagation()}
+                    className="font-semibold truncate block hover:text-[var(--accent)] transition-colors"
+                  >
+                    {displayName(cluster)}
+                  </Link>
+                  {displayName(cluster).toLowerCase() !== cluster.canonical_name.toLowerCase() && (
+                    <span className="text-xs text-[var(--muted)] truncate block mt-0.5">
+                      {cluster.canonical_name}
+                    </span>
+                  )}
+                  {cluster.ground_truth?.wikidata_description && (
+                    <span className="md:hidden text-xs text-[var(--muted)] truncate block mt-0.5">
+                      {cluster.ground_truth.wikidata_description}
+                    </span>
+                  )}
+                </div>
 
-                {/* Identification — hidden on mobile */}
-                <span className="hidden md:block text-sm text-[var(--muted)] truncate">
+                {/* Identification + description — hidden on mobile */}
+                <div className="hidden md:block min-w-0">
                   {identification ? (
-                    identification.italic ? <i>{identification.text}</i> : identification.text
+                    <span className="text-sm text-[var(--muted)] truncate block">
+                      {identification.italic ? <i>{identification.text}</i> : identification.text}
+                    </span>
                   ) : null}
-                </span>
+                  {cluster.ground_truth?.wikidata_description && (
+                    <span className="text-xs text-[var(--muted)] opacity-60 truncate block">
+                      {cluster.ground_truth.wikidata_description}
+                    </span>
+                  )}
+                </div>
 
                 {/* Category — hidden on mobile */}
                 <span className={`hidden md:inline-flex ${catColor?.badge || "bg-[var(--border)]"} px-2 py-0.5 rounded text-xs font-medium border justify-center`}>
@@ -707,7 +787,7 @@ export default function ConcordancePage() {
 
                 {/* Mention count */}
                 <span className="text-sm text-[var(--muted)] font-mono text-right tabular-nums">
-                  {cluster.total_mentions}
+                  {cluster.total_mentions.toLocaleString()}
                 </span>
 
                 {/* Chevron */}
@@ -746,7 +826,7 @@ export default function ConcordancePage() {
                                 {cluster.ground_truth.linnaean && (
                                   <span className="text-sm italic text-[var(--muted)]">{cluster.ground_truth.linnaean}</span>
                                 )}
-                                <span className={`px-1.5 py-0.5 rounded text-[10px] font-medium ${
+                                <span className={`px-1.5 py-0.5 rounded text-xs font-medium ${
                                   cluster.ground_truth.confidence === "high" ? "bg-green-500/20 text-green-600 dark:text-green-400" :
                                   cluster.ground_truth.confidence === "medium" ? "bg-yellow-500/20 text-yellow-600 dark:text-yellow-400" :
                                   "bg-red-500/20 text-red-600 dark:text-red-400"
@@ -811,7 +891,7 @@ export default function ConcordancePage() {
 
                     {/* Right panel: Members by book */}
                     <div className={`flex-1 min-w-0 ${cluster.ground_truth ? "mt-4 md:mt-0" : ""}`}>
-                      <h4 className="text-[10px] uppercase tracking-widest text-[var(--muted)] font-medium mb-2">Source Evidence</h4>
+                      <h4 className="text-xs uppercase tracking-widest text-[var(--muted)] font-medium mb-2">Source Evidence</h4>
                       <div className="space-y-3">
                         {data.books
                           .filter((b) => cluster.members.some((m) => m.book_id === b.id))
@@ -821,8 +901,8 @@ export default function ConcordancePage() {
                               <div key={book.id} className="pl-3 border-l-2 border-[var(--border)]">
                                 <div className="flex items-baseline gap-2 mb-1">
                                   <span className="text-xs font-medium">{BOOK_SHORT_NAMES[book.id] || book.title}</span>
-                                  <span className="text-[11px] text-[var(--muted)] font-mono">{BOOK_LANG_FLAGS[book.language] || ""}</span>
-                                  <span className="text-[11px] text-[var(--muted)]">{book.year}</span>
+                                  <span className="text-xs text-[var(--muted)] font-mono">{BOOK_LANG_FLAGS[book.language] || ""}</span>
+                                  <span className="text-xs text-[var(--muted)]">{book.year}</span>
                                 </div>
                                 {bookMembers.map((member) => (
                                   <div key={member.entity_id} className="mb-2.5 last:mb-0">
@@ -864,7 +944,7 @@ export default function ConcordancePage() {
                   {/* Cross-book similarity — full width */}
                   {cluster.edges.length > 0 && (
                     <div className="mt-4 pt-3 border-t border-[var(--border)]">
-                      <h4 className="text-[10px] uppercase tracking-widest text-[var(--muted)] font-medium mb-2">Cross-book Connections</h4>
+                      <h4 className="text-xs uppercase tracking-widest text-[var(--muted)] font-medium mb-2">Cross-book Connections</h4>
                       <div className="space-y-1">
                         {cluster.edges.slice(0, 6).map((edge, idx) => (
                           <div key={idx} className="flex items-center gap-2 text-xs">
@@ -908,13 +988,16 @@ export default function ConcordancePage() {
 
       {/* Load more */}
       {filteredClusters.length > showCount && (
-        <div className="text-center mt-6">
+        <div className="text-center mt-6 py-4 border-t border-[var(--border)]">
           <button
             onClick={() => setShowCount((c) => c + 50)}
-            className="px-6 py-2 rounded-lg border border-[var(--border)] text-sm hover:bg-[var(--border)] transition-colors"
+            className="px-8 py-3 rounded-lg border border-[var(--border)] text-sm font-medium hover:bg-[var(--border)] hover:border-[var(--foreground)]/20 transition-colors"
           >
-            Show more ({filteredClusters.length - showCount} remaining)
+            Show more
           </button>
+          <p className="text-xs text-[var(--muted)] mt-2">
+            {(filteredClusters.length - showCount).toLocaleString()} more of {filteredClusters.length.toLocaleString()} total
+          </p>
         </div>
       )}
 

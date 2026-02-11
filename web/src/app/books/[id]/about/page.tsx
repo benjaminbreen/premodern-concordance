@@ -99,6 +99,10 @@ function slugify(name: string): string {
   return name.toLowerCase().trim().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
 }
 
+function clusterPath(cluster: { stable_key?: string; canonical_name: string }): string {
+  return `/concordance/${cluster.stable_key || slugify(cluster.canonical_name)}`;
+}
+
 // ── CategoryRing SVG ────────────────────────────────────────────────────────
 
 function CategoryRing({ byCategory, total, size = 120 }: { byCategory: Record<string, number>; total: number; size?: number }) {
@@ -238,13 +242,13 @@ function TranslatablePassage({
           <>
             &ldquo;{highlighted}&rdquo;
             {showTranslation && (
-              <span className="text-[10px] text-[var(--accent)] ml-1.5 not-italic font-medium">EN</span>
+              <span className="text-xs text-[var(--accent)] ml-1.5 not-italic font-medium">EN</span>
             )}
           </>
         )}
       </p>
       {isNonEnglish && !translating && (
-        <p className="text-[10px] text-[var(--muted)] mt-1 opacity-0 group-hover:opacity-60 transition-opacity">
+        <p className="text-xs text-[var(--muted)] mt-1 opacity-0 group-hover:opacity-60 transition-opacity">
           {showTranslation ? "Click to show original" : "Click to translate"}
         </p>
       )}
@@ -420,7 +424,7 @@ export default function BookAboutPage() {
                   {meta.tags.map((tag) => (
                     <span
                       key={tag}
-                      className="px-2 py-0.5 rounded-full text-[11px] border border-[var(--border)] text-[var(--muted)]"
+                      className="px-2 py-0.5 rounded-full text-xs border border-[var(--border)] text-[var(--muted)]"
                     >
                       {tag}
                     </span>
@@ -510,7 +514,7 @@ export default function BookAboutPage() {
                       {entity.name}
                     </span>
                     <span
-                      className={`${CATEGORY_COLORS_BADGE[entity.category] || "bg-[var(--border)]"} px-1.5 py-0.5 rounded text-[10px] font-medium border shrink-0`}
+                      className={`${CATEGORY_COLORS_BADGE[entity.category] || "bg-[var(--border)]"} px-1.5 py-0.5 rounded text-xs font-medium border shrink-0`}
                     >
                       {entity.category}
                     </span>
@@ -547,7 +551,7 @@ export default function BookAboutPage() {
                         {entity.name}
                       </Link>
                       <span
-                        className={`${CATEGORY_COLORS_BADGE[entity.category] || "bg-[var(--border)]"} px-1.5 py-0.5 rounded text-[10px] font-medium border`}
+                        className={`${CATEGORY_COLORS_BADGE[entity.category] || "bg-[var(--border)]"} px-1.5 py-0.5 rounded text-xs font-medium border`}
                       >
                         {entity.category}
                       </span>
@@ -586,7 +590,7 @@ export default function BookAboutPage() {
                 {concordanceStats.topShared.map((cluster) => (
                   <Link
                     key={cluster.id}
-                    href={`/concordance/${slugify(cluster.canonical_name)}`}
+                    href={clusterPath(cluster)}
                     className="flex items-center justify-between py-2 px-3 rounded-lg hover:bg-[var(--card)] transition-colors group"
                   >
                     <div className="flex items-center gap-2 min-w-0">
@@ -594,7 +598,7 @@ export default function BookAboutPage() {
                         {cluster.canonical_name}
                       </span>
                       {cluster.book_count > 1 && (
-                        <span className="text-[10px] text-[var(--muted)] bg-[var(--border)] px-1.5 py-0.5 rounded shrink-0">
+                        <span className="text-xs text-[var(--muted)] bg-[var(--border)] px-1.5 py-0.5 rounded shrink-0">
                           {cluster.book_count} books
                         </span>
                       )}

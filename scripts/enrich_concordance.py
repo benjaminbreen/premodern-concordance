@@ -399,6 +399,12 @@ def main():
             print(f"  Enriched {len([c for c in batch if 'ground_truth' in c])}/{len(batch)}"
                   f" (Wikidata: {sum(1 for c in batch if c.get('ground_truth', {}).get('wikidata_id'))})")
 
+        # Checkpoint save every 10 batches to avoid losing progress on crash
+        if not args.dry_run and batch_num % 10 == 0:
+            print(f"  [checkpoint] Saving progress to disk...")
+            with open(concordance_path, "w", encoding="utf-8") as f:
+                json.dump(data, f, ensure_ascii=False, indent=2)
+
         # Rate limiting between batches
         time.sleep(1)
 

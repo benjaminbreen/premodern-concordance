@@ -323,6 +323,12 @@ export default function ConsultPage() {
       {error && (
         <div className="border border-red-300 dark:border-red-800 rounded-lg p-4 bg-red-50 dark:bg-red-950/30">
           <p className="text-sm text-red-700 dark:text-red-400">{error}</p>
+          <button
+            onClick={() => handleSubmit()}
+            className="mt-2 text-xs text-red-600 dark:text-red-400 hover:underline"
+          >
+            Try again
+          </button>
         </div>
       )}
 
@@ -482,13 +488,13 @@ export default function ConsultPage() {
                             {ent.name}
                           </Link>
                           <span
-                            className={`text-[10px] px-1.5 py-0.5 rounded font-medium ${badgeClass}`}
+                            className={`text-xs px-1.5 py-0.5 rounded font-medium ${badgeClass}`}
                           >
                             {ent.category}
                           </span>
                           {evidenceEntry && (
                             <span
-                              className={`text-[10px] px-1.5 py-0.5 rounded ${
+                              className={`text-xs px-1.5 py-0.5 rounded ${
                                 evidenceEntry.relevance === "direct"
                                   ? "bg-emerald-100 text-emerald-800 dark:bg-emerald-900/30 dark:text-emerald-400"
                                   : "bg-blue-100 text-blue-800 dark:bg-blue-900/30 dark:text-blue-400"

@@ -21,7 +21,7 @@ function CategoryBadge({ category, subcategory }: { category: string; subcategor
         {category}
       </span>
       {subcategory && subcategory !== `OTHER_${category}` && (
-        <span className="text-[10px] text-[var(--muted)]">{subcategory.toLowerCase()}</span>
+        <span className="text-xs text-[var(--muted)]">{subcategory.toLowerCase()}</span>
       )}
     </div>
   );

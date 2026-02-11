@@ -404,6 +404,10 @@ export default function BooksPage() {
       "/data/ricettario_entities.json",
       "/data/james_psychology_entities.json",
       "/data/darwin_origin_entities.json",
+      "/data/browne_entities.json",
+      "/data/spencer_entities.json",
+      "/data/somerville_entities.json",
+      "/data/kosmos_entities.json",
     ];
     Promise.all(
       bookFiles.map((f) => fetch(f).then((res) => res.json()).catch(() => null))
@@ -458,13 +462,13 @@ export default function BooksPage() {
 
       {/* Controls */}
       <div className="flex items-center justify-between mb-6 text-sm">
-        <div className={`flex items-center gap-1 text-[var(--muted)] ${viewMode === "rings" ? "invisible" : ""}`}>
+        <div className={`flex items-center gap-1 text-[var(--muted)] ${viewMode === "rings" ? "hidden" : ""}`}>
           <span className="mr-1">Sort</span>
           {(["year", "title", "entities"] as SortKey[]).map((key) => (
             <button
               key={key}
               onClick={() => toggleSort(key)}
-              className={`px-2 py-0.5 rounded transition-colors inline-flex items-center gap-1 ${
+              className={`px-3 py-1.5 rounded transition-colors inline-flex items-center gap-1 ${
                 sortBy === key
                   ? "text-[var(--foreground)] bg-[var(--border)]"
                   : "hover:text-[var(--foreground)]"

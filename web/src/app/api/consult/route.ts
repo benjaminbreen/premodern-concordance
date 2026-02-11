@@ -5,6 +5,7 @@ import { readFileSync } from "fs";
 import { join } from "path";
 import {
   getEntityRegistry,
+  type RegistryBook,
   type RegistryEntity,
   type RegistryAttestation,
 } from "@/lib/entityRegistry";
@@ -85,6 +86,48 @@ function getProfiles(): Record<string, EpistemologicalProfile> {
   );
   cachedProfiles = JSON.parse(readFileSync(filePath, "utf-8"));
   return cachedProfiles!;
+}
+
+function buildFallbackProfile(
+  bookId: string,
+  bookMeta: RegistryBook | undefined,
+  publicationYear: number
+): EpistemologicalProfile {
+  const author = bookMeta?.author || "the author";
+  const title = bookMeta?.title || bookId;
+  const language = bookMeta?.language || "unknown";
+  return {
+    persona_name: author,
+    persona_description: `Authorial voice grounded in "${title}" (${publicationYear}).`,
+    voice_notes:
+      "Answer cautiously in period-appropriate terms, citing uncertainty when evidence is weak.",
+    frameworks: [
+      {
+        name: "Text-grounded reasoning",
+        role: "primary",
+        description:
+          "Rely on attested entities and contexts from this book and related concordance evidence.",
+      },
+    ],
+    authorities_trusted: [],
+    authorities_contested: [],
+    knowledge_sources:
+      "Entity attestations and contextual excerpts from the concordance and the selected book.",
+    blind_spots:
+      "Modern scientific developments after publication and facts not attested in available evidence.",
+    historical_context:
+      `Interpretive frame: ${publicationYear} publication context, language=${language}.`,
+    sample_reasoning:
+      "I prioritize direct textual evidence, then analogical evidence; I mark speculation explicitly.",
+    top_substances: "",
+    top_diseases: "",
+    language,
+    voice_anchors: [],
+    private_facts_known: [],
+    private_inferences_allowed: [],
+    private_unknowns: [],
+    persona_type: "individual",
+  };
 }
 
 // ── Search index for semantic retrieval ────────────────────────────────
@@ -830,16 +873,6 @@ export async function POST(request: NextRequest) {
     );
   }
 
-  // Load profile
-  const profiles = getProfiles();
-  const profile = profiles[book_id];
-  if (!profile) {
-    return NextResponse.json(
-      { error: `No epistemological profile found for book: ${book_id}` },
-      { status: 404 }
-    );
-  }
-
   try {
     const registry = getEntityRegistry();
     const bookMeta = registry.books.find((b) => b.id === book_id);
@@ -855,6 +888,10 @@ export async function POST(request: NextRequest) {
       book_title: bookTitle,
       publication_year: publicationYear,
     };
+
+    const profiles = getProfiles();
+    const profile =
+      profiles[book_id] || buildFallbackProfile(book_id, bookMeta, publicationYear);
 
     // Stage 1: Retrieve (now async — includes semantic search)
     const evidence = await retrieveEntities(book_id, question);
