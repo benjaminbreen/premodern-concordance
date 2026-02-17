@@ -450,6 +450,9 @@ export default function EntityDetailPage() {
       "first_principles_spencer_1862": "/data/spencer_entities.json",
       "connexion_physical_sciences_somerville_1858": "/data/somerville_entities.json",
       "kosmos_humboldt_1845": "/data/kosmos_entities.json",
+      "quatro_libros_naturaleza_hernandez_1615": "/data/hernandez_entities.json",
+      "epoques_nature_buffon_1778": "/data/buffon_entities.json",
+      "medecine_experimentale_bernard_1865": "/data/bernard_entities.json",
     };
 
     const dataFile = bookFiles[params.id as string];

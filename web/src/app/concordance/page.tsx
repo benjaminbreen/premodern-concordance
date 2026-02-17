@@ -358,6 +358,14 @@ function WikiExtract({ url }: { url: string }) {
   );
 }
 
+interface PersonIdentity {
+  name: string;
+  thumbnail?: string;
+  thumbnail_url?: string;
+  wikipedia_slug?: string;
+  description?: string;
+}
+
 export default function ConcordancePage() {
   const [data, setData] = useState<ConcordanceData | null>(null);
   const [loading, setLoading] = useState(true);
@@ -367,6 +375,8 @@ export default function ConcordancePage() {
   const [bookFilter, setBookFilter] = useState("ALL");
   const [expandedCluster, setExpandedCluster] = useState<number | null>(null);
   const [showCount, setShowCount] = useState(50);
+  const [personIdentities, setPersonIdentities] = useState<Record<string, PersonIdentity>>({});
+  const [showAll, setShowAll] = useState(false);
   const [corpusExpanded, setCorpusExpanded] = useState(false);
 
   // Read all URL params on mount
@@ -377,11 +387,13 @@ export default function ConcordancePage() {
     const cat = params.get("category");
     const book = params.get("book");
     const q = params.get("q");
+    const all = params.get("all");
     if (highlight) setSearch(highlight);
     else if (q) setSearch(q);
     if (searchQuery) setFromSearch(searchQuery);
     if (cat) setCategoryFilter(cat);
     if (book) setBookFilter(book);
+    if (all === "1") setShowAll(true);
   }, []);
 
   // Sync filter state to URL
@@ -402,8 +414,13 @@ export default function ConcordancePage() {
     } else {
       url.searchParams.delete("book");
     }
+    if (showAll) {
+      url.searchParams.set("all", "1");
+    } else {
+      url.searchParams.delete("all");
+    }
     window.history.replaceState({}, "", url.toString());
-  }, [search, categoryFilter, bookFilter]);
+  }, [search, categoryFilter, bookFilter, showAll]);
 
   // Auto-expand exact match when navigating from search
   useEffect(() => {
@@ -427,7 +444,38 @@ export default function ConcordancePage() {
         setLoading(false);
       })
       .catch(() => setLoading(false));
+    fetch("/data/person_identities.json")
+      .then((res) => res.json())
+      .then((d) => setPersonIdentities(d))
+      .catch(() => {});
   }, []);
+
+  // Precompute cluster ID → local thumbnail path
+  const clusterThumbnails = useMemo(() => {
+    if (!data || Object.keys(personIdentities).length === 0) return new Map<number, string>();
+    const map = new Map<number, string>();
+    for (const cluster of data.clusters) {
+      const namesToCheck = new Set<string>();
+      namesToCheck.add((cluster.canonical_name || "").toLowerCase().trim());
+      const mn = cluster.ground_truth?.modern_name;
+      if (mn) namesToCheck.add(mn.toLowerCase().trim());
+      for (const m of cluster.members) {
+        namesToCheck.add(m.name.toLowerCase().trim());
+      }
+      for (const name of namesToCheck) {
+        const ident = personIdentities[name];
+        if (ident?.thumbnail) {
+          map.set(cluster.id, `/thumbnails/${ident.thumbnail}`);
+          break;
+        }
+      }
+    }
+    return map;
+  }, [data, personIdentities]);
+
+  const getClusterThumbnail = useCallback((cluster: Cluster): string | null => {
+    return clusterThumbnails.get(cluster.id) || null;
+  }, [clusterThumbnails]);
 
   const categories = useMemo(() => {
     if (!data) return [];
@@ -437,6 +485,13 @@ export default function ConcordancePage() {
   const filteredClusters = useMemo(() => {
     if (!data) return [];
     let clusters = data.clusters;
+
+    // Apply browse threshold when not searching (users can always find anything via search)
+    if (!search && !showAll) {
+      clusters = clusters.filter(
+        (c) => c.book_count >= 3 && c.total_mentions >= 5
+      );
+    }
 
     if (search) {
       const q = search.toLowerCase();
@@ -465,8 +520,15 @@ export default function ConcordancePage() {
       );
     }
 
+    // Sort by salience: cross-book coverage weighted by mention frequency
+    clusters = [...clusters].sort((a, b) => {
+      const sa = a.book_count * a.total_mentions;
+      const sb = b.book_count * b.total_mentions;
+      return sb - sa;
+    });
+
     return clusters;
-  }, [data, search, categoryFilter, bookFilter]);
+  }, [data, search, categoryFilter, bookFilter, showAll]);
 
   // Keyboard navigation: Escape to close, Left/Right arrows to navigate
   const handleKeyDown = useCallback((e: KeyboardEvent) => {
@@ -675,11 +737,24 @@ export default function ConcordancePage() {
 
       <div className="flex items-baseline gap-2 mb-3 flex-wrap">
         <span className="text-sm font-medium">{filteredClusters.length.toLocaleString()} clusters</span>
-        {(search || categoryFilter !== "ALL" || bookFilter !== "ALL") && (
+        {!search && !showAll && (
+          <span className="text-xs text-[var(--muted)]">
+            of {data.clusters.length.toLocaleString()} total &middot; showing notable clusters
+          </span>
+        )}
+        {(search || categoryFilter !== "ALL" || bookFilter !== "ALL") && (showAll || search) && (
           <span className="text-xs text-[var(--muted)]">
             of {data.clusters.length.toLocaleString()} total
             {search && <> matching &ldquo;{search}&rdquo;</>}
           </span>
+        )}
+        {!search && (
+          <button
+            onClick={() => { setShowAll(!showAll); setShowCount(50); }}
+            className="text-xs text-[var(--accent)] hover:underline ml-1"
+          >
+            {showAll ? "Show notable only" : "Show all"}
+          </button>
         )}
         <span className="text-xs text-[var(--muted)] ml-auto">
           Looking for something specific? Try <a href="/search" className="text-[var(--accent)] hover:underline">semantic search</a>
@@ -728,16 +803,7 @@ export default function ConcordancePage() {
 
                 {/* Indicator */}
                 <div className="flex items-center justify-center">
-                  {cluster.ground_truth?.portrait_url ? (
-                    // eslint-disable-next-line @next/next/no-img-element
-                    <img
-                      src={cluster.ground_truth.portrait_url}
-                      alt=""
-                      className="w-7 h-7 rounded-full object-cover border border-[var(--border)] bg-[var(--border)]"
-                    />
-                  ) : (
-                    <span className={`w-2.5 h-2.5 rounded-full ${catColor?.dot || "bg-gray-400"}`} />
-                  )}
+                  <span className={`w-2.5 h-2.5 rounded-full ${catColor?.dot || "bg-gray-400"}`} />
                 </div>
 
                 {/* Name + mobile description */}
@@ -802,24 +868,39 @@ export default function ConcordancePage() {
               {/* Expanded detail */}
               {isExpanded && (
                 <div className="px-4 pb-5 border-t border-[var(--border)] animate-expand">
-                  <div className="md:flex md:gap-6 mt-4">
+                  {/* View full details — prominent at top right */}
+                  <div className="flex justify-end mt-3 mb-1">
+                    <Link
+                      href={`/concordance/${clusterSlug(cluster, data!.clusters)}`}
+                      className="inline-flex items-center gap-1.5 px-3 py-1.5 text-sm font-medium text-[var(--accent)] border border-[var(--accent)]/25 rounded-lg hover:bg-[var(--accent)]/5 transition-colors"
+                      onClick={(e) => e.stopPropagation()}
+                    >
+                      View full details &rarr;
+                    </Link>
+                  </div>
+                  <div className="md:flex md:gap-6">
                     {/* Left panel: Identification */}
                     {cluster.ground_truth && (
-                      <div className="md:w-2/5 md:shrink-0">
+                      <div className="md:w-[280px] md:shrink-0">
                         <div className="p-3 rounded-lg bg-[var(--background)] border border-[var(--border)]">
                           <div className="flex items-start gap-3">
-                            {cluster.ground_truth.portrait_url ? (
-                              <div className="shrink-0">
-                                {/* eslint-disable-next-line @next/next/no-img-element */}
-                                <img
-                                  src={cluster.ground_truth.portrait_url}
-                                  alt={cluster.ground_truth.modern_name}
-                                  className="w-14 h-[4.5rem] rounded object-cover border border-[var(--border)] bg-[var(--border)]"
-                                />
-                              </div>
-                            ) : cluster.ground_truth.wikipedia_url ? (
-                              <WikiThumbnail url={cluster.ground_truth.wikipedia_url} />
-                            ) : null}
+                            {(() => {
+                              const localThumb = getClusterThumbnail(cluster);
+                              if (localThumb) return (
+                                <div className="shrink-0">
+                                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                                  <img
+                                    src={localThumb}
+                                    alt={cluster.ground_truth?.modern_name || ""}
+                                    className="w-14 h-[4.5rem] rounded object-cover border border-[var(--border)] bg-[var(--border)]"
+                                  />
+                                </div>
+                              );
+                              if (cluster.ground_truth?.wikipedia_url) return (
+                                <WikiThumbnail url={cluster.ground_truth.wikipedia_url} />
+                              );
+                              return null;
+                            })()}
                             <div className="flex-1 min-w-0">
                               <div className="flex items-center gap-2 flex-wrap">
                                 <span className="text-sm font-semibold">{cluster.ground_truth.modern_name}</span>
@@ -889,96 +970,71 @@ export default function ConcordancePage() {
                       </div>
                     )}
 
-                    {/* Right panel: Members by book */}
+                    {/* Right panel: Members by book — two-column grid, max 10 */}
                     <div className={`flex-1 min-w-0 ${cluster.ground_truth ? "mt-4 md:mt-0" : ""}`}>
                       <h4 className="text-xs uppercase tracking-widest text-[var(--muted)] font-medium mb-2">Source Evidence</h4>
-                      <div className="space-y-3">
-                        {data.books
+                      {(() => {
+                        const bookEntries = data.books
                           .filter((b) => cluster.members.some((m) => m.book_id === b.id))
-                          .map((book) => {
-                            const bookMembers = cluster.members.filter((m) => m.book_id === book.id);
-                            return (
-                              <div key={book.id} className="pl-3 border-l-2 border-[var(--border)]">
-                                <div className="flex items-baseline gap-2 mb-1">
-                                  <span className="text-xs font-medium">{BOOK_SHORT_NAMES[book.id] || book.title}</span>
-                                  <span className="text-xs text-[var(--muted)] font-mono">{BOOK_LANG_FLAGS[book.language] || ""}</span>
-                                  <span className="text-xs text-[var(--muted)]">{book.year}</span>
-                                </div>
-                                {bookMembers.map((member) => (
-                                  <div key={member.entity_id} className="mb-2.5 last:mb-0">
-                                    <div className="flex items-baseline gap-2 flex-wrap">
-                                      <Link
-                                        href={`/books/${book.id}/entity/${member.entity_id}`}
-                                        className="text-sm font-medium text-[var(--accent)] hover:underline"
-                                      >
-                                        {member.name}
-                                      </Link>
-                                      <span className="text-xs text-[var(--muted)] font-mono tabular-nums">
-                                        {member.count}
-                                      </span>
-                                      {member.variants.length > 1 && (
-                                        <span className="text-xs text-[var(--muted)]">
-                                          {member.variants.slice(0, 5).join(", ")}
-                                          {member.variants.length > 5 && ` +${member.variants.length - 5}`}
+                          .sort((a, b) => a.year - b.year)
+                          .map((book) => ({
+                            book,
+                            members: cluster.members.filter((m) => m.book_id === book.id),
+                          }));
+                        const MAX_SHOW = 10;
+                        const visible = bookEntries.slice(0, MAX_SHOW);
+                        const remaining = bookEntries.length - MAX_SHOW;
+
+                        return (
+                          <>
+                            <div className="sm:columns-2 gap-4 space-y-2.5">
+                              {visible.map(({ book, members: bookMembers }) => (
+                                <div key={book.id} className="pl-3 border-l-2 border-[var(--border)] break-inside-avoid">
+                                  <div className="flex items-baseline gap-2 mb-0.5">
+                                    <span className="text-xs font-medium">{BOOK_SHORT_NAMES[book.id] || book.title}</span>
+                                    <span className="text-xs text-[var(--muted)] font-mono">{BOOK_LANG_FLAGS[book.language] || ""}</span>
+                                    <span className="text-xs text-[var(--muted)]">{book.year}</span>
+                                  </div>
+                                  {bookMembers.map((member) => (
+                                    <div key={member.entity_id} className="mb-1.5 last:mb-0">
+                                      <div className="flex items-baseline gap-1.5 flex-wrap">
+                                        <Link
+                                          href={`/books/${book.id}/entity/${member.entity_id}`}
+                                          className="text-sm font-medium text-[var(--accent)] hover:underline"
+                                        >
+                                          {member.name}
+                                        </Link>
+                                        <span className="text-xs text-[var(--muted)] font-mono tabular-nums">
+                                          {member.count}
                                         </span>
+                                        {member.variants.length > 1 && (
+                                          <span className="text-xs text-[var(--muted)]">
+                                            {member.variants.slice(0, 3).join(", ")}
+                                            {member.variants.length > 3 && ` +${member.variants.length - 3}`}
+                                          </span>
+                                        )}
+                                      </div>
+                                      {member.contexts.length > 0 && (
+                                        <p className="text-xs text-[var(--muted)] italic leading-relaxed mt-0.5 line-clamp-1">
+                                          &ldquo;{member.contexts[0].length > 120 ? member.contexts[0].slice(0, 117) + "\u2026" : member.contexts[0]}&rdquo;
+                                        </p>
                                       )}
                                     </div>
-                                    {member.contexts.length > 0 && (
-                                      <div className="mt-1.5 pl-3 border-l border-[var(--border)]">
-                                        {member.contexts.slice(0, 2).map((ctx, i) => (
-                                          <p key={i} className="text-sm text-[var(--muted)] italic leading-relaxed mb-1 last:mb-0">
-                                            &ldquo;{ctx.length > 200 ? ctx.slice(0, 197) + "\u2026" : ctx}&rdquo;
-                                          </p>
-                                        ))}
-                                      </div>
-                                    )}
-                                  </div>
-                                ))}
-                              </div>
-                            );
-                          })}
-                      </div>
+                                  ))}
+                                </div>
+                              ))}
+                            </div>
+                            {remaining > 0 && (
+                              <p className="text-xs text-[var(--muted)] mt-2">
+                                and {remaining} more book{remaining !== 1 ? "s" : ""}
+                              </p>
+                            )}
+                          </>
+                        );
+                      })()}
                     </div>
                   </div>
 
-                  {/* Cross-book similarity — full width */}
-                  {cluster.edges.length > 0 && (
-                    <div className="mt-4 pt-3 border-t border-[var(--border)]">
-                      <h4 className="text-xs uppercase tracking-widest text-[var(--muted)] font-medium mb-2">Cross-book Connections</h4>
-                      <div className="space-y-1">
-                        {cluster.edges.slice(0, 6).map((edge, idx) => (
-                          <div key={idx} className="flex items-center gap-2 text-xs">
-                            <span className="text-[var(--muted)] shrink-0">
-                              {BOOK_SHORT_NAMES[edge.source_book] || edge.source_book}:
-                            </span>
-                            <span className="shrink-0">{edge.source_name}</span>
-                            <span className="text-[var(--muted)]">&harr;</span>
-                            <span className="text-[var(--muted)] shrink-0">
-                              {BOOK_SHORT_NAMES[edge.target_book] || edge.target_book}:
-                            </span>
-                            <span className="shrink-0">{edge.target_name}</span>
-                            <span className="font-mono text-[var(--muted)] ml-auto tabular-nums">{Math.round(edge.similarity * 100)}%</span>
-                          </div>
-                        ))}
-                        {cluster.edges.length > 6 && (
-                          <p className="text-xs text-[var(--muted)] mt-1">
-                            +{cluster.edges.length - 6} more connections
-                          </p>
-                        )}
-                      </div>
-                    </div>
-                  )}
-
-                  {/* View full details link */}
-                  <div className="mt-4 pt-3 border-t border-[var(--border)]">
-                    <Link
-                      href={`/concordance/${clusterSlug(cluster, data!.clusters)}`}
-                      className="inline-flex items-center gap-1.5 text-sm text-[var(--accent)] hover:underline"
-                      onClick={(e) => e.stopPropagation()}
-                    >
-                      View full details &rarr;
-                    </Link>
-                  </div>
                 </div>
               )}
             </div>

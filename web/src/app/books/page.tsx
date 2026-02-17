@@ -408,6 +408,9 @@ export default function BooksPage() {
       "/data/spencer_entities.json",
       "/data/somerville_entities.json",
       "/data/kosmos_entities.json",
+      "/data/hernandez_entities.json",
+      "/data/buffon_entities.json",
+      "/data/bernard_entities.json",
     ];
     Promise.all(
       bookFiles.map((f) => fetch(f).then((res) => res.json()).catch(() => null))

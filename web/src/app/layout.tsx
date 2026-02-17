@@ -53,7 +53,7 @@ const NAV_LINKS = [
   { href: "/books", label: "Books" },
   { href: "/entities", label: "Entities" },
   { href: "/concordance", label: "Concordance" },
-  { href: "/timeline", label: "Timeline" },
+  { href: "/timeline", label: "Visualize" },
   { href: "/search", label: "Search" },
   { href: "/about", label: "About" },
 ];
@@ -249,7 +249,7 @@ export default function RootLayout({
                   <li><Link href="/books" className="footer-link text-[#fafaf9]/70">Books</Link></li>
                   <li><Link href="/entities" className="footer-link text-[#fafaf9]/70">Entities</Link></li>
                   <li><Link href="/concordance" className="footer-link text-[#fafaf9]/70">Concordance</Link></li>
-                  <li><Link href="/timeline" className="footer-link text-[#fafaf9]/70">Timeline</Link></li>
+                  <li><Link href="/timeline" className="footer-link text-[#fafaf9]/70">Visualize</Link></li>
                   <li><Link href="/search" className="footer-link text-[#fafaf9]/70">Search</Link></li>
                   <li><Link href="/data" className="footer-link text-[#fafaf9]/70">Data</Link></li>
                 </ul>

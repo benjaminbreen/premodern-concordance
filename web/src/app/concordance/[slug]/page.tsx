@@ -909,12 +909,17 @@ export default function ClusterDetailPage() {
   const [wikiUrl, setWikiUrl] = useState<string | null>(null);
   const [wikiImage, setWikiImage] = useState<string | null>(null);
   const [wikiSearching, setWikiSearching] = useState(false);
+  const [personIdentities, setPersonIdentities] = useState<Record<string, { thumbnail?: string; thumbnail_url?: string }>>({});
 
   useEffect(() => {
     fetch("/data/concordance.json")
       .then((res) => res.json())
       .then((d) => { setData(d); setLoading(false); })
       .catch(() => setLoading(false));
+    fetch("/data/person_identities.json")
+      .then((res) => res.json())
+      .then((d) => setPersonIdentities(d))
+      .catch(() => {});
   }, []);
 
   const cluster = useMemo(
@@ -942,6 +947,23 @@ export default function ClusterDetailPage() {
     if (!data) return new Map();
     return buildEntityNameIndex(data.clusters, slugMap);
   }, [data, slugMap]);
+
+  // Resolve local thumbnail for this cluster via person_identities
+  const localThumbnail = useMemo(() => {
+    if (!cluster || Object.keys(personIdentities).length === 0) return null;
+    const namesToCheck = new Set<string>();
+    namesToCheck.add((cluster.canonical_name || "").toLowerCase().trim());
+    const mn = cluster.ground_truth?.modern_name;
+    if (mn) namesToCheck.add(mn.toLowerCase().trim());
+    for (const m of cluster.members) {
+      namesToCheck.add(m.name.toLowerCase().trim());
+    }
+    for (const name of namesToCheck) {
+      const ident = personIdentities[name];
+      if (ident?.thumbnail) return `/thumbnails/${ident.thumbnail}`;
+    }
+    return null;
+  }, [cluster, personIdentities]);
 
   // Fetch neighbor data at page level for "Also appears with"
   const [neighborData, setNeighborData] = useState<{
@@ -1219,14 +1241,14 @@ export default function ClusterDetailPage() {
           {gt ? (
             <div className="space-y-2">
               <div className="flex items-start gap-3">
-                {gt.portrait_url ? (
+                {localThumbnail ? (
                   // eslint-disable-next-line @next/next/no-img-element
                   <img
-                    src={gt.portrait_url}
+                    src={localThumbnail}
                     alt=""
                     className="w-12 h-14 rounded object-cover border border-[var(--border)] shrink-0"
                   />
-                ) : gt.wikipedia_url && !gt.portrait_url ? (
+                ) : gt.wikipedia_url ? (
                   <WikiThumbnail url={gt.wikipedia_url} size="sm" />
                 ) : null}
                 <div className="flex-1 min-w-0">

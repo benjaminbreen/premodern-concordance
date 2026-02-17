@@ -14,6 +14,11 @@ import {
   type SimulationLinkDatum,
 } from "d3-force";
 import { scaleSqrt } from "d3-scale";
+import {
+  BOOK_COLORS,
+  BOOK_SHORT_NAMES,
+  CORPUS_AUTHOR_IDS,
+} from "@/lib/books";
 
 // ── Types ────────────────────────────────────────────────────────────────────
 
@@ -69,10 +74,19 @@ interface PersonIdentity {
 
 type IdentityMap = Record<string, PersonIdentity>;
 
+interface CrossBookInfo {
+  otherBooks: string[];
+  isCorpusAuthor: boolean;
+  authorOf: string[];
+}
+
+type CrossBookMap = Record<string, CrossBookInfo>;
+
 interface ConcordanceClusterRef {
   id: number;
   stable_key?: string;
   canonical_name: string;
+  category: string;
   members: { entity_id: string; book_id: string }[];
 }
 
@@ -171,6 +185,7 @@ export default function KnowledgeGraphPage() {
         setClusters(concordance.clusters.map(c => ({
           id: c.id,
           canonical_name: c.canonical_name,
+          category: c.category || "",
           members: c.members.map(m => ({ entity_id: m.entity_id, book_id: m.book_id })),
         })));
       })
@@ -191,6 +206,45 @@ export default function KnowledgeGraphPage() {
     setFocusedNode(null);
     setSearchQuery("");
   }, [bookId]);
+
+  // Cross-book map: for each person node, find other books they appear in
+  const crossBookMap = useMemo<CrossBookMap>(() => {
+    if (!graphData || clusters.length === 0) return {};
+    const map: CrossBookMap = {};
+    for (const node of graphData.nodes) {
+      // Find the PERSON concordance cluster containing this entity in this book
+      let matchedCluster: ConcordanceClusterRef | null = null;
+      for (const c of clusters) {
+        if (c.category === "PERSON" && c.members.some(m => m.entity_id === node.id && m.book_id === bookId)) {
+          matchedCluster = c;
+          break;
+        }
+      }
+      // Get other books from the cluster
+      const otherBooks: string[] = [];
+      if (matchedCluster) {
+        const bookSet = new Set(matchedCluster.members.map(m => m.book_id));
+        bookSet.delete(bookId);
+        otherBooks.push(...Array.from(bookSet).sort());
+      }
+      // Check corpus author status via identity resolution
+      const resolvedId = identities[node.id]?.alias_of || node.id;
+      const authorOf: string[] = [];
+      for (const [bid, iid] of Object.entries(CORPUS_AUTHOR_IDS)) {
+        if (iid && iid === resolvedId) {
+          authorOf.push(bid);
+        }
+      }
+      if (otherBooks.length > 0 || authorOf.length > 0) {
+        map[node.id] = {
+          otherBooks,
+          isCorpusAuthor: authorOf.length > 0,
+          authorOf,
+        };
+      }
+    }
+    return map;
+  }, [graphData, clusters, bookId, identities]);
 
   if (loading) {
     return (
@@ -239,6 +293,7 @@ export default function KnowledgeGraphPage() {
       <PersonNetwork
         graph={graphData}
         identities={identities}
+        crossBookMap={crossBookMap}
         focusedNode={focusedNode}
         onFocusNode={setFocusedNode}
         onNavigateNode={handleNavigateNode}
@@ -286,6 +341,7 @@ export default function KnowledgeGraphPage() {
 function PersonNetwork({
   graph,
   identities,
+  crossBookMap,
   focusedNode,
   onFocusNode,
   onNavigateNode,
@@ -293,6 +349,7 @@ function PersonNetwork({
 }: {
   graph: PersonGraph;
   identities: IdentityMap;
+  crossBookMap: CrossBookMap;
   focusedNode: string | null;
   onFocusNode: (id: string | null) => void;
   onNavigateNode: (id: string) => void;
@@ -777,6 +834,7 @@ function PersonNetwork({
               const isDimmed = activeNode && !isActive && !isConnected;
               const isFocusedCenter = focusedNode === node.id;
               const hasPortrait = !!getPortraitUrl(node.id);
+              const crossInfo = crossBookMap[node.id];
 
               return (
                 <g
@@ -853,6 +911,57 @@ function PersonNetwork({
                         />
                       )}
                     </>
+                  )}
+                  {/* Cross-book colored pips */}
+                  {!isDimmed && crossInfo && crossInfo.otherBooks.length > 0 && (
+                    crossInfo.otherBooks.slice(0, 6).map((bid, i) => {
+                      const total = Math.min(crossInfo.otherBooks.length, 6);
+                      const angleSpan = Math.PI * 0.6;
+                      const startAngle = -Math.PI / 2 - angleSpan / 2;
+                      const angle = total === 1
+                        ? -Math.PI / 2
+                        : startAngle + (i / (total - 1)) * angleSpan;
+                      const pipR = Math.max(2, Math.min(3.5, node.radius * 0.18));
+                      const dist = node.radius + pipR + 2;
+                      const px = node.x! + Math.cos(angle) * dist;
+                      const py = node.y! + Math.sin(angle) * dist;
+                      return (
+                        <circle
+                          key={`pip-${bid}`}
+                          cx={px}
+                          cy={py}
+                          r={pipR}
+                          fill={BOOK_COLORS[bid] || "#64748b"}
+                          stroke="var(--background)"
+                          strokeWidth={0.5}
+                          style={{ pointerEvents: "none" }}
+                        />
+                      );
+                    })
+                  )}
+                  {/* Corpus author badge */}
+                  {!isDimmed && crossInfo?.isCorpusAuthor && (
+                    <g style={{ pointerEvents: "none" }}>
+                      <circle
+                        cx={node.x! + node.radius * 0.7}
+                        cy={node.y! - node.radius * 0.7}
+                        r={6}
+                        fill="#f59e0b"
+                        stroke="var(--background)"
+                        strokeWidth={1}
+                      />
+                      <text
+                        x={node.x! + node.radius * 0.7}
+                        y={node.y! - node.radius * 0.7 + 0.5}
+                        textAnchor="middle"
+                        dominantBaseline="central"
+                        fontSize={8}
+                        fontWeight={700}
+                        fill="white"
+                      >
+                        A
+                      </text>
+                    </g>
                   )}
                   {/* Label with readability halo */}
                   <text
@@ -938,6 +1047,7 @@ function PersonNetwork({
             links={links}
             nodes={nodes}
             identity={identities[activeNode.id]}
+            crossBookInfo={crossBookMap[activeNode.id] || null}
             svgWidth={width}
             svgHeight={height}
             zoomScale={vt.scale}
@@ -957,8 +1067,21 @@ function PersonNetwork({
             <span>{SUBCATEGORY_LABELS[sc] || sc}</span>
           </div>
         ))}
+        {/* Cross-book indicators legend */}
+        <div className="flex items-center gap-1.5 border-l border-[var(--border)] pl-4">
+          <span className="flex gap-0.5">
+            <span className="w-1.5 h-1.5 rounded-full bg-[#22c55e]" />
+            <span className="w-1.5 h-1.5 rounded-full bg-[#f59e0b]" />
+            <span className="w-1.5 h-1.5 rounded-full bg-[#3b82f6]" />
+          </span>
+          <span>Appears in other books</span>
+        </div>
+        <div className="flex items-center gap-1.5">
+          <span className="w-3.5 h-3.5 rounded-full bg-[#f59e0b] text-white text-[7px] font-bold flex items-center justify-center leading-none">A</span>
+          <span>Corpus author</span>
+        </div>
         <div className="flex items-center gap-1.5 ml-auto opacity-60">
-          <span className="text-xs">Click node to focus &middot; Drag to rearrange &middot; Scroll to zoom &middot; Drag background to pan</span>
+          <span className="text-xs">Click node to focus &middot; Drag to rearrange &middot; Scroll to zoom</span>
         </div>
       </div>
     </div>
@@ -1124,6 +1247,7 @@ function NodeTooltip({
   links,
   nodes,
   identity,
+  crossBookInfo,
   svgWidth,
   svgHeight,
   zoomScale = 1,
@@ -1133,6 +1257,7 @@ function NodeTooltip({
   links: GraphLink[];
   nodes: GraphNode[];
   identity?: PersonIdentity;
+  crossBookInfo: CrossBookInfo | null;
   svgWidth: number;
   svgHeight: number;
   zoomScale?: number;
@@ -1212,6 +1337,25 @@ function NodeTooltip({
           <p className="text-xs opacity-50 mb-2">
             Also: {node.aliases.filter((a) => a !== node.name).slice(0, 3).join(", ")}
           </p>
+        )}
+        {/* Cross-book appearances */}
+        {crossBookInfo && crossBookInfo.otherBooks.length > 0 && (
+          <div className="border-t border-current/10 pt-2 mt-1">
+            <div className="text-xs opacity-50 mb-1">
+              {crossBookInfo.isCorpusAuthor ? "Corpus author \u00b7 Also in:" : "Also appears in:"}
+            </div>
+            <div className="flex flex-wrap gap-x-2 gap-y-1">
+              {crossBookInfo.otherBooks.map((bid) => (
+                <div key={bid} className="flex items-center gap-1">
+                  <span
+                    className="w-2 h-2 rounded-full shrink-0"
+                    style={{ backgroundColor: BOOK_COLORS[bid] || "#64748b" }}
+                  />
+                  <span className="text-xs opacity-80">{BOOK_SHORT_NAMES[bid] || bid}</span>
+                </div>
+              ))}
+            </div>
+          </div>
         )}
         {/* Top connections */}
         {connections.length > 0 && (

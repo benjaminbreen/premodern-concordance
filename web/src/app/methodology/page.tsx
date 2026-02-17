@@ -212,9 +212,9 @@ export default function MethodologyPage() {
                   Scale
                 </h3>
                 <p className="text-sm leading-relaxed">
-                  Eight texts spanning 1563&ndash;1890 in five languages (English, Portuguese,
-                  Spanish, French, Italian), producing over 1,500 concordance clusters
-                  from thousands of extracted entities with nearly 37,000 total mentions.
+                  Twelve texts spanning 1563&ndash;1890 in six languages (English, Portuguese,
+                  Spanish, French, Italian, German), producing over 2,100 concordance clusters
+                  from thousands of extracted entities with over 50,000 total mentions.
                 </p>
               </div>
               <div>
@@ -456,53 +456,236 @@ export default function MethodologyPage() {
             </div>
             <p className="text-[var(--muted)] leading-relaxed mb-6 max-w-2xl">
               Off-the-shelf multilingual embeddings struggle with early modern naming
-              conventions. We fine-tune BAAI/bge-m3 on curated pairs of historically
-              equivalent names using contrastive learning.
+              conventions, archaic spellings, and the non-obvious conceptual linkages
+              central to historical concordance-building. We fine-tune BAAI/bge-m3 on
+              curated training pairs using contrastive learning, iterating through
+              multiple rounds of data curation and evaluation.
             </p>
 
             <h3 className="text-xs uppercase tracking-widest text-[var(--muted)] font-medium mb-3 mt-8">
-              Training data
+              Training data curation
             </h3>
             <p className="text-sm leading-relaxed mb-4 max-w-2xl">
-              Approximately 500 hand-verified pairs of cross-lingual entity equivalences
-              drawn from the corpus &mdash; Latin scholarly names and their vernacular
-              forms (Riverius/Lazzaro Riviera, Sylvius/Giacomo Silvio), plant names across
-              languages (canela/cannelle/cinnamon), and spelling variants (e&#x17F;tomago/estomago).
+              The training dataset was built through a multi-stage process. An initial
+              automated extraction from verified concordance clusters produced ~6,800
+              positive pairs, but quality review revealed a ~14% error rate and heavy
+              skew toward trivial cognates. Strict filtering (Levenshtein distance scoring,
+              per-cluster caps, blocked pair lists) reduced this to ~800 pairs, which were
+              then manually reviewed and supplemented with expert-curated batches targeting
+              specific domains.
+            </p>
+            <p className="text-sm leading-relaxed mb-4 max-w-2xl">
+              The final training file uses an additive batch format &mdash; each batch is
+              independently contributed and can be appended without modifying existing
+              entries. The current dataset comprises five batches totalling 889 positive
+              pairs and 154 hard negatives:
             </p>
 
+            <div className="my-5 overflow-x-auto">
+              <table className="w-full text-sm border-collapse">
+                <thead>
+                  <tr className="border-b border-[var(--border)]">
+                    <th className="text-left py-2 pr-4 text-xs uppercase tracking-widest text-[var(--muted)] font-medium">Batch</th>
+                    <th className="text-left py-2 pr-4 text-xs uppercase tracking-widest text-[var(--muted)] font-medium">Focus</th>
+                    <th className="text-right py-2 pr-4 text-xs uppercase tracking-widest text-[var(--muted)] font-medium">Pos.</th>
+                    <th className="text-right py-2 text-xs uppercase tracking-widest text-[var(--muted)] font-medium">Neg.</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {[
+                    ["1", "Cross-lingual entity matches (PT, ES, IT, FR, LA \u2194 EN)", "713", "91"],
+                    ["2", "Temporal-conceptual science shifts (EN \u2194 EN across centuries)", "40", "8"],
+                    ["3", "Psychology and mind science (EN, DE, FR)", "43", "10"],
+                    ["4", "Helmholtz, Janet, Galton, Agassiz (anticipated texts)", "48", "25"],
+                    ["5", "Cavendish, E.\u00a0Darwin, Hartley, Blumenbach, historical disease names", "45", "20"],
+                  ].map(([batch, focus, pos, neg]) => (
+                    <tr key={batch} className="border-b border-[var(--border)]/50">
+                      <td className="py-2.5 pr-4 font-mono text-xs">{batch}</td>
+                      <td className="py-2.5 pr-4 text-[var(--muted)]">{focus}</td>
+                      <td className="py-2.5 pr-4 text-right font-semibold">{pos}</td>
+                      <td className="py-2.5 text-right font-semibold">{neg}</td>
+                    </tr>
+                  ))}
+                  <tr className="border-t-2 border-[var(--border)]">
+                    <td className="py-2.5 pr-4 font-mono text-xs font-bold">Total</td>
+                    <td className="py-2.5 pr-4"></td>
+                    <td className="py-2.5 pr-4 text-right font-bold">889</td>
+                    <td className="py-2.5 text-right font-bold">154</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <p className="text-sm leading-relaxed mb-4 max-w-2xl">
+              Positive pairs teach the model that surface forms refer to the same entity,
+              ranging from straightforward cross-lingual matches (canela &harr; cinnamon) to
+              non-obvious conceptual concordances (Palo santo &harr; <em>Guaiacum</em>,
+              Falling sickness &harr; epilepsy, vibratiuncles &harr; memory traces). Hard
+              negatives teach the model to distinguish confusable terms: canfora &ne; canela,
+              phrenology &ne; phenology, <em>vis viva</em> &ne; <em>vis vitalis</em>,
+              hyst&eacute;rie &ne; hyst&eacute;r&egrave;se.
+            </p>
+
+            <InfoBox>
+              <strong>Quality over quantity.</strong> The curated 889-pair dataset significantly
+              outperforms a 6,800-pair auto-mined dataset that contained ~14% erroneous matches.
+              Wrong pairs actively teach the model incorrect associations. Curation criteria
+              include: minimum Levenshtein distance of 0.25 (filtering trivial cognates),
+              cross-lingual bonus scoring, per-cluster cap of 5 pairs (preventing mega-cluster
+              dominance), and manual review of all pairs. 97.5% of pairs have a normalized
+              string distance &gt; 0.5, meaning the model must learn semantic equivalence rather
+              than surface-form similarity.
+            </InfoBox>
+
+            <h3 className="text-xs uppercase tracking-widest text-[var(--muted)] font-medium mb-3 mt-8">
+              Training configuration
+            </h3>
+
             <ParamTable rows={[
-              ["Base model", "BAAI/bge-m3", "State-of-the-art multilingual embeddings"],
-              ["Loss function", "MultipleNegativesRankingLoss", "Contrastive learning"],
-              ["Epochs", "3", ""],
-              ["Batch size", "16", "With hard negatives from same category"],
-              ["Warmup steps", "100", ""],
+              ["Base model", "BAAI/bge-m3 (568M params)", "XLM-RoBERTa backbone; confirmed Latin via CC-100 pretraining"],
+              ["Loss function", "MultipleNegativesRankingLoss", "Contrastive learning with in-batch negatives"],
+              ["Epochs", "3", "Convergence confirmed; 1 epoch may suffice per Michail et al. 2025"],
+              ["Batch size", "16", "Each batch element serves as implicit negative for other pairs"],
+              ["Learning rate", "2e-5", "Standard for domain adaptation of pretrained transformers"],
+              ["Warmup steps", "100", "~9% of total training steps"],
+              ["Training examples", "1,778", "889 pairs \u00d7 2 (both directions)"],
+              ["Total steps", "~333", "111 per epoch"],
+              ["Hardware", "Google Colab T4 GPU", "~15 minutes total training time"],
             ]} />
 
             <h3 className="text-xs uppercase tracking-widest text-[var(--muted)] font-medium mb-3 mt-8">
-              Impact
+              Evaluation: A/B testing v2 vs. v3
             </h3>
+            <p className="text-sm leading-relaxed mb-4 max-w-2xl">
+              To verify the fine-tuned model generalizes beyond its training data and does
+              not overfit, we ran a comprehensive A/B test comparing the previous fine-tune
+              (v2, trained on ~500 pairs) against the new fine-tune (v3, trained on 889
+              pairs + 154 hard negatives). The test used six evaluation suites comprising
+              ~430 pair comparisons, including held-out concordance pairs explicitly excluded
+              from training, novel cross-lingual pairs, and randomly sampled same-category
+              negative pairs.
+            </p>
+
+            <div className="my-5 overflow-x-auto">
+              <table className="w-full text-sm border-collapse">
+                <thead>
+                  <tr className="border-b border-[var(--border)]">
+                    <th className="text-left py-2 pr-4 text-xs uppercase tracking-widest text-[var(--muted)] font-medium">Test Suite</th>
+                    <th className="text-right py-2 pr-4 text-xs uppercase tracking-widest text-[var(--muted)] font-medium">v2</th>
+                    <th className="text-right py-2 pr-4 text-xs uppercase tracking-widest text-[var(--muted)] font-medium">v3</th>
+                    <th className="text-right py-2 pr-4 text-xs uppercase tracking-widest text-[var(--muted)] font-medium">v3 wins</th>
+                    <th className="text-left py-2 text-xs uppercase tracking-widest text-[var(--muted)] font-medium">Result</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {[
+                    ["Held-out positives (100)", ".796", ".758", "45/55", "Comparable"],
+                    ["Same-category negatives (80)", ".390", ".320", "67/13", "v3 much better"],
+                    ["Training data sample (60)", ".534", ".759", "55/5", "v3 learned well"],
+                    ["Curated hard negatives (60)", ".631", ".535", "49/11", "v3 much better"],
+                    ["Novel cross-lingual (20)", ".844", ".873", "12/8", "v3 better"],
+                    ["Novel confusable neg. (10)", ".601", ".534", "8/2", "v3 better"],
+                  ].map(([suite, v2Score, v3Score, wins, result]) => (
+                    <tr key={suite} className="border-b border-[var(--border)]/50">
+                      <td className="py-2.5 pr-4 text-[var(--muted)]">{suite}</td>
+                      <td className="py-2.5 pr-4 text-right font-mono text-xs">{v2Score}</td>
+                      <td className="py-2.5 pr-4 text-right font-mono text-xs">{v3Score}</td>
+                      <td className="py-2.5 pr-4 text-right font-mono text-xs">{wins}</td>
+                      <td className="py-2.5 text-xs font-medium">{result}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+
+            <p className="text-sm leading-relaxed mb-4 max-w-2xl">
+              The critical metric is <strong>separation</strong>: the gap between average
+              positive similarity and average negative similarity on held-out data. V3
+              achieved a separation of 0.438 compared to v2&rsquo;s 0.406, confirming that
+              the new model generalizes well and is not overfitting to training data.
+            </p>
+
+            <h3 className="text-xs uppercase tracking-widest text-[var(--muted)] font-medium mb-3 mt-8">
+              Before and after: base model vs. fine-tuned
+            </h3>
+            <p className="text-sm leading-relaxed mb-4 max-w-2xl">
+              Comparing the unmodified BGE-M3 base model against the v3 fine-tune on the
+              full evaluation set shows the scale of improvement:
+            </p>
+
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-px bg-[var(--border)] border border-[var(--border)] rounded-lg overflow-hidden my-4">
               <div className="bg-[var(--card)] p-4 text-center">
-                <span className="text-2xl font-bold">26.7%</span>
-                <p className="text-xs text-[var(--muted)] mt-1">Base BGE-M3 pairs &ge; 0.8</p>
+                <span className="text-2xl font-bold">&minus;0.064</span>
+                <p className="text-xs text-[var(--muted)] mt-1">Base model separation</p>
+                <p className="text-xs text-[var(--muted)]">(negatives rated <em>higher</em> than positives)</p>
               </div>
               <div className="bg-[var(--card)] p-4 text-center">
-                <span className="text-2xl font-bold text-[var(--accent)]">91.1%</span>
-                <p className="text-xs text-[var(--muted)] mt-1">Fine-tuned pairs &ge; 0.8</p>
+                <span className="text-2xl font-bold text-[var(--accent)]">+0.292</span>
+                <p className="text-xs text-[var(--muted)] mt-1">Fine-tuned separation</p>
+                <p className="text-xs text-[var(--muted)]">(clear positive/negative gap)</p>
               </div>
               <div className="bg-[var(--card)] p-4 text-center">
-                <span className="text-2xl font-bold">+64.4%</span>
-                <p className="text-xs text-[var(--muted)] mt-1">Improvement</p>
+                <span className="text-2xl font-bold">+0.356</span>
+                <p className="text-xs text-[var(--muted)] mt-1">Total improvement</p>
+                <p className="text-xs text-[var(--muted)]">(separation swing)</p>
               </div>
+            </div>
+
+            <p className="text-sm leading-relaxed mb-4 max-w-2xl">
+              The base BGE-M3 model had <em>negative</em> separation on our data &mdash;
+              it rated confusable non-matches (canfora/canela, phrenology/phenology) higher
+              than genuine cross-lingual equivalences (c&atilde;o danado/Rabies,
+              effluvium/radiation). After fine-tuning, the model correctly separates these
+              distributions. Notable spot-check improvements include:
+            </p>
+
+            <div className="my-5 overflow-x-auto">
+              <table className="w-full text-sm border-collapse">
+                <thead>
+                  <tr className="border-b border-[var(--border)]">
+                    <th className="text-left py-2 pr-4 text-xs uppercase tracking-widest text-[var(--muted)] font-medium">Pair</th>
+                    <th className="text-left py-2 pr-4 text-xs uppercase tracking-widest text-[var(--muted)] font-medium">Type</th>
+                    <th className="text-right py-2 pr-4 text-xs uppercase tracking-widest text-[var(--muted)] font-medium">Base</th>
+                    <th className="text-right py-2 pr-4 text-xs uppercase tracking-widest text-[var(--muted)] font-medium">v3</th>
+                    <th className="text-right py-2 text-xs uppercase tracking-widest text-[var(--muted)] font-medium">\u0394</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {[
+                    ["effluvium \u2194 radiation", "Temporal concept", ".192", ".762", "+.570"],
+                    ["do\u00e7ura \u2194 sweetness", "PT\u2192EN", ".309", ".855", "+.546"],
+                    ["Dormideras \u2194 Poppy", "ES\u2192EN", ".246", ".749", "+.503"],
+                    ["c\u00e3o danado \u2194 Rabies", "PT\u2192EN", ".277", ".707", "+.431"],
+                    ["Seelenlehre \u2194 psychology", "DE\u2192EN", ".493", ".720", "+.227"],
+                    ["mesmerism \u2194 hypnosis", "Temporal concept", ".474", ".746", "+.272"],
+                    ["gengibre \u2260 genebra", "Hard negative", ".634", ".273", "\u2212.362"],
+                    ["canela \u2260 canola", "Hard negative", ".905", ".658", "\u2212.247"],
+                  ].map(([pair, type, base, v3, delta]) => (
+                    <tr key={pair} className="border-b border-[var(--border)]/50">
+                      <td className="py-2.5 pr-4 font-mono text-xs">{pair}</td>
+                      <td className="py-2.5 pr-4 text-xs text-[var(--muted)]">{type}</td>
+                      <td className="py-2.5 pr-4 text-right font-mono text-xs">{base}</td>
+                      <td className="py-2.5 pr-4 text-right font-mono text-xs">{v3}</td>
+                      <td className="py-2.5 text-right font-mono text-xs font-semibold">{delta}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
             </div>
 
             <InfoBox>
               <strong>Key insight.</strong> The fine-tuned model learns domain-specific
-              patterns invisible to general-purpose embeddings: Latin scholarly naming
-              conventions (<em>-ius</em> &rarr; <em>-o</em>, <em>-e</em>), cross-linguistic
-              botanical terminology, and early modern abbreviation practices. The biggest
-              single improvement was +0.66 on the pair &ldquo;Riverius&rdquo; / &ldquo;Lazzaro
-              Riviera.&rdquo;
+              patterns invisible to general-purpose embeddings: non-obvious conceptual
+              concordances across centuries (mesmerism &rarr; hypnosis, Falling
+              sickness &rarr; epilepsy), cross-lingual botanical and medical terminology
+              in archaic forms (c&atilde;o danado &rarr; Rabies, Dormideras &rarr; Poppy),
+              and the critical ability to <em>reject</em> surface-similar confusables
+              (gengibre &ne; genebra, canela &ne; canola, phrenology &ne; phenology). The
+              approach aligns with recent findings by Michail et al. (2025) on adapting
+              multilingual embeddings to historical Luxembourgish, which demonstrated that
+              contrastive fine-tuning with MultipleNegativesRankingLoss can improve
+              historical text retrieval accuracy by up to 43 percentage points &mdash; and
+              that training data quality matters more than base model selection.
             </InfoBox>
           </section>
 
@@ -944,7 +1127,7 @@ export default function MethodologyPage() {
 
             <div className="grid grid-cols-1 gap-px bg-[var(--border)] border border-[var(--border)] rounded-lg overflow-hidden">
               {[
-                { model: "BAAI/bge-m3 (fine-tuned)", purpose: "Cross-lingual entity matching, deduplication, concordance building", stages: "2, 4, 5", note: "Fine-tuned on ~500 historical name pairs. Open-source, runs locally." },
+                { model: "BAAI/bge-m3 (fine-tuned v3)", purpose: "Cross-lingual entity matching, deduplication, concordance building", stages: "2, 4, 5", note: "Fine-tuned on 889 curated pairs + 154 hard negatives across 5 batches. Open-source, runs locally." },
                 { model: "Gemini 2.5 Flash Lite", purpose: "Entity extraction, cluster verification, ground truth identification, semantic glosses", stages: "1, 6, 7", note: "Used for all LLM tasks. Low cost, fast, good at structured output." },
                 { model: "OpenAI text-embedding-3-small", purpose: "Semantic search index for the web interface", stages: "8", note: "512-dimensional Matryoshka embeddings. Used only for search, not matching." },
                 { model: "Wikidata API", purpose: "Entity linking, descriptions, identifiers", stages: "7", note: "Free API with domain-relevance scoring to avoid modern pop-culture matches." },

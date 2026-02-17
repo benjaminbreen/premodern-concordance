@@ -4,6 +4,12 @@ import { useEffect, useState, useMemo, useRef, useCallback } from "react";
 import Link from "next/link";
 import { CAT_HEX, CATEGORY_COLORS, CATEGORY_ORDER_STREAM as CATEGORY_ORDER } from "@/lib/colors";
 import { BOOK_SHORT_NAMES } from "@/lib/books";
+import dynamic from "next/dynamic";
+
+const GlobalKnowledgeGraph = dynamic(() => import("./GlobalKnowledgeGraph"), {
+  loading: () => <div className="h-[500px] rounded-lg border border-[var(--border)] animate-pulse bg-[var(--card)]" />,
+  ssr: false,
+});
 
 // ── Types ──────────────────────────────────────────────────────────────
 
@@ -176,8 +182,8 @@ export default function TimelinePage() {
   const [books, setBooks] = useState<BookMeta[]>([]);
   const [clusters, setClusters] = useState<Cluster[]>([]);
   const [loading, setLoading] = useState(true);
-  const [activeTab, setActiveTab] = useState<"overview" | "explore">(
-    "overview"
+  const [activeTab, setActiveTab] = useState<"timeline" | "explore" | "knowledge-graph">(
+    "timeline"
   );
 
   // Overview state
@@ -205,13 +211,14 @@ export default function TimelinePage() {
     const tab = params.get("tab");
     const cat = params.get("category");
     if (tab === "explore") setActiveTab("explore");
+    if (tab === "knowledge-graph") setActiveTab("knowledge-graph");
     if (cat) setHighlightedCategory(cat);
   }, []);
 
   // Sync tab and category filter to URL
   useEffect(() => {
     const url = new URL(window.location.href);
-    if (activeTab !== "overview") {
+    if (activeTab !== "timeline") {
       url.searchParams.set("tab", activeTab);
     } else {
       url.searchParams.delete("tab");
@@ -669,7 +676,7 @@ export default function TimelinePage() {
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
       {/* Header */}
       <div className="mb-8 animate-fade-up delay-0">
-        <h1 className="text-3xl font-bold mb-2">Timeline</h1>
+        <h1 className="text-3xl font-bold mb-2">Visualize</h1>
         <p className="text-[var(--muted)] max-w-2xl">
           {sortedBooks.length} texts across{" "}
           {maxYear - minYear > 0
@@ -682,7 +689,7 @@ export default function TimelinePage() {
 
       {/* Tab switcher */}
       <div className="flex items-center gap-1 p-1 rounded-lg bg-[var(--border)]/50 w-fit mb-8 animate-fade-up delay-1">
-        {(["overview", "explore"] as const).map((tab) => (
+        {(["timeline", "explore", "knowledge-graph"] as const).map((tab) => (
           <button
             key={tab}
             onClick={() => setActiveTab(tab)}
@@ -692,13 +699,13 @@ export default function TimelinePage() {
                 : "text-[var(--muted)] hover:text-[var(--foreground)]"
             }`}
           >
-            {tab === "overview" ? "Overview" : "Explore"}
+            {tab === "timeline" ? "Timeline" : tab === "explore" ? "Explore" : "Knowledge Graph"}
           </button>
         ))}
       </div>
 
-      {/* ═══════════════ TAB 1: OVERVIEW ═══════════════ */}
-      {activeTab === "overview" && (
+      {/* ═══════════════ TAB 1: TIMELINE ═══════════════ */}
+      {activeTab === "timeline" && (
         <div className="animate-fade-up delay-2">
           {/* Legend + view mode toggle */}
           <div className="flex flex-wrap items-center gap-x-4 gap-y-1.5 mb-4">
@@ -1808,6 +1815,13 @@ export default function TimelinePage() {
               </table>
             </div>
           )}
+        </div>
+      )}
+
+      {/* ═══════════════ TAB 3: KNOWLEDGE GRAPH ═══════════════ */}
+      {activeTab === "knowledge-graph" && (
+        <div className="animate-fade-up delay-2">
+          <GlobalKnowledgeGraph books={sortedBooks} />
         </div>
       )}
     </div>

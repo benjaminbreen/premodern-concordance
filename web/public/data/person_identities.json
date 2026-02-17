@@ -15,14 +15,13 @@
     "confidence": 73,
     "source": "curated"
   },
-  "galeno": {
-    "name": "Galen",
-    "wikipedia_slug": "Galen",
-    "description": "Greek physician, surgeon, and philosopher (c. 129–216 AD)",
-    "thumbnail": "galen.jpg",
-    "confidence": 73,
-    "source": "curated",
-    "alias_of": "galen"
+  "dioscorides": {
+    "name": "Dioscorides",
+    "wikipedia_slug": "Dioscorides",
+    "description": "Greco-Roman physician and pharmacologist, prominent writer on plant drugs (AD c.40–90)",
+    "thumbnail": "dioscorides.jpg",
+    "confidence": 89,
+    "source": "curated"
   },
   "ruano": {
     "name": "Ruano",
@@ -32,23 +31,6 @@
     "confidence": 33,
     "source": "search"
   },
-  "dioscorides": {
-    "name": "Dioscorides",
-    "wikipedia_slug": "Dioscorides",
-    "description": "Greco-Roman physician and pharmacologist, prominent writer on plant drugs (AD c.40–90)",
-    "thumbnail": "dioscorides.jpg",
-    "confidence": 89,
-    "source": "curated"
-  },
-  "dioscoride": {
-    "name": "Dioscorides",
-    "wikipedia_slug": "Dioscorides",
-    "description": "Greco-Roman physician and pharmacologist, prominent writer on plant drugs (AD c.40–90)",
-    "thumbnail": "dioscorides.jpg",
-    "confidence": 89,
-    "source": "curated",
-    "alias_of": "dioscorides"
-  },
   "hippocrates": {
     "name": "Hippocrates",
     "wikipedia_slug": "Hippocrates",
@@ -56,24 +38,6 @@
     "thumbnail": "hippocrates.jpg",
     "confidence": 68,
     "source": "curated"
-  },
-  "hyppocrates": {
-    "name": "Hippocrates",
-    "wikipedia_slug": "Hippocrates",
-    "description": "Ancient Greek physician (c. 460 – c. 370 BCE)",
-    "thumbnail": "hippocrates.jpg",
-    "confidence": 68,
-    "source": "curated",
-    "alias_of": "hippocrates"
-  },
-  "hippocrate": {
-    "name": "Hippocrates",
-    "wikipedia_slug": "Hippocrates",
-    "description": "Ancient Greek physician (c. 460 – c. 370 BCE)",
-    "thumbnail": "hippocrates.jpg",
-    "confidence": 68,
-    "source": "curated",
-    "alias_of": "hippocrates"
   },
   "jonstonus": {
     "name": "John Jonston",
@@ -92,23 +56,31 @@
     "source": "curated",
     "alias_of": "avicenna"
   },
-  "auicena": {
-    "name": "Avicenna",
-    "wikipedia_slug": "Avicenna",
-    "description": "Persian polymath, physician and philosopher (c. 980–1037)",
-    "thumbnail": "avicenna.jpg",
-    "confidence": 68,
+  "galeno": {
+    "name": "Galen",
+    "wikipedia_slug": "Galen",
+    "description": "Greek physician, surgeon, and philosopher (c. 129–216 AD)",
+    "thumbnail": "galen.jpg",
+    "confidence": 73,
     "source": "curated",
-    "alias_of": "avicenna"
+    "alias_of": "galen"
   },
-  "auicenna": {
-    "name": "Avicenna",
-    "wikipedia_slug": "Avicenna",
-    "description": "Persian polymath, physician and philosopher (c. 980–1037)",
-    "thumbnail": "avicenna.jpg",
-    "confidence": 68,
+  "humboldt": {
+    "name": "Alexander von Humboldt",
+    "wikipedia_slug": "Alexander_von_Humboldt",
+    "description": "German polymath (1769–1859)",
+    "thumbnail": "humboldt.jpg",
+    "confidence": 78,
     "source": "curated",
-    "alias_of": "avicenna"
+    "thumbnail_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/Stieler%2C_Joseph_Karl_-_Alexander_von_Humboldt_-_1843.jpg/330px-Stieler%2C_Joseph_Karl_-_Alexander_von_Humboldt_-_1843.jpg"
+  },
+  "herschel": {
+    "name": "John Herschel",
+    "wikipedia_slug": "John_Herschel",
+    "description": "English polymath (1792–1871)",
+    "thumbnail": "herschel.jpg",
+    "confidence": 67,
+    "source": "curated"
   },
   "domingos": {
     "name": "São Domingos",
@@ -151,14 +123,14 @@
     "confidence": 68,
     "source": "curated"
   },
-  "serapione": {
-    "name": "Serapion the Younger",
-    "wikipedia_slug": "Serapion_the_Younger",
-    "description": "Medieval physician",
-    "thumbnail": "serapio.jpg",
-    "confidence": 68,
+  "arago": {
+    "name": "François Arago",
+    "wikipedia_slug": "François_Arago",
+    "description": "French physicist and astronomer (1786–1853)",
+    "thumbnail": "arago.jpg",
+    "confidence": 67,
     "source": "curated",
-    "alias_of": "serapio"
+    "thumbnail_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/Fran%C3%A7ois_Arago_by_Carl_von_Steuben.jpg/330px-Fran%C3%A7ois_Arago_by_Carl_von_Steuben.jpg"
   },
   "bonet": {
     "name": "Bonet",
@@ -216,6 +188,14 @@
     "confidence": 37,
     "source": "search"
   },
+  "pliny": {
+    "name": "Pliny the Elder",
+    "wikipedia_slug": "Pliny_the_Elder",
+    "description": "1st-century Roman military commander and writer",
+    "thumbnail": "pliny.jpg",
+    "confidence": 89,
+    "source": "curated"
+  },
   "barros": {
     "name": "João de Barros",
     "wikipedia_slug": "João_de_Barros",
@@ -231,6 +211,15 @@
     "thumbnail": "fernelius.jpg",
     "confidence": 29,
     "source": "curated"
+  },
+  "boussingault": {
+    "name": "Jean-Baptiste Boussingault",
+    "wikipedia_slug": "Jean-Baptiste_Boussingault",
+    "description": "French chemist (1801–1887)",
+    "thumbnail": "boussingault.jpg",
+    "confidence": 51,
+    "source": "curated",
+    "thumbnail_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Jean_Baptiste_JD_Boussingault.jpg/330px-Jean_Baptiste_JD_Boussingault.jpg"
   },
   "wundt": {
     "name": "Wilhelm Wundt",
@@ -256,6 +245,32 @@
     "confidence": 49,
     "source": "curated"
   },
+  "aristotle": {
+    "name": "Aristotle",
+    "wikipedia_slug": "Aristotle",
+    "description": "Ancient Greek philosopher and polymath (384–322 BC)",
+    "thumbnail": "aristotle.jpg",
+    "confidence": 57,
+    "source": "curated"
+  },
+  "dioscoride": {
+    "name": "Dioscorides",
+    "wikipedia_slug": "Dioscorides",
+    "description": "Greco-Roman physician and pharmacologist, prominent writer on plant drugs (AD c.40–90)",
+    "thumbnail": "dioscorides.jpg",
+    "confidence": 89,
+    "source": "curated",
+    "alias_of": "dioscorides"
+  },
+  "buch": {
+    "name": "Christian Leopold von Buch",
+    "wikipedia_slug": "Christian_Leopold_von_Buch",
+    "description": "German geologist (1774–1853)",
+    "thumbnail": null,
+    "confidence": 62,
+    "source": "curated",
+    "thumbnail_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/Leopold_von_Buch_btv1b105009064_%28cropped%29.jpg/330px-Leopold_von_Buch_btv1b105009064_%28cropped%29.jpg"
+  },
   "monardes": {
     "name": "Nicolás Monardes",
     "wikipedia_slug": "Nicolás_Monardes",
@@ -264,32 +279,13 @@
     "confidence": 62,
     "source": "curated"
   },
-  "monardeslu": {
-    "name": "Nicolás Monardes",
-    "wikipedia_slug": "Nicolás_Monardes",
-    "description": "Spanish botanist of the 16th century",
-    "thumbnail": "monardes.png",
-    "confidence": 62,
-    "source": "curated",
-    "alias_of": "monardes"
-  },
-  "menardes": {
-    "name": "Nicolás Monardes",
-    "wikipedia_slug": "Nicolás_Monardes",
-    "description": "Spanish botanist of the 16th century",
-    "thumbnail": "monardes.png",
-    "confidence": 62,
-    "source": "curated",
-    "alias_of": "monardes"
-  },
-  "boussingault": {
-    "name": "Jean-Baptiste Boussingault",
-    "wikipedia_slug": "Jean-Baptiste_Boussingault",
-    "description": "French chemist (1801–1887)",
-    "thumbnail": "boussingault.jpg",
-    "confidence": 51,
-    "source": "curated",
-    "thumbnail_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Jean_Baptiste_JD_Boussingault.jpg/330px-Jean_Baptiste_JD_Boussingault.jpg"
+  "faraday": {
+    "name": "Michael Faraday",
+    "wikipedia_slug": "Michael_Faraday",
+    "description": "English chemist and physicist (1791–1867)",
+    "thumbnail": "faraday.jpg",
+    "confidence": 67,
+    "source": "curated"
   },
   "mill": {
     "name": "John Stuart Mill",
@@ -303,11 +299,11 @@
     "name": "Paul of Aegina",
     "wikipedia_slug": "Paul_of_Aegina",
     "description": "7th-century Byzantine physician",
-    "thumbnail": "ægineta.jpg",
+    "thumbnail": null,
     "confidence": 32,
     "source": "curated",
-    "alias_of": "aegineta",
-    "thumbnail_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b3/Paulus_Aegineta_initial.jpg/330px-Paulus_Aegineta_initial.jpg"
+    "thumbnail_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b3/Paulus_Aegineta_initial.jpg/330px-Paulus_Aegineta_initial.jpg",
+    "alias_of": "aegineta"
   },
   "bartholinus": {
     "name": "Caspar Bartholin the Elder",
@@ -317,6 +313,14 @@
     "confidence": 42,
     "source": "search",
     "thumbnail_url": "https://upload.wikimedia.org/wikipedia/commons/3/3d/Caspar_Bartholin_den_%C3%A6ldre.jpg"
+  },
+  "newton": {
+    "name": "Isaac Newton",
+    "wikipedia_slug": "Isaac_Newton",
+    "description": "English polymath (1642–1727)",
+    "thumbnail": "newton.jpg",
+    "confidence": 100,
+    "source": "curated"
   },
   "schah": {
     "name": "Shah",
@@ -344,15 +348,6 @@
     "source": "curated",
     "thumbnail_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/SVE_0056.2000.S.jpeg/330px-SVE_0056.2000.S.jpeg"
   },
-  "humboldt": {
-    "name": "Alexander von Humboldt",
-    "wikipedia_slug": "Alexander_von_Humboldt",
-    "description": "German polymath (1769–1859)",
-    "thumbnail": "humboldt.jpg",
-    "confidence": 78,
-    "source": "curated",
-    "thumbnail_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/Stieler%2C_Joseph_Karl_-_Alexander_von_Humboldt_-_1843.jpg/330px-Stieler%2C_Joseph_Karl_-_Alexander_von_Humboldt_-_1843.jpg"
-  },
   "polo": {
     "name": "Marco Polo",
     "wikipedia_slug": "Marco_Polo",
@@ -371,6 +366,15 @@
     "source": "curated",
     "thumbnail_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cc/Antonius_Musa._Bistre_wash_with_pencil_underdrawing._Wellcome_V0004186.jpg/330px-Antonius_Musa._Bistre_wash_with_pencil_underdrawing._Wellcome_V0004186.jpg"
   },
+  "lyell": {
+    "name": "Charles Lyell",
+    "wikipedia_slug": "Charles_Lyell",
+    "description": "Scottish geologist (1797–1875)",
+    "thumbnail": "lyell.jpg",
+    "confidence": 67,
+    "source": "curated",
+    "thumbnail_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/Charles_Lyell00.jpg/330px-Charles_Lyell00.jpg"
+  },
   "couto": {
     "name": "Diogo do Couto",
     "wikipedia_slug": "Diogo_do_Couto",
@@ -388,6 +392,14 @@
     "confidence": 67,
     "source": "search",
     "thumbnail_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fc/Portrait_of_Doctor_Abraham_Zacutus.jpg/330px-Portrait_of_Doctor_Abraham_Zacutus.jpg"
+  },
+  "bessel": {
+    "name": "Friedrich Wilhelm Bessel",
+    "wikipedia_slug": "Friedrich_Wilhelm_Bessel",
+    "description": "German astronomer and mathematician (1784–1846)",
+    "thumbnail": "bessel.jpg",
+    "confidence": 75,
+    "source": "curated"
   },
   "linn": {
     "name": "Carl Linnaeus",
@@ -414,25 +426,14 @@
     "source": "direct",
     "thumbnail_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Mesue_-_De_consolatione_medicinarum%2C_anno_MCCCCLXXV_die_vigesima_quinta_mensis_iunii_-_2411513.tif/lossy-page1-330px-Mesue_-_De_consolatione_medicinarum%2C_anno_MCCCCLXXV_die_vigesima_quinta_mensis_iunii_-_2411513.tif.jpg"
   },
-  "mefue": {
-    "name": "Masawaiyh",
-    "wikipedia_slug": "Masawaiyh",
-    "description": "Persian physician",
+  "sabine": {
+    "name": "Sabines",
+    "wikipedia_slug": "Sabines",
+    "description": "Ancient Italic people",
     "thumbnail": null,
-    "confidence": 43,
+    "confidence": 38,
     "source": "direct",
-    "alias_of": "mesue",
-    "thumbnail_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Mesue_-_De_consolatione_medicinarum%2C_anno_MCCCCLXXV_die_vigesima_quinta_mensis_iunii_-_2411513.tif/lossy-page1-330px-Mesue_-_De_consolatione_medicinarum%2C_anno_MCCCCLXXV_die_vigesima_quinta_mensis_iunii_-_2411513.tif.jpg"
-  },
-  "mefuc": {
-    "name": "Masawaiyh",
-    "wikipedia_slug": "Masawaiyh",
-    "description": "Persian physician",
-    "thumbnail": null,
-    "confidence": 43,
-    "source": "direct",
-    "alias_of": "mesue",
-    "thumbnail_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Mesue_-_De_consolatione_medicinarum%2C_anno_MCCCCLXXV_die_vigesima_quinta_mensis_iunii_-_2411513.tif/lossy-page1-330px-Mesue_-_De_consolatione_medicinarum%2C_anno_MCCCCLXXV_die_vigesima_quinta_mensis_iunii_-_2411513.tif.jpg"
+    "thumbnail_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b3/Latium_-5th_Century_map-en.svg/330px-Latium_-5th_Century_map-en.svg.png"
   },
   "sprengel": {
     "name": "Kurt Polycarp Joachim Sprengel",
@@ -459,6 +460,15 @@
     "confidence": 40,
     "source": "curated",
     "thumbnail_url": "https://upload.wikimedia.org/wikipedia/commons/0/04/Aetius_Amideni_%28502-575%29.png"
+  },
+  "helmholtz": {
+    "name": "Hermann von Helmholtz",
+    "wikipedia_slug": "Hermann_von_Helmholtz",
+    "description": "German physicist and physiologist (1821–1894)",
+    "thumbnail": "helmholtz.jpg",
+    "confidence": 67,
+    "source": "curated",
+    "thumbnail_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c7/Hermann_von_Helmholtz.jpg/330px-Hermann_von_Helmholtz.jpg"
   },
   "locke": {
     "name": "John Locke",
@@ -518,15 +528,6 @@
     "confidence": 52,
     "source": "curated"
   },
-  "lulitana": {
-    "name": "Amatus Lusitanus",
-    "wikipedia_slug": "Amatus_Lusitanus",
-    "description": "Portuguese physician (1511–1568)",
-    "thumbnail": null,
-    "confidence": 52,
-    "source": "curated",
-    "alias_of": "lusitanus"
-  },
   "arronches": {
     "name": "Luís de Meneses, 3rd Count of Ericeira",
     "wikipedia_slug": "Luís_de_Meneses,_3rd_Count_of_Ericeira",
@@ -552,26 +553,6 @@
     "thumbnail": null,
     "confidence": 67,
     "source": "curated",
-    "thumbnail_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/ba/%D8%B2%DA%A9%D8%B1%DB%8C%D8%A7%DB%8C_%D8%B1%D8%A7%D8%B2%DB%8C_%D8%A7%D8%AB%D8%B1_%D8%AD%D8%B3%DB%8C%D9%86_%D8%A8%D9%87%D8%B2%D8%A7%D8%AF_%28cropped%29.jpg/330px-%D8%B2%DA%A9%D8%B1%DB%8C%D8%A7%DB%8C_%D8%B1%D8%A7%D8%B2%DB%8C_%D8%A7%D8%AB%D8%B1_%D8%AD%D8%B3%DB%8C%D9%86_%D8%A8%D9%87%D8%B2%D8%A7%D8%AF_%28cropped%29.jpg"
-  },
-  "rhafis": {
-    "name": "Abu Bakr al-Razi",
-    "wikipedia_slug": "Abu_Bakr_al-Razi",
-    "description": "10th-century Iranian physician and polymath",
-    "thumbnail": null,
-    "confidence": 67,
-    "source": "curated",
-    "alias_of": "rasis",
-    "thumbnail_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/ba/%D8%B2%DA%A9%D8%B1%DB%8C%D8%A7%DB%8C_%D8%B1%D8%A7%D8%B2%DB%8C_%D8%A7%D8%AB%D8%B1_%D8%AD%D8%B3%DB%8C%D9%86_%D8%A8%D9%87%D8%B2%D8%A7%D8%AF_%28cropped%29.jpg/330px-%D8%B2%DA%A9%D8%B1%DB%8C%D8%A7%DB%8C_%D8%B1%D8%A7%D8%B2%DB%8C_%D8%A7%D8%AB%D8%B1_%D8%AD%D8%B3%DB%8C%D9%86_%D8%A8%D9%87%D8%B2%D8%A7%D8%AF_%28cropped%29.jpg"
-  },
-  "rafis": {
-    "name": "Abu Bakr al-Razi",
-    "wikipedia_slug": "Abu_Bakr_al-Razi",
-    "description": "10th-century Iranian physician and polymath",
-    "thumbnail": null,
-    "confidence": 67,
-    "source": "curated",
-    "alias_of": "rasis",
     "thumbnail_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/ba/%D8%B2%DA%A9%D8%B1%DB%8C%D8%A7%DB%8C_%D8%B1%D8%A7%D8%B2%DB%8C_%D8%A7%D8%AB%D8%B1_%D8%AD%D8%B3%DB%8C%D9%86_%D8%A8%D9%87%D8%B2%D8%A7%D8%AF_%28cropped%29.jpg/330px-%D8%B2%DA%A9%D8%B1%DB%8C%D8%A7%DB%8C_%D8%B1%D8%A7%D8%B2%DB%8C_%D8%A7%D8%AB%D8%B1_%D8%AD%D8%B3%DB%8C%D9%86_%D8%A8%D9%87%D8%B2%D8%A7%D8%AF_%28cropped%29.jpg"
   },
   "herera": {
@@ -609,15 +590,6 @@
     "source": "curated",
     "thumbnail_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/PietervanForeest.JPG/330px-PietervanForeest.JPG"
   },
-  "arago": {
-    "name": "François Arago",
-    "wikipedia_slug": "François_Arago",
-    "description": "French physicist and astronomer (1786–1853)",
-    "thumbnail": "arago.jpg",
-    "confidence": 67,
-    "source": "curated",
-    "thumbnail_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/Fran%C3%A7ois_Arago_by_Carl_von_Steuben.jpg/330px-Fran%C3%A7ois_Arago_by_Carl_von_Steuben.jpg"
-  },
   "bauza": {
     "name": "Bauza",
     "wikipedia_slug": "Bauza",
@@ -635,15 +607,6 @@
     "source": "curated",
     "thumbnail_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/Siegmund_Exner2.jpg/330px-Siegmund_Exner2.jpg"
   },
-  "helmholtz": {
-    "name": "Hermann von Helmholtz",
-    "wikipedia_slug": "Hermann_von_Helmholtz",
-    "description": "German physicist and physiologist (1821–1894)",
-    "thumbnail": "helmholtz.jpg",
-    "confidence": 67,
-    "source": "curated",
-    "thumbnail_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c7/Hermann_von_Helmholtz.jpg/330px-Hermann_von_Helmholtz.jpg"
-  },
   "camoes": {
     "name": "Luís de Camões",
     "wikipedia_slug": "Luís_de_Camões",
@@ -652,6 +615,14 @@
     "confidence": 35,
     "source": "curated",
     "thumbnail_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Cam%C3%B5es%2C_por_Fern%C3%A3o_Gomes.jpg/330px-Cam%C3%B5es%2C_por_Fern%C3%A3o_Gomes.jpg"
+  },
+  "fahrenheit": {
+    "name": "Daniel Gabriel Fahrenheit",
+    "wikipedia_slug": "Daniel_Gabriel_Fahrenheit",
+    "description": "Physicist and engineer (1686–1736)",
+    "thumbnail": "fahrenheit.jpg",
+    "confidence": 59,
+    "source": "curated"
   },
   "oltmanns": {
     "name": "Oltmanns",
@@ -669,14 +640,14 @@
     "confidence": 25,
     "source": "direct"
   },
-  "sabine": {
-    "name": "Sabines",
-    "wikipedia_slug": "Sabines",
-    "description": "Ancient Italic people",
+  "hamilton": {
+    "name": "Sir William Hamilton, 9th Baronet",
+    "wikipedia_slug": "Sir_William_Hamilton,_9th_Baronet",
+    "description": "Scottish metaphysician (1788–1856)",
     "thumbnail": null,
-    "confidence": 38,
-    "source": "direct",
-    "thumbnail_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b3/Latium_-5th_Century_map-en.svg/330px-Latium_-5th_Century_map-en.svg.png"
+    "confidence": 51,
+    "source": "curated",
+    "thumbnail_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/William_Hamilton_b1788.jpg/330px-William_Hamilton_b1788.jpg"
   },
   "ramusio": {
     "name": "Giovanni Battista Ramusio",
@@ -686,6 +657,16 @@
     "confidence": 59,
     "source": "curated",
     "thumbnail_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Giovambattista_Ramusio_%28cropped%29.jpg/330px-Giovambattista_Ramusio_%28cropped%29.jpg"
+  },
+  "rhafis": {
+    "name": "Abu Bakr al-Razi",
+    "wikipedia_slug": "Abu_Bakr_al-Razi",
+    "description": "10th-century Iranian physician and polymath",
+    "thumbnail": null,
+    "confidence": 67,
+    "source": "curated",
+    "thumbnail_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/ba/%D8%B2%DA%A9%D8%B1%DB%8C%D8%A7%DB%8C_%D8%B1%D8%A7%D8%B2%DB%8C_%D8%A7%D8%AB%D8%B1_%D8%AD%D8%B3%DB%8C%D9%86_%D8%A8%D9%87%D8%B2%D8%A7%D8%AF_%28cropped%29.jpg/330px-%D8%B2%DA%A9%D8%B1%DB%8C%D8%A7%DB%8C_%D8%B1%D8%A7%D8%B2%DB%8C_%D8%A7%D8%AB%D8%B1_%D8%AD%D8%B3%DB%8C%D9%86_%D8%A8%D9%87%D8%B2%D8%A7%D8%AF_%28cropped%29.jpg",
+    "alias_of": "rasis"
   },
   "hodgson": {
     "name": "Shadworth Hodgson",
@@ -704,6 +685,22 @@
     "source": "curated",
     "thumbnail_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/14/Photo_of_Pierre_Janet.jpg/330px-Photo_of_Pierre_Janet.jpg"
   },
+  "kant": {
+    "name": "Immanuel Kant",
+    "wikipedia_slug": "Immanuel_Kant",
+    "description": "German philosopher (1724–1804)",
+    "thumbnail": "kant.jpg",
+    "confidence": 67,
+    "source": "curated"
+  },
+  "biot": {
+    "name": "Jean-Baptiste Biot",
+    "wikipedia_slug": "Jean-Baptiste_Biot",
+    "description": "French physicist (1774–1862)",
+    "thumbnail": "biot.jpg",
+    "confidence": 75,
+    "source": "curated"
+  },
   "macudi": {
     "name": "Al-Masudi",
     "wikipedia_slug": "Al-Masudi",
@@ -716,21 +713,11 @@
     "name": "Theophrastus",
     "wikipedia_slug": "Theophrastus",
     "description": "Greek philosopher (c. 371 – c. 287 BC)",
-    "thumbnail": null,
+    "thumbnail": "theophrastus.jpg",
     "confidence": 73,
     "source": "curated",
-    "alias_of": "theophrastus",
-    "thumbnail_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Teofrasto_Orto_botanico_detail.jpg/330px-Teofrasto_Orto_botanico_detail.jpg"
-  },
-  "theophrasto": {
-    "name": "Theophrastus",
-    "wikipedia_slug": "Theophrastus",
-    "description": "Greek philosopher (c. 371 – c. 287 BC)",
-    "thumbnail": null,
-    "confidence": 73,
-    "source": "curated",
-    "alias_of": "theophrastus",
-    "thumbnail_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Teofrasto_Orto_botanico_detail.jpg/330px-Teofrasto_Orto_botanico_detail.jpg"
+    "thumbnail_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Teofrasto_Orto_botanico_detail.jpg/330px-Teofrasto_Orto_botanico_detail.jpg",
+    "alias_of": "theophrastus"
   },
   "mercado": {
     "name": "Mercado",
@@ -740,14 +727,13 @@
     "confidence": 25,
     "source": "direct"
   },
-  "lyell": {
-    "name": "Charles Lyell",
-    "wikipedia_slug": "Charles_Lyell",
-    "description": "Scottish geologist (1797–1875)",
-    "thumbnail": "lyell.jpg",
-    "confidence": 67,
-    "source": "curated",
-    "thumbnail_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/Charles_Lyell00.jpg/330px-Charles_Lyell00.jpg"
+  "encke": {
+    "name": "Johann Franz Encke",
+    "wikipedia_slug": "Johann_Franz_Encke",
+    "description": "German astronomer (1791–1865)",
+    "thumbnail": "encke.jpg",
+    "confidence": 51,
+    "source": "curated"
   },
   "bonpland": {
     "name": "Aimé Bonpland",
@@ -766,6 +752,14 @@
     "confidence": 51,
     "source": "curated",
     "thumbnail_url": "https://upload.wikimedia.org/wikipedia/en/thumb/2/2b/Lotze_Falckenberg1901.jpg/330px-Lotze_Falckenberg1901.jpg"
+  },
+  "laplace": {
+    "name": "Pierre-Simon Laplace",
+    "wikipedia_slug": "Pierre-Simon_Laplace",
+    "description": "French polymath (1749–1827)",
+    "thumbnail": "laplace.jpg",
+    "confidence": 54,
+    "source": "curated"
   },
   "ruelio": {
     "name": "Colloquies on the Simples and Drugs of India",
@@ -789,21 +783,45 @@
     "name": "Averroes",
     "wikipedia_slug": "Averroes",
     "description": "Andalusian Muslim polymath (1126–1198)",
-    "thumbnail": null,
+    "thumbnail": "averrois.jpg",
     "confidence": 29,
     "source": "curated",
-    "alias_of": "averrois",
-    "thumbnail_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Andrea_di_bonaiuto%2C_apotesosi_di_san_tommaso_d%27aquino%2C_11_averro%C3%A8.jpg/330px-Andrea_di_bonaiuto%2C_apotesosi_di_san_tommaso_d%27aquino%2C_11_averro%C3%A8.jpg"
+    "thumbnail_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Andrea_di_bonaiuto%2C_apotesosi_di_san_tommaso_d%27aquino%2C_11_averro%C3%A8.jpg/330px-Andrea_di_bonaiuto%2C_apotesosi_di_san_tommaso_d%27aquino%2C_11_averro%C3%A8.jpg",
+    "alias_of": "averrois"
   },
-  "auerrois": {
-    "name": "Averroes",
-    "wikipedia_slug": "Averroes",
-    "description": "Andalusian Muslim polymath (1126–1198)",
-    "thumbnail": null,
-    "confidence": 29,
+  "vidus": {
+    "name": "Vidus Vidius",
+    "wikipedia_slug": "Vidus_Vidius",
+    "description": "Italian surgeon and anatomist",
+    "thumbnail": "vidus.jpg",
+    "confidence": 59,
+    "source": "curated"
+  },
+  "borelus": {
+    "name": "Pierre Borel",
+    "wikipedia_slug": "Pierre_Borel",
+    "description": "French chemist, alchemist, physician, and botanist (1620–1671)",
+    "thumbnail": "borelus.jpg",
+    "confidence": 50,
+    "source": "curated"
+  },
+  "forbes": {
+    "name": "Edward Forbes",
+    "wikipedia_slug": "Edward_Forbes",
+    "description": "Manx naturalist (1815–1854)",
+    "thumbnail": "forbes.jpg",
+    "confidence": 51,
     "source": "curated",
-    "alias_of": "averrois",
-    "thumbnail_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Andrea_di_bonaiuto%2C_apotesosi_di_san_tommaso_d%27aquino%2C_11_averro%C3%A8.jpg/330px-Andrea_di_bonaiuto%2C_apotesosi_di_san_tommaso_d%27aquino%2C_11_averro%C3%A8.jpg"
+    "thumbnail_url": "https://upload.wikimedia.org/wikipedia/commons/2/21/Edward_Forbes.jpg"
+  },
+  "muller": {
+    "name": "Fritz Müller",
+    "wikipedia_slug": "Fritz_Müller",
+    "description": "German-Brazilian biologist (1822–1897)",
+    "thumbnail": null,
+    "confidence": 59,
+    "source": "curated",
+    "thumbnail_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/39/Dr._Fritz_M%C3%BCller_1892.jpg/330px-Dr._Fritz_M%C3%BCller_1892.jpg"
   },
   "goltz": {
     "name": "Friedrich Goltz",
@@ -813,14 +831,6 @@
     "confidence": 59,
     "source": "curated",
     "thumbnail_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/Goltz.jpg/330px-Goltz.jpg"
-  },
-  "kant": {
-    "name": "Immanuel Kant",
-    "wikipedia_slug": "Immanuel_Kant",
-    "description": "German philosopher (1724–1804)",
-    "thumbnail": "kant.jpg",
-    "confidence": 67,
-    "source": "curated"
   },
   "fechner": {
     "name": "Gustav Fechner",
@@ -848,6 +858,14 @@
     "confidence": 25,
     "source": "direct"
   },
+  "vanelmonte": {
+    "name": "Jan Baptist van Helmont",
+    "wikipedia_slug": "Jan_Baptist_van_Helmont",
+    "description": "Chemist and physician (1580–1644)",
+    "thumbnail": "vanelmonte.jpg",
+    "confidence": 42,
+    "source": "curated"
+  },
   "fonseca": {
     "name": "Fonseca",
     "wikipedia_slug": "Fonseca",
@@ -856,6 +874,22 @@
     "confidence": 25,
     "source": "direct"
   },
+  "kepler": {
+    "name": "Johannes Kepler",
+    "wikipedia_slug": "Johannes_Kepler",
+    "description": "German astronomer and mathematician (1571–1630)",
+    "thumbnail": "kepler.jpg",
+    "confidence": 70,
+    "source": "curated"
+  },
+  "fliickiger": {
+    "name": "Friedrich August Flückiger",
+    "wikipedia_slug": "Friedrich_August_Flückiger",
+    "description": "Swiss pharmacist, chemist and botanist (1828–1894)",
+    "thumbnail": "fliickiger.jpg",
+    "confidence": 50,
+    "source": "curated"
+  },
   "costa": {
     "name": "Costa",
     "wikipedia_slug": "Costa",
@@ -863,6 +897,14 @@
     "thumbnail": null,
     "confidence": 25,
     "source": "direct"
+  },
+  "brewster": {
+    "name": "David Brewster",
+    "wikipedia_slug": "David_Brewster",
+    "description": "British astronomer and mathematician (1781–1868)",
+    "thumbnail": null,
+    "confidence": 83,
+    "source": "curated"
   },
   "hooker": {
     "name": "Joseph Dalton Hooker",
@@ -873,14 +915,21 @@
     "source": "curated",
     "thumbnail_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/32/Joseph_Dalton_Hooker_NLM3.jpg/330px-Joseph_Dalton_Hooker_NLM3.jpg"
   },
-  "buch": {
-    "name": "Christian Leopold von Buch",
-    "wikipedia_slug": "Christian_Leopold_von_Buch",
-    "description": "German geologist (1774–1853)",
-    "thumbnail": null,
+  "cuvier": {
+    "name": "Georges Cuvier",
+    "wikipedia_slug": "Georges_Cuvier",
+    "description": "French paleontologist (1769–1832)",
+    "thumbnail": "cuvier.png",
     "confidence": 62,
-    "source": "curated",
-    "thumbnail_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/Leopold_von_Buch_btv1b105009064_%28cropped%29.jpg/330px-Leopold_von_Buch_btv1b105009064_%28cropped%29.jpg"
+    "source": "curated"
+  },
+  "rose": {
+    "name": "Gustav Rose",
+    "wikipedia_slug": "Gustav_Rose",
+    "description": "German mineralogist (1798–1873)",
+    "thumbnail": "rose.jpg",
+    "confidence": 43,
+    "source": "curated"
   },
   "manuel": {
     "name": "Manuel I of Portugal",
@@ -899,6 +948,16 @@
     "source": "curated",
     "thumbnail_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Retrato_de_Afonso_de_Albuquerque_%28ap%C3%B3s_1545%29_-_Autor_desconhecido.png/330px-Retrato_de_Afonso_de_Albuquerque_%28ap%C3%B3s_1545%29_-_Autor_desconhecido.png"
   },
+  "theophrasto": {
+    "name": "Theophrastus",
+    "wikipedia_slug": "Theophrastus",
+    "description": "Greek philosopher (c. 371 – c. 287 BC)",
+    "thumbnail": "theophrastus.jpg",
+    "confidence": 73,
+    "source": "curated",
+    "thumbnail_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Teofrasto_Orto_botanico_detail.jpg/330px-Teofrasto_Orto_botanico_detail.jpg",
+    "alias_of": "theophrastus"
+  },
   "thomas": {
     "name": "Antonio Thomas",
     "wikipedia_slug": "Antonio_Thomas",
@@ -907,12 +966,12 @@
     "confidence": 36,
     "source": "direct"
   },
-  "pliny": {
-    "name": "Pliny the Elder",
-    "wikipedia_slug": "Pliny_the_Elder",
-    "description": "1st-century Roman military commander and writer",
-    "thumbnail": "pliny.jpg",
-    "confidence": 89,
+  "place": {
+    "name": "Pierre-Simon Laplace",
+    "wikipedia_slug": "Pierre-Simon_Laplace",
+    "description": "French polymath (1749–1827)",
+    "thumbnail": "place.jpg",
+    "confidence": 54,
     "source": "curated"
   },
   "fidalgo": {
@@ -923,6 +982,38 @@
     "confidence": 46,
     "source": "direct",
     "thumbnail_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/28/16th-century_unknown_painters_-_Young_Nobleman_-_WGA24042.jpg/330px-16th-century_unknown_painters_-_Young_Nobleman_-_WGA24042.jpg"
+  },
+  "daubeney": {
+    "name": "Charles Daubeny",
+    "wikipedia_slug": "Charles_Daubeny",
+    "description": "English chemist, botanist and geologist (1795–1867)",
+    "thumbnail": null,
+    "confidence": 42,
+    "source": "curated"
+  },
+  "ehrenberg": {
+    "name": "Christian Gottfried Ehrenberg",
+    "wikipedia_slug": "Christian_Gottfried_Ehrenberg",
+    "description": "German biologist (1795–1876)",
+    "thumbnail": null,
+    "confidence": 100,
+    "source": "curated"
+  },
+  "olbers": {
+    "name": "Heinrich Wilhelm Matthias Olbers",
+    "wikipedia_slug": "Heinrich_Wilhelm_Matthias_Olbers",
+    "description": "German astronomer (1758–1840)",
+    "thumbnail": null,
+    "confidence": 51,
+    "source": "curated"
+  },
+  "senense": {
+    "name": "Pietro Andrea Mattioli",
+    "wikipedia_slug": "Pietro_Andrea_Mattioli",
+    "description": "Italian scientist",
+    "thumbnail": null,
+    "confidence": 42,
+    "source": "curated"
   },
   "roxburgh": {
     "name": "Roxburgh",
@@ -950,6 +1041,15 @@
     "source": "curated",
     "thumbnail_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Karl_Friedrich_von_Gaertner_von_Emil_Orth.jpg/330px-Karl_Friedrich_von_Gaertner_von_Emil_Orth.jpg"
   },
+  "wollaston": {
+    "name": "Thomas Vernon Wollaston",
+    "wikipedia_slug": "Thomas_Vernon_Wollaston",
+    "description": "English entomologist and malacologist",
+    "thumbnail": null,
+    "confidence": 59,
+    "source": "curated",
+    "thumbnail_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b4/Wollaston_Thomas_Vernon_1877_bugs.jpg/330px-Wollaston_Thomas_Vernon_1877_bugs.jpg"
+  },
   "herbart": {
     "name": "Johann Friedrich Herbart",
     "wikipedia_slug": "Johann_Friedrich_Herbart",
@@ -976,6 +1076,30 @@
     "confidence": 59,
     "source": "curated",
     "thumbnail_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/James_Ward_1843-1925.jpg/330px-James_Ward_1843-1925.jpg"
+  },
+  "strabo": {
+    "name": "Strabo",
+    "wikipedia_slug": "Strabo",
+    "description": "Greek geographer, philosopher and historian (64/63 BC–c.24 AD)",
+    "thumbnail": null,
+    "confidence": 84,
+    "source": "curated"
+  },
+  "beaumont": {
+    "name": "Jean-Baptiste Élie de Beaumont",
+    "wikipedia_slug": "Jean-Baptiste_Élie_de_Beaumont",
+    "description": "French geologist (1798–1874)",
+    "thumbnail": null,
+    "confidence": 59,
+    "source": "curated"
+  },
+  "darwin": {
+    "name": "Charles Darwin",
+    "wikipedia_slug": "Charles_Darwin",
+    "description": "English naturalist and biologist (1809–1882)",
+    "thumbnail": null,
+    "confidence": 67,
+    "source": "curated"
   },
   "burgos": {
     "name": "Burgos",
@@ -1012,6 +1136,14 @@
     "source": "curated",
     "thumbnail_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Escultura_de_Francisco_L%C3%B3pez_de_G%C3%B3mara%2C_Soria.jpg/330px-Escultura_de_Francisco_L%C3%B3pez_de_G%C3%B3mara%2C_Soria.jpg"
   },
+  "saussure": {
+    "name": "Horace Bénédict de Saussure",
+    "wikipedia_slug": "Horace_Bénédict_de_Saussure",
+    "description": "Genevan scientist and mountaineer (1740–1799)",
+    "thumbnail": "saussure.jpg",
+    "confidence": 75,
+    "source": "curated"
+  },
   "carpenter": {
     "name": "William Benjamin Carpenter",
     "wikipedia_slug": "William_Benjamin_Carpenter",
@@ -1020,6 +1152,22 @@
     "confidence": 75,
     "source": "curated",
     "thumbnail_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/William_Carpenter.jpg/330px-William_Carpenter.jpg"
+  },
+  "halley": {
+    "name": "Edmond Halley",
+    "wikipedia_slug": "Edmond_Halley",
+    "description": "English astronomer (1656–1742)",
+    "thumbnail": null,
+    "confidence": 67,
+    "source": "curated"
+  },
+  "grove": {
+    "name": "William Robert Grove",
+    "wikipedia_slug": "William_Robert_Grove",
+    "description": "Welsh judge and physical scientist (1811–1896)",
+    "thumbnail": "grove.jpg",
+    "confidence": 51,
+    "source": "curated"
   },
   "mathiolus": {
     "name": "Pietro Andrea Mattioli",
@@ -1048,15 +1196,6 @@
     "source": "curated",
     "thumbnail_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Theodule-Armand_Ribot.jpg/330px-Theodule-Armand_Ribot.jpg"
   },
-  "hamilton": {
-    "name": "Sir William Hamilton, 9th Baronet",
-    "wikipedia_slug": "Sir_William_Hamilton,_9th_Baronet",
-    "description": "Scottish metaphysician (1788–1856)",
-    "thumbnail": null,
-    "confidence": 51,
-    "source": "curated",
-    "thumbnail_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/William_Hamilton_b1788.jpg/330px-William_Hamilton_b1788.jpg"
-  },
   "tavernier": {
     "name": "Jean-Baptiste Tavernier",
     "wikipedia_slug": "Jean-Baptiste_Tavernier",
@@ -1065,6 +1204,14 @@
     "confidence": 54,
     "source": "curated",
     "thumbnail_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Jean-Baptist_Tavernier%2C_by_Nicolas_de_Largilli%C3%A8re.jpg/330px-Jean-Baptist_Tavernier%2C_by_Nicolas_de_Largilli%C3%A8re.jpg"
+  },
+  "melloni": {
+    "name": "Macedonio Melloni",
+    "wikipedia_slug": "Macedonio_Melloni",
+    "description": "Italian physicist (1798–1854)",
+    "thumbnail": null,
+    "confidence": 51,
+    "source": "curated"
   },
   "owen": {
     "name": "Richard Owen",
@@ -1100,14 +1247,63 @@
     "confidence": 73,
     "source": "direct"
   },
-  "forbes": {
-    "name": "Edward Forbes",
-    "wikipedia_slug": "Edward_Forbes",
-    "description": "Manx naturalist (1815–1854)",
-    "thumbnail": "forbes.jpg",
-    "confidence": 51,
+  "agassiz": {
+    "name": "Louis Agassiz",
+    "wikipedia_slug": "Louis_Agassiz",
+    "description": "Swiss-American naturalist (1807–1873)",
+    "thumbnail": "agassiz.jpg",
+    "confidence": 83,
     "source": "curated",
-    "thumbnail_url": "https://upload.wikimedia.org/wikipedia/commons/2/21/Edward_Forbes.jpg"
+    "thumbnail_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/Louis_Agassiz_H6.jpg/330px-Louis_Agassiz_H6.jpg"
+  },
+  "franklin": {
+    "name": "Benjamin Franklin",
+    "wikipedia_slug": "Benjamin_Franklin",
+    "description": "American Founding Father and polymath (1706–1790)",
+    "thumbnail": null,
+    "confidence": 67,
+    "source": "curated",
+    "thumbnail_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/Joseph_Siffrein_Duplessis_-_Benjamin_Franklin_-_Google_Art_Project.jpg/330px-Joseph_Siffrein_Duplessis_-_Benjamin_Franklin_-_Google_Art_Project.jpg"
+  },
+  "mitscherlich": {
+    "name": "Eilhard Mitscherlich",
+    "wikipedia_slug": "Eilhard_Mitscherlich",
+    "description": "German chemist (1794–1863)",
+    "thumbnail": null,
+    "confidence": 51,
+    "source": "curated"
+  },
+  "schumacher": {
+    "name": "Heinrich Christian Schumacher",
+    "wikipedia_slug": "Heinrich_Christian_Schumacher",
+    "description": "German-Danish astronomer and mathematician",
+    "thumbnail": null,
+    "confidence": 59,
+    "source": "curated"
+  },
+  "dove": {
+    "name": "Heinrich Wilhelm Dove",
+    "wikipedia_slug": "Heinrich_Wilhelm_Dove",
+    "description": "Prussian physicist and meteorologist (1803–1879)",
+    "thumbnail": null,
+    "confidence": 51,
+    "source": "curated"
+  },
+  "wheatstone": {
+    "name": "Charles Wheatstone",
+    "wikipedia_slug": "Charles_Wheatstone",
+    "description": "English physicist and inventor (1802–1875)",
+    "thumbnail": null,
+    "confidence": 51,
+    "source": "curated"
+  },
+  "struve": {
+    "name": "Friedrich Georg Wilhelm von Struve",
+    "wikipedia_slug": "Friedrich_Georg_Wilhelm_von_Struve",
+    "description": "Baltic German astronomer and geodesist (1793–1864)",
+    "thumbnail": null,
+    "confidence": 51,
+    "source": "curated"
   },
   "huber": {
     "name": "Huber",
@@ -1145,13 +1341,46 @@
     "source": "curated",
     "thumbnail_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/PSM_V09_D668_George_Henry_Lewes.jpg/330px-PSM_V09_D668_George_Henry_Lewes.jpg"
   },
-  "cuvier": {
-    "name": "Georges Cuvier",
-    "wikipedia_slug": "Georges_Cuvier",
-    "description": "French paleontologist (1769–1832)",
-    "thumbnail": "cuvier.png",
-    "confidence": 62,
+  "seneca": {
+    "name": "Seneca the Younger",
+    "wikipedia_slug": "Seneca_the_Younger",
+    "description": "Roman Stoic philosopher, statesman and dramatist (c. 4 BC–AD 65)",
+    "thumbnail": null,
+    "confidence": 57,
     "source": "curated"
+  },
+  "airy": {
+    "name": "George Biddell Airy",
+    "wikipedia_slug": "George_Biddell_Airy",
+    "description": "English mathematician and astronomer (1801–1892)",
+    "thumbnail": null,
+    "confidence": 59,
+    "source": "curated"
+  },
+  "becquerel": {
+    "name": "Antoine César Becquerel",
+    "wikipedia_slug": "Antoine_César_Becquerel",
+    "description": "French scientist (1788–1878)",
+    "thumbnail": "becquerel.jpg",
+    "confidence": 51,
+    "source": "curated"
+  },
+  "joule": {
+    "name": "James Prescott Joule",
+    "wikipedia_slug": "James_Prescott_Joule",
+    "description": "English physicist (1818–1889)",
+    "thumbnail": null,
+    "confidence": 59,
+    "source": "curated"
+  },
+  "huxley": {
+    "name": "Thomas Henry Huxley",
+    "wikipedia_slug": "Thomas_Henry_Huxley",
+    "description": "English biologist and comparative anatomist (1825–1895)",
+    "thumbnail": null,
+    "confidence": 59,
+    "source": "curated",
+    "thumbnail_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/Thomas_Henry_Huxley._Photograph_by_Lock_%26_Whitfield._Wellcome_V0026596.jpg/330px-Thomas_Henry_Huxley._Photograph_by_Lock_%26_Whitfield._Wellcome_V0026596.jpg"
   },
   "duperrey": {
     "name": "Duperrey",
@@ -1187,14 +1416,71 @@
     "confidence": 59,
     "source": "curated"
   },
-  "muller": {
-    "name": "Fritz Müller",
-    "wikipedia_slug": "Fritz_Müller",
-    "description": "German-Brazilian biologist (1822–1897)",
+  "poisson": {
+    "name": "Siméon Denis Poisson",
+    "wikipedia_slug": "Siméon_Denis_Poisson",
+    "description": "French mathematician and physicist (1781–1840)",
     "thumbnail": null,
     "confidence": 59,
-    "source": "curated",
-    "thumbnail_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/39/Dr._Fritz_M%C3%BCller_1892.jpg/330px-Dr._Fritz_M%C3%BCller_1892.jpg"
+    "source": "curated"
+  },
+  "bravais": {
+    "name": "Auguste Bravais",
+    "wikipedia_slug": "Auguste_Bravais",
+    "description": "French physicist",
+    "thumbnail": null,
+    "confidence": 59,
+    "source": "curated"
+  },
+  "bischof": {
+    "name": "Gustav Bischof",
+    "wikipedia_slug": "Gustav_Bischof",
+    "description": "German geologist and chemist (1792-1870)",
+    "thumbnail": null,
+    "confidence": 75,
+    "source": "curated"
+  },
+  "mefue": {
+    "name": "Masawaiyh",
+    "wikipedia_slug": "Masawaiyh",
+    "description": "Persian physician",
+    "thumbnail": null,
+    "confidence": 43,
+    "source": "direct",
+    "thumbnail_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Mesue_-_De_consolatione_medicinarum%2C_anno_MCCCCLXXV_die_vigesima_quinta_mensis_iunii_-_2411513.tif/lossy-page1-330px-Mesue_-_De_consolatione_medicinarum%2C_anno_MCCCCLXXV_die_vigesima_quinta_mensis_iunii_-_2411513.tif.jpg",
+    "alias_of": "mesue"
+  },
+  "mansel": {
+    "name": "Henry Longueville Mansel",
+    "wikipedia_slug": "Henry_Longueville_Mansel",
+    "description": "British philosopher and priest",
+    "thumbnail": null,
+    "confidence": 51,
+    "source": "curated"
+  },
+  "solinus": {
+    "name": "Gaius Julius Solinus",
+    "wikipedia_slug": "Gaius_Julius_Solinus",
+    "description": "3rd century Roman geographer and grammarian",
+    "thumbnail": null,
+    "confidence": 65,
+    "source": "curated"
+  },
+  "john": {
+    "name": "John",
+    "wikipedia_slug": "John",
+    "description": "Topics referred to by the same term",
+    "thumbnail": null,
+    "confidence": 25,
+    "source": "direct"
+  },
+  "gerard": {
+    "name": "Gerard",
+    "wikipedia_slug": "Gerard",
+    "description": "Name list",
+    "thumbnail": null,
+    "confidence": 28,
+    "source": "direct"
   },
   "cruz": {
     "name": "Cruz (disambiguation)",
@@ -1247,6 +1533,47 @@
     "confidence": 35,
     "source": "direct",
     "thumbnail_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2b/Great_Mosque_of_Kairouan_prayer_hall.jpg/330px-Great_Mosque_of_Kairouan_prayer_hall.jpg"
+  },
+  "erman": {
+    "name": "Georg Adolf Erman",
+    "wikipedia_slug": "Georg_Adolf_Erman",
+    "description": "German physicist (1806–1877)",
+    "thumbnail": null,
+    "confidence": 51,
+    "source": "curated"
+  },
+  "mantell": {
+    "name": "Gideon Mantell",
+    "wikipedia_slug": "Gideon_Mantell",
+    "description": "British scientist and obstetrician",
+    "thumbnail": "mantell.jpg",
+    "confidence": 59,
+    "source": "curated"
+  },
+  "fraunhofer": {
+    "name": "Joseph von Fraunhofer",
+    "wikipedia_slug": "Joseph_von_Fraunhofer",
+    "description": "German physicist (1787–1826)",
+    "thumbnail": null,
+    "confidence": 59,
+    "source": "curated"
+  },
+  "scaliger": {
+    "name": "Julius Caesar Scaliger",
+    "wikipedia_slug": "Julius_Caesar_Scaliger",
+    "description": "Italian scholar, physician and philosopher (1484–1558)",
+    "thumbnail": null,
+    "confidence": 73,
+    "source": "curated"
+  },
+  "paracelsus": {
+    "name": "Paracelsus",
+    "wikipedia_slug": "Paracelsus",
+    "description": "Swiss physician, philosopher, theologian, and alchemist (c. 1493 – 1541)",
+    "thumbnail": "paracelsus.jpg",
+    "confidence": 94,
+    "source": "curated",
+    "thumbnail_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/25/Aureolus_Theophrastus_Bombastus_von_Hohenheim_%28Paracelsus%29._Wellcome_V0004455.jpg/330px-Aureolus_Theophrastus_Bombastus_von_Hohenheim_%28Paracelsus%29._Wellcome_V0004455.jpg"
   },
   "freycinet": {
     "name": "Freycinet",
@@ -1326,6 +1653,102 @@
     "source": "curated",
     "thumbnail_url": "https://upload.wikimedia.org/wikipedia/commons/8/89/TLipps.jpg"
   },
+  "plutarch": {
+    "name": "Plutarch",
+    "wikipedia_slug": "Plutarch",
+    "description": "Greek philosopher and historian (c. AD 40 – 120s)",
+    "thumbnail": null,
+    "confidence": 65,
+    "source": "curated"
+  },
+  "columbus": {
+    "name": "Christopher Columbus",
+    "wikipedia_slug": "Christopher_Columbus",
+    "description": "Italian navigator and explorer (1451–1506)",
+    "thumbnail": "columbus.jpg",
+    "confidence": 59,
+    "source": "curated"
+  },
+  "gilbert": {
+    "name": "William Gilbert (physicist)",
+    "wikipedia_slug": "William_Gilbert_(physicist)",
+    "description": "English physician and natural philosopher",
+    "thumbnail": null,
+    "confidence": 67,
+    "source": "curated"
+  },
+  "madler": {
+    "name": "Johann Heinrich von Mädler",
+    "wikipedia_slug": "Johann_Heinrich_von_Mädler",
+    "description": "German astronomer",
+    "thumbnail": null,
+    "confidence": 51,
+    "source": "direct"
+  },
+  "rosse": {
+    "name": "William Parsons, 3rd Earl of Rosse",
+    "wikipedia_slug": "William_Parsons,_3rd_Earl_of_Rosse",
+    "description": "English engineer and astronomer (1800–1867)",
+    "thumbnail": null,
+    "confidence": 54,
+    "source": "curated"
+  },
+  "davy": {
+    "name": "Humphry Davy",
+    "wikipedia_slug": "Humphry_Davy",
+    "description": "British chemist and inventor (1778–1829)",
+    "thumbnail": null,
+    "confidence": 59,
+    "source": "curated"
+  },
+  "argelander": {
+    "name": "Friedrich Wilhelm Argelander",
+    "wikipedia_slug": "Friedrich_Wilhelm_Argelander",
+    "description": "German astronomer (1799–1875)",
+    "thumbnail": null,
+    "confidence": 51,
+    "source": "curated"
+  },
+  "moses": {
+    "name": "Moses",
+    "wikipedia_slug": "Moses",
+    "description": "Prophet in Abrahamic religions",
+    "thumbnail": null,
+    "confidence": 35,
+    "source": "direct"
+  },
+  "austin": {
+    "name": "Austin",
+    "wikipedia_slug": "Austin",
+    "description": "Topics referred to by the same term",
+    "thumbnail": null,
+    "confidence": 25,
+    "source": "direct"
+  },
+  "cabeus": {
+    "name": "Cabeus (crater)",
+    "wikipedia_slug": "Cabeus_(crater)",
+    "description": "Lunar impact crater",
+    "thumbnail": null,
+    "confidence": 35,
+    "source": "direct"
+  },
+  "gilbertus": {
+    "name": "William Gilbert (physicist)",
+    "wikipedia_slug": "William_Gilbert_(physicist)",
+    "description": "English physician and natural philosopher",
+    "thumbnail": null,
+    "confidence": 42,
+    "source": "curated"
+  },
+  "porta": {
+    "name": "Giambattista della Porta",
+    "wikipedia_slug": "Giambattista_della_Porta",
+    "description": "Italian polymath (1535–1615)",
+    "thumbnail": null,
+    "confidence": 54,
+    "source": "curated"
+  },
   "tragus": {
     "name": "Hieronymus Bock",
     "wikipedia_slug": "Hieronymus_Bock",
@@ -1359,14 +1782,6 @@
     "thumbnail": null,
     "confidence": 41,
     "source": "direct"
-  },
-  "saussure": {
-    "name": "Horace Bénédict de Saussure",
-    "wikipedia_slug": "Horace_Bénédict_de_Saussure",
-    "description": "Genevan scientist and mountaineer (1740–1799)",
-    "thumbnail": "saussure.jpg",
-    "confidence": 75,
-    "source": "curated"
   },
   "purdy": {
     "name": "Purdy",
@@ -1427,14 +1842,85 @@
     "source": "curated",
     "thumbnail_url": "https://upload.wikimedia.org/wikipedia/commons/1/19/Alfred_Wilhelm_Volkmann.jpg"
   },
-  "wollaston": {
-    "name": "Thomas Vernon Wollaston",
-    "wikipedia_slug": "Thomas_Vernon_Wollaston",
-    "description": "English entomologist and malacologist",
+  "romans": {
+    "name": "Romans",
+    "wikipedia_slug": "Romans",
+    "description": "Topics referred to by the same term",
     "thumbnail": null,
-    "confidence": 59,
-    "source": "curated",
-    "thumbnail_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b4/Wollaston_Thomas_Vernon_1877_bugs.jpg/330px-Wollaston_Thomas_Vernon_1877_bugs.jpg"
+    "confidence": 31,
+    "source": "direct"
+  },
+  "plato": {
+    "name": "Plato",
+    "wikipedia_slug": "Plato",
+    "description": "Greek philosopher (c. 427–348/347 BC)",
+    "thumbnail": null,
+    "confidence": 60,
+    "source": "direct"
+  },
+  "ptolemy": {
+    "name": "Ptolemy",
+    "wikipedia_slug": "Ptolemy",
+    "description": "Greco-Roman astronomer and geographer (c. 100–170)",
+    "thumbnail": null,
+    "confidence": 73,
+    "source": "curated"
+  },
+  "fresnel": {
+    "name": "Augustin-Jean Fresnel",
+    "wikipedia_slug": "Augustin-Jean_Fresnel",
+    "description": "French optical physicist (1788–1827)",
+    "thumbnail": "fresnel.jpg",
+    "confidence": 54,
+    "source": "curated"
+  },
+  "hunt": {
+    "name": "Robert Hunt (scientist)",
+    "wikipedia_slug": "Robert_Hunt_(scientist)",
+    "description": "British scientist (1807–1887)",
+    "thumbnail": "hunt.jpg",
+    "confidence": 67,
+    "source": "curated"
+  },
+  "young": {
+    "name": "Thomas Young (scientist)",
+    "wikipedia_slug": "Thomas_Young_(scientist)",
+    "description": "English polymath (1773–1829)",
+    "thumbnail": null,
+    "confidence": 43,
+    "source": "curated"
+  },
+  "eve": {
+    "name": "Eve",
+    "wikipedia_slug": "Eve",
+    "description": "First woman according to the Abrahamic creation myth",
+    "thumbnail": null,
+    "confidence": 35,
+    "source": "direct"
+  },
+  "pythagoras": {
+    "name": "Pythagoras",
+    "wikipedia_slug": "Pythagoras",
+    "description": "Greek philosopher (c. 570 – c. 495 BC)",
+    "thumbnail": null,
+    "confidence": 65,
+    "source": "curated"
+  },
+  "albertus": {
+    "name": "Albertus Magnus",
+    "wikipedia_slug": "Albertus_Magnus",
+    "description": "German Dominican friar and saint (c. 1200 – 1280)",
+    "thumbnail": null,
+    "confidence": 62,
+    "source": "curated"
+  },
+  "kircherus": {
+    "name": "Athanasius Kircher",
+    "wikipedia_slug": "Athanasius_Kircher",
+    "description": "German Jesuit scholar and polymath (1602-1680)",
+    "thumbnail": null,
+    "confidence": 29,
+    "source": "curated"
   },
   "gray": {
     "name": "Asa Gray",
@@ -1453,15 +1939,6 @@
     "confidence": 51,
     "source": "curated",
     "thumbnail_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Geoffroy_Saint-Hilaire_%C3%89tienne_1772-1844.jpg/330px-Geoffroy_Saint-Hilaire_%C3%89tienne_1772-1844.jpg"
-  },
-  "huxley": {
-    "name": "Thomas Henry Huxley",
-    "wikipedia_slug": "Thomas_Henry_Huxley",
-    "description": "English biologist and comparative anatomist (1825–1895)",
-    "thumbnail": null,
-    "confidence": 59,
-    "source": "curated",
-    "thumbnail_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/Thomas_Henry_Huxley._Photograph_by_Lock_%26_Whitfield._Wellcome_V0026596.jpg/330px-Thomas_Henry_Huxley._Photograph_by_Lock_%26_Whitfield._Wellcome_V0026596.jpg"
   },
   "velasquez": {
     "name": "Cain Velasquez",
@@ -1549,6 +2026,54 @@
     "confidence": 49,
     "source": "curated"
   },
+  "cassini": {
+    "name": "Giovanni Domenico Cassini",
+    "wikipedia_slug": "Giovanni_Domenico_Cassini",
+    "description": "Italian-French mathematician and astronomer (1625–1712)",
+    "thumbnail": null,
+    "confidence": 67,
+    "source": "curated"
+  },
+  "savart": {
+    "name": "Félix Savart",
+    "wikipedia_slug": "Félix_Savart",
+    "description": "French physicist",
+    "thumbnail": null,
+    "confidence": 59,
+    "source": "curated"
+  },
+  "peters": {
+    "name": "Christian Heinrich Friedrich Peters",
+    "wikipedia_slug": "Christian_Heinrich_Friedrich_Peters",
+    "description": "German-American academic and astronomer (1813–1890)",
+    "thumbnail": null,
+    "confidence": 51,
+    "source": "curated"
+  },
+  "astronomers": {
+    "name": "Astronomer",
+    "wikipedia_slug": "Astronomer",
+    "description": "Scientist in the field of astronomy",
+    "thumbnail": null,
+    "confidence": 26,
+    "source": "direct"
+  },
+  "homer": {
+    "name": "Homer",
+    "wikipedia_slug": "Homer",
+    "description": "Credited author of the Iliad and Odyssey",
+    "thumbnail": "homer.jpg",
+    "confidence": 57,
+    "source": "curated"
+  },
+  "ælian": {
+    "name": "Claudius Aelianus",
+    "wikipedia_slug": "Claudius_Aelianus",
+    "description": "Roman author and teacher (c. 175 – c. 235)",
+    "thumbnail": null,
+    "confidence": 48,
+    "source": "curated"
+  },
   "kolreuter": {
     "name": "Joseph Gottlieb Kölreuter",
     "wikipedia_slug": "Joseph_Gottlieb_Kölreuter",
@@ -1557,15 +2082,6 @@
     "confidence": 51,
     "source": "curated",
     "thumbnail_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Josef_Gottlieb_Koelreuter.jpg/330px-Josef_Gottlieb_Koelreuter.jpg"
-  },
-  "agassiz": {
-    "name": "Louis Agassiz",
-    "wikipedia_slug": "Louis_Agassiz",
-    "description": "Swiss-American naturalist (1807–1873)",
-    "thumbnail": "agassiz.jpg",
-    "confidence": 83,
-    "source": "curated",
-    "thumbnail_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/Louis_Agassiz_H6.jpg/330px-Louis_Agassiz_H6.jpg"
   },
   "falconer": {
     "name": "Hugh Falconer",
@@ -1670,6 +2186,78 @@
     "confidence": 25,
     "source": "direct"
   },
+  "brandes": {
+    "name": "Heinrich Wilhelm Brandes",
+    "wikipedia_slug": "Heinrich_Wilhelm_Brandes",
+    "description": "German meteorologist and physicist",
+    "thumbnail": null,
+    "confidence": 49,
+    "source": "curated"
+  },
+  "huygens": {
+    "name": "Christiaan Huygens",
+    "wikipedia_slug": "Christiaan_Huygens",
+    "description": "Dutch mathematician and physicist (1629–1695)",
+    "thumbnail": null,
+    "confidence": 83,
+    "source": "curated"
+  },
+  "martins": {
+    "name": "Martins",
+    "wikipedia_slug": "Martins",
+    "description": "Topics referred to by the same term",
+    "thumbnail": null,
+    "confidence": 25,
+    "source": "direct"
+  },
+  "wrangel": {
+    "name": "Wrangel",
+    "wikipedia_slug": "Wrangel",
+    "description": "Surname",
+    "thumbnail": null,
+    "confidence": 41,
+    "source": "direct"
+  },
+  "hoffmann": {
+    "name": "Hoffmann",
+    "wikipedia_slug": "Hoffmann",
+    "description": "Surname list",
+    "thumbnail": null,
+    "confidence": 25,
+    "source": "direct"
+  },
+  "ampere": {
+    "name": "Ampère",
+    "wikipedia_slug": "Ampère",
+    "description": "Topics referred to by the same term",
+    "thumbnail": null,
+    "confidence": 25,
+    "source": "direct"
+  },
+  "thomson": {
+    "name": "Lord Kelvin",
+    "wikipedia_slug": "Lord_Kelvin",
+    "description": "British physicist, engineer and mathematician (1824–1907)",
+    "thumbnail": null,
+    "confidence": 50,
+    "source": "curated"
+  },
+  "satan": {
+    "name": "Satan",
+    "wikipedia_slug": "Satan",
+    "description": "Figure in Abrahamic religions",
+    "thumbnail": null,
+    "confidence": 35,
+    "source": "direct"
+  },
+  "christ": {
+    "name": "Jesus",
+    "wikipedia_slug": "Jesus",
+    "description": "1st-century Jewish preacher and religious leader",
+    "thumbnail": null,
+    "confidence": 32,
+    "source": "direct"
+  },
   "waterhouse": {
     "name": "George Robert Waterhouse",
     "wikipedia_slug": "George_Robert_Waterhouse",
@@ -1696,14 +2284,13 @@
     "confidence": 33,
     "source": "search"
   },
-  "franklin": {
-    "name": "Benjamin Franklin",
-    "wikipedia_slug": "Benjamin_Franklin",
-    "description": "American Founding Father and polymath (1706–1790)",
+  "malasp": {
+    "name": "Alejandro Malaspina",
+    "wikipedia_slug": "Alejandro_Malaspina",
+    "description": "Italian-born Spanish Navy officer and explorer",
     "thumbnail": null,
-    "confidence": 67,
-    "source": "curated",
-    "thumbnail_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/Joseph_Siffrein_Duplessis_-_Benjamin_Franklin_-_Google_Art_Project.jpg/330px-Joseph_Siffrein_Duplessis_-_Benjamin_Franklin_-_Google_Art_Project.jpg"
+    "confidence": 34,
+    "source": "curated"
   },
   "descartes": {
     "name": "René Descartes",
@@ -1749,6 +2336,79 @@
     "confidence": 67,
     "source": "curated",
     "thumbnail_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7f/James_Sully_b1842.jpg/330px-James_Sully_b1842.jpg"
+  },
+  "hyppocrates": {
+    "name": "Hippocrates",
+    "wikipedia_slug": "Hippocrates",
+    "description": "Ancient Greek physician (c. 460 – c. 370 BCE)",
+    "thumbnail": "hippocrates.jpg",
+    "confidence": 68,
+    "source": "curated",
+    "alias_of": "hippocrates"
+  },
+  "messier": {
+    "name": "Charles Messier",
+    "wikipedia_slug": "Charles_Messier",
+    "description": "18th- and 19th-century French astronomer",
+    "thumbnail": null,
+    "confidence": 54,
+    "source": "curated"
+  },
+  "biela": {
+    "name": "Wilhelm von Biela",
+    "wikipedia_slug": "Wilhelm_von_Biela",
+    "description": "German-Austrian military officer and amateur astronomer",
+    "thumbnail": null,
+    "confidence": 51,
+    "source": "curated"
+  },
+  "faye": {
+    "name": "Hervé Faye",
+    "wikipedia_slug": "Hervé_Faye",
+    "description": "French astronomer (1814–1902)",
+    "thumbnail": null,
+    "confidence": 59,
+    "source": "curated"
+  },
+  "adams": {
+    "name": "John Couch Adams",
+    "wikipedia_slug": "John_Couch_Adams",
+    "description": "British mathematician and astronomer (1819–1892)",
+    "thumbnail": null,
+    "confidence": 75,
+    "source": "curated"
+  },
+  "secchi": {
+    "name": "Angelo Secchi",
+    "wikipedia_slug": "Angelo_Secchi",
+    "description": "Italian priest and scientist (1818–1878)",
+    "thumbnail": null,
+    "confidence": 67,
+    "source": "curated"
+  },
+  "matteucci": {
+    "name": "Carlo Matteucci",
+    "wikipedia_slug": "Carlo_Matteucci",
+    "description": "Italian politician and physicist (1811–1868)",
+    "thumbnail": null,
+    "confidence": 59,
+    "source": "curated"
+  },
+  "henderson": {
+    "name": "Thomas Henderson (astronomer)",
+    "wikipedia_slug": "Thomas_Henderson_(astronomer)",
+    "description": "Scottish astronomer and mathematician",
+    "thumbnail": null,
+    "confidence": 59,
+    "source": "curated"
+  },
+  "egyptians": {
+    "name": "Egyptians",
+    "wikipedia_slug": "Egyptians",
+    "description": "Ethnic group",
+    "thumbnail": null,
+    "confidence": 35,
+    "source": "direct"
   },
   "camerarius": {
     "name": "Camerarius",
@@ -1800,12 +2460,85 @@
     "source": "curated",
     "thumbnail_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Victor_Horsley3.jpg/330px-Victor_Horsley3.jpg"
   },
+  "auicena": {
+    "name": "Avicenna",
+    "wikipedia_slug": "Avicenna",
+    "description": "Persian polymath, physician and philosopher (c. 980–1037)",
+    "thumbnail": "avicenna.jpg",
+    "confidence": 68,
+    "source": "curated",
+    "alias_of": "avicenna"
+  },
   "rey": {
     "name": "Rey",
     "wikipedia_slug": "Rey",
     "description": "Topics referred to by the same term",
     "thumbnail": null,
     "confidence": 25,
+    "source": "direct"
+  },
+  "grange": {
+    "name": "Joseph-Louis Lagrange",
+    "wikipedia_slug": "Joseph-Louis_Lagrange",
+    "description": "Italian-French scientist (1736–1813)",
+    "thumbnail": null,
+    "confidence": 78,
+    "source": "curated"
+  },
+  "verrier": {
+    "name": "Urbain Le Verrier",
+    "wikipedia_slug": "Urbain_Le_Verrier",
+    "description": "French astronomer and mathematician (1811–1877)",
+    "thumbnail": "verrier.jpg",
+    "confidence": 59,
+    "source": "curated"
+  },
+  "draper": {
+    "name": "John William Draper",
+    "wikipedia_slug": "John_William_Draper",
+    "description": "British-academic (1811–1882)",
+    "thumbnail": null,
+    "confidence": 83,
+    "source": "curated"
+  },
+  "pouillet": {
+    "name": "Claude Pouillet",
+    "wikipedia_slug": "Claude_Pouillet",
+    "description": "French physicist",
+    "thumbnail": null,
+    "confidence": 51,
+    "source": "curated"
+  },
+  "powell": {
+    "name": "Baden Powell (mathematician)",
+    "wikipedia_slug": "Baden_Powell_(mathematician)",
+    "description": "English mathematician and priest",
+    "thumbnail": null,
+    "confidence": 59,
+    "source": "curated"
+  },
+  "fox": {
+    "name": "Robert Were Fox the Younger",
+    "wikipedia_slug": "Robert_Were_Fox_the_Younger",
+    "description": "British businessman and scientist (1789–1877)",
+    "thumbnail": null,
+    "confidence": 67,
+    "source": "curated"
+  },
+  "savage": {
+    "name": "Savage",
+    "wikipedia_slug": "Savage",
+    "description": "Topics referred to by the same term",
+    "thumbnail": null,
+    "confidence": 25,
+    "source": "direct"
+  },
+  "devil": {
+    "name": "Devil",
+    "wikipedia_slug": "Devil",
+    "description": "Mythical personification of evil",
+    "thumbnail": null,
+    "confidence": 35,
     "source": "direct"
   },
   "apollo": {
@@ -1843,12 +2576,61 @@
     "confidence": 25,
     "source": "direct"
   },
-  "aristotle": {
-    "name": "Aristotle",
-    "wikipedia_slug": "Aristotle",
-    "description": "Ancient Greek philosopher and polymath (384–322 BC)",
-    "thumbnail": "aristotle.jpg",
-    "confidence": 57,
+  "serapione": {
+    "name": "Serapion the Younger",
+    "wikipedia_slug": "Serapion_the_Younger",
+    "description": "Medieval physician",
+    "thumbnail": "serapio.jpg",
+    "confidence": 68,
+    "source": "curated",
+    "alias_of": "serapio"
+  },
+  "ritter": {
+    "name": "Ritter",
+    "wikipedia_slug": "Ritter",
+    "description": "Title of nobility in German-speaking areas",
+    "thumbnail": null,
+    "confidence": 33,
+    "source": "direct"
+  },
+  "moser": {
+    "name": "Moser",
+    "wikipedia_slug": "Moser",
+    "description": "Topics referred to by the same term",
+    "thumbnail": null,
+    "confidence": 25,
+    "source": "direct"
+  },
+  "mossotti": {
+    "name": "Ottaviano-Fabrizio Mossotti",
+    "wikipedia_slug": "Ottaviano-Fabrizio_Mossotti",
+    "description": "Italian physicist (1791–1863)",
+    "thumbnail": null,
+    "confidence": 51,
+    "source": "direct"
+  },
+  "plateau": {
+    "name": "Joseph Plateau",
+    "wikipedia_slug": "Joseph_Plateau",
+    "description": "Belgian physicist (1801–1883)",
+    "thumbnail": null,
+    "confidence": 59,
+    "source": "curated"
+  },
+  "chemist": {
+    "name": "Chemist",
+    "wikipedia_slug": "Chemist",
+    "description": "Scientist trained in the study of chemistry",
+    "thumbnail": null,
+    "confidence": 59,
+    "source": "direct"
+  },
+  "tyndall": {
+    "name": "John Tyndall",
+    "wikipedia_slug": "John_Tyndall",
+    "description": "Irish physicist (1820–1893)",
+    "thumbnail": null,
+    "confidence": 51,
     "source": "curated"
   },
   "fries": {
@@ -1914,23 +2696,6 @@
     "description": "Name list",
     "thumbnail": null,
     "confidence": 73,
-    "source": "direct"
-  },
-  "paolo": {
-    "name": "Paulo",
-    "wikipedia_slug": "Paulo",
-    "description": "Name list",
-    "thumbnail": null,
-    "confidence": 73,
-    "source": "direct",
-    "alias_of": "paulo"
-  },
-  "gerard": {
-    "name": "Gerard",
-    "wikipedia_slug": "Gerard",
-    "description": "Name list",
-    "thumbnail": null,
-    "confidence": 28,
     "source": "direct"
   },
   "parkinson": {
@@ -2046,6 +2811,51 @@
     "source": "curated",
     "thumbnail_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Al-Zahrawi_Stamp%2C_Syria_%281964%29.jpg/330px-Al-Zahrawi_Stamp%2C_Syria_%281964%29.jpg"
   },
+  "auerrois": {
+    "name": "Averroes",
+    "wikipedia_slug": "Averroes",
+    "description": "Andalusian Muslim polymath (1126–1198)",
+    "thumbnail": "averrois.jpg",
+    "confidence": 29,
+    "source": "curated",
+    "thumbnail_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Andrea_di_bonaiuto%2C_apotesosi_di_san_tommaso_d%27aquino%2C_11_averro%C3%A8.jpg/330px-Andrea_di_bonaiuto%2C_apotesosi_di_san_tommaso_d%27aquino%2C_11_averro%C3%A8.jpg",
+    "alias_of": "averrois"
+  },
+  "rafis": {
+    "name": "Abu Bakr al-Razi",
+    "wikipedia_slug": "Abu_Bakr_al-Razi",
+    "description": "10th-century Iranian physician and polymath",
+    "thumbnail": null,
+    "confidence": 67,
+    "source": "curated",
+    "thumbnail_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/ba/%D8%B2%DA%A9%D8%B1%DB%8C%D8%A7%DB%8C_%D8%B1%D8%A7%D8%B2%DB%8C_%D8%A7%D8%AB%D8%B1_%D8%AD%D8%B3%DB%8C%D9%86_%D8%A8%D9%87%D8%B2%D8%A7%D8%AF_%28cropped%29.jpg/330px-%D8%B2%DA%A9%D8%B1%DB%8C%D8%A7%DB%8C_%D8%B1%D8%A7%D8%B2%DB%8C_%D8%A7%D8%AB%D8%B1_%D8%AD%D8%B3%DB%8C%D9%86_%D8%A8%D9%87%D8%B2%D8%A7%D8%AF_%28cropped%29.jpg",
+    "alias_of": "rasis"
+  },
+  "auicenna": {
+    "name": "Avicenna",
+    "wikipedia_slug": "Avicenna",
+    "description": "Persian polymath, physician and philosopher (c. 980–1037)",
+    "thumbnail": "avicenna.jpg",
+    "confidence": 68,
+    "source": "curated",
+    "alias_of": "avicenna"
+  },
+  "boscovich": {
+    "name": "Roger Joseph Boscovich",
+    "wikipedia_slug": "Roger_Joseph_Boscovich",
+    "description": "Croat-Italian physicist and writer (1711–1787)",
+    "thumbnail": null,
+    "confidence": 99,
+    "source": "direct"
+  },
+  "astronomer": {
+    "name": "Astronomer",
+    "wikipedia_slug": "Astronomer",
+    "description": "Scientist in the field of astronomy",
+    "thumbnail": null,
+    "confidence": 51,
+    "source": "direct"
+  },
   "averrois": {
     "name": "Averroes",
     "wikipedia_slug": "Averroes",
@@ -2090,15 +2900,6 @@
     "source": "curated",
     "thumbnail_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Teofrasto_Orto_botanico_detail.jpg/330px-Teofrasto_Orto_botanico_detail.jpg"
   },
-  "paracelsus": {
-    "name": "Paracelsus",
-    "wikipedia_slug": "Paracelsus",
-    "description": "Swiss physician, philosopher, theologian, and alchemist (c. 1493 – 1541)",
-    "thumbnail": "paracelsus.jpg",
-    "confidence": 94,
-    "source": "curated",
-    "thumbnail_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/25/Aureolus_Theophrastus_Bombastus_von_Hohenheim_%28Paracelsus%29._Wellcome_V0004455.jpg/330px-Aureolus_Theophrastus_Bombastus_von_Hohenheim_%28Paracelsus%29._Wellcome_V0004455.jpg"
-  },
   "pontus": {
     "name": "List of monarchs of Pontus",
     "wikipedia_slug": "List_of_monarchs_of_Pontus",
@@ -2141,6 +2942,15 @@
     "confidence": 57,
     "source": "curated"
   },
+  "menardes": {
+    "name": "Nicolás Monardes",
+    "wikipedia_slug": "Nicolás_Monardes",
+    "description": "Spanish botanist of the 16th century",
+    "thumbnail": "monardes.png",
+    "confidence": 62,
+    "source": "curated",
+    "alias_of": "monardes"
+  },
   "griego": {
     "name": "Leo the Mathematician",
     "wikipedia_slug": "Leo_the_Mathematician",
@@ -2148,6 +2958,33 @@
     "thumbnail": null,
     "confidence": 30,
     "source": "search"
+  },
+  "monardeslu": {
+    "name": "Nicolás Monardes",
+    "wikipedia_slug": "Nicolás_Monardes",
+    "description": "Spanish botanist of the 16th century",
+    "thumbnail": "monardes.png",
+    "confidence": 62,
+    "source": "curated",
+    "alias_of": "monardes"
+  },
+  "lulitana": {
+    "name": "Amatus Lusitanus",
+    "wikipedia_slug": "Amatus_Lusitanus",
+    "description": "Portuguese physician (1511–1568)",
+    "thumbnail": null,
+    "confidence": 52,
+    "source": "curated",
+    "alias_of": "lusitanus"
+  },
+  "hippocrate": {
+    "name": "Hippocrates",
+    "wikipedia_slug": "Hippocrates",
+    "description": "Ancient Greek physician (c. 460 – c. 370 BCE)",
+    "thumbnail": "hippocrates.jpg",
+    "confidence": 68,
+    "source": "curated",
+    "alias_of": "hippocrates"
   },
   "traiano": {
     "name": "Trajan",
@@ -2166,6 +3003,16 @@
     "source": "search",
     "thumbnail_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/M%C3%BCnchen_SMAEK_2019-03-23n.jpg/330px-M%C3%BCnchen_SMAEK_2019-03-23n.jpg"
   },
+  "mefuc": {
+    "name": "Masawaiyh",
+    "wikipedia_slug": "Masawaiyh",
+    "description": "Persian physician",
+    "thumbnail": null,
+    "confidence": 43,
+    "source": "direct",
+    "thumbnail_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Mesue_-_De_consolatione_medicinarum%2C_anno_MCCCCLXXV_die_vigesima_quinta_mensis_iunii_-_2411513.tif/lossy-page1-330px-Mesue_-_De_consolatione_medicinarum%2C_anno_MCCCCLXXV_die_vigesima_quinta_mensis_iunii_-_2411513.tif.jpg",
+    "alias_of": "mesue"
+  },
   "mefite": {
     "name": "Mefite",
     "wikipedia_slug": "Mefite",
@@ -2173,6 +3020,15 @@
     "thumbnail": null,
     "confidence": 25,
     "source": "direct"
+  },
+  "paolo": {
+    "name": "Paulo",
+    "wikipedia_slug": "Paulo",
+    "description": "Name list",
+    "thumbnail": null,
+    "confidence": 73,
+    "source": "direct",
+    "alias_of": "paulo"
   },
   "arnaldo": {
     "name": "Arnaldus de Villa Nova",
@@ -2182,5 +3038,21 @@
     "confidence": 42,
     "source": "curated",
     "thumbnail_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Arnaldus_de_Villanova.jpg/330px-Arnaldus_de_Villanova.jpg"
+  },
+  "physicist": {
+    "name": "Physicist",
+    "wikipedia_slug": "Physicist",
+    "description": "Scientist specializing in the field of physics",
+    "thumbnail": null,
+    "confidence": 51,
+    "source": "direct"
+  },
+  "meyer": {
+    "name": "Meyer",
+    "wikipedia_slug": "Meyer",
+    "description": "Topics referred to by the same term",
+    "thumbnail": null,
+    "confidence": 25,
+    "source": "direct"
   }
 }
