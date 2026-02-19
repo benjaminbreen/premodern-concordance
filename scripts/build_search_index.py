@@ -95,9 +95,21 @@ def build_metadata(cluster: dict) -> dict:
 
     # Collect all name variants for lexical search
     all_names = [cluster["canonical_name"]]
+    if gt.get("modern_name") and gt["modern_name"] != cluster["canonical_name"]:
+        all_names.append(gt["modern_name"])
     for member in cluster.get("members", []):
         all_names.append(member["name"])
         all_names.extend(member.get("variants", [])[:10])
+
+    # Extract quoted English names from note field (e.g., "'China root'")
+    import re as _re
+    note = gt.get("note", "")
+    if note:
+        quoted_names = _re.findall(r"['\u2018\u2019]([^''\u2018\u2019]{2,30})['\u2018\u2019]", note)
+        for qn in quoted_names:
+            qn = qn.strip()
+            if qn and len(qn) > 2:
+                all_names.append(qn)
 
     # Deduplicate while preserving order
     seen = set()

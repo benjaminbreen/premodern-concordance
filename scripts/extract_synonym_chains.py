@@ -41,6 +41,12 @@ BOOK_ENTITY_FILES = {
     "historia_medicinal_monardes_1574": "monardes_entities.json",
     "polyanthea_medicinal": "semedo_entities.json",
     "relation_historique_humboldt_vol3_1825": "humboldt_entities.json",
+    "pseudodoxia_epidemica_browne_1646": "browne_entities.json",
+    "kosmos_humboldt_1845": "kosmos_entities.json",
+    "origin_of_species_darwin_1859": "darwin_origin_entities.json",
+    "principles_of_psychology_james_1890": "james_psychology_entities.json",
+    "connexion_physical_sciences_somerville_1858": "somerville_entities.json",
+    "first_principles_spencer_1862": "spencer_entities.json",
 }
 
 # Synonym chain markers by language — regex patterns that signal cross-linguistic
@@ -66,16 +72,31 @@ SYNONYM_MARKERS = re.compile(
     \bque\s+llaman\b |
     \bpor\s+otro\s+nombre\b |
 
-    # English (Culpeper)
-    \bcalled\b |
+    # English (Culpeper, Browne, Darwin, James, Somerville, Spencer)
     \balso\s+called\b |
+    \bcommonly\s+called\b |
     \bknown\s+(?:as|by)\b |
     \bwhich\s+(?:is|some)\s+call\b |
+    \btermed\b |
+    \bdenominated\b |
+    \bdesignated\b |
+    \bso[\-\s]called\b |
+    \bformerly\s+(?:called|known|termed|named)\b |
+    \bi\.e\.\b |
+    \bor\s+rather\b |
 
     # French (Humboldt)
     \bnommée?\b |
     \bqu['\u2019]on\s+appelle\b |
     \bdit(?:e|s)?\b |
+
+    # German (Kosmos)
+    \bgenannt\b |
+    \bsogenannt\b |
+    \bd\.h\.\b |
+    \bbezeichnet\b |
+    \bheisst\b |
+    \bheißt\b |
 
     # Latin (appears across all)
     \bvulgo\b |
@@ -287,6 +308,10 @@ def main():
     parser.add_argument("--model", default="gemini-2.5-flash-lite", help="Gemini model")
     parser.add_argument("--batch-size", type=int, default=8, help="Excerpts per Gemini call")
     parser.add_argument("--limit", type=int, default=0, help="Max excerpts to process (0=all)")
+    parser.add_argument("--books", type=str, default="",
+                        help="Comma-separated book IDs to process (default: all)")
+    parser.add_argument("--append", action="store_true",
+                        help="Append to existing findings files instead of overwriting")
     args = parser.parse_args()
 
     # Load concordance
@@ -296,14 +321,31 @@ def main():
     clusters = conc["clusters"]
     print(f"  {len(clusters)} clusters")
 
+    # Filter books if specified
+    active_books = set(BOOK_ENTITY_FILES.keys())
+    if args.books:
+        requested = set(args.books.split(","))
+        active_books = active_books & requested
+        if not active_books:
+            print(f"ERROR: No matching books found for: {args.books}")
+            print(f"  Available: {', '.join(sorted(BOOK_ENTITY_FILES.keys()))}")
+            return
+        print(f"  Processing {len(active_books)} books: {', '.join(sorted(active_books))}")
+
     # Build vocabulary of known entity names
     print("Building vocabulary...")
     vocab, name_to_clusters = build_concordance_vocab(clusters)
     print(f"  {len(vocab)} known entity names/variants")
 
-    # Find synonym chain excerpts
+    # Find synonym chain excerpts (only from active books)
     print("Scanning for synonym chain excerpts...")
+    # Temporarily filter BOOK_ENTITY_FILES to only active books
+    orig_book_files = dict(BOOK_ENTITY_FILES)
+    for k in list(BOOK_ENTITY_FILES.keys()):
+        if k not in active_books:
+            del BOOK_ENTITY_FILES[k]
     excerpts = find_synonym_chain_excerpts(clusters)
+    BOOK_ENTITY_FILES.update(orig_book_files)  # Restore
     print(f"  Found {len(excerpts)} excerpts with synonym chain markers")
 
     # Book breakdown
@@ -414,8 +456,19 @@ def main():
     # Save results
     OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
 
-    # Full findings
+    # If appending, load existing findings and merge
     findings_path = OUTPUT_DIR / "findings.json"
+    if args.append and findings_path.exists():
+        with open(findings_path) as f:
+            existing = json.load(f)
+        print(f"\n  Appending to existing {len(existing)} findings...")
+        # Remove old findings from the same books we just processed
+        processed_books = active_books
+        existing = [f for f in existing if f.get("source_book") not in processed_books]
+        all_findings = existing + all_findings
+        print(f"  Combined: {len(all_findings)} total findings")
+
+    # Full findings
     with open(findings_path, "w") as f:
         json.dump(all_findings, f, indent=2, ensure_ascii=False)
 

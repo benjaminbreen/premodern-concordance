@@ -20,6 +20,9 @@ export const BOOK_SHORT_NAMES: Record<string, string> = {
   quatro_libros_naturaleza_hernandez_1615: "Hernández",
   epoques_nature_buffon_1778: "Buffon",
   medecine_experimentale_bernard_1865: "Bernard",
+  piso_historia_naturalis_brasiliae_1648: "Piso",
+  systema_naturae_linnaeus_1758: "Linnaeus",
+  lehrbuch_naturphilosophie_oken_1809: "Oken",
 };
 
 /** Cover image paths keyed by book ID. */
@@ -39,6 +42,9 @@ export const BOOK_COVERS: Record<string, string> = {
   quatro_libros_naturaleza_hernandez_1615: "/images/covers/hernandez.png",
   epoques_nature_buffon_1778: "/images/covers/buffon.png",
   medecine_experimentale_bernard_1865: "/images/covers/bernard.png",
+  piso_historia_naturalis_brasiliae_1648: "/images/covers/piso.png",
+  systema_naturae_linnaeus_1758: "/images/covers/linnaeus.png",
+  lehrbuch_naturphilosophie_oken_1809: "/images/covers/oken.png",
 };
 
 /** Publication year keyed by book ID. */
@@ -58,6 +64,9 @@ export const BOOK_YEARS: Record<string, number> = {
   quatro_libros_naturaleza_hernandez_1615: 1615,
   epoques_nature_buffon_1778: 1778,
   medecine_experimentale_bernard_1865: 1865,
+  piso_historia_naturalis_brasiliae_1648: 1648,
+  systema_naturae_linnaeus_1758: 1758,
+  lehrbuch_naturphilosophie_oken_1809: 1809,
 };
 
 /** 2-letter language code keyed by book ID. */
@@ -77,6 +86,9 @@ export const BOOK_LANGS: Record<string, string> = {
   quatro_libros_naturaleza_hernandez_1615: "ES",
   epoques_nature_buffon_1778: "FR",
   medecine_experimentale_bernard_1865: "FR",
+  piso_historia_naturalis_brasiliae_1648: "LA",
+  systema_naturae_linnaeus_1758: "LA",
+  lehrbuch_naturphilosophie_oken_1809: "DE",
 };
 
 /** Short title keyed by book ID. */
@@ -96,6 +108,9 @@ export const BOOK_TITLES: Record<string, string> = {
   quatro_libros_naturaleza_hernandez_1615: "Quatro Libros de la Naturaleza",
   epoques_nature_buffon_1778: "Les Époques de la Nature",
   medecine_experimentale_bernard_1865: "Introduction à la médecine expérimentale",
+  piso_historia_naturalis_brasiliae_1648: "Historia Naturalis Brasiliae",
+  systema_naturae_linnaeus_1758: "Systema Naturae",
+  lehrbuch_naturphilosophie_oken_1809: "Lehrbuch der Naturphilosophie",
 };
 
 /** Full-text file paths keyed by book ID. */
@@ -114,6 +129,9 @@ export const BOOK_TEXTS: Record<string, string> = {
   quatro_libros_naturaleza_hernandez_1615: "/texts/quatro_libros_naturaleza_hernandez_1615.txt",
   epoques_nature_buffon_1778: "/texts/epoques_nature_buffon_1778.txt",
   medecine_experimentale_bernard_1865: "/texts/medecine_experimentale_bernard_1865.txt",
+  piso_historia_naturalis_brasiliae_1648: "/texts/piso_historia_naturalis_brasiliae_1648.txt",
+  systema_naturae_linnaeus_1758: "/texts/systema_naturae_linnaeus_1758.txt",
+  lehrbuch_naturphilosophie_oken_1809: "/texts/lehrbuch_naturphilosophie_oken_1809.txt",
 };
 
 /** Distinctive color per book for cross-book visualizations. */
@@ -133,6 +151,9 @@ export const BOOK_COLORS: Record<string, string> = {
   quatro_libros_naturaleza_hernandez_1615: "#d97706",
   epoques_nature_buffon_1778: "#059669",
   medecine_experimentale_bernard_1865: "#7c3aed",
+  piso_historia_naturalis_brasiliae_1648: "#92400e",
+  systema_naturae_linnaeus_1758: "#0369a1",
+  lehrbuch_naturphilosophie_oken_1809: "#4f46e5",
 };
 
 /** Maps book_id to the person identity_id of its author. */
@@ -152,4 +173,7 @@ export const CORPUS_AUTHOR_IDS: Record<string, string | null> = {
   quatro_libros_naturaleza_hernandez_1615: "hernandez",
   epoques_nature_buffon_1778: "buffon",
   medecine_experimentale_bernard_1865: "bernard",
+  piso_historia_naturalis_brasiliae_1648: "piso",
+  systema_naturae_linnaeus_1758: "linnaeus",
+  lehrbuch_naturphilosophie_oken_1809: "oken",
 };

@@ -23,9 +23,13 @@ CONCORDANCE_DIR = Path(__file__).parent.parent / "web" / "public" / "data"
 STRATEGY_PRIORITY = {
     "wikidata": 0,
     "member_overlap": 1,
+    "member_overlap_split": 1,
     "modern_name": 2,
     "alias_match": 3,
 }
+
+SPLIT_MAX_PER_OLD = 4
+SPLIT_MIN_EVIDENCE_RATIO = 0.20
 
 
 def normalize_name(text: str) -> str:
@@ -206,10 +210,18 @@ def propose_match(new_cluster: dict, old_clusters: list[dict], indices: dict) ->
             or (best_name >= 1 and best_id >= 1)
             or (best_name == 1 and alias_intersection >= 1 and normalize_name(new_cluster.get("canonical_name", "")) in old_aliases)
         ):
+            new_member_count = max(1, len(new_cluster.get("members", [])))
+            evidence_ratio = (best_id + best_name) / new_member_count
             return {
                 "strategy": "member_overlap",
                 "old_idx": best_old,
                 "score": float(best_score + 0.1 * alias_intersection),
+                "weighted_score": float(best_score),
+                "id_hits": int(best_id),
+                "name_hits": int(best_name),
+                "alias_overlap": int(alias_intersection),
+                "new_member_count": int(new_member_count),
+                "evidence_ratio": float(evidence_ratio),
                 "detail": f"weighted={best_score}, names={best_name}, ids={best_id}, alias_overlap={alias_intersection}",
             }
 
@@ -255,6 +267,73 @@ def propose_match(new_cluster: dict, old_clusters: list[dict], indices: dict) ->
     return None
 
 
+def resolve_mappings(proposals: list[dict], new_clusters: list[dict]) -> tuple[list[dict], Counter, set[int]]:
+    """Resolve candidate matches with one-to-one + split-aware pass."""
+    proposals = list(proposals)
+    proposals.sort(
+        key=lambda p: (
+            STRATEGY_PRIORITY.get(p["strategy"], 99),
+            -p["score"],
+            -new_clusters[p["new_idx"]].get("total_mentions", 0),
+        )
+    )
+
+    assigned_new = set()
+    used_old = set()
+    old_assignment_counts = Counter()
+    strategy_counts = Counter()
+    transferred_mappings = []
+
+    # Pass 1: one-to-one mappings (high precision baseline).
+    for proposal in proposals:
+        new_idx = proposal["new_idx"]
+        old_idx = proposal["old_idx"]
+        if new_idx in assigned_new or old_idx in used_old:
+            continue
+        assigned_new.add(new_idx)
+        used_old.add(old_idx)
+        old_assignment_counts[old_idx] += 1
+        strategy_counts[proposal["strategy"]] += 1
+        transferred_mappings.append(proposal)
+
+    # Pass 2: split-aware member-overlap mappings.
+    # Allow one old cluster to map to multiple new clusters if overlap evidence is strong.
+    for proposal in proposals:
+        if proposal.get("strategy") != "member_overlap":
+            continue
+        new_idx = proposal["new_idx"]
+        old_idx = proposal["old_idx"]
+
+        if new_idx in assigned_new:
+            continue
+        if old_idx not in used_old:
+            continue
+        if old_assignment_counts[old_idx] >= SPLIT_MAX_PER_OLD:
+            continue
+
+        id_hits = proposal.get("id_hits", 0)
+        name_hits = proposal.get("name_hits", 0)
+        weighted_score = proposal.get("weighted_score", proposal.get("score", 0.0))
+        evidence_ratio = proposal.get("evidence_ratio", 0.0)
+
+        strong_split_evidence = (
+            (id_hits >= 1 and evidence_ratio >= SPLIT_MIN_EVIDENCE_RATIO)
+            or (name_hits >= 2 and evidence_ratio >= 0.30)
+            or weighted_score >= 6
+        )
+        if not strong_split_evidence:
+            continue
+
+        assigned_new.add(new_idx)
+        old_assignment_counts[old_idx] += 1
+        mapped = dict(proposal)
+        mapped["strategy"] = "member_overlap_split"
+        transferred_mappings.append(mapped)
+        strategy_counts["member_overlap_split"] += 1
+
+    return transferred_mappings, strategy_counts, assigned_new
+
+
 def main():
     parser = argparse.ArgumentParser(description="Migrate ground_truth between concordances")
     parser.add_argument("--old", required=True, help="Old concordance with ground_truth data")
@@ -293,29 +372,7 @@ def main():
         proposal["new_idx"] = new_idx
         proposals.append(proposal)
 
-    # Resolve to one-to-one mappings: each old cluster can map once.
-    proposals.sort(
-        key=lambda p: (
-            STRATEGY_PRIORITY.get(p["strategy"], 99),
-            -p["score"],
-            -new_clusters[p["new_idx"]].get("total_mentions", 0),
-        )
-    )
-
-    assigned_new = set()
-    used_old = set()
-    strategy_counts = Counter()
-    transferred_mappings = []
-
-    for proposal in proposals:
-        new_idx = proposal["new_idx"]
-        old_idx = proposal["old_idx"]
-        if new_idx in assigned_new or old_idx in used_old:
-            continue
-        assigned_new.add(new_idx)
-        used_old.add(old_idx)
-        strategy_counts[proposal["strategy"]] += 1
-        transferred_mappings.append(proposal)
+    transferred_mappings, strategy_counts, assigned_new = resolve_mappings(proposals, new_clusters)
 
     gt_transferred = 0
     for mapping in transferred_mappings:
@@ -339,6 +396,7 @@ def main():
     print(f"\nMigration Results:")
     print(f"  Matched by Wikidata:       {strategy_counts['wikidata']}")
     print(f"  Matched by member overlap: {strategy_counts['member_overlap']}")
+    print(f"  Matched by overlap split:  {strategy_counts['member_overlap_split']}")
     print(f"  Matched by modern_name:    {strategy_counts['modern_name']}")
     print(f"  Matched by alias fallback: {strategy_counts['alias_match']}")
     print(f"  Unmatched (new clusters):  {unmatched}")

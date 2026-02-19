@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Option C: Dense Table + Inline Expansion</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #fafaf9; color: #1c1917; padding: 32px; max-width: 720px; margin: 0 auto; }
+  h2 { font-size: 14px; font-weight: 600; color: #78716c; letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 4px; }
+  .subtitle { font-size: 13px; color: #a8a29e; margin-bottom: 16px; }
+
+  table { width: 100%; border-collapse: collapse; }
+
+  thead th {
+    font-size: 11px; font-weight: 600; color: #a8a29e; text-transform: uppercase;
+    letter-spacing: 0.04em; padding: 6px 10px; text-align: left;
+    border-bottom: 2px solid #e7e5e4; cursor: pointer; user-select: none;
+    white-space: nowrap;
+  }
+  thead th:hover { color: #44403c; }
+  thead th.active { color: #1c1917; }
+  thead th .arrow { font-size: 9px; margin-left: 2px; }
+  thead th.right { text-align: right; }
+
+  .data-row {
+    cursor: pointer; transition: background 0.1s;
+  }
+  .data-row:hover { background: #f5f5f4; }
+  .data-row.active { background: #f5f5f4; }
+  .data-row td { padding: 8px 10px; border-bottom: 1px solid #f5f5f4; font-size: 13px; }
+
+  .lang-dot { display: inline-block; width: 7px; height: 7px; border-radius: 50%; margin-right: 6px; vertical-align: middle; }
+  .book-cell { font-weight: 600; }
+  .term-cell { font-style: italic; }
+  .count-cell { text-align: right; font-variant-numeric: tabular-nums; color: #57534e; }
+  .lang-cell { font-size: 12px; color: #78716c; text-align: center; }
+  .year-cell { font-size: 12px; color: #78716c; font-variant-numeric: tabular-nums; }
+
+  .count-bar {
+    display: inline-block; height: 4px; border-radius: 2px;
+    vertical-align: middle; margin-right: 6px;
+  }
+
+  .expand-row td { padding: 0; border-bottom: 1px solid #e7e5e4; }
+  .expand-content {
+    padding: 10px 10px 14px 34px; background: #fafaf9;
+    animation: fadeIn 0.12s ease;
+  }
+  @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+  .member-block { margin-bottom: 6px; }
+  .member-name { font-weight: 600; font-size: 13px; }
+  .member-count-sm { font-size: 12px; color: #a8a29e; }
+  .member-variants { font-size: 12px; color: #a8a29e; }
+  .context-line { font-size: 12px; color: #57534e; font-style: italic; line-height: 1.5; padding-left: 10px; border-left: 2px solid #e7e5e4; margin-top: 2px; }
+  .excerpt-link { font-size: 12px; color: #2563eb; cursor: pointer; margin-top: 6px; display: inline-block; }
+  .excerpt-link:hover { text-decoration: underline; }
+
+  .show-more-row td { padding: 8px 10px; text-align: center; }
+  .show-more-btn { font-size: 12px; color: #78716c; cursor: pointer; background: none; border: none; }
+  .show-more-btn:hover { color: #44403c; }
+
+  .hidden { display: none; }
+
+  [data-lang="EN"] { --lc: #2563eb; } [data-lang="ES"] { --lc: #d97706; }
+  [data-lang="FR"] { --lc: #059669; } [data-lang="PT"] { --lc: #9333ea; }
+  [data-lang="IT"] { --lc: #dc2626; }
+</style>
+</head>
+<body>
+
+<h2>Source Evidence</h2>
+<div class="subtitle">9 books · 743 mentions</div>
+
+<table>
+  <thead>
+    <tr>
+      <th class="active" data-sort="count" onclick="sortBy('count')">Book <span class="arrow"></span></th>
+      <th data-sort="term" onclick="sortBy('term')">Term</th>
+      <th class="right" data-sort="count" onclick="sortBy('count')">Mentions <span class="arrow">▾</span></th>
+      <th data-sort="lang" onclick="sortBy('lang')">Lang</th>
+      <th data-sort="year" onclick="sortBy('year')">Year</th>
+    </tr>
+  </thead>
+  <tbody id="tableBody"></tbody>
+</table>
+
+<script>
+const books = [
+  { id:'culpeper', name:'Culpeper', year:1652, lang:'EN', totalCount:61, members:[
+    { name:'Water', count:61, variants:['Water','Waters','water','waters'], contexts:['bodily fluid, also a distilled preparation','distilled from ash-tree','water of elder flowers'] }
+  ]},
+  { id:'humboldt', name:'Humboldt', year:1825, lang:'FR', totalCount:40, members:[
+    { name:'eau', count:40, variants:['eau'], contexts:['medium for transport','substance mixed with plant sap','river water in equatorial regions'] }
+  ]},
+  { id:'buffon', name:'Buffon', year:1778, lang:'FR', totalCount:31, members:[
+    { name:'eau', count:30, variants:['eau'], contexts:['substance that solidifies without heat','liquid solvent'] },
+    { name:"l'eau", count:1, variants:["l'eau"], contexts:['water'] }
+  ]},
+  { id:'hernandez', name:'Hernández', year:1615, lang:'ES', totalCount:25, members:[
+    { name:'agua', count:24, variants:['agua'], contexts:['liquid for drinking','liquid for preparation'] },
+    { name:'aguas', count:1, variants:['aguas'], contexts:['waters for sweetening ginger'] }
+  ]},
+  { id:'monardes', name:'Monardes', year:1574, lang:'ES', totalCount:15, members:[
+    { name:'agua', count:15, variants:['agua','aguas'], contexts:['medicinal water preparation','water of the Indias'] }
+  ]},
+  { id:'browne', name:'Browne', year:1646, lang:'EN', totalCount:12, members:[
+    { name:'water', count:11, variants:['water','Water'], contexts:['fluid substance','universal solvent'] },
+    { name:'Waters', count:1, variants:['Waters'], contexts:['affecting magnetic variation'] }
+  ]},
+  { id:'bernard', name:'Bernard', year:1865, lang:'FR', totalCount:9, members:[
+    { name:'eau', count:9, variants:['eau'], contexts:['compound of oxygen and hydrogen','compound of hydrogen and oxygen'] }
+  ]},
+  { id:'orta', name:'Da Orta', year:1563, lang:'PT', totalCount:9, members:[
+    { name:'agoa', count:8, variants:['agoa','agoas'], contexts:['water used in distillation','river water'] },
+    { name:'agoas', count:1, variants:['agoas'], contexts:['medicinal waters'] }
+  ]},
+  { id:'ricettario', name:'Ricettario', year:1597, lang:'IT', totalCount:3, members:[
+    { name:'acqua', count:3, variants:['acqua'], contexts:['aqua vitae preparation','distilled water'] }
+  ]},
+];
+
+const COLORS = { EN:'#2563eb', ES:'#d97706', FR:'#059669', PT:'#9333ea', IT:'#dc2626' };
+const maxCount = Math.max(...books.map(b => b.totalCount));
+let currentSort = 'count';
+let sortDir = 'desc';
+let showAll = false;
+let activeId = null;
+const INITIAL_SHOW = 6;
+
+function sortBy(key) {
+  if (currentSort === key) { sortDir = sortDir === 'desc' ? 'asc' : 'desc'; }
+  else { currentSort = key; sortDir = key === 'year' || key === 'name' ? 'asc' : 'desc'; }
+  render();
+}
+
+function getSorted() {
+  const sorted = [...books];
+  sorted.sort((a, b) => {
+    let va, vb;
+    switch (currentSort) {
+      case 'count': va = a.totalCount; vb = b.totalCount; break;
+      case 'year': va = a.year; vb = b.year; break;
+      case 'term': va = a.members[0].name.toLowerCase(); vb = b.members[0].name.toLowerCase(); break;
+      case 'lang': va = a.lang; vb = b.lang; break;
+      default: va = a.name; vb = b.name;
+    }
+    if (va < vb) return sortDir === 'asc' ? -1 : 1;
+    if (va > vb) return sortDir === 'asc' ? 1 : -1;
+    return 0;
+  });
+  return sorted;
+}
+
+function toggleItem(id) { activeId = activeId === id ? null : id; render(); }
+function toggleShowAll() { showAll = !showAll; render(); }
+
+function render() {
+  const sorted = getSorted();
+  const visible = showAll ? sorted : sorted.slice(0, INITIAL_SHOW);
+  const remaining = sorted.length - INITIAL_SHOW;
+
+  // Update header arrows
+  document.querySelectorAll('thead th').forEach(th => {
+    const s = th.dataset.sort;
+    th.classList.toggle('active', s === currentSort);
+    const arrow = th.querySelector('.arrow');
+    if (arrow) arrow.textContent = s === currentSort ? (sortDir === 'desc' ? '▾' : '▴') : '';
+  });
+
+  const tbody = document.getElementById('tableBody');
+  let html = '';
+
+  visible.forEach(b => {
+    const isActive = b.id === activeId;
+    const barWidth = (b.totalCount / maxCount) * 60;
+    const mainTerm = b.members[0].name;
+    const color = COLORS[b.lang];
+
+    html += `<tr class="data-row ${isActive ? 'active' : ''}" onclick="toggleItem('${b.id}')" data-lang="${b.lang}">
+      <td class="book-cell"><span class="lang-dot" style="background:${color}"></span>${b.name}</td>
+      <td class="term-cell" style="color:${color}">${mainTerm}</td>
+      <td class="count-cell">
+        <span class="count-bar" style="width:${barWidth}px; background:${color}30"></span>${b.totalCount}
+      </td>
+      <td class="lang-cell">${b.lang}</td>
+      <td class="year-cell">${b.year}</td>
+    </tr>`;
+
+    if (isActive) {
+      html += `<tr class="expand-row"><td colspan="5">
+        <div class="expand-content">
+          ${b.members.map(m => `
+            <div class="member-block">
+              <span class="member-name" style="color:${color}">${m.name}</span>
+              <span class="member-count-sm">${m.count}</span>
+              ${m.variants.length > 1 ? `<span class="member-variants">${m.variants.join(', ')}</span>` : ''}
+              ${m.contexts.map(c => `<div class="context-line">"${c}"</div>`).join('')}
+            </div>
+          `).join('')}
+          <span class="excerpt-link">▸ View ${b.totalCount} excerpts from text</span>
+        </div>
+      </td></tr>`;
+    }
+  });
+
+  if (remaining > 0) {
+    html += `<tr class="show-more-row"><td colspan="5">
+      <button class="show-more-btn" onclick="event.stopPropagation(); toggleShowAll()">
+        ${showAll ? '− Show fewer' : `+ ${remaining} more books`}
+      </button>
+    </td></tr>`;
+  }
+
+  tbody.innerHTML = html;
+}
+
+render();
+</script>
+</body>
+</html>

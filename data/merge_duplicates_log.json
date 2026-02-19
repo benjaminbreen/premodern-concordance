@@ -1,0 +1,2449 @@
+{
+  "timestamp": "2026-02-18T14:27:37.431530",
+  "dry_run": false,
+  "clusters_before": 5941,
+  "clusters_after": 5844,
+  "groups_merged": 43,
+  "clusters_absorbed": 97,
+  "tier_counts": {
+    "tier1": 20,
+    "conflict": 49,
+    "skip_false_positive": 14,
+    "tier2": 17,
+    "tier3": 6
+  },
+  "merges": [
+    {
+      "modern_name": "africa",
+      "category": "PLACE",
+      "tier": "tier1",
+      "reason": "matching wikidata_id: Q15",
+      "keeper_id": 4,
+      "keeper_name": "Africa",
+      "absorbed": [
+        {
+          "id": 2079,
+          "name": "Afrique"
+        },
+        {
+          "id": 719,
+          "name": "africaine"
+        },
+        {
+          "id": 4009,
+          "name": "Africam"
+        }
+      ],
+      "members_after": 17
+    },
+    {
+      "modern_name": "americas",
+      "category": "PLACE",
+      "tier": "tier2",
+      "reason": "one has wikidata_id Q127834, 5 without",
+      "keeper_id": 804,
+      "keeper_name": "Amérique",
+      "absorbed": [
+        {
+          "id": 0,
+          "name": "America"
+        },
+        {
+          "id": 2205,
+          "name": "America meridionali"
+        },
+        {
+          "id": 3179,
+          "name": "Amérique du Nord"
+        },
+        {
+          "id": 3751,
+          "name": "nouveau monde"
+        },
+        {
+          "id": 4656,
+          "name": "Americani"
+        }
+      ],
+      "members_after": 29
+    },
+    {
+      "modern_name": "author",
+      "category": "CONCEPT",
+      "tier": "tier2",
+      "reason": "one has wikidata_id Q29940705, 1 without",
+      "keeper_id": 56,
+      "keeper_name": "Author",
+      "absorbed": [
+        {
+          "id": 4708,
+          "name": "Auctor"
+        }
+      ],
+      "members_after": 8
+    },
+    {
+      "modern_name": "authors",
+      "category": "CONCEPT",
+      "tier": "tier2",
+      "reason": "one has wikidata_id Q29940705, 1 without",
+      "keeper_id": 94,
+      "keeper_name": "Authores",
+      "absorbed": [
+        {
+          "id": 487,
+          "name": "Authors"
+        }
+      ],
+      "members_after": 9
+    },
+    {
+      "modern_name": "birds",
+      "category": "ANIMAL",
+      "tier": "tier1",
+      "reason": "matching wikidata_id: Q5113",
+      "keeper_id": 24,
+      "keeper_name": "birds",
+      "absorbed": [
+        {
+          "id": 55,
+          "name": "aves"
+        },
+        {
+          "id": 227,
+          "name": "bird"
+        },
+        {
+          "id": 1301,
+          "name": "oiseaux"
+        },
+        {
+          "id": 4989,
+          "name": "Volatils"
+        },
+        {
+          "id": 5684,
+          "name": "Volucres"
+        }
+      ],
+      "members_after": 25
+    },
+    {
+      "modern_name": "body",
+      "category": "SUBSTANCE",
+      "tier": "tier1",
+      "reason": "matching wikidata_id: Q23852",
+      "keeper_id": 96,
+      "keeper_name": "Body",
+      "absorbed": [
+        {
+          "id": 2187,
+          "name": "corpus"
+        },
+        {
+          "id": 273,
+          "name": "Bodies"
+        },
+        {
+          "id": 1245,
+          "name": "corpore"
+        },
+        {
+          "id": 2726,
+          "name": "cuerpo"
+        },
+        {
+          "id": 1354,
+          "name": "corps"
+        },
+        {
+          "id": 764,
+          "name": "parties du corps"
+        },
+        {
+          "id": 4071,
+          "name": "corpo"
+        }
+      ],
+      "members_after": 27
+    },
+    {
+      "modern_name": "butterfly",
+      "category": "ANIMAL",
+      "tier": "tier3",
+      "reason": "no wikidata, shared modern_name (cross-linguistic)",
+      "keeper_id": 3300,
+      "keeper_name": "Papilio",
+      "absorbed": [
+        {
+          "id": 4290,
+          "name": "butterfly"
+        }
+      ],
+      "members_after": 4
+    },
+    {
+      "modern_name": "cat",
+      "category": "ANIMAL",
+      "tier": "tier2",
+      "reason": "one has wikidata_id Q20980826, 1 without",
+      "keeper_id": 4878,
+      "keeper_name": "chat",
+      "absorbed": [
+        {
+          "id": 5678,
+          "name": "Cati"
+        }
+      ],
+      "members_after": 4
+    },
+    {
+      "modern_name": "children",
+      "category": "CONCEPT",
+      "tier": "tier2",
+      "reason": "one has wikidata_id Q57354899, 2 without",
+      "keeper_id": 384,
+      "keeper_name": "criança",
+      "absorbed": [
+        {
+          "id": 3143,
+          "name": "filhos"
+        },
+        {
+          "id": 4086,
+          "name": "criancas"
+        }
+      ],
+      "members_after": 9
+    },
+    {
+      "modern_name": "ears",
+      "category": "SUBSTANCE",
+      "tier": "tier2",
+      "reason": "one has wikidata_id Q7362, 1 without",
+      "keeper_id": 2399,
+      "keeper_name": "aures",
+      "absorbed": [
+        {
+          "id": 1244,
+          "name": "Auriculis"
+        }
+      ],
+      "members_after": 6
+    },
+    {
+      "modern_name": "edward forbes",
+      "category": "PERSON",
+      "tier": "tier2",
+      "reason": "one has wikidata_id Q75310320, 1 without",
+      "keeper_id": 1263,
+      "keeper_name": "Forbes",
+      "absorbed": [
+        {
+          "id": 5650,
+          "name": "Forbes, Professor E."
+        }
+      ],
+      "members_after": 15
+    },
+    {
+      "modern_name": "elements",
+      "category": "SUBSTANCE",
+      "tier": "tier3",
+      "reason": "no wikidata, shared modern_name (cross-linguistic)",
+      "keeper_id": 1139,
+      "keeper_name": "elements",
+      "absorbed": [
+        {
+          "id": 2859,
+          "name": "Elemente"
+        }
+      ],
+      "members_after": 5
+    },
+    {
+      "modern_name": "emerald",
+      "category": "SUBSTANCE",
+      "tier": "tier1",
+      "reason": "matching wikidata_id: Q43513",
+      "keeper_id": 978,
+      "keeper_name": "esmeralda",
+      "absorbed": [
+        {
+          "id": 2708,
+          "name": "Eſmeraldas"
+        },
+        {
+          "id": 1770,
+          "name": "Emerald"
+        },
+        {
+          "id": 4038,
+          "name": "smaragdi"
+        }
+      ],
+      "members_after": 10
+    },
+    {
+      "modern_name": "europe",
+      "category": "PLACE",
+      "tier": "tier1",
+      "reason": "matching wikidata_id: Q5412157",
+      "keeper_id": 65,
+      "keeper_name": "Europa",
+      "absorbed": [
+        {
+          "id": 5363,
+          "name": "nations de l'Europe"
+        }
+      ],
+      "members_after": 26
+    },
+    {
+      "modern_name": "feet",
+      "category": "SUBSTANCE",
+      "tier": "tier3",
+      "reason": "no wikidata, shared modern_name (cross-linguistic)",
+      "keeper_id": 2401,
+      "keeper_name": "pedum",
+      "absorbed": [
+        {
+          "id": 2402,
+          "name": "pedibus"
+        },
+        {
+          "id": 3128,
+          "name": "Füfse"
+        },
+        {
+          "id": 4341,
+          "name": "pies"
+        }
+      ],
+      "members_after": 11
+    },
+    {
+      "modern_name": "fig",
+      "category": "PLANT",
+      "tier": "tier1",
+      "reason": "matching wikidata_id: Q59798",
+      "keeper_id": 2783,
+      "keeper_name": "Figs",
+      "absorbed": [
+        {
+          "id": 1445,
+          "name": "Ficus"
+        },
+        {
+          "id": 4089,
+          "name": "figa"
+        },
+        {
+          "id": 4347,
+          "name": "higos"
+        }
+      ],
+      "members_after": 11
+    },
+    {
+      "modern_name": "gills",
+      "category": "SUBSTANCE",
+      "tier": "tier1",
+      "reason": "matching wikidata_id: Q132390",
+      "keeper_id": 2432,
+      "keeper_name": "branchiam",
+      "absorbed": [
+        {
+          "id": 1225,
+          "name": "branchiæ"
+        },
+        {
+          "id": 5146,
+          "name": "gills"
+        }
+      ],
+      "members_after": 11
+    },
+    {
+      "modern_name": "god",
+      "category": "CONCEPT",
+      "tier": "tier3",
+      "reason": "no wikidata but name overlap",
+      "keeper_id": 365,
+      "keeper_name": "Deos",
+      "absorbed": [
+        {
+          "id": 1614,
+          "name": "DEUS"
+        }
+      ],
+      "members_after": 24
+    },
+    {
+      "modern_name": "herbs",
+      "category": "PLANT",
+      "tier": "tier1",
+      "reason": "matching wikidata_id: Q207123",
+      "keeper_id": 846,
+      "keeper_name": "ervas",
+      "absorbed": [
+        {
+          "id": 2234,
+          "name": "yeruas"
+        },
+        {
+          "id": 3130,
+          "name": "herbis"
+        }
+      ],
+      "members_after": 8
+    },
+    {
+      "modern_name": "hispaniola",
+      "category": "PLACE",
+      "tier": "tier2",
+      "reason": "one has wikidata_id Q21293623, 1 without",
+      "keeper_id": 2924,
+      "keeper_name": "Hispaniola",
+      "absorbed": [
+        {
+          "id": 5658,
+          "name": "Hifpaniam"
+        }
+      ],
+      "members_after": 9
+    },
+    {
+      "modern_name": "human",
+      "category": "CONCEPT",
+      "tier": "tier2",
+      "reason": "one has wikidata_id Q28937368, 1 without",
+      "keeper_id": 122,
+      "keeper_name": "man",
+      "absorbed": [
+        {
+          "id": 1712,
+          "name": "humana"
+        }
+      ],
+      "members_after": 8
+    },
+    {
+      "modern_name": "intestines",
+      "category": "SUBSTANCE",
+      "tier": "tier1",
+      "reason": "matching wikidata_id: Q9639",
+      "keeper_id": 181,
+      "keeper_name": "Intestinos",
+      "absorbed": [
+        {
+          "id": 498,
+          "name": "Tripas"
+        },
+        {
+          "id": 1293,
+          "name": "inteftinos"
+        },
+        {
+          "id": 1738,
+          "name": "inteftina"
+        },
+        {
+          "id": 3392,
+          "name": "Inteftinorum"
+        },
+        {
+          "id": 4813,
+          "name": "inteſtinis"
+        },
+        {
+          "id": 4999,
+          "name": "bowels"
+        }
+      ],
+      "members_after": 23
+    },
+    {
+      "modern_name": "july",
+      "category": "CONCEPT",
+      "tier": "tier1",
+      "reason": "matching wikidata_id: Q121",
+      "keeper_id": 2069,
+      "keeper_name": "July",
+      "absorbed": [
+        {
+          "id": 5369,
+          "name": "Julio"
+        }
+      ],
+      "members_after": 4
+    },
+    {
+      "modern_name": "law",
+      "category": "CONCEPT",
+      "tier": "tier2",
+      "reason": "one has wikidata_id Q7748, 1 without",
+      "keeper_id": 2777,
+      "keeper_name": "loi",
+      "absorbed": [
+        {
+          "id": 3494,
+          "name": "droit"
+        }
+      ],
+      "members_after": 5
+    },
+    {
+      "modern_name": "mastic",
+      "category": "PLANT",
+      "tier": "tier1",
+      "reason": "matching wikidata_id: Q6005596",
+      "keeper_id": 2108,
+      "keeper_name": "Almecega",
+      "absorbed": [
+        {
+          "id": 3659,
+          "name": "mastice"
+        },
+        {
+          "id": 4162,
+          "name": "Mastick"
+        }
+      ],
+      "members_after": 6
+    },
+    {
+      "modern_name": "men",
+      "category": "CONCEPT",
+      "tier": "tier3",
+      "reason": "no wikidata but name overlap",
+      "keeper_id": 223,
+      "keeper_name": "homens",
+      "absorbed": [
+        {
+          "id": 526,
+          "name": "men"
+        }
+      ],
+      "members_after": 9
+    },
+    {
+      "modern_name": "mexico",
+      "category": "PLACE",
+      "tier": "tier1",
+      "reason": "matching wikidata_id: Q170603",
+      "keeper_id": 2033,
+      "keeper_name": "Mexique",
+      "absorbed": [
+        {
+          "id": 87,
+          "name": "Mexico"
+        },
+        {
+          "id": 2123,
+          "name": "Nueva España"
+        },
+        {
+          "id": 2956,
+          "name": "Nova Espanha"
+        },
+        {
+          "id": 3473,
+          "name": "Mexicaine"
+        },
+        {
+          "id": 4354,
+          "name": "Mexicana"
+        },
+        {
+          "id": 5153,
+          "name": "Mexican"
+        }
+      ],
+      "members_after": 20
+    },
+    {
+      "modern_name": "modern authors",
+      "category": "PERSON",
+      "tier": "tier2",
+      "reason": "one has wikidata_id Q120129985, 1 without",
+      "keeper_id": 3627,
+      "keeper_name": "modernos",
+      "absorbed": [
+        {
+          "id": 5243,
+          "name": "autor moderno"
+        }
+      ],
+      "members_after": 4
+    },
+    {
+      "modern_name": "moon",
+      "category": "ANIMAL",
+      "tier": "tier2",
+      "reason": "one has wikidata_id Q405, 2 without",
+      "keeper_id": 2035,
+      "keeper_name": "moon",
+      "absorbed": [
+        {
+          "id": 4939,
+          "name": "Moons"
+        },
+        {
+          "id": 5661,
+          "name": "Luna"
+        }
+      ],
+      "members_after": 6
+    },
+    {
+      "modern_name": "neck",
+      "category": "SUBSTANCE",
+      "tier": "tier2",
+      "reason": "one has wikidata_id Q106138895, 1 without",
+      "keeper_id": 2643,
+      "keeper_name": "Neck",
+      "absorbed": [
+        {
+          "id": 1681,
+          "name": "cuello"
+        }
+      ],
+      "members_after": 6
+    },
+    {
+      "modern_name": "pain",
+      "category": "DISEASE",
+      "tier": "tier1",
+      "reason": "matching wikidata_id: Q81938",
+      "keeper_id": 803,
+      "keeper_name": "dores",
+      "absorbed": [
+        {
+          "id": 2054,
+          "name": "pains"
+        },
+        {
+          "id": 116,
+          "name": "pain"
+        },
+        {
+          "id": 398,
+          "name": "dolor"
+        },
+        {
+          "id": 1387,
+          "name": "torments"
+        },
+        {
+          "id": 5857,
+          "name": "dolenti"
+        }
+      ],
+      "members_after": 19
+    },
+    {
+      "modern_name": "powder",
+      "category": "SUBSTANCE",
+      "tier": "tier1",
+      "reason": "matching wikidata_id: Q2908004",
+      "keeper_id": 2813,
+      "keeper_name": "poluo",
+      "absorbed": [
+        {
+          "id": 4036,
+          "name": "Pulver"
+        },
+        {
+          "id": 5030,
+          "name": "poudre"
+        }
+      ],
+      "members_after": 6
+    },
+    {
+      "modern_name": "pyrite",
+      "category": "SUBSTANCE",
+      "tier": "tier1",
+      "reason": "matching wikidata_id: Q50769",
+      "keeper_id": 596,
+      "keeper_name": "pyrites",
+      "absorbed": [
+        {
+          "id": 5292,
+          "name": "pyrite cuivreuse"
+        }
+      ],
+      "members_after": 8
+    },
+    {
+      "modern_name": "río de la plata",
+      "category": "PLACE",
+      "tier": "tier1",
+      "reason": "matching wikidata_id: Q35827",
+      "keeper_id": 2246,
+      "keeper_name": "Rio de la Plata",
+      "absorbed": [
+        {
+          "id": 5296,
+          "name": "Rio de la Platioa"
+        }
+      ],
+      "members_after": 11
+    },
+    {
+      "modern_name": "spines",
+      "category": "SUBSTANCE",
+      "tier": "tier3",
+      "reason": "no wikidata, shared modern_name (cross-linguistic)",
+      "keeper_id": 3619,
+      "keeper_name": "spinis",
+      "absorbed": [
+        {
+          "id": 4027,
+          "name": "fpinis"
+        },
+        {
+          "id": 5668,
+          "name": "Spinae"
+        }
+      ],
+      "members_after": 6
+    },
+    {
+      "modern_name": "spleen",
+      "category": "SUBSTANCE",
+      "tier": "tier1",
+      "reason": "matching wikidata_id: Q9371",
+      "keeper_id": 2063,
+      "keeper_name": "Spleen",
+      "absorbed": [
+        {
+          "id": 2072,
+          "name": "baço"
+        },
+        {
+          "id": 2686,
+          "name": "Bast"
+        },
+        {
+          "id": 2812,
+          "name": "bago"
+        },
+        {
+          "id": 2877,
+          "name": "lienis"
+        },
+        {
+          "id": 5719,
+          "name": "Liene"
+        }
+      ],
+      "members_after": 12
+    },
+    {
+      "modern_name": "stone",
+      "category": "SUBSTANCE",
+      "tier": "tier1",
+      "reason": "matching wikidata_id: Q22731",
+      "keeper_id": 228,
+      "keeper_name": "stone",
+      "absorbed": [
+        {
+          "id": 1247,
+          "name": "lapidem"
+        },
+        {
+          "id": 4223,
+          "name": "pierre"
+        }
+      ],
+      "members_after": 10
+    },
+    {
+      "modern_name": "swelling",
+      "category": "DISEASE",
+      "tier": "tier2",
+      "reason": "one has wikidata_id Q109186, 4 without",
+      "keeper_id": 2068,
+      "keeper_name": "Swellings",
+      "absorbed": [
+        {
+          "id": 2112,
+          "name": "inchaços"
+        },
+        {
+          "id": 2122,
+          "name": "Dropsie"
+        },
+        {
+          "id": 2243,
+          "name": "swelling"
+        },
+        {
+          "id": 2478,
+          "name": "hinchazones"
+        }
+      ],
+      "members_after": 10
+    },
+    {
+      "modern_name": "teeth",
+      "category": "SUBSTANCE",
+      "tier": "tier2",
+      "reason": "one has wikidata_id Q47450777, 4 without",
+      "keeper_id": 374,
+      "keeper_name": "dentes",
+      "absorbed": [
+        {
+          "id": 183,
+          "name": "Teeth"
+        },
+        {
+          "id": 2446,
+          "name": "dientes"
+        },
+        {
+          "id": 3306,
+          "name": "dentibus"
+        },
+        {
+          "id": 3840,
+          "name": "muelas"
+        }
+      ],
+      "members_after": 16
+    },
+    {
+      "modern_name": "turkey",
+      "category": "ANIMAL",
+      "tier": "tier1",
+      "reason": "matching wikidata_id: Q43794",
+      "keeper_id": 3742,
+      "keeper_name": "Turkey",
+      "absorbed": [
+        {
+          "id": 5276,
+          "name": "gallipauos"
+        }
+      ],
+      "members_after": 5
+    },
+    {
+      "modern_name": "turnip",
+      "category": "PLANT",
+      "tier": "tier2",
+      "reason": "one has wikidata_id Q3384, 1 without",
+      "keeper_id": 3048,
+      "keeper_name": "nabos",
+      "absorbed": [
+        {
+          "id": 4679,
+          "name": "Rapa"
+        }
+      ],
+      "members_after": 4
+    },
+    {
+      "modern_name": "ulcers",
+      "category": "DISEASE",
+      "tier": "tier2",
+      "reason": "one has wikidata_id Q27723606, 1 without",
+      "keeper_id": 2042,
+      "keeper_name": "Ulcers",
+      "absorbed": [
+        {
+          "id": 1210,
+          "name": "ulceribus"
+        }
+      ],
+      "members_after": 7
+    },
+    {
+      "modern_name": "weasel",
+      "category": "ANIMAL",
+      "tier": "tier1",
+      "reason": "matching wikidata_id: Q25311",
+      "keeper_id": 4659,
+      "keeper_name": "MUSTELA",
+      "absorbed": [
+        {
+          "id": 5277,
+          "name": "yzquiepatli"
+        }
+      ],
+      "members_after": 4
+    }
+  ],
+  "skipped": [
+    {
+      "modern_name": "alder",
+      "category": "PLANT",
+      "tier": "conflict",
+      "reason": "conflicting wikidata_ids: Q156904, Q25440698",
+      "clusters": [
+        {
+          "id": 3006,
+          "canonical_name": "Alder-Tree",
+          "total_mentions": 7
+        },
+        {
+          "id": 3584,
+          "canonical_name": "Alni",
+          "total_mentions": 5
+        }
+      ]
+    },
+    {
+      "modern_name": "alps",
+      "category": "PLACE",
+      "tier": "skip_false_positive",
+      "reason": "known false-positive: alps",
+      "clusters": [
+        {
+          "id": 425,
+          "canonical_name": "Alpes",
+          "total_mentions": 33
+        },
+        {
+          "id": 752,
+          "canonical_name": "Alps",
+          "total_mentions": 6
+        },
+        {
+          "id": 1479,
+          "canonical_name": "alpine",
+          "total_mentions": 7
+        },
+        {
+          "id": 2007,
+          "canonical_name": "Alpine chain",
+          "total_mentions": 3
+        },
+        {
+          "id": 2922,
+          "canonical_name": "Alpes maritimes",
+          "total_mentions": 8
+        },
+        {
+          "id": 2927,
+          "canonical_name": "ALTAÏ",
+          "total_mentions": 8
+        }
+      ]
+    },
+    {
+      "modern_name": "animals",
+      "category": "ANIMAL",
+      "tier": "conflict",
+      "reason": "conflicting wikidata_ids: Q431, Q729",
+      "clusters": [
+        {
+          "id": 46,
+          "canonical_name": "animals",
+          "total_mentions": 77
+        },
+        {
+          "id": 146,
+          "canonical_name": "animal",
+          "total_mentions": 37
+        },
+        {
+          "id": 327,
+          "canonical_name": "animalibus",
+          "total_mentions": 6
+        },
+        {
+          "id": 855,
+          "canonical_name": "animaux",
+          "total_mentions": 54
+        },
+        {
+          "id": 1059,
+          "canonical_name": "Animalia",
+          "total_mentions": 18
+        },
+        {
+          "id": 1171,
+          "canonical_name": "Animalium",
+          "total_mentions": 13
+        },
+        {
+          "id": 2375,
+          "canonical_name": "animaes",
+          "total_mentions": 18
+        },
+        {
+          "id": 5259,
+          "canonical_name": "brutos animales",
+          "total_mentions": 2
+        }
+      ]
+    },
+    {
+      "modern_name": "apple",
+      "category": "PLANT",
+      "tier": "conflict",
+      "reason": "conflicting wikidata_ids: Q104819, Q47161",
+      "clusters": [
+        {
+          "id": 3302,
+          "canonical_name": "Malo",
+          "total_mentions": 6
+        },
+        {
+          "id": 3585,
+          "canonical_name": "Pomonae",
+          "total_mentions": 5
+        },
+        {
+          "id": 4203,
+          "canonical_name": "apple",
+          "total_mentions": 3
+        }
+      ]
+    },
+    {
+      "modern_name": "aquatic animals",
+      "category": "ANIMAL",
+      "tier": "conflict",
+      "reason": "conflicting wikidata_ids: Q109985280, Q1756633",
+      "clusters": [
+        {
+          "id": 1755,
+          "canonical_name": "animaux aquatiques",
+          "total_mentions": 4
+        },
+        {
+          "id": 5730,
+          "canonical_name": "aquaticis",
+          "total_mentions": 2
+        }
+      ]
+    },
+    {
+      "modern_name": "arctic ocean",
+      "category": "PLACE",
+      "tier": "conflict",
+      "reason": "conflicting wikidata_ids: Q25322, Q7354",
+      "clusters": [
+        {
+          "id": 1239,
+          "canonical_name": "Polar Sea",
+          "total_mentions": 11
+        },
+        {
+          "id": 1600,
+          "canonical_name": "Southern Ocean",
+          "total_mentions": 6
+        },
+        {
+          "id": 4949,
+          "canonical_name": "Northern Seas",
+          "total_mentions": 2
+        }
+      ]
+    },
+    {
+      "modern_name": "art",
+      "category": "CONCEPT",
+      "tier": "conflict",
+      "reason": "conflicting wikidata_ids: Q735, Q96704320",
+      "clusters": [
+        {
+          "id": 269,
+          "canonical_name": "art",
+          "total_mentions": 11
+        },
+        {
+          "id": 2103,
+          "canonical_name": "Arte",
+          "total_mentions": 51
+        },
+        {
+          "id": 5726,
+          "canonical_name": "Ar-",
+          "total_mentions": 2
+        }
+      ]
+    },
+    {
+      "modern_name": "bananas",
+      "category": "PLANT",
+      "tier": "skip_false_positive",
+      "reason": "known false-positive: bananas",
+      "clusters": [
+        {
+          "id": 461,
+          "canonical_name": "bananes",
+          "total_mentions": 24
+        },
+        {
+          "id": 1463,
+          "canonical_name": "Beans",
+          "total_mentions": 7
+        }
+      ]
+    },
+    {
+      "modern_name": "body part",
+      "category": "SUBSTANCE",
+      "tier": "conflict",
+      "reason": "conflicting wikidata_ids: Q17781690, Q514",
+      "clusters": [
+        {
+          "id": 714,
+          "canonical_name": "parts",
+          "total_mentions": 7
+        },
+        {
+          "id": 5884,
+          "canonical_name": "membra",
+          "total_mentions": 2
+        }
+      ]
+    },
+    {
+      "modern_name": "carbon monoxide",
+      "category": "SUBSTANCE",
+      "tier": "skip_false_positive",
+      "reason": "known false-positive: carbon monoxide",
+      "clusters": [
+        {
+          "id": 1925,
+          "canonical_name": "oxyde du métal",
+          "total_mentions": 3
+        },
+        {
+          "id": 2378,
+          "canonical_name": "oxyde de carbone",
+          "total_mentions": 17
+        },
+        {
+          "id": 4745,
+          "canonical_name": "Oxides",
+          "total_mentions": 3
+        }
+      ]
+    },
+    {
+      "modern_name": "cassiquiare river",
+      "category": "PLACE",
+      "tier": "skip_false_positive",
+      "reason": "known false-positive: cassiquiare river",
+      "clusters": [
+        {
+          "id": 2163,
+          "canonical_name": "Cassiquiare",
+          "total_mentions": 34
+        },
+        {
+          "id": 3096,
+          "canonical_name": "Cassiopeia",
+          "total_mentions": 7
+        }
+      ]
+    },
+    {
+      "modern_name": "chapter",
+      "category": "OBJECT",
+      "tier": "conflict",
+      "reason": "conflicting wikidata_ids: Q21481766, Q88392887",
+      "clusters": [
+        {
+          "id": 865,
+          "canonical_name": "cap.",
+          "total_mentions": 50
+        },
+        {
+          "id": 5165,
+          "canonical_name": "chapter",
+          "total_mentions": 2
+        }
+      ]
+    },
+    {
+      "modern_name": "cotton",
+      "category": "PLANT",
+      "tier": "conflict",
+      "reason": "conflicting wikidata_ids: Q11457, Q719312",
+      "clusters": [
+        {
+          "id": 1006,
+          "canonical_name": "coton",
+          "total_mentions": 21
+        },
+        {
+          "id": 1519,
+          "canonical_name": "Algodon",
+          "total_mentions": 7
+        },
+        {
+          "id": 4475,
+          "canonical_name": "Gossypiam",
+          "total_mentions": 3
+        },
+        {
+          "id": 5127,
+          "canonical_name": "cotton-trees",
+          "total_mentions": 2
+        }
+      ]
+    },
+    {
+      "modern_name": "cuttlefish",
+      "category": "ANIMAL",
+      "tier": "conflict",
+      "reason": "conflicting wikidata_ids: Q135119, Q286026",
+      "clusters": [
+        {
+          "id": 1347,
+          "canonical_name": "Sepia",
+          "total_mentions": 9
+        },
+        {
+          "id": 3806,
+          "canonical_name": "cuttle-fish",
+          "total_mentions": 4
+        }
+      ]
+    },
+    {
+      "modern_name": "disease",
+      "category": "DISEASE",
+      "tier": "conflict",
+      "reason": "conflicting wikidata_ids: Q12136, Q18123741",
+      "clusters": [
+        {
+          "id": 582,
+          "canonical_name": "disease",
+          "total_mentions": 12
+        },
+        {
+          "id": 1436,
+          "canonical_name": "morbus",
+          "total_mentions": 8
+        },
+        {
+          "id": 2203,
+          "canonical_name": "doença",
+          "total_mentions": 30
+        },
+        {
+          "id": 2567,
+          "canonical_name": "maladie",
+          "total_mentions": 12
+        },
+        {
+          "id": 2632,
+          "canonical_name": "morbis",
+          "total_mentions": 12
+        },
+        {
+          "id": 2986,
+          "canonical_name": "morbos",
+          "total_mentions": 8
+        },
+        {
+          "id": 3145,
+          "canonical_name": "morbo",
+          "total_mentions": 7
+        },
+        {
+          "id": 3334,
+          "canonical_name": "morbi",
+          "total_mentions": 6
+        },
+        {
+          "id": 4076,
+          "canonical_name": "morbum",
+          "total_mentions": 4
+        }
+      ]
+    },
+    {
+      "modern_name": "ear",
+      "category": "SUBSTANCE",
+      "tier": "conflict",
+      "reason": "conflicting wikidata_ids: Q3610875, Q7362",
+      "clusters": [
+        {
+          "id": 113,
+          "canonical_name": "Ears",
+          "total_mentions": 55
+        },
+        {
+          "id": 284,
+          "canonical_name": "auditory",
+          "total_mentions": 10
+        },
+        {
+          "id": 571,
+          "canonical_name": "Ouvidos",
+          "total_mentions": 13
+        },
+        {
+          "id": 921,
+          "canonical_name": "ear",
+          "total_mentions": 32
+        },
+        {
+          "id": 2730,
+          "canonical_name": "orelhas",
+          "total_mentions": 10
+        },
+        {
+          "id": 4075,
+          "canonical_name": "aurium",
+          "total_mentions": 4
+        }
+      ]
+    },
+    {
+      "modern_name": "east",
+      "category": "PLACE",
+      "tier": "conflict",
+      "reason": "conflicting wikidata_ids: Q176081, Q186198",
+      "clusters": [
+        {
+          "id": 666,
+          "canonical_name": "East",
+          "total_mentions": 9
+        },
+        {
+          "id": 5704,
+          "canonical_name": "Orientis",
+          "total_mentions": 2
+        }
+      ]
+    },
+    {
+      "modern_name": "elba",
+      "category": "PLACE",
+      "tier": "skip_false_positive",
+      "reason": "known false-positive: elba",
+      "clusters": [
+        {
+          "id": 3100,
+          "canonical_name": "Elba",
+          "total_mentions": 7
+        },
+        {
+          "id": 4409,
+          "canonical_name": "Elbe",
+          "total_mentions": 3
+        }
+      ]
+    },
+    {
+      "modern_name": "electrical phenomena",
+      "category": "CONCEPT",
+      "tier": "conflict",
+      "reason": "conflicting wikidata_ids: Q3405599, Q383973, Q56552099",
+      "clusters": [
+        {
+          "id": 1763,
+          "canonical_name": "electrical phenomena",
+          "total_mentions": 4
+        },
+        {
+          "id": 5039,
+          "canonical_name": "électriques",
+          "total_mentions": 2
+        },
+        {
+          "id": 5597,
+          "canonical_name": "electric process",
+          "total_mentions": 2
+        }
+      ]
+    },
+    {
+      "modern_name": "empirical knowledge",
+      "category": "CONCEPT",
+      "tier": "conflict",
+      "reason": "conflicting wikidata_ids: Q83021, Q83368",
+      "clusters": [
+        {
+          "id": 2240,
+          "canonical_name": "experiencia",
+          "total_mentions": 26
+        },
+        {
+          "id": 3705,
+          "canonical_name": "empirical knowledge",
+          "total_mentions": 4
+        }
+      ]
+    },
+    {
+      "modern_name": "figure reference",
+      "category": "OBJECT",
+      "tier": "conflict",
+      "reason": "conflicting wikidata_ids: Q207961, Q21550668",
+      "clusters": [
+        {
+          "id": 3536,
+          "canonical_name": "Fig. 2",
+          "total_mentions": 5
+        },
+        {
+          "id": 4499,
+          "canonical_name": "Fig. 17",
+          "total_mentions": 3
+        },
+        {
+          "id": 4535,
+          "canonical_name": "Fig. 18",
+          "total_mentions": 3
+        },
+        {
+          "id": 5505,
+          "canonical_name": "Fig. 41",
+          "total_mentions": 2
+        }
+      ]
+    },
+    {
+      "modern_name": "genitals",
+      "category": "SUBSTANCE",
+      "tier": "conflict",
+      "reason": "conflicting wikidata_ids: Q14902767, Q844342",
+      "clusters": [
+        {
+          "id": 321,
+          "canonical_name": "Genitalibus",
+          "total_mentions": 7
+        },
+        {
+          "id": 2712,
+          "canonical_name": "privy Parts",
+          "total_mentions": 10
+        },
+        {
+          "id": 4087,
+          "canonical_name": "partes pudendas",
+          "total_mentions": 4
+        },
+        {
+          "id": 5883,
+          "canonical_name": "pudendi parti",
+          "total_mentions": 2
+        }
+      ]
+    },
+    {
+      "modern_name": "genoa",
+      "category": "PLACE",
+      "tier": "skip_false_positive",
+      "reason": "known false-positive: genoa",
+      "clusters": [
+        {
+          "id": 639,
+          "canonical_name": "Genève",
+          "total_mentions": 10
+        },
+        {
+          "id": 4731,
+          "canonical_name": "Genoua",
+          "total_mentions": 3
+        }
+      ]
+    },
+    {
+      "modern_name": "georg wilhelm friedrich hegel",
+      "category": "PERSON",
+      "tier": "skip_false_positive",
+      "reason": "known false-positive: georg wilhelm friedrich hegel",
+      "clusters": [
+        {
+          "id": 2942,
+          "canonical_name": "Hegel",
+          "total_mentions": 8
+        },
+        {
+          "id": 3561,
+          "canonical_name": "Freytag",
+          "total_mentions": 5
+        }
+      ]
+    },
+    {
+      "modern_name": "goat",
+      "category": "ANIMAL",
+      "tier": "conflict",
+      "reason": "conflicting wikidata_ids: Q172923, Q45320358",
+      "clusters": [
+        {
+          "id": 1613,
+          "canonical_name": "Capra",
+          "total_mentions": 6
+        },
+        {
+          "id": 2448,
+          "canonical_name": "cabras",
+          "total_mentions": 15
+        },
+        {
+          "id": 2637,
+          "canonical_name": "Goat",
+          "total_mentions": 11
+        },
+        {
+          "id": 3140,
+          "canonical_name": "Bode",
+          "total_mentions": 7
+        }
+      ]
+    },
+    {
+      "modern_name": "grasshopper",
+      "category": "ANIMAL",
+      "tier": "conflict",
+      "reason": "conflicting wikidata_ids: Q10580727, Q1059580",
+      "clusters": [
+        {
+          "id": 3807,
+          "canonical_name": "Locusta",
+          "total_mentions": 4
+        },
+        {
+          "id": 4717,
+          "canonical_name": "Locufta-pulex",
+          "total_mentions": 3
+        }
+      ]
+    },
+    {
+      "modern_name": "greeks",
+      "category": "CONCEPT",
+      "tier": "conflict",
+      "reason": "conflicting wikidata_ids: Q11772, Q25688688",
+      "clusters": [
+        {
+          "id": 128,
+          "canonical_name": "Greci",
+          "total_mentions": 45
+        },
+        {
+          "id": 169,
+          "canonical_name": "Greeks",
+          "total_mentions": 29
+        },
+        {
+          "id": 2469,
+          "canonical_name": "Greguos",
+          "total_mentions": 15
+        }
+      ]
+    },
+    {
+      "modern_name": "heart",
+      "category": "SUBSTANCE",
+      "tier": "conflict",
+      "reason": "conflicting wikidata_ids: Q1072, Q57725904",
+      "clusters": [
+        {
+          "id": 197,
+          "canonical_name": "heart",
+          "total_mentions": 22
+        },
+        {
+          "id": 1037,
+          "canonical_name": "Cor",
+          "total_mentions": 19
+        },
+        {
+          "id": 2065,
+          "canonical_name": "coraçao",
+          "total_mentions": 74
+        },
+        {
+          "id": 2510,
+          "canonical_name": "cordis",
+          "total_mentions": 14
+        },
+        {
+          "id": 2809,
+          "canonical_name": "corazon",
+          "total_mentions": 9
+        },
+        {
+          "id": 3046,
+          "canonical_name": "coragon",
+          "total_mentions": 7
+        },
+        {
+          "id": 3124,
+          "canonical_name": "corniculum",
+          "total_mentions": 7
+        }
+      ]
+    },
+    {
+      "modern_name": "heron",
+      "category": "ANIMAL",
+      "tier": "conflict",
+      "reason": "conflicting wikidata_ids: Q18789, Q310853",
+      "clusters": [
+        {
+          "id": 3580,
+          "canonical_name": "Ardea",
+          "total_mentions": 5
+        },
+        {
+          "id": 4214,
+          "canonical_name": "Heron",
+          "total_mentions": 3
+        },
+        {
+          "id": 4701,
+          "canonical_name": "Ardeas",
+          "total_mentions": 3
+        },
+        {
+          "id": 5701,
+          "canonical_name": "Ardece",
+          "total_mentions": 2
+        }
+      ]
+    },
+    {
+      "modern_name": "indigo",
+      "category": "PLANT",
+      "tier": "conflict",
+      "reason": "conflicting wikidata_ids: Q310648, Q422662",
+      "clusters": [
+        {
+          "id": 1112,
+          "canonical_name": "anil",
+          "total_mentions": 15
+        },
+        {
+          "id": 4045,
+          "canonical_name": "Nil",
+          "total_mentions": 4
+        },
+        {
+          "id": 4771,
+          "canonical_name": "Gali",
+          "total_mentions": 3
+        },
+        {
+          "id": 5215,
+          "canonical_name": "xiuhquilitl",
+          "total_mentions": 2
+        }
+      ]
+    },
+    {
+      "modern_name": "infant",
+      "category": "PERSON",
+      "tier": "conflict",
+      "reason": "conflicting wikidata_ids: Q38404, Q45051448",
+      "clusters": [
+        {
+          "id": 693,
+          "canonical_name": "infant",
+          "total_mentions": 8
+        },
+        {
+          "id": 4271,
+          "canonical_name": "inf.",
+          "total_mentions": 3
+        }
+      ]
+    },
+    {
+      "modern_name": "jean-françois de galaup, comte de lapérouse",
+      "category": "PERSON",
+      "tier": "skip_false_positive",
+      "reason": "known false-positive: jean-françois de galaup, comte de lapérouse",
+      "clusters": [
+        {
+          "id": 2737,
+          "canonical_name": "Lamanon",
+          "total_mentions": 10
+        },
+        {
+          "id": 3062,
+          "canonical_name": "La Pérouse",
+          "total_mentions": 7
+        }
+      ]
+    },
+    {
+      "modern_name": "kidneys",
+      "category": "SUBSTANCE",
+      "tier": "conflict",
+      "reason": "conflicting wikidata_ids: Q50811406, Q9377",
+      "clusters": [
+        {
+          "id": 125,
+          "canonical_name": "Kidneys",
+          "total_mentions": 47
+        },
+        {
+          "id": 1617,
+          "canonical_name": "renibus",
+          "total_mentions": 6
+        },
+        {
+          "id": 2037,
+          "canonical_name": "rins",
+          "total_mentions": 116
+        },
+        {
+          "id": 2090,
+          "canonical_name": "Reins",
+          "total_mentions": 55
+        },
+        {
+          "id": 2191,
+          "canonical_name": "riñones",
+          "total_mentions": 31
+        }
+      ]
+    },
+    {
+      "modern_name": "ligaments",
+      "category": "SUBSTANCE",
+      "tier": "skip_false_positive",
+      "reason": "known false-positive: ligaments",
+      "clusters": [
+        {
+          "id": 1155,
+          "canonical_name": "limbs",
+          "total_mentions": 13
+        },
+        {
+          "id": 4276,
+          "canonical_name": "ligamentos",
+          "total_mentions": 3
+        }
+      ]
+    },
+    {
+      "modern_name": "lion",
+      "category": "ANIMAL",
+      "tier": "conflict",
+      "reason": "conflicting wikidata_ids: Q140, Q334",
+      "clusters": [
+        {
+          "id": 1397,
+          "canonical_name": "Lion",
+          "total_mentions": 8
+        },
+        {
+          "id": 4338,
+          "canonical_name": "Leones",
+          "total_mentions": 3
+        }
+      ]
+    },
+    {
+      "modern_name": "liver",
+      "category": "SUBSTANCE",
+      "tier": "conflict",
+      "reason": "conflicting wikidata_ids: Q1368191, Q24826",
+      "clusters": [
+        {
+          "id": 44,
+          "canonical_name": "Liver",
+          "total_mentions": 102
+        },
+        {
+          "id": 809,
+          "canonical_name": "figado",
+          "total_mentions": 189
+        },
+        {
+          "id": 914,
+          "canonical_name": "Higado",
+          "total_mentions": 34
+        },
+        {
+          "id": 1003,
+          "canonical_name": "hepatis",
+          "total_mentions": 22
+        },
+        {
+          "id": 2984,
+          "canonical_name": "hepar",
+          "total_mentions": 8
+        },
+        {
+          "id": 3650,
+          "canonical_name": "jecur",
+          "total_mentions": 5
+        },
+        {
+          "id": 4710,
+          "canonical_name": "Hepate",
+          "total_mentions": 3
+        }
+      ]
+    },
+    {
+      "modern_name": "malabar coast",
+      "category": "PLACE",
+      "tier": "skip_false_positive",
+      "reason": "known false-positive: malabar coast",
+      "clusters": [
+        {
+          "id": 88,
+          "canonical_name": "Malabar",
+          "total_mentions": 108
+        },
+        {
+          "id": 2055,
+          "canonical_name": "Malaca",
+          "total_mentions": 84
+        },
+        {
+          "id": 4300,
+          "canonical_name": "Malacca",
+          "total_mentions": 3
+        }
+      ]
+    },
+    {
+      "modern_name": "marine animals",
+      "category": "ANIMAL",
+      "tier": "conflict",
+      "reason": "conflicting wikidata_ids: Q100989659, Q1230015",
+      "clusters": [
+        {
+          "id": 3203,
+          "canonical_name": "marine animals",
+          "total_mentions": 6
+        },
+        {
+          "id": 5034,
+          "canonical_name": "animaux de la mer",
+          "total_mentions": 2
+        }
+      ]
+    },
+    {
+      "modern_name": "marshmallow",
+      "category": "PLANT",
+      "tier": "conflict",
+      "reason": "conflicting wikidata_ids: Q157706, Q158496",
+      "clusters": [
+        {
+          "id": 1622,
+          "canonical_name": "althea",
+          "total_mentions": 6
+        },
+        {
+          "id": 5739,
+          "canonical_name": "Althaea",
+          "total_mentions": 2
+        },
+        {
+          "id": 5866,
+          "canonical_name": "althca",
+          "total_mentions": 2
+        }
+      ]
+    },
+    {
+      "modern_name": "moon",
+      "category": "OBJECT",
+      "tier": "skip_false_positive",
+      "reason": "known false-positive: moon",
+      "clusters": [
+        {
+          "id": 147,
+          "canonical_name": "lune",
+          "total_mentions": 37
+        },
+        {
+          "id": 1789,
+          "canonical_name": "Astrea",
+          "total_mentions": 4
+        }
+      ]
+    },
+    {
+      "modern_name": "nerves",
+      "category": "SUBSTANCE",
+      "tier": "conflict",
+      "reason": "conflicting wikidata_ids: Q3234179, Q9620",
+      "clusters": [
+        {
+          "id": 209,
+          "canonical_name": "nerves",
+          "total_mentions": 20
+        },
+        {
+          "id": 961,
+          "canonical_name": "Nerv",
+          "total_mentions": 26
+        },
+        {
+          "id": 5801,
+          "canonical_name": "Nerrenorgane",
+          "total_mentions": 2
+        }
+      ]
+    },
+    {
+      "modern_name": "nervous tissue",
+      "category": "SUBSTANCE",
+      "tier": "conflict",
+      "reason": "conflicting wikidata_ids: Q56058241, Q6996973",
+      "clusters": [
+        {
+          "id": 3155,
+          "canonical_name": "nerve-substance",
+          "total_mentions": 6
+        },
+        {
+          "id": 3918,
+          "canonical_name": "nervous tissue",
+          "total_mentions": 4
+        },
+        {
+          "id": 5403,
+          "canonical_name": "nervous matter",
+          "total_mentions": 2
+        }
+      ]
+    },
+    {
+      "modern_name": "organism",
+      "category": "CONCEPT",
+      "tier": "conflict",
+      "reason": "conflicting wikidata_ids: Q55983715, Q7239",
+      "clusters": [
+        {
+          "id": 734,
+          "canonical_name": "corps organisés",
+          "total_mentions": 6
+        },
+        {
+          "id": 924,
+          "canonical_name": "Organismus",
+          "total_mentions": 31
+        },
+        {
+          "id": 1127,
+          "canonical_name": "organic being",
+          "total_mentions": 14
+        },
+        {
+          "id": 2409,
+          "canonical_name": "corps vivants",
+          "total_mentions": 16
+        },
+        {
+          "id": 2569,
+          "canonical_name": "êtres vivants",
+          "total_mentions": 12
+        },
+        {
+          "id": 5189,
+          "canonical_name": "living things",
+          "total_mentions": 2
+        }
+      ]
+    },
+    {
+      "modern_name": "pepper",
+      "category": "PLANT",
+      "tier": "conflict",
+      "reason": "conflicting wikidata_ids: Q159536, Q43084",
+      "clusters": [
+        {
+          "id": 820,
+          "canonical_name": "pimenta",
+          "total_mentions": 106
+        },
+        {
+          "id": 2312,
+          "canonical_name": "pimienta",
+          "total_mentions": 20
+        },
+        {
+          "id": 2791,
+          "canonical_name": "Pepper",
+          "total_mentions": 9
+        },
+        {
+          "id": 3137,
+          "canonical_name": "Piper",
+          "total_mentions": 7
+        },
+        {
+          "id": 5237,
+          "canonical_name": "pimienta redonda",
+          "total_mentions": 2
+        }
+      ]
+    },
+    {
+      "modern_name": "pine",
+      "category": "PLANT",
+      "tier": "conflict",
+      "reason": "conflicting wikidata_ids: Q1258277, Q59668787",
+      "clusters": [
+        {
+          "id": 585,
+          "canonical_name": "Pino",
+          "total_mentions": 12
+        },
+        {
+          "id": 729,
+          "canonical_name": "pineta",
+          "total_mentions": 7
+        },
+        {
+          "id": 1673,
+          "canonical_name": "pinos",
+          "total_mentions": 5
+        },
+        {
+          "id": 2497,
+          "canonical_name": "Pini",
+          "total_mentions": 14
+        },
+        {
+          "id": 4241,
+          "canonical_name": "pines",
+          "total_mentions": 3
+        }
+      ]
+    },
+    {
+      "modern_name": "plant life",
+      "category": "CONCEPT",
+      "tier": "conflict",
+      "reason": "conflicting wikidata_ids: Q2355817, Q3906288",
+      "clusters": [
+        {
+          "id": 1340,
+          "canonical_name": "vegetable life",
+          "total_mentions": 9
+        },
+        {
+          "id": 4883,
+          "canonical_name": "vie végétale",
+          "total_mentions": 2
+        },
+        {
+          "id": 5532,
+          "canonical_name": "Animal and vegetable life",
+          "total_mentions": 2
+        }
+      ]
+    },
+    {
+      "modern_name": "poison",
+      "category": "DISEASE",
+      "tier": "conflict",
+      "reason": "conflicting wikidata_ids: Q387175, Q40867",
+      "clusters": [
+        {
+          "id": 2631,
+          "canonical_name": "venena",
+          "total_mentions": 12
+        },
+        {
+          "id": 3839,
+          "canonical_name": "pongoña",
+          "total_mentions": 4
+        }
+      ]
+    },
+    {
+      "modern_name": "poland",
+      "category": "PLACE",
+      "tier": "skip_false_positive",
+      "reason": "known false-positive: poland",
+      "clusters": [
+        {
+          "id": 1212,
+          "canonical_name": "Pologne",
+          "total_mentions": 12
+        },
+        {
+          "id": 1978,
+          "canonical_name": "Bologne",
+          "total_mentions": 3
+        },
+        {
+          "id": 2010,
+          "canonical_name": "Poland",
+          "total_mentions": 3
+        }
+      ]
+    },
+    {
+      "modern_name": "priest",
+      "category": "CONCEPT",
+      "tier": "conflict",
+      "reason": "conflicting wikidata_ids: Q1469535, Q42603",
+      "clusters": [
+        {
+          "id": 704,
+          "canonical_name": "Priests",
+          "total_mentions": 7
+        },
+        {
+          "id": 1961,
+          "canonical_name": "sacerdote",
+          "total_mentions": 3
+        }
+      ]
+    },
+    {
+      "modern_name": "rose",
+      "category": "PLANT",
+      "tier": "conflict",
+      "reason": "conflicting wikidata_ids: Q34687, Q46299",
+      "clusters": [
+        {
+          "id": 286,
+          "canonical_name": "rose",
+          "total_mentions": 10
+        },
+        {
+          "id": 938,
+          "canonical_name": "Rofe",
+          "total_mentions": 29
+        },
+        {
+          "id": 1574,
+          "canonical_name": "rosa",
+          "total_mentions": 6
+        },
+        {
+          "id": 3120,
+          "canonical_name": "Rofa",
+          "total_mentions": 7
+        },
+        {
+          "id": 4718,
+          "canonical_name": "Roferofle",
+          "total_mentions": 3
+        }
+      ]
+    },
+    {
+      "modern_name": "salt",
+      "category": "SUBSTANCE",
+      "tier": "conflict",
+      "reason": "conflicting wikidata_ids: Q11254, Q2314",
+      "clusters": [
+        {
+          "id": 91,
+          "canonical_name": "sal",
+          "total_mentions": 96
+        },
+        {
+          "id": 2561,
+          "canonical_name": "Sale",
+          "total_mentions": 13
+        }
+      ]
+    },
+    {
+      "modern_name": "sea",
+      "category": "PLACE",
+      "tier": "conflict",
+      "reason": "conflicting wikidata_ids: Q165, Q5083",
+      "clusters": [
+        {
+          "id": 411,
+          "canonical_name": "sea",
+          "total_mentions": 37
+        },
+        {
+          "id": 434,
+          "canonical_name": "mer",
+          "total_mentions": 30
+        },
+        {
+          "id": 1048,
+          "canonical_name": "Sea",
+          "total_mentions": 18
+        },
+        {
+          "id": 2554,
+          "canonical_name": "mari",
+          "total_mentions": 13
+        },
+        {
+          "id": 2572,
+          "canonical_name": "mers",
+          "total_mentions": 12
+        }
+      ]
+    },
+    {
+      "modern_name": "sound waves",
+      "category": "CONCEPT",
+      "tier": "conflict",
+      "reason": "conflicting wikidata_ids: Q3629144, Q3882459",
+      "clusters": [
+        {
+          "id": 5593,
+          "canonical_name": "waves of sound",
+          "total_mentions": 2
+        },
+        {
+          "id": 5937,
+          "canonical_name": "vibrations in the air",
+          "total_mentions": 2
+        }
+      ]
+    },
+    {
+      "modern_name": "spanish people",
+      "category": "PERSON",
+      "tier": "conflict",
+      "reason": "conflicting wikidata_ids: Q160894, Q29",
+      "clusters": [
+        {
+          "id": 2061,
+          "canonical_name": "espagnols",
+          "total_mentions": 80
+        },
+        {
+          "id": 2124,
+          "canonical_name": "Eſpañoles",
+          "total_mentions": 42
+        }
+      ]
+    },
+    {
+      "modern_name": "species",
+      "category": "CONCEPT",
+      "tier": "conflict",
+      "reason": "conflicting wikidata_ids: Q13679, Q2984250",
+      "clusters": [
+        {
+          "id": 37,
+          "canonical_name": "species",
+          "total_mentions": 214
+        },
+        {
+          "id": 4115,
+          "canonical_name": "espèce",
+          "total_mentions": 3
+        },
+        {
+          "id": 4196,
+          "canonical_name": "specific forms",
+          "total_mentions": 3
+        }
+      ]
+    },
+    {
+      "modern_name": "squirrel",
+      "category": "ANIMAL",
+      "tier": "conflict",
+      "reason": "conflicting wikidata_ids: Q1302028, Q18215502",
+      "clusters": [
+        {
+          "id": 3579,
+          "canonical_name": "SCIURUS",
+          "total_mentions": 5
+        },
+        {
+          "id": 4210,
+          "canonical_name": "squirrels",
+          "total_mentions": 3
+        }
+      ]
+    },
+    {
+      "modern_name": "sri lanka",
+      "category": "PLACE",
+      "tier": "conflict",
+      "reason": "conflicting wikidata_ids: Q2002951, Q854",
+      "clusters": [
+        {
+          "id": 1462,
+          "canonical_name": "Taprobana",
+          "total_mentions": 7
+        },
+        {
+          "id": 1666,
+          "canonical_name": "Ceylon",
+          "total_mentions": 5
+        },
+        {
+          "id": 2046,
+          "canonical_name": "Ceylão",
+          "total_mentions": 100
+        },
+        {
+          "id": 4168,
+          "canonical_name": "Zeilan",
+          "total_mentions": 3
+        },
+        {
+          "id": 5051,
+          "canonical_name": "Ceylan",
+          "total_mentions": 2
+        }
+      ]
+    },
+    {
+      "modern_name": "sussex",
+      "category": "PLACE",
+      "tier": "skip_false_positive",
+      "reason": "known false-positive: sussex",
+      "clusters": [
+        {
+          "id": 2415,
+          "canonical_name": "Sussex",
+          "total_mentions": 16
+        },
+        {
+          "id": 3738,
+          "canonical_name": "Suffolk",
+          "total_mentions": 4
+        }
+      ]
+    },
+    {
+      "modern_name": "theory",
+      "category": "CONCEPT",
+      "tier": "conflict",
+      "reason": "conflicting wikidata_ids: Q17737, Q3239681",
+      "clusters": [
+        {
+          "id": 120,
+          "canonical_name": "theory",
+          "total_mentions": 51
+        },
+        {
+          "id": 1098,
+          "canonical_name": "théorie",
+          "total_mentions": 15
+        },
+        {
+          "id": 1099,
+          "canonical_name": "théories",
+          "total_mentions": 15
+        },
+        {
+          "id": 3851,
+          "canonical_name": "Theoriques",
+          "total_mentions": 4
+        },
+        {
+          "id": 4098,
+          "canonical_name": "Theory of Things",
+          "total_mentions": 4
+        },
+        {
+          "id": 5792,
+          "canonical_name": "Theorica",
+          "total_mentions": 2
+        }
+      ]
+    },
+    {
+      "modern_name": "tobacco",
+      "category": "PLANT",
+      "tier": "conflict",
+      "reason": "conflicting wikidata_ids: Q1566, Q851829",
+      "clusters": [
+        {
+          "id": 1803,
+          "canonical_name": "Tobacco",
+          "total_mentions": 4
+        },
+        {
+          "id": 2082,
+          "canonical_name": "Tabaco",
+          "total_mentions": 61
+        },
+        {
+          "id": 2449,
+          "canonical_name": "Tabac",
+          "total_mentions": 15
+        },
+        {
+          "id": 3465,
+          "canonical_name": "tabaci",
+          "total_mentions": 5
+        },
+        {
+          "id": 4296,
+          "canonical_name": "Nicotiana",
+          "total_mentions": 3
+        }
+      ]
+    },
+    {
+      "modern_name": "venus",
+      "category": "CONCEPT",
+      "tier": "skip_false_positive",
+      "reason": "known false-positive: venus",
+      "clusters": [
+        {
+          "id": 90,
+          "canonical_name": "Venus",
+          "total_mentions": 97
+        },
+        {
+          "id": 1258,
+          "canonical_name": "Venery",
+          "total_mentions": 10
+        }
+      ]
+    },
+    {
+      "modern_name": "vital force",
+      "category": "CONCEPT",
+      "tier": "conflict",
+      "reason": "conflicting wikidata_ids: Q137271198, Q274574",
+      "clusters": [
+        {
+          "id": 2075,
+          "canonical_name": "natureza",
+          "total_mentions": 66
+        },
+        {
+          "id": 2568,
+          "canonical_name": "force vitale",
+          "total_mentions": 12
+        }
+      ]
+    },
+    {
+      "modern_name": "wood",
+      "category": "PLANT",
+      "tier": "conflict",
+      "reason": "conflicting wikidata_ids: Q105596644, Q287",
+      "clusters": [
+        {
+          "id": 9,
+          "canonical_name": "Wood",
+          "total_mentions": 21
+        },
+        {
+          "id": 1315,
+          "canonical_name": "bois",
+          "total_mentions": 9
+        },
+        {
+          "id": 2302,
+          "canonical_name": "páo",
+          "total_mentions": 21
+        },
+        {
+          "id": 2868,
+          "canonical_name": "Lignum",
+          "total_mentions": 9
+        }
+      ]
+    }
+  ]
+}

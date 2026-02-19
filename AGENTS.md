@@ -460,6 +460,51 @@ The current architecture serves entity data as static JSON files loaded entirely
 
 ---
 
+## Expanded Excerpt System
+
+### Current state
+
+Each entity mention stores a **character offset** (`mention.offset`) pointing to its position in the source text, plus a pre-computed ~300-character excerpt (150 chars each side of the matched term). Source texts for all 12 books are already deployed as static `.txt` files in `/web/public/texts/` (14.6 MB total). The extraction script (`scripts/find_entity_excerpts.py`) uses `CONTEXT_WINDOW = 150` characters and records offsets via Python `match.start()` — these are **character indices**, not byte offsets.
+
+### Goal
+
+Allow users to expand from the current ~4 lines of context to ~10–20 lines on demand (e.g., clicking "Show more context" on an entity's book page). This should work without pre-computing or storing larger excerpts, since the source texts and character offsets already exist.
+
+### Architecture: API route with stable contract
+
+Build a Next.js API route that reads the source text and slices a wider window around the stored offset:
+
+```
+GET /api/excerpt?book_id=coloquios_da_orta_1563&offset=1509&term_length=4&window=1000
+→ { "excerpt": "...~2KB of expanded context...", "start": 509, "end": 2513 }
+```
+
+**Why an API route (not client-side fetch):**
+- Aligns with the Turso migration direction — server-side data access, not client-side bulk loading.
+- The character offset slicing happens server-side in a UTF-8–aware environment, avoiding byte/character mismatches that would occur with HTTP Range requests.
+- Returns ~2KB per request regardless of source text size.
+- Works on all pages (entity detail, concordance cluster, search results) without the client needing to cache multiple full texts.
+- The API contract stays identical across all scaling phases — only the implementation changes.
+
+### Scaling path
+
+| Phase | Source texts live at | API route reads from | Client changes |
+|-------|---------------------|---------------------|----------------|
+| **Now** (12 books, static JSON) | `/public/texts/` (14.6 MB) | Internal CDN URL | — |
+| **Turso** (500 books) | `/public/texts/` or R2/S3 | `books.text_path` column | None |
+| **Scale** (2,000+ books) | R2/S3 (~2+ GB) | Object storage URL | None |
+
+The planned `books` table already has a `text_path` column, and the `mentions` table already stores `offset` — so the API route simply wires these together. When source texts outgrow Vercel's static file hosting, move them to R2/S3 and update `text_path` values. The API interface and all client code remain unchanged.
+
+### Implementation notes
+
+- Server-side slicing uses `text.slice(offset - window, offset + termLength + window)` on the UTF-8 decoded string, then extends to sentence or paragraph boundaries for clean breaks.
+- Vercel Edge Runtime is preferred over standard serverless functions for near-zero cold starts (this is a simple fetch + slice with no Node-specific dependencies).
+- No caching layer is needed initially — CDN-served static text files are already fast (~20ms within Vercel infrastructure). Post-Turso, consider caching hot texts in Edge Config or KV if latency matters.
+- The matched term can be highlighted in the response by returning `start` and `end` indices relative to the returned excerpt.
+
+---
+
 ## Data Interoperability & External Access (Feb 2026)
 
 Roadmap for making the concordance machine-readable, AI-accessible, and interoperable with the scholarly linked data web. Ordered by priority and effort.

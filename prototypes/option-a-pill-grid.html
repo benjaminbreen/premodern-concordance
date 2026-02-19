@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Option A: Pill Grid + Detail Panel</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #fafaf9; color: #1c1917; padding: 32px; max-width: 720px; margin: 0 auto; }
+  h2 { font-size: 14px; font-weight: 600; color: #78716c; letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 4px; }
+  .subtitle { font-size: 13px; color: #a8a29e; margin-bottom: 16px; }
+
+  .pill-grid { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 4px; }
+  .pill {
+    display: flex; align-items: center; gap: 6px;
+    padding: 6px 12px; border-radius: 8px; cursor: pointer;
+    border: 1.5px solid #e7e5e4; background: white;
+    transition: all 0.15s ease; font-size: 13px;
+    user-select: none;
+  }
+  .pill:hover { border-color: #a8a29e; background: #f5f5f4; }
+  .pill.active { border-color: #44403c; background: #fafaf9; box-shadow: 0 1px 3px rgba(0,0,0,0.08); }
+  .pill .book-name { font-weight: 600; color: #44403c; }
+  .pill .term { color: var(--lang-color); font-style: italic; }
+  .pill .count { font-size: 11px; color: #a8a29e; font-variant-numeric: tabular-nums; }
+  .pill .lang-dot { width: 6px; height: 6px; border-radius: 50%; flex-shrink: 0; }
+
+  .pill[data-lang="EN"] { --lang-color: #2563eb; }
+  .pill[data-lang="ES"] { --lang-color: #d97706; }
+  .pill[data-lang="FR"] { --lang-color: #059669; }
+  .pill[data-lang="PT"] { --lang-color: #9333ea; }
+  .pill[data-lang="IT"] { --lang-color: #dc2626; }
+
+  .pill[data-lang="EN"] .lang-dot { background: #2563eb; }
+  .pill[data-lang="ES"] .lang-dot { background: #d97706; }
+  .pill[data-lang="FR"] .lang-dot { background: #059669; }
+  .pill[data-lang="PT"] .lang-dot { background: #9333ea; }
+  .pill[data-lang="IT"] .lang-dot { background: #dc2626; }
+
+  .show-more-btn {
+    font-size: 12px; color: #78716c; cursor: pointer; padding: 6px 0;
+    background: none; border: none; display: flex; align-items: center; gap: 4px;
+  }
+  .show-more-btn:hover { color: #44403c; }
+
+  .detail-panel {
+    margin-top: 12px; padding: 16px 20px; background: white;
+    border: 1px solid #e7e5e4; border-radius: 10px;
+    animation: slideDown 0.15s ease;
+  }
+  @keyframes slideDown { from { opacity: 0; transform: translateY(-4px); } to { opacity: 1; transform: translateY(0); } }
+
+  .detail-header { display: flex; align-items: baseline; gap: 10px; margin-bottom: 12px; }
+  .detail-book { font-weight: 700; font-size: 15px; }
+  .detail-meta { font-size: 12px; color: #a8a29e; }
+  .detail-count { font-size: 12px; color: #78716c; margin-left: auto; font-variant-numeric: tabular-nums; }
+
+  .detail-members { display: flex; flex-direction: column; gap: 10px; }
+  .member-row { padding-left: 0; }
+  .member-name { font-weight: 600; font-size: 14px; color: var(--lang-color); }
+  .member-count { font-size: 12px; color: #a8a29e; margin-left: 6px; }
+  .member-variants { font-size: 12px; color: #a8a29e; margin-left: 4px; }
+  .member-contexts { margin-top: 4px; padding-left: 12px; border-left: 2px solid #f5f5f4; }
+  .context-line { font-size: 13px; color: #57534e; font-style: italic; line-height: 1.5; }
+
+  .excerpt-toggle {
+    font-size: 12px; color: #2563eb; cursor: pointer; margin-top: 6px;
+    background: none; border: none; padding: 0; display: flex; align-items: center; gap: 4px;
+  }
+  .excerpt-toggle:hover { text-decoration: underline; }
+
+  .hidden { display: none; }
+
+  .sort-bar { display: flex; gap: 12px; margin-bottom: 12px; align-items: center; }
+  .sort-label { font-size: 11px; color: #a8a29e; text-transform: uppercase; letter-spacing: 0.05em; }
+  .sort-btn { font-size: 12px; color: #78716c; cursor: pointer; background: none; border: none; padding: 2px 6px; border-radius: 4px; }
+  .sort-btn:hover { background: #f5f5f4; }
+  .sort-btn.active { color: #1c1917; font-weight: 600; }
+</style>
+</head>
+<body>
+
+<h2>Source Evidence</h2>
+<div class="subtitle">9 books · 743 mentions</div>
+
+<div class="sort-bar">
+  <span class="sort-label">Sort:</span>
+  <button class="sort-btn active" onclick="sortPills('count')">by mentions</button>
+  <button class="sort-btn" onclick="sortPills('year')">by year</button>
+  <button class="sort-btn" onclick="sortPills('name')">by name</button>
+</div>
+
+<div class="pill-grid" id="pillGrid"></div>
+<button class="show-more-btn hidden" id="showMoreBtn" onclick="toggleShowAll()">
+  <span id="showMoreText">+ Show 3 more books</span>
+</button>
+
+<div id="detailPanel"></div>
+
+<script>
+const books = [
+  { id: 'culpeper', name: 'Culpeper', year: 1652, lang: 'EN', totalCount: 61,
+    members: [
+      { name: 'Water', count: 61, variants: ['Water','Waters','water','waters'],
+        contexts: ['bodily fluid, also a distilled preparation','distilled from ash-tree','water of elder flowers'] }
+    ]},
+  { id: 'humboldt', name: 'Humboldt', year: 1825, lang: 'FR', totalCount: 40,
+    members: [
+      { name: 'eau', count: 40, variants: ['eau'],
+        contexts: ['medium for transport','substance mixed with plant sap','river water in equatorial regions'] }
+    ]},
+  { id: 'buffon', name: 'Buffon', year: 1778, lang: 'FR', totalCount: 31,
+    members: [
+      { name: 'eau', count: 30, variants: ['eau'],
+        contexts: ['substance that solidifies without heat','liquid solvent'] },
+      { name: "l'eau", count: 1, variants: ["l'eau"],
+        contexts: ['water'] }
+    ]},
+  { id: 'hernandez', name: 'Hernández', year: 1615, lang: 'ES', totalCount: 25,
+    members: [
+      { name: 'agua', count: 24, variants: ['agua'],
+        contexts: ['liquid for drinking','liquid for preparation'] },
+      { name: 'aguas', count: 1, variants: ['aguas'],
+        contexts: ['waters for sweetening ginger'] }
+    ]},
+  { id: 'monardes', name: 'Monardes', year: 1574, lang: 'ES', totalCount: 15,
+    members: [
+      { name: 'agua', count: 15, variants: ['agua','aguas'],
+        contexts: ['medicinal water preparation','water of the Indias'] }
+    ]},
+  { id: 'browne', name: 'Browne', year: 1646, lang: 'EN', totalCount: 12,
+    members: [
+      { name: 'water', count: 11, variants: ['water','Water'],
+        contexts: ['fluid substance','universal solvent'] },
+      { name: 'Waters', count: 1, variants: ['Waters'],
+        contexts: ['affecting magnetic variation'] }
+    ]},
+  { id: 'bernard', name: 'Bernard', year: 1865, lang: 'FR', totalCount: 9,
+    members: [
+      { name: 'eau', count: 9, variants: ['eau'],
+        contexts: ['compound of oxygen and hydrogen','compound of hydrogen and oxygen'] }
+    ]},
+  { id: 'orta', name: 'Da Orta', year: 1563, lang: 'PT', totalCount: 9,
+    members: [
+      { name: 'agoa', count: 8, variants: ['agoa','agoas'],
+        contexts: ['water used in distillation','river water'] },
+      { name: 'agoas', count: 1, variants: ['agoas'],
+        contexts: ['medicinal waters'] }
+    ]},
+  { id: 'ricettario', name: 'Ricettario', year: 1597, lang: 'IT', totalCount: 3,
+    members: [
+      { name: 'acqua', count: 3, variants: ['acqua'],
+        contexts: ['aqua vitae preparation','distilled water'] }
+    ]},
+];
+
+let currentSort = 'count';
+let showAll = false;
+let activeBookId = null;
+const INITIAL_SHOW = 6;
+
+function sortPills(by) {
+  currentSort = by;
+  document.querySelectorAll('.sort-btn').forEach(b => b.classList.remove('active'));
+  event.target.classList.add('active');
+  render();
+}
+
+function getSorted() {
+  const sorted = [...books];
+  if (currentSort === 'count') sorted.sort((a,b) => b.totalCount - a.totalCount);
+  else if (currentSort === 'year') sorted.sort((a,b) => a.year - b.year);
+  else sorted.sort((a,b) => a.name.localeCompare(b.name));
+  return sorted;
+}
+
+function toggleShowAll() {
+  showAll = !showAll;
+  render();
+}
+
+function selectBook(id) {
+  activeBookId = activeBookId === id ? null : id;
+  render();
+}
+
+function render() {
+  const sorted = getSorted();
+  const visible = showAll ? sorted : sorted.slice(0, INITIAL_SHOW);
+  const remaining = sorted.length - INITIAL_SHOW;
+
+  const grid = document.getElementById('pillGrid');
+  grid.innerHTML = visible.map(b => {
+    const mainTerm = b.members[0].name;
+    return `<div class="pill ${activeBookId === b.id ? 'active' : ''}" data-lang="${b.lang}" onclick="selectBook('${b.id}')">
+      <div class="lang-dot"></div>
+      <span class="book-name">${b.name}</span>
+      <span class="term">${mainTerm}</span>
+      <span class="count">·${b.totalCount}</span>
+    </div>`;
+  }).join('');
+
+  const btn = document.getElementById('showMoreBtn');
+  if (remaining > 0) {
+    btn.classList.remove('hidden');
+    document.getElementById('showMoreText').textContent = showAll
+      ? '− Show fewer'
+      : `+ Show ${remaining} more book${remaining > 1 ? 's' : ''}`;
+  } else {
+    btn.classList.add('hidden');
+  }
+
+  const panel = document.getElementById('detailPanel');
+  if (!activeBookId) { panel.innerHTML = ''; return; }
+
+  const book = books.find(b => b.id === activeBookId);
+  if (!book) { panel.innerHTML = ''; return; }
+
+  panel.innerHTML = `
+    <div class="detail-panel" style="--lang-color: ${getLangColor(book.lang)}">
+      <div class="detail-header">
+        <span class="detail-book">${book.name}</span>
+        <span class="detail-meta">${book.lang} · ${book.year}</span>
+        <span class="detail-count">${book.totalCount} mentions</span>
+      </div>
+      <div class="detail-members">
+        ${book.members.map(m => `
+          <div class="member-row">
+            <span class="member-name">${m.name}</span>
+            <span class="member-count">${m.count}</span>
+            ${m.variants.length > 1 ? `<span class="member-variants">${m.variants.join(', ')}</span>` : ''}
+            <div class="member-contexts">
+              ${m.contexts.map(c => `<div class="context-line">"${c}"</div>`).join('')}
+            </div>
+          </div>
+        `).join('')}
+        <button class="excerpt-toggle">▸ View ${book.totalCount} excerpts from text</button>
+      </div>
+    </div>`;
+}
+
+function getLangColor(lang) {
+  return { EN: '#2563eb', ES: '#d97706', FR: '#059669', PT: '#9333ea', IT: '#dc2626' }[lang] || '#78716c';
+}
+
+render();
+</script>
+</body>
+</html>

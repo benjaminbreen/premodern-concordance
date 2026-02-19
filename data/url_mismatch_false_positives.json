@@ -1,0 +1,2530 @@
+[
+  {
+    "id": 2,
+    "name": "humores",
+    "modern_name": "Humors",
+    "old_url": "https://en.wikipedia.org/wiki/Humorism",
+    "old_qid": "Q5782572",
+    "reason": "Synonym: Humors is the core concept of Humorism"
+  },
+  {
+    "id": 2036,
+    "name": "convulfoens",
+    "modern_name": "Convulsions",
+    "old_url": "https://en.wikipedia.org/wiki/Seizure",
+    "old_qid": "Q6279182",
+    "reason": "Medical synonym: Convulsions and seizures are closely equivalent terms"
+  },
+  {
+    "id": 2032,
+    "name": "pedras",
+    "modern_name": "stones",
+    "old_url": "https://en.wikipedia.org/wiki/Rock_%28geology%29",
+    "old_qid": "Q8063",
+    "reason": "Singular/plural near-match: stones → Rock (geology)"
+  },
+  {
+    "id": 2089,
+    "name": "terre",
+    "modern_name": "Earth",
+    "old_url": "https://en.wikipedia.org/wiki/Soil",
+    "old_qid": "Q36133",
+    "reason": "Close concept: 'terre' (French) means earth/soil; Soil is a valid interpretation for premodern usage of 'earth'"
+  },
+  {
+    "id": 102,
+    "name": "sensations",
+    "modern_name": "Sensation",
+    "old_url": "https://en.wikipedia.org/wiki/Sense",
+    "old_qid": "Q173253",
+    "reason": "Close concept: Sensation and Sense are closely related"
+  },
+  {
+    "id": 43,
+    "name": "Arábia",
+    "modern_name": "Arabia",
+    "old_url": "https://en.wikipedia.org/wiki/Arab%20world",
+    "old_qid": "Q143487",
+    "reason": "Close geographic match: Arabia → Arab world"
+  },
+  {
+    "id": 841,
+    "name": "enxofre",
+    "modern_name": "Sulfur",
+    "old_url": "https://fr.wikipedia.org/wiki/Soufre_%28min%C3%A9ral%29",
+    "old_qid": "Q1157552",
+    "reason": "Cross-linguistic: Soufre (minéral) is French for Sulfur (mineral)"
+  },
+  {
+    "id": 2060,
+    "name": "folia",
+    "modern_name": "leaves",
+    "old_url": "https://en.wikipedia.org/wiki/Leaf",
+    "old_qid": "Q33971",
+    "reason": "Singular/plural: leaves → Leaf"
+  },
+  {
+    "id": 91,
+    "name": "sal",
+    "modern_name": "Salt",
+    "old_url": "https://en.wikipedia.org/wiki/Sodium%20chloride",
+    "old_qid": "Q2314",
+    "reason": "Scientific equivalent: Salt is sodium chloride"
+  },
+  {
+    "id": 830,
+    "name": "Vitriolo",
+    "modern_name": "Vitriol",
+    "old_url": "https://en.wikipedia.org/wiki/Sulfuric%20acid",
+    "old_qid": "Q4118",
+    "reason": "Historical synonym: Vitriol is the historical name for sulfuric acid"
+  },
+  {
+    "id": 2116,
+    "name": "violas",
+    "modern_name": "Violet",
+    "old_url": "https://en.wikipedia.org/wiki/Viola%20%28plant%29",
+    "old_qid": "Q146095",
+    "reason": "Taxonomic equivalent: Violet is the common name for Viola (plant)"
+  },
+  {
+    "id": 406,
+    "name": "consumption",
+    "modern_name": "Phthisis",
+    "old_url": "https://en.wikipedia.org/wiki/Tuberculosis",
+    "old_qid": "Q12204",
+    "reason": "Historical synonym: Phthisis/consumption are historical names for tuberculosis"
+  },
+  {
+    "id": 2061,
+    "name": "espagnols",
+    "modern_name": "Spanish people",
+    "old_url": "https://en.wikipedia.org/wiki/Spaniards",
+    "old_qid": "Q160894",
+    "reason": "Same concept: Spanish people = Spaniards"
+  },
+  {
+    "id": 2062,
+    "name": "Doutores",
+    "modern_name": "doctors",
+    "old_url": "https://en.wikipedia.org/wiki/Medical_doctor",
+    "old_qid": "Q39631",
+    "reason": "Same concept: doctors = Medical doctor"
+  },
+  {
+    "id": 850,
+    "name": "humores",
+    "modern_name": "Humors",
+    "old_url": "https://en.wikipedia.org/wiki/Humorism",
+    "old_qid": "Q5782572",
+    "reason": "Synonym: Humors is the core concept of Humorism"
+  },
+  {
+    "id": 939,
+    "name": "incenso",
+    "modern_name": "Frankincense",
+    "old_url": "https://en.wikipedia.org/wiki/Boswellia%20sacra",
+    "old_qid": "Q133964",
+    "reason": "Taxonomic equivalent: Boswellia sacra is the tree that produces frankincense"
+  },
+  {
+    "id": 420,
+    "name": "Rhafis",
+    "modern_name": "Rhazes",
+    "old_url": "https://en.wikipedia.org/wiki/Abu%20Bakr%20al-Razi",
+    "old_qid": "Q169234",
+    "reason": "Same person: Rhazes is the Latinized name of Abu Bakr al-Razi"
+  },
+  {
+    "id": 844,
+    "name": "crura",
+    "modern_name": "crura",
+    "old_url": "https://en.wikipedia.org/wiki/Leg",
+    "old_qid": "Q133105",
+    "reason": "Close anatomical match: crura (Latin for legs/leg-like structures) → Leg"
+  },
+  {
+    "id": 2082,
+    "name": "Tabaco",
+    "modern_name": "Tobacco",
+    "old_url": "https://en.wikipedia.org/wiki/Nicotiana",
+    "old_qid": "Q851829",
+    "reason": "Taxonomic equivalent: Nicotiana is the genus of tobacco plants"
+  },
+  {
+    "id": 2085,
+    "name": "Saint-Domingue",
+    "modern_name": "Saint-Domingue",
+    "old_url": "https://en.wikipedia.org/wiki/Hispaniola",
+    "old_qid": "Q25277",
+    "reason": "Close geographic match: Saint-Domingue was the French colony on Hispaniola"
+  },
+  {
+    "id": 998,
+    "name": "trigo",
+    "modern_name": "Wheat",
+    "old_url": "https://en.wikipedia.org/wiki/Triticum",
+    "old_qid": "Q12106",
+    "reason": "Taxonomic equivalent: Triticum is the genus name for wheat"
+  },
+  {
+    "id": 396,
+    "name": "Mesue",
+    "modern_name": "Mesue the Younger",
+    "old_url": "https://en.wikipedia.org/wiki/Masawaih%20al-Mardini",
+    "old_qid": "Q3297191",
+    "reason": "Same person: Mesue the Younger is Masawaih al-Mardini"
+  },
+  {
+    "id": 2178,
+    "name": "scamonea",
+    "modern_name": "Scammony",
+    "old_url": "https://en.wikipedia.org/wiki/Convolvulus%20scammonia",
+    "old_qid": "Q310388",
+    "reason": "Taxonomic equivalent: Convolvulus scammonia is the species that produces scammony"
+  },
+  {
+    "id": 2229,
+    "name": "Arruda",
+    "modern_name": "rue",
+    "old_url": "https://en.wikipedia.org/wiki/Ruta%20graveolens",
+    "old_qid": "Q25062",
+    "reason": "Taxonomic equivalent: Ruta graveolens is common rue"
+  },
+  {
+    "id": 2241,
+    "name": "Murta",
+    "modern_name": "Myrtle",
+    "old_url": "https://en.wikipedia.org/wiki/Myrtus",
+    "old_qid": "Q165152",
+    "reason": "Taxonomic equivalent: Myrtus is the genus of myrtle"
+  },
+  {
+    "id": 196,
+    "name": "spirits of Wine",
+    "modern_name": "Alcohol",
+    "old_url": "https://en.wikipedia.org/wiki/Ethanol",
+    "old_qid": "Q153",
+    "reason": "Scientific equivalent: Spirits of wine/alcohol refers to ethanol"
+  },
+  {
+    "id": 132,
+    "name": "tissus",
+    "modern_name": "Tissues",
+    "old_url": "https://en.wikipedia.org/wiki/Tissue_(biology)",
+    "old_qid": "Q40397",
+    "reason": "Same concept: Tissues → Tissue (biology)"
+  },
+  {
+    "id": 133,
+    "name": "Induction",
+    "modern_name": "Induction",
+    "old_url": "https://en.wikipedia.org/wiki/Inductive%20reasoning",
+    "old_qid": "Q484511",
+    "reason": "Close concept: Induction in a philosophical/scientific context is inductive reasoning"
+  },
+  {
+    "id": 925,
+    "name": "Trementina",
+    "modern_name": "Turpentine",
+    "old_url": "https://en.wikipedia.org/wiki/Pistacia%20terebinthus",
+    "old_qid": "Q63045",
+    "reason": "Related: Pistacia terebinthus (terebinth) is the original source of turpentine"
+  },
+  {
+    "id": 1086,
+    "name": "Great Britain",
+    "modern_name": "Great Britain",
+    "old_url": "https://en.wikipedia.org/wiki/United%20Kingdom",
+    "old_qid": "Q145",
+    "reason": "Close geographic match: Great Britain and United Kingdom are closely related"
+  },
+  {
+    "id": 2123,
+    "name": "Nueva España",
+    "modern_name": "Mexico",
+    "old_url": "https://en.wikipedia.org/wiki/New%20Spain",
+    "old_qid": "Q170603",
+    "reason": "Historical equivalent: Nueva España (New Spain) is the historical name; better match than Mexico"
+  },
+  {
+    "id": 2124,
+    "name": "Eſpañoles",
+    "modern_name": "Spanish people",
+    "old_url": "https://en.wikipedia.org/wiki/Spain",
+    "old_qid": "Q29",
+    "reason": "Close match: Spanish people → Spain (acceptable for context)"
+  },
+  {
+    "id": 1043,
+    "name": "steam",
+    "modern_name": "Steam",
+    "old_url": "https://en.wikipedia.org/wiki/Water%20vapor",
+    "old_qid": "Q190120",
+    "reason": "Scientific equivalent: Steam is water vapor"
+  },
+  {
+    "id": 469,
+    "name": "pigeons",
+    "modern_name": "Pigeon",
+    "old_url": "https://en.wikipedia.org/wiki/Columbidae",
+    "old_qid": "Q10856",
+    "reason": "Taxonomic equivalent: Columbidae is the family of pigeons and doves"
+  },
+  {
+    "id": 958,
+    "name": "palmiers",
+    "modern_name": "palm trees",
+    "old_url": "https://en.wikipedia.org/wiki/Arecaceae",
+    "old_qid": "Q14080",
+    "reason": "Taxonomic equivalent: Arecaceae is the palm family"
+  },
+  {
+    "id": 2515,
+    "name": "chien",
+    "modern_name": "Dog",
+    "old_url": "https://en.wikipedia.org/wiki/Canis%20familiaris",
+    "old_qid": "Q20717272",
+    "reason": "Taxonomic equivalent: Canis familiaris is the scientific name for domestic dog"
+  },
+  {
+    "id": 28,
+    "name": "dogs",
+    "modern_name": "Dogs",
+    "old_url": "https://en.wikipedia.org/wiki/Canis%20familiaris",
+    "old_qid": "Q20717272",
+    "reason": "Taxonomic equivalent: Canis familiaris is the scientific name for domestic dog"
+  },
+  {
+    "id": 903,
+    "name": "galanga",
+    "modern_name": "galangal",
+    "old_url": "https://en.wikipedia.org/wiki/Alpinia%20officinarum",
+    "old_qid": "Q1281083",
+    "reason": "Taxonomic equivalent: Alpinia officinarum is lesser galangal"
+  },
+  {
+    "id": 346,
+    "name": "earth",
+    "modern_name": "Earth",
+    "old_url": "https://en.wikipedia.org/wiki/Soil",
+    "old_qid": "Q36133",
+    "reason": "Close concept: 'earth' in premodern usage often means soil/ground"
+  },
+  {
+    "id": 39,
+    "name": "Medicina",
+    "modern_name": "Medicine",
+    "old_url": "https://en.wikipedia.org/wiki/Medication",
+    "old_qid": "Q12140",
+    "reason": "Close concept: Medicine and Medication are closely related; in premodern contexts 'medicina' often means medication"
+  },
+  {
+    "id": 2147,
+    "name": "piedras",
+    "modern_name": "Rocks",
+    "old_url": "https://en.wikipedia.org/wiki/Rock%20%28geology%29",
+    "old_qid": "Q8063",
+    "reason": "Same concept: Rocks → Rock (geology)"
+  },
+  {
+    "id": 908,
+    "name": "satellites",
+    "modern_name": "satellites",
+    "old_url": "https://en.wikipedia.org/wiki/Natural%20satellite",
+    "old_qid": "Q2537",
+    "reason": "Close concept: In Humboldt's era, satellites meant natural satellites (moons)"
+  },
+  {
+    "id": 2341,
+    "name": "spiritualists",
+    "modern_name": "Spiritualists",
+    "old_url": "https://en.wikipedia.org/wiki/Spiritualism_(movement)",
+    "old_qid": "Q829348",
+    "reason": "Same concept: Spiritualists → Spiritualism (movement)"
+  },
+  {
+    "id": 173,
+    "name": "country",
+    "modern_name": "Nation",
+    "old_url": "https://en.wikipedia.org/wiki/Sovereign%20state",
+    "old_qid": "Q3624078",
+    "reason": "Close concept: Nation/country → Sovereign state"
+  },
+  {
+    "id": 1063,
+    "name": "excremento",
+    "modern_name": "Excrement",
+    "old_url": "https://en.wikipedia.org/wiki/Metabolic%20waste",
+    "old_qid": "Q1383944",
+    "reason": "Close concept: Excrement is a form of metabolic waste"
+  },
+  {
+    "id": 1093,
+    "name": "palmeira",
+    "modern_name": "Palm tree",
+    "old_url": "https://en.wikipedia.org/wiki/Arecaceae",
+    "old_qid": "Q14080",
+    "reason": "Taxonomic equivalent: Arecaceae is the palm tree family"
+  },
+  {
+    "id": 2172,
+    "name": "thinking",
+    "modern_name": "Thinking",
+    "old_url": "https://en.wikipedia.org/wiki/Thought",
+    "old_qid": "Q9420",
+    "reason": "Same concept: Thinking → Thought"
+  },
+  {
+    "id": 2192,
+    "name": "café",
+    "modern_name": "Coffee",
+    "old_url": "https://en.wikipedia.org/wiki/Coffea",
+    "old_qid": "Q156354",
+    "reason": "Taxonomic equivalent: Coffea is the genus of coffee plants"
+  },
+  {
+    "id": 954,
+    "name": "symptomas",
+    "modern_name": "symptoms",
+    "old_url": "https://en.wikipedia.org/wiki/Syndrome",
+    "old_qid": "Q179630",
+    "reason": "Close medical concept: symptoms and syndrome are closely related"
+  },
+  {
+    "id": 1068,
+    "name": "amargos",
+    "modern_name": "bitter taste",
+    "old_url": "https://en.wikipedia.org/wiki/Bitterness",
+    "old_qid": "Q1517187",
+    "reason": "Same concept: bitter taste → Bitterness"
+  },
+  {
+    "id": 514,
+    "name": "alkalies",
+    "modern_name": "Alkali",
+    "old_url": "https://en.wikipedia.org/wiki/Base%20%28chemistry%29",
+    "old_qid": "Q11193",
+    "reason": "Scientific equivalent: Alkali and base (chemistry) are closely related concepts"
+  },
+  {
+    "id": 2284,
+    "name": "Theophrasto",
+    "modern_name": "Theophrastus",
+    "old_url": "https://en.wikipedia.org/wiki/Paracelsus",
+    "old_qid": "Q83428",
+    "reason": "Possible valid match: Paracelsus was called Theophrastus (his given name was Theophrastus von Hohenheim). Context-dependent - could be the ancient Greek or Paracelsus"
+  },
+  {
+    "id": 267,
+    "name": "laurel",
+    "modern_name": "Bay Laurel",
+    "old_url": "https://en.wikipedia.org/wiki/Laurus_nobilis",
+    "old_qid": "Q26006",
+    "reason": "Taxonomic equivalent: Laurus nobilis is bay laurel"
+  },
+  {
+    "id": 508,
+    "name": "Nitro",
+    "modern_name": "Saltpeter",
+    "old_url": "https://en.wikipedia.org/wiki/Niter",
+    "old_qid": "Q11183742",
+    "reason": "Same substance: Niter/nitre is saltpeter"
+  },
+  {
+    "id": 2981,
+    "name": "ameyxas",
+    "modern_name": "Plum",
+    "old_url": "https://en.wikipedia.org/wiki/Prunus%20domestica",
+    "old_qid": "Q44120",
+    "reason": "Taxonomic equivalent: Prunus domestica is the European plum"
+  },
+  {
+    "id": 983,
+    "name": "physiologiques",
+    "modern_name": "physiological",
+    "old_url": "https://en.wikipedia.org/wiki/Physiology",
+    "old_qid": "Q521",
+    "reason": "Same root concept: physiological → Physiology"
+  },
+  {
+    "id": 1041,
+    "name": "cebola",
+    "modern_name": "Onion",
+    "old_url": "https://en.wikipedia.org/wiki/Allium",
+    "old_qid": "Q49391",
+    "reason": "Taxonomic equivalent: Allium is the genus containing onions"
+  },
+  {
+    "id": 1066,
+    "name": "Polipodio",
+    "modern_name": "Polypody",
+    "old_url": "https://en.wikipedia.org/wiki/Polypodium",
+    "old_qid": "Q1135685",
+    "reason": "Taxonomic equivalent: Polypodium is the genus of polypody ferns"
+  },
+  {
+    "id": 1178,
+    "name": "salgema",
+    "modern_name": "Rock salt",
+    "old_url": "https://en.wikipedia.org/wiki/Halite",
+    "old_qid": "Q5314",
+    "reason": "Same substance: Halite is the mineral name for rock salt"
+  },
+  {
+    "id": 2616,
+    "name": "volcanic action",
+    "modern_name": "Volcanic activity",
+    "old_url": "https://en.wikipedia.org/wiki/Volcanism",
+    "old_qid": "Q505748",
+    "reason": "Same concept: Volcanic activity → Volcanism"
+  },
+  {
+    "id": 201,
+    "name": "flask",
+    "modern_name": "Flask",
+    "old_url": "https://en.wikipedia.org/wiki/Bottle",
+    "old_qid": "Q80228",
+    "reason": "Close match: Flask and bottle are closely related containers"
+  },
+  {
+    "id": 275,
+    "name": "viscera",
+    "modern_name": "Internal organs",
+    "old_url": "https://en.wikipedia.org/wiki/Viscus",
+    "old_qid": "Q546191",
+    "reason": "Same concept: Viscera/viscus means internal organs"
+  },
+  {
+    "id": 2848,
+    "name": "Sambuco",
+    "modern_name": "elder",
+    "old_url": "https://en.wikipedia.org/wiki/Sambucus%20nigra",
+    "old_qid": "Q22701",
+    "reason": "Taxonomic equivalent: Sambucus nigra is common elder"
+  },
+  {
+    "id": 2880,
+    "name": "Styrace",
+    "modern_name": "Storax",
+    "old_url": "https://en.wikipedia.org/wiki/Styrax",
+    "old_qid": "Q525062",
+    "reason": "Taxonomic equivalent: Styrax is the genus that produces storax resin"
+  },
+  {
+    "id": 932,
+    "name": "Venter",
+    "modern_name": "belly",
+    "old_url": "https://en.wikipedia.org/wiki/Abdomen",
+    "old_qid": "Q9597",
+    "reason": "Close anatomical match: belly → abdomen"
+  },
+  {
+    "id": 169,
+    "name": "Greeks",
+    "modern_name": "Greeks",
+    "old_url": "https://en.wikipedia.org/wiki/Ancient%20Greece",
+    "old_qid": "Q11772",
+    "reason": "Close match: In premodern texts, 'Greeks' usually refers to Ancient Greece"
+  },
+  {
+    "id": 2461,
+    "name": "porco",
+    "modern_name": "Pigs",
+    "old_url": "https://en.wikipedia.org/wiki/Wild%20boar",
+    "old_qid": "Q58697",
+    "reason": "Close match: Wild boar is a type of pig (Sus scrofa)"
+  },
+  {
+    "id": 943,
+    "name": "hybrids",
+    "modern_name": "Hybrids",
+    "old_url": "https://en.wikipedia.org/wiki/Hybrid_(biology)",
+    "old_qid": "Q42621",
+    "reason": "Same concept: Hybrids → Hybrid (biology)"
+  },
+  {
+    "id": 2213,
+    "name": "achaques",
+    "modern_name": "Ailments",
+    "old_url": "https://en.wikipedia.org/wiki/Disease",
+    "old_qid": "Q12136",
+    "reason": "Close concept: Ailments → Disease"
+  },
+  {
+    "id": 2591,
+    "name": "sarpaparrilla",
+    "modern_name": "Sarsaparilla",
+    "old_url": "https://en.wikipedia.org/wiki/Hemidesmus_indicus",
+    "old_qid": "Q1117102",
+    "reason": "Related plant: Hemidesmus indicus is Indian sarsaparilla, a common substitute"
+  },
+  {
+    "id": 2233,
+    "name": "Viboras",
+    "modern_name": "Vipers",
+    "old_url": "https://en.wikipedia.org/wiki/Adder",
+    "old_qid": "Q192056",
+    "reason": "Close match: Adder (Vipera berus) is a type of viper"
+  },
+  {
+    "id": 2240,
+    "name": "experiencia",
+    "modern_name": "Empirical knowledge",
+    "old_url": "https://en.wikipedia.org/wiki/Empiricism",
+    "old_qid": "Q83368",
+    "reason": "Close concept: Empirical knowledge → Empiricism"
+  },
+  {
+    "id": 513,
+    "name": "vision",
+    "modern_name": "Vision",
+    "old_url": "https://en.wikipedia.org/wiki/Visual%20perception",
+    "old_qid": "Q162668",
+    "reason": "Same concept: Vision → Visual perception"
+  },
+  {
+    "id": 2460,
+    "name": "Carduis",
+    "modern_name": "Thistle",
+    "old_url": "https://en.wikipedia.org/wiki/Cirsium",
+    "old_qid": "Q1638558",
+    "reason": "Taxonomic equivalent: Cirsium is a major genus of thistles"
+  },
+  {
+    "id": 2634,
+    "name": "Thymo",
+    "modern_name": "Thyme",
+    "old_url": "https://en.wikipedia.org/wiki/Thymus%20vulgaris",
+    "old_qid": "Q148668",
+    "reason": "Taxonomic equivalent: Thymus vulgaris is common thyme"
+  },
+  {
+    "id": 518,
+    "name": "Judeus",
+    "modern_name": "Jewish people",
+    "old_url": "https://en.wikipedia.org/wiki/Jews",
+    "old_qid": "Q7325",
+    "reason": "Same concept: Jewish people = Jews"
+  },
+  {
+    "id": 1209,
+    "name": "fungos",
+    "modern_name": "Fungi",
+    "old_url": "https://en.wikipedia.org/wiki/Fungus",
+    "old_qid": "Q764",
+    "reason": "Singular/plural: Fungi → Fungus"
+  },
+  {
+    "id": 1438,
+    "name": "Lilien",
+    "modern_name": "lily",
+    "old_url": "https://en.wikipedia.org/wiki/Lilium",
+    "old_qid": "Q5194627",
+    "reason": "Taxonomic equivalent: Lilium is the genus of true lilies"
+  },
+  {
+    "id": 2427,
+    "name": "Macao",
+    "modern_name": "Macao",
+    "old_url": "https://en.wikipedia.org/wiki/Macau",
+    "old_qid": "Q14773",
+    "reason": "Same place, spelling variant: Macao → Macau"
+  },
+  {
+    "id": 2449,
+    "name": "Tabac",
+    "modern_name": "Tobacco",
+    "old_url": "https://en.wikipedia.org/wiki/Nicotiana",
+    "old_qid": "Q851829",
+    "reason": "Taxonomic equivalent: Nicotiana is the genus of tobacco plants"
+  },
+  {
+    "id": 1125,
+    "name": "Spitzbergen",
+    "modern_name": "Svalbard",
+    "old_url": "https://en.wikipedia.org/wiki/Spitsbergen",
+    "old_qid": "Q21162",
+    "reason": "Same place: Spitsbergen is the main island of Svalbard"
+  },
+  {
+    "id": 1199,
+    "name": "chá",
+    "modern_name": "Tea",
+    "old_url": "https://en.wikipedia.org/wiki/Camellia%20sinensis",
+    "old_qid": "Q101815",
+    "reason": "Taxonomic equivalent: Camellia sinensis is the tea plant"
+  },
+  {
+    "id": 2502,
+    "name": "verbafco",
+    "modern_name": "Common Mullein",
+    "old_url": "https://en.wikipedia.org/wiki/Verbascum%20thapsus",
+    "old_qid": "Q160095",
+    "reason": "Taxonomic equivalent: Verbascum thapsus is common mullein"
+  },
+  {
+    "id": 2507,
+    "name": "Madremaluco",
+    "modern_name": "Mameluco",
+    "old_url": "https://en.wikipedia.org/wiki/Mestizo",
+    "old_qid": "Q106713",
+    "reason": "Close concept: Mameluco is a Brazilian mixed-race term similar to Mestizo"
+  },
+  {
+    "id": 2519,
+    "name": "Quinsie",
+    "modern_name": "quinsy",
+    "old_url": "https://en.wikipedia.org/wiki/Peritonsillar_abscess",
+    "old_qid": "Q1586014",
+    "reason": "Medical equivalent: Quinsy is the common name for peritonsillar abscess"
+  },
+  {
+    "id": 2525,
+    "name": "Resemblance",
+    "modern_name": "Resemblance",
+    "old_url": "https://en.wikipedia.org/wiki/Similarity_(philosophy)",
+    "old_qid": "Q105227892",
+    "reason": "Same concept: Resemblance → Similarity (philosophy)"
+  },
+  {
+    "id": 2527,
+    "name": "chocolate",
+    "modern_name": "chocolate",
+    "old_url": "https://en.wikipedia.org/wiki/Theobroma%20cacao",
+    "old_qid": "Q42385",
+    "reason": "Taxonomic equivalent: Theobroma cacao is the chocolate tree"
+  },
+  {
+    "id": 3328,
+    "name": "freixo",
+    "modern_name": "Ash tree",
+    "old_url": "https://en.wikipedia.org/wiki/Fraxinus",
+    "old_qid": "Q128887",
+    "reason": "Taxonomic equivalent: Fraxinus is the genus of ash trees"
+  },
+  {
+    "id": 2879,
+    "name": "camomilla",
+    "modern_name": "Chamomile",
+    "old_url": "https://en.wikipedia.org/wiki/Matricaria%20chamomilla",
+    "old_qid": "Q28437",
+    "reason": "Taxonomic equivalent: Matricaria chamomilla is chamomile"
+  },
+  {
+    "id": 2624,
+    "name": "pediculi",
+    "modern_name": "Louse",
+    "old_url": "https://en.wikipedia.org/wiki/Pediculus_humanus",
+    "old_qid": "Q3737588",
+    "reason": "Taxonomic equivalent: Pediculus humanus is the human body louse"
+  },
+  {
+    "id": 3638,
+    "name": "Agnocasto",
+    "modern_name": "Chaste tree",
+    "old_url": "https://en.wikipedia.org/wiki/Vitex",
+    "old_qid": "Q29533",
+    "reason": "Taxonomic equivalent: Vitex (agnus-castus) is the chaste tree"
+  },
+  {
+    "id": 1265,
+    "name": "Verbasco",
+    "modern_name": "Mullein",
+    "old_url": "https://en.wikipedia.org/wiki/Verbascum%20thapsus",
+    "old_qid": "Q160095",
+    "reason": "Taxonomic equivalent: Verbascum thapsus is common mullein"
+  },
+  {
+    "id": 1085,
+    "name": "domestic animals",
+    "modern_name": "domestic animals",
+    "old_url": "https://en.wikipedia.org/wiki/Domesticated%20animal",
+    "old_qid": "Q622852",
+    "reason": "Same concept: domestic animals → Domesticated animal"
+  },
+  {
+    "id": 1461,
+    "name": "dysenterias",
+    "modern_name": "Dysentery",
+    "old_url": "https://en.wikipedia.org/wiki/Shigellosis",
+    "old_qid": "Q327298",
+    "reason": "Medical synonym: Shigellosis is bacillary dysentery, the most common form of dysentery"
+  },
+  {
+    "id": 2356,
+    "name": "coquilles",
+    "modern_name": "Shells",
+    "old_url": "https://en.wikipedia.org/wiki/Seashell",
+    "old_qid": "Q213096",
+    "reason": "Close match: Shells → Seashell"
+  },
+  {
+    "id": 862,
+    "name": "mulheres",
+    "modern_name": "Woman",
+    "old_url": "https://en.wikipedia.org/wiki/Female%20%28gender%29",
+    "old_qid": "Q6581072",
+    "reason": "Close concept: Woman → Female (gender)"
+  },
+  {
+    "id": 1440,
+    "name": "limoens",
+    "modern_name": "Citrus limon",
+    "old_url": "https://en.wikipedia.org/wiki/Lemon",
+    "old_qid": "Q500",
+    "reason": "Same fruit: Citrus limon is the scientific name for lemon"
+  },
+  {
+    "id": 1689,
+    "name": "étrangers",
+    "modern_name": "foreigners",
+    "old_url": "https://en.wikipedia.org/wiki/Alien%20%28law%29",
+    "old_qid": "Q473741",
+    "reason": "Same concept: foreigners → Alien (law)"
+  },
+  {
+    "id": 2292,
+    "name": "palo",
+    "modern_name": "guayacan tree",
+    "old_url": "https://en.wikipedia.org/wiki/Lignum%20vitae",
+    "old_qid": "Q1028485",
+    "reason": "Same plant: Guayacan/guaiacum is lignum vitae"
+  },
+  {
+    "id": 736,
+    "name": "Palaeontology",
+    "modern_name": "Palaeontology",
+    "old_url": "https://en.wikipedia.org/wiki/Paleontology",
+    "old_qid": "Q246729",
+    "reason": "Same concept, spelling variant: Palaeontology = Paleontology"
+  },
+  {
+    "id": 1052,
+    "name": "Bark",
+    "modern_name": "Bark",
+    "old_url": "https://en.wikipedia.org/wiki/Cinchona",
+    "old_qid": "Q184453",
+    "reason": "Historical reference: 'The Bark' in premodern medicine commonly refers to cinchona bark (quinine)"
+  },
+  {
+    "id": 294,
+    "name": "cedro",
+    "modern_name": "Cedar",
+    "old_url": "https://en.wikipedia.org/wiki/Cedrus",
+    "old_qid": "Q128550",
+    "reason": "Taxonomic equivalent: Cedrus is the genus of true cedars"
+  },
+  {
+    "id": 658,
+    "name": "palo santo",
+    "modern_name": "Palo santo",
+    "old_url": "https://en.wikipedia.org/wiki/Guaiacum_officinale",
+    "old_qid": "Q2051175",
+    "reason": "Same plant: Palo santo refers to Guaiacum officinale in early modern Spanish texts"
+  },
+  {
+    "id": 1326,
+    "name": "Action and reaction",
+    "modern_name": "Action and reaction",
+    "old_url": "https://en.wikipedia.org/wiki/Newton%27s%20third%20law",
+    "old_qid": "Q3235565",
+    "reason": "Same concept: Action and reaction is Newton's third law"
+  },
+  {
+    "id": 1294,
+    "name": "Lauri",
+    "modern_name": "Laurel",
+    "old_url": "https://en.wikipedia.org/wiki/Laurus_nobilis",
+    "old_qid": "Q26006",
+    "reason": "Taxonomic equivalent: Laurus nobilis is bay laurel"
+  },
+  {
+    "id": 735,
+    "name": "nerve fiber",
+    "modern_name": "Nerve fiber",
+    "old_url": "https://en.wikipedia.org/wiki/Axon",
+    "old_qid": "Q178999",
+    "reason": "Scientific equivalent: Axon is the primary nerve fiber"
+  },
+  {
+    "id": 1894,
+    "name": "capillaires",
+    "modern_name": "Capillaries",
+    "old_url": "https://en.wikipedia.org/wiki/Capillary",
+    "old_qid": "Q103142",
+    "reason": "Singular/plural: Capillaries → Capillary"
+  },
+  {
+    "id": 732,
+    "name": "laws of nature",
+    "modern_name": "Laws of nature",
+    "old_url": "https://en.wikipedia.org/wiki/Physical_law",
+    "old_qid": "Q21191188",
+    "reason": "Same concept: Laws of nature → Physical law"
+  },
+  {
+    "id": 2651,
+    "name": "faltas de respiração",
+    "modern_name": "Dyspnea",
+    "old_url": "https://en.wikipedia.org/wiki/Shortness%20of%20breath",
+    "old_qid": "Q188008",
+    "reason": "Medical synonym: Dyspnea is shortness of breath"
+  },
+  {
+    "id": 2694,
+    "name": "brafica marinha",
+    "modern_name": "Sea Brassica",
+    "old_url": "https://en.wikipedia.org/wiki/Crambe_maritima",
+    "old_qid": "Q165299",
+    "reason": "Taxonomic equivalent: Crambe maritima is sea kale, a sea brassica"
+  },
+  {
+    "id": 3520,
+    "name": "Nymphea",
+    "modern_name": "Water Lily",
+    "old_url": "https://en.wikipedia.org/wiki/Nymphaea",
+    "old_qid": "Q146628",
+    "reason": "Taxonomic equivalent: Nymphaea is the genus of water lilies"
+  },
+  {
+    "id": 3122,
+    "name": "Plantaginis",
+    "modern_name": "Plantain",
+    "old_url": "https://en.wikipedia.org/wiki/Plantago",
+    "old_qid": "Q164686",
+    "reason": "Taxonomic equivalent: Plantago is the genus of plantains"
+  },
+  {
+    "id": 2750,
+    "name": "Hindostan",
+    "modern_name": "Hindustan",
+    "old_url": "https://en.wikipedia.org/wiki/India",
+    "old_qid": "Q668",
+    "reason": "Close geographic match: Hindustan is an older name for India/the Indian subcontinent"
+  },
+  {
+    "id": 1555,
+    "name": "mer Glaciale",
+    "modern_name": "Glacial Sea",
+    "old_url": "https://en.wikipedia.org/wiki/Arctic%20Ocean",
+    "old_qid": "Q788",
+    "reason": "Same place: Glacial Sea (mer Glaciale) is the Arctic Ocean"
+  },
+  {
+    "id": 1572,
+    "name": "Schwimmvögel",
+    "modern_name": "Waterfowl",
+    "old_url": "https://en.wikipedia.org/wiki/Anseriformes",
+    "old_qid": "Q21651",
+    "reason": "Taxonomic equivalent: Anseriformes includes waterfowl"
+  },
+  {
+    "id": 1840,
+    "name": "mechanical laws",
+    "modern_name": "Physical Laws",
+    "old_url": "https://en.wikipedia.org/wiki/Scientific_law",
+    "old_qid": "Q214070",
+    "reason": "Close concept: Physical/mechanical laws → Scientific law"
+  },
+  {
+    "id": 3304,
+    "name": "Coryli",
+    "modern_name": "Hazel",
+    "old_url": "https://en.wikipedia.org/wiki/Corylus%20avellana",
+    "old_qid": "Q124969",
+    "reason": "Taxonomic equivalent: Corylus avellana is the common hazel"
+  },
+  {
+    "id": 3311,
+    "name": "vifceribus",
+    "modern_name": "Viscera",
+    "old_url": "https://en.wikipedia.org/wiki/Viscus",
+    "old_qid": "Q546191",
+    "reason": "Same concept: Viscera → Viscus"
+  },
+  {
+    "id": 3314,
+    "name": "lumbricos",
+    "modern_name": "Earthworm",
+    "old_url": "https://en.wikipedia.org/wiki/Lumbricus%20terrestris",
+    "old_qid": "Q30092",
+    "reason": "Taxonomic equivalent: Lumbricus terrestris is the common earthworm"
+  },
+  {
+    "id": 3315,
+    "name": "Hipuris",
+    "modern_name": "Mare's tail",
+    "old_url": "https://en.wikipedia.org/wiki/Hippuris_vulgaris",
+    "old_qid": "Q33115",
+    "reason": "Taxonomic equivalent: Hippuris vulgaris is mare's tail"
+  },
+  {
+    "id": 3327,
+    "name": "aroeira",
+    "modern_name": "Aroeira",
+    "old_url": "https://en.wikipedia.org/wiki/Schinus%20terebinthifolia",
+    "old_qid": "Q899313",
+    "reason": "Taxonomic equivalent: Schinus terebinthifolia is the Brazilian pepper/aroeira"
+  },
+  {
+    "id": 3167,
+    "name": "Ash-tree",
+    "modern_name": "Ash",
+    "old_url": "https://en.wikipedia.org/wiki/Fraxinus",
+    "old_qid": "Q128887",
+    "reason": "Taxonomic equivalent: Fraxinus is the genus of ash trees"
+  },
+  {
+    "id": 3194,
+    "name": "Emperadores",
+    "modern_name": "Emperor",
+    "old_url": "https://en.wikipedia.org/wiki/Monarch",
+    "old_qid": "Q116",
+    "reason": "Close concept: Emperor is a type of monarch"
+  },
+  {
+    "id": 3201,
+    "name": "palæontologists",
+    "modern_name": "Paleontologists",
+    "old_url": "https://en.wikipedia.org/wiki/Paleontology",
+    "old_qid": "Q7205",
+    "reason": "Same field: Paleontologists → Paleontology"
+  },
+  {
+    "id": 3844,
+    "name": "produits",
+    "modern_name": "products",
+    "old_url": "https://en.wikipedia.org/wiki/Product_(chemistry)",
+    "old_qid": "Q542929",
+    "reason": "Same concept: products → Product (chemistry)"
+  },
+  {
+    "id": 4320,
+    "name": "hind-legs",
+    "modern_name": "Hind limbs",
+    "old_url": "https://en.wikipedia.org/wiki/Hindlimb",
+    "old_qid": "Q5766112",
+    "reason": "Same concept: Hind limbs → Hindlimb"
+  },
+  {
+    "id": 4522,
+    "name": "sensory organs",
+    "modern_name": "Sensory organs",
+    "old_url": "https://en.wikipedia.org/wiki/Sense",
+    "old_qid": "Q173253",
+    "reason": "Close concept: Sensory organs → Sense"
+  },
+  {
+    "id": 4975,
+    "name": "Thrushes",
+    "modern_name": "Thrush",
+    "old_url": "https://en.wikipedia.org/wiki/Turdus",
+    "old_qid": "Q115661",
+    "reason": "Taxonomic equivalent: Turdus is the genus of true thrushes"
+  },
+  {
+    "id": 1401,
+    "name": "gallinaceous birds",
+    "modern_name": "Gallinaceous birds",
+    "old_url": "https://en.wikipedia.org/wiki/Galliformes",
+    "old_qid": "Q21659",
+    "reason": "Taxonomic equivalent: Galliformes is the order of gallinaceous birds"
+  },
+  {
+    "id": 1409,
+    "name": "Guayacan",
+    "modern_name": "Guayacán",
+    "old_url": "https://en.wikipedia.org/wiki/Lignum%20vitae",
+    "old_qid": "Q1028485",
+    "reason": "Same plant: Guayacán is lignum vitae"
+  },
+  {
+    "id": 1385,
+    "name": "Apennines",
+    "modern_name": "Apennines",
+    "old_url": "https://en.wikipedia.org/wiki/Apennine%20Mountains",
+    "old_qid": "Q1285",
+    "reason": "Same place: Apennines = Apennine Mountains"
+  },
+  {
+    "id": 1658,
+    "name": "Grape",
+    "modern_name": "Vine",
+    "old_url": "https://en.wikipedia.org/wiki/Vitis%20vinifera",
+    "old_qid": "Q30046",
+    "reason": "Taxonomic equivalent: Vitis vinifera is the grape vine"
+  },
+  {
+    "id": 1807,
+    "name": "feline animal",
+    "modern_name": "feline",
+    "old_url": "https://en.wikipedia.org/wiki/Felidae",
+    "old_qid": "Q25265",
+    "reason": "Taxonomic equivalent: Felidae is the cat/feline family"
+  },
+  {
+    "id": 1619,
+    "name": "vaso",
+    "modern_name": "vessel",
+    "old_url": "https://en.wikipedia.org/wiki/Container",
+    "old_qid": "Q987767",
+    "reason": "Close concept: vessel → Container"
+  },
+  {
+    "id": 1123,
+    "name": "Alexipharmacum",
+    "modern_name": "Alexipharmic",
+    "old_url": "https://en.wikipedia.org/wiki/Antidote",
+    "old_qid": "Q194168",
+    "reason": "Medical synonym: Alexipharmic means antidote/counterpoison"
+  },
+  {
+    "id": 2842,
+    "name": "α Lyræ",
+    "modern_name": "Alpha Lyrae",
+    "old_url": "https://en.wikipedia.org/wiki/Vega",
+    "old_qid": "Q3427",
+    "reason": "Same star: Alpha Lyrae is Vega"
+  },
+  {
+    "id": 2862,
+    "name": "seda",
+    "modern_name": "Silk",
+    "old_url": "https://en.wikipedia.org/wiki/Bombyx%20mori",
+    "old_qid": "Q134747",
+    "reason": "Close match: Bombyx mori is the silkworm that produces silk"
+  },
+  {
+    "id": 3224,
+    "name": "vide",
+    "modern_name": "Grapevine",
+    "old_url": "https://en.wikipedia.org/wiki/Vitis",
+    "old_qid": "Q191019",
+    "reason": "Taxonomic equivalent: Vitis is the genus of grapevines"
+  },
+  {
+    "id": 3456,
+    "name": "lamparones",
+    "modern_name": "Scrofula",
+    "old_url": "https://en.wikipedia.org/wiki/Mycobacterial%20cervical%20lymphadenitis",
+    "old_qid": "Q4678337",
+    "reason": "Medical equivalent: Scrofula is mycobacterial cervical lymphadenitis"
+  },
+  {
+    "id": 2956,
+    "name": "Nova Espanha",
+    "modern_name": "Mexico",
+    "old_url": "https://en.wikipedia.org/wiki/New%20Spain",
+    "old_qid": "Q170603",
+    "reason": "Historical equivalent: Nova Espanha = New Spain; better match than Mexico"
+  },
+  {
+    "id": 2967,
+    "name": "Simia",
+    "modern_name": "Ape",
+    "old_url": "https://en.wikipedia.org/wiki/Monkey",
+    "old_qid": "Q1367",
+    "reason": "Close match: Simia (Latin) encompasses primates; monkey is closely related to ape"
+  },
+  {
+    "id": 2992,
+    "name": "calculum",
+    "modern_name": "Calculus (kidney or bladder stone)",
+    "old_url": "https://en.wikipedia.org/wiki/Gallstone",
+    "old_qid": "Q1585769",
+    "reason": "Close medical match: Gallstone is a type of calculus (bodily stone)"
+  },
+  {
+    "id": 3213,
+    "name": "tiña",
+    "modern_name": "ringworm",
+    "old_url": "https://en.wikipedia.org/wiki/List%20of%20types%20of%20tinea",
+    "old_qid": "Q17141201",
+    "reason": "Same disease: Tinea/tiña is ringworm"
+  },
+  {
+    "id": 3653,
+    "name": "Anagalis",
+    "modern_name": "Pimpernel",
+    "old_url": "https://en.wikipedia.org/wiki/Anagallis",
+    "old_qid": "Q157732",
+    "reason": "Taxonomic equivalent: Anagallis is the genus of pimpernels"
+  },
+  {
+    "id": 3701,
+    "name": "chirurgía",
+    "modern_name": "Surgery",
+    "old_url": "https://en.wikipedia.org/wiki/Surgical%20operation",
+    "old_qid": "Q600236",
+    "reason": "Same concept: Surgery → Surgical operation"
+  },
+  {
+    "id": 3725,
+    "name": "Misseltoe",
+    "modern_name": "Mistletoe",
+    "old_url": "https://en.wikipedia.org/wiki/Viscum%20album",
+    "old_qid": "Q144940",
+    "reason": "Taxonomic equivalent: Viscum album is European mistletoe"
+  },
+  {
+    "id": 4025,
+    "name": "sinapis",
+    "modern_name": "Mustard",
+    "old_url": "https://en.wikipedia.org/wiki/Brassica",
+    "old_qid": "Q58677",
+    "reason": "Taxonomic equivalent: Brassica includes mustard plants (Sinapis is now often merged into Brassica)"
+  },
+  {
+    "id": 4368,
+    "name": "Madroño",
+    "modern_name": "Strawberry Tree",
+    "old_url": "https://en.wikipedia.org/wiki/Arbutus_unedo",
+    "old_qid": "Q329046",
+    "reason": "Taxonomic equivalent: Arbutus unedo is the strawberry tree"
+  },
+  {
+    "id": 4024,
+    "name": "Buxi",
+    "modern_name": "boxwood",
+    "old_url": "https://en.wikipedia.org/wiki/Buxus%20sempervirens",
+    "old_qid": "Q27344",
+    "reason": "Taxonomic equivalent: Buxus sempervirens is common boxwood"
+  },
+  {
+    "id": 3048,
+    "name": "nabos",
+    "modern_name": "Turnip",
+    "old_url": "https://en.wikipedia.org/wiki/Brassica%20rapa",
+    "old_qid": "Q3384",
+    "reason": "Taxonomic equivalent: Brassica rapa includes turnip"
+  },
+  {
+    "id": 3041,
+    "name": "tunas",
+    "modern_name": "Prickly Pear",
+    "old_url": "https://en.wikipedia.org/wiki/Opuntia%20ficus-indica",
+    "old_qid": "Q144412",
+    "reason": "Taxonomic equivalent: Opuntia ficus-indica is the prickly pear cactus"
+  },
+  {
+    "id": 3390,
+    "name": "Ivy",
+    "modern_name": "Ivy",
+    "old_url": "https://en.wikipedia.org/wiki/Hedera%20helix",
+    "old_qid": "Q26354",
+    "reason": "Taxonomic equivalent: Hedera helix is common ivy"
+  },
+  {
+    "id": 3421,
+    "name": "Lepidosiren",
+    "modern_name": "Lepidosiren",
+    "old_url": "https://en.wikipedia.org/wiki/South%20American%20lungfish",
+    "old_qid": "Q1410142",
+    "reason": "Same animal: Lepidosiren paradoxa is the South American lungfish"
+  },
+  {
+    "id": 3427,
+    "name": "natural classification",
+    "modern_name": "Natural classification",
+    "old_url": "https://en.wikipedia.org/wiki/Taxonomy_(biology)",
+    "old_qid": "Q111718213",
+    "reason": "Same concept: Natural classification → Taxonomy (biology)"
+  },
+  {
+    "id": 3455,
+    "name": "quauhchilli",
+    "modern_name": "Capsicum annuum",
+    "old_url": "https://en.wikipedia.org/wiki/Chili%20pepper",
+    "old_qid": "Q165199",
+    "reason": "Same plant: Capsicum annuum is a chili pepper species"
+  },
+  {
+    "id": 3126,
+    "name": "porcis",
+    "modern_name": "pig",
+    "old_url": "https://en.wikipedia.org/wiki/Wild%20boar",
+    "old_qid": "Q58697",
+    "reason": "Close match: Wild boar (Sus scrofa) is the ancestor of domestic pigs"
+  },
+  {
+    "id": 3010,
+    "name": "silk",
+    "modern_name": "silk",
+    "old_url": "https://en.wikipedia.org/wiki/Bombyx_mori",
+    "old_qid": "Q134747",
+    "reason": "Close match: Bombyx mori is the silkworm that produces silk"
+  },
+  {
+    "id": 1945,
+    "name": "ribs",
+    "modern_name": "Ribs",
+    "old_url": "https://en.wikipedia.org/wiki/Rib%20cage",
+    "old_qid": "Q2576226",
+    "reason": "Close anatomical match: Ribs → Rib cage"
+  },
+  {
+    "id": 1948,
+    "name": "carnivorous mammals",
+    "modern_name": "carnivorans",
+    "old_url": "https://en.wikipedia.org/wiki/Carnivore",
+    "old_qid": "Q81875",
+    "reason": "Close concept: carnivorans → Carnivore"
+  },
+  {
+    "id": 1960,
+    "name": "mulatos",
+    "modern_name": "Mulatto",
+    "old_url": "https://en.wikipedia.org/wiki/Multiracial%20people",
+    "old_qid": "Q1378555",
+    "reason": "Close concept: Mulatto is a specific multiracial designation"
+  },
+  {
+    "id": 1983,
+    "name": "brutes",
+    "modern_name": "Brutes",
+    "old_url": "https://en.wikipedia.org/wiki/Animal",
+    "old_qid": "Q729",
+    "reason": "Historical equivalent: 'Brutes' in premodern usage means animals"
+  },
+  {
+    "id": 1935,
+    "name": "Defluxions of humors",
+    "modern_name": "Humoralism",
+    "old_url": "https://en.wikipedia.org/wiki/Humorism",
+    "old_qid": "Q5782572",
+    "reason": "Same concept: Humoralism = Humorism"
+  },
+  {
+    "id": 2001,
+    "name": "atmospheric resistance",
+    "modern_name": "air resistance",
+    "old_url": "https://en.wikipedia.org/wiki/Drag%20%28physics%29",
+    "old_qid": "Q206621",
+    "reason": "Scientific equivalent: Air resistance = drag (physics)"
+  },
+  {
+    "id": 3682,
+    "name": "tissus vivants",
+    "modern_name": "Living tissues",
+    "old_url": "https://en.wikipedia.org/wiki/Tissue%20%28biology%29",
+    "old_qid": "Q40397",
+    "reason": "Same concept: Living tissues → Tissue (biology)"
+  },
+  {
+    "id": 3684,
+    "name": "phénomènes morbides",
+    "modern_name": "Morbid phenomena",
+    "old_url": "https://en.wikipedia.org/wiki/Pathology",
+    "old_qid": "Q7208",
+    "reason": "Same concept: Morbid phenomena → Pathology"
+  },
+  {
+    "id": 3686,
+    "name": "système philosophique",
+    "modern_name": "Philosophical system",
+    "old_url": "https://en.wikipedia.org/wiki/Philosophy",
+    "old_qid": "Q5891",
+    "reason": "Close concept: Philosophical system → Philosophy"
+  },
+  {
+    "id": 3751,
+    "name": "nouveau monde",
+    "modern_name": "Americas",
+    "old_url": "https://en.wikipedia.org/wiki/New%20World",
+    "old_qid": "Q127834",
+    "reason": "Same concept: Americas → New World"
+  },
+  {
+    "id": 3755,
+    "name": "obliquity of the ecliptic",
+    "modern_name": "obliquity of the ecliptic",
+    "old_url": "https://en.wikipedia.org/wiki/Axial%20tilt",
+    "old_qid": "Q179745",
+    "reason": "Scientific equivalent: Obliquity of the ecliptic = axial tilt"
+  },
+  {
+    "id": 3768,
+    "name": "Luminaries",
+    "modern_name": "Celestial bodies",
+    "old_url": "https://en.wikipedia.org/wiki/Astronomical%20object",
+    "old_qid": "Q6999",
+    "reason": "Same concept: Celestial bodies → Astronomical object"
+  },
+  {
+    "id": 3769,
+    "name": "Saxifrage",
+    "modern_name": "Saxifrage",
+    "old_url": "https://en.wikipedia.org/wiki/Saxifraga",
+    "old_qid": "Q156146",
+    "reason": "Taxonomic equivalent: Saxifraga is the genus of saxifrage"
+  },
+  {
+    "id": 3731,
+    "name": "Crato",
+    "modern_name": "Cratevas",
+    "old_url": "https://en.wikipedia.org/wiki/Crateuas_(physician)",
+    "old_qid": "Q743993",
+    "reason": "Same person: Cratevas = Crateuas (physician)"
+  },
+  {
+    "id": 3822,
+    "name": "yuca",
+    "modern_name": "Yuca",
+    "old_url": "https://en.wikipedia.org/wiki/Cassava",
+    "old_qid": "Q83124",
+    "reason": "Same plant: Yuca is cassava in Spanish"
+  },
+  {
+    "id": 3825,
+    "name": "alquitara",
+    "modern_name": "Alquitara",
+    "old_url": "https://en.wikipedia.org/wiki/Alembic",
+    "old_qid": "Q845242",
+    "reason": "Same object: Alquitara is a type of alembic (distillation apparatus)"
+  },
+  {
+    "id": 3835,
+    "name": "calor do figado",
+    "modern_name": "liver heat",
+    "old_url": "https://en.wikipedia.org/wiki/Hepatitis",
+    "old_qid": "Q131742",
+    "reason": "Medical equivalent: Liver heat is a historical term for hepatitis"
+  },
+  {
+    "id": 4021,
+    "name": "Fabricio",
+    "modern_name": "Girolamo Fabrici",
+    "old_url": "https://en.wikipedia.org/wiki/Hieronymus%20Fabricius",
+    "old_qid": "Q435296",
+    "reason": "Same person: Girolamo Fabrici = Hieronymus Fabricius"
+  },
+  {
+    "id": 4072,
+    "name": "Zona",
+    "modern_name": "Herpes zoster",
+    "old_url": "https://en.wikipedia.org/wiki/Shingles",
+    "old_qid": "Q182155",
+    "reason": "Medical synonym: Herpes zoster = shingles"
+  },
+  {
+    "id": 4008,
+    "name": "Rubi",
+    "modern_name": "raspberry",
+    "old_url": "https://en.wikipedia.org/wiki/Rubus_idaeus",
+    "old_qid": "Q12252383",
+    "reason": "Taxonomic equivalent: Rubus idaeus is the European raspberry"
+  },
+  {
+    "id": 4013,
+    "name": "Cagui",
+    "modern_name": "Marmoset",
+    "old_url": "https://en.wikipedia.org/wiki/Callitrichidae",
+    "old_qid": "Q574338",
+    "reason": "Taxonomic equivalent: Callitrichidae is the family of marmosets and tamarins"
+  },
+  {
+    "id": 4346,
+    "name": "xalxocotl",
+    "modern_name": "Guava",
+    "old_url": "https://en.wikipedia.org/wiki/Psidium%20guajava",
+    "old_qid": "Q166843",
+    "reason": "Taxonomic equivalent: Psidium guajava is guava"
+  },
+  {
+    "id": 4347,
+    "name": "higos",
+    "modern_name": "Fig",
+    "old_url": "https://en.wikipedia.org/wiki/Ficus",
+    "old_qid": "Q59798",
+    "reason": "Taxonomic equivalent: Ficus is the genus of figs"
+  },
+  {
+    "id": 4351,
+    "name": "xahuali",
+    "modern_name": "Annatto",
+    "old_url": "https://en.wikipedia.org/wiki/Bixa_orellana",
+    "old_qid": "Q147701",
+    "reason": "Taxonomic equivalent: Bixa orellana is the annatto tree"
+  },
+  {
+    "id": 4352,
+    "name": "higuero",
+    "modern_name": "Calabash tree",
+    "old_url": "https://en.wikipedia.org/wiki/Crescentia",
+    "old_qid": "Q1321860",
+    "reason": "Taxonomic equivalent: Crescentia is the genus of calabash trees"
+  },
+  {
+    "id": 4353,
+    "name": "lexia",
+    "modern_name": "Lye",
+    "old_url": "https://en.wikipedia.org/wiki/Sodium%20hydroxide",
+    "old_qid": "Q102769",
+    "reason": "Scientific equivalent: Lye is traditionally sodium hydroxide (caustic soda)"
+  },
+  {
+    "id": 4355,
+    "name": "PIMIENTA DE LAS INDIAS",
+    "modern_name": "Allspice",
+    "old_url": "https://en.wikipedia.org/wiki/Pimenta%20dioica",
+    "old_qid": "Q158468",
+    "reason": "Taxonomic equivalent: Pimenta dioica is allspice"
+  },
+  {
+    "id": 4387,
+    "name": "Ciruelas palas",
+    "modern_name": "Plums",
+    "old_url": "https://en.wikipedia.org/wiki/Prunus%20domestica",
+    "old_qid": "Q44120",
+    "reason": "Taxonomic equivalent: Prunus domestica is the European plum"
+  },
+  {
+    "id": 4396,
+    "name": "Alcornoque",
+    "modern_name": "Cork Oak",
+    "old_url": "https://en.wikipedia.org/wiki/Quercus%20suber",
+    "old_qid": "Q156137",
+    "reason": "Taxonomic equivalent: Quercus suber is cork oak"
+  },
+  {
+    "id": 4445,
+    "name": "railways",
+    "modern_name": "Railways",
+    "old_url": "https://en.wikipedia.org/wiki/Railroad",
+    "old_qid": "Q22667",
+    "reason": "Same concept: Railways = Railroad"
+  },
+  {
+    "id": 4463,
+    "name": "Miniſtros",
+    "modern_name": "ministers",
+    "old_url": "https://en.wikipedia.org/wiki/Minister_%28government%29",
+    "old_qid": "Q83307",
+    "reason": "Same concept: ministers → Minister (government)"
+  },
+  {
+    "id": 4475,
+    "name": "Gossypiam",
+    "modern_name": "Cotton",
+    "old_url": "https://en.wikipedia.org/wiki/Gossypium",
+    "old_qid": "Q719312",
+    "reason": "Taxonomic equivalent: Gossypium is the genus of cotton plants"
+  },
+  {
+    "id": 4503,
+    "name": "Gehirnkrankheiten",
+    "modern_name": "Brain diseases",
+    "old_url": "https://en.wikipedia.org/wiki/Encephalopathy",
+    "old_qid": "Q576349",
+    "reason": "Medical equivalent: Brain diseases → Encephalopathy"
+  },
+  {
+    "id": 4761,
+    "name": "crísteis",
+    "modern_name": "Suppositories",
+    "old_url": "https://en.wikipedia.org/wiki/Suppository",
+    "old_qid": "Q180799",
+    "reason": "Same concept: Suppositories → Suppository"
+  },
+  {
+    "id": 4763,
+    "name": "letrados",
+    "modern_name": "Legal scholar",
+    "old_url": "https://en.wikipedia.org/wiki/Jurist",
+    "old_qid": "Q185351",
+    "reason": "Same concept: Legal scholar = Jurist"
+  },
+  {
+    "id": 4166,
+    "name": "Mummies",
+    "modern_name": "Mummies",
+    "old_url": "https://en.wikipedia.org/wiki/Mummy",
+    "old_qid": "Q43616",
+    "reason": "Singular/plural: Mummies → Mummy"
+  },
+  {
+    "id": 4202,
+    "name": "Phytologie",
+    "modern_name": "Study of plants",
+    "old_url": "https://en.wikipedia.org/wiki/Botany",
+    "old_qid": "Q441",
+    "reason": "Same concept: Phytology/Study of plants = Botany"
+  },
+  {
+    "id": 4217,
+    "name": "silkworm",
+    "modern_name": "Silkworm",
+    "old_url": "https://en.wikipedia.org/wiki/Bombyx_mori",
+    "old_qid": "Q134747",
+    "reason": "Taxonomic equivalent: Bombyx mori is the silkworm"
+  },
+  {
+    "id": 4260,
+    "name": "Hemp",
+    "modern_name": "Hemp",
+    "old_url": "https://en.wikipedia.org/wiki/Cannabis%20sativa",
+    "old_qid": "Q26726",
+    "reason": "Taxonomic equivalent: Cannabis sativa is hemp"
+  },
+  {
+    "id": 4262,
+    "name": "wild Roses",
+    "modern_name": "Wild rose",
+    "old_url": "https://en.wikipedia.org/wiki/Rosa%20acicularis",
+    "old_qid": "Q218368",
+    "reason": "Taxonomic equivalent: Rosa acicularis is a species of wild rose"
+  },
+  {
+    "id": 4339,
+    "name": "agua ardiente",
+    "modern_name": "alcoholic spirit",
+    "old_url": "https://en.wikipedia.org/wiki/Ethanol",
+    "old_qid": "Q153",
+    "reason": "Scientific equivalent: Aguardiente/alcoholic spirit is ethanol"
+  },
+  {
+    "id": 4818,
+    "name": "acqua vite",
+    "modern_name": "Alcoholic spirits",
+    "old_url": "https://en.wikipedia.org/wiki/Aqua%20vitae",
+    "old_qid": "Q2511275",
+    "reason": "Same concept: Acqua vite = Aqua vitae"
+  },
+  {
+    "id": 4821,
+    "name": "opoponaco",
+    "modern_name": "Opoponax",
+    "old_url": "https://en.wikipedia.org/wiki/Opopanax%20chironium",
+    "old_qid": "Q13560912",
+    "reason": "Taxonomic equivalent: Opopanax chironium is the opoponax plant"
+  },
+  {
+    "id": 4823,
+    "name": "ipericaó",
+    "modern_name": "St. John's Wort",
+    "old_url": "https://en.wikipedia.org/wiki/Hypericum%20perforatum",
+    "old_qid": "Q158289",
+    "reason": "Taxonomic equivalent: Hypericum perforatum is St. John's Wort"
+  },
+  {
+    "id": 4678,
+    "name": "Thlafpi",
+    "modern_name": "Pennycress",
+    "old_url": "https://en.wikipedia.org/wiki/Thlaspi",
+    "old_qid": "Q1133524",
+    "reason": "Taxonomic equivalent: Thlaspi is the genus of pennycress"
+  },
+  {
+    "id": 4718,
+    "name": "Roferofle",
+    "modern_name": "Rose",
+    "old_url": "https://en.wikipedia.org/wiki/Rosaceae",
+    "old_qid": "Q46299",
+    "reason": "Taxonomic equivalent: Rosaceae is the rose family"
+  },
+  {
+    "id": 4719,
+    "name": "Goffypio",
+    "modern_name": "Cotton plant",
+    "old_url": "https://en.wikipedia.org/wiki/Gossypium",
+    "old_qid": "Q719312",
+    "reason": "Taxonomic equivalent: Gossypium is the genus of cotton plants"
+  },
+  {
+    "id": 4750,
+    "name": "Catholicos",
+    "modern_name": "Catholicism",
+    "old_url": "https://en.wikipedia.org/wiki/Catholic%20Church",
+    "old_qid": "Q9592",
+    "reason": "Close concept: Catholicism → Catholic Church"
+  },
+  {
+    "id": 4886,
+    "name": "fécondations",
+    "modern_name": "Fertilization",
+    "old_url": "https://en.wikipedia.org/wiki/Fertilisation",
+    "old_qid": "Q14890574",
+    "reason": "Same concept, spelling variant: Fertilization = Fertilisation"
+  },
+  {
+    "id": 4888,
+    "name": "méthode par différence",
+    "modern_name": "Method of difference",
+    "old_url": "https://en.wikipedia.org/wiki/Mill's_methods",
+    "old_qid": "Q137772518",
+    "reason": "Same concept: Method of difference is one of Mill's methods"
+  },
+  {
+    "id": 4922,
+    "name": "Juments",
+    "modern_name": "mares",
+    "old_url": "https://en.wikipedia.org/wiki/Horse",
+    "old_qid": "Q726",
+    "reason": "Close match: mares are female horses"
+  },
+  {
+    "id": 4929,
+    "name": "Murena",
+    "modern_name": "Murena",
+    "old_url": "https://en.wikipedia.org/wiki/Moray_eel",
+    "old_qid": "Q135086185",
+    "reason": "Same animal: Murena/Muraena is moray eel"
+  },
+  {
+    "id": 4987,
+    "name": "Yew",
+    "modern_name": "Yew",
+    "old_url": "https://en.wikipedia.org/wiki/Taxus",
+    "old_qid": "Q8053327",
+    "reason": "Taxonomic equivalent: Taxus is the genus of yew trees"
+  },
+  {
+    "id": 5011,
+    "name": "Glow-worms",
+    "modern_name": "Glow-worm",
+    "old_url": "https://en.wikipedia.org/wiki/Glowworm",
+    "old_qid": "Q3248829",
+    "reason": "Same concept, spelling variant: Glow-worm = Glowworm"
+  },
+  {
+    "id": 5018,
+    "name": "vache marine",
+    "modern_name": "Manatees",
+    "old_url": "https://en.wikipedia.org/wiki/West%20Indian%20manatee",
+    "old_qid": "Q40261",
+    "reason": "Specific species: West Indian manatee is the most common manatee"
+  },
+  {
+    "id": 5022,
+    "name": "alumine",
+    "modern_name": "Alumina",
+    "old_url": "https://en.wikipedia.org/wiki/Aluminium%20oxide",
+    "old_qid": "Q177342",
+    "reason": "Scientific equivalent: Alumina = aluminium oxide"
+  },
+  {
+    "id": 5084,
+    "name": "Hawthorn",
+    "modern_name": "Hawthorn",
+    "old_url": "https://en.wikipedia.org/wiki/Crataegus",
+    "old_qid": "Q132557",
+    "reason": "Taxonomic equivalent: Crataegus is the genus of hawthorns"
+  },
+  {
+    "id": 5132,
+    "name": "coleoptera",
+    "modern_name": "Coleoptera",
+    "old_url": "https://en.wikipedia.org/wiki/Beetle",
+    "old_qid": "Q22671",
+    "reason": "Taxonomic equivalent: Coleoptera is the order of beetles"
+  },
+  {
+    "id": 5159,
+    "name": "M. jalappa",
+    "modern_name": "Four o'clock flower",
+    "old_url": "https://en.wikipedia.org/wiki/Mirabilis%20jalapa",
+    "old_qid": "Q13710",
+    "reason": "Same plant: M. jalapa = Mirabilis jalapa = four o'clock flower"
+  },
+  {
+    "id": 5182,
+    "name": "kangaroo",
+    "modern_name": "Kangaroo",
+    "old_url": "https://en.wikipedia.org/wiki/Macropodidae",
+    "old_qid": "Q23193",
+    "reason": "Taxonomic equivalent: Macropodidae is the family of kangaroos"
+  },
+  {
+    "id": 5198,
+    "name": "lauandula",
+    "modern_name": "Lavender",
+    "old_url": "https://en.wikipedia.org/wiki/Lavandula",
+    "old_qid": "Q171892",
+    "reason": "Taxonomic equivalent: Lavandula is the genus of lavender"
+  },
+  {
+    "id": 5204,
+    "name": "colirio",
+    "modern_name": "Eyedrop preparation",
+    "old_url": "https://en.wikipedia.org/wiki/Eye_drop",
+    "old_qid": "Q552308",
+    "reason": "Same concept: Eyedrop preparation → Eye drop"
+  },
+  {
+    "id": 5213,
+    "name": "chaüguarica",
+    "modern_name": "Achiote",
+    "old_url": "https://en.wikipedia.org/wiki/Bixa%20orellana",
+    "old_qid": "Q147701",
+    "reason": "Taxonomic equivalent: Bixa orellana is achiote/annatto"
+  },
+  {
+    "id": 5235,
+    "name": "astringcion",
+    "modern_name": "astringency",
+    "old_url": "https://en.wikipedia.org/wiki/Astringent%20%28taste%29",
+    "old_qid": "Q9141413",
+    "reason": "Same concept: astringency → Astringent (taste)"
+  },
+  {
+    "id": 5244,
+    "name": "Tezcuco",
+    "modern_name": "Texcoco",
+    "old_url": "https://en.wikipedia.org/wiki/Tetzcoco_(altepetl)",
+    "old_qid": "Q2047652",
+    "reason": "Same place: Texcoco = Tetzcoco (altepetl)"
+  },
+  {
+    "id": 5252,
+    "name": "nepeta",
+    "modern_name": "Nepeta cataria",
+    "old_url": "https://en.wikipedia.org/wiki/Catnip",
+    "old_qid": "Q161139",
+    "reason": "Same plant: Nepeta cataria is catnip"
+  },
+  {
+    "id": 5262,
+    "name": "maguey negro",
+    "modern_name": "Black maguey",
+    "old_url": "https://en.wikipedia.org/wiki/Agave",
+    "old_qid": "Q155874",
+    "reason": "Taxonomic equivalent: Maguey is a type of agave"
+  },
+  {
+    "id": 5265,
+    "name": "campanilla",
+    "modern_name": "Bellflower",
+    "old_url": "https://en.wikipedia.org/wiki/Campanula",
+    "old_qid": "Q157069",
+    "reason": "Taxonomic equivalent: Campanula is the genus of bellflowers"
+  },
+  {
+    "id": 5269,
+    "name": "cauterio",
+    "modern_name": "Cautery",
+    "old_url": "https://en.wikipedia.org/wiki/Cauterization",
+    "old_qid": "Q1136347",
+    "reason": "Same concept: Cautery → Cauterization"
+  },
+  {
+    "id": 5507,
+    "name": "uniformity of nature",
+    "modern_name": "Uniformity of nature",
+    "old_url": "https://en.wikipedia.org/wiki/Uniformitarianism",
+    "old_qid": "Q208650",
+    "reason": "Same concept: Uniformity of nature → Uniformitarianism"
+  },
+  {
+    "id": 5641,
+    "name": "arborescent ferns",
+    "modern_name": "Tree ferns",
+    "old_url": "https://en.wikipedia.org/wiki/Cyatheales",
+    "old_qid": "Q623232",
+    "reason": "Taxonomic equivalent: Cyatheales is the order of tree ferns"
+  },
+  {
+    "id": 5690,
+    "name": "Pfittacus maximus alter",
+    "modern_name": "Great Parrot",
+    "old_url": "https://en.wikipedia.org/wiki/Psittacus",
+    "old_qid": "Q10809423",
+    "reason": "Taxonomic equivalent: Psittacus is the genus of African grey parrots"
+  },
+  {
+    "id": 5708,
+    "name": "Turtur",
+    "modern_name": "turtle dove",
+    "old_url": "https://en.wikipedia.org/wiki/Streptopelia",
+    "old_qid": "Q30944",
+    "reason": "Taxonomic equivalent: Streptopelia includes turtle doves"
+  },
+  {
+    "id": 5727,
+    "name": "Forcipe",
+    "modern_name": "Forceps",
+    "old_url": "https://en.wikipedia.org/wiki/Tweezers",
+    "old_qid": "Q192504",
+    "reason": "Close match: Tweezers are a type of forceps"
+  },
+  {
+    "id": 5735,
+    "name": "Ranunculos",
+    "modern_name": "Buttercups",
+    "old_url": "https://en.wikipedia.org/wiki/Ranunculus",
+    "old_qid": "Q146130",
+    "reason": "Taxonomic equivalent: Ranunculus is the genus of buttercups"
+  },
+  {
+    "id": 5738,
+    "name": "Hieracii Pilofellae",
+    "modern_name": "Hawkweed",
+    "old_url": "https://en.wikipedia.org/wiki/Hieracium",
+    "old_qid": "Q16526",
+    "reason": "Taxonomic equivalent: Hieracium is the genus of hawkweeds"
+  },
+  {
+    "id": 5761,
+    "name": "Milleporas",
+    "modern_name": "Millepora",
+    "old_url": "https://en.wikipedia.org/wiki/Fire%20coral",
+    "old_qid": "Q1409569",
+    "reason": "Same animal: Millepora are fire corals"
+  },
+  {
+    "id": 5843,
+    "name": "amargosa",
+    "modern_name": "Margosa",
+    "old_url": "https://en.wikipedia.org/wiki/Azadirachta%20indica",
+    "old_qid": "Q170461",
+    "reason": "Taxonomic equivalent: Azadirachta indica is the margosa/neem tree"
+  },
+  {
+    "id": 5853,
+    "name": "mul mango",
+    "modern_name": "Mango",
+    "old_url": "https://en.wikipedia.org/wiki/Mangifera%20indica",
+    "old_qid": "Q3919027",
+    "reason": "Taxonomic equivalent: Mangifera indica is the mango tree"
+  },
+  {
+    "id": 5868,
+    "name": "sudorifics",
+    "modern_name": "Sudorifics",
+    "old_url": "https://en.wikipedia.org/wiki/Perspiration",
+    "old_qid": "Q3503092",
+    "reason": "Close concept: Sudorifics are agents that promote perspiration"
+  },
+  {
+    "id": 5893,
+    "name": "torcularis",
+    "modern_name": "wine press",
+    "old_url": "https://en.wikipedia.org/wiki/Winepress",
+    "old_qid": "Q253591",
+    "reason": "Same concept: wine press → Winepress"
+  },
+  {
+    "id": 5938,
+    "name": "Protoxides of metals",
+    "modern_name": "Metal oxides",
+    "old_url": "https://fr.wikipedia.org/wiki/Oxyde_m%C3%A9tallique",
+    "old_qid": "Q1795231",
+    "reason": "Same concept, cross-linguistic: Metal oxides → Oxyde métallique (French Wikipedia)"
+  },
+  {
+    "id": 4805,
+    "name": "Irritantes",
+    "modern_name": "Irritants",
+    "old_url": "https://en.wikipedia.org/wiki/Irritation",
+    "old_qid": "Q2142251",
+    "reason": "Same concept: Irritants → Irritation"
+  },
+  {
+    "id": 4128,
+    "name": "dogmas",
+    "modern_name": "Dogma",
+    "old_url": "https://en.wikipedia.org/wiki/Doctrine",
+    "old_qid": "Q117850",
+    "reason": "Close concept: Dogma and doctrine are closely related"
+  },
+  {
+    "id": 4125,
+    "name": "metaphysicians",
+    "modern_name": "metaphysicians",
+    "old_url": "https://en.wikipedia.org/wiki/Metaphysics",
+    "old_qid": "Q35277",
+    "reason": "Same field: metaphysicians → Metaphysics"
+  },
+  {
+    "id": 3585,
+    "name": "Pomonae",
+    "modern_name": "Apple",
+    "old_url": "https://en.wikipedia.org/wiki/Malus",
+    "old_qid": "Q104819",
+    "reason": "Taxonomic equivalent: Malus is the genus of apples"
+  },
+  {
+    "id": 1957,
+    "name": "dolor de estomago",
+    "modern_name": "Dyspepsia",
+    "old_url": "https://en.wikipedia.org/wiki/Indigestion",
+    "old_qid": "Q653971",
+    "reason": "Medical synonym: Dyspepsia = indigestion"
+  },
+  {
+    "id": 787,
+    "name": "occiput",
+    "modern_name": "occiput",
+    "old_url": "https://en.wikipedia.org/wiki/Nape",
+    "old_qid": "Q374727",
+    "reason": "Close anatomical match: Occiput (back of head) and nape (back of neck) are adjacent structures"
+  },
+  {
+    "id": 4337,
+    "name": "huitzxochitl",
+    "modern_name": "Scarlet passionflower",
+    "old_url": "https://en.wikipedia.org/wiki/Passiflora%20coccinea",
+    "old_qid": "Q3437545",
+    "reason": "Taxonomic equivalent: Passiflora coccinea is the scarlet passionflower"
+  },
+  {
+    "id": 4839,
+    "name": "magnetic condition",
+    "modern_name": "magnetic state",
+    "old_url": "https://en.wikipedia.org/wiki/Magnetism",
+    "old_qid": "Q6731637",
+    "reason": "Same concept: magnetic state → Magnetism"
+  },
+  {
+    "id": 3442,
+    "name": "camara",
+    "modern_name": "bowel movement",
+    "old_url": "https://en.wikipedia.org/wiki/Defecation",
+    "old_qid": "Q204015",
+    "reason": "Same concept: bowel movement = Defecation"
+  },
+  {
+    "id": 1803,
+    "name": "Tobacco",
+    "modern_name": "Tobacco",
+    "old_url": "https://en.wikipedia.org/wiki/Nicotiana",
+    "old_qid": "Q851829",
+    "reason": "Taxonomic equivalent: Nicotiana is the genus of tobacco plants"
+  },
+  {
+    "id": 1864,
+    "name": "Aconito",
+    "modern_name": "Aconite",
+    "old_url": "https://en.wikipedia.org/wiki/Aconitum",
+    "old_qid": "Q155904",
+    "reason": "Taxonomic equivalent: Aconitum is the genus name for aconite"
+  },
+  {
+    "id": 1805,
+    "name": "redness",
+    "modern_name": "Redness",
+    "old_url": "https://en.wikipedia.org/wiki/Erythema",
+    "old_qid": "Q1166142",
+    "reason": "Medical equivalent: Erythema is the medical term for redness"
+  },
+  {
+    "id": 5429,
+    "name": "contractions",
+    "modern_name": "contractions",
+    "old_url": "https://en.wikipedia.org/wiki/Muscle_contraction",
+    "old_qid": "Q127006",
+    "reason": "Same concept: contractions → Muscle contraction"
+  },
+  {
+    "id": 4880,
+    "name": "état physiologique",
+    "modern_name": "Physiological state",
+    "old_url": "https://en.wikipedia.org/wiki/Physiology",
+    "old_qid": "Q521",
+    "reason": "Close concept: Physiological state → Physiology"
+  },
+  {
+    "id": 4882,
+    "name": "dispositions anatomiques",
+    "modern_name": "Anatomical arrangement",
+    "old_url": "https://en.wikipedia.org/wiki/Anatomy",
+    "old_qid": "Q514",
+    "reason": "Close concept: Anatomical arrangement → Anatomy"
+  },
+  {
+    "id": 3039,
+    "name": "Tlaquatzin",
+    "modern_name": "Tlaquatzin",
+    "old_url": "https://en.wikipedia.org/wiki/Gray_and_black_four-eyed_opossum",
+    "old_qid": "Q1284059",
+    "reason": "Close match: Tlaquatzin is a Nahuatl name for opossum species"
+  },
+  {
+    "id": 4603,
+    "name": "Nereides",
+    "modern_name": "Nereids",
+    "old_url": "https://en.wikipedia.org/wiki/Nereididae",
+    "old_qid": "Q1280602",
+    "reason": "Taxonomic equivalent: Nereididae is the family of nereid polychaete worms"
+  },
+  {
+    "id": 4599,
+    "name": "detritus",
+    "modern_name": "Detritus",
+    "old_url": "https://en.wikipedia.org/wiki/Detritivore",
+    "old_qid": "Q2750657",
+    "reason": "Close concept: Detritus is consumed by detritivores"
+  },
+  {
+    "id": 2789,
+    "name": "roches primitives",
+    "modern_name": "Primary rocks",
+    "old_url": "https://en.wikipedia.org/wiki/Igneous_rock",
+    "old_qid": "Q42045",
+    "reason": "Historical geological equivalent: 'Primary rocks' in Humboldt's era meant igneous rocks"
+  },
+  {
+    "id": 5179,
+    "name": "Proteaceæ",
+    "modern_name": "Proteaceae",
+    "old_url": "https://en.wikipedia.org/wiki/Grevilleoideae",
+    "old_qid": "Q157228",
+    "reason": "Close taxonomic match: Grevilleoideae is a major subfamily within Proteaceae"
+  },
+  {
+    "id": 3583,
+    "name": "PHALANGIUM",
+    "modern_name": "Harvestman",
+    "old_url": "https://en.wikipedia.org/wiki/Leiobunum%20rotundum",
+    "old_qid": "Q2392905",
+    "reason": "Close taxonomic match: Leiobunum rotundum is a species of harvestman"
+  },
+  {
+    "id": 4374,
+    "name": "pallas",
+    "modern_name": "Prickly pear fruit",
+    "old_url": "https://en.wikipedia.org/wiki/Opuntia_humifusa",
+    "old_qid": "Q144412",
+    "reason": "Taxonomic equivalent: Opuntia humifusa is a prickly pear species"
+  },
+  {
+    "id": 3685,
+    "name": "repos",
+    "modern_name": "Rest",
+    "old_url": "https://en.wikipedia.org/wiki/Sleep",
+    "old_qid": "Q35831",
+    "reason": "Close concept: Rest and sleep are closely related"
+  },
+  {
+    "id": 5795,
+    "name": "pan",
+    "modern_name": "Betel leaf",
+    "old_url": "https://en.wikipedia.org/wiki/Areca_nut",
+    "old_qid": "Q1816679",
+    "reason": "Close match: Pan/betel leaf is traditionally chewed with areca nut"
+  },
+  {
+    "id": 2696,
+    "name": "syllogisme",
+    "modern_name": "Syllogism",
+    "old_url": "https://en.wikipedia.org/wiki/Aristotelian%20logic",
+    "old_qid": "Q615599",
+    "reason": "Close concept: Syllogism is the central form of Aristotelian logic"
+  },
+  {
+    "id": 5033,
+    "name": "combustibles",
+    "modern_name": "Combustible substances",
+    "old_url": "https://en.wikipedia.org/wiki/Fuel",
+    "old_qid": "Q42501",
+    "reason": "Same concept: Combustible substances = Fuel"
+  },
+  {
+    "id": 5264,
+    "name": "urinan sangre",
+    "modern_name": "Hematuria",
+    "old_url": "https://en.wikipedia.org/wiki/Thin%20basement%20membrane%20disease",
+    "old_qid": "Q1574609",
+    "reason": "Close medical match: Thin basement membrane disease causes hematuria (blood in urine)"
+  },
+  {
+    "id": 5562,
+    "name": "sooty exhalations",
+    "modern_name": "Soot",
+    "old_url": "https://en.wikipedia.org/wiki/Carbon%20black",
+    "old_qid": "Q764245",
+    "reason": "Close match: Carbon black is essentially pure soot"
+  },
+  {
+    "id": 3182,
+    "name": "palétuviers",
+    "modern_name": "mangrove",
+    "old_url": "https://en.wikipedia.org/wiki/Rhizophora%20mucronata",
+    "old_qid": "Q2613405",
+    "reason": "Taxonomic match: Rhizophora mucronata is a species of mangrove"
+  },
+  {
+    "id": 1177,
+    "name": "sulphuric acid",
+    "modern_name": "Sulfurous acid",
+    "old_url": "https://en.wikipedia.org/wiki/Sulfur%20dioxide",
+    "old_qid": "Q5282",
+    "reason": "Close chemical match: Sulfurous acid is formed from sulfur dioxide in water"
+  },
+  {
+    "id": 4687,
+    "name": "Mufcus marinus",
+    "modern_name": "Sea moss",
+    "old_url": "https://en.wikipedia.org/wiki/Corallina%20officinalis",
+    "old_qid": "Q1784208",
+    "reason": "Close match: Corallina officinalis is a marine algae similar to sea moss"
+  },
+  {
+    "id": 1999,
+    "name": "Great Indian Archipelago",
+    "modern_name": "Indonesian Archipelago",
+    "old_url": "https://en.wikipedia.org/wiki/Nusantara%20%28term%29",
+    "old_qid": "Q49332",
+    "reason": "Same concept: Indonesian Archipelago → Nusantara"
+  },
+  {
+    "id": 325,
+    "name": "veronica",
+    "modern_name": "germander",
+    "old_url": "https://en.wikipedia.org/wiki/Teucrium",
+    "old_qid": "Q157714",
+    "reason": "Taxonomic equivalent: Teucrium is the genus of germanders"
+  },
+  {
+    "id": 710,
+    "name": "volcanic matter",
+    "modern_name": "Volcanic material",
+    "old_url": "https://en.wikipedia.org/wiki/Volcano",
+    "old_qid": "Q99292086",
+    "reason": "Close concept: Volcanic material → Volcano"
+  },
+  {
+    "id": 3362,
+    "name": "chemists",
+    "modern_name": "Alchemists",
+    "old_url": "https://en.wikipedia.org/wiki/Alchemy",
+    "old_qid": "Q947275",
+    "reason": "Same field: Alchemists → Alchemy"
+  },
+  {
+    "id": 1899,
+    "name": "Apologue",
+    "modern_name": "Apology",
+    "old_url": "https://en.wikipedia.org/wiki/Apologia",
+    "old_qid": "Q1416320",
+    "reason": "Close concept: Apology → Apologia"
+  },
+  {
+    "id": 1906,
+    "name": "prejudice",
+    "modern_name": "prejudice",
+    "old_url": "https://en.wikipedia.org/wiki/Bias",
+    "old_qid": "Q742736",
+    "reason": "Close concept: Prejudice and bias are closely related"
+  },
+  {
+    "id": 4103,
+    "name": "macrocosme",
+    "modern_name": "Macrocosm",
+    "old_url": "https://en.wikipedia.org/wiki/Universe",
+    "old_qid": "Q1",
+    "reason": "Close concept: Macrocosm refers to the universe in philosophical context"
+  },
+  {
+    "id": 4118,
+    "name": "animaux hibernants",
+    "modern_name": "Hibernating animals",
+    "old_url": "https://en.wikipedia.org/wiki/Winter%20rest",
+    "old_qid": "Q2585087",
+    "reason": "Close concept: Winter rest is related to hibernation"
+  },
+  {
+    "id": 4551,
+    "name": "affection",
+    "modern_name": "Affection",
+    "old_url": "https://en.wikipedia.org/wiki/Love",
+    "old_qid": "Q316",
+    "reason": "Close concept: Affection → Love"
+  },
+  {
+    "id": 4945,
+    "name": "Archidoxis",
+    "modern_name": "Archidoxis",
+    "old_url": "https://en.wikipedia.org/wiki/Paracelsus",
+    "old_qid": "Q30716455",
+    "reason": "Valid match: Archidoxis is a major work by Paracelsus"
+  },
+  {
+    "id": 5662,
+    "name": "Punctum",
+    "modern_name": "Germinal disc",
+    "old_url": "https://en.wikipedia.org/wiki/Blastodisc",
+    "old_qid": "Q4088024",
+    "reason": "Scientific equivalent: Germinal disc = blastodisc"
+  },
+  {
+    "id": 4083,
+    "name": "furdez",
+    "modern_name": "furor",
+    "old_url": "https://en.wikipedia.org/wiki/Rage%20%28emotion%29",
+    "old_qid": "Q153641",
+    "reason": "Close concept: Furor → Rage (emotion)"
+  },
+  {
+    "id": 3807,
+    "name": "Locusta",
+    "modern_name": "Grasshopper",
+    "old_url": "https://en.wikipedia.org/wiki/Melanoplus%20sanguinipes",
+    "old_qid": "Q10580727",
+    "reason": "Taxonomic match: Melanoplus sanguinipes is a common grasshopper species"
+  },
+  {
+    "id": 4703,
+    "name": "Aracari",
+    "modern_name": "Aracari",
+    "old_url": "https://en.wikipedia.org/wiki/Northern%20emerald%20toucanet",
+    "old_qid": "Q179747",
+    "reason": "Close taxonomic match: Aracaris and toucanets are closely related toucans"
+  },
+  {
+    "id": 4758,
+    "name": "Battas",
+    "modern_name": "Sumatran people",
+    "old_url": "https://en.wikipedia.org/wiki/South%20Sumatra",
+    "old_qid": "Q2271",
+    "reason": "Close geographic match: Sumatran people → South Sumatra"
+  },
+  {
+    "id": 5308,
+    "name": "hongrois",
+    "modern_name": "Hungarian",
+    "old_url": "https://en.wikipedia.org/wiki/Hungary",
+    "old_qid": "Q28",
+    "reason": "Close match: Hungarian → Hungary"
+  },
+  {
+    "id": 5145,
+    "name": "transparent tissue",
+    "modern_name": "transparent and opaque materials",
+    "old_url": "https://en.wikipedia.org/wiki/Optical_properties",
+    "old_qid": "Q2643571",
+    "reason": "Close concept: transparency/opacity → Optical properties"
+  },
+  {
+    "id": 4755,
+    "name": "falsificaçam",
+    "modern_name": "Falsification",
+    "old_url": "https://en.wikipedia.org/wiki/Forgery",
+    "old_qid": "Q1332286",
+    "reason": "Close concept: Falsification and forgery are closely related"
+  },
+  {
+    "id": 3932,
+    "name": "Bauchmuskeln",
+    "modern_name": "Abdominal muscles",
+    "old_url": "https://en.wikipedia.org/wiki/Rectus%20abdominis%20muscle",
+    "old_qid": "Q275150",
+    "reason": "Close anatomical match: Rectus abdominis is one of the abdominal muscles"
+  },
+  {
+    "id": 140,
+    "name": "fumo",
+    "modern_name": "smoke",
+    "old_url": "https://en.wikipedia.org/wiki/Smoking",
+    "old_qid": "Q662860",
+    "reason": "Close concept: smoke → Smoking"
+  },
+  {
+    "id": 230,
+    "name": "Speech",
+    "modern_name": "Speech",
+    "old_url": "https://en.wikipedia.org/wiki/Public%20speaking",
+    "old_qid": "Q18342738",
+    "reason": "Close concept: Speech → Public speaking"
+  },
+  {
+    "id": 5246,
+    "name": "nuez",
+    "modern_name": "Nuez de Mechoacan",
+    "old_url": "https://en.wikipedia.org/wiki/Ipomoea_purga",
+    "old_qid": "Q1123117",
+    "reason": "Close match: Ipomoea purga (jalap) is sometimes confused with Nuez de Mechoacan as both are purgative New World plants"
+  },
+  {
+    "id": 3226,
+    "name": "Autuario",
+    "modern_name": "Authoritative figure",
+    "old_url": "https://en.wikipedia.org/wiki/Authority",
+    "old_qid": "Q174834",
+    "reason": "Close concept: Authoritative figure → Authority"
+  },
+  {
+    "id": 4700,
+    "name": "Vertex",
+    "modern_name": "Vertex",
+    "old_url": "https://en.wikipedia.org/wiki/Head",
+    "old_qid": "Q23640",
+    "reason": "Close anatomical match: Vertex is the top of the head"
+  },
+  {
+    "id": 5884,
+    "name": "membra",
+    "modern_name": "Body part",
+    "old_url": "https://en.wikipedia.org/wiki/Anatomy",
+    "old_qid": "Q514",
+    "reason": "Close concept: Body part → Anatomy"
+  },
+  {
+    "id": 4848,
+    "name": "objective",
+    "modern_name": "objective",
+    "old_url": "https://en.wikipedia.org/wiki/Subjectivity_and_objectivity_(philosophy)",
+    "old_qid": "Q206330",
+    "reason": "Same concept: objective → Subjectivity and objectivity (philosophy)"
+  },
+  {
+    "id": 2915,
+    "name": "matlalitztic",
+    "modern_name": "Matlalitztic",
+    "old_url": "https://en.wikipedia.org/wiki/Commelina_erecta",
+    "old_qid": "Q2920683",
+    "reason": "Taxonomic match: Matlalitztic is a Nahuatl name sometimes identified with Commelina erecta"
+  },
+  {
+    "id": 4034,
+    "name": "adelgaçao",
+    "modern_name": "Thinning",
+    "old_url": "https://en.wikipedia.org/wiki/Pruning",
+    "old_qid": "Q500094",
+    "reason": "Close concept: Thinning and pruning are related botanical/agricultural concepts"
+  },
+  {
+    "id": 3837,
+    "name": "delgada",
+    "modern_name": "thinness",
+    "old_url": "https://en.wikipedia.org/wiki/Underweight",
+    "old_qid": "Q1146902",
+    "reason": "Close concept: thinness → Underweight"
+  },
+  {
+    "id": 1165,
+    "name": "Cal",
+    "modern_name": "Potash",
+    "old_url": "https://en.wikipedia.org/wiki/Potassium%20oxide",
+    "old_qid": "Q408880",
+    "reason": "Chemical equivalent: Potash (potassium carbonate) is related to potassium oxide"
+  },
+  {
+    "id": 4261,
+    "name": "Lunar",
+    "modern_name": "Lunar influence",
+    "old_url": "https://en.wikipedia.org/wiki/Moon",
+    "old_qid": "Q58731344",
+    "reason": "Close concept: Lunar influence → Moon"
+  },
+  {
+    "id": 5579,
+    "name": "errors of observation",
+    "modern_name": "Observational errors",
+    "old_url": "https://en.wikipedia.org/wiki/Margin_of_error",
+    "old_qid": "Q196372",
+    "reason": "Close concept: Observational errors → Margin of error"
+  },
+  {
+    "id": 2731,
+    "name": "Minas Geraes",
+    "modern_name": "Minas Gerais",
+    "old_url": "https://en.wikipedia.org/wiki/Belo_Horizonte",
+    "old_qid": "Q39109",
+    "reason": "Close geographic: Belo Horizonte is the capital of Minas Gerais"
+  },
+  {
+    "id": 4102,
+    "name": "recherches expérimentales",
+    "modern_name": "Experimental research",
+    "old_url": "https://en.wikipedia.org/wiki/Experimentalist",
+    "old_qid": "Q5421176",
+    "reason": "Close concept: Experimental research → Experimentalist"
+  },
+  {
+    "id": 1001,
+    "name": "Perihelion",
+    "modern_name": "Perihelion",
+    "old_url": "https://en.wikipedia.org/wiki/Apsidal%20precession",
+    "old_qid": "Q622176",
+    "reason": "Close astronomical concept: Apsidal precession relates to the movement of perihelion"
+  },
+  {
+    "id": 2736,
+    "name": "Los Pastos",
+    "modern_name": "Los Pastos",
+    "old_url": "https://en.wikipedia.org/wiki/Pasto,_Colombia",
+    "old_qid": "Q3897521",
+    "reason": "Close geographic match: Los Pastos region → Pasto, Colombia (its main city)"
+  },
+  {
+    "id": 2741,
+    "name": "Pichincha",
+    "modern_name": "Pichincha",
+    "old_url": "https://en.wikipedia.org/wiki/Quito",
+    "old_qid": "Q742216",
+    "reason": "Close geographic match: Pichincha volcano overlooks Quito"
+  },
+  {
+    "id": 3044,
+    "name": "Gomma",
+    "modern_name": "Plant gums",
+    "old_url": "https://en.wikipedia.org/wiki/Resin",
+    "old_qid": "Q424275",
+    "reason": "Close concept: Plant gums and resins are closely related plant exudates"
+  },
+  {
+    "id": 3015,
+    "name": "formations calcaires",
+    "modern_name": "Calcareous formations",
+    "old_url": "https://en.wikipedia.org/wiki/Speleothem",
+    "old_qid": "Q61748682",
+    "reason": "Close geological match: Speleothems are calcareous formations in caves"
+  },
+  {
+    "id": 4612,
+    "name": "rings",
+    "modern_name": "rings",
+    "old_url": "https://en.wikipedia.org/wiki/Ring_system",
+    "old_qid": "Q46847",
+    "reason": "Close match: In astronomical context (Kosmos/Humboldt), rings → Ring system (planetary)"
+  },
+  {
+    "id": 2281,
+    "name": "Parallax",
+    "modern_name": "Parallax",
+    "old_url": "https://en.wikipedia.org/wiki/Parsec",
+    "old_qid": "Q12129",
+    "reason": "Close astronomical concept: Parsec is defined via parallax measurement"
+  },
+  {
+    "id": 3011,
+    "name": "Parsnip",
+    "modern_name": "Parsnip",
+    "old_url": "https://en.wikipedia.org/wiki/Heracleum_maximum",
+    "old_qid": "Q1479657",
+    "reason": "Close botanical match: Heracleum maximum (cow parsnip) is related to parsnip"
+  },
+  {
+    "id": 1285,
+    "name": "medulla",
+    "modern_name": "Spinal cord",
+    "old_url": "https://en.wikipedia.org/wiki/Anterior%20grey%20column",
+    "old_qid": "Q2997445",
+    "reason": "Close anatomical match: The anterior grey column is a part of the spinal cord"
+  },
+  {
+    "id": 4875,
+    "name": "Bonnet",
+    "modern_name": "Charles Bonnet",
+    "old_url": "https://en.wikipedia.org/wiki/Visual%20release%20hallucinations",
+    "old_qid": "Q921907",
+    "reason": "Named after person: Visual release hallucinations are also called Charles Bonnet syndrome"
+  },
+  {
+    "id": 112,
+    "name": "Space",
+    "modern_name": "space",
+    "old_url": "https://en.wikipedia.org/wiki/Universe",
+    "old_qid": "Q1",
+    "reason": "Close concept: Space in Humboldt's Kosmos context refers to the universe/cosmos"
+  },
+  {
+    "id": 2413,
+    "name": "Dissolution",
+    "modern_name": "dissolution",
+    "old_url": "https://en.wikipedia.org/wiki/Pralaya",
+    "old_qid": "Q3133701",
+    "reason": "Close concept: Pralaya means cosmic dissolution in Hindu philosophy, relevant in Spencer's context"
+  }
+]

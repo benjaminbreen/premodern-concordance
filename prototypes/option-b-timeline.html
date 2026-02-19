@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Option B: Timeline + Accordion</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #fafaf9; color: #1c1917; padding: 32px; max-width: 720px; margin: 0 auto; }
+  h2 { font-size: 14px; font-weight: 600; color: #78716c; letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 4px; }
+  .subtitle { font-size: 13px; color: #a8a29e; margin-bottom: 20px; }
+
+  /* Timeline */
+  .timeline-wrap { position: relative; padding: 0 20px; margin-bottom: 24px; }
+  .timeline-bar { position: relative; height: 2px; background: #e7e5e4; margin: 40px 0 28px; border-radius: 1px; }
+  .timeline-labels { display: flex; justify-content: space-between; font-size: 11px; color: #a8a29e; margin-bottom: 4px; }
+
+  .timeline-dot {
+    position: absolute; top: 50%; transform: translate(-50%, -50%);
+    border-radius: 50%; cursor: pointer;
+    transition: all 0.15s ease; border: 2px solid white;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12);
+  }
+  .timeline-dot:hover { transform: translate(-50%, -50%) scale(1.3); z-index: 10; }
+  .timeline-dot.active { transform: translate(-50%, -50%) scale(1.4); z-index: 10; box-shadow: 0 0 0 3px rgba(0,0,0,0.1); }
+
+  .dot-label {
+    position: absolute; top: -28px; left: 50%; transform: translateX(-50%);
+    font-size: 11px; font-weight: 600; color: #44403c; white-space: nowrap;
+    pointer-events: none;
+  }
+  .dot-year {
+    position: absolute; top: 16px; left: 50%; transform: translateX(-50%);
+    font-size: 10px; color: #a8a29e; white-space: nowrap;
+    pointer-events: none;
+  }
+  .dot-term {
+    position: absolute; top: -42px; left: 50%; transform: translateX(-50%);
+    font-size: 10px; color: #78716c; white-space: nowrap; font-style: italic;
+    pointer-events: none; opacity: 0; transition: opacity 0.15s;
+  }
+  .timeline-dot:hover .dot-term, .timeline-dot.active .dot-term { opacity: 1; }
+
+  /* Accordion */
+  .accordion { display: flex; flex-direction: column; gap: 2px; }
+  .acc-item { border: 1px solid #e7e5e4; border-radius: 8px; overflow: hidden; background: white; }
+  .acc-header {
+    display: flex; align-items: center; gap: 10px;
+    padding: 10px 14px; cursor: pointer; user-select: none;
+    transition: background 0.1s;
+  }
+  .acc-header:hover { background: #fafaf9; }
+  .acc-item.active .acc-header { background: #f5f5f4; }
+  .acc-arrow { font-size: 10px; color: #a8a29e; transition: transform 0.15s; width: 14px; }
+  .acc-item.active .acc-arrow { transform: rotate(90deg); }
+  .acc-lang-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+  .acc-book { font-weight: 600; font-size: 14px; }
+  .acc-term { font-size: 13px; font-style: italic; color: #78716c; }
+  .acc-meta { font-size: 12px; color: #a8a29e; margin-left: auto; display: flex; gap: 8px; }
+
+  .acc-body { padding: 0 14px 14px 36px; display: none; }
+  .acc-item.active .acc-body { display: block; animation: fadeIn 0.15s; }
+  @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+  .member-block { margin-bottom: 8px; }
+  .member-name { font-weight: 600; font-size: 13px; }
+  .member-count { font-size: 12px; color: #a8a29e; }
+  .member-variants { font-size: 12px; color: #a8a29e; }
+  .context-line { font-size: 13px; color: #57534e; font-style: italic; line-height: 1.5; padding-left: 10px; border-left: 2px solid #f5f5f4; margin-top: 3px; }
+
+  .excerpt-link { font-size: 12px; color: #2563eb; margin-top: 6px; display: inline-block; cursor: pointer; }
+  .excerpt-link:hover { text-decoration: underline; }
+
+  .show-more-btn { font-size: 12px; color: #78716c; cursor: pointer; padding: 8px 14px; background: none; border: 1px solid #e7e5e4; border-radius: 8px; margin-top: 2px; width: 100%; text-align: center; }
+  .show-more-btn:hover { background: #f5f5f4; }
+  .hidden { display: none; }
+
+  [data-lang="EN"] { --lc: #2563eb; } [data-lang="ES"] { --lc: #d97706; }
+  [data-lang="FR"] { --lc: #059669; } [data-lang="PT"] { --lc: #9333ea; }
+  [data-lang="IT"] { --lc: #dc2626; }
+</style>
+</head>
+<body>
+
+<h2>Source Evidence</h2>
+<div class="subtitle">9 books · 743 mentions</div>
+
+<div class="timeline-wrap">
+  <div class="timeline-bar" id="timelineBar"></div>
+</div>
+
+<div class="accordion" id="accordion"></div>
+<button class="show-more-btn hidden" id="showMoreBtn" onclick="toggleShowAll()"></button>
+
+<script>
+const books = [
+  { id:'orta', name:'Da Orta', year:1563, lang:'PT', totalCount:9, members:[
+    { name:'agoa', count:8, variants:['agoa','agoas'], contexts:['water used in distillation','river water'] },
+    { name:'agoas', count:1, variants:['agoas'], contexts:['medicinal waters'] }
+  ]},
+  { id:'monardes', name:'Monardes', year:1574, lang:'ES', totalCount:15, members:[
+    { name:'agua', count:15, variants:['agua','aguas'], contexts:['medicinal water preparation','water of the Indias'] }
+  ]},
+  { id:'ricettario', name:'Ricettario', year:1597, lang:'IT', totalCount:3, members:[
+    { name:'acqua', count:3, variants:['acqua'], contexts:['aqua vitae preparation','distilled water'] }
+  ]},
+  { id:'hernandez', name:'Hernández', year:1615, lang:'ES', totalCount:25, members:[
+    { name:'agua', count:24, variants:['agua'], contexts:['liquid for drinking','liquid for preparation'] },
+    { name:'aguas', count:1, variants:['aguas'], contexts:['waters for sweetening ginger'] }
+  ]},
+  { id:'browne', name:'Browne', year:1646, lang:'EN', totalCount:12, members:[
+    { name:'water', count:11, variants:['water','Water'], contexts:['fluid substance','universal solvent'] },
+    { name:'Waters', count:1, variants:['Waters'], contexts:['affecting magnetic variation'] }
+  ]},
+  { id:'culpeper', name:'Culpeper', year:1652, lang:'EN', totalCount:61, members:[
+    { name:'Water', count:61, variants:['Water','Waters','water','waters'], contexts:['bodily fluid, also a distilled preparation','distilled from ash-tree','water of elder flowers'] }
+  ]},
+  { id:'buffon', name:'Buffon', year:1778, lang:'FR', totalCount:31, members:[
+    { name:'eau', count:30, variants:['eau'], contexts:['substance that solidifies without heat','liquid solvent'] },
+    { name:"l'eau", count:1, variants:["l'eau"], contexts:['water'] }
+  ]},
+  { id:'humboldt', name:'Humboldt', year:1825, lang:'FR', totalCount:40, members:[
+    { name:'eau', count:40, variants:['eau'], contexts:['medium for transport','substance mixed with plant sap'] }
+  ]},
+  { id:'bernard', name:'Bernard', year:1865, lang:'FR', totalCount:9, members:[
+    { name:'eau', count:9, variants:['eau'], contexts:['compound of oxygen and hydrogen','compound of hydrogen and oxygen'] }
+  ]},
+];
+
+const COLORS = { EN:'#2563eb', ES:'#d97706', FR:'#059669', PT:'#9333ea', IT:'#dc2626' };
+const MIN_YEAR = 1550;
+const MAX_YEAR = 1900;
+let showAll = false;
+let activeId = null;
+const INITIAL_SHOW = 6;
+
+function pct(year) { return ((year - MIN_YEAR) / (MAX_YEAR - MIN_YEAR)) * 100; }
+function dotSize(count) { return Math.max(10, Math.min(24, 8 + Math.sqrt(count) * 3)); }
+
+function toggleItem(id) {
+  activeId = activeId === id ? null : id;
+  render();
+}
+function toggleShowAll() { showAll = !showAll; render(); }
+
+function render() {
+  // Timeline
+  const bar = document.getElementById('timelineBar');
+  bar.innerHTML = books.map(b => {
+    const size = dotSize(b.totalCount);
+    const isActive = b.id === activeId;
+    return `<div class="timeline-dot ${isActive ? 'active' : ''}"
+      style="left:${pct(b.year)}%; width:${size}px; height:${size}px; background:${COLORS[b.lang]}"
+      onclick="toggleItem('${b.id}')">
+      <div class="dot-term">${b.members[0].name} ·${b.totalCount}</div>
+      <div class="dot-label">${b.name}</div>
+      <div class="dot-year">${b.year}</div>
+    </div>`;
+  }).join('');
+
+  // Accordion
+  const sorted = [...books].sort((a,b) => a.year - b.year);
+  const visible = showAll ? sorted : sorted.slice(0, INITIAL_SHOW);
+  const remaining = sorted.length - INITIAL_SHOW;
+
+  const acc = document.getElementById('accordion');
+  acc.innerHTML = visible.map(b => {
+    const isActive = b.id === activeId;
+    return `<div class="acc-item ${isActive ? 'active' : ''}" data-lang="${b.lang}">
+      <div class="acc-header" onclick="toggleItem('${b.id}')">
+        <span class="acc-arrow">▶</span>
+        <div class="acc-lang-dot" style="background:${COLORS[b.lang]}"></div>
+        <span class="acc-book">${b.name}</span>
+        <span class="acc-term">${b.members[0].name}</span>
+        <span class="acc-meta">
+          <span>${b.lang} ${b.year}</span>
+          <span>${b.totalCount} mentions</span>
+        </span>
+      </div>
+      <div class="acc-body">
+        ${b.members.map(m => `
+          <div class="member-block">
+            <span class="member-name" style="color:${COLORS[b.lang]}">${m.name}</span>
+            <span class="member-count">${m.count}</span>
+            ${m.variants.length > 1 ? `<span class="member-variants">${m.variants.join(', ')}</span>` : ''}
+            ${m.contexts.map(c => `<div class="context-line">"${c}"</div>`).join('')}
+          </div>
+        `).join('')}
+        <span class="excerpt-link">▸ View ${b.totalCount} excerpts from text</span>
+      </div>
+    </div>`;
+  }).join('');
+
+  const btn = document.getElementById('showMoreBtn');
+  if (remaining > 0) {
+    btn.classList.remove('hidden');
+    btn.textContent = showAll ? '− Show fewer' : `+ Show ${remaining} more books`;
+  } else { btn.classList.add('hidden'); }
+}
+
+render();
+</script>
+</body>
+</html>

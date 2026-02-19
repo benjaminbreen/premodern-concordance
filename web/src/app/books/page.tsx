@@ -123,6 +123,8 @@ const LANG_COLORS: Record<string, string> = {
   Spanish:    "#9a8a3c",  // dry ochre
   French:     "#7b6b99",  // muted lavender
   Italian:    "#8b6b6b",  // dusty rose
+  Latin:      "#7a6f5c",  // parchment brown
+  German:     "#5c7a6f",  // forest teal
 };
 
 
@@ -411,6 +413,9 @@ export default function BooksPage() {
       "/data/hernandez_entities.json",
       "/data/buffon_entities.json",
       "/data/bernard_entities.json",
+      "/data/linnaeus_entities.json",
+      "/data/piso_entities.json",
+      "/data/oken_entities.json",
     ];
     Promise.all(
       bookFiles.map((f) => fetch(f).then((res) => res.json()).catch(() => null))

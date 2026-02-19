@@ -1,0 +1,5423 @@
+{
+  "cleared": 602,
+  "items": [
+    {
+      "id": 2,
+      "name": "humores",
+      "modern": "Humors",
+      "cat": "SUBSTANCE",
+      "mentions": 976,
+      "old_url": "https://en.wikipedia.org/wiki/Humorism",
+      "old_qid": "Q5782572"
+    },
+    {
+      "id": 3,
+      "name": "vinagre",
+      "modern": "vinegar",
+      "cat": "SUBSTANCE",
+      "mentions": 284,
+      "old_url": "https://en.wikipedia.org/wiki/Ethyl%20acetate",
+      "old_qid": "Q407153"
+    },
+    {
+      "id": 71,
+      "name": "light",
+      "modern": "Light",
+      "cat": "SUBSTANCE",
+      "mentions": 268,
+      "old_url": "https://en.wikipedia.org/wiki/Sport%20of%20athletics",
+      "old_qid": "Q542"
+    },
+    {
+      "id": 351,
+      "name": "frio",
+      "modern": "cold",
+      "cat": "CONCEPT",
+      "mentions": 254,
+      "old_url": "https://en.wikipedia.org/wiki/Chronic%20obstructive%20pulmonary%20disease",
+      "old_qid": "Q199804"
+    },
+    {
+      "id": 346,
+      "name": "earth",
+      "modern": "Earth",
+      "cat": "PLACE",
+      "mentions": 217,
+      "old_url": "https://en.wikipedia.org/wiki/Soil",
+      "old_qid": "Q36133"
+    },
+    {
+      "id": 39,
+      "name": "Medicina",
+      "modern": "Medicine",
+      "cat": "CONCEPT",
+      "mentions": 202,
+      "old_url": "https://en.wikipedia.org/wiki/Medication",
+      "old_qid": "Q12140"
+    },
+    {
+      "id": 42,
+      "name": "Stomach",
+      "modern": "Stomach",
+      "cat": "SUBSTANCE",
+      "mentions": 198,
+      "old_url": "https://en.wikipedia.org/wiki/Gastroenteritis",
+      "old_qid": "Q156103"
+    },
+    {
+      "id": 2036,
+      "name": "convulfoens",
+      "modern": "Convulsions",
+      "cat": "DISEASE",
+      "mentions": 193,
+      "old_url": "https://en.wikipedia.org/wiki/Seizure",
+      "old_qid": "Q6279182"
+    },
+    {
+      "id": 839,
+      "name": "Diseases",
+      "modern": "diseases",
+      "cat": "DISEASE",
+      "mentions": 186,
+      "old_url": "https://en.wikipedia.org/wiki/Infectious%20disease",
+      "old_qid": "Q18123741"
+    },
+    {
+      "id": 2032,
+      "name": "pedras",
+      "modern": "stones",
+      "cat": "SUBSTANCE",
+      "mentions": 146,
+      "old_url": "https://en.wikipedia.org/wiki/Rock_%28geology%29",
+      "old_qid": "Q8063"
+    },
+    {
+      "id": 2089,
+      "name": "terre",
+      "modern": "Earth",
+      "cat": "SUBSTANCE",
+      "mentions": 142,
+      "old_url": "https://en.wikipedia.org/wiki/Soil",
+      "old_qid": "Q36133"
+    },
+    {
+      "id": 102,
+      "name": "sensations",
+      "modern": "Sensation",
+      "cat": "CONCEPT",
+      "mentions": 140,
+      "old_url": "https://en.wikipedia.org/wiki/Sense",
+      "old_qid": "Q173253"
+    },
+    {
+      "id": 2040,
+      "name": "Wounds",
+      "modern": "Wounds",
+      "cat": "DISEASE",
+      "mentions": 126,
+      "old_url": "https://en.wikipedia.org/wiki/Gunshot%20wound",
+      "old_qid": "Q2140674"
+    },
+    {
+      "id": 405,
+      "name": "Sugar",
+      "modern": "sugar",
+      "cat": "SUBSTANCE",
+      "mentions": 123,
+      "old_url": "https://en.wikipedia.org/wiki/LSD",
+      "old_qid": "Q23118"
+    },
+    {
+      "id": 43,
+      "name": "Arábia",
+      "modern": "Arabia",
+      "cat": "PLACE",
+      "mentions": 113,
+      "old_url": "https://en.wikipedia.org/wiki/Arab%20world",
+      "old_qid": "Q143487"
+    },
+    {
+      "id": 841,
+      "name": "enxofre",
+      "modern": "Sulfur",
+      "cat": "SUBSTANCE",
+      "mentions": 111,
+      "old_url": "https://fr.wikipedia.org/wiki/Soufre_%28min%C3%A9ral%29",
+      "old_qid": "Q1157552"
+    },
+    {
+      "id": 871,
+      "name": "Throat",
+      "modern": "Throat",
+      "cat": "SUBSTANCE",
+      "mentions": 110,
+      "old_url": "https://en.wikipedia.org/wiki/Head%20and%20neck%20cancer",
+      "old_qid": "Q1783924"
+    },
+    {
+      "id": 2060,
+      "name": "folia",
+      "modern": "leaves",
+      "cat": "PLANT",
+      "mentions": 105,
+      "old_url": "https://en.wikipedia.org/wiki/Leaf",
+      "old_qid": "Q33971"
+    },
+    {
+      "id": 825,
+      "name": "ovo",
+      "modern": "Egg",
+      "cat": "ANIMAL",
+      "mentions": 98,
+      "old_url": "https://en.wikipedia.org/wiki/Testicle",
+      "old_qid": "Q9384"
+    },
+    {
+      "id": 91,
+      "name": "sal",
+      "modern": "Salt",
+      "cat": "SUBSTANCE",
+      "mentions": 96,
+      "old_url": "https://en.wikipedia.org/wiki/Sodium%20chloride",
+      "old_qid": "Q2314"
+    },
+    {
+      "id": 828,
+      "name": "Granité",
+      "modern": "Granite",
+      "cat": "SUBSTANCE",
+      "mentions": 86,
+      "old_url": "https://en.wikipedia.org/wiki/Aberdeen",
+      "old_qid": "Q36405"
+    },
+    {
+      "id": 830,
+      "name": "Vitriolo",
+      "modern": "Vitriol",
+      "cat": "SUBSTANCE",
+      "mentions": 86,
+      "old_url": "https://en.wikipedia.org/wiki/Sulfuric%20acid",
+      "old_qid": "Q4118"
+    },
+    {
+      "id": 2116,
+      "name": "violas",
+      "modern": "Violet",
+      "cat": "PLANT",
+      "mentions": 85,
+      "old_url": "https://en.wikipedia.org/wiki/Viola%20%28plant%29",
+      "old_qid": "Q146095"
+    },
+    {
+      "id": 406,
+      "name": "consumption",
+      "modern": "Phthisis",
+      "cat": "DISEASE",
+      "mentions": 83,
+      "old_url": "https://en.wikipedia.org/wiki/Tuberculosis",
+      "old_qid": "Q12204"
+    },
+    {
+      "id": 2061,
+      "name": "espagnols",
+      "modern": "Spanish people",
+      "cat": "PERSON",
+      "mentions": 80,
+      "old_url": "https://en.wikipedia.org/wiki/Spaniards",
+      "old_qid": "Q160894"
+    },
+    {
+      "id": 2062,
+      "name": "Doutores",
+      "modern": "doctors",
+      "cat": "PERSON",
+      "mentions": 80,
+      "old_url": "https://en.wikipedia.org/wiki/Medical_doctor",
+      "old_qid": "Q39631"
+    },
+    {
+      "id": 854,
+      "name": "Myrrha",
+      "modern": "Myrrh",
+      "cat": "PLANT",
+      "mentions": 79,
+      "old_url": "https://en.wikipedia.org/wiki/Cicely",
+      "old_qid": "Q1137175"
+    },
+    {
+      "id": 400,
+      "name": "feelings",
+      "modern": "emotions",
+      "cat": "CONCEPT",
+      "mentions": 77,
+      "old_url": "https://en.wikipedia.org/wiki/Borderline%20personality%20disorder",
+      "old_qid": "Q208166"
+    },
+    {
+      "id": 860,
+      "name": "nervous system",
+      "modern": "Nervous system",
+      "cat": "SUBSTANCE",
+      "mentions": 77,
+      "old_url": "https://en.wikipedia.org/wiki/Neurological%20disorder",
+      "old_qid": "Q3339235"
+    },
+    {
+      "id": 903,
+      "name": "galanga",
+      "modern": "galangal",
+      "cat": "PLANT",
+      "mentions": 75,
+      "old_url": "https://en.wikipedia.org/wiki/Alpinia%20officinarum",
+      "old_qid": "Q1281083"
+    },
+    {
+      "id": 28,
+      "name": "dogs",
+      "modern": "Dogs",
+      "cat": "ANIMAL",
+      "mentions": 74,
+      "old_url": "https://en.wikipedia.org/wiki/Canis%20familiaris",
+      "old_qid": "Q20717272"
+    },
+    {
+      "id": 850,
+      "name": "humores",
+      "modern": "Humors",
+      "cat": "CONCEPT",
+      "mentions": 72,
+      "old_url": "https://en.wikipedia.org/wiki/Humorism",
+      "old_qid": "Q5782572"
+    },
+    {
+      "id": 939,
+      "name": "incenso",
+      "modern": "Frankincense",
+      "cat": "PLANT",
+      "mentions": 72,
+      "old_url": "https://en.wikipedia.org/wiki/Boswellia%20sacra",
+      "old_qid": "Q133964"
+    },
+    {
+      "id": 2068,
+      "name": "Swellings",
+      "modern": "Swelling",
+      "cat": "DISEASE",
+      "mentions": 70,
+      "old_url": "https://en.wikipedia.org/wiki/Papilledema",
+      "old_qid": "Q953049"
+    },
+    {
+      "id": 420,
+      "name": "Rhafis",
+      "modern": "Rhazes",
+      "cat": "PERSON",
+      "mentions": 69,
+      "old_url": "https://en.wikipedia.org/wiki/Abu%20Bakr%20al-Razi",
+      "old_qid": "Q169234"
+    },
+    {
+      "id": 112,
+      "name": "Space",
+      "modern": "space",
+      "cat": "CONCEPT",
+      "mentions": 67,
+      "old_url": "https://en.wikipedia.org/wiki/Universe",
+      "old_qid": "Q1"
+    },
+    {
+      "id": 844,
+      "name": "crura",
+      "modern": "crura",
+      "cat": "SUBSTANCE",
+      "mentions": 64,
+      "old_url": "https://en.wikipedia.org/wiki/Leg",
+      "old_qid": "Q133105"
+    },
+    {
+      "id": 862,
+      "name": "mulheres",
+      "modern": "Woman",
+      "cat": "PERSON",
+      "mentions": 62,
+      "old_url": "https://en.wikipedia.org/wiki/Female%20%28gender%29",
+      "old_qid": "Q6581072"
+    },
+    {
+      "id": 2082,
+      "name": "Tabaco",
+      "modern": "Tobacco",
+      "cat": "PLANT",
+      "mentions": 61,
+      "old_url": "https://en.wikipedia.org/wiki/Nicotiana",
+      "old_qid": "Q851829"
+    },
+    {
+      "id": 2190,
+      "name": "Milk",
+      "modern": "milk",
+      "cat": "ANIMAL",
+      "mentions": 61,
+      "old_url": "https://en.wikipedia.org/wiki/Astragalus%20%28plant%29",
+      "old_qid": "Q157184"
+    },
+    {
+      "id": 2085,
+      "name": "Saint-Domingue",
+      "modern": "Saint-Domingue",
+      "cat": "PLACE",
+      "mentions": 59,
+      "old_url": "https://en.wikipedia.org/wiki/Hispaniola",
+      "old_qid": "Q25277"
+    },
+    {
+      "id": 2086,
+      "name": "Aether",
+      "modern": "Aether",
+      "cat": "SUBSTANCE",
+      "mentions": 59,
+      "old_url": "https://en.wikipedia.org/wiki/Essential_oil",
+      "old_qid": "Q170885"
+    },
+    {
+      "id": 873,
+      "name": "desmayos",
+      "modern": "fainting",
+      "cat": "DISEASE",
+      "mentions": 54,
+      "old_url": "https://en.wikipedia.org/wiki/Swoon%20of%20the%20Virgin",
+      "old_qid": "Q7659241"
+    },
+    {
+      "id": 998,
+      "name": "trigo",
+      "modern": "Wheat",
+      "cat": "PLANT",
+      "mentions": 51,
+      "old_url": "https://en.wikipedia.org/wiki/Triticum",
+      "old_qid": "Q12106"
+    },
+    {
+      "id": 396,
+      "name": "Mesue",
+      "modern": "Mesue the Younger",
+      "cat": "PERSON",
+      "mentions": 50,
+      "old_url": "https://en.wikipedia.org/wiki/Masawaih%20al-Mardini",
+      "old_qid": "Q3297191"
+    },
+    {
+      "id": 431,
+      "name": "conception",
+      "modern": "Conception",
+      "cat": "CONCEPT",
+      "mentions": 50,
+      "old_url": "https://en.wikipedia.org/wiki/Concepci%C3%B3n%2C%20Chile",
+      "old_qid": "Q1880"
+    },
+    {
+      "id": 403,
+      "name": "catarros",
+      "modern": "Colds",
+      "cat": "DISEASE",
+      "mentions": 48,
+      "old_url": "https://en.wikipedia.org/wiki/Common%20Cold%20Unit",
+      "old_qid": "Q5153310"
+    },
+    {
+      "id": 2178,
+      "name": "scamonea",
+      "modern": "Scammony",
+      "cat": "PLANT",
+      "mentions": 48,
+      "old_url": "https://en.wikipedia.org/wiki/Convolvulus%20scammonia",
+      "old_qid": "Q310388"
+    },
+    {
+      "id": 2229,
+      "name": "Arruda",
+      "modern": "rue",
+      "cat": "PLANT",
+      "mentions": 48,
+      "old_url": "https://en.wikipedia.org/wiki/Ruta%20graveolens",
+      "old_qid": "Q25062"
+    },
+    {
+      "id": 2241,
+      "name": "Murta",
+      "modern": "Myrtle",
+      "cat": "PLANT",
+      "mentions": 48,
+      "old_url": "https://en.wikipedia.org/wiki/Myrtus",
+      "old_qid": "Q165152"
+    },
+    {
+      "id": 196,
+      "name": "spirits of Wine",
+      "modern": "Alcohol",
+      "cat": "SUBSTANCE",
+      "mentions": 47,
+      "old_url": "https://en.wikipedia.org/wiki/Ethanol",
+      "old_qid": "Q153"
+    },
+    {
+      "id": 2112,
+      "name": "inchaços",
+      "modern": "Swelling",
+      "cat": "DISEASE",
+      "mentions": 45,
+      "old_url": "https://en.wikipedia.org/wiki/Papilledema",
+      "old_qid": "Q953049"
+    },
+    {
+      "id": 132,
+      "name": "tissus",
+      "modern": "Tissues",
+      "cat": "SUBSTANCE",
+      "mentions": 43,
+      "old_url": "https://en.wikipedia.org/wiki/Tissue_(biology)",
+      "old_qid": "Q40397"
+    },
+    {
+      "id": 133,
+      "name": "Induction",
+      "modern": "Induction",
+      "cat": "CONCEPT",
+      "mentions": 43,
+      "old_url": "https://en.wikipedia.org/wiki/Inductive%20reasoning",
+      "old_qid": "Q484511"
+    },
+    {
+      "id": 1018,
+      "name": "sheep",
+      "modern": "sheep",
+      "cat": "ANIMAL",
+      "mentions": 43,
+      "old_url": "https://en.wikipedia.org/wiki/Faroe%20Islands",
+      "old_qid": "Q4628"
+    },
+    {
+      "id": 925,
+      "name": "Trementina",
+      "modern": "Turpentine",
+      "cat": "PLANT",
+      "mentions": 42,
+      "old_url": "https://en.wikipedia.org/wiki/Pistacia%20terebinthus",
+      "old_qid": "Q63045"
+    },
+    {
+      "id": 1086,
+      "name": "Great Britain",
+      "modern": "Great Britain",
+      "cat": "PLACE",
+      "mentions": 42,
+      "old_url": "https://en.wikipedia.org/wiki/United%20Kingdom",
+      "old_qid": "Q145"
+    },
+    {
+      "id": 2122,
+      "name": "Dropsie",
+      "modern": "Swelling",
+      "cat": "DISEASE",
+      "mentions": 42,
+      "old_url": "https://en.wikipedia.org/wiki/Papilledema",
+      "old_qid": "Q953049"
+    },
+    {
+      "id": 2123,
+      "name": "Nueva España",
+      "modern": "Mexico",
+      "cat": "PLACE",
+      "mentions": 42,
+      "old_url": "https://en.wikipedia.org/wiki/New%20Spain",
+      "old_qid": "Q170603"
+    },
+    {
+      "id": 2124,
+      "name": "Eſpañoles",
+      "modern": "Spanish people",
+      "cat": "PERSON",
+      "mentions": 42,
+      "old_url": "https://en.wikipedia.org/wiki/Spain",
+      "old_qid": "Q29"
+    },
+    {
+      "id": 1043,
+      "name": "steam",
+      "modern": "Steam",
+      "cat": "SUBSTANCE",
+      "mentions": 41,
+      "old_url": "https://en.wikipedia.org/wiki/Water%20vapor",
+      "old_qid": "Q190120"
+    },
+    {
+      "id": 140,
+      "name": "fumo",
+      "modern": "smoke",
+      "cat": "SUBSTANCE",
+      "mentions": 40,
+      "old_url": "https://en.wikipedia.org/wiki/Smoking",
+      "old_qid": "Q662860"
+    },
+    {
+      "id": 469,
+      "name": "pigeons",
+      "modern": "Pigeon",
+      "cat": "ANIMAL",
+      "mentions": 40,
+      "old_url": "https://en.wikipedia.org/wiki/Columbidae",
+      "old_qid": "Q10856"
+    },
+    {
+      "id": 958,
+      "name": "palmiers",
+      "modern": "palm trees",
+      "cat": "PLANT",
+      "mentions": 40,
+      "old_url": "https://en.wikipedia.org/wiki/Arecaceae",
+      "old_qid": "Q14080"
+    },
+    {
+      "id": 960,
+      "name": "pimenta longa",
+      "modern": "Long pepper",
+      "cat": "PLANT",
+      "mentions": 39,
+      "old_url": "https://en.wikipedia.org/wiki/Piper%20mestonii",
+      "old_qid": "Q18036812"
+    },
+    {
+      "id": 414,
+      "name": "éléphants",
+      "modern": "Elephant",
+      "cat": "ANIMAL",
+      "mentions": 38,
+      "old_url": "https://en.wikipedia.org/wiki/Ivory",
+      "old_qid": "Q82001"
+    },
+    {
+      "id": 2515,
+      "name": "chien",
+      "modern": "Dog",
+      "cat": "ANIMAL",
+      "mentions": 38,
+      "old_url": "https://en.wikipedia.org/wiki/Canis%20familiaris",
+      "old_qid": "Q20717272"
+    },
+    {
+      "id": 458,
+      "name": "Medicamentos",
+      "modern": "Medicine",
+      "cat": "SUBSTANCE",
+      "mentions": 37,
+      "old_url": "https://en.wikipedia.org/wiki/Substance_dependence",
+      "old_qid": "Q12140"
+    },
+    {
+      "id": 216,
+      "name": "Appetite",
+      "modern": "Appetite",
+      "cat": "CONCEPT",
+      "mentions": 36,
+      "old_url": "https://en.wikipedia.org/wiki/Anorexia%20%28symptom%29",
+      "old_qid": "Q254327"
+    },
+    {
+      "id": 972,
+      "name": "cognition",
+      "modern": "cognition",
+      "cat": "CONCEPT",
+      "mentions": 36,
+      "old_url": "https://en.wikipedia.org/wiki/Neurocognitive%20disorder",
+      "old_qid": "Q3065932"
+    },
+    {
+      "id": 2147,
+      "name": "piedras",
+      "modern": "Rocks",
+      "cat": "SUBSTANCE",
+      "mentions": 36,
+      "old_url": "https://en.wikipedia.org/wiki/Rock%20%28geology%29",
+      "old_qid": "Q8063"
+    },
+    {
+      "id": 2349,
+      "name": "Ventofas",
+      "modern": "cupping glasses",
+      "cat": "OBJECT",
+      "mentions": 36,
+      "old_url": "https://en.wikipedia.org/wiki/List_of_reported_UFO_sightings",
+      "old_qid": "Q111259703"
+    },
+    {
+      "id": 908,
+      "name": "satellites",
+      "modern": "satellites",
+      "cat": "ANIMAL",
+      "mentions": 35,
+      "old_url": "https://en.wikipedia.org/wiki/Natural%20satellite",
+      "old_qid": "Q2537"
+    },
+    {
+      "id": 2341,
+      "name": "spiritualists",
+      "modern": "Spiritualists",
+      "cat": "CONCEPT",
+      "mentions": 35,
+      "old_url": "https://en.wikipedia.org/wiki/Spiritualism_(movement)",
+      "old_qid": "Q829348"
+    },
+    {
+      "id": 173,
+      "name": "country",
+      "modern": "Nation",
+      "cat": "PLACE",
+      "mentions": 34,
+      "old_url": "https://en.wikipedia.org/wiki/Sovereign%20state",
+      "old_qid": "Q3624078"
+    },
+    {
+      "id": 987,
+      "name": "lagartos",
+      "modern": "Lizard",
+      "cat": "ANIMAL",
+      "mentions": 34,
+      "old_url": "https://en.wikipedia.org/wiki/Houttuynia%20cordata",
+      "old_qid": "Q164091"
+    },
+    {
+      "id": 1063,
+      "name": "excremento",
+      "modern": "Excrement",
+      "cat": "SUBSTANCE",
+      "mentions": 34,
+      "old_url": "https://en.wikipedia.org/wiki/Metabolic%20waste",
+      "old_qid": "Q1383944"
+    },
+    {
+      "id": 1285,
+      "name": "medulla",
+      "modern": "Spinal cord",
+      "cat": "SUBSTANCE",
+      "mentions": 34,
+      "old_url": "https://en.wikipedia.org/wiki/Anterior%20grey%20column",
+      "old_qid": "Q2997445"
+    },
+    {
+      "id": 2299,
+      "name": "Perdiz",
+      "modern": "partridge",
+      "cat": "ANIMAL",
+      "mentions": 34,
+      "old_url": "https://en.wikipedia.org/wiki/Vaccinium%20vitis-idaea",
+      "old_qid": "Q93235"
+    },
+    {
+      "id": 1093,
+      "name": "palmeira",
+      "modern": "Palm tree",
+      "cat": "PLANT",
+      "mentions": 33,
+      "old_url": "https://en.wikipedia.org/wiki/Arecaceae",
+      "old_qid": "Q14080"
+    },
+    {
+      "id": 2172,
+      "name": "thinking",
+      "modern": "Thinking",
+      "cat": "CONCEPT",
+      "mentions": 33,
+      "old_url": "https://en.wikipedia.org/wiki/Thought",
+      "old_qid": "Q9420"
+    },
+    {
+      "id": 2174,
+      "name": "colera",
+      "modern": "Cholera",
+      "cat": "SUBSTANCE",
+      "mentions": 33,
+      "old_url": "https://en.wikipedia.org/wiki/Classical%20swine%20fever",
+      "old_qid": "Q19000581"
+    },
+    {
+      "id": 2192,
+      "name": "café",
+      "modern": "Coffee",
+      "cat": "PLANT",
+      "mentions": 33,
+      "old_url": "https://en.wikipedia.org/wiki/Coffea",
+      "old_qid": "Q156354"
+    },
+    {
+      "id": 2183,
+      "name": "llagas",
+      "modern": "Sores",
+      "cat": "DISEASE",
+      "mentions": 32,
+      "old_url": "https://en.wikipedia.org/wiki/Cold_sore",
+      "old_qid": "Q27723606"
+    },
+    {
+      "id": 2193,
+      "name": "Oltmanns",
+      "modern": "Georg Simon Ohm",
+      "cat": "PERSON",
+      "mentions": 31,
+      "old_url": "https://en.wikipedia.org/wiki/Technische%20Hochschule%20N%C3%BCrnberg",
+      "old_qid": "Q1503440"
+    },
+    {
+      "id": 191,
+      "name": "digestion",
+      "modern": "digestion",
+      "cat": "CONCEPT",
+      "mentions": 30,
+      "old_url": "https://en.wikipedia.org/wiki/Maltodextrin",
+      "old_qid": "Q11978"
+    },
+    {
+      "id": 534,
+      "name": "jaws",
+      "modern": "Jaw",
+      "cat": "SUBSTANCE",
+      "mentions": 30,
+      "old_url": "https://en.wikipedia.org/wiki/East%20Java",
+      "old_qid": "Q3586"
+    },
+    {
+      "id": 931,
+      "name": "digiti",
+      "modern": "digits",
+      "cat": "SUBSTANCE",
+      "mentions": 30,
+      "old_url": "https://en.wikipedia.org/wiki/Digitalis%20purpurea",
+      "old_qid": "Q157555"
+    },
+    {
+      "id": 932,
+      "name": "Venter",
+      "modern": "belly",
+      "cat": "SUBSTANCE",
+      "mentions": 30,
+      "old_url": "https://en.wikipedia.org/wiki/Abdomen",
+      "old_qid": "Q9597"
+    },
+    {
+      "id": 169,
+      "name": "Greeks",
+      "modern": "Greeks",
+      "cat": "PERSON",
+      "mentions": 29,
+      "old_url": "https://en.wikipedia.org/wiki/Ancient%20Greece",
+      "old_qid": "Q11772"
+    },
+    {
+      "id": 2461,
+      "name": "porco",
+      "modern": "Pigs",
+      "cat": "ANIMAL",
+      "mentions": 29,
+      "old_url": "https://en.wikipedia.org/wiki/Wild%20boar",
+      "old_qid": "Q58697"
+    },
+    {
+      "id": 943,
+      "name": "hybrids",
+      "modern": "Hybrids",
+      "cat": "ANIMAL",
+      "mentions": 28,
+      "old_url": "https://en.wikipedia.org/wiki/Hybrid_(biology)",
+      "old_qid": "Q42621"
+    },
+    {
+      "id": 2213,
+      "name": "achaques",
+      "modern": "Ailments",
+      "cat": "DISEASE",
+      "mentions": 28,
+      "old_url": "https://en.wikipedia.org/wiki/Disease",
+      "old_qid": "Q12136"
+    },
+    {
+      "id": 2481,
+      "name": "Verdauung",
+      "modern": "Digestive system",
+      "cat": "SUBSTANCE",
+      "mentions": 28,
+      "old_url": "https://en.wikipedia.org/wiki/Gastrointestinal%20disease",
+      "old_qid": "Q2300099"
+    },
+    {
+      "id": 2591,
+      "name": "sarpaparrilla",
+      "modern": "Sarsaparilla",
+      "cat": "PLANT",
+      "mentions": 28,
+      "old_url": "https://en.wikipedia.org/wiki/Hemidesmus_indicus",
+      "old_qid": "Q1117102"
+    },
+    {
+      "id": 954,
+      "name": "symptomas",
+      "modern": "symptoms",
+      "cat": "DISEASE",
+      "mentions": 27,
+      "old_url": "https://en.wikipedia.org/wiki/Syndrome",
+      "old_qid": "Q179630"
+    },
+    {
+      "id": 973,
+      "name": "Society",
+      "modern": "Society",
+      "cat": "CONCEPT",
+      "mentions": 27,
+      "old_url": "https://en.wikipedia.org/wiki/Professional%20association",
+      "old_qid": "Q829080"
+    },
+    {
+      "id": 1068,
+      "name": "amargos",
+      "modern": "bitter taste",
+      "cat": "CONCEPT",
+      "mentions": 27,
+      "old_url": "https://en.wikipedia.org/wiki/Bitterness",
+      "old_qid": "Q1517187"
+    },
+    {
+      "id": 1168,
+      "name": "cholera",
+      "modern": "Cholera",
+      "cat": "DISEASE",
+      "mentions": 27,
+      "old_url": "https://en.wikipedia.org/wiki/Classical_swine_fever",
+      "old_qid": "Q19000581"
+    },
+    {
+      "id": 1182,
+      "name": "acides",
+      "modern": "Acid",
+      "cat": "SUBSTANCE",
+      "mentions": 27,
+      "old_url": "https://en.wikipedia.org/wiki/LSD",
+      "old_qid": "Q23118"
+    },
+    {
+      "id": 450,
+      "name": "hypothèse",
+      "modern": "hypothesis",
+      "cat": "CONCEPT",
+      "mentions": 26,
+      "old_url": "https://en.wikipedia.org/wiki/Hypothes.is",
+      "old_qid": "Q5961247"
+    },
+    {
+      "id": 2233,
+      "name": "Viboras",
+      "modern": "Vipers",
+      "cat": "ANIMAL",
+      "mentions": 26,
+      "old_url": "https://en.wikipedia.org/wiki/Adder",
+      "old_qid": "Q192056"
+    },
+    {
+      "id": 2240,
+      "name": "experiencia",
+      "modern": "Empirical knowledge",
+      "cat": "CONCEPT",
+      "mentions": 26,
+      "old_url": "https://en.wikipedia.org/wiki/Empiricism",
+      "old_qid": "Q83368"
+    },
+    {
+      "id": 514,
+      "name": "alkalies",
+      "modern": "Alkali",
+      "cat": "SUBSTANCE",
+      "mentions": 25,
+      "old_url": "https://en.wikipedia.org/wiki/Base%20%28chemistry%29",
+      "old_qid": "Q11193"
+    },
+    {
+      "id": 2252,
+      "name": "diaphoreticos",
+      "modern": "Diaphoretic",
+      "cat": "CONCEPT",
+      "mentions": 25,
+      "old_url": "https://en.wikipedia.org/wiki/Corticata",
+      "old_qid": "Q2998108"
+    },
+    {
+      "id": 2284,
+      "name": "Theophrasto",
+      "modern": "Theophrastus",
+      "cat": "PERSON",
+      "mentions": 25,
+      "old_url": "https://en.wikipedia.org/wiki/Paracelsus",
+      "old_qid": "Q83428"
+    },
+    {
+      "id": 267,
+      "name": "laurel",
+      "modern": "Bay Laurel",
+      "cat": "PLANT",
+      "mentions": 24,
+      "old_url": "https://en.wikipedia.org/wiki/Laurus_nobilis",
+      "old_qid": "Q26006"
+    },
+    {
+      "id": 508,
+      "name": "Nitro",
+      "modern": "Saltpeter",
+      "cat": "SUBSTANCE",
+      "mentions": 24,
+      "old_url": "https://en.wikipedia.org/wiki/Niter",
+      "old_qid": "Q11183742"
+    },
+    {
+      "id": 2981,
+      "name": "ameyxas",
+      "modern": "Plum",
+      "cat": "PLANT",
+      "mentions": 24,
+      "old_url": "https://en.wikipedia.org/wiki/Prunus%20domestica",
+      "old_qid": "Q44120"
+    },
+    {
+      "id": 462,
+      "name": "Analysis",
+      "modern": "analysis",
+      "cat": "CONCEPT",
+      "mentions": 23,
+      "old_url": "https://en.wikipedia.org/wiki/Concept",
+      "old_qid": "Q15751184"
+    },
+    {
+      "id": 983,
+      "name": "physiologiques",
+      "modern": "physiological",
+      "cat": "CONCEPT",
+      "mentions": 23,
+      "old_url": "https://en.wikipedia.org/wiki/Physiology",
+      "old_qid": "Q521"
+    },
+    {
+      "id": 1041,
+      "name": "cebola",
+      "modern": "Onion",
+      "cat": "PLANT",
+      "mentions": 23,
+      "old_url": "https://en.wikipedia.org/wiki/Allium",
+      "old_qid": "Q49391"
+    },
+    {
+      "id": 1066,
+      "name": "Polipodio",
+      "modern": "Polypody",
+      "cat": "PLANT",
+      "mentions": 23,
+      "old_url": "https://en.wikipedia.org/wiki/Polypodium",
+      "old_qid": "Q1135685"
+    },
+    {
+      "id": 1177,
+      "name": "sulphuric acid",
+      "modern": "Sulfurous acid",
+      "cat": "SUBSTANCE",
+      "mentions": 23,
+      "old_url": "https://en.wikipedia.org/wiki/Sulfur%20dioxide",
+      "old_qid": "Q5282"
+    },
+    {
+      "id": 1178,
+      "name": "salgema",
+      "modern": "Rock salt",
+      "cat": "SUBSTANCE",
+      "mentions": 23,
+      "old_url": "https://en.wikipedia.org/wiki/Halite",
+      "old_qid": "Q5314"
+    },
+    {
+      "id": 619,
+      "name": "physical conditions",
+      "modern": "environmental conditions",
+      "cat": "CONCEPT",
+      "mentions": 22,
+      "old_url": "https://en.wikipedia.org/wiki/Survival",
+      "old_qid": "Q77189777"
+    },
+    {
+      "id": 997,
+      "name": "difference",
+      "modern": "Difference",
+      "cat": "CONCEPT",
+      "mentions": 22,
+      "old_url": "https://en.wikipedia.org/wiki/Cadency",
+      "old_qid": "Q4658963"
+    },
+    {
+      "id": 1001,
+      "name": "Perihelion",
+      "modern": "Perihelion",
+      "cat": "CONCEPT",
+      "mentions": 22,
+      "old_url": "https://en.wikipedia.org/wiki/Apsidal%20precession",
+      "old_qid": "Q622176"
+    },
+    {
+      "id": 1165,
+      "name": "Cal",
+      "modern": "Potash",
+      "cat": "SUBSTANCE",
+      "mentions": 22,
+      "old_url": "https://en.wikipedia.org/wiki/Potassium%20oxide",
+      "old_qid": "Q408880"
+    },
+    {
+      "id": 2281,
+      "name": "Parallax",
+      "modern": "Parallax",
+      "cat": "CONCEPT",
+      "mentions": 22,
+      "old_url": "https://en.wikipedia.org/wiki/Parsec",
+      "old_qid": "Q12129"
+    },
+    {
+      "id": 2393,
+      "name": "fibres",
+      "modern": "fibers",
+      "cat": "SUBSTANCE",
+      "mentions": 22,
+      "old_url": "https://en.wikipedia.org/wiki/Dietary%20fiber",
+      "old_qid": "Q215210"
+    },
+    {
+      "id": 2616,
+      "name": "volcanic action",
+      "modern": "Volcanic activity",
+      "cat": "CONCEPT",
+      "mentions": 22,
+      "old_url": "https://en.wikipedia.org/wiki/Volcanism",
+      "old_qid": "Q505748"
+    },
+    {
+      "id": 59,
+      "name": "quadrupeds",
+      "modern": "quadruped",
+      "cat": "ANIMAL",
+      "mentions": 21,
+      "old_url": "https://en.wikipedia.org/wiki/Tripod_stance",
+      "old_qid": "Q777371"
+    },
+    {
+      "id": 201,
+      "name": "flask",
+      "modern": "Flask",
+      "cat": "OBJECT",
+      "mentions": 21,
+      "old_url": "https://en.wikipedia.org/wiki/Bottle",
+      "old_qid": "Q80228"
+    },
+    {
+      "id": 275,
+      "name": "viscera",
+      "modern": "Internal organs",
+      "cat": "SUBSTANCE",
+      "mentions": 21,
+      "old_url": "https://en.wikipedia.org/wiki/Viscus",
+      "old_qid": "Q546191"
+    },
+    {
+      "id": 475,
+      "name": "eclipses",
+      "modern": "eclipses",
+      "cat": "CONCEPT",
+      "mentions": 21,
+      "old_url": "https://en.wikipedia.org/wiki/Eclipse%20Foundation",
+      "old_qid": "Q937756"
+    },
+    {
+      "id": 1159,
+      "name": "chalk",
+      "modern": "Chalk",
+      "cat": "SUBSTANCE",
+      "mentions": 21,
+      "old_url": "https://en.wikipedia.org/wiki/Chalcis",
+      "old_qid": "Q200133"
+    },
+    {
+      "id": 1273,
+      "name": "Ova",
+      "modern": "Eggs",
+      "cat": "ANIMAL",
+      "mentions": 21,
+      "old_url": "https://en.wikipedia.org/wiki/Testicle",
+      "old_qid": "Q9384"
+    },
+    {
+      "id": 2292,
+      "name": "palo",
+      "modern": "guayacan tree",
+      "cat": "PLANT",
+      "mentions": 21,
+      "old_url": "https://en.wikipedia.org/wiki/Lignum%20vitae",
+      "old_qid": "Q1028485"
+    },
+    {
+      "id": 2692,
+      "name": "alvum",
+      "modern": "Intestine",
+      "cat": "SUBSTANCE",
+      "mentions": 21,
+      "old_url": "https://en.wikipedia.org/wiki/Gastroenteritis",
+      "old_qid": "Q156103"
+    },
+    {
+      "id": 2848,
+      "name": "Sambuco",
+      "modern": "elder",
+      "cat": "PLANT",
+      "mentions": 21,
+      "old_url": "https://en.wikipedia.org/wiki/Sambucus%20nigra",
+      "old_qid": "Q22701"
+    },
+    {
+      "id": 2880,
+      "name": "Styrace",
+      "modern": "Storax",
+      "cat": "PLANT",
+      "mentions": 21,
+      "old_url": "https://en.wikipedia.org/wiki/Styrax",
+      "old_qid": "Q525062"
+    },
+    {
+      "id": 209,
+      "name": "nerves",
+      "modern": "nerves",
+      "cat": "SUBSTANCE",
+      "mentions": 20,
+      "old_url": "https://fr.wikipedia.org/wiki/Les_Nerfs",
+      "old_qid": "Q3234179"
+    },
+    {
+      "id": 2328,
+      "name": "Tidal wave",
+      "modern": "Tsunami",
+      "cat": "CONCEPT",
+      "mentions": 20,
+      "old_url": "https://en.wikipedia.org/wiki/Melioidosis",
+      "old_qid": "Q963944"
+    },
+    {
+      "id": 2413,
+      "name": "Dissolution",
+      "modern": "dissolution",
+      "cat": "CONCEPT",
+      "mentions": 20,
+      "old_url": "https://en.wikipedia.org/wiki/Pralaya",
+      "old_qid": "Q3133701"
+    },
+    {
+      "id": 487,
+      "name": "Authors",
+      "modern": "Authors",
+      "cat": "PERSON",
+      "mentions": 19,
+      "old_url": "https://en.wikipedia.org/wiki/Drawer%20%28artist%29",
+      "old_qid": "Q15296811"
+    },
+    {
+      "id": 493,
+      "name": "velocity",
+      "modern": "velocity",
+      "cat": "CONCEPT",
+      "mentions": 19,
+      "old_url": "https://en.wikipedia.org/wiki/Rate%20%28mathematics%29",
+      "old_qid": "Q1144560"
+    },
+    {
+      "id": 494,
+      "name": "circle",
+      "modern": "Circle",
+      "cat": "CONCEPT",
+      "mentions": 19,
+      "old_url": "https://en.wikipedia.org/wiki/Indianapolis",
+      "old_qid": "Q6346"
+    },
+    {
+      "id": 2329,
+      "name": "thérapeutique",
+      "modern": "therapeutics",
+      "cat": "CONCEPT",
+      "mentions": 19,
+      "old_url": "https://en.wikipedia.org/wiki/Therapeutic%20Goods%20Administration",
+      "old_qid": "Q4056087"
+    },
+    {
+      "id": 3126,
+      "name": "porcis",
+      "modern": "pig",
+      "cat": "ANIMAL",
+      "mentions": 19,
+      "old_url": "https://en.wikipedia.org/wiki/Wild%20boar",
+      "old_qid": "Q58697"
+    },
+    {
+      "id": 1052,
+      "name": "Bark",
+      "modern": "Bark",
+      "cat": "PLANT",
+      "mentions": 18,
+      "old_url": "https://en.wikipedia.org/wiki/Cinchona",
+      "old_qid": "Q184453"
+    },
+    {
+      "id": 1082,
+      "name": "Medlar",
+      "modern": "Medlar",
+      "cat": "PLANT",
+      "mentions": 18,
+      "old_url": "https://en.wikipedia.org/wiki/Mimusops%20elengi",
+      "old_qid": "Q2088434"
+    },
+    {
+      "id": 1085,
+      "name": "domestic animals",
+      "modern": "domestic animals",
+      "cat": "ANIMAL",
+      "mentions": 18,
+      "old_url": "https://en.wikipedia.org/wiki/Domesticated%20animal",
+      "old_qid": "Q622852"
+    },
+    {
+      "id": 1461,
+      "name": "dysenterias",
+      "modern": "Dysentery",
+      "cat": "DISEASE",
+      "mentions": 18,
+      "old_url": "https://en.wikipedia.org/wiki/Shigellosis",
+      "old_qid": "Q327298"
+    },
+    {
+      "id": 2356,
+      "name": "coquilles",
+      "modern": "Shells",
+      "cat": "ANIMAL",
+      "mentions": 18,
+      "old_url": "https://en.wikipedia.org/wiki/Seashell",
+      "old_qid": "Q213096"
+    },
+    {
+      "id": 220,
+      "name": "chimistes",
+      "modern": "Chemists",
+      "cat": "PERSON",
+      "mentions": 17,
+      "old_url": "https://en.wikipedia.org/wiki/Pharmacy%20%28shop%29",
+      "old_qid": "Q13107184"
+    },
+    {
+      "id": 513,
+      "name": "vision",
+      "modern": "Vision",
+      "cat": "CONCEPT",
+      "mentions": 17,
+      "old_url": "https://en.wikipedia.org/wiki/Visual%20perception",
+      "old_qid": "Q162668"
+    },
+    {
+      "id": 2389,
+      "name": "salses",
+      "modern": "Salses",
+      "cat": "OBJECT",
+      "mentions": 17,
+      "old_url": "https://en.wikipedia.org/wiki/The_Fronde",
+      "old_qid": "Q193457"
+    },
+    {
+      "id": 2392,
+      "name": "Revue Philosophique",
+      "modern": "Revue Philosophique",
+      "cat": "CONCEPT",
+      "mentions": 17,
+      "old_url": "https://en.wikipedia.org/wiki/Louvain_method",
+      "old_qid": "Q3428762"
+    },
+    {
+      "id": 2460,
+      "name": "Carduis",
+      "modern": "Thistle",
+      "cat": "PLANT",
+      "mentions": 17,
+      "old_url": "https://en.wikipedia.org/wiki/Cirsium",
+      "old_qid": "Q1638558"
+    },
+    {
+      "id": 2634,
+      "name": "Thymo",
+      "modern": "Thyme",
+      "cat": "PLANT",
+      "mentions": 17,
+      "old_url": "https://en.wikipedia.org/wiki/Thymus%20vulgaris",
+      "old_qid": "Q148668"
+    },
+    {
+      "id": 230,
+      "name": "Speech",
+      "modern": "Speech",
+      "cat": "CONCEPT",
+      "mentions": 16,
+      "old_url": "https://en.wikipedia.org/wiki/Public%20speaking",
+      "old_qid": "Q18342738"
+    },
+    {
+      "id": 518,
+      "name": "Judeus",
+      "modern": "Jewish people",
+      "cat": "PERSON",
+      "mentions": 16,
+      "old_url": "https://en.wikipedia.org/wiki/Jews",
+      "old_qid": "Q7325"
+    },
+    {
+      "id": 523,
+      "name": "Fertility",
+      "modern": "fertility",
+      "cat": "CONCEPT",
+      "mentions": 16,
+      "old_url": "https://en.wikipedia.org/wiki/Reproductive%20medicine",
+      "old_qid": "Q351870"
+    },
+    {
+      "id": 1094,
+      "name": "brahmanes",
+      "modern": "Brahmins",
+      "cat": "PERSON",
+      "mentions": 16,
+      "old_url": "https://en.wikipedia.org/wiki/Historical%20Vedic%20religion",
+      "old_qid": "Q194497"
+    },
+    {
+      "id": 1095,
+      "name": "Amphibien",
+      "modern": "amphibian",
+      "cat": "ANIMAL",
+      "mentions": 16,
+      "old_url": "https://en.wikipedia.org/wiki/Amphibious%20vehicle",
+      "old_qid": "Q474698"
+    },
+    {
+      "id": 1166,
+      "name": "effort",
+      "modern": "effort",
+      "cat": "CONCEPT",
+      "mentions": 16,
+      "old_url": "https://en.wikipedia.org/wiki/Neurasthenia",
+      "old_qid": "Q510236"
+    },
+    {
+      "id": 1209,
+      "name": "fungos",
+      "modern": "Fungi",
+      "cat": "PLANT",
+      "mentions": 16,
+      "old_url": "https://en.wikipedia.org/wiki/Fungus",
+      "old_qid": "Q764"
+    },
+    {
+      "id": 1438,
+      "name": "Lilien",
+      "modern": "lily",
+      "cat": "PLANT",
+      "mentions": 16,
+      "old_url": "https://en.wikipedia.org/wiki/Lilium",
+      "old_qid": "Q5194627"
+    },
+    {
+      "id": 2427,
+      "name": "Macao",
+      "modern": "Macao",
+      "cat": "PLACE",
+      "mentions": 16,
+      "old_url": "https://en.wikipedia.org/wiki/Macau",
+      "old_qid": "Q14773"
+    },
+    {
+      "id": 2436,
+      "name": "D. Pedro Antonio de Noronha",
+      "modern": "D. Pedro Antonio de Noronha",
+      "cat": "PERSON",
+      "mentions": 16,
+      "old_url": "https://en.wikipedia.org/wiki/Vasco_da_Gama",
+      "old_qid": "Q10347316"
+    },
+    {
+      "id": 2536,
+      "name": "practice",
+      "modern": "practice",
+      "cat": "CONCEPT",
+      "mentions": 16,
+      "old_url": "https://en.wikipedia.org/wiki/Rehearsal",
+      "old_qid": "Q1751775"
+    },
+    {
+      "id": 236,
+      "name": "Reality",
+      "modern": "reality",
+      "cat": "CONCEPT",
+      "mentions": 15,
+      "old_url": "https://en.wikipedia.org/wiki/Literary%20realism",
+      "old_qid": "Q667661"
+    },
+    {
+      "id": 581,
+      "name": "affinities",
+      "modern": "affinity",
+      "cat": "CONCEPT",
+      "mentions": 15,
+      "old_url": "https://en.wikipedia.org/wiki/Affine%20transformation",
+      "old_qid": "Q382497"
+    },
+    {
+      "id": 592,
+      "name": "fluid",
+      "modern": "fluid",
+      "cat": "SUBSTANCE",
+      "mentions": 15,
+      "old_url": "https://en.wikipedia.org/wiki/Wastewater%20treatment",
+      "old_qid": "Q20127660"
+    },
+    {
+      "id": 1100,
+      "name": "bœufs",
+      "modern": "oxen",
+      "cat": "ANIMAL",
+      "mentions": 15,
+      "old_url": "https://en.wikipedia.org/wiki/Oxalis",
+      "old_qid": "Q157378"
+    },
+    {
+      "id": 2449,
+      "name": "Tabac",
+      "modern": "Tobacco",
+      "cat": "PLANT",
+      "mentions": 15,
+      "old_url": "https://en.wikipedia.org/wiki/Nicotiana",
+      "old_qid": "Q851829"
+    },
+    {
+      "id": 2539,
+      "name": "associations",
+      "modern": "Doctrine of association",
+      "cat": "CONCEPT",
+      "mentions": 15,
+      "old_url": "https://en.wikipedia.org/wiki/Fourierism",
+      "old_qid": "Q18355989"
+    },
+    {
+      "id": 2611,
+      "name": "concepts",
+      "modern": "concept",
+      "cat": "CONCEPT",
+      "mentions": 15,
+      "old_url": "https://en.wikipedia.org/wiki/Concepci%C3%B3n%2C%20Chile",
+      "old_qid": "Q1880"
+    },
+    {
+      "id": 600,
+      "name": "Garcias",
+      "modern": "Christophorus a Costa",
+      "cat": "PERSON",
+      "mentions": 14,
+      "old_url": "https://en.wikipedia.org/wiki/Origin_theories_of_Christopher_Columbus",
+      "old_qid": "Q384460"
+    },
+    {
+      "id": 1123,
+      "name": "Alexipharmacum",
+      "modern": "Alexipharmic",
+      "cat": "SUBSTANCE",
+      "mentions": 14,
+      "old_url": "https://en.wikipedia.org/wiki/Antidote",
+      "old_qid": "Q194168"
+    },
+    {
+      "id": 1125,
+      "name": "Spitzbergen",
+      "modern": "Svalbard",
+      "cat": "PLACE",
+      "mentions": 14,
+      "old_url": "https://en.wikipedia.org/wiki/Spitsbergen",
+      "old_qid": "Q21162"
+    },
+    {
+      "id": 1199,
+      "name": "chá",
+      "modern": "Tea",
+      "cat": "PLANT",
+      "mentions": 14,
+      "old_url": "https://en.wikipedia.org/wiki/Camellia%20sinensis",
+      "old_qid": "Q101815"
+    },
+    {
+      "id": 2478,
+      "name": "hinchazones",
+      "modern": "Swelling",
+      "cat": "DISEASE",
+      "mentions": 14,
+      "old_url": "https://en.wikipedia.org/wiki/Papilledema",
+      "old_qid": "Q953049"
+    },
+    {
+      "id": 2480,
+      "name": "Mogores",
+      "modern": "women",
+      "cat": "PERSON",
+      "mentions": 14,
+      "old_url": "https://en.wikipedia.org/wiki/Ice%20hockey%20player",
+      "old_qid": "Q11774891"
+    },
+    {
+      "id": 2502,
+      "name": "verbafco",
+      "modern": "Common Mullein",
+      "cat": "PLANT",
+      "mentions": 14,
+      "old_url": "https://en.wikipedia.org/wiki/Verbascum%20thapsus",
+      "old_qid": "Q160095"
+    },
+    {
+      "id": 2507,
+      "name": "Madremaluco",
+      "modern": "Mameluco",
+      "cat": "PERSON",
+      "mentions": 14,
+      "old_url": "https://en.wikipedia.org/wiki/Mestizo",
+      "old_qid": "Q106713"
+    },
+    {
+      "id": 2919,
+      "name": "trabalho",
+      "modern": "work",
+      "cat": "CONCEPT",
+      "mentions": 14,
+      "old_url": "https://en.wikipedia.org/wiki/Science_project",
+      "old_qid": "Q1298668"
+    },
+    {
+      "id": 2519,
+      "name": "Quinsie",
+      "modern": "quinsy",
+      "cat": "DISEASE",
+      "mentions": 13,
+      "old_url": "https://en.wikipedia.org/wiki/Peritonsillar_abscess",
+      "old_qid": "Q1586014"
+    },
+    {
+      "id": 2525,
+      "name": "Resemblance",
+      "modern": "Resemblance",
+      "cat": "CONCEPT",
+      "mentions": 13,
+      "old_url": "https://en.wikipedia.org/wiki/Similarity_(philosophy)",
+      "old_qid": "Q105227892"
+    },
+    {
+      "id": 2527,
+      "name": "chocolate",
+      "modern": "chocolate",
+      "cat": "SUBSTANCE",
+      "mentions": 13,
+      "old_url": "https://en.wikipedia.org/wiki/Theobroma%20cacao",
+      "old_qid": "Q42385"
+    },
+    {
+      "id": 2533,
+      "name": "muschelkalk",
+      "modern": "Muschelkalk",
+      "cat": "SUBSTANCE",
+      "mentions": 13,
+      "old_url": "https://en.wikipedia.org/wiki/Nemertea",
+      "old_qid": "Q60882191"
+    },
+    {
+      "id": 2773,
+      "name": "cartilaginis",
+      "modern": "cartilage",
+      "cat": "SUBSTANCE",
+      "mentions": 13,
+      "old_url": "https://en.wikipedia.org/wiki/Chondrogenesis",
+      "old_qid": "Q5104524"
+    },
+    {
+      "id": 3328,
+      "name": "freixo",
+      "modern": "Ash tree",
+      "cat": "PLANT",
+      "mentions": 13,
+      "old_url": "https://en.wikipedia.org/wiki/Fraxinus",
+      "old_qid": "Q128887"
+    },
+    {
+      "id": 259,
+      "name": "fluids",
+      "modern": "Fluids",
+      "cat": "SUBSTANCE",
+      "mentions": 12,
+      "old_url": "https://en.wikipedia.org/wiki/Wastewater%20treatment",
+      "old_qid": "Q20127660"
+    },
+    {
+      "id": 595,
+      "name": "Carolina",
+      "modern": "North Carolina and South Carolina",
+      "cat": "PLACE",
+      "mentions": 12,
+      "old_url": "https://en.wikipedia.org/wiki/Caroline%20Islands",
+      "old_qid": "Q118350"
+    },
+    {
+      "id": 632,
+      "name": "Chile",
+      "modern": "Chile",
+      "cat": "PLACE",
+      "mentions": 12,
+      "old_url": "https://en.wikipedia.org/wiki/Chili%20pepper",
+      "old_qid": "Q165199"
+    },
+    {
+      "id": 643,
+      "name": "membrana",
+      "modern": "Membranes",
+      "cat": "SUBSTANCE",
+      "mentions": 12,
+      "old_url": "https://en.wikipedia.org/wiki/Parchment",
+      "old_qid": "Q226697"
+    },
+    {
+      "id": 732,
+      "name": "laws of nature",
+      "modern": "Laws of nature",
+      "cat": "CONCEPT",
+      "mentions": 12,
+      "old_url": "https://en.wikipedia.org/wiki/Physical_law",
+      "old_qid": "Q21191188"
+    },
+    {
+      "id": 1180,
+      "name": "globe terrestre",
+      "modern": "Earth's globe",
+      "cat": "SUBSTANCE",
+      "mentions": 12,
+      "old_url": "https://en.wikipedia.org/wiki/Soil",
+      "old_qid": "Q36133"
+    },
+    {
+      "id": 1210,
+      "name": "ulceribus",
+      "modern": "Ulcers",
+      "cat": "DISEASE",
+      "mentions": 12,
+      "old_url": "https://en.wikipedia.org/wiki/Ulcerative%20colitis",
+      "old_qid": "Q1477"
+    },
+    {
+      "id": 1265,
+      "name": "Verbasco",
+      "modern": "Mullein",
+      "cat": "PLANT",
+      "mentions": 12,
+      "old_url": "https://en.wikipedia.org/wiki/Verbascum%20thapsus",
+      "old_qid": "Q160095"
+    },
+    {
+      "id": 1505,
+      "name": "Flame",
+      "modern": "Flame",
+      "cat": "SUBSTANCE",
+      "mentions": 12,
+      "old_url": "https://en.wikipedia.org/wiki/Facts%20and%20Logic%20About%20the%20Middle%20East",
+      "old_qid": "Q5428803"
+    },
+    {
+      "id": 2604,
+      "name": "Jura limestone",
+      "modern": "Jura limestone",
+      "cat": "SUBSTANCE",
+      "mentions": 12,
+      "old_url": "https://en.wikipedia.org/wiki/Texas_Asia_Society",
+      "old_qid": "Q530040"
+    },
+    {
+      "id": 2624,
+      "name": "pediculi",
+      "modern": "Louse",
+      "cat": "ANIMAL",
+      "mentions": 12,
+      "old_url": "https://en.wikipedia.org/wiki/Pediculus_humanus",
+      "old_qid": "Q3737588"
+    },
+    {
+      "id": 2879,
+      "name": "camomilla",
+      "modern": "Chamomile",
+      "cat": "PLANT",
+      "mentions": 12,
+      "old_url": "https://en.wikipedia.org/wiki/Matricaria%20chamomilla",
+      "old_qid": "Q28437"
+    },
+    {
+      "id": 3015,
+      "name": "formations calcaires",
+      "modern": "Calcareous formations",
+      "cat": "SUBSTANCE",
+      "mentions": 12,
+      "old_url": "https://en.wikipedia.org/wiki/Speleothem",
+      "old_qid": "Q61748682"
+    },
+    {
+      "id": 3638,
+      "name": "Agnocasto",
+      "modern": "Chaste tree",
+      "cat": "PLANT",
+      "mentions": 12,
+      "old_url": "https://en.wikipedia.org/wiki/Vitex",
+      "old_qid": "Q29533"
+    },
+    {
+      "id": 604,
+      "name": "Butter",
+      "modern": "Butter",
+      "cat": "ANIMAL",
+      "mentions": 11,
+      "old_url": "https://en.wikipedia.org/wiki/Ranunculus",
+      "old_qid": "Q146130"
+    },
+    {
+      "id": 1220,
+      "name": "scoriae",
+      "modern": "Slag",
+      "cat": "SUBSTANCE",
+      "mentions": 11,
+      "old_url": "https://en.wikipedia.org/wiki/Stroke",
+      "old_qid": "Q12202"
+    },
+    {
+      "id": 2635,
+      "name": "expectation",
+      "modern": "Expectation",
+      "cat": "CONCEPT",
+      "mentions": 11,
+      "old_url": "https://en.wikipedia.org/wiki/Expected_value",
+      "old_qid": "Q200125"
+    },
+    {
+      "id": 2651,
+      "name": "faltas de respiração",
+      "modern": "Dyspnea",
+      "cat": "DISEASE",
+      "mentions": 11,
+      "old_url": "https://en.wikipedia.org/wiki/Shortness%20of%20breath",
+      "old_qid": "Q188008"
+    },
+    {
+      "id": 2694,
+      "name": "brafica marinha",
+      "modern": "Sea Brassica",
+      "cat": "PLANT",
+      "mentions": 11,
+      "old_url": "https://en.wikipedia.org/wiki/Crambe_maritima",
+      "old_qid": "Q165299"
+    },
+    {
+      "id": 2857,
+      "name": "viſta",
+      "modern": "Viscous humors",
+      "cat": "SUBSTANCE",
+      "mentions": 11,
+      "old_url": "https://en.wikipedia.org/wiki/Rheology",
+      "old_qid": "Q5782572"
+    },
+    {
+      "id": 3044,
+      "name": "Gomma",
+      "modern": "Plant gums",
+      "cat": "PLANT",
+      "mentions": 11,
+      "old_url": "https://en.wikipedia.org/wiki/Resin",
+      "old_qid": "Q424275"
+    },
+    {
+      "id": 1255,
+      "name": "Peripherie",
+      "modern": "Periphery",
+      "cat": "SUBSTANCE",
+      "mentions": 10,
+      "old_url": "https://en.wikipedia.org/wiki/Lisdexamfetamine",
+      "old_qid": "Q10950926"
+    },
+    {
+      "id": 1294,
+      "name": "Lauri",
+      "modern": "Laurel",
+      "cat": "PLANT",
+      "mentions": 10,
+      "old_url": "https://en.wikipedia.org/wiki/Laurus_nobilis",
+      "old_qid": "Q26006"
+    },
+    {
+      "id": 1440,
+      "name": "limoens",
+      "modern": "Citrus limon",
+      "cat": "PLANT",
+      "mentions": 10,
+      "old_url": "https://en.wikipedia.org/wiki/Lemon",
+      "old_qid": "Q500"
+    },
+    {
+      "id": 1689,
+      "name": "étrangers",
+      "modern": "foreigners",
+      "cat": "PERSON",
+      "mentions": 10,
+      "old_url": "https://en.wikipedia.org/wiki/Alien%20%28law%29",
+      "old_qid": "Q473741"
+    },
+    {
+      "id": 2696,
+      "name": "syllogisme",
+      "modern": "Syllogism",
+      "cat": "CONCEPT",
+      "mentions": 10,
+      "old_url": "https://en.wikipedia.org/wiki/Aristotelian%20logic",
+      "old_qid": "Q615599"
+    },
+    {
+      "id": 2725,
+      "name": "flor",
+      "modern": "Flower",
+      "cat": "SUBSTANCE",
+      "mentions": 10,
+      "old_url": "https://en.wikipedia.org/wiki/Cannabis%20%28drug%29",
+      "old_qid": "Q2845"
+    },
+    {
+      "id": 2728,
+      "name": "Almizque",
+      "modern": "Musk",
+      "cat": "SUBSTANCE",
+      "mentions": 10,
+      "old_url": "https://en.wikipedia.org/wiki/Nev%C5%9Fehir",
+      "old_qid": "Q206879"
+    },
+    {
+      "id": 2731,
+      "name": "Minas Geraes",
+      "modern": "Minas Gerais",
+      "cat": "PLACE",
+      "mentions": 10,
+      "old_url": "https://en.wikipedia.org/wiki/Belo_Horizonte",
+      "old_qid": "Q39109"
+    },
+    {
+      "id": 2736,
+      "name": "Los Pastos",
+      "modern": "Los Pastos",
+      "cat": "PLACE",
+      "mentions": 10,
+      "old_url": "https://en.wikipedia.org/wiki/Pasto,_Colombia",
+      "old_qid": "Q3897521"
+    },
+    {
+      "id": 2741,
+      "name": "Pichincha",
+      "modern": "Pichincha",
+      "cat": "PLACE",
+      "mentions": 10,
+      "old_url": "https://en.wikipedia.org/wiki/Quito",
+      "old_qid": "Q742216"
+    },
+    {
+      "id": 2750,
+      "name": "Hindostan",
+      "modern": "Hindustan",
+      "cat": "PLACE",
+      "mentions": 10,
+      "old_url": "https://en.wikipedia.org/wiki/India",
+      "old_qid": "Q668"
+    },
+    {
+      "id": 3122,
+      "name": "Plantaginis",
+      "modern": "Plantain",
+      "cat": "PLANT",
+      "mentions": 10,
+      "old_url": "https://en.wikipedia.org/wiki/Plantago",
+      "old_qid": "Q164686"
+    },
+    {
+      "id": 3520,
+      "name": "Nymphea",
+      "modern": "Water Lily",
+      "cat": "PLANT",
+      "mentions": 10,
+      "old_url": "https://en.wikipedia.org/wiki/Nymphaea",
+      "old_qid": "Q146628"
+    },
+    {
+      "id": 294,
+      "name": "cedro",
+      "modern": "Cedar",
+      "cat": "PLANT",
+      "mentions": 9,
+      "old_url": "https://en.wikipedia.org/wiki/Cedrus",
+      "old_qid": "Q128550"
+    },
+    {
+      "id": 658,
+      "name": "palo santo",
+      "modern": "Palo santo",
+      "cat": "PLANT",
+      "mentions": 9,
+      "old_url": "https://en.wikipedia.org/wiki/Guaiacum_officinale",
+      "old_qid": "Q2051175"
+    },
+    {
+      "id": 1326,
+      "name": "Action and reaction",
+      "modern": "Action and reaction",
+      "cat": "CONCEPT",
+      "mentions": 9,
+      "old_url": "https://en.wikipedia.org/wiki/Newton%27s%20third%20law",
+      "old_qid": "Q3235565"
+    },
+    {
+      "id": 1346,
+      "name": "appetitus",
+      "modern": "Appetite",
+      "cat": "DISEASE",
+      "mentions": 9,
+      "old_url": "https://en.wikipedia.org/wiki/Anorexia%20%28symptom%29",
+      "old_qid": "Q254327"
+    },
+    {
+      "id": 1348,
+      "name": "Repulsion",
+      "modern": "Repulsion",
+      "cat": "CONCEPT",
+      "mentions": 9,
+      "old_url": "https://en.wikipedia.org/wiki/Anti-gravity",
+      "old_qid": "Q113644972"
+    },
+    {
+      "id": 1726,
+      "name": "spirituum",
+      "modern": "Spirit",
+      "cat": "CONCEPT",
+      "mentions": 9,
+      "old_url": "https://en.wikipedia.org/wiki/Religion",
+      "old_qid": "Q9174"
+    },
+    {
+      "id": 2778,
+      "name": "Marsupials",
+      "modern": "Marsupial",
+      "cat": "ANIMAL",
+      "mentions": 9,
+      "old_url": "https://en.wikipedia.org/wiki/Thylacoleo%20carnifex",
+      "old_qid": "Q685786"
+    },
+    {
+      "id": 2782,
+      "name": "Beast",
+      "modern": "animal",
+      "cat": "ANIMAL",
+      "mentions": 9,
+      "old_url": "https://en.wikipedia.org/wiki/Zoology",
+      "old_qid": "Q431"
+    },
+    {
+      "id": 2789,
+      "name": "roches primitives",
+      "modern": "Primary rocks",
+      "cat": "SUBSTANCE",
+      "mentions": 9,
+      "old_url": "https://en.wikipedia.org/wiki/Igneous_rock",
+      "old_qid": "Q42045"
+    },
+    {
+      "id": 2794,
+      "name": "Passions of the Heart",
+      "modern": "Emotional disturbance",
+      "cat": "DISEASE",
+      "mentions": 9,
+      "old_url": "https://en.wikipedia.org/wiki/Creutzfeldt–Jakob_disease",
+      "old_qid": "Q12046440"
+    },
+    {
+      "id": 2810,
+      "name": "Esquinanto",
+      "modern": "Swallowwort",
+      "cat": "PLANT",
+      "mentions": 9,
+      "old_url": "https://en.wikipedia.org/wiki/Chelidonium%20majus",
+      "old_qid": "Q156807"
+    },
+    {
+      "id": 2842,
+      "name": "α Lyræ",
+      "modern": "Alpha Lyrae",
+      "cat": "PLACE",
+      "mentions": 9,
+      "old_url": "https://en.wikipedia.org/wiki/Vega",
+      "old_qid": "Q3427"
+    },
+    {
+      "id": 2862,
+      "name": "seda",
+      "modern": "Silk",
+      "cat": "ANIMAL",
+      "mentions": 9,
+      "old_url": "https://en.wikipedia.org/wiki/Bombyx%20mori",
+      "old_qid": "Q134747"
+    },
+    {
+      "id": 3224,
+      "name": "vide",
+      "modern": "Grapevine",
+      "cat": "PLANT",
+      "mentions": 9,
+      "old_url": "https://en.wikipedia.org/wiki/Vitis",
+      "old_qid": "Q191019"
+    },
+    {
+      "id": 3456,
+      "name": "lamparones",
+      "modern": "Scrofula",
+      "cat": "DISEASE",
+      "mentions": 9,
+      "old_url": "https://en.wikipedia.org/wiki/Mycobacterial%20cervical%20lymphadenitis",
+      "old_qid": "Q4678337"
+    },
+    {
+      "id": 3601,
+      "name": "anguilla",
+      "modern": "Eel",
+      "cat": "ANIMAL",
+      "mentions": 9,
+      "old_url": "https://en.wikipedia.org/wiki/Zostera%20marina",
+      "old_qid": "Q21128"
+    },
+    {
+      "id": 3668,
+      "name": "fluid mass",
+      "modern": "juices",
+      "cat": "SUBSTANCE",
+      "mentions": 9,
+      "old_url": "https://en.wikipedia.org/wiki/Cold-pressed_juice",
+      "old_qid": "Q1058795"
+    },
+    {
+      "id": 307,
+      "name": "musc",
+      "modern": "Musk",
+      "cat": "ANIMAL",
+      "mentions": 8,
+      "old_url": "https://en.wikipedia.org/wiki/Nev%C5%9Fehir",
+      "old_qid": "Q206879"
+    },
+    {
+      "id": 1370,
+      "name": "characters",
+      "modern": "Traits",
+      "cat": "CONCEPT",
+      "mentions": 8,
+      "old_url": "https://en.wikipedia.org/wiki/Trait_(computer_programming)",
+      "old_qid": "Q135335115"
+    },
+    {
+      "id": 1385,
+      "name": "Apennines",
+      "modern": "Apennines",
+      "cat": "PLACE",
+      "mentions": 8,
+      "old_url": "https://en.wikipedia.org/wiki/Apennine%20Mountains",
+      "old_qid": "Q1285"
+    },
+    {
+      "id": 1401,
+      "name": "gallinaceous birds",
+      "modern": "Gallinaceous birds",
+      "cat": "ANIMAL",
+      "mentions": 8,
+      "old_url": "https://en.wikipedia.org/wiki/Galliformes",
+      "old_qid": "Q21659"
+    },
+    {
+      "id": 1409,
+      "name": "Guayacan",
+      "modern": "Guayacán",
+      "cat": "PLANT",
+      "mentions": 8,
+      "old_url": "https://en.wikipedia.org/wiki/Lignum%20vitae",
+      "old_qid": "Q1028485"
+    },
+    {
+      "id": 1414,
+      "name": "enjoos",
+      "modern": "Itching",
+      "cat": "DISEASE",
+      "mentions": 8,
+      "old_url": "https://en.wikipedia.org/wiki/Drug-induced%20pruritus",
+      "old_qid": "Q5308818"
+    },
+    {
+      "id": 1441,
+      "name": "bronquios",
+      "modern": "Bronchi",
+      "cat": "SUBSTANCE",
+      "mentions": 8,
+      "old_url": "https://en.wikipedia.org/wiki/Asthma",
+      "old_qid": "Q35869"
+    },
+    {
+      "id": 1607,
+      "name": "odor",
+      "modern": "Odor",
+      "cat": "CONCEPT",
+      "mentions": 8,
+      "old_url": "https://en.wikipedia.org/wiki/Olfactory%20receptor",
+      "old_qid": "Q24774756"
+    },
+    {
+      "id": 1619,
+      "name": "vaso",
+      "modern": "vessel",
+      "cat": "OBJECT",
+      "mentions": 8,
+      "old_url": "https://en.wikipedia.org/wiki/Container",
+      "old_qid": "Q987767"
+    },
+    {
+      "id": 1658,
+      "name": "Grape",
+      "modern": "Vine",
+      "cat": "PLANT",
+      "mentions": 8,
+      "old_url": "https://en.wikipedia.org/wiki/Vitis%20vinifera",
+      "old_qid": "Q30046"
+    },
+    {
+      "id": 1807,
+      "name": "feline animal",
+      "modern": "feline",
+      "cat": "ANIMAL",
+      "mentions": 8,
+      "old_url": "https://en.wikipedia.org/wiki/Felidae",
+      "old_qid": "Q25265"
+    },
+    {
+      "id": 2915,
+      "name": "matlalitztic",
+      "modern": "Matlalitztic",
+      "cat": "PLANT",
+      "mentions": 8,
+      "old_url": "https://en.wikipedia.org/wiki/Commelina_erecta",
+      "old_qid": "Q2920683"
+    },
+    {
+      "id": 2923,
+      "name": "las Trincheras",
+      "modern": "Las Trincheras",
+      "cat": "PLACE",
+      "mentions": 8,
+      "old_url": "https://en.wikipedia.org/wiki/Venezuelan_independence",
+      "old_qid": "Q65059480"
+    },
+    {
+      "id": 2956,
+      "name": "Nova Espanha",
+      "modern": "Mexico",
+      "cat": "PLACE",
+      "mentions": 8,
+      "old_url": "https://en.wikipedia.org/wiki/New%20Spain",
+      "old_qid": "Q170603"
+    },
+    {
+      "id": 2967,
+      "name": "Simia",
+      "modern": "Ape",
+      "cat": "ANIMAL",
+      "mentions": 8,
+      "old_url": "https://en.wikipedia.org/wiki/Monkey",
+      "old_qid": "Q1367"
+    },
+    {
+      "id": 2991,
+      "name": "parreyra brava",
+      "modern": "Velvet Tree",
+      "cat": "PLANT",
+      "mentions": 8,
+      "old_url": "https://en.wikipedia.org/wiki/Mimusops%20elengi",
+      "old_qid": "Q2088434"
+    },
+    {
+      "id": 2992,
+      "name": "calculum",
+      "modern": "Calculus (kidney or bladder stone)",
+      "cat": "DISEASE",
+      "mentions": 8,
+      "old_url": "https://en.wikipedia.org/wiki/Gallstone",
+      "old_qid": "Q1585769"
+    },
+    {
+      "id": 3213,
+      "name": "tiña",
+      "modern": "ringworm",
+      "cat": "DISEASE",
+      "mentions": 8,
+      "old_url": "https://en.wikipedia.org/wiki/List%20of%20types%20of%20tinea",
+      "old_qid": "Q17141201"
+    },
+    {
+      "id": 3653,
+      "name": "Anagalis",
+      "modern": "Pimpernel",
+      "cat": "PLANT",
+      "mentions": 8,
+      "old_url": "https://en.wikipedia.org/wiki/Anagallis",
+      "old_qid": "Q157732"
+    },
+    {
+      "id": 3701,
+      "name": "chirurgía",
+      "modern": "Surgery",
+      "cat": "CONCEPT",
+      "mentions": 8,
+      "old_url": "https://en.wikipedia.org/wiki/Surgical%20operation",
+      "old_qid": "Q600236"
+    },
+    {
+      "id": 3725,
+      "name": "Misseltoe",
+      "modern": "Mistletoe",
+      "cat": "PLANT",
+      "mentions": 8,
+      "old_url": "https://en.wikipedia.org/wiki/Viscum%20album",
+      "old_qid": "Q144940"
+    },
+    {
+      "id": 4025,
+      "name": "sinapis",
+      "modern": "Mustard",
+      "cat": "PLANT",
+      "mentions": 8,
+      "old_url": "https://en.wikipedia.org/wiki/Brassica",
+      "old_qid": "Q58677"
+    },
+    {
+      "id": 4368,
+      "name": "Madroño",
+      "modern": "Strawberry Tree",
+      "cat": "PLANT",
+      "mentions": 8,
+      "old_url": "https://en.wikipedia.org/wiki/Arbutus_unedo",
+      "old_qid": "Q329046"
+    },
+    {
+      "id": 319,
+      "name": "Moral",
+      "modern": "Morality",
+      "cat": "CONCEPT",
+      "mentions": 7,
+      "old_url": "https://en.wikipedia.org/wiki/Research%20ethics",
+      "old_qid": "Q1132684"
+    },
+    {
+      "id": 321,
+      "name": "Genitalibus",
+      "modern": "Genitals",
+      "cat": "SUBSTANCE",
+      "mentions": 7,
+      "old_url": "https://en.wikipedia.org/wiki/Female%20reproductive%20system",
+      "old_qid": "Q844342"
+    },
+    {
+      "id": 325,
+      "name": "veronica",
+      "modern": "germander",
+      "cat": "PLANT",
+      "mentions": 7,
+      "old_url": "https://en.wikipedia.org/wiki/Teucrium",
+      "old_qid": "Q157714"
+    },
+    {
+      "id": 710,
+      "name": "volcanic matter",
+      "modern": "Volcanic material",
+      "cat": "SUBSTANCE",
+      "mentions": 7,
+      "old_url": "https://en.wikipedia.org/wiki/Volcano",
+      "old_qid": "Q99292086"
+    },
+    {
+      "id": 718,
+      "name": "arbustes",
+      "modern": "shrubs",
+      "cat": "PLANT",
+      "mentions": 7,
+      "old_url": "https://en.wikipedia.org/wiki/Lantana",
+      "old_qid": "Q1096635"
+    },
+    {
+      "id": 1468,
+      "name": "Bosphore",
+      "modern": "Strait of Istanbul",
+      "cat": "PLACE",
+      "mentions": 7,
+      "old_url": "https://en.wikipedia.org/wiki/Dardanelles",
+      "old_qid": "Q35958"
+    },
+    {
+      "id": 1471,
+      "name": "solar heat",
+      "modern": "Solar heat",
+      "cat": "SUBSTANCE",
+      "mentions": 7,
+      "old_url": "https://en.wikipedia.org/wiki/Thermosiphon",
+      "old_qid": "Q7556096"
+    },
+    {
+      "id": 3010,
+      "name": "silk",
+      "modern": "silk",
+      "cat": "SUBSTANCE",
+      "mentions": 7,
+      "old_url": "https://en.wikipedia.org/wiki/Bombyx_mori",
+      "old_qid": "Q134747"
+    },
+    {
+      "id": 3011,
+      "name": "Parsnip",
+      "modern": "Parsnip",
+      "cat": "PLANT",
+      "mentions": 7,
+      "old_url": "https://en.wikipedia.org/wiki/Heracleum_maximum",
+      "old_qid": "Q1479657"
+    },
+    {
+      "id": 3019,
+      "name": "pains in the sides",
+      "modern": "Flank Pain",
+      "cat": "DISEASE",
+      "mentions": 7,
+      "old_url": "https://en.wikipedia.org/wiki/Twelfth_rib_syndrome",
+      "old_qid": "Q22269224"
+    },
+    {
+      "id": 3039,
+      "name": "Tlaquatzin",
+      "modern": "Tlaquatzin",
+      "cat": "ANIMAL",
+      "mentions": 7,
+      "old_url": "https://en.wikipedia.org/wiki/Gray_and_black_four-eyed_opossum",
+      "old_qid": "Q1284059"
+    },
+    {
+      "id": 3041,
+      "name": "tunas",
+      "modern": "Prickly Pear",
+      "cat": "PLANT",
+      "mentions": 7,
+      "old_url": "https://en.wikipedia.org/wiki/Opuntia%20ficus-indica",
+      "old_qid": "Q144412"
+    },
+    {
+      "id": 3045,
+      "name": "licores",
+      "modern": "liquors",
+      "cat": "SUBSTANCE",
+      "mentions": 7,
+      "old_url": "https://en.wikipedia.org/wiki/Liquorice",
+      "old_qid": "Q257106"
+    },
+    {
+      "id": 3048,
+      "name": "nabos",
+      "modern": "Turnip",
+      "cat": "PLANT",
+      "mentions": 7,
+      "old_url": "https://en.wikipedia.org/wiki/Brassica%20rapa",
+      "old_qid": "Q3384"
+    },
+    {
+      "id": 3087,
+      "name": "mental evolution",
+      "modern": "Mental evolution",
+      "cat": "CONCEPT",
+      "mentions": 7,
+      "old_url": "https://en.wikipedia.org/wiki/Thought",
+      "old_qid": "Q51424772"
+    },
+    {
+      "id": 3127,
+      "name": "brachiorum",
+      "modern": "arms",
+      "cat": "SUBSTANCE",
+      "mentions": 7,
+      "old_url": "https://en.wikipedia.org/wiki/Red_mercury",
+      "old_qid": "Q399"
+    },
+    {
+      "id": 3128,
+      "name": "Füfse",
+      "modern": "feet",
+      "cat": "SUBSTANCE",
+      "mentions": 7,
+      "old_url": "https://en.wikipedia.org/wiki/Association%20football",
+      "old_qid": "Q2736"
+    },
+    {
+      "id": 3130,
+      "name": "herbis",
+      "modern": "herbs",
+      "cat": "PLANT",
+      "mentions": 7,
+      "old_url": "https://en.wikipedia.org/wiki/Cannabis%20%28drug%29",
+      "old_qid": "Q2845"
+    },
+    {
+      "id": 3147,
+      "name": "humores peccantes",
+      "modern": "Corrupt humors",
+      "cat": "CONCEPT",
+      "mentions": 7,
+      "old_url": "https://en.wikipedia.org/wiki/Mathematical_joke",
+      "old_qid": "Q5782572"
+    },
+    {
+      "id": 3995,
+      "name": "HIRUDO",
+      "modern": "Leech",
+      "cat": "ANIMAL",
+      "mentions": 7,
+      "old_url": "https://en.wikipedia.org/wiki/Lion",
+      "old_qid": "Q43012"
+    },
+    {
+      "id": 4024,
+      "name": "Buxi",
+      "modern": "boxwood",
+      "cat": "PLANT",
+      "mentions": 7,
+      "old_url": "https://en.wikipedia.org/wiki/Buxus%20sempervirens",
+      "old_qid": "Q27344"
+    },
+    {
+      "id": 4040,
+      "name": "amarello",
+      "modern": "Yellow",
+      "cat": "CONCEPT",
+      "mentions": 7,
+      "old_url": "https://en.wikipedia.org/wiki/Aedes%20aegypti",
+      "old_qid": "Q1148004"
+    },
+    {
+      "id": 330,
+      "name": "lakes",
+      "modern": "Great Lakes",
+      "cat": "PLACE",
+      "mentions": 6,
+      "old_url": "https://en.wikipedia.org/wiki/Michigan",
+      "old_qid": "Q1166"
+    },
+    {
+      "id": 331,
+      "name": "geographical province",
+      "modern": "Province",
+      "cat": "PLACE",
+      "mentions": 6,
+      "old_url": "https://en.wikipedia.org/wiki/Ontario",
+      "old_qid": "Q1904"
+    },
+    {
+      "id": 735,
+      "name": "nerve fiber",
+      "modern": "Nerve fiber",
+      "cat": "SUBSTANCE",
+      "mentions": 6,
+      "old_url": "https://en.wikipedia.org/wiki/Axon",
+      "old_qid": "Q178999"
+    },
+    {
+      "id": 736,
+      "name": "Palaeontology",
+      "modern": "Palaeontology",
+      "cat": "CONCEPT",
+      "mentions": 6,
+      "old_url": "https://en.wikipedia.org/wiki/Paleontology",
+      "old_qid": "Q246729"
+    },
+    {
+      "id": 740,
+      "name": "fluidity",
+      "modern": "Fluidity",
+      "cat": "CONCEPT",
+      "mentions": 6,
+      "old_url": "https://en.wikipedia.org/wiki/Flexibility%20%28engineering%29",
+      "old_qid": "Q65921492"
+    },
+    {
+      "id": 742,
+      "name": "Afphalto",
+      "modern": "Asphalt",
+      "cat": "SUBSTANCE",
+      "mentions": 6,
+      "old_url": "https://en.wikipedia.org/wiki/Sealcoat",
+      "old_qid": "Q202251"
+    },
+    {
+      "id": 1555,
+      "name": "mer Glaciale",
+      "modern": "Glacial Sea",
+      "cat": "PLACE",
+      "mentions": 6,
+      "old_url": "https://en.wikipedia.org/wiki/Arctic%20Ocean",
+      "old_qid": "Q788"
+    },
+    {
+      "id": 1572,
+      "name": "Schwimmvögel",
+      "modern": "Waterfowl",
+      "cat": "ANIMAL",
+      "mentions": 6,
+      "old_url": "https://en.wikipedia.org/wiki/Anseriformes",
+      "old_qid": "Q21651"
+    },
+    {
+      "id": 1584,
+      "name": "olla",
+      "modern": "pot",
+      "cat": "OBJECT",
+      "mentions": 6,
+      "old_url": "https://en.wikipedia.org/wiki/Cannabis%20%28drug%29",
+      "old_qid": "Q2845"
+    },
+    {
+      "id": 1840,
+      "name": "mechanical laws",
+      "modern": "Physical Laws",
+      "cat": "CONCEPT",
+      "mentions": 6,
+      "old_url": "https://en.wikipedia.org/wiki/Scientific_law",
+      "old_qid": "Q214070"
+    },
+    {
+      "id": 1854,
+      "name": "fossil remains",
+      "modern": "Fossils",
+      "cat": "ANIMAL",
+      "mentions": 6,
+      "old_url": "https://en.wikipedia.org/wiki/Fossilworks",
+      "old_qid": "Q796451"
+    },
+    {
+      "id": 1894,
+      "name": "capillaires",
+      "modern": "Capillaries",
+      "cat": "SUBSTANCE",
+      "mentions": 6,
+      "old_url": "https://en.wikipedia.org/wiki/Capillary",
+      "old_qid": "Q103142"
+    },
+    {
+      "id": 3154,
+      "name": "état normal",
+      "modern": "Normal state",
+      "cat": "CONCEPT",
+      "mentions": 6,
+      "old_url": "https://en.wikipedia.org/wiki/SNAFU",
+      "old_qid": "Q117006693"
+    },
+    {
+      "id": 3156,
+      "name": "Alteratione",
+      "modern": "Pathological changes",
+      "cat": "DISEASE",
+      "mentions": 6,
+      "old_url": "https://en.wikipedia.org/wiki/Rickets",
+      "old_qid": "Q57619264"
+    },
+    {
+      "id": 3167,
+      "name": "Ash-tree",
+      "modern": "Ash",
+      "cat": "PLANT",
+      "mentions": 6,
+      "old_url": "https://en.wikipedia.org/wiki/Fraxinus",
+      "old_qid": "Q128887"
+    },
+    {
+      "id": 3182,
+      "name": "palétuviers",
+      "modern": "mangrove",
+      "cat": "PLANT",
+      "mentions": 6,
+      "old_url": "https://en.wikipedia.org/wiki/Rhizophora%20mucronata",
+      "old_qid": "Q2613405"
+    },
+    {
+      "id": 3186,
+      "name": "hémisphères",
+      "modern": "hemisphere",
+      "cat": "PLACE",
+      "mentions": 6,
+      "old_url": "https://en.wikipedia.org/wiki/March_equinox",
+      "old_qid": "Q399984"
+    },
+    {
+      "id": 3189,
+      "name": "roughness",
+      "modern": "induration",
+      "cat": "DISEASE",
+      "mentions": 6,
+      "old_url": "https://en.wikipedia.org/wiki/Peyronie%27s%20disease",
+      "old_qid": "Q874586"
+    },
+    {
+      "id": 3194,
+      "name": "Emperadores",
+      "modern": "Emperor",
+      "cat": "PERSON",
+      "mentions": 6,
+      "old_url": "https://en.wikipedia.org/wiki/Monarch",
+      "old_qid": "Q116"
+    },
+    {
+      "id": 3201,
+      "name": "palæontologists",
+      "modern": "Paleontologists",
+      "cat": "PERSON",
+      "mentions": 6,
+      "old_url": "https://en.wikipedia.org/wiki/Paleontology",
+      "old_qid": "Q7205"
+    },
+    {
+      "id": 3226,
+      "name": "Autuario",
+      "modern": "Authoritative figure",
+      "cat": "PERSON",
+      "mentions": 6,
+      "old_url": "https://en.wikipedia.org/wiki/Authority",
+      "old_qid": "Q174834"
+    },
+    {
+      "id": 3278,
+      "name": "symbolic conceptions",
+      "modern": "Symbolic representation",
+      "cat": "CONCEPT",
+      "mentions": 6,
+      "old_url": "https://en.wikipedia.org/wiki/Thiasus",
+      "old_qid": "Q26708313"
+    },
+    {
+      "id": 3304,
+      "name": "Coryli",
+      "modern": "Hazel",
+      "cat": "PLANT",
+      "mentions": 6,
+      "old_url": "https://en.wikipedia.org/wiki/Corylus%20avellana",
+      "old_qid": "Q124969"
+    },
+    {
+      "id": 3311,
+      "name": "vifceribus",
+      "modern": "Viscera",
+      "cat": "SUBSTANCE",
+      "mentions": 6,
+      "old_url": "https://en.wikipedia.org/wiki/Viscus",
+      "old_qid": "Q546191"
+    },
+    {
+      "id": 3313,
+      "name": "pinnarum",
+      "modern": "Fins",
+      "cat": "SUBSTANCE",
+      "mentions": 6,
+      "old_url": "https://en.wikipedia.org/wiki/Finland",
+      "old_qid": "Q33"
+    },
+    {
+      "id": 3314,
+      "name": "lumbricos",
+      "modern": "Earthworm",
+      "cat": "ANIMAL",
+      "mentions": 6,
+      "old_url": "https://en.wikipedia.org/wiki/Lumbricus%20terrestris",
+      "old_qid": "Q30092"
+    },
+    {
+      "id": 3315,
+      "name": "Hipuris",
+      "modern": "Mare's tail",
+      "cat": "PLANT",
+      "mentions": 6,
+      "old_url": "https://en.wikipedia.org/wiki/Hippuris_vulgaris",
+      "old_qid": "Q33115"
+    },
+    {
+      "id": 3327,
+      "name": "aroeira",
+      "modern": "Aroeira",
+      "cat": "PLANT",
+      "mentions": 6,
+      "old_url": "https://en.wikipedia.org/wiki/Schinus%20terebinthifolia",
+      "old_qid": "Q899313"
+    },
+    {
+      "id": 3685,
+      "name": "repos",
+      "modern": "Rest",
+      "cat": "CONCEPT",
+      "mentions": 6,
+      "old_url": "https://en.wikipedia.org/wiki/Sleep",
+      "old_qid": "Q35831"
+    },
+    {
+      "id": 3844,
+      "name": "produits",
+      "modern": "products",
+      "cat": "SUBSTANCE",
+      "mentions": 6,
+      "old_url": "https://en.wikipedia.org/wiki/Product_(chemistry)",
+      "old_qid": "Q542929"
+    },
+    {
+      "id": 4028,
+      "name": "cancrorum",
+      "modern": "Crabs",
+      "cat": "ANIMAL",
+      "mentions": 6,
+      "old_url": "https://en.wikipedia.org/wiki/Crabronidae",
+      "old_qid": "Q133302"
+    },
+    {
+      "id": 4034,
+      "name": "adelgaçao",
+      "modern": "Thinning",
+      "cat": "CONCEPT",
+      "mentions": 6,
+      "old_url": "https://en.wikipedia.org/wiki/Pruning",
+      "old_qid": "Q500094"
+    },
+    {
+      "id": 4320,
+      "name": "hind-legs",
+      "modern": "Hind limbs",
+      "cat": "SUBSTANCE",
+      "mentions": 6,
+      "old_url": "https://en.wikipedia.org/wiki/Hindlimb",
+      "old_qid": "Q5766112"
+    },
+    {
+      "id": 4522,
+      "name": "sensory organs",
+      "modern": "Sensory organs",
+      "cat": "SUBSTANCE",
+      "mentions": 6,
+      "old_url": "https://en.wikipedia.org/wiki/Sense",
+      "old_qid": "Q173253"
+    },
+    {
+      "id": 4975,
+      "name": "Thrushes",
+      "modern": "Thrush",
+      "cat": "ANIMAL",
+      "mentions": 6,
+      "old_url": "https://en.wikipedia.org/wiki/Turdus",
+      "old_qid": "Q115661"
+    },
+    {
+      "id": 337,
+      "name": "origin",
+      "modern": "origin",
+      "cat": "CONCEPT",
+      "mentions": 5,
+      "old_url": "https://en.wikipedia.org/wiki/River%20source",
+      "old_qid": "Q7376362"
+    },
+    {
+      "id": 339,
+      "name": "electrum",
+      "modern": "Electrum",
+      "cat": "SUBSTANCE",
+      "mentions": 5,
+      "old_url": "https://en.wikipedia.org/wiki/Nickel%20silver",
+      "old_qid": "Q203874"
+    },
+    {
+      "id": 773,
+      "name": "congélation",
+      "modern": "Freezing",
+      "cat": "CONCEPT",
+      "mentions": 5,
+      "old_url": "https://en.wikipedia.org/wiki/Hypothermia",
+      "old_qid": "Q1036696"
+    },
+    {
+      "id": 774,
+      "name": "fomentaçao",
+      "modern": "Fomentation",
+      "cat": "CONCEPT",
+      "mentions": 5,
+      "old_url": "https://en.wikipedia.org/wiki/Ayurveda",
+      "old_qid": "Q58775427"
+    },
+    {
+      "id": 778,
+      "name": "direction",
+      "modern": "Direction",
+      "cat": "CONCEPT",
+      "mentions": 5,
+      "old_url": "https://en.wikipedia.org/wiki/Proof_of_concept",
+      "old_qid": "Q86913619"
+    },
+    {
+      "id": 787,
+      "name": "occiput",
+      "modern": "occiput",
+      "cat": "SUBSTANCE",
+      "mentions": 5,
+      "old_url": "https://en.wikipedia.org/wiki/Nape",
+      "old_qid": "Q374727"
+    },
+    {
+      "id": 1633,
+      "name": "modifications climatériques",
+      "modern": "climatic changes",
+      "cat": "CONCEPT",
+      "mentions": 5,
+      "old_url": "https://en.wikipedia.org/wiki/Climate_change_adaptation",
+      "old_qid": "Q260607"
+    },
+    {
+      "id": 1957,
+      "name": "dolor de estomago",
+      "modern": "Dyspepsia",
+      "cat": "DISEASE",
+      "mentions": 5,
+      "old_url": "https://en.wikipedia.org/wiki/Indigestion",
+      "old_qid": "Q653971"
+    },
+    {
+      "id": 3362,
+      "name": "chemists",
+      "modern": "Alchemists",
+      "cat": "PERSON",
+      "mentions": 5,
+      "old_url": "https://en.wikipedia.org/wiki/Alchemy",
+      "old_qid": "Q947275"
+    },
+    {
+      "id": 3373,
+      "name": "Macrobius",
+      "modern": "Macrobius",
+      "cat": "PERSON",
+      "mentions": 5,
+      "old_url": "https://en.wikipedia.org/wiki/Servius_the_Grammarian",
+      "old_qid": "Q313934"
+    },
+    {
+      "id": 3390,
+      "name": "Ivy",
+      "modern": "Ivy",
+      "cat": "PLANT",
+      "mentions": 5,
+      "old_url": "https://en.wikipedia.org/wiki/Hedera%20helix",
+      "old_qid": "Q26354"
+    },
+    {
+      "id": 3406,
+      "name": "elevation",
+      "modern": "Elevation",
+      "cat": "SUBSTANCE",
+      "mentions": 5,
+      "old_url": "https://en.wikipedia.org/wiki/List%20of%20elevators%20of%20the%20human%20body",
+      "old_qid": "Q787025"
+    },
+    {
+      "id": 3416,
+      "name": "creatures",
+      "modern": "creatures",
+      "cat": "ANIMAL",
+      "mentions": 5,
+      "old_url": "https://en.wikipedia.org/wiki/Zoology",
+      "old_qid": "Q431"
+    },
+    {
+      "id": 3421,
+      "name": "Lepidosiren",
+      "modern": "Lepidosiren",
+      "cat": "ANIMAL",
+      "mentions": 5,
+      "old_url": "https://en.wikipedia.org/wiki/South%20American%20lungfish",
+      "old_qid": "Q1410142"
+    },
+    {
+      "id": 3422,
+      "name": "physiological importance",
+      "modern": "Physiological importance",
+      "cat": "CONCEPT",
+      "mentions": 5,
+      "old_url": "https://en.wikipedia.org/wiki/Maslow's_hierarchy_of_needs",
+      "old_qid": "Q121770177"
+    },
+    {
+      "id": 3424,
+      "name": "pachyderms",
+      "modern": "Pachyderm",
+      "cat": "ANIMAL",
+      "mentions": 5,
+      "old_url": "https://en.wikipedia.org/wiki/Cutis%20laxa",
+      "old_qid": "Q2735907"
+    },
+    {
+      "id": 3427,
+      "name": "natural classification",
+      "modern": "Natural classification",
+      "cat": "CONCEPT",
+      "mentions": 5,
+      "old_url": "https://en.wikipedia.org/wiki/Taxonomy_(biology)",
+      "old_qid": "Q111718213"
+    },
+    {
+      "id": 3442,
+      "name": "camara",
+      "modern": "bowel movement",
+      "cat": "CONCEPT",
+      "mentions": 5,
+      "old_url": "https://en.wikipedia.org/wiki/Defecation",
+      "old_qid": "Q204015"
+    },
+    {
+      "id": 3455,
+      "name": "quauhchilli",
+      "modern": "Capsicum annuum",
+      "cat": "PLANT",
+      "mentions": 5,
+      "old_url": "https://en.wikipedia.org/wiki/Chili%20pepper",
+      "old_qid": "Q165199"
+    },
+    {
+      "id": 3457,
+      "name": "Xalapa",
+      "modern": "Xalapa",
+      "cat": "PLANT",
+      "mentions": 5,
+      "old_url": "https://en.wikipedia.org/wiki/Quercus%20xalapensis",
+      "old_qid": "Q4112274"
+    },
+    {
+      "id": 3470,
+      "name": "ovo",
+      "modern": "Egg",
+      "cat": "OBJECT",
+      "mentions": 5,
+      "old_url": "https://en.wikipedia.org/wiki/Testicle",
+      "old_qid": "Q9384"
+    },
+    {
+      "id": 3484,
+      "name": "Guanacas",
+      "modern": "Guanacas",
+      "cat": "PLACE",
+      "mentions": 5,
+      "old_url": "https://en.wikipedia.org/wiki/El_Salvador",
+      "old_qid": "Q690026"
+    },
+    {
+      "id": 3530,
+      "name": "Wolfe",
+      "modern": "Christoph Wirsung",
+      "cat": "PERSON",
+      "mentions": 5,
+      "old_url": "https://en.wikipedia.org/wiki/List_of_German_inventions_and_discoveries",
+      "old_qid": "Q1086119"
+    },
+    {
+      "id": 3535,
+      "name": "confusion",
+      "modern": "confusion",
+      "cat": "DISEASE",
+      "mentions": 5,
+      "old_url": "https://en.wikipedia.org/wiki/Sundowning",
+      "old_qid": "Q111529541"
+    },
+    {
+      "id": 3538,
+      "name": "disorder",
+      "modern": "Disorders",
+      "cat": "DISEASE",
+      "mentions": 5,
+      "old_url": "https://en.wikipedia.org/wiki/Dysautonomia",
+      "old_qid": "Q620639"
+    },
+    {
+      "id": 3555,
+      "name": "Gehler",
+      "modern": "Johann Gehler",
+      "cat": "PERSON",
+      "mentions": 5,
+      "old_url": "https://en.wikipedia.org/wiki/Christian_Gottlieb_Ludwig",
+      "old_qid": "Q94929555"
+    },
+    {
+      "id": 3576,
+      "name": "Sidereal System",
+      "modern": "Stellar system",
+      "cat": "PLACE",
+      "mentions": 5,
+      "old_url": "https://en.wikipedia.org/wiki/Sidereus_Nuncius",
+      "old_qid": "Q1457297"
+    },
+    {
+      "id": 3583,
+      "name": "PHALANGIUM",
+      "modern": "Harvestman",
+      "cat": "ANIMAL",
+      "mentions": 5,
+      "old_url": "https://en.wikipedia.org/wiki/Leiobunum%20rotundum",
+      "old_qid": "Q2392905"
+    },
+    {
+      "id": 3585,
+      "name": "Pomonae",
+      "modern": "Apple",
+      "cat": "PLANT",
+      "mentions": 5,
+      "old_url": "https://en.wikipedia.org/wiki/Malus",
+      "old_qid": "Q104819"
+    },
+    {
+      "id": 3621,
+      "name": "Granadilla",
+      "modern": "Granadilla",
+      "cat": "PLANT",
+      "mentions": 5,
+      "old_url": "https://en.wikipedia.org/wiki/Brya_ebenus",
+      "old_qid": "Q10741417"
+    },
+    {
+      "id": 3644,
+      "name": "alvus",
+      "modern": "Bowels",
+      "cat": "SUBSTANCE",
+      "mentions": 5,
+      "old_url": "https://en.wikipedia.org/wiki/Gastroenteritis",
+      "old_qid": "Q156103"
+    },
+    {
+      "id": 4380,
+      "name": "mata",
+      "modern": "Shrub",
+      "cat": "PLANT",
+      "mentions": 5,
+      "old_url": "https://en.wikipedia.org/wiki/Lantana",
+      "old_qid": "Q1096635"
+    },
+    {
+      "id": 4612,
+      "name": "rings",
+      "modern": "rings",
+      "cat": "OBJECT",
+      "mentions": 5,
+      "old_url": "https://en.wikipedia.org/wiki/Ring_system",
+      "old_qid": "Q46847"
+    },
+    {
+      "id": 4755,
+      "name": "falsificaçam",
+      "modern": "Falsification",
+      "cat": "CONCEPT",
+      "mentions": 5,
+      "old_url": "https://en.wikipedia.org/wiki/Forgery",
+      "old_qid": "Q1332286"
+    },
+    {
+      "id": 4801,
+      "name": "Cap. VII.",
+      "modern": "Chapter",
+      "cat": "CONCEPT",
+      "mentions": 5,
+      "old_url": "https://en.wikipedia.org/wiki/Concept",
+      "old_qid": "Q216285"
+    },
+    {
+      "id": 799,
+      "name": "increase",
+      "modern": "Increase",
+      "cat": "CONCEPT",
+      "mentions": 4,
+      "old_url": "https://en.wikipedia.org/wiki/Hypertension",
+      "old_qid": "Q41861"
+    },
+    {
+      "id": 1751,
+      "name": "force d'attraction",
+      "modern": "Forces of attraction",
+      "cat": "CONCEPT",
+      "mentions": 4,
+      "old_url": "https://en.wikipedia.org/wiki/Eros_(concept)",
+      "old_qid": "Q125851866"
+    },
+    {
+      "id": 1785,
+      "name": "beasts",
+      "modern": "beasts",
+      "cat": "ANIMAL",
+      "mentions": 4,
+      "old_url": "https://en.wikipedia.org/wiki/Zoology",
+      "old_qid": "Q431"
+    },
+    {
+      "id": 1802,
+      "name": "persons",
+      "modern": "persons",
+      "cat": "PERSON",
+      "mentions": 4,
+      "old_url": "https://en.wikipedia.org/wiki/Heaven%27s%20Gate%20%28religious%20group%29",
+      "old_qid": "Q46788"
+    },
+    {
+      "id": 1803,
+      "name": "Tobacco",
+      "modern": "Tobacco",
+      "cat": "PLANT",
+      "mentions": 4,
+      "old_url": "https://en.wikipedia.org/wiki/Nicotiana",
+      "old_qid": "Q851829"
+    },
+    {
+      "id": 1805,
+      "name": "redness",
+      "modern": "Redness",
+      "cat": "CONCEPT",
+      "mentions": 4,
+      "old_url": "https://en.wikipedia.org/wiki/Erythema",
+      "old_qid": "Q1166142"
+    },
+    {
+      "id": 1864,
+      "name": "Aconito",
+      "modern": "Aconite",
+      "cat": "PLANT",
+      "mentions": 4,
+      "old_url": "https://en.wikipedia.org/wiki/Aconitum",
+      "old_qid": "Q155904"
+    },
+    {
+      "id": 1872,
+      "name": "nutriment",
+      "modern": "Nutriment",
+      "cat": "SUBSTANCE",
+      "mentions": 4,
+      "old_url": "https://en.wikipedia.org/wiki/Mineral%20%28nutrient%29",
+      "old_qid": "Q189598"
+    },
+    {
+      "id": 3682,
+      "name": "tissus vivants",
+      "modern": "Living tissues",
+      "cat": "SUBSTANCE",
+      "mentions": 4,
+      "old_url": "https://en.wikipedia.org/wiki/Tissue%20%28biology%29",
+      "old_qid": "Q40397"
+    },
+    {
+      "id": 3684,
+      "name": "phénomènes morbides",
+      "modern": "Morbid phenomena",
+      "cat": "DISEASE",
+      "mentions": 4,
+      "old_url": "https://en.wikipedia.org/wiki/Pathology",
+      "old_qid": "Q7208"
+    },
+    {
+      "id": 3686,
+      "name": "système philosophique",
+      "modern": "Philosophical system",
+      "cat": "CONCEPT",
+      "mentions": 4,
+      "old_url": "https://en.wikipedia.org/wiki/Philosophy",
+      "old_qid": "Q5891"
+    },
+    {
+      "id": 3687,
+      "name": "a posteriori",
+      "modern": "A posteriori",
+      "cat": "CONCEPT",
+      "mentions": 4,
+      "old_url": "https://en.wikipedia.org/wiki/Posterior%20probability",
+      "old_qid": "Q278079"
+    },
+    {
+      "id": 3688,
+      "name": "invention",
+      "modern": "Invention",
+      "cat": "CONCEPT",
+      "mentions": 4,
+      "old_url": "https://en.wikipedia.org/wiki/August%203",
+      "old_qid": "Q2786"
+    },
+    {
+      "id": 3689,
+      "name": "spontanéité",
+      "modern": "spontaneity",
+      "cat": "CONCEPT",
+      "mentions": 4,
+      "old_url": "https://en.wikipedia.org/wiki/Spontaneous_generation",
+      "old_qid": "Q24233427"
+    },
+    {
+      "id": 3710,
+      "name": "Universities",
+      "modern": "Universities",
+      "cat": "CONCEPT",
+      "mentions": 4,
+      "old_url": "https://en.wikipedia.org/wiki/University%20of%20Cambridge",
+      "old_qid": "Q35794"
+    },
+    {
+      "id": 3731,
+      "name": "Crato",
+      "modern": "Cratevas",
+      "cat": "PERSON",
+      "mentions": 4,
+      "old_url": "https://en.wikipedia.org/wiki/Crateuas_(physician)",
+      "old_qid": "Q743993"
+    },
+    {
+      "id": 3751,
+      "name": "nouveau monde",
+      "modern": "Americas",
+      "cat": "PLACE",
+      "mentions": 4,
+      "old_url": "https://en.wikipedia.org/wiki/New%20World",
+      "old_qid": "Q127834"
+    },
+    {
+      "id": 3755,
+      "name": "obliquity of the ecliptic",
+      "modern": "obliquity of the ecliptic",
+      "cat": "CONCEPT",
+      "mentions": 4,
+      "old_url": "https://en.wikipedia.org/wiki/Axial%20tilt",
+      "old_qid": "Q179745"
+    },
+    {
+      "id": 3768,
+      "name": "Luminaries",
+      "modern": "Celestial bodies",
+      "cat": "CONCEPT",
+      "mentions": 4,
+      "old_url": "https://en.wikipedia.org/wiki/Astronomical%20object",
+      "old_qid": "Q6999"
+    },
+    {
+      "id": 3769,
+      "name": "Saxifrage",
+      "modern": "Saxifrage",
+      "cat": "PLANT",
+      "mentions": 4,
+      "old_url": "https://en.wikipedia.org/wiki/Saxifraga",
+      "old_qid": "Q156146"
+    },
+    {
+      "id": 3771,
+      "name": "Hops",
+      "modern": "Hops",
+      "cat": "PLANT",
+      "mentions": 4,
+      "old_url": "https://en.wikipedia.org/wiki/Dodonaea%20viscosa",
+      "old_qid": "Q58393"
+    },
+    {
+      "id": 3807,
+      "name": "Locusta",
+      "modern": "Grasshopper",
+      "cat": "ANIMAL",
+      "mentions": 4,
+      "old_url": "https://en.wikipedia.org/wiki/Melanoplus%20sanguinipes",
+      "old_qid": "Q10580727"
+    },
+    {
+      "id": 3820,
+      "name": "Cera amarilla",
+      "modern": "Yellow wax",
+      "cat": "SUBSTANCE",
+      "mentions": 4,
+      "old_url": "https://en.wikipedia.org/wiki/Spermaceti",
+      "old_qid": "Q72444945"
+    },
+    {
+      "id": 3822,
+      "name": "yuca",
+      "modern": "Yuca",
+      "cat": "PLANT",
+      "mentions": 4,
+      "old_url": "https://en.wikipedia.org/wiki/Cassava",
+      "old_qid": "Q83124"
+    },
+    {
+      "id": 3825,
+      "name": "alquitara",
+      "modern": "Alquitara",
+      "cat": "OBJECT",
+      "mentions": 4,
+      "old_url": "https://en.wikipedia.org/wiki/Alembic",
+      "old_qid": "Q845242"
+    },
+    {
+      "id": 3835,
+      "name": "calor do figado",
+      "modern": "liver heat",
+      "cat": "DISEASE",
+      "mentions": 4,
+      "old_url": "https://en.wikipedia.org/wiki/Hepatitis",
+      "old_qid": "Q131742"
+    },
+    {
+      "id": 3837,
+      "name": "delgada",
+      "modern": "thinness",
+      "cat": "CONCEPT",
+      "mentions": 4,
+      "old_url": "https://en.wikipedia.org/wiki/Underweight",
+      "old_qid": "Q1146902"
+    },
+    {
+      "id": 3932,
+      "name": "Bauchmuskeln",
+      "modern": "Abdominal muscles",
+      "cat": "SUBSTANCE",
+      "mentions": 4,
+      "old_url": "https://en.wikipedia.org/wiki/Rectus%20abdominis%20muscle",
+      "old_qid": "Q275150"
+    },
+    {
+      "id": 3950,
+      "name": "Hencke",
+      "modern": "Philipp Hencke",
+      "cat": "PERSON",
+      "mentions": 4,
+      "old_url": "https://en.wikipedia.org/wiki/Timeline_of_Solar_System_astronomy",
+      "old_qid": "Q133351737"
+    },
+    {
+      "id": 3980,
+      "name": "telescopic planets",
+      "modern": "Faint celestial objects",
+      "cat": "OBJECT",
+      "mentions": 4,
+      "old_url": "https://en.wikipedia.org/wiki/Star",
+      "old_qid": "Q523"
+    },
+    {
+      "id": 4006,
+      "name": "Auricularia",
+      "modern": "earwig",
+      "cat": "ANIMAL",
+      "mentions": 4,
+      "old_url": "https://en.wikipedia.org/wiki/Meropeidae",
+      "old_qid": "Q1941565"
+    },
+    {
+      "id": 4008,
+      "name": "Rubi",
+      "modern": "raspberry",
+      "cat": "PLANT",
+      "mentions": 4,
+      "old_url": "https://en.wikipedia.org/wiki/Rubus_idaeus",
+      "old_qid": "Q12252383"
+    },
+    {
+      "id": 4013,
+      "name": "Cagui",
+      "modern": "Marmoset",
+      "cat": "ANIMAL",
+      "mentions": 4,
+      "old_url": "https://en.wikipedia.org/wiki/Callitrichidae",
+      "old_qid": "Q574338"
+    },
+    {
+      "id": 4014,
+      "name": "Sternon",
+      "modern": "Sternum",
+      "cat": "SUBSTANCE",
+      "mentions": 4,
+      "old_url": "https://en.wikipedia.org/wiki/Sternal%20cleft",
+      "old_qid": "Q3952108"
+    },
+    {
+      "id": 4021,
+      "name": "Fabricio",
+      "modern": "Girolamo Fabrici",
+      "cat": "PERSON",
+      "mentions": 4,
+      "old_url": "https://en.wikipedia.org/wiki/Hieronymus%20Fabricius",
+      "old_qid": "Q435296"
+    },
+    {
+      "id": 4038,
+      "name": "smaragdi",
+      "modern": "Emerald",
+      "cat": "SUBSTANCE",
+      "mentions": 4,
+      "old_url": "https://en.wikipedia.org/wiki/Seattle",
+      "old_qid": "Q5083"
+    },
+    {
+      "id": 4072,
+      "name": "Zona",
+      "modern": "Herpes zoster",
+      "cat": "DISEASE",
+      "mentions": 4,
+      "old_url": "https://en.wikipedia.org/wiki/Shingles",
+      "old_qid": "Q182155"
+    },
+    {
+      "id": 4083,
+      "name": "furdez",
+      "modern": "furor",
+      "cat": "DISEASE",
+      "mentions": 4,
+      "old_url": "https://en.wikipedia.org/wiki/Rage%20%28emotion%29",
+      "old_qid": "Q153641"
+    },
+    {
+      "id": 1897,
+      "name": "corps minéraux",
+      "modern": "mineral substances",
+      "cat": "SUBSTANCE",
+      "mentions": 3,
+      "old_url": "https://en.wikipedia.org/wiki/Graphite",
+      "old_qid": "Q5309"
+    },
+    {
+      "id": 1899,
+      "name": "Apologue",
+      "modern": "Apology",
+      "cat": "CONCEPT",
+      "mentions": 3,
+      "old_url": "https://en.wikipedia.org/wiki/Apologia",
+      "old_qid": "Q1416320"
+    },
+    {
+      "id": 1905,
+      "name": "Adrian",
+      "modern": "Hadrian",
+      "cat": "PERSON",
+      "mentions": 3,
+      "old_url": "https://en.wikipedia.org/wiki/Edirne",
+      "old_qid": "Q43387"
+    },
+    {
+      "id": 1906,
+      "name": "prejudice",
+      "modern": "prejudice",
+      "cat": "CONCEPT",
+      "mentions": 3,
+      "old_url": "https://en.wikipedia.org/wiki/Bias",
+      "old_qid": "Q742736"
+    },
+    {
+      "id": 1922,
+      "name": "meatus",
+      "modern": "Meatus",
+      "cat": "SUBSTANCE",
+      "mentions": 3,
+      "old_url": "https://en.wikipedia.org/wiki/Vocal%20tract",
+      "old_qid": "Q748953"
+    },
+    {
+      "id": 1935,
+      "name": "Defluxions of humors",
+      "modern": "Humoralism",
+      "cat": "DISEASE",
+      "mentions": 3,
+      "old_url": "https://en.wikipedia.org/wiki/Humorism",
+      "old_qid": "Q5782572"
+    },
+    {
+      "id": 1945,
+      "name": "ribs",
+      "modern": "Ribs",
+      "cat": "SUBSTANCE",
+      "mentions": 3,
+      "old_url": "https://en.wikipedia.org/wiki/Rib%20cage",
+      "old_qid": "Q2576226"
+    },
+    {
+      "id": 1948,
+      "name": "carnivorous mammals",
+      "modern": "carnivorans",
+      "cat": "ANIMAL",
+      "mentions": 3,
+      "old_url": "https://en.wikipedia.org/wiki/Carnivore",
+      "old_qid": "Q81875"
+    },
+    {
+      "id": 1960,
+      "name": "mulatos",
+      "modern": "Mulatto",
+      "cat": "PERSON",
+      "mentions": 3,
+      "old_url": "https://en.wikipedia.org/wiki/Multiracial%20people",
+      "old_qid": "Q1378555"
+    },
+    {
+      "id": 1983,
+      "name": "brutes",
+      "modern": "Brutes",
+      "cat": "ANIMAL",
+      "mentions": 3,
+      "old_url": "https://en.wikipedia.org/wiki/Animal",
+      "old_qid": "Q729"
+    },
+    {
+      "id": 1994,
+      "name": "vibrating string",
+      "modern": "vibrating string",
+      "cat": "OBJECT",
+      "mentions": 3,
+      "old_url": "https://en.wikipedia.org/wiki/Sex_toy",
+      "old_qid": "Q3252739"
+    },
+    {
+      "id": 1999,
+      "name": "Great Indian Archipelago",
+      "modern": "Indonesian Archipelago",
+      "cat": "PLACE",
+      "mentions": 3,
+      "old_url": "https://en.wikipedia.org/wiki/Nusantara%20%28term%29",
+      "old_qid": "Q49332"
+    },
+    {
+      "id": 2001,
+      "name": "atmospheric resistance",
+      "modern": "air resistance",
+      "cat": "CONCEPT",
+      "mentions": 3,
+      "old_url": "https://en.wikipedia.org/wiki/Drag%20%28physics%29",
+      "old_qid": "Q206621"
+    },
+    {
+      "id": 2007,
+      "name": "Alpine chain",
+      "modern": "Alps",
+      "cat": "PLACE",
+      "mentions": 3,
+      "old_url": "https://en.wikipedia.org/wiki/Autoimmune%20lymphoproliferative%20syndrome",
+      "old_qid": "Q1151300"
+    },
+    {
+      "id": 2020,
+      "name": "Piloto",
+      "modern": "pilot",
+      "cat": "PERSON",
+      "mentions": 3,
+      "old_url": "https://en.wikipedia.org/wiki/Jonathan_Nolan",
+      "old_qid": "Q2095549"
+    },
+    {
+      "id": 4102,
+      "name": "recherches expérimentales",
+      "modern": "Experimental research",
+      "cat": "CONCEPT",
+      "mentions": 3,
+      "old_url": "https://en.wikipedia.org/wiki/Experimentalist",
+      "old_qid": "Q5421176"
+    },
+    {
+      "id": 4103,
+      "name": "macrocosme",
+      "modern": "Macrocosm",
+      "cat": "CONCEPT",
+      "mentions": 3,
+      "old_url": "https://en.wikipedia.org/wiki/Universe",
+      "old_qid": "Q1"
+    },
+    {
+      "id": 4118,
+      "name": "animaux hibernants",
+      "modern": "Hibernating animals",
+      "cat": "ANIMAL",
+      "mentions": 3,
+      "old_url": "https://en.wikipedia.org/wiki/Winter%20rest",
+      "old_qid": "Q2585087"
+    },
+    {
+      "id": 4125,
+      "name": "metaphysicians",
+      "modern": "metaphysicians",
+      "cat": "PERSON",
+      "mentions": 3,
+      "old_url": "https://en.wikipedia.org/wiki/Metaphysics",
+      "old_qid": "Q35277"
+    },
+    {
+      "id": 4128,
+      "name": "dogmas",
+      "modern": "Dogma",
+      "cat": "CONCEPT",
+      "mentions": 3,
+      "old_url": "https://en.wikipedia.org/wiki/Doctrine",
+      "old_qid": "Q117850"
+    },
+    {
+      "id": 4137,
+      "name": "tubera",
+      "modern": "Tubes",
+      "cat": "SUBSTANCE",
+      "mentions": 3,
+      "old_url": "https://en.wikipedia.org/wiki/Tubal%20ligation",
+      "old_qid": "Q1764560"
+    },
+    {
+      "id": 4166,
+      "name": "Mummies",
+      "modern": "Mummies",
+      "cat": "SUBSTANCE",
+      "mentions": 3,
+      "old_url": "https://en.wikipedia.org/wiki/Mummy",
+      "old_qid": "Q43616"
+    },
+    {
+      "id": 4198,
+      "name": "gummi Elemi",
+      "modern": "Elemi resin",
+      "cat": "PLANT",
+      "mentions": 3,
+      "old_url": "https://en.wikipedia.org/wiki/Primary%20school",
+      "old_qid": "Q9842"
+    },
+    {
+      "id": 4202,
+      "name": "Phytologie",
+      "modern": "Study of plants",
+      "cat": "CONCEPT",
+      "mentions": 3,
+      "old_url": "https://en.wikipedia.org/wiki/Botany",
+      "old_qid": "Q441"
+    },
+    {
+      "id": 4217,
+      "name": "silkworm",
+      "modern": "Silkworm",
+      "cat": "ANIMAL",
+      "mentions": 3,
+      "old_url": "https://en.wikipedia.org/wiki/Bombyx_mori",
+      "old_qid": "Q134747"
+    },
+    {
+      "id": 4250,
+      "name": "Kidney Bean",
+      "modern": "Kidney Bean",
+      "cat": "PLANT",
+      "mentions": 3,
+      "old_url": "https://en.wikipedia.org/wiki/Lablab",
+      "old_qid": "Q1077410"
+    },
+    {
+      "id": 4254,
+      "name": "White Roses",
+      "modern": "white rose",
+      "cat": "PLANT",
+      "mentions": 3,
+      "old_url": "https://en.wikipedia.org/wiki/Rosalba%20Carriera",
+      "old_qid": "Q237726"
+    },
+    {
+      "id": 4260,
+      "name": "Hemp",
+      "modern": "Hemp",
+      "cat": "PLANT",
+      "mentions": 3,
+      "old_url": "https://en.wikipedia.org/wiki/Cannabis%20sativa",
+      "old_qid": "Q26726"
+    },
+    {
+      "id": 4261,
+      "name": "Lunar",
+      "modern": "Lunar influence",
+      "cat": "CONCEPT",
+      "mentions": 3,
+      "old_url": "https://en.wikipedia.org/wiki/Moon",
+      "old_qid": "Q58731344"
+    },
+    {
+      "id": 4262,
+      "name": "wild Roses",
+      "modern": "Wild rose",
+      "cat": "PLANT",
+      "mentions": 3,
+      "old_url": "https://en.wikipedia.org/wiki/Rosa%20acicularis",
+      "old_qid": "Q218368"
+    },
+    {
+      "id": 4290,
+      "name": "butterfly",
+      "modern": "Butterfly",
+      "cat": "ANIMAL",
+      "mentions": 3,
+      "old_url": "https://en.wikipedia.org/wiki/Animal",
+      "old_qid": "Q11946202"
+    },
+    {
+      "id": 4298,
+      "name": "extinct species",
+      "modern": "Extinct species",
+      "cat": "ANIMAL",
+      "mentions": 3,
+      "old_url": "https://en.wikipedia.org/wiki/Extinction%20%28psychology%29",
+      "old_qid": "Q1385098"
+    },
+    {
+      "id": 4314,
+      "name": "Herr M.",
+      "modern": "Herr M.",
+      "cat": "PERSON",
+      "mentions": 3,
+      "old_url": "https://en.wikipedia.org/wiki/Non-Hodgkin_lymphoma",
+      "old_qid": "Q55023302"
+    },
+    {
+      "id": 4321,
+      "name": "subsistence",
+      "modern": "Subsistence",
+      "cat": "CONCEPT",
+      "mentions": 3,
+      "old_url": "https://en.wikipedia.org/wiki/Iron_law_of_wages",
+      "old_qid": "Q2787508"
+    },
+    {
+      "id": 4337,
+      "name": "huitzxochitl",
+      "modern": "Scarlet passionflower",
+      "cat": "PLANT",
+      "mentions": 3,
+      "old_url": "https://en.wikipedia.org/wiki/Passiflora%20coccinea",
+      "old_qid": "Q3437545"
+    },
+    {
+      "id": 4339,
+      "name": "agua ardiente",
+      "modern": "alcoholic spirit",
+      "cat": "SUBSTANCE",
+      "mentions": 3,
+      "old_url": "https://en.wikipedia.org/wiki/Ethanol",
+      "old_qid": "Q153"
+    },
+    {
+      "id": 4341,
+      "name": "pies",
+      "modern": "feet",
+      "cat": "SUBSTANCE",
+      "mentions": 3,
+      "old_url": "https://en.wikipedia.org/wiki/Association%20football",
+      "old_qid": "Q2736"
+    },
+    {
+      "id": 4346,
+      "name": "xalxocotl",
+      "modern": "Guava",
+      "cat": "PLANT",
+      "mentions": 3,
+      "old_url": "https://en.wikipedia.org/wiki/Psidium%20guajava",
+      "old_qid": "Q166843"
+    },
+    {
+      "id": 4347,
+      "name": "higos",
+      "modern": "Fig",
+      "cat": "PLANT",
+      "mentions": 3,
+      "old_url": "https://en.wikipedia.org/wiki/Ficus",
+      "old_qid": "Q59798"
+    },
+    {
+      "id": 4351,
+      "name": "xahuali",
+      "modern": "Annatto",
+      "cat": "PLANT",
+      "mentions": 3,
+      "old_url": "https://en.wikipedia.org/wiki/Bixa_orellana",
+      "old_qid": "Q147701"
+    },
+    {
+      "id": 4352,
+      "name": "higuero",
+      "modern": "Calabash tree",
+      "cat": "PLANT",
+      "mentions": 3,
+      "old_url": "https://en.wikipedia.org/wiki/Crescentia",
+      "old_qid": "Q1321860"
+    },
+    {
+      "id": 4353,
+      "name": "lexia",
+      "modern": "Lye",
+      "cat": "SUBSTANCE",
+      "mentions": 3,
+      "old_url": "https://en.wikipedia.org/wiki/Sodium%20hydroxide",
+      "old_qid": "Q102769"
+    },
+    {
+      "id": 4355,
+      "name": "PIMIENTA DE LAS INDIAS",
+      "modern": "Allspice",
+      "cat": "PLANT",
+      "mentions": 3,
+      "old_url": "https://en.wikipedia.org/wiki/Pimenta%20dioica",
+      "old_qid": "Q158468"
+    },
+    {
+      "id": 4374,
+      "name": "pallas",
+      "modern": "Prickly pear fruit",
+      "cat": "PLANT",
+      "mentions": 3,
+      "old_url": "https://en.wikipedia.org/wiki/Opuntia_humifusa",
+      "old_qid": "Q144412"
+    },
+    {
+      "id": 4387,
+      "name": "Ciruelas palas",
+      "modern": "Plums",
+      "cat": "PLANT",
+      "mentions": 3,
+      "old_url": "https://en.wikipedia.org/wiki/Prunus%20domestica",
+      "old_qid": "Q44120"
+    },
+    {
+      "id": 4392,
+      "name": "Pavões",
+      "modern": "Peacock/Manatee",
+      "cat": "ANIMAL",
+      "mentions": 3,
+      "old_url": "https://en.wikipedia.org/wiki/Three_Sisters_Springs_(Florida)",
+      "old_qid": "Q201251"
+    },
+    {
+      "id": 4396,
+      "name": "Alcornoque",
+      "modern": "Cork Oak",
+      "cat": "PLANT",
+      "mentions": 3,
+      "old_url": "https://en.wikipedia.org/wiki/Quercus%20suber",
+      "old_qid": "Q156137"
+    },
+    {
+      "id": 4445,
+      "name": "railways",
+      "modern": "Railways",
+      "cat": "OBJECT",
+      "mentions": 3,
+      "old_url": "https://en.wikipedia.org/wiki/Railroad",
+      "old_qid": "Q22667"
+    },
+    {
+      "id": 4463,
+      "name": "Miniſtros",
+      "modern": "ministers",
+      "cat": "PERSON",
+      "mentions": 3,
+      "old_url": "https://en.wikipedia.org/wiki/Minister_%28government%29",
+      "old_qid": "Q83307"
+    },
+    {
+      "id": 4468,
+      "name": "Essai sur la Geographie des Plantes",
+      "modern": "Essay on the Geography of Plants",
+      "cat": "CONCEPT",
+      "mentions": 3,
+      "old_url": "https://en.wikipedia.org/wiki/Penilaian_Menengah_Rendah",
+      "old_qid": "Q51469713"
+    },
+    {
+      "id": 4475,
+      "name": "Gossypiam",
+      "modern": "Cotton",
+      "cat": "PLANT",
+      "mentions": 3,
+      "old_url": "https://en.wikipedia.org/wiki/Gossypium",
+      "old_qid": "Q719312"
+    },
+    {
+      "id": 4503,
+      "name": "Gehirnkrankheiten",
+      "modern": "Brain diseases",
+      "cat": "DISEASE",
+      "mentions": 3,
+      "old_url": "https://en.wikipedia.org/wiki/Encephalopathy",
+      "old_qid": "Q576349"
+    },
+    {
+      "id": 4505,
+      "name": "tactile",
+      "modern": "tactile",
+      "cat": "CONCEPT",
+      "mentions": 3,
+      "old_url": "https://en.wikipedia.org/wiki/CD96",
+      "old_qid": "Q18035138"
+    },
+    {
+      "id": 4511,
+      "name": "D. G. Thompson",
+      "modern": "Daniel Greenleaf Thompson",
+      "cat": "PERSON",
+      "mentions": 3,
+      "old_url": "https://en.wikipedia.org/wiki/Thomas_Russell_Gerry",
+      "old_qid": "Q18657318"
+    },
+    {
+      "id": 4528,
+      "name": "mixed",
+      "modern": "mixed",
+      "cat": "CONCEPT",
+      "mentions": 3,
+      "old_url": "https://en.wikipedia.org/wiki/Augsburg",
+      "old_qid": "Q2749"
+    },
+    {
+      "id": 4537,
+      "name": "anatomical connection",
+      "modern": "anatomical connection",
+      "cat": "SUBSTANCE",
+      "mentions": 3,
+      "old_url": "https://en.wikipedia.org/wiki/Connectome",
+      "old_qid": "Q59547567"
+    },
+    {
+      "id": 4551,
+      "name": "affection",
+      "modern": "Affection",
+      "cat": "CONCEPT",
+      "mentions": 3,
+      "old_url": "https://en.wikipedia.org/wiki/Love",
+      "old_qid": "Q316"
+    },
+    {
+      "id": 4558,
+      "name": "ideal world",
+      "modern": "Ideal world",
+      "cat": "CONCEPT",
+      "mentions": 3,
+      "old_url": "https://en.wikipedia.org/wiki/Eros_(concept)",
+      "old_qid": "Q5987977"
+    },
+    {
+      "id": 4560,
+      "name": "imagines",
+      "modern": "Mental representations",
+      "cat": "CONCEPT",
+      "mentions": 3,
+      "old_url": "https://en.wikipedia.org/wiki/Thought",
+      "old_qid": "Q112040407"
+    },
+    {
+      "id": 4572,
+      "name": "Chapter X.",
+      "modern": "Chapter reference",
+      "cat": "CONCEPT",
+      "mentions": 3,
+      "old_url": "https://en.wikipedia.org/wiki/Concept",
+      "old_qid": "Q77262860"
+    },
+    {
+      "id": 4575,
+      "name": "nervous impressions",
+      "modern": "Nervous impulse",
+      "cat": "SUBSTANCE",
+      "mentions": 3,
+      "old_url": "https://en.wikipedia.org/wiki/Substance_abuse",
+      "old_qid": "Q3150791"
+    },
+    {
+      "id": 4599,
+      "name": "detritus",
+      "modern": "Detritus",
+      "cat": "SUBSTANCE",
+      "mentions": 3,
+      "old_url": "https://en.wikipedia.org/wiki/Detritivore",
+      "old_qid": "Q2750657"
+    },
+    {
+      "id": 4603,
+      "name": "Nereides",
+      "modern": "Nereids",
+      "cat": "ANIMAL",
+      "mentions": 3,
+      "old_url": "https://en.wikipedia.org/wiki/Nereididae",
+      "old_qid": "Q1280602"
+    },
+    {
+      "id": 4614,
+      "name": "joy",
+      "modern": "Joy",
+      "cat": "CONCEPT",
+      "mentions": 3,
+      "old_url": "https://en.wikipedia.org/wiki/Borderline%20personality%20disorder",
+      "old_qid": "Q208166"
+    },
+    {
+      "id": 4635,
+      "name": "bluish white",
+      "modern": "Color description",
+      "cat": "SUBSTANCE",
+      "mentions": 3,
+      "old_url": "https://en.wikipedia.org/wiki/Colorado",
+      "old_qid": "Q1261"
+    },
+    {
+      "id": 4647,
+      "name": "mausim",
+      "modern": "Mausim",
+      "cat": "CONCEPT",
+      "mentions": 3,
+      "old_url": "https://en.wikipedia.org/wiki/Manasik",
+      "old_qid": "Q1884005"
+    },
+    {
+      "id": 4672,
+      "name": "Seta",
+      "modern": "Seta",
+      "cat": "ANIMAL",
+      "mentions": 3,
+      "old_url": "https://en.wikipedia.org/wiki/Foxtail%20millet",
+      "old_qid": "Q161211"
+    },
+    {
+      "id": 4673,
+      "name": "Tarsio",
+      "modern": "Tarsus",
+      "cat": "SUBSTANCE",
+      "mentions": 3,
+      "old_url": "https://en.wikipedia.org/wiki/Çağ_University",
+      "old_qid": "Q168002"
+    },
+    {
+      "id": 4678,
+      "name": "Thlafpi",
+      "modern": "Pennycress",
+      "cat": "PLANT",
+      "mentions": 3,
+      "old_url": "https://en.wikipedia.org/wiki/Thlaspi",
+      "old_qid": "Q1133524"
+    },
+    {
+      "id": 4679,
+      "name": "Rapa",
+      "modern": "Turnip",
+      "cat": "PLANT",
+      "mentions": 3,
+      "old_url": "https://en.wikipedia.org/wiki/Napa%20cabbage",
+      "old_qid": "Q13360268"
+    },
+    {
+      "id": 4687,
+      "name": "Mufcus marinus",
+      "modern": "Sea moss",
+      "cat": "PLANT",
+      "mentions": 3,
+      "old_url": "https://en.wikipedia.org/wiki/Corallina%20officinalis",
+      "old_qid": "Q1784208"
+    },
+    {
+      "id": 4700,
+      "name": "Vertex",
+      "modern": "Vertex",
+      "cat": "SUBSTANCE",
+      "mentions": 3,
+      "old_url": "https://en.wikipedia.org/wiki/Head",
+      "old_qid": "Q23640"
+    },
+    {
+      "id": 4702,
+      "name": "Nifus",
+      "modern": "Hawk",
+      "cat": "ANIMAL",
+      "mentions": 3,
+      "old_url": "https://en.wikipedia.org/wiki/Hieracium",
+      "old_qid": "Q16526"
+    },
+    {
+      "id": 4703,
+      "name": "Aracari",
+      "modern": "Aracari",
+      "cat": "ANIMAL",
+      "mentions": 3,
+      "old_url": "https://en.wikipedia.org/wiki/Northern%20emerald%20toucanet",
+      "old_qid": "Q179747"
+    },
+    {
+      "id": 4708,
+      "name": "Auctor",
+      "modern": "Author",
+      "cat": "PERSON",
+      "mentions": 3,
+      "old_url": "https://en.wikipedia.org/wiki/Drawer%20%28artist%29",
+      "old_qid": "Q15296811"
+    },
+    {
+      "id": 4715,
+      "name": "oculis nigris",
+      "modern": "black eyes",
+      "cat": "SUBSTANCE",
+      "mentions": 3,
+      "old_url": "https://en.wikipedia.org/wiki/Weak_position_(poetry)",
+      "old_qid": "Q491257"
+    },
+    {
+      "id": 4718,
+      "name": "Roferofle",
+      "modern": "Rose",
+      "cat": "PLANT",
+      "mentions": 3,
+      "old_url": "https://en.wikipedia.org/wiki/Rosaceae",
+      "old_qid": "Q46299"
+    },
+    {
+      "id": 4719,
+      "name": "Goffypio",
+      "modern": "Cotton plant",
+      "cat": "PLANT",
+      "mentions": 3,
+      "old_url": "https://en.wikipedia.org/wiki/Gossypium",
+      "old_qid": "Q719312"
+    },
+    {
+      "id": 4750,
+      "name": "Catholicos",
+      "modern": "Catholicism",
+      "cat": "PERSON",
+      "mentions": 3,
+      "old_url": "https://en.wikipedia.org/wiki/Catholic%20Church",
+      "old_qid": "Q9592"
+    },
+    {
+      "id": 4758,
+      "name": "Battas",
+      "modern": "Sumatran people",
+      "cat": "PERSON",
+      "mentions": 3,
+      "old_url": "https://en.wikipedia.org/wiki/South%20Sumatra",
+      "old_qid": "Q2271"
+    },
+    {
+      "id": 4761,
+      "name": "crísteis",
+      "modern": "Suppositories",
+      "cat": "SUBSTANCE",
+      "mentions": 3,
+      "old_url": "https://en.wikipedia.org/wiki/Suppository",
+      "old_qid": "Q180799"
+    },
+    {
+      "id": 4763,
+      "name": "letrados",
+      "modern": "Legal scholar",
+      "cat": "PERSON",
+      "mentions": 3,
+      "old_url": "https://en.wikipedia.org/wiki/Jurist",
+      "old_qid": "Q185351"
+    },
+    {
+      "id": 4767,
+      "name": "panditos",
+      "modern": "Pandits",
+      "cat": "PERSON",
+      "mentions": 3,
+      "old_url": "https://en.wikipedia.org/wiki/Pundit%20%28explorer%29",
+      "old_qid": "Q2336535"
+    },
+    {
+      "id": 4782,
+      "name": "Quastionibus",
+      "modern": "questions",
+      "cat": "CONCEPT",
+      "mentions": 3,
+      "old_url": "https://en.wikipedia.org/wiki/Interpellation%20%28politics%29",
+      "old_qid": "Q1505023"
+    },
+    {
+      "id": 4805,
+      "name": "Irritantes",
+      "modern": "Irritants",
+      "cat": "CONCEPT",
+      "mentions": 3,
+      "old_url": "https://en.wikipedia.org/wiki/Irritation",
+      "old_qid": "Q2142251"
+    },
+    {
+      "id": 4813,
+      "name": "inteſtinis",
+      "modern": "Intestines",
+      "cat": "SUBSTANCE",
+      "mentions": 3,
+      "old_url": "https://en.wikipedia.org/wiki/Gastroenteritis",
+      "old_qid": "Q156103"
+    },
+    {
+      "id": 4815,
+      "name": "refina",
+      "modern": "Refined substance",
+      "cat": "SUBSTANCE",
+      "mentions": 3,
+      "old_url": "https://en.wikipedia.org/wiki/Mole_(unit)",
+      "old_qid": "Q106158069"
+    },
+    {
+      "id": 4816,
+      "name": "venereo",
+      "modern": "Venereal",
+      "cat": "CONCEPT",
+      "mentions": 3,
+      "old_url": "https://en.wikipedia.org/wiki/Reactive%20arthritis",
+      "old_qid": "Q1327700"
+    },
+    {
+      "id": 4818,
+      "name": "acqua vite",
+      "modern": "Alcoholic spirits",
+      "cat": "SUBSTANCE",
+      "mentions": 3,
+      "old_url": "https://en.wikipedia.org/wiki/Aqua%20vitae",
+      "old_qid": "Q2511275"
+    },
+    {
+      "id": 4820,
+      "name": "balfamo",
+      "modern": "Balsam",
+      "cat": "PLANT",
+      "mentions": 3,
+      "old_url": "https://en.wikipedia.org/wiki/Momordica%20charantia",
+      "old_qid": "Q428750"
+    },
+    {
+      "id": 4821,
+      "name": "opoponaco",
+      "modern": "Opoponax",
+      "cat": "PLANT",
+      "mentions": 3,
+      "old_url": "https://en.wikipedia.org/wiki/Opopanax%20chironium",
+      "old_qid": "Q13560912"
+    },
+    {
+      "id": 4823,
+      "name": "ipericaó",
+      "modern": "St. John's Wort",
+      "cat": "PLANT",
+      "mentions": 3,
+      "old_url": "https://en.wikipedia.org/wiki/Hypericum%20perforatum",
+      "old_qid": "Q158289"
+    },
+    {
+      "id": 4839,
+      "name": "magnetic condition",
+      "modern": "magnetic state",
+      "cat": "CONCEPT",
+      "mentions": 3,
+      "old_url": "https://en.wikipedia.org/wiki/Magnetism",
+      "old_qid": "Q6731637"
+    },
+    {
+      "id": 4848,
+      "name": "objective",
+      "modern": "objective",
+      "cat": "CONCEPT",
+      "mentions": 2,
+      "old_url": "https://en.wikipedia.org/wiki/Subjectivity_and_objectivity_(philosophy)",
+      "old_qid": "Q206330"
+    },
+    {
+      "id": 4853,
+      "name": "principes mathématiques",
+      "modern": "Mathematical principles",
+      "cat": "CONCEPT",
+      "mentions": 2,
+      "old_url": "https://en.wikipedia.org/wiki/Pure_mathematics",
+      "old_qid": "Q205921"
+    },
+    {
+      "id": 4861,
+      "name": "éléments nerveux",
+      "modern": "nerve cells",
+      "cat": "SUBSTANCE",
+      "mentions": 2,
+      "old_url": "https://en.wikipedia.org/wiki/Lissencephaly",
+      "old_qid": "Q1544416"
+    },
+    {
+      "id": 4875,
+      "name": "Bonnet",
+      "modern": "Charles Bonnet",
+      "cat": "PERSON",
+      "mentions": 2,
+      "old_url": "https://en.wikipedia.org/wiki/Visual%20release%20hallucinations",
+      "old_qid": "Q921907"
+    },
+    {
+      "id": 4880,
+      "name": "état physiologique",
+      "modern": "Physiological state",
+      "cat": "CONCEPT",
+      "mentions": 2,
+      "old_url": "https://en.wikipedia.org/wiki/Physiology",
+      "old_qid": "Q521"
+    },
+    {
+      "id": 4882,
+      "name": "dispositions anatomiques",
+      "modern": "Anatomical arrangement",
+      "cat": "SUBSTANCE",
+      "mentions": 2,
+      "old_url": "https://en.wikipedia.org/wiki/Anatomy",
+      "old_qid": "Q514"
+    },
+    {
+      "id": 4884,
+      "name": "liquides nourriciers",
+      "modern": "Nutritive fluids",
+      "cat": "SUBSTANCE",
+      "mentions": 2,
+      "old_url": "https://en.wikipedia.org/wiki/Semen",
+      "old_qid": "Q181394"
+    },
+    {
+      "id": 4885,
+      "name": "animaux articulés",
+      "modern": "Arthropods",
+      "cat": "ANIMAL",
+      "mentions": 2,
+      "old_url": "https://en.wikipedia.org/wiki/Arthropodium",
+      "old_qid": "Q4797685"
+    },
+    {
+      "id": 4886,
+      "name": "fécondations",
+      "modern": "Fertilization",
+      "cat": "CONCEPT",
+      "mentions": 2,
+      "old_url": "https://en.wikipedia.org/wiki/Fertilisation",
+      "old_qid": "Q14890574"
+    },
+    {
+      "id": 4888,
+      "name": "méthode par différence",
+      "modern": "Method of difference",
+      "cat": "CONCEPT",
+      "mentions": 2,
+      "old_url": "https://en.wikipedia.org/wiki/Mill's_methods",
+      "old_qid": "Q137772518"
+    },
+    {
+      "id": 4898,
+      "name": "vues",
+      "modern": "Views",
+      "cat": "CONCEPT",
+      "mentions": 2,
+      "old_url": "https://en.wikipedia.org/wiki/The_View",
+      "old_qid": "Q92998777"
+    },
+    {
+      "id": 4906,
+      "name": "entozoaires",
+      "modern": "entozoa",
+      "cat": "ANIMAL",
+      "mentions": 2,
+      "old_url": "https://en.wikipedia.org/wiki/Eumetazoa",
+      "old_qid": "Q5174"
+    },
+    {
+      "id": 4922,
+      "name": "Juments",
+      "modern": "mares",
+      "cat": "ANIMAL",
+      "mentions": 2,
+      "old_url": "https://en.wikipedia.org/wiki/Horse",
+      "old_qid": "Q726"
+    },
+    {
+      "id": 4925,
+      "name": "Rhodomanus",
+      "modern": "Christoph Rhode",
+      "cat": "PERSON",
+      "mentions": 2,
+      "old_url": "https://en.wikipedia.org/wiki/List_of_school_shootings_in_the_United_States_by_death_toll",
+      "old_qid": "Q94878982"
+    },
+    {
+      "id": 4929,
+      "name": "Murena",
+      "modern": "Murena",
+      "cat": "ANIMAL",
+      "mentions": 2,
+      "old_url": "https://en.wikipedia.org/wiki/Moray_eel",
+      "old_qid": "Q135086185"
+    },
+    {
+      "id": 4944,
+      "name": "Rule",
+      "modern": "Rule",
+      "cat": "CONCEPT",
+      "mentions": 2,
+      "old_url": "https://en.wikipedia.org/wiki/Legal_norm",
+      "old_qid": "Q216200"
+    },
+    {
+      "id": 4945,
+      "name": "Archidoxis",
+      "modern": "Archidoxis",
+      "cat": "CONCEPT",
+      "mentions": 2,
+      "old_url": "https://en.wikipedia.org/wiki/Paracelsus",
+      "old_qid": "Q30716455"
+    },
+    {
+      "id": 4954,
+      "name": "Poles of the World",
+      "modern": "Earth's Poles",
+      "cat": "SUBSTANCE",
+      "mentions": 2,
+      "old_url": "https://en.wikipedia.org/wiki/North_magnetic_pole",
+      "old_qid": "Q3907660"
+    },
+    {
+      "id": 4958,
+      "name": "Iron wire",
+      "modern": "Iron wire",
+      "cat": "SUBSTANCE",
+      "mentions": 2,
+      "old_url": "https://en.wikipedia.org/wiki/Ohm",
+      "old_qid": "Q3071740"
+    },
+    {
+      "id": 4976,
+      "name": "boughs",
+      "modern": "Boughs",
+      "cat": "SUBSTANCE",
+      "mentions": 2,
+      "old_url": "https://en.wikipedia.org/wiki/The_Golden_Bough",
+      "old_qid": "Q2923673"
+    },
+    {
+      "id": 4982,
+      "name": "Johannes Faber",
+      "modern": "Joannes Faber",
+      "cat": "PERSON",
+      "mentions": 2,
+      "old_url": "https://en.wikipedia.org/wiki/Jean-Jacques_Manget",
+      "old_qid": "Q41569344"
+    },
+    {
+      "id": 4987,
+      "name": "Yew",
+      "modern": "Yew",
+      "cat": "PLANT",
+      "mentions": 2,
+      "old_url": "https://en.wikipedia.org/wiki/Taxus",
+      "old_qid": "Q8053327"
+    },
+    {
+      "id": 5007,
+      "name": "Reception",
+      "modern": "Reception Theory",
+      "cat": "CONCEPT",
+      "mentions": 2,
+      "old_url": "https://en.wikipedia.org/wiki/Encoding/decoding_model_of_communication",
+      "old_qid": "Q3067311"
+    },
+    {
+      "id": 5011,
+      "name": "Glow-worms",
+      "modern": "Glow-worm",
+      "cat": "ANIMAL",
+      "mentions": 2,
+      "old_url": "https://en.wikipedia.org/wiki/Glowworm",
+      "old_qid": "Q3248829"
+    },
+    {
+      "id": 5018,
+      "name": "vache marine",
+      "modern": "Manatees",
+      "cat": "ANIMAL",
+      "mentions": 2,
+      "old_url": "https://en.wikipedia.org/wiki/West%20Indian%20manatee",
+      "old_qid": "Q40261"
+    },
+    {
+      "id": 5022,
+      "name": "alumine",
+      "modern": "Alumina",
+      "cat": "SUBSTANCE",
+      "mentions": 2,
+      "old_url": "https://en.wikipedia.org/wiki/Aluminium%20oxide",
+      "old_qid": "Q177342"
+    },
+    {
+      "id": 5025,
+      "name": "métaux moins parfaits",
+      "modern": "Imperfect Metals",
+      "cat": "SUBSTANCE",
+      "mentions": 2,
+      "old_url": "https://en.wikipedia.org/wiki/Post-transition_metal",
+      "old_qid": "Q947275"
+    },
+    {
+      "id": 5027,
+      "name": "Cachemire",
+      "modern": "Kashmir",
+      "cat": "PLACE",
+      "mentions": 2,
+      "old_url": "https://en.wikipedia.org/wiki/Kashmar",
+      "old_qid": "Q720403"
+    },
+    {
+      "id": 5033,
+      "name": "combustibles",
+      "modern": "Combustible substances",
+      "cat": "SUBSTANCE",
+      "mentions": 2,
+      "old_url": "https://en.wikipedia.org/wiki/Fuel",
+      "old_qid": "Q42501"
+    },
+    {
+      "id": 5040,
+      "name": "haut",
+      "modern": "Upper reaches",
+      "cat": "PLACE",
+      "mentions": 2,
+      "old_url": "https://en.wikipedia.org/wiki/Elbe",
+      "old_qid": "Q2182740"
+    },
+    {
+      "id": 5059,
+      "name": "culture",
+      "modern": "Culture",
+      "cat": "CONCEPT",
+      "mentions": 2,
+      "old_url": "https://en.wikipedia.org/wiki/Isfahan",
+      "old_qid": "Q42053"
+    },
+    {
+      "id": 5065,
+      "name": "sagittas",
+      "modern": "Arrows",
+      "cat": "OBJECT",
+      "mentions": 2,
+      "old_url": "https://en.wikipedia.org/wiki/Morphism",
+      "old_qid": "Q1948412"
+    },
+    {
+      "id": 5084,
+      "name": "Hawthorn",
+      "modern": "Hawthorn",
+      "cat": "PLANT",
+      "mentions": 2,
+      "old_url": "https://en.wikipedia.org/wiki/Crataegus",
+      "old_qid": "Q132557"
+    },
+    {
+      "id": 5094,
+      "name": "dim Eyes",
+      "modern": "Dimness of vision",
+      "cat": "DISEASE",
+      "mentions": 2,
+      "old_url": "https://en.wikipedia.org/wiki/Visual_snow_syndrome",
+      "old_qid": "Q2138853"
+    },
+    {
+      "id": 5098,
+      "name": "Salt tast",
+      "modern": "Salty taste",
+      "cat": "CONCEPT",
+      "mentions": 2,
+      "old_url": "https://en.wikipedia.org/wiki/Brigitte_Bardot",
+      "old_qid": "Q22243806"
+    },
+    {
+      "id": 5122,
+      "name": "canine animals",
+      "modern": "canine animals",
+      "cat": "ANIMAL",
+      "mentions": 2,
+      "old_url": "https://en.wikipedia.org/wiki/Working_animal",
+      "old_qid": "Q2474088"
+    },
+    {
+      "id": 5130,
+      "name": "sub-classes",
+      "modern": "Subclasses",
+      "cat": "CONCEPT",
+      "mentions": 2,
+      "old_url": "https://en.wikipedia.org/wiki/Template_method_pattern",
+      "old_qid": "Q3965271"
+    },
+    {
+      "id": 5132,
+      "name": "coleoptera",
+      "modern": "Coleoptera",
+      "cat": "ANIMAL",
+      "mentions": 2,
+      "old_url": "https://en.wikipedia.org/wiki/Beetle",
+      "old_qid": "Q22671"
+    },
+    {
+      "id": 5137,
+      "name": "European species of plants",
+      "modern": "European flora",
+      "cat": "PLANT",
+      "mentions": 2,
+      "old_url": "https://en.wikipedia.org/wiki/Xanthium_strumarium",
+      "old_qid": "Q31180018"
+    },
+    {
+      "id": 5143,
+      "name": "spinal stripe",
+      "modern": "spinal stripe",
+      "cat": "SUBSTANCE",
+      "mentions": 2,
+      "old_url": "https://en.wikipedia.org/wiki/Red_fox",
+      "old_qid": "Q5140284"
+    },
+    {
+      "id": 5145,
+      "name": "transparent tissue",
+      "modern": "transparent and opaque materials",
+      "cat": "SUBSTANCE",
+      "mentions": 2,
+      "old_url": "https://en.wikipedia.org/wiki/Optical_properties",
+      "old_qid": "Q2643571"
+    },
+    {
+      "id": 5159,
+      "name": "M. jalappa",
+      "modern": "Four o'clock flower",
+      "cat": "PLANT",
+      "mentions": 2,
+      "old_url": "https://en.wikipedia.org/wiki/Mirabilis%20jalapa",
+      "old_qid": "Q13710"
+    },
+    {
+      "id": 5162,
+      "name": "vegetative systems",
+      "modern": "Vegetative and animal systems",
+      "cat": "SUBSTANCE",
+      "mentions": 2,
+      "old_url": "https://en.wikipedia.org/wiki/Vegetation",
+      "old_qid": "Q30336093"
+    },
+    {
+      "id": 5179,
+      "name": "Proteaceæ",
+      "modern": "Proteaceae",
+      "cat": "PLANT",
+      "mentions": 2,
+      "old_url": "https://en.wikipedia.org/wiki/Grevilleoideae",
+      "old_qid": "Q157228"
+    },
+    {
+      "id": 5182,
+      "name": "kangaroo",
+      "modern": "Kangaroo",
+      "cat": "ANIMAL",
+      "mentions": 2,
+      "old_url": "https://en.wikipedia.org/wiki/Macropodidae",
+      "old_qid": "Q23193"
+    },
+    {
+      "id": 5192,
+      "name": "Sageret",
+      "modern": "Sageret",
+      "cat": "PERSON",
+      "mentions": 2,
+      "old_url": "https://en.wikipedia.org/wiki/Watermelon",
+      "old_qid": "Q2871651"
+    },
+    {
+      "id": 5194,
+      "name": "dolores de todos los miembros",
+      "modern": "Limb pain",
+      "cat": "DISEASE",
+      "mentions": 2,
+      "old_url": "https://en.wikipedia.org/wiki/Stiff-person_syndrome",
+      "old_qid": "Q1531343"
+    },
+    {
+      "id": 5198,
+      "name": "lauandula",
+      "modern": "Lavender",
+      "cat": "PLANT",
+      "mentions": 2,
+      "old_url": "https://en.wikipedia.org/wiki/Lavandula",
+      "old_qid": "Q171892"
+    },
+    {
+      "id": 5204,
+      "name": "colirio",
+      "modern": "Eyedrop preparation",
+      "cat": "SUBSTANCE",
+      "mentions": 2,
+      "old_url": "https://en.wikipedia.org/wiki/Eye_drop",
+      "old_qid": "Q552308"
+    },
+    {
+      "id": 5213,
+      "name": "chaüguarica",
+      "modern": "Achiote",
+      "cat": "PLANT",
+      "mentions": 2,
+      "old_url": "https://en.wikipedia.org/wiki/Bixa%20orellana",
+      "old_qid": "Q147701"
+    },
+    {
+      "id": 5223,
+      "name": "orozuz",
+      "modern": "Glycyrrhiza glabra",
+      "cat": "PLANT",
+      "mentions": 2,
+      "old_url": "https://en.wikipedia.org/wiki/Galium%20circaezans",
+      "old_qid": "Q15447514"
+    },
+    {
+      "id": 5235,
+      "name": "astringcion",
+      "modern": "astringency",
+      "cat": "CONCEPT",
+      "mentions": 2,
+      "old_url": "https://en.wikipedia.org/wiki/Astringent%20%28taste%29",
+      "old_qid": "Q9141413"
+    },
+    {
+      "id": 5240,
+      "name": "agua dulce",
+      "modern": "Fresh water",
+      "cat": "SUBSTANCE",
+      "mentions": 2,
+      "old_url": "https://en.wikipedia.org/wiki/Freshwater%20fish",
+      "old_qid": "Q1072742"
+    },
+    {
+      "id": 5243,
+      "name": "autor moderno",
+      "modern": "Modern authors",
+      "cat": "PERSON",
+      "mentions": 2,
+      "old_url": "https://en.wikipedia.org/wiki/You",
+      "old_qid": "Q15296811"
+    },
+    {
+      "id": 5244,
+      "name": "Tezcuco",
+      "modern": "Texcoco",
+      "cat": "PLACE",
+      "mentions": 2,
+      "old_url": "https://en.wikipedia.org/wiki/Tetzcoco_(altepetl)",
+      "old_qid": "Q2047652"
+    },
+    {
+      "id": 5246,
+      "name": "nuez",
+      "modern": "Nuez de Mechoacan",
+      "cat": "PLANT",
+      "mentions": 2,
+      "old_url": "https://en.wikipedia.org/wiki/Ipomoea_purga",
+      "old_qid": "Q1123117"
+    },
+    {
+      "id": 5252,
+      "name": "nepeta",
+      "modern": "Nepeta cataria",
+      "cat": "PLANT",
+      "mentions": 2,
+      "old_url": "https://en.wikipedia.org/wiki/Catnip",
+      "old_qid": "Q161139"
+    },
+    {
+      "id": 5262,
+      "name": "maguey negro",
+      "modern": "Black maguey",
+      "cat": "PLANT",
+      "mentions": 2,
+      "old_url": "https://en.wikipedia.org/wiki/Agave",
+      "old_qid": "Q155874"
+    },
+    {
+      "id": 5264,
+      "name": "urinan sangre",
+      "modern": "Hematuria",
+      "cat": "DISEASE",
+      "mentions": 2,
+      "old_url": "https://en.wikipedia.org/wiki/Thin%20basement%20membrane%20disease",
+      "old_qid": "Q1574609"
+    },
+    {
+      "id": 5265,
+      "name": "campanilla",
+      "modern": "Bellflower",
+      "cat": "PLANT",
+      "mentions": 2,
+      "old_url": "https://en.wikipedia.org/wiki/Campanula",
+      "old_qid": "Q157069"
+    },
+    {
+      "id": 5269,
+      "name": "cauterio",
+      "modern": "Cautery",
+      "cat": "OBJECT",
+      "mentions": 2,
+      "old_url": "https://en.wikipedia.org/wiki/Cauterization",
+      "old_qid": "Q1136347"
+    },
+    {
+      "id": 5278,
+      "name": "pureté",
+      "modern": "Purity",
+      "cat": "CONCEPT",
+      "mentions": 2,
+      "old_url": "https://en.wikipedia.org/wiki/Fineness",
+      "old_qid": "Q1401905"
+    },
+    {
+      "id": 5308,
+      "name": "hongrois",
+      "modern": "Hungarian",
+      "cat": "PERSON",
+      "mentions": 2,
+      "old_url": "https://en.wikipedia.org/wiki/Hungary",
+      "old_qid": "Q28"
+    },
+    {
+      "id": 5318,
+      "name": "orographie",
+      "modern": "Orography",
+      "cat": "CONCEPT",
+      "mentions": 2,
+      "old_url": "https://en.wikipedia.org/wiki/Jebel_Hafeet",
+      "old_qid": "Q1261870"
+    },
+    {
+      "id": 5334,
+      "name": "dilatation",
+      "modern": "Dilatation",
+      "cat": "CONCEPT",
+      "mentions": 2,
+      "old_url": "https://en.wikipedia.org/wiki/Time_dilation",
+      "old_qid": "Q73228459"
+    },
+    {
+      "id": 5429,
+      "name": "contractions",
+      "modern": "contractions",
+      "cat": "DISEASE",
+      "mentions": 2,
+      "old_url": "https://en.wikipedia.org/wiki/Muscle_contraction",
+      "old_qid": "Q127006"
+    },
+    {
+      "id": 5430,
+      "name": "sinapisme",
+      "modern": "sinapism",
+      "cat": "SUBSTANCE",
+      "mentions": 2,
+      "old_url": "https://en.wikipedia.org/wiki/TMSR_(Chinese_reactor_project)",
+      "old_qid": "Q1862320"
+    },
+    {
+      "id": 5432,
+      "name": "dynamically",
+      "modern": "Dynamically",
+      "cat": "CONCEPT",
+      "mentions": 2,
+      "old_url": "https://en.wikipedia.org/wiki/Type_system",
+      "old_qid": "Q1268978"
+    },
+    {
+      "id": 5459,
+      "name": "Psychologische Analysen",
+      "modern": "Psychological Analysis",
+      "cat": "CONCEPT",
+      "mentions": 2,
+      "old_url": "https://en.wikipedia.org/wiki/Psychoanalysis",
+      "old_qid": "Q41630"
+    },
+    {
+      "id": 5483,
+      "name": "Chapter IX",
+      "modern": "Chapter or Section Heading",
+      "cat": "CONCEPT",
+      "mentions": 2,
+      "old_url": "https://en.wikipedia.org/wiki/Paragraph",
+      "old_qid": "Q21481766"
+    },
+    {
+      "id": 5485,
+      "name": "indefinites",
+      "modern": "indefinite",
+      "cat": "CONCEPT",
+      "mentions": 2,
+      "old_url": "https://en.wikipedia.org/wiki/Fuzzy_concept",
+      "old_qid": "Q956030"
+    },
+    {
+      "id": 5491,
+      "name": "intellectual life",
+      "modern": "Intellectual life",
+      "cat": "CONCEPT",
+      "mentions": 2,
+      "old_url": "https://en.wikipedia.org/wiki/Nahui_Ollin",
+      "old_qid": "Q99976903"
+    },
+    {
+      "id": 5492,
+      "name": "transparent",
+      "modern": "transparent",
+      "cat": "CONCEPT",
+      "mentions": 2,
+      "old_url": "https://en.wikipedia.org/wiki/Transparency%20%28market%29",
+      "old_qid": "Q568753"
+    },
+    {
+      "id": 5507,
+      "name": "uniformity of nature",
+      "modern": "Uniformity of nature",
+      "cat": "CONCEPT",
+      "mentions": 2,
+      "old_url": "https://en.wikipedia.org/wiki/Uniformitarianism",
+      "old_qid": "Q208650"
+    },
+    {
+      "id": 5521,
+      "name": "handkerchief",
+      "modern": "Handkerchief",
+      "cat": "OBJECT",
+      "mentions": 2,
+      "old_url": "https://en.wikipedia.org/wiki/Pigeon_drop",
+      "old_qid": "Q192411"
+    },
+    {
+      "id": 5531,
+      "name": "foci",
+      "modern": "foci",
+      "cat": "SUBSTANCE",
+      "mentions": 2,
+      "old_url": "https://en.wikipedia.org/wiki/Hypocenter",
+      "old_qid": "Q2736"
+    },
+    {
+      "id": 5544,
+      "name": "influence of light",
+      "modern": "Light's effect",
+      "cat": "CONCEPT",
+      "mentions": 2,
+      "old_url": "https://en.wikipedia.org/wiki/Theatrical_makeup",
+      "old_qid": "Q28538862"
+    },
+    {
+      "id": 5549,
+      "name": "condition",
+      "modern": "condition",
+      "cat": "CONCEPT",
+      "mentions": 2,
+      "old_url": "https://en.wikipedia.org/wiki/Disease",
+      "old_qid": "Q12136"
+    },
+    {
+      "id": 5562,
+      "name": "sooty exhalations",
+      "modern": "Soot",
+      "cat": "SUBSTANCE",
+      "mentions": 2,
+      "old_url": "https://en.wikipedia.org/wiki/Carbon%20black",
+      "old_qid": "Q764245"
+    },
+    {
+      "id": 5579,
+      "name": "errors of observation",
+      "modern": "Observational errors",
+      "cat": "CONCEPT",
+      "mentions": 2,
+      "old_url": "https://en.wikipedia.org/wiki/Margin_of_error",
+      "old_qid": "Q196372"
+    },
+    {
+      "id": 5605,
+      "name": "chemical experiments",
+      "modern": "chemical experiment",
+      "cat": "CONCEPT",
+      "mentions": 2,
+      "old_url": "https://en.wikipedia.org/wiki/Unethical_human_experimentation_in_the_United_States",
+      "old_qid": "Q60234794"
+    },
+    {
+      "id": 5631,
+      "name": "law of the winds",
+      "modern": "Law of winds",
+      "cat": "CONCEPT",
+      "mentions": 2,
+      "old_url": "https://en.wikipedia.org/wiki/Wind_turbine",
+      "old_qid": "Q56664297"
+    },
+    {
+      "id": 5633,
+      "name": "swamps",
+      "modern": "swamp",
+      "cat": "PLACE",
+      "mentions": 2,
+      "old_url": "https://en.wikipedia.org/wiki/Equine_infectious_anemia",
+      "old_qid": "Q19000458"
+    },
+    {
+      "id": 5640,
+      "name": "history of organisms",
+      "modern": "Evolutionary History",
+      "cat": "CONCEPT",
+      "mentions": 2,
+      "old_url": "https://en.wikipedia.org/wiki/Species",
+      "old_qid": "Q1098275"
+    },
+    {
+      "id": 5641,
+      "name": "arborescent ferns",
+      "modern": "Tree ferns",
+      "cat": "PLANT",
+      "mentions": 2,
+      "old_url": "https://en.wikipedia.org/wiki/Cyatheales",
+      "old_qid": "Q623232"
+    },
+    {
+      "id": 5656,
+      "name": "star dust",
+      "modern": "stardust",
+      "cat": "SUBSTANCE",
+      "mentions": 2,
+      "old_url": "https://en.wikipedia.org/wiki/Phencyclidine",
+      "old_qid": "Q93717770"
+    },
+    {
+      "id": 5662,
+      "name": "Punctum",
+      "modern": "Germinal disc",
+      "cat": "SUBSTANCE",
+      "mentions": 2,
+      "old_url": "https://en.wikipedia.org/wiki/Blastodisc",
+      "old_qid": "Q4088024"
+    },
+    {
+      "id": 5676,
+      "name": "Quil",
+      "modern": "quill pig",
+      "cat": "ANIMAL",
+      "mentions": 2,
+      "old_url": "https://en.wikipedia.org/wiki/Porcupine%20River%20%28British%20Columbia%29",
+      "old_qid": "Q265828"
+    },
+    {
+      "id": 5678,
+      "name": "Cati",
+      "modern": "Cat",
+      "cat": "ANIMAL",
+      "mentions": 2,
+      "old_url": "https://en.wikipedia.org/wiki/Khat",
+      "old_qid": "Q207642"
+    },
+    {
+      "id": 5687,
+      "name": "semipahnati",
+      "modern": "Semi-palmated",
+      "cat": "SUBSTANCE",
+      "mentions": 2,
+      "old_url": "https://en.wikipedia.org/wiki/Tantramar,_New_Brunswick",
+      "old_qid": "Q65083740"
+    },
+    {
+      "id": 5690,
+      "name": "Pfittacus maximus alter",
+      "modern": "Great Parrot",
+      "cat": "ANIMAL",
+      "mentions": 2,
+      "old_url": "https://en.wikipedia.org/wiki/Psittacus",
+      "old_qid": "Q10809423"
+    },
+    {
+      "id": 5708,
+      "name": "Turtur",
+      "modern": "turtle dove",
+      "cat": "ANIMAL",
+      "mentions": 2,
+      "old_url": "https://en.wikipedia.org/wiki/Streptopelia",
+      "old_qid": "Q30944"
+    },
+    {
+      "id": 5720,
+      "name": "Corpus externum",
+      "modern": "External body",
+      "cat": "SUBSTANCE",
+      "mentions": 2,
+      "old_url": "https://en.wikipedia.org/wiki/Surface_anatomy",
+      "old_qid": "Q3545415"
+    },
+    {
+      "id": 5727,
+      "name": "Forcipe",
+      "modern": "Forceps",
+      "cat": "SUBSTANCE",
+      "mentions": 2,
+      "old_url": "https://en.wikipedia.org/wiki/Tweezers",
+      "old_qid": "Q192504"
+    },
+    {
+      "id": 5735,
+      "name": "Ranunculos",
+      "modern": "Buttercups",
+      "cat": "PLANT",
+      "mentions": 2,
+      "old_url": "https://en.wikipedia.org/wiki/Ranunculus",
+      "old_qid": "Q146130"
+    },
+    {
+      "id": 5738,
+      "name": "Hieracii Pilofellae",
+      "modern": "Hawkweed",
+      "cat": "PLANT",
+      "mentions": 2,
+      "old_url": "https://en.wikipedia.org/wiki/Hieracium",
+      "old_qid": "Q16526"
+    },
+    {
+      "id": 5748,
+      "name": "Cancer anomalus",
+      "modern": "Anomalous crab",
+      "cat": "ANIMAL",
+      "mentions": 2,
+      "old_url": "https://en.wikipedia.org/wiki/Crabronidae",
+      "old_qid": "Q133302"
+    },
+    {
+      "id": 5754,
+      "name": "Echinorum",
+      "modern": "Sea urchins",
+      "cat": "ANIMAL",
+      "mentions": 2,
+      "old_url": "https://en.wikipedia.org/wiki/Hakea%20petiolaris",
+      "old_qid": "Q5640409"
+    },
+    {
+      "id": 5757,
+      "name": "Cochlea",
+      "modern": "Snails",
+      "cat": "ANIMAL",
+      "mentions": 2,
+      "old_url": "https://en.wikipedia.org/wiki/Schistosomiasis",
+      "old_qid": "Q221159"
+    },
+    {
+      "id": 5761,
+      "name": "Milleporas",
+      "modern": "Millepora",
+      "cat": "ANIMAL",
+      "mentions": 2,
+      "old_url": "https://en.wikipedia.org/wiki/Fire%20coral",
+      "old_qid": "Q1409569"
+    },
+    {
+      "id": 5782,
+      "name": "remedios que den calor",
+      "modern": "Therapeutic heat",
+      "cat": "SUBSTANCE",
+      "mentions": 2,
+      "old_url": "https://en.wikipedia.org/wiki/Psychoactive_drug",
+      "old_qid": "Q3706669"
+    },
+    {
+      "id": 5795,
+      "name": "pan",
+      "modern": "Betel leaf",
+      "cat": "PLANT",
+      "mentions": 2,
+      "old_url": "https://en.wikipedia.org/wiki/Areca_nut",
+      "old_qid": "Q1816679"
+    },
+    {
+      "id": 5810,
+      "name": "moderno doctor",
+      "modern": "modern physicians",
+      "cat": "PERSON",
+      "mentions": 2,
+      "old_url": "https://en.wikipedia.org/wiki/Hippocratic_Oath",
+      "old_qid": "Q15924224"
+    },
+    {
+      "id": 5812,
+      "name": "Ghins",
+      "modern": "Giges",
+      "cat": "PERSON",
+      "mentions": 2,
+      "old_url": "https://en.wikipedia.org/wiki/Tetsuya_Wakuda",
+      "old_qid": "Q312537"
+    },
+    {
+      "id": 5833,
+      "name": "visconde de Castilho",
+      "modern": "Visconde de Castilho",
+      "cat": "PERSON",
+      "mentions": 2,
+      "old_url": "https://en.wikipedia.org/wiki/Matilde_Isabel_de_Sant'Ana_e_Vasconcelos_Moniz_de_Betencourt",
+      "old_qid": "Q2624029"
+    },
+    {
+      "id": 5843,
+      "name": "amargosa",
+      "modern": "Margosa",
+      "cat": "PLANT",
+      "mentions": 2,
+      "old_url": "https://en.wikipedia.org/wiki/Azadirachta%20indica",
+      "old_qid": "Q170461"
+    },
+    {
+      "id": 5853,
+      "name": "mul mango",
+      "modern": "Mango",
+      "cat": "PLANT",
+      "mentions": 2,
+      "old_url": "https://en.wikipedia.org/wiki/Mangifera%20indica",
+      "old_qid": "Q3919027"
+    },
+    {
+      "id": 5868,
+      "name": "sudorifics",
+      "modern": "Sudorifics",
+      "cat": "SUBSTANCE",
+      "mentions": 2,
+      "old_url": "https://en.wikipedia.org/wiki/Perspiration",
+      "old_qid": "Q3503092"
+    },
+    {
+      "id": 5877,
+      "name": "virulento",
+      "modern": "virulent",
+      "cat": "CONCEPT",
+      "mentions": 2,
+      "old_url": "https://en.wikipedia.org/wiki/Virulence%20%28journal%29",
+      "old_qid": "Q18712614"
+    },
+    {
+      "id": 5881,
+      "name": "infantilis",
+      "modern": "infantile ailments",
+      "cat": "DISEASE",
+      "mentions": 2,
+      "old_url": "https://en.wikipedia.org/wiki/Thiamine_deficiency",
+      "old_qid": "Q60309866"
+    },
+    {
+      "id": 5884,
+      "name": "membra",
+      "modern": "Body part",
+      "cat": "SUBSTANCE",
+      "mentions": 2,
+      "old_url": "https://en.wikipedia.org/wiki/Anatomy",
+      "old_qid": "Q514"
+    },
+    {
+      "id": 5886,
+      "name": "Hernand",
+      "modern": "Hernando de Castilla",
+      "cat": "PERSON",
+      "mentions": 2,
+      "old_url": "https://en.wikipedia.org/wiki/Isabella_I_of_Castile",
+      "old_qid": "Q64780708"
+    },
+    {
+      "id": 5889,
+      "name": "appetitum",
+      "modern": "Appetite",
+      "cat": "SUBSTANCE",
+      "mentions": 2,
+      "old_url": "https://en.wikipedia.org/wiki/Anorexia%20%28symptom%29",
+      "old_qid": "Q254327"
+    },
+    {
+      "id": 5891,
+      "name": "racemum",
+      "modern": "Raceme",
+      "cat": "PLANT",
+      "mentions": 2,
+      "old_url": "https://en.wikipedia.org/wiki/Pleuranthodium%20racemigerum",
+      "old_qid": "Q15333131"
+    },
+    {
+      "id": 5893,
+      "name": "torcularis",
+      "modern": "wine press",
+      "cat": "OBJECT",
+      "mentions": 2,
+      "old_url": "https://en.wikipedia.org/wiki/Winepress",
+      "old_qid": "Q253591"
+    },
+    {
+      "id": 5895,
+      "name": "line",
+      "modern": "line",
+      "cat": "SUBSTANCE",
+      "mentions": 2,
+      "old_url": "https://en.wikipedia.org/wiki/Substance_P",
+      "old_qid": "Q602471"
+    },
+    {
+      "id": 5896,
+      "name": "mediaftinum",
+      "modern": "mediastinum",
+      "cat": "SUBSTANCE",
+      "mentions": 2,
+      "old_url": "https://en.wikipedia.org/wiki/Mediastinal%20tumors",
+      "old_qid": "Q4271422"
+    },
+    {
+      "id": 5903,
+      "name": "Curacy",
+      "modern": "chiefs",
+      "cat": "PERSON",
+      "mentions": 2,
+      "old_url": "https://en.wikipedia.org/wiki/Director%20%28business%29",
+      "old_qid": "Q1162163"
+    },
+    {
+      "id": 5904,
+      "name": "Franccfco Roflclli",
+      "modern": "Francesco Roselli",
+      "cat": "PERSON",
+      "mentions": 2,
+      "old_url": "https://en.wikipedia.org/wiki/Michele_da_Firenze",
+      "old_qid": "Q60627968"
+    },
+    {
+      "id": 5927,
+      "name": "Omnipotent",
+      "modern": "Almighty",
+      "cat": "PERSON",
+      "mentions": 2,
+      "old_url": "https://en.wikipedia.org/wiki/Arceus",
+      "old_qid": "Q1334381"
+    },
+    {
+      "id": 5938,
+      "name": "Protoxides of metals",
+      "modern": "Metal oxides",
+      "cat": "SUBSTANCE",
+      "mentions": 2,
+      "old_url": "https://fr.wikipedia.org/wiki/Oxyde_m%C3%A9tallique",
+      "old_qid": "Q1795231"
+    }
+  ]
+}

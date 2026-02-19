@@ -910,6 +910,7 @@ export default function ClusterDetailPage() {
   const [wikiImage, setWikiImage] = useState<string | null>(null);
   const [wikiSearching, setWikiSearching] = useState(false);
   const [personIdentities, setPersonIdentities] = useState<Record<string, { thumbnail?: string; thumbnail_url?: string }>>({});
+  const [slugRedirects, setSlugRedirects] = useState<Record<string, string>>({});
 
   useEffect(() => {
     fetch("/data/concordance.json")
@@ -920,12 +921,23 @@ export default function ClusterDetailPage() {
       .then((res) => res.json())
       .then((d) => setPersonIdentities(d))
       .catch(() => {});
+    fetch("/data/slug_redirects.json")
+      .then((res) => res.ok ? res.json() : {})
+      .then((d) => setSlugRedirects(d))
+      .catch(() => {});
   }, []);
 
   const cluster = useMemo(
     () => (data ? findClusterBySlug(slug, data.clusters) : null),
     [data, slug]
   );
+
+  // Redirect old slugs (e.g. clu_* hashes) to new human-readable slugs
+  useEffect(() => {
+    if (data && !cluster && slugRedirects[slug]) {
+      router.replace(`/concordance/${slugRedirects[slug]}`);
+    }
+  }, [data, cluster, slug, slugRedirects, router]);
 
   // Prev/next cluster slugs (by sorted order in data)
   const { prevSlug, nextSlug } = useMemo(() => {

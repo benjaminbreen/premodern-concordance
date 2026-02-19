@@ -3,9 +3,9 @@
   "format_version": "1.0",
   "instructions": "To add pairs: append a new batch object to the 'batches' array with a unique batch_id. Do not modify existing batches. To exclude a pair from a previous batch, add it to an 'exclusions' list in your new batch. Positive pairs teach the model that source ↔ target are the same entity. Hard negatives teach it that source ≠ target despite surface similarity.",
   "statistics": {
-    "total_batches": 5,
-    "total_positives": 889,
-    "total_negatives": 154
+    "total_batches": 6,
+    "total_positives": 982,
+    "total_negatives": 166
   },
   "batches": [
     {
@@ -7998,6 +7998,753 @@
           "target": "drowsy",
           "langs": "en-en",
           "note": "edema (fluid retention) ≠ sleepy; similar sound, unrelated"
+        }
+      ]
+    },
+    {
+      "batch_id": "opus-2026-02-16-006",
+      "contributor": "Claude Opus 4.6",
+      "date": "2026-02-16",
+      "notes": "Cross-linguistic duplicate resolution. Training pairs derived from actual concordance member names that ended up in separate clusters despite referring to the same entity. Covers: (1) Person name transliterations across Latin/Arabic/Portuguese/Spanish/Italian/French, (2) Cross-linguistic anatomy/body part terms, (3) Cross-linguistic place names and historical variants, (4) Cross-linguistic disease terms, (5) Cross-linguistic substance/natural history terms. Hard negatives for false merges (different places with similar names, different concepts with same modern_name).",
+      "positive_pairs": [
+        {
+          "source": "Avicenna",
+          "target": "Avicena",
+          "langs": "en-es",
+          "category": "PERSON",
+          "note": "Same person: Ibn Sina — English vs Spanish/Portuguese transliteration"
+        },
+        {
+          "source": "Avicenna",
+          "target": "Auicena",
+          "langs": "en-pt",
+          "category": "PERSON",
+          "note": "Same person: Ibn Sina — modern vs early modern Portuguese spelling"
+        },
+        {
+          "source": "Avicena",
+          "target": "Auicena",
+          "langs": "es-pt",
+          "category": "PERSON",
+          "note": "Same person: Ibn Sina — Spanish vs archaic Portuguese"
+        },
+        {
+          "source": "Avicenna",
+          "target": "Ibn Sina",
+          "langs": "en-ar",
+          "category": "PERSON",
+          "note": "Same person: Latinized vs Arabic name"
+        },
+        {
+          "source": "Hippocrates",
+          "target": "Hipocrates",
+          "langs": "en-es",
+          "category": "PERSON",
+          "note": "Same person: English vs Spanish/Portuguese spelling"
+        },
+        {
+          "source": "Hippocrates",
+          "target": "Hippocrate",
+          "langs": "en-fr",
+          "category": "PERSON",
+          "note": "Same person: English vs French"
+        },
+        {
+          "source": "Hippocrates",
+          "target": "Ippocrate",
+          "langs": "en-it",
+          "category": "PERSON",
+          "note": "Same person: English vs Italian"
+        },
+        {
+          "source": "Theophrastus",
+          "target": "Teofrasto",
+          "langs": "en-it",
+          "category": "PERSON",
+          "note": "Same person: English/Latin vs Italian/Spanish"
+        },
+        {
+          "source": "Theophrastus",
+          "target": "Theophraste",
+          "langs": "en-fr",
+          "category": "PERSON",
+          "note": "Same person: English/Latin vs French"
+        },
+        {
+          "source": "Paracelsus",
+          "target": "Paracelso",
+          "langs": "en-it",
+          "category": "PERSON",
+          "note": "Same person: Latin/English vs Italian/Spanish/Portuguese"
+        },
+        {
+          "source": "Democritus",
+          "target": "Demócrito",
+          "langs": "en-es",
+          "category": "PERSON",
+          "note": "Same person: English/Latin vs Spanish"
+        },
+        {
+          "source": "Matthiolus",
+          "target": "Mattioli",
+          "langs": "la-it",
+          "category": "PERSON",
+          "note": "Same person: Pietro Andrea Mattioli — Latin vs Italian form"
+        },
+        {
+          "source": "Matthiolus",
+          "target": "Matthiole",
+          "langs": "la-fr",
+          "category": "PERSON",
+          "note": "Same person: Pietro Andrea Mattioli — Latin vs French form"
+        },
+        {
+          "source": "liver",
+          "target": "figado",
+          "langs": "en-pt",
+          "category": "SUBSTANCE",
+          "note": "Same organ: English vs Portuguese"
+        },
+        {
+          "source": "liver",
+          "target": "higado",
+          "langs": "en-es",
+          "category": "SUBSTANCE",
+          "note": "Same organ: English vs Spanish (hígado)"
+        },
+        {
+          "source": "liver",
+          "target": "fegato",
+          "langs": "en-it",
+          "category": "SUBSTANCE",
+          "note": "Same organ: English vs Italian"
+        },
+        {
+          "source": "figado",
+          "target": "higado",
+          "langs": "pt-es",
+          "category": "SUBSTANCE",
+          "note": "Same organ: Portuguese vs Spanish"
+        },
+        {
+          "source": "liver",
+          "target": "foie",
+          "langs": "en-fr",
+          "category": "SUBSTANCE",
+          "note": "Same organ: English vs French"
+        },
+        {
+          "source": "kidneys",
+          "target": "rins",
+          "langs": "en-pt",
+          "category": "SUBSTANCE",
+          "note": "Same organ: English vs Portuguese"
+        },
+        {
+          "source": "kidneys",
+          "target": "riñones",
+          "langs": "en-es",
+          "category": "SUBSTANCE",
+          "note": "Same organ: English vs Spanish"
+        },
+        {
+          "source": "kidneys",
+          "target": "reins",
+          "langs": "en-fr",
+          "category": "SUBSTANCE",
+          "note": "Same organ: English vs French (reins/rognons)"
+        },
+        {
+          "source": "rins",
+          "target": "riñones",
+          "langs": "pt-es",
+          "category": "SUBSTANCE",
+          "note": "Same organ: Portuguese vs Spanish"
+        },
+        {
+          "source": "veins",
+          "target": "veas",
+          "langs": "en-es",
+          "category": "SUBSTANCE",
+          "note": "Same anatomy: English vs archaic Spanish (veas/venas)"
+        },
+        {
+          "source": "veins",
+          "target": "venas",
+          "langs": "en-es",
+          "category": "SUBSTANCE",
+          "note": "Same anatomy: English vs Spanish"
+        },
+        {
+          "source": "veins",
+          "target": "veines",
+          "langs": "en-fr",
+          "category": "SUBSTANCE",
+          "note": "Same anatomy: English vs French (veines/veines)"
+        },
+        {
+          "source": "spleen",
+          "target": "baço",
+          "langs": "en-pt",
+          "category": "SUBSTANCE",
+          "note": "Same organ: English vs Portuguese"
+        },
+        {
+          "source": "spleen",
+          "target": "rate",
+          "langs": "en-fr",
+          "category": "SUBSTANCE",
+          "note": "Same organ: English vs French"
+        },
+        {
+          "source": "spleen",
+          "target": "bazo",
+          "langs": "en-es",
+          "category": "SUBSTANCE",
+          "note": "Same organ: English vs Spanish"
+        },
+        {
+          "source": "teeth",
+          "target": "dentes",
+          "langs": "en-pt",
+          "category": "SUBSTANCE",
+          "note": "Same anatomy: English vs Portuguese/Latin"
+        },
+        {
+          "source": "teeth",
+          "target": "dientes",
+          "langs": "en-es",
+          "category": "SUBSTANCE",
+          "note": "Same anatomy: English vs Spanish"
+        },
+        {
+          "source": "teeth",
+          "target": "dents",
+          "langs": "en-fr",
+          "category": "SUBSTANCE",
+          "note": "Same anatomy: English vs French"
+        },
+        {
+          "source": "teeth",
+          "target": "muelas",
+          "langs": "en-es",
+          "category": "SUBSTANCE",
+          "note": "Same anatomy: teeth vs molars (Spanish muelas)"
+        },
+        {
+          "source": "nose",
+          "target": "nariz",
+          "langs": "en-es",
+          "category": "SUBSTANCE",
+          "note": "Same anatomy: English vs Spanish/Portuguese"
+        },
+        {
+          "source": "nose",
+          "target": "nez",
+          "langs": "en-fr",
+          "category": "SUBSTANCE",
+          "note": "Same anatomy: English vs French"
+        },
+        {
+          "source": "head",
+          "target": "cabeza",
+          "langs": "en-es",
+          "category": "SUBSTANCE",
+          "note": "Same anatomy: English vs Spanish"
+        },
+        {
+          "source": "head",
+          "target": "cabeça",
+          "langs": "en-pt",
+          "category": "SUBSTANCE",
+          "note": "Same anatomy: English vs Portuguese"
+        },
+        {
+          "source": "head",
+          "target": "tête",
+          "langs": "en-fr",
+          "category": "SUBSTANCE",
+          "note": "Same anatomy: English vs French"
+        },
+        {
+          "source": "blood",
+          "target": "sangue",
+          "langs": "en-pt",
+          "category": "SUBSTANCE",
+          "note": "Same substance: English vs Portuguese/Italian"
+        },
+        {
+          "source": "blood",
+          "target": "sangre",
+          "langs": "en-es",
+          "category": "SUBSTANCE",
+          "note": "Same substance: English vs Spanish"
+        },
+        {
+          "source": "blood",
+          "target": "sang",
+          "langs": "en-fr",
+          "category": "SUBSTANCE",
+          "note": "Same substance: English vs French"
+        },
+        {
+          "source": "flowers",
+          "target": "flores",
+          "langs": "en-es",
+          "category": "SUBSTANCE",
+          "note": "Same plant part: English vs Spanish/Portuguese/Latin"
+        },
+        {
+          "source": "flowers",
+          "target": "fleurs",
+          "langs": "en-fr",
+          "category": "SUBSTANCE",
+          "note": "Same plant part: English vs French"
+        },
+        {
+          "source": "body",
+          "target": "corpo",
+          "langs": "en-pt",
+          "category": "SUBSTANCE",
+          "note": "Same concept: English vs Portuguese/Italian"
+        },
+        {
+          "source": "body",
+          "target": "corps",
+          "langs": "en-fr",
+          "category": "SUBSTANCE",
+          "note": "Same concept: English vs French"
+        },
+        {
+          "source": "body",
+          "target": "cuerpo",
+          "langs": "en-es",
+          "category": "SUBSTANCE",
+          "note": "Same concept: English vs Spanish"
+        },
+        {
+          "source": "stomach",
+          "target": "estomago",
+          "langs": "en-pt",
+          "category": "SUBSTANCE",
+          "note": "Same organ: English vs Portuguese/Spanish"
+        },
+        {
+          "source": "stomach",
+          "target": "estómago",
+          "langs": "en-es",
+          "category": "SUBSTANCE",
+          "note": "Same organ: English vs Spanish"
+        },
+        {
+          "source": "stomach",
+          "target": "estomac",
+          "langs": "en-fr",
+          "category": "SUBSTANCE",
+          "note": "Same organ: English vs French"
+        },
+        {
+          "source": "brain",
+          "target": "cerebro",
+          "langs": "en-es",
+          "category": "SUBSTANCE",
+          "note": "Same organ: English vs Spanish"
+        },
+        {
+          "source": "brain",
+          "target": "cerveau",
+          "langs": "en-fr",
+          "category": "SUBSTANCE",
+          "note": "Same organ: English vs French"
+        },
+        {
+          "source": "America",
+          "target": "Amérique",
+          "langs": "en-fr",
+          "category": "PLACE",
+          "note": "Same place: Americas — English vs French"
+        },
+        {
+          "source": "America",
+          "target": "nouveau monde",
+          "langs": "en-fr",
+          "category": "PLACE",
+          "note": "Same place: Americas = New World — English toponym vs French description"
+        },
+        {
+          "source": "Amérique",
+          "target": "nouveau monde",
+          "langs": "fr-fr",
+          "category": "PLACE",
+          "note": "Same place: French proper name vs French description"
+        },
+        {
+          "source": "America",
+          "target": "Nuevo Mundo",
+          "langs": "en-es",
+          "category": "PLACE",
+          "note": "Same place: Americas = New World in Spanish"
+        },
+        {
+          "source": "Mexico",
+          "target": "Méjico",
+          "langs": "en-es",
+          "category": "PLACE",
+          "note": "Same place: English vs archaic Spanish spelling"
+        },
+        {
+          "source": "Mexico",
+          "target": "Nueva España",
+          "langs": "en-es",
+          "category": "PLACE",
+          "note": "Same place: Mexico = New Spain — colonial name"
+        },
+        {
+          "source": "Mexico",
+          "target": "Nouvelle-Espagne",
+          "langs": "en-fr",
+          "category": "PLACE",
+          "note": "Same place: Mexico = New Spain in French"
+        },
+        {
+          "source": "Mexico",
+          "target": "Nova Espanha",
+          "langs": "en-pt",
+          "category": "PLACE",
+          "note": "Same place: Mexico = New Spain in Portuguese"
+        },
+        {
+          "source": "Nueva España",
+          "target": "Nouvelle-Espagne",
+          "langs": "es-fr",
+          "category": "PLACE",
+          "note": "Same place: New Spain — Spanish vs French"
+        },
+        {
+          "source": "Ceylon",
+          "target": "Ceylan",
+          "langs": "en-fr",
+          "category": "PLACE",
+          "note": "Same place: Sri Lanka — English vs French colonial name"
+        },
+        {
+          "source": "Ceylon",
+          "target": "Ceylão",
+          "langs": "en-pt",
+          "category": "PLACE",
+          "note": "Same place: Sri Lanka — English vs Portuguese colonial name"
+        },
+        {
+          "source": "Ceylon",
+          "target": "Taprobana",
+          "langs": "en-la",
+          "category": "PLACE",
+          "note": "Same place: Sri Lanka — modern colonial vs ancient Greek/Latin name"
+        },
+        {
+          "source": "Taprobana",
+          "target": "Taprobane",
+          "langs": "la-fr",
+          "category": "PLACE",
+          "note": "Same place: Sri Lanka — Latin vs French classical name"
+        },
+        {
+          "source": "Ceylon",
+          "target": "Zeilan",
+          "langs": "en-pt",
+          "category": "PLACE",
+          "note": "Same place: Sri Lanka — archaic Portuguese spelling"
+        },
+        {
+          "source": "Havana",
+          "target": "La Havane",
+          "langs": "en-fr",
+          "category": "PLACE",
+          "note": "Same place: Cuban capital — English vs French"
+        },
+        {
+          "source": "Havana",
+          "target": "Habana",
+          "langs": "en-es",
+          "category": "PLACE",
+          "note": "Same place: Cuban capital — English vs Spanish"
+        },
+        {
+          "source": "Peru",
+          "target": "Pérou",
+          "langs": "en-fr",
+          "category": "PLACE",
+          "note": "Same place: Peru — English vs French"
+        },
+        {
+          "source": "Peru",
+          "target": "Perú",
+          "langs": "en-es",
+          "category": "PLACE",
+          "note": "Same place: Peru — English vs Spanish"
+        },
+        {
+          "source": "Japan",
+          "target": "Japón",
+          "langs": "en-es",
+          "category": "PLACE",
+          "note": "Same place: Japan — English vs Spanish"
+        },
+        {
+          "source": "Japan",
+          "target": "Japão",
+          "langs": "en-pt",
+          "category": "PLACE",
+          "note": "Same place: Japan — English vs Portuguese"
+        },
+        {
+          "source": "Japan",
+          "target": "Giappone",
+          "langs": "en-it",
+          "category": "PLACE",
+          "note": "Same place: Japan — English vs Italian"
+        },
+        {
+          "source": "Japan",
+          "target": "Japon",
+          "langs": "en-fr",
+          "category": "PLACE",
+          "note": "Same place: Japan — English vs French"
+        },
+        {
+          "source": "plague",
+          "target": "peste",
+          "langs": "en-es",
+          "category": "DISEASE",
+          "note": "Same disease: plague — English vs Spanish/Portuguese/Italian/French"
+        },
+        {
+          "source": "flux",
+          "target": "flujo",
+          "langs": "en-es",
+          "category": "DISEASE",
+          "note": "Same condition: flux/diarrhea — English vs Spanish"
+        },
+        {
+          "source": "flux",
+          "target": "fluxo",
+          "langs": "en-pt",
+          "category": "DISEASE",
+          "note": "Same condition: flux/diarrhea — English vs Portuguese"
+        },
+        {
+          "source": "smallpox",
+          "target": "variole",
+          "langs": "en-fr",
+          "category": "DISEASE",
+          "note": "Same disease: smallpox — English vs French"
+        },
+        {
+          "source": "smallpox",
+          "target": "viruela",
+          "langs": "en-es",
+          "category": "DISEASE",
+          "note": "Same disease: smallpox — English vs Spanish"
+        },
+        {
+          "source": "smallpox",
+          "target": "bexigas",
+          "langs": "en-pt",
+          "category": "DISEASE",
+          "note": "Same disease: smallpox — English vs Portuguese (lit. blisters)"
+        },
+        {
+          "source": "fever",
+          "target": "fiebre",
+          "langs": "en-es",
+          "category": "DISEASE",
+          "note": "Same condition: fever — English vs Spanish"
+        },
+        {
+          "source": "fever",
+          "target": "febre",
+          "langs": "en-pt",
+          "category": "DISEASE",
+          "note": "Same condition: fever — English vs Portuguese"
+        },
+        {
+          "source": "fever",
+          "target": "fièvre",
+          "langs": "en-fr",
+          "category": "DISEASE",
+          "note": "Same condition: fever — English vs French"
+        },
+        {
+          "source": "species",
+          "target": "espèce",
+          "langs": "en-fr",
+          "category": "CONCEPT",
+          "note": "Same concept: biological species — English vs French"
+        },
+        {
+          "source": "species",
+          "target": "especie",
+          "langs": "en-es",
+          "category": "CONCEPT",
+          "note": "Same concept: biological species — English vs Spanish"
+        },
+        {
+          "source": "eyes",
+          "target": "olhos",
+          "langs": "en-pt",
+          "category": "SUBSTANCE",
+          "note": "Same anatomy: eyes — English vs Portuguese"
+        },
+        {
+          "source": "eyes",
+          "target": "ojos",
+          "langs": "en-es",
+          "category": "SUBSTANCE",
+          "note": "Same anatomy: eyes — English vs Spanish"
+        },
+        {
+          "source": "eyes",
+          "target": "yeux",
+          "langs": "en-fr",
+          "category": "SUBSTANCE",
+          "note": "Same anatomy: eyes — English vs French"
+        },
+        {
+          "source": "skin",
+          "target": "pelle",
+          "langs": "en-it",
+          "category": "SUBSTANCE",
+          "note": "Same anatomy: skin — English vs Italian"
+        },
+        {
+          "source": "skin",
+          "target": "peau",
+          "langs": "en-fr",
+          "category": "SUBSTANCE",
+          "note": "Same anatomy: skin — English vs French"
+        },
+        {
+          "source": "bones",
+          "target": "ossos",
+          "langs": "en-pt",
+          "category": "SUBSTANCE",
+          "note": "Same anatomy: bones — English vs Portuguese"
+        },
+        {
+          "source": "bones",
+          "target": "huesos",
+          "langs": "en-es",
+          "category": "SUBSTANCE",
+          "note": "Same anatomy: bones — English vs Spanish"
+        },
+        {
+          "source": "lungs",
+          "target": "pulmones",
+          "langs": "en-es",
+          "category": "SUBSTANCE",
+          "note": "Same organ: lungs — English vs Spanish/Latin"
+        },
+        {
+          "source": "lungs",
+          "target": "poumons",
+          "langs": "en-fr",
+          "category": "SUBSTANCE",
+          "note": "Same organ: lungs — English vs French"
+        },
+        {
+          "source": "heart",
+          "target": "coração",
+          "langs": "en-pt",
+          "category": "SUBSTANCE",
+          "note": "Same organ: heart — English vs Portuguese"
+        },
+        {
+          "source": "heart",
+          "target": "corazón",
+          "langs": "en-es",
+          "category": "SUBSTANCE",
+          "note": "Same organ: heart — English vs Spanish"
+        },
+        {
+          "source": "heart",
+          "target": "cœur",
+          "langs": "en-fr",
+          "category": "SUBSTANCE",
+          "note": "Same organ: heart — English vs French"
+        }
+      ],
+      "hard_negatives": [
+        {
+          "source": "Malabar Coast",
+          "target": "Malacca",
+          "langs": "en-en",
+          "note": "Different places: SW India coast ≠ Malaysian strait/city; similar-sounding names but thousands of miles apart"
+        },
+        {
+          "source": "Alps",
+          "target": "Altai Mountains",
+          "langs": "en-en",
+          "note": "Different mountain ranges: European Alps ≠ Central Asian Altai; sometimes grouped under same modern_name erroneously"
+        },
+        {
+          "source": "Cassiquiare",
+          "target": "Cassiopeia",
+          "langs": "en-en",
+          "note": "Different entities: Amazonian river channel ≠ constellation; surface similarity only"
+        },
+        {
+          "source": "Moon",
+          "target": "Astrea",
+          "langs": "en-en",
+          "note": "Different celestial bodies: Earth's satellite ≠ asteroid 5 Astraea; both astronomical but unrelated"
+        },
+        {
+          "source": "Mexico City",
+          "target": "New Spain",
+          "langs": "en-en",
+          "note": "Related but distinct: capital city ≠ entire viceroyalty; should not always merge"
+        },
+        {
+          "source": "reins",
+          "target": "reins",
+          "langs": "en-en",
+          "note": "Kidneys (archaic French anatomy) ≠ horse bridle straps; identical word, different domains"
+        },
+        {
+          "source": "rate",
+          "target": "rate",
+          "langs": "en-en",
+          "note": "Spleen (French anatomy) ≠ speed/proportion (English); false cognate across languages"
+        },
+        {
+          "source": "corps",
+          "target": "corps",
+          "langs": "en-en",
+          "note": "Body (French) ≠ military corps (English); borrowed word with shifted meaning"
+        },
+        {
+          "source": "flux",
+          "target": "influence",
+          "langs": "en-en",
+          "note": "Diarrhea/dysentery ≠ astrological/social influence; both from Latin fluere but different domains"
+        },
+        {
+          "source": "peste",
+          "target": "pesticide",
+          "langs": "fr-en",
+          "note": "Plague disease ≠ agricultural chemical; same root but different referents"
+        },
+        {
+          "source": "sang",
+          "target": "song",
+          "langs": "fr-en",
+          "note": "Blood (French) ≠ musical composition (English); false friend"
+        },
+        {
+          "source": "foie",
+          "target": "foi",
+          "langs": "fr-fr",
+          "note": "Liver (organ) ≠ faith (belief); near-homophone in French, completely different meanings"
         }
       ]
     }

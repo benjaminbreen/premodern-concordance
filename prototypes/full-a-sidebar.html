@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Layout A: Sticky Sidebar + Evidence Stream</title>
+<style>
+  :root { --bg: #fafaf9; --card: #fff; --border: #e7e5e4; --fg: #1c1917; --muted: #78716c; --accent: #2563eb; }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background:var(--bg); color:var(--fg); line-height:1.5; }
+
+  /* Hero */
+  .hero { position:relative; border-bottom:1px solid var(--border); padding:40px 32px 32px; overflow:hidden; }
+  .hero-img { position:absolute; inset:0; background: url('https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Liquid_water_drop.jpg/640px-Liquid_water_drop.jpg') center/cover; mask-image: linear-gradient(to right, transparent 30%, rgba(0,0,0,0.3) 60%, rgba(0,0,0,0.6) 100%); -webkit-mask-image: linear-gradient(to right, transparent 30%, rgba(0,0,0,0.3) 60%, rgba(0,0,0,0.6) 100%); }
+  .hero-content { position:relative; z-index:1; max-width:1100px; margin:0 auto; }
+  .breadcrumb { font-size:12px; color:var(--muted); margin-bottom:12px; }
+  .breadcrumb a { color:var(--accent); text-decoration:none; }
+  .hero h1 { font-size:32px; font-weight:700; }
+  .hero .subtitle { font-size:16px; color:var(--muted); margin-top:2px; }
+  .badge { display:inline-block; padding:2px 8px; border-radius:4px; font-size:11px; font-weight:600; background:#dbeafe; color:#1d4ed8; border:1px solid #bfdbfe; margin-left:10px; vertical-align:middle; }
+  .stats { display:flex; gap:16px; margin-top:10px; font-size:13px; color:var(--muted); }
+  .stats strong { color:var(--fg); }
+
+  /* Two-column layout */
+  .layout { display:grid; grid-template-columns:300px 1fr; gap:0; max-width:1100px; margin:0 auto; min-height:80vh; }
+  .sidebar { border-right:1px solid var(--border); padding:24px; position:sticky; top:0; height:100vh; overflow-y:auto; }
+  .main { padding:24px 32px; }
+
+  /* Sidebar cards */
+  .side-card { margin-bottom:20px; }
+  .side-card h3 { font-size:11px; text-transform:uppercase; letter-spacing:0.06em; color:var(--muted); font-weight:600; margin-bottom:8px; }
+  .id-name { font-size:14px; font-weight:600; }
+  .id-desc { font-size:12px; color:var(--muted); line-height:1.5; margin-top:4px; }
+  .id-links { display:flex; gap:6px; margin-top:8px; flex-wrap:wrap; }
+  .id-links a { font-size:11px; padding:3px 8px; border-radius:4px; border:1px solid var(--border); color:var(--muted); text-decoration:none; }
+  .id-links a:hover { border-color:var(--accent); color:var(--accent); }
+  .conf-badge { display:inline-block; font-size:10px; padding:1px 6px; border-radius:3px; background:#dcfce7; color:#166534; margin-left:6px; }
+
+  /* Variants */
+  .lang-group { margin-bottom:8px; }
+  .lang-label { font-size:11px; color:var(--muted); font-weight:500; margin-bottom:3px; }
+  .variant-pills { display:flex; flex-wrap:wrap; gap:4px; }
+  .variant-pill { font-size:11px; padding:2px 6px; border-radius:3px; background:#f5f5f4; }
+
+  /* Cross-refs */
+  .xref-group { margin-bottom:10px; }
+  .xref-label { font-size:10px; text-transform:uppercase; letter-spacing:0.05em; color:var(--muted); margin-bottom:4px; }
+  .xref-item { display:inline-flex; align-items:center; gap:4px; font-size:12px; padding:3px 8px; border-radius:5px; border:1px solid var(--border); margin:2px 4px 2px 0; text-decoration:none; color:var(--fg); cursor:pointer; }
+  .xref-item:hover { background:#f5f5f4; border-color:var(--accent); }
+  .xref-type { font-size:9px; padding:1px 4px; border-radius:2px; }
+  .xref-syn { background:#dcfce7; color:#166534; }
+  .xref-trans { background:#dbeafe; color:#1d4ed8; }
+  .xref-related { background:#f3e8ff; color:#7c3aed; }
+
+  /* Wikipedia */
+  .wiki-text { font-size:12px; color:var(--muted); line-height:1.6; }
+  .wiki-more { font-size:12px; color:var(--accent); cursor:pointer; border:none; background:none; margin-top:4px; }
+
+  /* Main: Source Evidence */
+  .section-head { font-size:11px; text-transform:uppercase; letter-spacing:0.06em; color:var(--muted); font-weight:600; margin-bottom:12px; display:flex; align-items:center; justify-content:space-between; }
+  .sort-pills { display:flex; gap:4px; }
+  .sort-pill { font-size:11px; padding:2px 8px; border-radius:10px; border:1px solid var(--border); background:white; cursor:pointer; color:var(--muted); }
+  .sort-pill.active { background:var(--fg); color:white; border-color:var(--fg); }
+
+  /* Book rows */
+  .book-row { border:1px solid var(--border); border-radius:8px; margin-bottom:8px; overflow:hidden; background:white; }
+  .book-header { display:grid; grid-template-columns:140px 1fr 50px 40px; align-items:center; padding:10px 14px; cursor:pointer; gap:10px; }
+  .book-header:hover { background:#fafaf9; }
+  .book-name-col { display:flex; align-items:center; gap:8px; }
+  .lang-dot { width:8px; height:8px; border-radius:50%; flex-shrink:0; }
+  .book-label { font-size:13px; font-weight:600; }
+  .book-year { font-size:11px; color:var(--muted); }
+  .terms-col { display:flex; flex-wrap:wrap; gap:4px; align-items:center; }
+  .term-tag { font-size:12px; font-style:italic; padding:1px 6px; border-radius:3px; }
+  .count-col { font-size:13px; font-variant-numeric:tabular-nums; text-align:right; color:var(--muted); }
+  .arrow-col { font-size:10px; color:var(--muted); text-align:center; transition:transform 0.15s; }
+
+  .book-body { display:none; padding:0 14px 14px 38px; border-top:1px solid #f5f5f4; }
+  .book-row.open .book-body { display:block; animation:fadeIn 0.12s; }
+  .book-row.open .arrow-col { transform:rotate(90deg); }
+  @keyframes fadeIn { from{opacity:0} to{opacity:1} }
+
+  .context-line { font-size:12px; color:#57534e; font-style:italic; line-height:1.6; padding-left:10px; border-left:2px solid #f5f5f4; margin:3px 0; }
+  .excerpt-link { font-size:12px; color:var(--accent); cursor:pointer; margin-top:8px; display:inline-block; }
+
+  .mention-bar-track { height:4px; background:#f5f5f4; border-radius:2px; flex:1; max-width:120px; margin-left:auto; }
+  .mention-bar { height:100%; border-radius:2px; }
+
+  .show-more { width:100%; text-align:center; padding:10px; font-size:12px; color:var(--muted); cursor:pointer; border:1px dashed var(--border); border-radius:8px; background:none; margin-top:4px; }
+  .show-more:hover { background:#f5f5f4; }
+  .hidden { display:none; }
+
+  /* Neighbors */
+  .neighbor-grid { display:grid; grid-template-columns:1fr 1fr; gap:6px; }
+  .neighbor-card { display:flex; align-items:center; gap:8px; padding:8px 10px; border:1px solid var(--border); border-radius:6px; font-size:12px; cursor:pointer; }
+  .neighbor-card:hover { background:#f5f5f4; }
+  .neighbor-name { font-weight:600; }
+  .neighbor-sub { font-size:11px; color:var(--muted); }
+  .sim-bar { width:40px; height:3px; background:#f5f5f4; border-radius:2px; margin-left:auto; }
+  .sim-fill { height:100%; border-radius:2px; background:#a8a29e; }
+
+  .EN { --lc:#2563eb } .ES { --lc:#d97706 } .FR { --lc:#059669 } .PT { --lc:#9333ea } .IT { --lc:#dc2626 }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="hero-img"></div>
+  <div class="hero-content">
+    <div class="breadcrumb"><a href="#">Concordance</a> / Substance</div>
+    <h1>Water <span class="badge">SUBSTANCE</span></h1>
+    <div class="subtitle">A transparent liquid essential for life, used medicinally and as a medium</div>
+    <div class="stats">
+      <span><strong>9</strong> books</span>
+      <span><strong>743</strong> mentions</span>
+      <span><strong>5</strong> languages</span>
+    </div>
+  </div>
+</div>
+
+<div class="layout">
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <div class="side-card">
+      <h3>Identification</h3>
+      <div class="id-name">Water <span class="conf-badge">high</span></div>
+      <div class="id-desc">Chemical compound whose molecules are formed by two hydrogen atoms and one oxygen atom. A transparent, tasteless, odorless, and nearly colorless substance.</div>
+      <div class="id-links">
+        <a href="#">🔗 Wikipedia</a>
+        <a href="#">Q283</a>
+      </div>
+    </div>
+
+    <div class="side-card">
+      <h3>Variants by Language</h3>
+      <div class="lang-group">
+        <div class="lang-label">🇬🇧 English</div>
+        <div class="variant-pills"><span class="variant-pill">Water</span><span class="variant-pill">water</span><span class="variant-pill">Waters</span><span class="variant-pill">waters</span></div>
+      </div>
+      <div class="lang-group">
+        <div class="lang-label">🇫🇷 French</div>
+        <div class="variant-pills"><span class="variant-pill">eau</span><span class="variant-pill">l'eau</span><span class="variant-pill">eaux</span></div>
+      </div>
+      <div class="lang-group">
+        <div class="lang-label">🇪🇸 Spanish</div>
+        <div class="variant-pills"><span class="variant-pill">agua</span><span class="variant-pill">aguas</span></div>
+      </div>
+      <div class="lang-group">
+        <div class="lang-label">🇵🇹 Portuguese</div>
+        <div class="variant-pills"><span class="variant-pill">agoa</span><span class="variant-pill">agoas</span></div>
+      </div>
+      <div class="lang-group">
+        <div class="lang-label">🇮🇹 Italian</div>
+        <div class="variant-pills"><span class="variant-pill">acqua</span></div>
+      </div>
+    </div>
+
+    <div class="side-card">
+      <h3>Cross-References</h3>
+      <div class="xref-group">
+        <div class="xref-label">Synonyms & Translations</div>
+        <a class="xref-item"><span class="xref-type xref-trans">translation</span> Aqua</a>
+        <a class="xref-item"><span class="xref-type xref-syn">synonym</span> H₂O</a>
+      </div>
+      <div class="xref-group">
+        <div class="xref-label">Related</div>
+        <a class="xref-item"><span class="xref-type xref-related">related</span> Ice</a>
+        <a class="xref-item"><span class="xref-type xref-related">related</span> Rain</a>
+        <a class="xref-item"><span class="xref-type xref-related">related</span> Distillation</a>
+      </div>
+    </div>
+
+    <div class="side-card">
+      <h3>Wikipedia</h3>
+      <p class="wiki-text" id="wikiText">Water is an inorganic compound with the chemical formula H₂O. It is a transparent, tasteless, odorless, and nearly colorless chemical substance. It is the main constituent of Earth's streams, lakes, and oceans...</p>
+      <button class="wiki-more" onclick="this.previousElementSibling.textContent='Water is an inorganic compound with the chemical formula H₂O. It is a transparent, tasteless, odorless, and nearly colorless chemical substance. It is the main constituent of Earth\'s streams, lakes, and oceans and the fluids of all known living organisms, in which it acts as a solvent. Water, being a polar molecule, undergoes strong intermolecular hydrogen bonding which is a major contributor to its physical and chemical properties.'; this.remove()">Read more →</button>
+    </div>
+  </aside>
+
+  <!-- MAIN CONTENT -->
+  <main class="main">
+    <div class="section-head">
+      <span>Source Evidence</span>
+      <div class="sort-pills">
+        <button class="sort-pill active" onclick="sortBooks('count',this)">Most cited</button>
+        <button class="sort-pill" onclick="sortBooks('year',this)">Chronological</button>
+      </div>
+    </div>
+
+    <div id="bookList"></div>
+    <button class="show-more hidden" id="showMoreBtn" onclick="toggleShowAll()"></button>
+
+    <div style="margin-top:32px">
+      <div class="section-head"><span>Also Appears With</span></div>
+      <div class="neighbor-grid">
+        <div class="neighbor-card"><span class="lang-dot" style="background:#ef4444"></span><div><div class="neighbor-name">Wine</div><div class="neighbor-sub">SUBSTANCE · 7 books</div></div><div class="sim-bar"><div class="sim-fill" style="width:85%"></div></div></div>
+        <div class="neighbor-card"><span class="lang-dot" style="background:#ef4444"></span><div><div class="neighbor-name">Vinegar</div><div class="neighbor-sub">SUBSTANCE · 5 books</div></div><div class="sim-bar"><div class="sim-fill" style="width:78%"></div></div></div>
+        <div class="neighbor-card"><span class="lang-dot" style="background:#8b5cf6"></span><div><div class="neighbor-name">Distillation</div><div class="neighbor-sub">CONCEPT · 7 books</div></div><div class="sim-bar"><div class="sim-fill" style="width:72%"></div></div></div>
+        <div class="neighbor-card"><span class="lang-dot" style="background:#ef4444"></span><div><div class="neighbor-name">Oil</div><div class="neighbor-sub">SUBSTANCE · 6 books</div></div><div class="sim-bar"><div class="sim-fill" style="width:68%"></div></div></div>
+        <div class="neighbor-card"><span class="lang-dot" style="background:#ef4444"></span><div><div class="neighbor-name">Honey</div><div class="neighbor-sub">SUBSTANCE · 5 books</div></div><div class="sim-bar"><div class="sim-fill" style="width:65%"></div></div></div>
+        <div class="neighbor-card"><span class="lang-dot" style="background:#ef4444"></span><div><div class="neighbor-name">Salt</div><div class="neighbor-sub">SUBSTANCE · 8 books</div></div><div class="sim-bar"><div class="sim-fill" style="width:62%"></div></div></div>
+      </div>
+    </div>
+  </main>
+</div>
+
+<script>
+const books = [
+  { id:'culpeper', name:'Culpeper', year:1652, lang:'EN', count:61, members:[
+    { name:'Water', count:61, variants:'Water, Waters, water, waters', contexts:['"bodily fluid, also a distilled preparation"','"distilled from ash-tree"','"water of elder flowers"'] }
+  ]},
+  { id:'humboldt', name:'Humboldt', year:1825, lang:'FR', count:40, members:[
+    { name:'eau', count:40, variants:'eau', contexts:['"medium for transport"','"substance mixed with plant sap"'] }
+  ]},
+  { id:'buffon', name:'Buffon', year:1778, lang:'FR', count:31, members:[
+    { name:'eau', count:30, variants:'eau', contexts:['"substance that solidifies without heat"','"liquid solvent"'] },
+    { name:"l'eau", count:1, variants:"l'eau", contexts:['"water"'] }
+  ]},
+  { id:'hernandez', name:'Hernández', year:1615, lang:'ES', count:25, members:[
+    { name:'agua', count:24, variants:'agua', contexts:['"liquid for drinking"','"liquid for preparation"'] },
+    { name:'aguas', count:1, variants:'aguas', contexts:['"waters for sweetening ginger"'] }
+  ]},
+  { id:'monardes', name:'Monardes', year:1574, lang:'ES', count:15, members:[
+    { name:'agua', count:15, variants:'agua, aguas', contexts:['"medicinal water preparation"','"water of the Indias"'] }
+  ]},
+  { id:'browne', name:'Browne', year:1646, lang:'EN', count:12, members:[
+    { name:'water', count:11, variants:'water, Water', contexts:['"fluid substance"','"universal solvent"'] },
+    { name:'Waters', count:1, variants:'Waters', contexts:['"affecting magnetic variation"'] }
+  ]},
+  { id:'bernard', name:'Bernard', year:1865, lang:'FR', count:9, members:[
+    { name:'eau', count:9, variants:'eau', contexts:['"compound of oxygen and hydrogen"','"compound of hydrogen and oxygen"'] }
+  ]},
+  { id:'orta', name:'Da Orta', year:1563, lang:'PT', count:9, members:[
+    { name:'agoa', count:8, variants:'agoa, agoas', contexts:['"water used in distillation"','"river water"'] },
+    { name:'agoas', count:1, variants:'agoas', contexts:['"medicinal waters"'] }
+  ]},
+  { id:'ricettario', name:'Ricettario', year:1597, lang:'IT', count:3, members:[
+    { name:'acqua', count:3, variants:'acqua', contexts:['"aqua vitae preparation"','"distilled water"'] }
+  ]},
+];
+const COLORS = {EN:'#2563eb',ES:'#d97706',FR:'#059669',PT:'#9333ea',IT:'#dc2626'};
+const maxCount = 61;
+let showAll=false, currentSort='count', INITIAL=6;
+
+function sortBooks(by,el) {
+  currentSort=by;
+  document.querySelectorAll('.sort-pill').forEach(b=>b.classList.remove('active'));
+  el.classList.add('active');
+  render();
+}
+function toggleShowAll() { showAll=!showAll; render(); }
+function toggleBook(id) {
+  document.getElementById('row-'+id).classList.toggle('open');
+}
+
+function render() {
+  const sorted=[...books].sort((a,b)=> currentSort==='year' ? a.year-b.year : b.count-a.count);
+  const visible=showAll?sorted:sorted.slice(0,INITIAL);
+  const remaining=sorted.length-INITIAL;
+  const list=document.getElementById('bookList');
+  list.innerHTML=visible.map(b => {
+    const color=COLORS[b.lang];
+    const barW=(b.count/maxCount)*100;
+    return `<div class="book-row" id="row-${b.id}">
+      <div class="book-header" onclick="toggleBook('${b.id}')">
+        <div class="book-name-col">
+          <span class="lang-dot" style="background:${color}"></span>
+          <span class="book-label">${b.name}</span>
+          <span class="book-year">${b.year}</span>
+        </div>
+        <div class="terms-col">
+          ${b.members.map(m=>`<span class="term-tag" style="background:${color}15;color:${color}">${m.name}</span>`).join('')}
+          <div class="mention-bar-track"><div class="mention-bar" style="width:${barW}%;background:${color}"></div></div>
+        </div>
+        <div class="count-col">${b.count}</div>
+        <div class="arrow-col">▶</div>
+      </div>
+      <div class="book-body">
+        ${b.members.map(m=>`
+          <div style="margin-bottom:8px">
+            <span style="font-weight:600;font-size:13px;color:${color}">${m.name}</span>
+            <span style="font-size:12px;color:var(--muted)"> ${m.count} · ${m.variants}</span>
+            <div style="margin-top:4px">${m.contexts.map(c=>`<div class="context-line">${c}</div>`).join('')}</div>
+          </div>
+        `).join('')}
+        <span class="excerpt-link">▸ View ${b.count} excerpts from text</span>
+      </div>
+    </div>`;
+  }).join('');
+  const btn=document.getElementById('showMoreBtn');
+  if(remaining>0){btn.classList.remove('hidden');btn.textContent=showAll?'− Show fewer':`+ ${remaining} more books`;}
+  else btn.classList.add('hidden');
+}
+render();
+</script>
+</body>
+</html>

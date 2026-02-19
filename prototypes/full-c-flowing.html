@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Layout C: Single-Column Flowing with Collapsible Sections</title>
+<style>
+  :root { --bg:#fafaf9; --card:#fff; --border:#e7e5e4; --fg:#1c1917; --muted:#78716c; --faint:#a8a29e; --accent:#2563eb; }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif; background:var(--bg); color:var(--fg); line-height:1.5; }
+
+  /* ── Hero: wide banner with image ── */
+  .hero { position:relative; padding:48px 24px 28px; background:white; border-bottom:1px solid var(--border); overflow:hidden; }
+  .hero-bg { position:absolute; right:0; top:0; bottom:0; width:40%; background:url('https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Liquid_water_drop.jpg/640px-Liquid_water_drop.jpg') center/cover; mask-image:linear-gradient(to right,transparent 0%,rgba(0,0,0,0.15) 30%,rgba(0,0,0,0.4) 100%); -webkit-mask-image:linear-gradient(to right,transparent 0%,rgba(0,0,0,0.15) 30%,rgba(0,0,0,0.4) 100%); }
+  .hero-inner { position:relative; z-index:1; max-width:720px; margin:0 auto; }
+  .breadcrumb { font-size:12px; color:var(--faint); margin-bottom:12px; }
+  .breadcrumb a { color:var(--accent); text-decoration:none; }
+
+  .hero h1 { font-size:30px; font-weight:700; }
+  .cat-badge { display:inline-block; font-size:10px; font-weight:600; padding:2px 7px; border-radius:4px; background:#dbeafe; color:#1d4ed8; border:1px solid #bfdbfe; vertical-align:middle; margin-left:8px; position:relative; top:-2px; }
+  .hero-sub { font-size:14px; color:var(--muted); margin-top:4px; max-width:520px; }
+
+  /* Stat strip */
+  .stat-strip { display:flex; gap:0; margin-top:14px; border:1px solid var(--border); border-radius:8px; overflow:hidden; background:white; }
+  .stat-cell { flex:1; padding:10px 14px; text-align:center; border-right:1px solid var(--border); }
+  .stat-cell:last-child { border-right:none; }
+  .stat-val { font-size:20px; font-weight:700; }
+  .stat-label { font-size:11px; color:var(--faint); text-transform:uppercase; letter-spacing:0.04em; }
+
+  /* Language chips inline */
+  .lang-chips { display:flex; flex-wrap:wrap; gap:6px; margin-top:12px; }
+  .lang-chip { display:inline-flex; align-items:center; gap:5px; font-size:12px; padding:4px 10px; border-radius:6px; background:white; border:1px solid var(--border); }
+  .lang-chip .dot { width:6px; height:6px; border-radius:50%; }
+  .lang-chip em { font-size:11px; color:var(--muted); }
+
+  /* ── Content ── */
+  .content { max-width:720px; margin:0 auto; padding:0 24px 48px; }
+
+  /* Collapsible sections */
+  .section { border-bottom:1px solid var(--border); }
+  .section:last-child { border-bottom:none; }
+  .sec-header { display:flex; align-items:center; padding:18px 0; cursor:pointer; user-select:none; }
+  .sec-header:hover .sec-title { color:var(--fg); }
+  .sec-icon { width:20px; height:20px; border-radius:5px; background:#f5f5f4; display:flex; align-items:center; justify-content:center; font-size:10px; color:var(--muted); margin-right:10px; flex-shrink:0; transition:transform 0.15s; }
+  .section.open .sec-icon { transform:rotate(90deg); background:var(--fg); color:white; }
+  .sec-title { font-size:13px; font-weight:600; text-transform:uppercase; letter-spacing:0.04em; color:var(--muted); transition:color 0.1s; }
+  .section.open .sec-title { color:var(--fg); }
+  .sec-count { font-size:11px; color:var(--faint); margin-left:auto; }
+  .sec-body { display:none; padding:0 0 20px 30px; }
+  .section.open .sec-body { display:block; animation:fadeIn 0.15s; }
+  @keyframes fadeIn { from{opacity:0;transform:translateY(4px)} to{opacity:1;transform:translateY(0)} }
+
+  /* ── Identification section ── */
+  .id-grid { display:grid; grid-template-columns:1fr 1fr; gap:12px; }
+  .id-item { }
+  .id-label { font-size:11px; color:var(--faint); margin-bottom:2px; }
+  .id-value { font-size:13px; font-weight:500; }
+  .conf-badge { font-size:10px; padding:1px 6px; border-radius:3px; background:#dcfce7; color:#166534; }
+  .id-link { font-size:12px; color:var(--accent); text-decoration:none; }
+  .id-link:hover { text-decoration:underline; }
+
+  /* ── Wikipedia ── */
+  .wiki-text { font-size:13px; color:#57534e; line-height:1.7; }
+  .wiki-fade { position:relative; max-height:80px; overflow:hidden; }
+  .wiki-fade::after { content:''; position:absolute; bottom:0; left:0; right:0; height:30px; background:linear-gradient(transparent,var(--bg)); }
+  .wiki-fade.expanded { max-height:none; }
+  .wiki-fade.expanded::after { display:none; }
+  .wiki-toggle { font-size:12px; color:var(--accent); cursor:pointer; border:none; background:none; margin-top:6px; padding:0; }
+
+  /* ── Variants ── */
+  .var-group { margin-bottom:8px; display:flex; align-items:baseline; gap:8px; }
+  .var-lang { font-size:11px; color:var(--faint); width:80px; flex-shrink:0; }
+  .var-pills { display:flex; flex-wrap:wrap; gap:3px; }
+  .var-pill { font-size:12px; padding:2px 7px; border-radius:4px; font-style:italic; }
+
+  /* ── Cross-refs ── */
+  .xref-row { margin-bottom:8px; }
+  .xref-label { font-size:10px; text-transform:uppercase; letter-spacing:0.05em; color:var(--faint); margin-bottom:4px; }
+  .xref-items { display:flex; flex-wrap:wrap; gap:4px; }
+  .xref-chip { display:inline-flex; align-items:center; gap:4px; font-size:12px; padding:4px 8px; border-radius:6px; border:1px solid var(--border); text-decoration:none; color:var(--fg); cursor:pointer; background:white; }
+  .xref-chip:hover { background:var(--bg); border-color:var(--accent); }
+  .xref-badge { font-size:9px; padding:1px 4px; border-radius:2px; font-weight:600; }
+  .xref-syn { background:#dcfce7; color:#166534; }
+  .xref-trans { background:#dbeafe; color:#1d4ed8; }
+  .xref-rel { background:#f3e8ff; color:#7c3aed; }
+
+  /* ── Sources (main section, always open) ── */
+  .src-section { padding-top:20px; }
+  .src-section .sec-header { cursor:default; }
+  .src-controls { display:flex; align-items:center; gap:10px; margin-bottom:12px; }
+  .src-controls .label { font-size:11px; color:var(--faint); }
+  .sort-btn { font-size:12px; padding:3px 10px; border-radius:12px; border:1px solid var(--border); background:white; cursor:pointer; color:var(--muted); }
+  .sort-btn.active { background:var(--fg); color:white; border-color:var(--fg); }
+
+  /* Mini timeline */
+  .mini-tl { position:relative; height:48px; margin-bottom:16px; background:white; border:1px solid var(--border); border-radius:8px; padding:0 16px; }
+  .tl-track { position:absolute; top:50%; left:16px; right:16px; height:2px; background:var(--border); border-radius:1px; }
+  .tl-dot { position:absolute; top:50%; border-radius:50%; border:2px solid white; box-shadow:0 1px 3px rgba(0,0,0,0.12); transform:translate(-50%,-50%); cursor:pointer; transition:transform 0.12s; z-index:1; }
+  .tl-dot:hover { transform:translate(-50%,-50%) scale(1.4); z-index:10; }
+  .tl-tip { position:absolute; bottom:calc(100% + 6px); left:50%; transform:translateX(-50%); font-size:10px; white-space:nowrap; pointer-events:none; opacity:0; transition:opacity 0.1s; background:var(--fg); color:white; padding:2px 6px; border-radius:3px; }
+  .tl-dot:hover .tl-tip { opacity:1; }
+  .tl-range { display:flex; justify-content:space-between; font-size:10px; color:var(--faint); padding-top:36px; }
+
+  /* Source table — compact, dense */
+  .src-table { width:100%; border-collapse:collapse; }
+  .src-table th { font-size:11px; color:var(--faint); text-transform:uppercase; letter-spacing:0.04em; text-align:left; padding:6px 8px; border-bottom:2px solid var(--border); font-weight:600; }
+  .src-table th.r { text-align:right; }
+  .src-table .data-row { cursor:pointer; transition:background 0.1s; }
+  .src-table .data-row:hover { background:#f5f5f4; }
+  .src-table .data-row.active { background:#f5f5f4; }
+  .src-table td { padding:8px; border-bottom:1px solid #f5f5f4; font-size:13px; }
+  .td-book { font-weight:600; white-space:nowrap; }
+  .td-dot { display:inline-block; width:7px; height:7px; border-radius:50%; margin-right:6px; vertical-align:middle; }
+  .td-term { font-style:italic; }
+  .td-count { text-align:right; font-variant-numeric:tabular-nums; color:var(--muted); }
+  .td-bar { display:inline-block; height:4px; border-radius:2px; vertical-align:middle; margin-right:6px; }
+  .td-lang { font-size:12px; color:var(--muted); }
+  .td-year { font-size:12px; color:var(--muted); font-variant-numeric:tabular-nums; }
+
+  .expand-row td { padding:0; border-bottom:1px solid var(--border); }
+  .expand-content { padding:10px 8px 14px 28px; background:var(--bg); }
+  .member-block { margin-bottom:6px; }
+  .member-name { font-weight:600; font-size:13px; }
+  .member-ct { font-size:12px; color:var(--faint); }
+  .ctx-line { font-size:12px; color:#57534e; font-style:italic; line-height:1.6; padding-left:10px; border-left:2px solid #e7e5e4; margin:3px 0; }
+  .excerpt-link { font-size:12px; color:var(--accent); cursor:pointer; margin-top:6px; display:inline-block; }
+  .show-more-row td { text-align:center; padding:8px; }
+  .show-more-btn { font-size:12px; color:var(--muted); cursor:pointer; background:none; border:none; }
+  .show-more-btn:hover { color:var(--fg); }
+
+  /* ── Neighbors ── */
+  .nbr-grid { display:grid; grid-template-columns:1fr 1fr 1fr; gap:6px; }
+  .nbr-card { display:flex; align-items:center; gap:8px; padding:8px 10px; border:1px solid var(--border); border-radius:6px; background:white; cursor:pointer; font-size:12px; }
+  .nbr-card:hover { background:#f5f5f4; }
+  .nbr-dot { width:6px; height:6px; border-radius:50%; flex-shrink:0; }
+  .nbr-name { font-weight:600; font-size:12px; }
+  .nbr-sub { font-size:10px; color:var(--faint); }
+  .nbr-score { margin-left:auto; font-size:10px; color:var(--faint); font-variant-numeric:tabular-nums; }
+
+  .EN{--lc:#2563eb} .ES{--lc:#d97706} .FR{--lc:#059669} .PT{--lc:#9333ea} .IT{--lc:#dc2626}
+</style>
+</head>
+<body>
+
+<!-- ══════ HERO ══════ -->
+<div class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-inner">
+    <div class="breadcrumb"><a href="#">Concordance</a> / Substance</div>
+    <h1>Water <span class="cat-badge">SUBSTANCE</span></h1>
+    <div class="hero-sub">A transparent liquid essential for life, used as a medicine, solvent, and medium across early modern natural history</div>
+
+    <div class="stat-strip">
+      <div class="stat-cell"><div class="stat-val">9</div><div class="stat-label">Books</div></div>
+      <div class="stat-cell"><div class="stat-val">743</div><div class="stat-label">Mentions</div></div>
+      <div class="stat-cell"><div class="stat-val">5</div><div class="stat-label">Languages</div></div>
+      <div class="stat-cell"><div class="stat-val">1563–1865</div><div class="stat-label">Date Range</div></div>
+    </div>
+
+    <div class="lang-chips">
+      <span class="lang-chip"><span class="dot" style="background:#2563eb"></span><strong>water</strong> <em>EN · 73</em></span>
+      <span class="lang-chip"><span class="dot" style="background:#059669"></span><strong>eau</strong> <em>FR · 80</em></span>
+      <span class="lang-chip"><span class="dot" style="background:#d97706"></span><strong>agua</strong> <em>ES · 40</em></span>
+      <span class="lang-chip"><span class="dot" style="background:#9333ea"></span><strong>agoa</strong> <em>PT · 9</em></span>
+      <span class="lang-chip"><span class="dot" style="background:#dc2626"></span><strong>acqua</strong> <em>IT · 3</em></span>
+    </div>
+  </div>
+</div>
+
+<!-- ══════ CONTENT ══════ -->
+<div class="content">
+
+  <!-- ── Identification ── -->
+  <div class="section open" onclick="toggleSection(this)">
+    <div class="sec-header">
+      <div class="sec-icon">▶</div>
+      <span class="sec-title">Identification</span>
+    </div>
+    <div class="sec-body" onclick="event.stopPropagation()">
+      <div class="id-grid">
+        <div class="id-item"><div class="id-label">Modern Name</div><div class="id-value">Water <span class="conf-badge">high</span></div></div>
+        <div class="id-item"><div class="id-label">Category</div><div class="id-value">Substance · Chemical compound</div></div>
+        <div class="id-item"><div class="id-label">Wikidata</div><div class="id-value"><a class="id-link" href="#">Q283</a></div></div>
+        <div class="id-item"><div class="id-label">Wikipedia</div><div class="id-value"><a class="id-link" href="#">Water →</a></div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── Wikipedia ── -->
+  <div class="section" onclick="toggleSection(this)">
+    <div class="sec-header">
+      <div class="sec-icon">▶</div>
+      <span class="sec-title">Wikipedia</span>
+    </div>
+    <div class="sec-body" onclick="event.stopPropagation()">
+      <div class="wiki-fade" id="wikiFade">
+        <p class="wiki-text">Water is an inorganic compound with the chemical formula H₂O. It is a transparent, tasteless, odorless, and nearly colorless chemical substance. It is the main constituent of Earth's streams, lakes, and oceans and the fluids of all known living organisms, in which it acts as a solvent. Water is vital for all known forms of life, although it provides neither food, energy, nor organic micronutrients. Access to safe drinking water has improved over the last decades in almost every part of the world.</p>
+      </div>
+      <button class="wiki-toggle" onclick="document.getElementById('wikiFade').classList.toggle('expanded'); this.textContent=this.textContent.includes('more')?'Show less':'Read more →'">Read more →</button>
+    </div>
+  </div>
+
+  <!-- ── Variants ── -->
+  <div class="section" onclick="toggleSection(this)">
+    <div class="sec-header">
+      <div class="sec-icon">▶</div>
+      <span class="sec-title">Variants by Language</span>
+      <span class="sec-count">5 languages</span>
+    </div>
+    <div class="sec-body" onclick="event.stopPropagation()">
+      <div class="var-group"><span class="var-lang">English</span><div class="var-pills"><span class="var-pill" style="background:#2563eb15;color:#2563eb">Water</span><span class="var-pill" style="background:#2563eb15;color:#2563eb">water</span><span class="var-pill" style="background:#2563eb15;color:#2563eb">Waters</span><span class="var-pill" style="background:#2563eb15;color:#2563eb">waters</span></div></div>
+      <div class="var-group"><span class="var-lang">French</span><div class="var-pills"><span class="var-pill" style="background:#05966915;color:#059669">eau</span><span class="var-pill" style="background:#05966915;color:#059669">l'eau</span><span class="var-pill" style="background:#05966915;color:#059669">eaux</span></div></div>
+      <div class="var-group"><span class="var-lang">Spanish</span><div class="var-pills"><span class="var-pill" style="background:#d9770615;color:#d97706">agua</span><span class="var-pill" style="background:#d9770615;color:#d97706">aguas</span></div></div>
+      <div class="var-group"><span class="var-lang">Portuguese</span><div class="var-pills"><span class="var-pill" style="background:#9333ea15;color:#9333ea">agoa</span><span class="var-pill" style="background:#9333ea15;color:#9333ea">agoas</span></div></div>
+      <div class="var-group"><span class="var-lang">Italian</span><div class="var-pills"><span class="var-pill" style="background:#dc262615;color:#dc2626">acqua</span></div></div>
+    </div>
+  </div>
+
+  <!-- ── Cross-References ── -->
+  <div class="section" onclick="toggleSection(this)">
+    <div class="sec-header">
+      <div class="sec-icon">▶</div>
+      <span class="sec-title">Cross-References</span>
+      <span class="sec-count">6 links</span>
+    </div>
+    <div class="sec-body" onclick="event.stopPropagation()">
+      <div class="xref-row">
+        <div class="xref-label">Synonyms & Translations</div>
+        <div class="xref-items">
+          <a class="xref-chip"><span class="xref-badge xref-trans">TRANS</span> Aqua</a>
+          <a class="xref-chip"><span class="xref-badge xref-syn">SYN</span> H₂O</a>
+        </div>
+      </div>
+      <div class="xref-row">
+        <div class="xref-label">Related Concepts</div>
+        <div class="xref-items">
+          <a class="xref-chip"><span class="xref-badge xref-rel">REL</span> Ice</a>
+          <a class="xref-chip"><span class="xref-badge xref-rel">REL</span> Rain</a>
+          <a class="xref-chip"><span class="xref-badge xref-rel">REL</span> Distillation</a>
+          <a class="xref-chip"><span class="xref-badge xref-rel">REL</span> River</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── Source Evidence (always visible, primary section) ── -->
+  <div class="src-section">
+    <div style="display:flex;align-items:center;padding:18px 0 0;">
+      <div class="sec-icon" style="background:var(--fg);color:white;transform:rotate(90deg)">▶</div>
+      <span class="sec-title" style="color:var(--fg)">Source Evidence</span>
+      <span class="sec-count">9 books · 743 mentions</span>
+    </div>
+
+    <div style="padding:12px 0 0 30px">
+      <div class="mini-tl" id="timeline"></div>
+
+      <div class="src-controls">
+        <span class="label">Sort:</span>
+        <button class="sort-btn active" onclick="sortBy('count',this)">Most cited</button>
+        <button class="sort-btn" onclick="sortBy('year',this)">Chronological</button>
+      </div>
+
+      <table class="src-table">
+        <thead>
+          <tr>
+            <th>Book</th>
+            <th>Term</th>
+            <th class="r">Mentions</th>
+            <th>Lang</th>
+            <th>Year</th>
+          </tr>
+        </thead>
+        <tbody id="tableBody"></tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- ── Semantic Neighbors ── -->
+  <div class="section open" onclick="toggleSection(this)">
+    <div class="sec-header">
+      <div class="sec-icon">▶</div>
+      <span class="sec-title">Also Appears With</span>
+      <span class="sec-count">8 related entities</span>
+    </div>
+    <div class="sec-body" onclick="event.stopPropagation()">
+      <div class="nbr-grid">
+        <div class="nbr-card"><span class="nbr-dot" style="background:#ef4444"></span><div><div class="nbr-name">Wine</div><div class="nbr-sub">SUBSTANCE · 7 books</div></div><span class="nbr-score">.87</span></div>
+        <div class="nbr-card"><span class="nbr-dot" style="background:#ef4444"></span><div><div class="nbr-name">Vinegar</div><div class="nbr-sub">SUBSTANCE · 5 books</div></div><span class="nbr-score">.82</span></div>
+        <div class="nbr-card"><span class="nbr-dot" style="background:#8b5cf6"></span><div><div class="nbr-name">Distillation</div><div class="nbr-sub">CONCEPT · 7 books</div></div><span class="nbr-score">.79</span></div>
+        <div class="nbr-card"><span class="nbr-dot" style="background:#ef4444"></span><div><div class="nbr-name">Oil</div><div class="nbr-sub">SUBSTANCE · 6 books</div></div><span class="nbr-score">.76</span></div>
+        <div class="nbr-card"><span class="nbr-dot" style="background:#ef4444"></span><div><div class="nbr-name">Honey</div><div class="nbr-sub">SUBSTANCE · 5 books</div></div><span class="nbr-score">.73</span></div>
+        <div class="nbr-card"><span class="nbr-dot" style="background:#ef4444"></span><div><div class="nbr-name">Salt</div><div class="nbr-sub">SUBSTANCE · 8 books</div></div><span class="nbr-score">.71</span></div>
+        <div class="nbr-card"><span class="nbr-dot" style="background:#ef4444"></span><div><div class="nbr-name">Mercury</div><div class="nbr-sub">SUBSTANCE · 4 books</div></div><span class="nbr-score">.68</span></div>
+        <div class="nbr-card"><span class="nbr-dot" style="background:#8b5cf6"></span><div><div class="nbr-name">Decoction</div><div class="nbr-sub">CONCEPT · 5 books</div></div><span class="nbr-score">.66</span></div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<script>
+function toggleSection(el) { el.classList.toggle('open'); }
+
+const books = [
+  { id:'culpeper', name:'Culpeper', year:1652, lang:'EN', count:61, members:[
+    { name:'Water', count:61, variants:'Water, Waters, water, waters', contexts:['"bodily fluid, also a distilled preparation"','"distilled from ash-tree"','"water of elder flowers"'] }
+  ]},
+  { id:'humboldt', name:'Humboldt', year:1825, lang:'FR', count:40, members:[
+    { name:'eau', count:40, variants:'eau', contexts:['"medium for transport"','"substance mixed with plant sap"'] }
+  ]},
+  { id:'buffon', name:'Buffon', year:1778, lang:'FR', count:31, members:[
+    { name:'eau', count:30, variants:'eau', contexts:['"substance that solidifies without heat"','"liquid solvent"'] },
+    { name:"l'eau", count:1, variants:"l'eau", contexts:['"water"'] }
+  ]},
+  { id:'hernandez', name:'Hernández', year:1615, lang:'ES', count:25, members:[
+    { name:'agua', count:24, variants:'agua', contexts:['"liquid for drinking"','"liquid for preparation"'] },
+    { name:'aguas', count:1, variants:'aguas', contexts:['"waters for sweetening ginger"'] }
+  ]},
+  { id:'monardes', name:'Monardes', year:1574, lang:'ES', count:15, members:[
+    { name:'agua', count:15, variants:'agua, aguas', contexts:['"medicinal water preparation"','"water of the Indias"'] }
+  ]},
+  { id:'browne', name:'Browne', year:1646, lang:'EN', count:12, members:[
+    { name:'water', count:11, variants:'water, Water', contexts:['"fluid substance"','"universal solvent"'] },
+    { name:'Waters', count:1, variants:'Waters', contexts:['"affecting magnetic variation"'] }
+  ]},
+  { id:'bernard', name:'Bernard', year:1865, lang:'FR', count:9, members:[
+    { name:'eau', count:9, variants:'eau', contexts:['"compound of oxygen and hydrogen"'] }
+  ]},
+  { id:'orta', name:'Da Orta', year:1563, lang:'PT', count:9, members:[
+    { name:'agoa', count:8, variants:'agoa, agoas', contexts:['"water used in distillation"','"river water"'] },
+    { name:'agoas', count:1, variants:'agoas', contexts:['"medicinal waters"'] }
+  ]},
+  { id:'ricettario', name:'Ricettario', year:1597, lang:'IT', count:3, members:[
+    { name:'acqua', count:3, variants:'acqua', contexts:['"aqua vitae preparation"','"distilled water"'] }
+  ]},
+];
+const COLORS = {EN:'#2563eb',ES:'#d97706',FR:'#059669',PT:'#9333ea',IT:'#dc2626'};
+const maxCount = 61;
+let showAll=false, currentSort='count', activeId=null, INITIAL=6;
+
+function sortBy(by,el) {
+  currentSort=by;
+  document.querySelectorAll('.sort-btn').forEach(b=>b.classList.remove('active'));
+  el.classList.add('active');
+  render();
+}
+function toggleRow(id) { activeId = activeId===id ? null : id; render(); }
+
+function renderTimeline() {
+  const tl = document.getElementById('timeline');
+  if (!tl) return;
+  const minY=1550, maxY=1900;
+  tl.innerHTML = `<div class="tl-track"></div>
+    <div class="tl-range"><span>1550</span><span>1700</span><span>1900</span></div>
+    ${books.map(b => {
+      const pct = ((b.year-minY)/(maxY-minY))*100;
+      const size = Math.max(8, Math.min(18, 6+Math.sqrt(b.count)*2));
+      return `<div class="tl-dot" style="left:calc(16px + (100% - 32px)*${pct/100});width:${size}px;height:${size}px;background:${COLORS[b.lang]}" onclick="event.stopPropagation();toggleRow('${b.id}')">
+        <div class="tl-tip">${b.name} · ${b.members[0].name} · ${b.count}</div>
+      </div>`;
+    }).join('')}`;
+}
+
+function render() {
+  renderTimeline();
+  const sorted=[...books].sort((a,b)=> currentSort==='year' ? a.year-b.year : b.count-a.count);
+  const visible=showAll?sorted:sorted.slice(0,INITIAL);
+  const remaining=sorted.length-INITIAL;
+
+  const tbody=document.getElementById('tableBody');
+  let html='';
+  visible.forEach(b => {
+    const c=COLORS[b.lang], barW=(b.count/maxCount)*60, isActive=b.id===activeId;
+    html += `<tr class="data-row ${isActive?'active':''}" onclick="toggleRow('${b.id}')">
+      <td class="td-book"><span class="td-dot" style="background:${c}"></span>${b.name}</td>
+      <td class="td-term" style="color:${c}">${b.members[0].name}</td>
+      <td class="td-count"><span class="td-bar" style="width:${barW}px;background:${c}30"></span>${b.count}</td>
+      <td class="td-lang">${b.lang}</td>
+      <td class="td-year">${b.year}</td>
+    </tr>`;
+    if (isActive) {
+      html += `<tr class="expand-row"><td colspan="5"><div class="expand-content">
+        ${b.members.map(m=>`<div class="member-block">
+          <span class="member-name" style="color:${c}">${m.name}</span>
+          <span class="member-ct">${m.count} · ${m.variants}</span>
+          ${m.contexts.map(ctx=>`<div class="ctx-line">${ctx}</div>`).join('')}
+        </div>`).join('')}
+        <span class="excerpt-link">▸ View ${b.count} excerpts from text</span>
+      </div></td></tr>`;
+    }
+  });
+  if (remaining>0) {
+    html += `<tr class="show-more-row"><td colspan="5"><button class="show-more-btn" onclick="event.stopPropagation();showAll=!showAll;render()">${showAll?'− Show fewer':`+ ${remaining} more books`}</button></td></tr>`;
+  }
+  tbody.innerHTML=html;
+}
+render();
+</script>
+</body>
+</html>

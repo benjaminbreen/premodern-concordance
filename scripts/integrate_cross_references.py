@@ -9,6 +9,13 @@ maps auto_labels to the typed annotation schema, deduplicates, and adds a
 Also generates reverse references: if cluster A → cluster B, then B gets a
 back-reference to A.
 
+Source matching: Each finding is matched to its source cluster in the CURRENT
+concordance by direct (book_id, member_name) lookup — no fragile old→new ID
+remapping required.
+
+Target matching: found_name is matched only against canonical_name and
+modern_name (clean, curated fields) to avoid noisy matches from OCR variants.
+
 Typed annotation schema (for CS research on entity resolution):
 
   POSITIVE link types:
@@ -23,20 +30,61 @@ Typed annotation schema (for CS research on entity resolution):
     recipe_cooccurrence, authority_cooccurrence, ocr_artifact, generic_term
 
 Usage:
-    python3 integrate_cross_references.py [--dry-run]
+    python3 integrate_cross_references.py [--dry-run] [--strict] [--validate]
 """
 
 import json
 import re
 import shutil
+import unicodedata
 from pathlib import Path
 from collections import defaultdict, Counter
 import argparse
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 CLASSIFIED_PATH = BASE_DIR / "data" / "synonym_chains" / "classified_findings.json"
+LLM_XREFS_PATH = BASE_DIR / "data" / "llm_cross_references.json"
 CONCORDANCE_PATH = BASE_DIR / "web" / "public" / "data" / "concordance.json"
-OLD_CONCORDANCE_PATH = BASE_DIR / "web" / "public" / "data" / "concordance.json.bak3"
+
+
+# ─────────────────────────────────────────────────────────────
+# TEXT NORMALIZATION (adapted from migrate_ground_truth.py)
+# ─────────────────────────────────────────────────────────────
+
+def normalize_name(text: str) -> str:
+    """Lowercase, strip diacritics, keep only alnum+spaces."""
+    text = unicodedata.normalize("NFD", (text or "").lower())
+    text = "".join(ch for ch in text if unicodedata.category(ch) != "Mn")
+    text = re.sub(r"[^a-z0-9]+", " ", text)
+    return re.sub(r"\s+", " ", text).strip()
+
+
+def member_names(member: dict) -> set[str]:
+    """Return normalized member names/variants."""
+    out = set()
+    n = normalize_name(member.get("name", ""))
+    if n:
+        out.add(n)
+    for variant in member.get("variants", []):
+        v = normalize_name(variant)
+        if v:
+            out.add(v)
+    return out
+
+
+def cluster_aliases(cluster: dict) -> set[str]:
+    """Return normalized aliases for a cluster."""
+    aliases = set()
+    canonical = normalize_name(cluster.get("canonical_name", ""))
+    if canonical:
+        aliases.add(canonical)
+    gt = cluster.get("ground_truth") or {}
+    modern = normalize_name(gt.get("modern_name", ""))
+    if modern:
+        aliases.add(modern)
+    for member in cluster.get("members", []):
+        aliases.update(member_names(member))
+    return aliases
 
 
 # ─────────────────────────────────────────────────────────────
@@ -54,7 +102,17 @@ def map_link_type(finding: dict) -> str:
     if label == "cross_linguistic":
         return "cross_linguistic"
     if label == "contested_identity":
-        return "contested_identity"
+        # Only keep as contested if the relationship text indicates a real
+        # naming/identity confusion. Downgrade geographic co-occurrences
+        # and vague "possibly related" findings to conceptual_overlap.
+        CONTESTED_SIGNALS = [
+            "mistaken", "confused", "conflated", "mistakenly identified",
+            "mistaken for", "confused with", "wrongly", "erroneously",
+            "not the same", "falsely", "spurious",
+        ]
+        if any(signal in relationship for signal in CONTESTED_SIGNALS):
+            return "contested_identity"
+        return "conceptual_overlap"
     if label == "subtype_relation":
         # Check relationship field for derivation vs overlap
         if any(kw in relationship for kw in ["derived", "source of", "product of",
@@ -109,6 +167,367 @@ def map_link_strength(link_type: str) -> float:
 
 
 # ─────────────────────────────────────────────────────────────
+# DIRECT SOURCE MATCHING
+# ─────────────────────────────────────────────────────────────
+
+def build_source_lookup(clusters: list[dict]) -> tuple[dict, dict, dict]:
+    """
+    Build lookups to resolve findings to their source cluster in the CURRENT
+    concordance, without any old→new ID remapping.
+
+    Returns three dicts (checked in priority order):
+      1. (book_id, normalized_member_name) → cluster_id  (book-specific, highest precision)
+      2. (normalized_canonical_name, category) → cluster_id  (curated names)
+      3. (normalized_member_name, category) → cluster_id  (cross-book fallback)
+    """
+    by_book_member = {}   # (book_id, name) → cid
+    by_canonical = {}     # (canonical/modern name, category) → cid
+    by_any_member = {}    # (name, category) → cid
+
+    for cluster in clusters:
+        cid = cluster["id"]
+        category = cluster.get("category", "")
+
+        # Index canonical name
+        cn = normalize_name(cluster.get("canonical_name", ""))
+        if cn:
+            by_canonical.setdefault((cn, category), cid)
+
+        # Index modern name
+        gt = cluster.get("ground_truth") or {}
+        mn = normalize_name(gt.get("modern_name", ""))
+        if mn:
+            by_canonical.setdefault((mn, category), cid)
+
+        # Index all member names + variants
+        for member in cluster.get("members", []):
+            book = member.get("book_id", "")
+            for name in [member.get("name", "")] + member.get("variants", []):
+                n = normalize_name(name)
+                if n:
+                    by_book_member.setdefault((book, n), cid)
+                    by_any_member.setdefault((n, category), cid)
+
+    return by_book_member, by_canonical, by_any_member
+
+
+def resolve_source_clusters(findings: list[dict],
+                            by_book_member: dict,
+                            by_canonical: dict,
+                            by_any_member: dict) -> list[dict]:
+    """
+    Resolve each finding's source cluster directly against the current concordance
+    using the entity's actual name, not an old cluster ID remap.
+
+    Mutates source_cluster_id in-place and updates source_cluster_name.
+    Returns only successfully matched findings.
+    """
+    resolved = []
+    strategy_counts = Counter()
+
+    for f in findings:
+        book = f.get("source_book", "")
+        member = normalize_name(f.get("source_member", ""))
+        cname = normalize_name(f.get("source_cluster_name", ""))
+        category = f.get("source_category", "")
+
+        # Strategy 1: exact book + member name (highest precision)
+        cid = by_book_member.get((book, member))
+        if cid is not None:
+            strategy_counts["book_member"] += 1
+        else:
+            # Strategy 2: canonical/modern name + category
+            cid = by_canonical.get((cname, category))
+            if cid is not None:
+                strategy_counts["canonical_name"] += 1
+            else:
+                # Strategy 3: member name + category (cross-book)
+                cid = by_any_member.get((member, category))
+                if cid is not None:
+                    strategy_counts["cross_book_member"] += 1
+
+        if cid is not None:
+            f2 = dict(f)
+            f2["source_cluster_id"] = cid
+            # Clear stale matched_cluster_ids — will be re-matched fresh
+            f2["matched_cluster_ids"] = []
+            resolved.append(f2)
+        # else: drop — entity not in current concordance
+
+    dropped = len(findings) - len(resolved)
+    print(f"  Resolved {len(resolved)}/{len(findings)} findings to current clusters "
+          f"(dropped {dropped})")
+    for strategy, count in strategy_counts.most_common():
+        print(f"    {strategy}: {count}")
+
+    return resolved
+
+
+# ─────────────────────────────────────────────────────────────
+# TARGET MATCHING (tight: canonical + modern names only)
+# ─────────────────────────────────────────────────────────────
+
+def build_target_lookup(clusters: list[dict]) -> dict[tuple[str, str], int]:
+    """
+    Build (normalized_name, category) → cluster_id lookup for target matching.
+
+    Only indexes canonical_name and modern_name — the clean, curated fields.
+    Does NOT index member variants to avoid noisy OCR matches.
+    """
+    lookup = {}
+    for cluster in clusters:
+        category = cluster.get("category", "")
+        cid = cluster["id"]
+        # Canonical name
+        cn = normalize_name(cluster.get("canonical_name", ""))
+        if cn:
+            lookup.setdefault((cn, category), cid)
+        # Modern name
+        gt = cluster.get("ground_truth") or {}
+        modern = normalize_name(gt.get("modern_name", ""))
+        if modern:
+            lookup.setdefault((modern, category), cid)
+    return lookup
+
+
+def match_targets(findings: list[dict], current_clusters: list[dict]) -> int:
+    """
+    Match found_name/found_normalized against curated cluster names.
+    Mutates findings in-place. Returns count of matched targets.
+    """
+    lookup = build_target_lookup(current_clusters)
+    matched = 0
+
+    for f in findings:
+        if f.get("auto_is_genuine") is not True:
+            continue
+
+        source_category = f.get("source_category", "")
+        found_category = f.get("found_category", source_category)
+
+        # Try found_normalized first, then found_name
+        for name_field in ("found_normalized", "found_name"):
+            name = normalize_name(f.get(name_field, ""))
+            if not name:
+                continue
+            # Try found_category, then source_category
+            categories_to_try = list(dict.fromkeys(
+                [cat for cat in (found_category, source_category) if cat]
+            ))
+            for cat in categories_to_try:
+                cid = lookup.get((name, cat))
+                if cid is not None and cid != f.get("source_cluster_id"):
+                    f["matched_cluster_ids"] = [cid]
+                    matched += 1
+                    break
+            if f.get("matched_cluster_ids"):
+                break
+
+    return matched
+
+
+# ─────────────────────────────────────────────────────────────
+# LLM-GENERATED CROSS-REFERENCES (from generate_llm_cross_references.py)
+# ─────────────────────────────────────────────────────────────
+
+def load_llm_cross_references(clusters: list[dict]) -> dict[int, list[dict]]:
+    """
+    Load LLM-generated cross-references from cache and resolve stable keys
+    to current cluster IDs. Returns dict: cluster_id → list of ref dicts.
+    """
+    if not LLM_XREFS_PATH.exists():
+        return {}
+
+    with open(LLM_XREFS_PATH) as f:
+        cache = json.load(f)
+    entries = cache.get("entries", {})
+    if not entries:
+        return {}
+
+    # Build lookups to resolve stable keys → current cluster IDs
+    by_wikidata = {}
+    by_modern = {}
+    by_canonical = {}
+    for c in clusters:
+        gt = c.get("ground_truth") or {}
+        wd = (gt.get("wikidata_id") or "").strip()
+        if wd:
+            by_wikidata[f"wd:{wd}"] = c["id"]
+        mn = normalize_name(gt.get("modern_name", ""))
+        if mn:
+            by_modern[(mn, c["category"])] = c["id"]
+        cn = normalize_name(c.get("canonical_name", ""))
+        if cn:
+            by_canonical[(cn, c["category"])] = c["id"]
+
+    # Build name→cluster_id lookup for resolving target names
+    target_lookup = {}
+    for c in clusters:
+        gt = c.get("ground_truth") or {}
+        cat = c["category"]
+        mn = normalize_name(gt.get("modern_name", ""))
+        if mn:
+            target_lookup.setdefault((mn, cat), c["id"])
+        cn = normalize_name(c.get("canonical_name", ""))
+        if cn:
+            target_lookup.setdefault((cn, cat), c["id"])
+        # Also index member names for cross-linguistic matches
+        for m in c.get("members", []):
+            n = normalize_name(m.get("name", ""))
+            if n:
+                target_lookup.setdefault((n, cat), c["id"])
+
+    # Map link type names from LLM output to schema types
+    TYPE_MAP = {
+        "synonyms": "same_referent",
+        "cross_linguistic": "cross_linguistic",
+        "contested": "contested_identity",
+        "related": "conceptual_overlap",
+    }
+
+    refs_by_cluster = defaultdict(list)
+    resolved_sources = 0
+    resolved_targets = 0
+    unresolved_targets = 0
+
+    # Build cluster_id → cluster lookup once (not inside loop)
+    cluster_map_local = {c["id"]: c for c in clusters}
+
+    for stable_key, entry in entries.items():
+        # Resolve source cluster
+        source_id = by_wikidata.get(stable_key)
+        if source_id is None:
+            mn = normalize_name(entry.get("modern_name", ""))
+            cat = entry.get("category", "")
+            source_id = by_modern.get((mn, cat))
+        if source_id is None:
+            cn = normalize_name(entry.get("canonical_name", ""))
+            cat = entry.get("category", "")
+            source_id = by_canonical.get((cn, cat))
+        if source_id is None:
+            continue
+        resolved_sources += 1
+
+        category = entry["category"]
+        source_name = cluster_map_local.get(source_id, {}).get(
+            "canonical_name", f"#{source_id}")
+
+        # Process each link type
+        for llm_key, link_type in TYPE_MAP.items():
+            for ref_entry in entry.get(llm_key, []):
+                target_name = ref_entry.get("name", "")
+                reason = ref_entry.get("reason", "")
+                reason_lower = reason.lower()
+                target_norm = normalize_name(target_name)
+                if not target_norm:
+                    continue
+
+                # Reclassify "related" entries that are actually synonyms,
+                # cross-linguistic equivalents, or derivations
+                if link_type == "conceptual_overlap":
+                    CROSS_LING_SIGNALS = [
+                        "portuguese name", "spanish name", "italian name",
+                        "latin name", "french name", "german name",
+                        "arabic name", "chinese name", "dutch name",
+                        "historical name for", "local name for",
+                        "vernacular name", "common name for",
+                        "translation of", "translated as",
+                        "portuguese term", "spanish term", "italian term",
+                        "portuguese for", "spanish for", "italian for",
+                        "italian word for", "french word for",
+                        "german word for", "spanish word for",
+                        "portuguese word for", "latin word for",
+                        "cross-linguistic equivalent",
+                    ]
+                    SYNONYM_SIGNALS = [
+                        "same as", "identical to", "another name for",
+                        "also known as", "synonym for", "synonymous",
+                        "alternative name", "alternate name",
+                        "referred to as", "equivalent to",
+                        "interchangeable", "same species",
+                        "same substance", "same entity",
+                    ]
+                    DERIVATION_SIGNALS = [
+                        "derived from", "extracted from", "made from",
+                        "product of", "distilled from", "prepared from",
+                        "obtained from", "produced from", "refined from",
+                        "processed from", "yields", "produces",
+                    ]
+                    CONTESTED_SIGNALS = [
+                        "debated whether", "confused with", "mistaken for",
+                        "disputed identity", "possibly the same",
+                        "conflated with", "erroneously identified",
+                    ]
+                    # Drop low-value taxonomy refs ("X is a type of Y")
+                    TAXONOMY_SIGNALS = [
+                        " is a type of ", " is a species of ",
+                        " is a kind of ", " is a variety of ",
+                        " is a class of ", " is a subtype of ",
+                        " is a form of ", " are a type of ",
+                        " are a species of ", " are a kind of ",
+                        " are types of ",
+                    ]
+                    if any(s in reason_lower for s in TAXONOMY_SIGNALS):
+                        link_type = "_skip"  # will be filtered out below
+                    elif any(s in reason_lower for s in CROSS_LING_SIGNALS):
+                        link_type = "cross_linguistic"
+                    elif any(s in reason_lower for s in SYNONYM_SIGNALS):
+                        link_type = "same_referent"
+                    elif any(s in reason_lower for s in DERIVATION_SIGNALS):
+                        link_type = "derivation"
+                    elif any(s in reason_lower for s in CONTESTED_SIGNALS):
+                        link_type = "contested_identity"
+
+                # Skip taxonomy refs
+                if link_type == "_skip":
+                    continue
+
+                # Resolve target name → cluster ID
+                target_id = target_lookup.get((target_norm, category))
+                if target_id is None or target_id == source_id:
+                    unresolved_targets += 1
+                    continue
+                resolved_targets += 1
+
+                target_cluster_name = cluster_map_local.get(target_id, {}).get(
+                    "canonical_name", f"#{target_id}")
+
+                ref = {
+                    "found_name": target_name,
+                    "link_type": link_type,
+                    "link_strength": map_link_strength(link_type),
+                    "target_cluster_id": target_id,
+                    "target_cluster_name": target_cluster_name,
+                    "source_book": "llm_generated",
+                    "evidence_snippet": reason,
+                    "confidence": 0.85,
+                    "auto_label": f"llm_{llm_key}",
+                    "found_relationship": reason,
+                }
+                refs_by_cluster[source_id].append(ref)
+
+                # Reverse reference
+                reverse_ref = {
+                    "found_name": source_name,
+                    "link_type": link_type,
+                    "link_strength": map_link_strength(link_type),
+                    "target_cluster_id": source_id,
+                    "target_cluster_name": source_name,
+                    "source_book": "llm_generated",
+                    "evidence_snippet": reason,
+                    "confidence": 0.85,
+                    "auto_label": f"llm_{llm_key}",
+                    "found_relationship": f"reverse: {reason}",
+                    "is_reverse": True,
+                }
+                refs_by_cluster[target_id].append(reverse_ref)
+
+    print(f"  LLM cross-refs: {resolved_sources} sources resolved, "
+          f"{resolved_targets} target links, {unresolved_targets} unresolved targets")
+    return dict(refs_by_cluster)
+
+
+# ─────────────────────────────────────────────────────────────
 # BUILD CROSS-REFERENCES
 # ─────────────────────────────────────────────────────────────
 
@@ -128,6 +547,8 @@ def build_cross_references(findings: list[dict], cluster_map: dict) -> dict[int,
 
     for f in genuine:
         source_id = f["source_cluster_id"]
+        source_cluster = cluster_map.get(source_id, {})
+        source_name = source_cluster.get("canonical_name", f"#{source_id}")
         link_type = map_link_type(f)
         strength = map_link_strength(link_type)
         confidence = f.get("auto_confidence", 0.5)
@@ -161,12 +582,11 @@ def build_cross_references(findings: list[dict], cluster_map: dict) -> dict[int,
             # Add reverse reference to target cluster (if different from source)
             if target_id != source_id:
                 reverse_ref = {
-                    "found_name": f["source_cluster_name"],
+                    "found_name": source_name,
                     "link_type": link_type,
                     "link_strength": strength,
                     "target_cluster_id": source_id,
-                    "target_cluster_name": cluster_map.get(source_id, {}).get(
-                        "canonical_name", f"#{source_id}"),
+                    "target_cluster_name": source_name,
                     "source_book": f["source_book"],
                     "evidence_snippet": ref["evidence_snippet"],
                     "confidence": round(confidence, 2),
@@ -212,100 +632,171 @@ def deduplicate_refs(refs: list[dict]) -> list[dict]:
     return result
 
 
-def build_id_remap(old_path: Path, current_clusters: list[dict]) -> dict[int, int]:
-    """
-    Build a mapping from old cluster IDs → current cluster IDs
-    by matching on (canonical_name.lower(), category).
-    Returns dict: old_id → new_id. Unmappable IDs are omitted.
-    """
-    if not old_path.exists():
-        return {}
+# ─────────────────────────────────────────────────────────────
+# VALIDATION
+# ─────────────────────────────────────────────────────────────
 
-    with open(old_path) as f:
-        old_data = json.load(f)
+def validate_cross_references(data: dict) -> bool:
+    """Validate cross-references in concordance data. Returns True if all checks pass."""
+    clusters = data["clusters"]
+    cluster_ids = {c["id"] for c in clusters}
+    errors = []
+    warnings = []
 
-    # Build lookup: (name, category) → current ID
-    current_by_key = {}
-    for c in current_clusters:
-        key = (c["canonical_name"].lower(), c["category"])
-        current_by_key[key] = c["id"]
+    clusters_with_refs = 0
+    total_refs = 0
+    orphan_targets = 0
+    self_refs = 0
+    type_counts = Counter()
 
-    remap = {}
-    for c in old_data["clusters"]:
-        key = (c["canonical_name"].lower(), c["category"])
-        if key in current_by_key:
-            remap[c["id"]] = current_by_key[key]
-
-    return remap
-
-
-def remap_findings(findings: list[dict], remap: dict[int, int]) -> list[dict]:
-    """
-    Remap cluster IDs in findings from old → current.
-    Drops findings whose source cluster can't be mapped.
-    """
-    if not remap:
-        return findings
-
-    remapped = []
-    dropped = 0
-    for f in findings:
-        old_source = f["source_cluster_id"]
-        new_source = remap.get(old_source)
-        if new_source is None:
-            dropped += 1
+    for cluster in clusters:
+        cid = cluster["id"]
+        refs = cluster.get("cross_references", [])
+        if not refs:
             continue
+        clusters_with_refs += 1
 
-        f2 = dict(f)
-        f2["source_cluster_id"] = new_source
+        for ref in refs:
+            total_refs += 1
+            type_counts[ref.get("link_type", "unknown")] += 1
 
-        # Remap matched_cluster_ids
-        new_matched = []
-        for tid in f2.get("matched_cluster_ids", []):
-            new_tid = remap.get(tid)
-            if new_tid is not None:
-                new_matched.append(new_tid)
-        f2["matched_cluster_ids"] = new_matched
+            tid = ref.get("target_cluster_id")
+            if tid is not None:
+                if tid not in cluster_ids:
+                    orphan_targets += 1
+                    errors.append(f"  Cluster #{cid}: target #{tid} does not exist")
+                if tid == cid:
+                    self_refs += 1
+                    warnings.append(f"  Cluster #{cid}: self-reference via '{ref.get('found_name')}'")
 
-        remapped.append(f2)
+    # Check bidirectional: if A→B exists, B→A should exist
+    forward_pairs = set()
+    reverse_pairs = set()
+    for cluster in clusters:
+        cid = cluster["id"]
+        for ref in cluster.get("cross_references", []):
+            tid = ref.get("target_cluster_id")
+            if tid is None:
+                continue
+            if ref.get("is_reverse"):
+                reverse_pairs.add((cid, tid))
+            else:
+                forward_pairs.add((cid, tid))
 
-    print(f"  Remapped {len(remapped)} findings, dropped {dropped} (unmappable source clusters)")
-    return remapped
+    missing_reverse = 0
+    for src, tgt in forward_pairs:
+        if (tgt, src) not in reverse_pairs:
+            missing_reverse += 1
 
+    print(f"\n{'='*60}")
+    print("VALIDATION RESULTS")
+    print(f"{'='*60}")
+    print(f"  Clusters with references: {clusters_with_refs}")
+    print(f"  Total references: {total_refs}")
+    print(f"  Orphan target IDs: {orphan_targets}")
+    print(f"  Self-references: {self_refs}")
+    print(f"  Missing reverse refs: {missing_reverse}")
+    print(f"  Link type distribution:")
+    for lt, count in type_counts.most_common():
+        pct = 100 * count / total_refs if total_refs else 0
+        print(f"    {lt:25s} {count:5d}  ({pct:.1f}%)")
+
+    if errors:
+        print(f"\nERRORS ({len(errors)}):")
+        for e in errors[:20]:
+            print(e)
+        if len(errors) > 20:
+            print(f"  ... and {len(errors) - 20} more")
+
+    if warnings:
+        print(f"\nWARNINGS ({len(warnings)}):")
+        for w in warnings[:10]:
+            print(w)
+
+    ok = len(errors) == 0
+    print(f"\nValidation: {'PASSED' if ok else 'FAILED'}")
+    return ok
+
+
+# ─────────────────────────────────────────────────────────────
+# BACKUP LOGIC
+# ─────────────────────────────────────────────────────────────
+
+def find_next_backup_path(base_path: Path) -> Path:
+    """Find the next available .bakN suffix."""
+    for n in range(2, 100):
+        candidate = base_path.parent / f"{base_path.stem}.json.bak{n}"
+        if not candidate.exists():
+            return candidate
+    raise RuntimeError("Too many backup files (checked .bak2 through .bak99)")
+
+
+# ─────────────────────────────────────────────────────────────
+# MAIN
+# ─────────────────────────────────────────────────────────────
 
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--dry-run", action="store_true",
                         help="Print stats without modifying concordance.json")
-    parser.add_argument("--remap-from", type=str, default=None,
-                        help="Path to old concordance.json to remap cluster IDs from")
+    parser.add_argument("--validate", action="store_true",
+                        help="Validate existing cross-references in concordance.json")
+    parser.add_argument("--strict", action="store_true",
+                        help="Only use high-confidence labels (true_synonym, cross_linguistic, "
+                             "contested_identity, subtype_relation). Excludes noisy llm_genuine.")
     args = parser.parse_args()
 
-    # Load data
-    print("Loading classified findings...")
-    with open(CLASSIFIED_PATH) as f:
-        findings = json.load(f)
-    print(f"  {len(findings)} total findings")
-
+    # Load concordance
     print("Loading concordance...")
     with open(CONCORDANCE_PATH) as f:
         data = json.load(f)
     cluster_map = {c["id"]: c for c in data["clusters"]}
     print(f"  {len(data['clusters'])} clusters")
 
-    # Remap IDs if needed (findings reference old cluster IDs)
-    old_path = Path(args.remap_from) if args.remap_from else OLD_CONCORDANCE_PATH
-    if old_path.exists():
-        print(f"\nRemapping cluster IDs from {old_path.name}...")
-        remap = build_id_remap(old_path, data["clusters"])
-        print(f"  Mapped {len(remap)} old IDs → current IDs")
-        findings = remap_findings(findings, remap)
-    else:
-        print("  No old concordance found, assuming IDs match current data")
+    # Validate-only mode
+    if args.validate:
+        validate_cross_references(data)
+        return
 
-    # Build cross-references
-    print("\nBuilding cross-references...")
+    # Load findings
+    print("Loading classified findings...")
+    with open(CLASSIFIED_PATH) as f:
+        findings = json.load(f)
+    print(f"  {len(findings)} total findings")
+
+    # Filter to high-quality labels if --strict
+    STRICT_LABELS = {"true_synonym", "cross_linguistic", "contested_identity", "subtype_relation"}
+    if args.strict:
+        before = len(findings)
+        findings = [f for f in findings
+                    if f.get("auto_label") in STRICT_LABELS or not f.get("auto_is_genuine")]
+        print(f"  --strict: kept {len(findings)}/{before} findings (high-quality labels only)")
+
+    # Resolve source clusters directly against the current concordance
+    # (no old→new ID remapping — uses entity's actual name for matching)
+    print("\nResolving source clusters...")
+    by_book_member, by_canonical, by_any_member = build_source_lookup(data["clusters"])
+    findings = resolve_source_clusters(
+        findings, by_book_member, by_canonical, by_any_member)
+
+    # Match targets against curated cluster names (canonical + modern only)
+    print("\nMatching targets against curated cluster names...")
+    matched = match_targets(findings, data["clusters"])
+    print(f"  Matched {matched} findings to target clusters")
+
+    # Build cross-references from synonym chain findings
+    print("\nBuilding cross-references from synonym chains...")
     refs_by_cluster = build_cross_references(findings, cluster_map)
+
+    # Merge LLM-generated cross-references (if cache exists)
+    print("\nLoading LLM-generated cross-references...")
+    llm_refs = load_llm_cross_references(data["clusters"])
+    if llm_refs:
+        for cid, refs in llm_refs.items():
+            refs_by_cluster[cid].extend(refs)
+        print(f"  Merged LLM refs into {len(llm_refs)} clusters")
+    else:
+        print("  No LLM cross-reference cache found (run generate_llm_cross_references.py)")
 
     # Deduplicate
     deduped_by_cluster = {}
@@ -341,25 +832,24 @@ def main():
         print(f"  {lt:25s} {count:5d}  (strength {strength})")
 
     # Per-cluster distribution
-    ref_counts = [len(refs) for refs in deduped_by_cluster.values()]
-    ref_counts.sort(reverse=True)
-    print(f"\nReferences per cluster:")
-    print(f"  Max: {ref_counts[0]}, Median: {ref_counts[len(ref_counts)//2]}, "
-          f"Min: {ref_counts[-1]}")
-    print(f"  Top 5 clusters:")
-    for cid, refs in sorted(deduped_by_cluster.items(),
-                             key=lambda x: len(x[1]), reverse=True)[:5]:
-        cname = cluster_map.get(cid, {}).get("canonical_name", f"#{cid}")
-        print(f"    #{cid} {cname}: {len(refs)} refs")
+    if deduped_by_cluster:
+        ref_counts = [len(refs) for refs in deduped_by_cluster.values()]
+        ref_counts.sort(reverse=True)
+        print(f"\nReferences per cluster:")
+        print(f"  Max: {ref_counts[0]}, Median: {ref_counts[len(ref_counts)//2]}, "
+              f"Min: {ref_counts[-1]}")
+        print(f"  Top 5 clusters:")
+        for cid, refs in sorted(deduped_by_cluster.items(),
+                                 key=lambda x: len(x[1]), reverse=True)[:5]:
+            cname = cluster_map.get(cid, {}).get("canonical_name", f"#{cid}")
+            print(f"    #{cid} {cname}: {len(refs)} refs")
 
     if args.dry_run:
         print("\n[DRY RUN] No changes written.")
         return
 
     # Backup concordance
-    backup_path = CONCORDANCE_PATH.with_suffix(".json.bak2")
-    if backup_path.exists():
-        backup_path = CONCORDANCE_PATH.with_suffix(".json.bak3")
+    backup_path = find_next_backup_path(CONCORDANCE_PATH)
     shutil.copy(CONCORDANCE_PATH, backup_path)
     print(f"\nBackup: {backup_path}")
 
@@ -380,6 +870,10 @@ def main():
 
     file_size = CONCORDANCE_PATH.stat().st_size / (1024 * 1024)
     print(f"Updated {clusters_updated} clusters in concordance.json ({file_size:.1f} MB)")
+
+    # Validate the result
+    print("\nValidating...")
+    validate_cross_references(data)
 
     # Also save the full typed reference dataset for research
     research_path = BASE_DIR / "data" / "synonym_chains" / "typed_cross_references.json"

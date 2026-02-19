@@ -147,12 +147,13 @@ def search_wikipedia_titles(query: str) -> list[str]:
     return [r.get("title", "") for r in data.get("query", {}).get("search", []) if r.get("title")]
 
 
-def score_summary_for_category(summary: dict | None, category: str) -> int:
+def score_summary_for_category(summary: dict | None, category: str, query: str = "") -> int:
     if not summary:
         return -100
     if summary.get("type") == "disambiguation":
         return -100
     desc = (summary.get("description") or "").lower()
+    title = (summary.get("title") or "").lower()
     score = 0
 
     # Penalize obvious bad hits.
@@ -160,23 +161,50 @@ def score_summary_for_category(summary: dict | None, category: str) -> int:
         "film", "album", "song", "tv", "television", "video game", "wrestler",
         "footballer", "band", "journal", "magazine", "episode", "sitcom",
         "surname", "given name", "unisex given name", "list of",
+        "deaths in", "births in", "season", "championship",
     ]
     if any(t in desc for t in bad_terms):
         score -= 5
 
+    # Category-specific penalties — penalize results from wrong domains
+    cat_penalties = {
+        "PLACE": ["paranormal", "investigator", "author", "actor", "singer", "wrestler"],
+        "DISEASE": ["paranormal", "investigator", "demonologist", "ghost", "film"],
+        "PLANT": ["person", "footballer", "singer", "politician", "actor"],
+        "ANIMAL": ["person", "footballer", "singer", "politician", "actor"],
+        "PERSON": ["asteroid", "crater", "genus", "plant"],
+        "SUBSTANCE": ["person", "footballer", "singer", "politician"],
+    }
+    penalties = cat_penalties.get(category, [])
+    if any(p in desc for p in penalties):
+        score -= 3
+
     cat_hints = {
-        "PERSON": ["person", "physician", "philosopher", "scholar", "pope", "saint"],
-        "PLACE": ["city", "country", "region", "island", "river", "town", "province"],
-        "PLANT": ["plant", "genus", "species", "flowering", "tree", "herb"],
-        "ANIMAL": ["animal", "species", "bird", "fish", "mammal", "reptile"],
-        "DISEASE": ["disease", "condition", "syndrome", "disorder", "infection"],
-        "SUBSTANCE": ["chemical", "compound", "substance", "resin", "mineral", "drug"],
+        "PERSON": ["person", "physician", "philosopher", "scholar", "pope", "saint",
+                    "naturalist", "botanist", "chemist", "biologist", "explorer"],
+        "PLACE": ["city", "country", "region", "island", "river", "town", "province",
+                   "municipality", "department", "commune", "mountain", "valley"],
+        "PLANT": ["plant", "genus", "species", "flowering", "tree", "herb", "family"],
+        "ANIMAL": ["animal", "species", "bird", "fish", "mammal", "reptile", "insect"],
+        "DISEASE": ["disease", "condition", "syndrome", "disorder", "infection",
+                     "medical", "symptom", "pathology"],
+        "SUBSTANCE": ["chemical", "compound", "substance", "resin", "mineral", "drug",
+                       "element", "ore", "metal"],
         "OBJECT": ["instrument", "tool", "object", "device", "artifact"],
         "CONCEPT": ["concept", "theory", "philosophy", "practice", "method"],
-        "ANATOMY": ["anatomy", "organ", "body", "anatomical"],
+        "ANATOMY": ["anatomy", "organ", "body", "anatomical", "muscle", "bone", "nerve"],
     }
     hints = cat_hints.get(category, [])
     score += sum(1 for h in hints if h in desc)
+
+    # Bonus: title closely matches the query
+    if query:
+        query_lower = query.lower().strip()
+        if title == query_lower:
+            score += 3  # exact match
+        elif query_lower in title or title in query_lower:
+            score += 1  # partial match
+
     return score
 
 
@@ -249,23 +277,13 @@ def main():
                 flush=True,
             )
 
-        # 1) Existing wikipedia_url.
-        url = gt.get("wikipedia_url")
-        if url:
-            parsed = parse_wikipedia_url(url)
-            if parsed:
-                lang, title = parsed
-                found = try_title(cluster, lang, title, "url")
-                if found:
-                    stats["url"] += 1
-
-        # 2) Manual override by canonical name.
-        if not found and name in overrides:
+        # 1) Manual override by canonical name (highest priority).
+        if name in overrides:
             found = try_title(cluster, "en", overrides[name], "override")
             if found:
                 stats["override"] += 1
 
-        # 3) Wikidata sitelink.
+        # 2) Wikidata sitelink (authoritative — preferred over existing URL).
         if not found:
             qid = gt.get("wikidata_id", "")
             sl = get_wikidata_sitelink(qid, sitelink_cache)
@@ -274,6 +292,17 @@ def main():
                 found = try_title(cluster, lang, title, "wikidata")
                 if found:
                     stats["wikidata"] += 1
+
+        # 3) Existing wikipedia_url (may have been set by naive search — lower priority).
+        if not found:
+            url = gt.get("wikipedia_url")
+            if url:
+                parsed = parse_wikipedia_url(url)
+                if parsed:
+                    lang, title = parsed
+                    found = try_title(cluster, lang, title, "url")
+                    if found:
+                        stats["url"] += 1
 
         # 4) Search fallback.
         if not found:
@@ -300,9 +329,10 @@ def main():
             unique_titles = [t for t in candidate_titles if t and not (t.lower() in seen_t or seen_t.add(t.lower()))]
 
             ranked: list[tuple[int, str]] = []
+            primary_query = queries[0] if queries else ""
             for t in unique_titles[:6]:
                 summary = fetch_json(SUMMARY_API.format(urllib.parse.quote(t)))
-                ranked.append((score_summary_for_category(summary, category), t))
+                ranked.append((score_summary_for_category(summary, category, primary_query), t))
                 time.sleep(REQUEST_DELAY)
             ranked.sort(reverse=True)
 

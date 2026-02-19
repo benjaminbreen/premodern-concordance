@@ -92,6 +92,96 @@ const BOOK_METADATA: Record<string, BookMetadataEntry> = {
     ngramsYearStart: 1855,
     tags: ["natural selection", "evolution", "natural history", "biology", "Victorian science"],
   },
+  pseudodoxia_epidemica_browne_1646: {
+    description:
+      "Sir Thomas Browne's encyclopedic investigation of 'vulgar errors' — widely held beliefs about the natural world that he tests against observation, experiment, and ancient authority. A landmark of seventeenth-century English prose and early empiricism.",
+    internetArchiveUrl: "https://archive.org/details/pseudodoxiaepide00browuoft",
+    wikipediaUrl: "https://en.wikipedia.org/wiki/Pseudodoxia_Epidemica",
+    ngramsTerm: "Pseudodoxia Epidemica",
+    ngramsYearStart: 1640,
+    tags: ["natural philosophy", "empiricism", "English prose", "vulgar errors", "zoology"],
+  },
+  first_principles_spencer_1862: {
+    description:
+      "Herbert Spencer's ambitious attempt to unify all knowledge under evolutionary principles. Published in 1862, it applies the concept of progressive development to physics, biology, psychology, and sociology, coining the phrase 'survival of the fittest.'",
+    internetArchiveUrl: "https://archive.org/details/firstprinciples00spen",
+    wikipediaUrl: "https://en.wikipedia.org/wiki/First_Principles_(book)",
+    ngramsTerm: "First Principles Spencer",
+    ngramsYearStart: 1855,
+    tags: ["evolution", "philosophy", "sociology", "Victorian science", "synthetic philosophy"],
+  },
+  connexion_physical_sciences_somerville_1858: {
+    description:
+      "Mary Somerville's masterful synthesis of early nineteenth-century physical science, connecting astronomy, optics, electricity, magnetism, and heat into a unified picture. One of the most influential scientific books of its era, it helped coin the word 'scientist.'",
+    internetArchiveUrl: "https://archive.org/details/connexionofphysi00some",
+    wikipediaUrl: "https://en.wikipedia.org/wiki/On_the_Connexion_of_the_Physical_Sciences",
+    ngramsTerm: "Connexion Physical Sciences Somerville",
+    ngramsYearStart: 1830,
+    tags: ["physics", "astronomy", "women in science", "scientific synthesis", "Victorian science"],
+  },
+  kosmos_humboldt_1845: {
+    description:
+      "Alexander von Humboldt's magnum opus, an attempt to describe the entire physical world — from nebulae to mosses — in a single unified work. Published in five volumes between 1845 and 1862, Kosmos synthesizes decades of scientific observation with Romantic natural philosophy.",
+    internetArchiveUrl: "https://archive.org/details/b28040795_0001",
+    wikipediaUrl: "https://en.wikipedia.org/wiki/Cosmos_(Humboldt)",
+    ngramsTerm: "Kosmos Humboldt",
+    ngramsYearStart: 1840,
+    tags: ["geography", "natural philosophy", "Romanticism", "global science", "physical description"],
+  },
+  quatro_libros_naturaleza_hernandez_1615: {
+    description:
+      "Francisco Hernández's pioneering natural history of New Spain, describing hundreds of Mexican plants, animals, and minerals based on a royal expedition (1571–1577). Drawing heavily on Nahuatl knowledge, it is the first systematic European study of Mesoamerican natural history.",
+    internetArchiveUrl: "https://archive.org/details/quatrolibrosde00hern",
+    wikipediaUrl: "https://en.wikipedia.org/wiki/Francisco_Hern%C3%A1ndez_de_Toledo",
+    ngramsTerm: "Hernández historia natural Nueva España",
+    ngramsYearStart: 1600,
+    tags: ["New Spain", "Nahuatl", "materia medica", "natural history", "colonial science"],
+  },
+  epoques_nature_buffon_1778: {
+    description:
+      "Buffon's visionary essay on the history of the Earth, proposing that the planet formed from a comet's collision with the Sun and has cooled over vast epochs. Published in 1778, it was one of the first works to argue for deep geological time and a secular Earth history.",
+    internetArchiveUrl: "https://archive.org/details/lesepoquesdelana00buff",
+    wikipediaUrl: "https://en.wikipedia.org/wiki/Les_%C3%89poques_de_la_Nature",
+    ngramsTerm: "Époques de la Nature Buffon",
+    ngramsYearStart: 1770,
+    tags: ["geology", "deep time", "cosmogony", "Enlightenment", "Earth history"],
+  },
+  medecine_experimentale_bernard_1865: {
+    description:
+      "Claude Bernard's foundational treatise on the scientific method in medicine and physiology. Published in 1865, it argues for replacing empirical folk medicine with rigorous experimentation, establishing the principles of the controlled experiment and the concept of the internal milieu.",
+    internetArchiveUrl: "https://archive.org/details/introductiontoth00bern",
+    wikipediaUrl: "https://en.wikipedia.org/wiki/An_Introduction_to_the_Study_of_Experimental_Medicine",
+    ngramsTerm: "médecine expérimentale Bernard",
+    ngramsYearStart: 1860,
+    tags: ["physiology", "experimental method", "scientific method", "French medicine", "vivisection"],
+  },
+  piso_historia_naturalis_brasiliae_1648: {
+    description:
+      "A landmark collaborative natural history of Brazil by the Dutch physician Willem Piso and the German naturalist Georg Marcgrave, published in 1648 during the period of Dutch rule. It systematically catalogues Brazilian plants, animals, diseases, and indigenous remedies, representing the most comprehensive European study of tropical nature in the seventeenth century.",
+    internetArchiveUrl: "https://archive.org/details/historianaturali00piso",
+    wikipediaUrl: "https://en.wikipedia.org/wiki/Historia_Naturalis_Brasiliae",
+    ngramsTerm: "Historia Naturalis Brasiliae",
+    ngramsYearStart: 1640,
+    tags: ["Brazil", "tropical medicine", "Dutch colonial science", "natural history", "Latin"],
+  },
+  systema_naturae_linnaeus_1758: {
+    description:
+      "The tenth edition of Carl Linnaeus's foundational taxonomic work, published in 1758. This edition is the starting point for zoological nomenclature under the International Code, introducing binomial naming for thousands of animal species and establishing the hierarchical classification system still used today.",
+    internetArchiveUrl: "https://archive.org/details/carolilinnaeinat00linn",
+    wikipediaUrl: "https://en.wikipedia.org/wiki/Systema_Naturae",
+    ngramsTerm: "Systema Naturae Linnaeus",
+    ngramsYearStart: 1735,
+    tags: ["taxonomy", "binomial nomenclature", "zoology", "natural history", "Latin"],
+  },
+  lehrbuch_naturphilosophie_oken_1809: {
+    description:
+      "Lorenz Oken's speculative treatise on Naturphilosophie, blending Romantic idealism with empirical natural history. Published in 1809, it attempts to derive the entire natural world — from minerals to mammals — from a single philosophical principle, reflecting the German tradition of systematic nature-philosophy.",
+    internetArchiveUrl: "https://archive.org/details/lehrbuchdernatu04okengoog",
+    wikipediaUrl: "https://en.wikipedia.org/wiki/Lorenz_Oken",
+    ngramsTerm: "Oken Naturphilosophie",
+    ngramsYearStart: 1800,
+    tags: ["Naturphilosophie", "German Romanticism", "speculative biology", "morphology", "idealism"],
+  },
 };
 
 

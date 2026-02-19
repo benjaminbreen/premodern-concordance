@@ -1,0 +1,2489 @@
+{
+  "timestamp": "2026-02-16T22:37:24.661377",
+  "dry_run": false,
+  "stats": {
+    "qid_cleared": 240,
+    "wiki_url_fixed": 22,
+    "wiki_url_cleared": 13,
+    "qid_refetched": 22,
+    "wiki_extract_cleared": 13,
+    "already_clean": 0
+  },
+  "fixes": [
+    {
+      "cluster_id": 12,
+      "canonical_name": "Africa",
+      "old_qid": "Q16159116",
+      "old_desc": "family name",
+      "old_wiki_url": "https://en.wikipedia.org/wiki/Africa%20%28surname%29",
+      "actions": [
+        "cleared_qid_and_desc",
+        "fixed_wiki_url → https://en.wikipedia.org/wiki/Africa"
+      ],
+      "new_qid": "Q15",
+      "new_desc": "continent"
+    },
+    {
+      "cluster_id": 14,
+      "canonical_name": "birds",
+      "old_qid": "Q14915264",
+      "old_desc": "family name",
+      "old_wiki_url": "https://en.wikipedia.org/wiki/Bird%20%28surname%29",
+      "actions": [
+        "cleared_qid_and_desc",
+        "fixed_wiki_url → https://en.wikipedia.org/wiki/Bird"
+      ],
+      "new_qid": "Q5113",
+      "new_desc": "class of vertebrates characterized by wings, a feather-covered body and a beak"
+    },
+    {
+      "cluster_id": 16,
+      "canonical_name": "reason",
+      "old_qid": "",
+      "old_desc": "family name",
+      "old_wiki_url": "https://en.wikipedia.org/wiki/Reason",
+      "actions": [
+        "cleared_qid_and_desc"
+      ]
+    },
+    {
+      "cluster_id": 33,
+      "canonical_name": "expérience",
+      "old_qid": "",
+      "old_desc": "unisex given name",
+      "old_wiki_url": "",
+      "actions": [
+        "cleared_qid_and_desc"
+      ]
+    },
+    {
+      "cluster_id": 36,
+      "canonical_name": "Glass",
+      "old_qid": "",
+      "old_desc": "family name",
+      "old_wiki_url": "",
+      "actions": [
+        "cleared_qid_and_desc"
+      ]
+    },
+    {
+      "cluster_id": 39,
+      "canonical_name": "Occidente",
+      "old_qid": "",
+      "old_desc": "family name",
+      "old_wiki_url": "",
+      "actions": [
+        "cleared_qid_and_desc"
+      ]
+    },
+    {
+      "cluster_id": 60,
+      "canonical_name": "brain",
+      "old_qid": "Q16860338",
+      "old_desc": "family name",
+      "old_wiki_url": "https://en.wikipedia.org/wiki/Brain%20%28surname%29",
+      "actions": [
+        "cleared_qid_and_desc",
+        "fixed_wiki_url → https://en.wikipedia.org/wiki/Brain"
+      ],
+      "new_qid": "Q1073",
+      "new_desc": "organ that serves as the center of the nervous system in all vertebrate and most invertebrate animals"
+    },
+    {
+      "cluster_id": 83,
+      "canonical_name": "June",
+      "old_qid": "",
+      "old_desc": "family name",
+      "old_wiki_url": "https://en.wikipedia.org/wiki/June",
+      "actions": [
+        "cleared_qid_and_desc"
+      ]
+    },
+    {
+      "cluster_id": 102,
+      "canonical_name": "Wind",
+      "old_qid": "Q37232157",
+      "old_desc": "family name",
+      "old_wiki_url": "https://en.wikipedia.org/wiki/Wind%20%28surname%29",
+      "actions": [
+        "cleared_qid_and_desc",
+        "fixed_wiki_url → https://en.wikipedia.org/wiki/Wind"
+      ],
+      "new_qid": "Q8094",
+      "new_desc": "flow of gases or air on a large scale"
+    },
+    {
+      "cluster_id": 112,
+      "canonical_name": "materia",
+      "old_qid": "",
+      "old_desc": "family name",
+      "old_wiki_url": "",
+      "actions": [
+        "cleared_qid_and_desc"
+      ]
+    },
+    {
+      "cluster_id": 133,
+      "canonical_name": "Buffon",
+      "old_qid": "",
+      "old_desc": "family name",
+      "old_wiki_url": "",
+      "actions": [
+        "cleared_qid_and_desc"
+      ]
+    },
+    {
+      "cluster_id": 136,
+      "canonical_name": "sympathia",
+      "old_qid": "",
+      "old_desc": "family name",
+      "old_wiki_url": "",
+      "actions": [
+        "cleared_qid_and_desc"
+      ]
+    },
+    {
+      "cluster_id": 140,
+      "canonical_name": "snow",
+      "old_qid": "Q13557582",
+      "old_desc": "family name",
+      "old_wiki_url": "https://en.wikipedia.org/wiki/Snow%20%28surname%29",
+      "actions": [
+        "cleared_qid_and_desc",
+        "fixed_wiki_url → https://en.wikipedia.org/wiki/Snow"
+      ],
+      "new_qid": "Q7561",
+      "new_desc": "precipitation in the form of ice crystal flakes"
+    },
+    {
+      "cluster_id": 142,
+      "canonical_name": "Crystal",
+      "old_qid": "",
+      "old_desc": "female given name",
+      "old_wiki_url": "https://en.wikipedia.org/wiki/Crystal%20%28name%29",
+      "actions": [
+        "cleared_qid_and_desc",
+        "fixed_wiki_url → https://en.wikipedia.org/wiki/Crystal"
+      ],
+      "new_qid": "Q43533",
+      "new_desc": "solid material whose constituent atoms, molecules, or ions are arranged in an ordered lattice extending in all three spatial dimensions"
+    },
+    {
+      "cluster_id": 156,
+      "canonical_name": "September",
+      "old_qid": "",
+      "old_desc": "family name",
+      "old_wiki_url": "",
+      "actions": [
+        "cleared_qid_and_desc"
+      ]
+    },
+    {
+      "cluster_id": 162,
+      "canonical_name": "Adam",
+      "old_qid": "",
+      "old_desc": "family name",
+      "old_wiki_url": "https://en.wikipedia.org/wiki/Adam",
+      "actions": [
+        "cleared_qid_and_desc"
+      ]
+    },
+    {
+      "cluster_id": 168,
+      "canonical_name": "April",
+      "old_qid": "",
+      "old_desc": "family name",
+      "old_wiki_url": "https://en.wikipedia.org/wiki/April",
+      "actions": [
+        "cleared_qid_and_desc"
+      ]
+    },
+    {
+      "cluster_id": 172,
+      "canonical_name": "stone",
+      "old_qid": "Q12803555",
+      "old_desc": "family name",
+      "old_wiki_url": "https://en.wikipedia.org/wiki/Stone%20%28surname%29",
+      "actions": [
+        "cleared_qid_and_desc",
+        "fixed_wiki_url → https://en.wikipedia.org/wiki/Stone"
+      ],
+      "new_qid": "Q22731",
+      "new_desc": "rock; building material"
+    },
+    {
+      "cluster_id": 178,
+      "canonical_name": "Members",
+      "old_qid": "",
+      "old_desc": "family name",
+      "old_wiki_url": "",
+      "actions": [
+        "cleared_qid_and_desc"
+      ]
+    },
+    {
+      "cluster_id": 190,
+      "canonical_name": "papel",
+      "old_qid": "",
+      "old_desc": "family name",
+      "old_wiki_url": "",
+      "actions": [
+        "cleared_qid_and_desc"
+      ]
+    },
+    {
+      "cluster_id": 200,
+      "canonical_name": "death",
+      "old_qid": "",
+      "old_desc": "family name",
+      "old_wiki_url": "",
+      "actions": [
+        "cleared_qid_and_desc"
+      ]
+    },
+    {
+      "cluster_id": 203,
+      "canonical_name": "fornello",
+      "old_qid": "",
+      "old_desc": "family name",
+      "old_wiki_url": "",
+      "actions": [
+        "cleared_qid_and_desc"
+      ]
+    },
+    {
+      "cluster_id": 208,
+      "canonical_name": "Solomon",
+      "old_qid": "",
+      "old_desc": "family name",
+      "old_wiki_url": "https://en.wikipedia.org/wiki/Solomon",
+      "actions": [
+        "cleared_qid_and_desc"
+      ]
+    },
+    {
+      "cluster_id": 280,
+      "canonical_name": "Quito",
+      "old_qid": "",
+      "old_desc": "family name",
+      "old_wiki_url": "",
+      "actions": [
+        "cleared_qid_and_desc"
+      ]
+    },
+    {
+      "cluster_id": 299,
+      "canonical_name": "time",
+      "old_qid": "",
+      "old_desc": "family name",
+      "old_wiki_url": "",
+      "actions": [
+        "cleared_qid_and_desc"
+      ]
+    },
+    {
+      "cluster_id": 314,
+      "canonical_name": "criança",
+      "old_qid": "",
+      "old_desc": "family name",
+      "old_wiki_url": "https://en.wikipedia.org/wiki/Child",
+      "actions": [
+        "cleared_qid_and_desc"
+      ]
+    },
+    {
+      "cluster_id": 315,
+      "canonical_name": "Diamante",
+      "old_qid": "",
+      "old_desc": "family name",
+      "old_wiki_url": "https://en.wikipedia.org/wiki/Diamond",
+      "actions": [
+        "cleared_qid_and_desc"
+      ]
+    },
+    {
+      "cluster_id": 321,
+      "canonical_name": "volcans",
+      "old_qid": "Q2428769",
+      "old_desc": "census-designated place (CDP) in Hawaii County, Hawaii, United States",
+      "old_wiki_url": "https://en.wikipedia.org/wiki/Volcano%2C%20Hawaii",
+      "actions": [
+        "cleared_qid_and_desc"
+      ]
+    },
+    {
+      "cluster_id": 341,
+      "canonical_name": "Coral",
+      "old_qid": "",
+      "old_desc": "family name",
+      "old_wiki_url": "",
+      "actions": [
+        "cleared_qid_and_desc"
+      ]
+    },
+    {
+      "cluster_id": 344,
+      "canonical_name": "lune",
+      "old_qid": "",
+      "old_desc": "family name",
+      "old_wiki_url": "https://en.wikipedia.org/wiki/Moon",
+      "actions": [
+        "cleared_qid_and_desc"
+      ]
+    },
+    {
+      "cluster_id": 347,
+      "canonical_name": "Turcos",
+      "old_qid": "",
+      "old_desc": "family name",
+      "old_wiki_url": "",
+      "actions": [
+        "cleared_qid_and_desc"
+      ]
+    },
+    {
+      "cluster_id": 358,
+      "canonical_name": "Livro",
+      "old_qid": "",
+      "old_desc": "family name",
+      "old_wiki_url": "https://en.wikipedia.org/wiki/Book",
+      "actions": [
+        "cleared_qid_and_desc"
+      ]
+    },
+    {
+      "cluster_id": 363,
+      "canonical_name": "organ",
+      "old_qid": "",
+      "old_desc": "family name",
+      "old_wiki_url": "https://en.wikipedia.org/wiki/Organ_%28biology%29",
+      "actions": [
+        "cleared_qid_and_desc"
+      ]
+    },
+    {
+      "cluster_id": 365,
+      "canonical_name": "Universe",
+      "old_qid": "",
+      "old_desc": "family name",
+      "old_wiki_url": "",
+      "actions": [
+        "cleared_qid_and_desc"
+      ]
+    },
+    {
+      "cluster_id": 375,
+      "canonical_name": "Musa",
+      "old_qid": "",
+      "old_desc": "family name",
+      "old_wiki_url": "https://en.wikipedia.org/wiki/Moses",
+      "actions": [
+        "cleared_qid_and_desc"
+      ]
+    },
+    {
+      "cluster_id": 389,
+      "canonical_name": "Cicero",
+      "old_qid": "",
+      "old_desc": "family name",
+      "old_wiki_url": "https://en.wikipedia.org/wiki/Cicero",
+      "actions": [
+        "cleared_qid_and_desc"
+      ]
+    },
+    {
+      "cluster_id": 409,
+      "canonical_name": "fingers",
+      "old_qid": "",
+      "old_desc": "family name",
+      "old_wiki_url": "https://en.wikipedia.org/wiki/Finger",
+      "actions": [
+        "cleared_qid_and_desc"
+      ]
+    },
+    {
+      "cluster_id": 447,
+      "canonical_name": "queymaduras",
+      "old_qid": "Q23715858",
+      "old_desc": "family name",
+      "old_wiki_url": "https://en.wikipedia.org/wiki/Burn%20%28surname%29",
+      "actions": [
+        "cleared_qid_and_desc",
+        "fixed_wiki_url → https://en.wikipedia.org/wiki/Burn"
+      ],
+      "new_qid": "Q170518",
+      "new_desc": "injury to flesh or skin, often caused by excessive heat"
+    },
+    {
+      "cluster_id": 459,
+      "canonical_name": "Fear",
+      "old_qid": "",
+      "old_desc": "family name",
+      "old_wiki_url": "https://en.wikipedia.org/wiki/Fear",
+      "actions": [
+        "cleared_qid_and_desc"
+      ]
+    },
+    {
+      "cluster_id": 471,
+      "canonical_name": "montagnes",
+      "old_qid": "",
+      "old_desc": "family name",
+      "old_wiki_url": "https://en.wikipedia.org/wiki/Mountain",
+      "actions": [
+        "cleared_qid_and_desc"
+      ]
+    },
+    {
+      "cluster_id": 476,
+      "canonical_name": "clouds",
+      "old_qid": "Q5135629",
+      "old_desc": "family name",
+      "old_wiki_url": "https://en.wikipedia.org/wiki/Cloud%20%28surname%29",
+      "actions": [
+        "cleared_qid_and_desc",
+        "fixed_wiki_url → https://en.wikipedia.org/wiki/Cloud"
+      ],
+      "new_qid": "Q8074",
+      "new_desc": "visible mass of liquid droplets or frozen crystals suspended in the atmosphere"
+    },
+    {
+      "cluster_id": 536,
+      "canonical_name": "Tartares",
+      "old_qid": "",
+      "old_desc": "family name",
+      "old_wiki_url": "",
+      "actions": [
+        "cleared_qid_and_desc"
+      ]
+    },
+    {
+      "cluster_id": 548,
+      "canonical_name": "Mr. Brooke",
+      "old_qid": "",
+      "old_desc": "family name",
+      "old_wiki_url": "",
+      "actions": [
+        "cleared_qid_and_desc"
+      ]
+    },
+    {
+      "cluster_id": 558,
+      "canonical_name": "Mary",
+      "old_qid": "",
+      "old_desc": "female given name",
+      "old_wiki_url": "https://en.wikipedia.org/wiki/Mary%20%28name%29",
+      "actions": [
+        "cleared_qid_and_desc",
+        "cleared_wiki_url (fixed URL also bad)"
+      ]
+    },
+    {
+      "cluster_id": 573,
+      "canonical_name": "espelho",
+      "old_qid": "",
+      "old_desc": "family name",
+      "old_wiki_url": "",
+      "actions": [
+        "cleared_qid_and_desc"
+      ]
+    },
+    {
+      "cluster_id": 577,
+      "canonical_name": "Martin",
+      "old_qid": "",
+      "old_desc": "family name",
+      "old_wiki_url": "",
+      "actions": [
+        "cleared_qid_and_desc"
+      ]
+    },
+    {
+      "cluster_id": 579,
+      "canonical_name": "surface",
+      "old_qid": "",
+      "old_desc": "family name",
+      "old_wiki_url": "",
+      "actions": [
+        "cleared_qid_and_desc"
+      ]
+    },
+    {
+      "cluster_id": 586,
+      "canonical_name": "Toe",
+      "old_qid": "",
+      "old_desc": "family name",
+      "old_wiki_url": "",
+      "actions": [
+        "cleared_qid_and_desc"
+      ]
+    },
+    {
+      "cluster_id": 595,
+      "canonical_name": "spine",
+      "old_qid": "",
+      "old_desc": "family name",
+      "old_wiki_url": "",
+      "actions": [
+        "cleared_qid_and_desc"
+      ]
+    },
+    {
+      "cluster_id": 620,
+      "canonical_name": "atolls",
+      "old_qid": "",
+      "old_desc": "family name",
+      "old_wiki_url": "",
+      "actions": [
+        "cleared_qid_and_desc"
+      ]
+    },
+    {
+      "cluster_id": 625,
+      "canonical_name": "moneda",
+      "old_qid": "",
+      "old_desc": "family name",
+      "old_wiki_url": "",
+      "actions": [
+        "cleared_qid_and_desc"
+      ]
+    },
+    {
+      "cluster_id": 636,
+      "canonical_name": "faith",
+      "old_qid": "",
+      "old_desc": "family name",
+      "old_wiki_url": "",
+      "actions": [
+        "cleared_qid_and_desc"
+      ]
+    },
+    {
+      "cluster_id": 642,
+      "canonical_name": "day",
+      "old_qid": "",
+      "old_desc": "family name",
+      "old_wiki_url": "https://en.wikipedia.org/wiki/Day",
+      "actions": [
+        "cleared_qid_and_desc"
+      ]
+    },
+    {
+      "cluster_id": 657,
+      "canonical_name": "internal organ",
+      "old_qid": "Q17098763",
+      "old_desc": "Wikimedia list article",
+      "old_wiki_url": "https://en.wikipedia.org/wiki/List%20of%20organs%20of%20the%20human%20body",
+      "actions": [
+        "cleared_qid_and_desc"
+      ]
+    },
+    {
+      "cluster_id": 723,
+      "canonical_name": "glass",
+      "old_qid": "Q16870200",
+      "old_desc": "family name",
+      "old_wiki_url": "https://en.wikipedia.org/wiki/Glass%20%28surname%29",
+      "actions": [
+        "cleared_qid_and_desc",
+        "fixed_wiki_url → https://en.wikipedia.org/wiki/Glass"
+      ],
+      "new_qid": "Q11469",
+      "new_desc": "amorphous solid that exhibits a glass transition when heated towards the liquid state"
+    },
+    {
+      "cluster_id": 750,
+      "canonical_name": "Gay-Lussac",
+      "old_qid": "",
+      "old_desc": "family name",
+      "old_wiki_url": "",
+      "actions": [
+        "cleared_qid_and_desc"
+      ]
+    },
+    {
+      "cluster_id": 761,
+      "canonical_name": "Moon",
+      "old_qid": "",
+      "old_desc": "family name",
+      "old_wiki_url": "",
+      "actions": [
+        "cleared_qid_and_desc"
+      ]
+    },
+    {
+      "cluster_id": 779,
+      "canonical_name": "Religiofo",
+      "old_qid": "",
+      "old_desc": "family name",
+      "old_wiki_url": "",
+      "actions": [
+        "cleared_qid_and_desc"
+      ]
+    },
+    {
+      "cluster_id": 785,
+      "canonical_name": "São Domingos",
+      "old_qid": "Q55591",
+      "old_desc": "municipality of the Philippines in the province of Nueva Ecija",
+      "old_wiki_url": "https://en.wikipedia.org/wiki/Santo%20Domingo%2C%20Nueva%20Ecija",
+      "actions": [
+        "cleared_qid_and_desc"
+      ]
+    },
+    {
+      "cluster_id": 804,
+      "canonical_name": "pérolas",
+      "old_qid": "",
+      "old_desc": "family name",
+      "old_wiki_url": "",
+      "actions": [
+        "cleared_qid_and_desc"
+      ]
+    },
+    {
+      "cluster_id": 825,
+      "canonical_name": "RELATIONS",
+      "old_qid": "",
+      "old_desc": "family name",
+      "old_wiki_url": "",
+      "actions": [
+        "cleared_qid_and_desc"
+      ]
+    },
+    {
+      "cluster_id": 840,
+      "canonical_name": "distance",
+      "old_qid": "",
+      "old_desc": "family name",
+      "old_wiki_url": "",
+      "actions": [
+        "cleared_qid_and_desc"
+      ]
+    },
+    {
+      "cluster_id": 842,
+      "canonical_name": "Aurora",
+      "old_qid": "Q132015",
+      "old_desc": "municipality of the Philippines in the province of Zamboanga del Sur",
+      "old_wiki_url": "https://en.wikipedia.org/wiki/Aurora%2C%20Zamboanga%20del%20Sur",
+      "actions": [
+        "cleared_qid_and_desc"
+      ]
+    },
+    {
+      "cluster_id": 847,
+      "canonical_name": "Berries",
+      "old_qid": "",
+      "old_desc": "family name",
+      "old_wiki_url": "",
+      "actions": [
+        "cleared_qid_and_desc"
+      ]
+    },
+    {
+      "cluster_id": 849,
+      "canonical_name": "cooling",
+      "old_qid": "Q16865737",
+      "old_desc": "family name",
+      "old_wiki_url": "https://en.wikipedia.org/wiki/Cooling%20%28surname%29",
+      "actions": [
+        "cleared_qid_and_desc",
+        "fixed_wiki_url → https://en.wikipedia.org/wiki/Cooling"
+      ],
+      "new_qid": "Q3929317",
+      "new_desc": "transfer of thermal energy via thermal radiation, heat conduction or convection"
+    },
+    {
+      "cluster_id": 870,
+      "canonical_name": "Tyrol",
+      "old_qid": "",
+      "old_desc": "family name",
+      "old_wiki_url": "https://en.wikipedia.org/wiki/Tyrol–South_Tyrol–Trentino_Euroregion",
+      "actions": [
+        "cleared_qid_and_desc"
+      ]
+    },
+    {
+      "cluster_id": 876,
+      "canonical_name": "Fidalgo",
+      "old_qid": "",
+      "old_desc": "family name",
+      "old_wiki_url": "",
+      "actions": [
+        "cleared_qid_and_desc"
+      ]
+    },
+    {
+      "cluster_id": 898,
+      "canonical_name": "wings",
+      "old_qid": "",
+      "old_desc": "family name",
+      "old_wiki_url": "",
+      "actions": [
+        "cleared_qid_and_desc"
+      ]
+    },
+    {
+      "cluster_id": 951,
+      "canonical_name": "amber",
+      "old_qid": "",
+      "old_desc": "family name",
+      "old_wiki_url": "",
+      "actions": [
+        "cleared_qid_and_desc"
+      ]
+    },
+    {
+      "cluster_id": 956,
+      "canonical_name": "Ptolemy",
+      "old_qid": "",
+      "old_desc": "male given name",
+      "old_wiki_url": "https://en.wikipedia.org/wiki/Ptolemy%20%28name%29",
+      "actions": [
+        "cleared_qid_and_desc",
+        "fixed_wiki_url → https://en.wikipedia.org/wiki/Ptolemy"
+      ],
+      "new_qid": "Q34943",
+      "new_desc": "2nd-century Roman mathematician, astronomer, geographer"
+    },
+    {
+      "cluster_id": 959,
+      "canonical_name": "tail",
+      "old_qid": "Q4764909",
+      "old_desc": "US television program",
+      "old_wiki_url": "https://en.wikipedia.org/wiki/Animal%20Tails",
+      "actions": [
+        "cleared_qid_and_desc"
+      ]
+    },
+    {
+      "cluster_id": 1007,
+      "canonical_name": "French",
+      "old_qid": "",
+      "old_desc": "family name",
+      "old_wiki_url": "https://en.wikipedia.org/wiki/French_people",
+      "actions": [
+        "cleared_qid_and_desc"
+      ]
+    },
+    {
+      "cluster_id": 1019,
+      "canonical_name": "Principes",
+      "old_qid": "",
+      "old_desc": "family name",
+      "old_wiki_url": "",
+      "actions": [
+        "cleared_qid_and_desc"
+      ]
+    },
+    {
+      "cluster_id": 1030,
+      "canonical_name": "harmony",
+      "old_qid": "",
+      "old_desc": "family name",
+      "old_wiki_url": "",
+      "actions": [
+        "cleared_qid_and_desc"
+      ]
+    },
+    {
+      "cluster_id": 1051,
+      "canonical_name": "skull",
+      "old_qid": "",
+      "old_desc": "family name",
+      "old_wiki_url": "",
+      "actions": [
+        "cleared_qid_and_desc"
+      ]
+    },
+    {
+      "cluster_id": 1061,
+      "canonical_name": "desire",
+      "old_qid": "",
+      "old_desc": "family name",
+      "old_wiki_url": "",
+      "actions": [
+        "cleared_qid_and_desc"
+      ]
+    },
+    {
+      "cluster_id": 1086,
+      "canonical_name": "marbres",
+      "old_qid": "",
+      "old_desc": "family name",
+      "old_wiki_url": "https://en.wikipedia.org/wiki/Marble",
+      "actions": [
+        "cleared_qid_and_desc"
+      ]
+    },
+    {
+      "cluster_id": 1123,
+      "canonical_name": "Dezembro",
+      "old_qid": "",
+      "old_desc": "family name",
+      "old_wiki_url": "",
+      "actions": [
+        "cleared_qid_and_desc"
+      ]
+    },
+    {
+      "cluster_id": 1139,
+      "canonical_name": "Fern",
+      "old_qid": "",
+      "old_desc": "family name",
+      "old_wiki_url": "https://en.wikipedia.org/wiki/Neonatal_alloimmune_thrombocytopenia",
+      "actions": [
+        "cleared_qid_and_desc"
+      ]
+    },
+    {
+      "cluster_id": 1143,
+      "canonical_name": "Hail",
+      "old_qid": "Q1569280",
+      "old_desc": "municipality in the region of Northern Ostrobothnia in Finland",
+      "old_wiki_url": "https://en.wikipedia.org/wiki/Hailuoto",
+      "actions": [
+        "cleared_qid_and_desc"
+      ]
+    },
+    {
+      "cluster_id": 1151,
+      "canonical_name": "tufs",
+      "old_qid": "Q20727185",
+      "old_desc": "family name",
+      "old_wiki_url": "https://en.wikipedia.org/wiki/Tuff%20%28name%29",
+      "actions": [
+        "cleared_qid_and_desc",
+        "fixed_wiki_url → https://en.wikipedia.org/wiki/Tuff"
+      ],
+      "new_qid": "Q484924",
+      "new_desc": "volcanic rock"
+    },
+    {
+      "cluster_id": 1194,
+      "canonical_name": "music",
+      "old_qid": "",
+      "old_desc": "family name",
+      "old_wiki_url": "https://en.wikipedia.org/wiki/Music",
+      "actions": [
+        "cleared_qid_and_desc"
+      ]
+    },
+    {
+      "cluster_id": 1214,
+      "canonical_name": "Ibrahim",
+      "old_qid": "",
+      "old_desc": "family name",
+      "old_wiki_url": "",
+      "actions": [
+        "cleared_qid_and_desc"
+      ]
+    },
+    {
+      "cluster_id": 1234,
+      "canonical_name": "Cornea",
+      "old_qid": "",
+      "old_desc": "family name",
+      "old_wiki_url": "https://en.wikipedia.org/wiki/Cornea",
+      "actions": [
+        "cleared_qid_and_desc"
+      ]
+    },
+    {
+      "cluster_id": 1237,
+      "canonical_name": "náos",
+      "old_qid": "",
+      "old_desc": "family name",
+      "old_wiki_url": "",
+      "actions": [
+        "cleared_qid_and_desc"
+      ]
+    },
+    {
+      "cluster_id": 1294,
+      "canonical_name": "apes",
+      "old_qid": "",
+      "old_desc": "family name",
+      "old_wiki_url": "https://en.wikipedia.org/wiki/Hominidae",
+      "actions": [
+        "cleared_qid_and_desc"
+      ]
+    },
+    {
+      "cluster_id": 1301,
+      "canonical_name": "solar light",
+      "old_qid": "",
+      "old_desc": "family name",
+      "old_wiki_url": "",
+      "actions": [
+        "cleared_qid_and_desc"
+      ]
+    },
+    {
+      "cluster_id": 1312,
+      "canonical_name": "region",
+      "old_qid": "",
+      "old_desc": "family name",
+      "old_wiki_url": "",
+      "actions": [
+        "cleared_qid_and_desc"
+      ]
+    },
+    {
+      "cluster_id": 1359,
+      "canonical_name": "économie",
+      "old_qid": "",
+      "old_desc": "family name",
+      "old_wiki_url": "",
+      "actions": [
+        "cleared_qid_and_desc"
+      ]
+    },
+    {
+      "cluster_id": 1380,
+      "canonical_name": "anger",
+      "old_qid": "",
+      "old_desc": "family name",
+      "old_wiki_url": "https://en.wikipedia.org/wiki/Anger",
+      "actions": [
+        "cleared_qid_and_desc"
+      ]
+    },
+    {
+      "cluster_id": 1384,
+      "canonical_name": "winds",
+      "old_qid": "",
+      "old_desc": "family name",
+      "old_wiki_url": "https://en.wikipedia.org/wiki/Wind",
+      "actions": [
+        "cleared_qid_and_desc"
+      ]
+    },
+    {
+      "cluster_id": 1401,
+      "canonical_name": "Oats",
+      "old_qid": "",
+      "old_desc": "family name",
+      "old_wiki_url": "",
+      "actions": [
+        "cleared_qid_and_desc"
+      ]
+    },
+    {
+      "cluster_id": 1423,
+      "canonical_name": "Stewart",
+      "old_qid": "",
+      "old_desc": "family name",
+      "old_wiki_url": "https://en.wikipedia.org/wiki/Stewart%20%28name%29",
+      "actions": [
+        "cleared_qid_and_desc",
+        "cleared_wiki_url (fixed URL also bad)"
+      ]
+    },
+    {
+      "cluster_id": 1481,
+      "canonical_name": "fallar",
+      "old_qid": "",
+      "old_desc": "family name",
+      "old_wiki_url": "",
+      "actions": [
+        "cleared_qid_and_desc"
+      ]
+    },
+    {
+      "cluster_id": 1491,
+      "canonical_name": "Lightning",
+      "old_qid": "",
+      "old_desc": "family name",
+      "old_wiki_url": "",
+      "actions": [
+        "cleared_qid_and_desc"
+      ]
+    },
+    {
+      "cluster_id": 1496,
+      "canonical_name": "Astrea",
+      "old_qid": "",
+      "old_desc": "family name",
+      "old_wiki_url": "https://en.wikipedia.org/wiki/Moon",
+      "actions": [
+        "cleared_qid_and_desc"
+      ]
+    },
+    {
+      "cluster_id": 1497,
+      "canonical_name": "basins",
+      "old_qid": "Q37007973",
+      "old_desc": "family name",
+      "old_wiki_url": "https://en.wikipedia.org/wiki/Basin%20%28surname%29",
+      "actions": [
+        "cleared_qid_and_desc",
+        "cleared_wiki_url (fixed URL also bad)"
+      ]
+    },
+    {
+      "cluster_id": 1501,
+      "canonical_name": "Pacem",
+      "old_qid": "",
+      "old_desc": "family name",
+      "old_wiki_url": "https://en.wikipedia.org/wiki/Peace",
+      "actions": [
+        "cleared_qid_and_desc"
+      ]
+    },
+    {
+      "cluster_id": 1502,
+      "canonical_name": "Marshes",
+      "old_qid": "",
+      "old_desc": "family name",
+      "old_wiki_url": "https://en.wikipedia.org/wiki/Wetland",
+      "actions": [
+        "cleared_qid_and_desc"
+      ]
+    },
+    {
+      "cluster_id": 1524,
+      "canonical_name": "Turin",
+      "old_qid": "Q495",
+      "old_desc": "city and commune in Italy",
+      "old_wiki_url": "https://en.wikipedia.org/wiki/Turin",
+      "actions": [
+        "cleared_qid_and_desc"
+      ]
+    },
+    {
+      "cluster_id": 1539,
+      "canonical_name": "sparrow",
+      "old_qid": "",
+      "old_desc": "family name",
+      "old_wiki_url": "https://en.wikipedia.org/wiki/Sparrow",
+      "actions": [
+        "cleared_qid_and_desc"
+      ]
+    },
+    {
+      "cluster_id": 1559,
+      "canonical_name": "David",
+      "old_qid": "",
+      "old_desc": "family name",
+      "old_wiki_url": "https://en.wikipedia.org/wiki/David",
+      "actions": [
+        "cleared_qid_and_desc"
+      ]
+    },
+    {
+      "cluster_id": 1587,
+      "canonical_name": "fortune",
+      "old_qid": "",
+      "old_desc": "family name",
+      "old_wiki_url": "",
+      "actions": [
+        "cleared_qid_and_desc"
+      ]
+    },
+    {
+      "cluster_id": 1608,
+      "canonical_name": "Springs",
+      "old_qid": "",
+      "old_desc": "family name",
+      "old_wiki_url": "https://en.wikipedia.org/wiki/Borrego_Springs,_California",
+      "actions": [
+        "cleared_qid_and_desc"
+      ]
+    },
+    {
+      "cluster_id": 1609,
+      "canonical_name": "Places",
+      "old_qid": "Q7200212",
+      "old_desc": "family name",
+      "old_wiki_url": "https://en.wikipedia.org/wiki/Place%20%28surname%29",
+      "actions": [
+        "cleared_qid_and_desc",
+        "cleared_wiki_url (fixed URL also bad)"
+      ]
+    },
+    {
+      "cluster_id": 1612,
+      "canonical_name": "Shell",
+      "old_qid": "",
+      "old_desc": "family name",
+      "old_wiki_url": "",
+      "actions": [
+        "cleared_qid_and_desc"
+      ]
+    },
+    {
+      "cluster_id": 1645,
+      "canonical_name": "cannon",
+      "old_qid": "",
+      "old_desc": "family name",
+      "old_wiki_url": "https://en.wikipedia.org/wiki/Cannon",
+      "actions": [
+        "cleared_qid_and_desc"
+      ]
+    },
+    {
+      "cluster_id": 1660,
+      "canonical_name": "dores",
+      "old_qid": "Q37486727",
+      "old_desc": "family name",
+      "old_wiki_url": "https://en.wikipedia.org/wiki/Pain%20%28surname%29",
+      "actions": [
+        "cleared_qid_and_desc",
+        "fixed_wiki_url → https://en.wikipedia.org/wiki/Pain"
+      ],
+      "new_qid": "Q81938",
+      "new_desc": "type of unpleasant feeling"
+    },
+    {
+      "cluster_id": 1674,
+      "canonical_name": "moon",
+      "old_qid": "Q16877383",
+      "old_desc": "family name",
+      "old_wiki_url": "https://en.wikipedia.org/wiki/Moon%20%28surname%29",
+      "actions": [
+        "cleared_qid_and_desc",
+        "fixed_wiki_url → https://en.wikipedia.org/wiki/Moon"
+      ],
+      "new_qid": "Q405",
+      "new_desc": "Earth's only natural satellite"
+    },
+    {
+      "cluster_id": 1703,
+      "canonical_name": "alambre",
+      "old_qid": "",
+      "old_desc": "family name",
+      "old_wiki_url": "",
+      "actions": [
+        "cleared_qid_and_desc"
+      ]
+    },
+    {
+      "cluster_id": 1710,
+      "canonical_name": "solar system",
+      "old_qid": "",
+      "old_desc": "family name",
+      "old_wiki_url": "",
+      "actions": [
+        "cleared_qid_and_desc"
+      ]
+    },
+    {
+      "cluster_id": 1732,
+      "canonical_name": "Llanos",
+      "old_qid": "",
+      "old_desc": "family name",
+      "old_wiki_url": "",
+      "actions": [
+        "cleared_qid_and_desc"
+      ]
+    },
+    {
+      "cluster_id": 1776,
+      "canonical_name": "elrey",
+      "old_qid": "",
+      "old_desc": "family name",
+      "old_wiki_url": "https://en.wikipedia.org/wiki/Monarch",
+      "actions": [
+        "cleared_qid_and_desc"
+      ]
+    },
+    {
+      "cluster_id": 1801,
+      "canonical_name": "fontes",
+      "old_qid": "",
+      "old_desc": "family name",
+      "old_wiki_url": "https://en.wikipedia.org/wiki/Spring_%28hydrology%29",
+      "actions": [
+        "cleared_qid_and_desc"
+      ]
+    },
+    {
+      "cluster_id": 1829,
+      "canonical_name": "May",
+      "old_qid": "",
+      "old_desc": "family name",
+      "old_wiki_url": "https://en.wikipedia.org/wiki/May",
+      "actions": [
+        "cleared_qid_and_desc"
+      ]
+    },
+    {
+      "cluster_id": 1933,
+      "canonical_name": "blue",
+      "old_qid": "",
+      "old_desc": "family name",
+      "old_wiki_url": "https://en.wikipedia.org/wiki/Blue",
+      "actions": [
+        "cleared_qid_and_desc"
+      ]
+    },
+    {
+      "cluster_id": 1935,
+      "canonical_name": "Cinza",
+      "old_qid": "",
+      "old_desc": "family name",
+      "old_wiki_url": "",
+      "actions": [
+        "cleared_qid_and_desc"
+      ]
+    },
+    {
+      "cluster_id": 1948,
+      "canonical_name": "Cotopaxi",
+      "old_qid": "Q5175454",
+      "old_desc": "census-designated place in Fremont County, Colorado, United States",
+      "old_wiki_url": "https://en.wikipedia.org/wiki/Cotopaxi%2C%20Colorado",
+      "actions": [
+        "cleared_qid_and_desc"
+      ]
+    },
+    {
+      "cluster_id": 2011,
+      "canonical_name": "Gums",
+      "old_qid": "",
+      "old_desc": "family name",
+      "old_wiki_url": "",
+      "actions": [
+        "cleared_qid_and_desc"
+      ]
+    },
+    {
+      "cluster_id": 2018,
+      "canonical_name": "Santa Marta",
+      "old_qid": "Q1629459",
+      "old_desc": "municipality in the province of Badajoz, Spain",
+      "old_wiki_url": "https://en.wikipedia.org/wiki/Santa_Marta%2C_Extremadura",
+      "actions": [
+        "cleared_qid_and_desc"
+      ]
+    },
+    {
+      "cluster_id": 2056,
+      "canonical_name": "lightning",
+      "old_qid": "",
+      "old_desc": "family name",
+      "old_wiki_url": "",
+      "actions": [
+        "cleared_qid_and_desc"
+      ]
+    },
+    {
+      "cluster_id": 2169,
+      "canonical_name": "medo",
+      "old_qid": "Q37151346",
+      "old_desc": "family name",
+      "old_wiki_url": "https://en.wikipedia.org/wiki/Fear%20%28surname%29",
+      "actions": [
+        "cleared_qid_and_desc",
+        "fixed_wiki_url → https://en.wikipedia.org/wiki/Fear"
+      ],
+      "new_qid": "Q44619",
+      "new_desc": "emotion induced by perceived danger or threat"
+    },
+    {
+      "cluster_id": 2170,
+      "canonical_name": "Soliman",
+      "old_qid": "Q55644492",
+      "old_desc": "family name",
+      "old_wiki_url": "https://en.wikipedia.org/wiki/Sulliman",
+      "actions": [
+        "cleared_qid_and_desc"
+      ]
+    },
+    {
+      "cluster_id": 2172,
+      "canonical_name": "Payta",
+      "old_qid": "",
+      "old_desc": "family name",
+      "old_wiki_url": "",
+      "actions": [
+        "cleared_qid_and_desc"
+      ]
+    },
+    {
+      "cluster_id": 2226,
+      "canonical_name": "Borda",
+      "old_qid": "",
+      "old_desc": "family name",
+      "old_wiki_url": "",
+      "actions": [
+        "cleared_qid_and_desc"
+      ]
+    },
+    {
+      "cluster_id": 2261,
+      "canonical_name": "Eve",
+      "old_qid": "",
+      "old_desc": "family name",
+      "old_wiki_url": "",
+      "actions": [
+        "cleared_qid_and_desc"
+      ]
+    },
+    {
+      "cluster_id": 2278,
+      "canonical_name": "Pills",
+      "old_qid": "Q37494383",
+      "old_desc": "family name",
+      "old_wiki_url": "https://en.wikipedia.org/wiki/Pillsbury%20%28surname%29",
+      "actions": [
+        "cleared_qid_and_desc",
+        "cleared_wiki_url (fixed URL also bad)"
+      ]
+    },
+    {
+      "cluster_id": 2289,
+      "canonical_name": "niños",
+      "old_qid": "Q10954511",
+      "old_desc": "family name",
+      "old_wiki_url": "https://en.wikipedia.org/wiki/Child%20%28surname%29",
+      "actions": [
+        "cleared_qid_and_desc",
+        "fixed_wiki_url → https://en.wikipedia.org/wiki/Child"
+      ],
+      "new_qid": "Q7569",
+      "new_desc": "human between birth and puberty"
+    },
+    {
+      "cluster_id": 2324,
+      "canonical_name": "Costa",
+      "old_qid": "",
+      "old_desc": "family name",
+      "old_wiki_url": "",
+      "actions": [
+        "cleared_qid_and_desc"
+      ]
+    },
+    {
+      "cluster_id": 2334,
+      "canonical_name": "loi",
+      "old_qid": "Q16871926",
+      "old_desc": "family name",
+      "old_wiki_url": "https://en.wikipedia.org/wiki/Law%20%28surname%29",
+      "actions": [
+        "cleared_qid_and_desc",
+        "fixed_wiki_url → https://en.wikipedia.org/wiki/Law"
+      ],
+      "new_qid": "Q7748",
+      "new_desc": "system of rules and guidelines, generally backed by governmental authority"
+    },
+    {
+      "cluster_id": 2342,
+      "canonical_name": "Beer",
+      "old_qid": "",
+      "old_desc": "family name",
+      "old_wiki_url": "",
+      "actions": [
+        "cleared_qid_and_desc"
+      ]
+    },
+    {
+      "cluster_id": 2347,
+      "canonical_name": "sharp",
+      "old_qid": "Q1241160",
+      "old_desc": "village in Gloucestershire, England, UK",
+      "old_wiki_url": "https://en.wikipedia.org/wiki/Sharpness%2C%20Gloucestershire",
+      "actions": [
+        "cleared_qid_and_desc"
+      ]
+    },
+    {
+      "cluster_id": 2353,
+      "canonical_name": "breed",
+      "old_qid": "",
+      "old_desc": "family name",
+      "old_wiki_url": "",
+      "actions": [
+        "cleared_qid_and_desc"
+      ]
+    },
+    {
+      "cluster_id": 2368,
+      "canonical_name": "Cali",
+      "old_qid": "",
+      "old_desc": "family name",
+      "old_wiki_url": "",
+      "actions": [
+        "cleared_qid_and_desc"
+      ]
+    },
+    {
+      "cluster_id": 2371,
+      "canonical_name": "rain",
+      "old_qid": "",
+      "old_desc": "family name",
+      "old_wiki_url": "",
+      "actions": [
+        "cleared_qid_and_desc"
+      ]
+    },
+    {
+      "cluster_id": 2373,
+      "canonical_name": "Rodriguez",
+      "old_qid": "",
+      "old_desc": "family name",
+      "old_wiki_url": "",
+      "actions": [
+        "cleared_qid_and_desc"
+      ]
+    },
+    {
+      "cluster_id": 2389,
+      "canonical_name": "Delambre",
+      "old_qid": "",
+      "old_desc": "family name",
+      "old_wiki_url": "",
+      "actions": [
+        "cleared_qid_and_desc"
+      ]
+    },
+    {
+      "cluster_id": 2490,
+      "canonical_name": "grãos",
+      "old_qid": "",
+      "old_desc": "family name",
+      "old_wiki_url": "",
+      "actions": [
+        "cleared_qid_and_desc"
+      ]
+    },
+    {
+      "cluster_id": 2499,
+      "canonical_name": "Março",
+      "old_qid": "",
+      "old_desc": "family name",
+      "old_wiki_url": "",
+      "actions": [
+        "cleared_qid_and_desc"
+      ]
+    },
+    {
+      "cluster_id": 2563,
+      "canonical_name": "Novembre",
+      "old_qid": "",
+      "old_desc": "family name",
+      "old_wiki_url": "",
+      "actions": [
+        "cleared_qid_and_desc"
+      ]
+    },
+    {
+      "cluster_id": 2565,
+      "canonical_name": "Clermont-Ferrand",
+      "old_qid": "Q42168",
+      "old_desc": "commune in Puy-de-Dôme, France",
+      "old_wiki_url": "https://en.wikipedia.org/wiki/Clermont-Ferrand",
+      "actions": [
+        "cleared_qid_and_desc"
+      ]
+    },
+    {
+      "cluster_id": 2572,
+      "canonical_name": "Freiberg",
+      "old_qid": "",
+      "old_desc": "family name",
+      "old_wiki_url": "https://de.wikipedia.org/wiki/Freiberg_%28Familienname%29",
+      "actions": [
+        "cleared_qid_and_desc"
+      ]
+    },
+    {
+      "cluster_id": 2590,
+      "canonical_name": "Neptune",
+      "old_qid": "",
+      "old_desc": "given name",
+      "old_wiki_url": "https://en.wikipedia.org/wiki/The_Neptunes",
+      "actions": [
+        "cleared_qid_and_desc"
+      ]
+    },
+    {
+      "cluster_id": 2684,
+      "canonical_name": "eaux thermales",
+      "old_qid": "Q3475263",
+      "old_desc": "census-designated place in Bath County, Virginia, United States of America",
+      "old_wiki_url": "https://en.wikipedia.org/wiki/Hot%20Springs%2C%20Virginia",
+      "actions": [
+        "cleared_qid_and_desc"
+      ]
+    },
+    {
+      "cluster_id": 2687,
+      "canonical_name": "paper",
+      "old_qid": "",
+      "old_desc": "family name",
+      "old_wiki_url": "",
+      "actions": [
+        "cleared_qid_and_desc"
+      ]
+    },
+    {
+      "cluster_id": 2715,
+      "canonical_name": "puerro",
+      "old_qid": "Q835096",
+      "old_desc": "former municipality in the province of Groningen, the Netherlands",
+      "old_wiki_url": "https://en.wikipedia.org/wiki/Leek%2C%20Netherlands",
+      "actions": [
+        "cleared_qid_and_desc"
+      ]
+    },
+    {
+      "cluster_id": 2723,
+      "canonical_name": "Flandres",
+      "old_qid": "",
+      "old_desc": "family name",
+      "old_wiki_url": "",
+      "actions": [
+        "cleared_qid_and_desc"
+      ]
+    },
+    {
+      "cluster_id": 2819,
+      "canonical_name": "logic",
+      "old_qid": "",
+      "old_desc": "family name",
+      "old_wiki_url": "",
+      "actions": [
+        "cleared_qid_and_desc"
+      ]
+    },
+    {
+      "cluster_id": 2831,
+      "canonical_name": "Augustus",
+      "old_qid": "",
+      "old_desc": "family name",
+      "old_wiki_url": "",
+      "actions": [
+        "cleared_qid_and_desc"
+      ]
+    },
+    {
+      "cluster_id": 2833,
+      "canonical_name": "Scripture",
+      "old_qid": "",
+      "old_desc": "family name",
+      "old_wiki_url": "",
+      "actions": [
+        "cleared_qid_and_desc"
+      ]
+    },
+    {
+      "cluster_id": 2838,
+      "canonical_name": "mule",
+      "old_qid": "",
+      "old_desc": "family name",
+      "old_wiki_url": "",
+      "actions": [
+        "cleared_qid_and_desc"
+      ]
+    },
+    {
+      "cluster_id": 2851,
+      "canonical_name": "Martialis",
+      "old_qid": "",
+      "old_desc": "family name",
+      "old_wiki_url": "",
+      "actions": [
+        "cleared_qid_and_desc"
+      ]
+    },
+    {
+      "cluster_id": 2866,
+      "canonical_name": "chute des eaux",
+      "old_qid": "Q16865981",
+      "old_desc": "family name",
+      "old_wiki_url": "https://en.wikipedia.org/wiki/Waterfall%20%28surname%29",
+      "actions": [
+        "cleared_qid_and_desc",
+        "fixed_wiki_url → https://en.wikipedia.org/wiki/Waterfall"
+      ],
+      "new_qid": "Q34038",
+      "new_desc": "place where water flows over a steep or vertical drop"
+    },
+    {
+      "cluster_id": 2880,
+      "canonical_name": "Lust",
+      "old_qid": "",
+      "old_desc": "family name",
+      "old_wiki_url": "",
+      "actions": [
+        "cleared_qid_and_desc"
+      ]
+    },
+    {
+      "cluster_id": 2952,
+      "canonical_name": "Maryland",
+      "old_qid": "",
+      "old_desc": "family name",
+      "old_wiki_url": "",
+      "actions": [
+        "cleared_qid_and_desc"
+      ]
+    },
+    {
+      "cluster_id": 2998,
+      "canonical_name": "violin",
+      "old_qid": "",
+      "old_desc": "family name",
+      "old_wiki_url": "https://en.wikipedia.org/wiki/Le_Violon_d'Ingres",
+      "actions": [
+        "cleared_qid_and_desc"
+      ]
+    },
+    {
+      "cluster_id": 3022,
+      "canonical_name": "corals",
+      "old_qid": "",
+      "old_desc": "family name",
+      "old_wiki_url": "",
+      "actions": [
+        "cleared_qid_and_desc"
+      ]
+    },
+    {
+      "cluster_id": 3036,
+      "canonical_name": "radius",
+      "old_qid": "",
+      "old_desc": "family name",
+      "old_wiki_url": "",
+      "actions": [
+        "cleared_qid_and_desc"
+      ]
+    },
+    {
+      "cluster_id": 3067,
+      "canonical_name": "fol",
+      "old_qid": "Q37260822",
+      "old_desc": "family name",
+      "old_wiki_url": "https://en.wikipedia.org/wiki/Bellows%20%28surname%29",
+      "actions": [
+        "cleared_qid_and_desc",
+        "fixed_wiki_url → https://en.wikipedia.org/wiki/Bellows"
+      ],
+      "new_qid": "Q208103",
+      "new_desc": "tool for blowing air"
+    },
+    {
+      "cluster_id": 3104,
+      "canonical_name": "Juvenal",
+      "old_qid": "",
+      "old_desc": "family name",
+      "old_wiki_url": "",
+      "actions": [
+        "cleared_qid_and_desc"
+      ]
+    },
+    {
+      "cluster_id": 3241,
+      "canonical_name": "Halifax",
+      "old_qid": "Q2141",
+      "old_desc": "municipality in the province of Nova Scotia, Canada",
+      "old_wiki_url": "https://en.wikipedia.org/wiki/Halifax%2C_Nova_Scotia",
+      "actions": [
+        "cleared_qid_and_desc"
+      ]
+    },
+    {
+      "cluster_id": 3283,
+      "canonical_name": "THINGS",
+      "old_qid": "",
+      "old_desc": "family name",
+      "old_wiki_url": "",
+      "actions": [
+        "cleared_qid_and_desc"
+      ]
+    },
+    {
+      "cluster_id": 3291,
+      "canonical_name": "tone",
+      "old_qid": "",
+      "old_desc": "family name",
+      "old_wiki_url": "",
+      "actions": [
+        "cleared_qid_and_desc"
+      ]
+    },
+    {
+      "cluster_id": 3298,
+      "canonical_name": "candle-flame",
+      "old_qid": "",
+      "old_desc": "family name",
+      "old_wiki_url": "",
+      "actions": [
+        "cleared_qid_and_desc"
+      ]
+    },
+    {
+      "cluster_id": 3299,
+      "canonical_name": "hope",
+      "old_qid": "",
+      "old_desc": "family name",
+      "old_wiki_url": "https://en.wikipedia.org/wiki/J-Hope",
+      "actions": [
+        "cleared_qid_and_desc"
+      ]
+    },
+    {
+      "cluster_id": 3301,
+      "canonical_name": "melody",
+      "old_qid": "",
+      "old_desc": "female given name",
+      "old_wiki_url": "",
+      "actions": [
+        "cleared_qid_and_desc"
+      ]
+    },
+    {
+      "cluster_id": 3323,
+      "canonical_name": "sun's disk",
+      "old_qid": "",
+      "old_desc": "family name",
+      "old_wiki_url": "",
+      "actions": [
+        "cleared_qid_and_desc"
+      ]
+    },
+    {
+      "cluster_id": 3325,
+      "canonical_name": "Walter",
+      "old_qid": "",
+      "old_desc": "family name",
+      "old_wiki_url": "",
+      "actions": [
+        "cleared_qid_and_desc"
+      ]
+    },
+    {
+      "cluster_id": 3327,
+      "canonical_name": "Coraboeuf",
+      "old_qid": "",
+      "old_desc": "family name",
+      "old_wiki_url": "",
+      "actions": [
+        "cleared_qid_and_desc"
+      ]
+    },
+    {
+      "cluster_id": 3354,
+      "canonical_name": "Mariner’s compass",
+      "old_qid": "Q7908138",
+      "old_desc": "1989 Malayalam black comedy film directed by Sreenivasan",
+      "old_wiki_url": "https://en.wikipedia.org/wiki/Vadakkunokkiyantram",
+      "actions": [
+        "cleared_qid_and_desc"
+      ]
+    },
+    {
+      "cluster_id": 3385,
+      "canonical_name": "Rocha",
+      "old_qid": "",
+      "old_desc": "family name",
+      "old_wiki_url": "",
+      "actions": [
+        "cleared_qid_and_desc"
+      ]
+    },
+    {
+      "cluster_id": 3392,
+      "canonical_name": "Soria",
+      "old_qid": "",
+      "old_desc": "family name",
+      "old_wiki_url": "",
+      "actions": [
+        "cleared_qid_and_desc"
+      ]
+    },
+    {
+      "cluster_id": 3416,
+      "canonical_name": "Laws in general",
+      "old_qid": "",
+      "old_desc": "family name",
+      "old_wiki_url": "",
+      "actions": [
+        "cleared_qid_and_desc"
+      ]
+    },
+    {
+      "cluster_id": 3474,
+      "canonical_name": "Emery",
+      "old_qid": "",
+      "old_desc": "family name",
+      "old_wiki_url": "",
+      "actions": [
+        "cleared_qid_and_desc"
+      ]
+    },
+    {
+      "cluster_id": 3475,
+      "canonical_name": "Achilles",
+      "old_qid": "",
+      "old_desc": "family name",
+      "old_wiki_url": "",
+      "actions": [
+        "cleared_qid_and_desc"
+      ]
+    },
+    {
+      "cluster_id": 3482,
+      "canonical_name": "Tinder",
+      "old_qid": "",
+      "old_desc": "family name",
+      "old_wiki_url": "https://en.wikipedia.org/wiki/Fire_making",
+      "actions": [
+        "cleared_qid_and_desc"
+      ]
+    },
+    {
+      "cluster_id": 3542,
+      "canonical_name": "place",
+      "old_qid": "Q7200212",
+      "old_desc": "family name",
+      "old_wiki_url": "https://en.wikipedia.org/wiki/Place%20%28surname%29",
+      "actions": [
+        "cleared_qid_and_desc",
+        "cleared_wiki_url (fixed URL also bad)"
+      ]
+    },
+    {
+      "cluster_id": 3557,
+      "canonical_name": "Bacchus",
+      "old_qid": "",
+      "old_desc": "family name",
+      "old_wiki_url": "https://en.wikipedia.org/wiki/Bacchus",
+      "actions": [
+        "cleared_qid_and_desc"
+      ]
+    },
+    {
+      "cluster_id": 3561,
+      "canonical_name": "Dukes",
+      "old_qid": "",
+      "old_desc": "family name",
+      "old_wiki_url": "",
+      "actions": [
+        "cleared_qid_and_desc"
+      ]
+    },
+    {
+      "cluster_id": 3563,
+      "canonical_name": "Buds",
+      "old_qid": "",
+      "old_desc": "family name",
+      "old_wiki_url": "",
+      "actions": [
+        "cleared_qid_and_desc"
+      ]
+    },
+    {
+      "cluster_id": 3584,
+      "canonical_name": "types",
+      "old_qid": "",
+      "old_desc": "family name",
+      "old_wiki_url": "",
+      "actions": [
+        "cleared_qid_and_desc"
+      ]
+    },
+    {
+      "cluster_id": 3598,
+      "canonical_name": "vermilion",
+      "old_qid": "",
+      "old_desc": "family name",
+      "old_wiki_url": "",
+      "actions": [
+        "cleared_qid_and_desc"
+      ]
+    },
+    {
+      "cluster_id": 3692,
+      "canonical_name": "bastoni",
+      "old_qid": "",
+      "old_desc": "family name",
+      "old_wiki_url": "https://en.wikipedia.org/wiki/Staff%20%28name%29",
+      "actions": [
+        "cleared_qid_and_desc",
+        "cleared_wiki_url (fixed URL also bad)"
+      ]
+    },
+    {
+      "cluster_id": 3728,
+      "canonical_name": "maître",
+      "old_qid": "",
+      "old_desc": "family name",
+      "old_wiki_url": "",
+      "actions": [
+        "cleared_qid_and_desc"
+      ]
+    },
+    {
+      "cluster_id": 3729,
+      "canonical_name": "Candler",
+      "old_qid": "",
+      "old_desc": "family name",
+      "old_wiki_url": "",
+      "actions": [
+        "cleared_qid_and_desc"
+      ]
+    },
+    {
+      "cluster_id": 3776,
+      "canonical_name": "Tortona",
+      "old_qid": "",
+      "old_desc": "family name",
+      "old_wiki_url": "",
+      "actions": [
+        "cleared_qid_and_desc"
+      ]
+    },
+    {
+      "cluster_id": 3795,
+      "canonical_name": "watch",
+      "old_qid": "",
+      "old_desc": "family name",
+      "old_wiki_url": "",
+      "actions": [
+        "cleared_qid_and_desc"
+      ]
+    },
+    {
+      "cluster_id": 3797,
+      "canonical_name": "timbre",
+      "old_qid": "",
+      "old_desc": "family name",
+      "old_wiki_url": "",
+      "actions": [
+        "cleared_qid_and_desc"
+      ]
+    },
+    {
+      "cluster_id": 3810,
+      "canonical_name": "twilight",
+      "old_qid": "",
+      "old_desc": "female given name",
+      "old_wiki_url": "",
+      "actions": [
+        "cleared_qid_and_desc"
+      ]
+    },
+    {
+      "cluster_id": 3834,
+      "canonical_name": "names",
+      "old_qid": "",
+      "old_desc": "family name",
+      "old_wiki_url": "",
+      "actions": [
+        "cleared_qid_and_desc"
+      ]
+    },
+    {
+      "cluster_id": 3843,
+      "canonical_name": "Rabier",
+      "old_qid": "",
+      "old_desc": "family name",
+      "old_wiki_url": "",
+      "actions": [
+        "cleared_qid_and_desc"
+      ]
+    },
+    {
+      "cluster_id": 3888,
+      "canonical_name": "rings",
+      "old_qid": "",
+      "old_desc": "family name",
+      "old_wiki_url": "",
+      "actions": [
+        "cleared_qid_and_desc"
+      ]
+    },
+    {
+      "cluster_id": 3900,
+      "canonical_name": "Formentera",
+      "old_qid": "Q52626",
+      "old_desc": "municipality of Baleares, Spain, containing the island of the same name",
+      "old_wiki_url": "https://en.wikipedia.org/wiki/Formentera",
+      "actions": [
+        "cleared_qid_and_desc"
+      ]
+    },
+    {
+      "cluster_id": 3912,
+      "canonical_name": "Chaudes Aigues",
+      "old_qid": "Q269112",
+      "old_desc": "commune in Cantal, France",
+      "old_wiki_url": "https://en.wikipedia.org/wiki/Chaudes-Aigues",
+      "actions": [
+        "cleared_qid_and_desc"
+      ]
+    },
+    {
+      "cluster_id": 3930,
+      "canonical_name": "cenar",
+      "old_qid": "",
+      "old_desc": "family name",
+      "old_wiki_url": "",
+      "actions": [
+        "cleared_qid_and_desc"
+      ]
+    },
+    {
+      "cluster_id": 3937,
+      "canonical_name": "Senhor",
+      "old_qid": "",
+      "old_desc": "family name",
+      "old_wiki_url": "https://en.wikipedia.org/wiki/Lord",
+      "actions": [
+        "cleared_qid_and_desc"
+      ]
+    },
+    {
+      "cluster_id": 3938,
+      "canonical_name": "Antonio",
+      "old_qid": "",
+      "old_desc": "family name",
+      "old_wiki_url": "",
+      "actions": [
+        "cleared_qid_and_desc"
+      ]
+    },
+    {
+      "cluster_id": 3957,
+      "canonical_name": "baxáj",
+      "old_qid": "",
+      "old_desc": "family name",
+      "old_wiki_url": "",
+      "actions": [
+        "cleared_qid_and_desc"
+      ]
+    },
+    {
+      "cluster_id": 3959,
+      "canonical_name": "preço",
+      "old_qid": "",
+      "old_desc": "family name",
+      "old_wiki_url": "",
+      "actions": [
+        "cleared_qid_and_desc"
+      ]
+    },
+    {
+      "cluster_id": 3962,
+      "canonical_name": "Bonifá",
+      "old_qid": "",
+      "old_desc": "family name",
+      "old_wiki_url": "https://en.wikipedia.org/wiki/Boniface_%28name%29",
+      "actions": [
+        "cleared_qid_and_desc",
+        "cleared_wiki_url (fixed URL not found)"
+      ]
+    },
+    {
+      "cluster_id": 3983,
+      "canonical_name": "Tito",
+      "old_qid": "",
+      "old_desc": "family name",
+      "old_wiki_url": "",
+      "actions": [
+        "cleared_qid_and_desc"
+      ]
+    },
+    {
+      "cluster_id": 3994,
+      "canonical_name": "Cornwall",
+      "old_qid": "",
+      "old_desc": "family name",
+      "old_wiki_url": "https://en.wikipedia.org/wiki/Cornwall",
+      "actions": [
+        "cleared_qid_and_desc"
+      ]
+    },
+    {
+      "cluster_id": 4004,
+      "canonical_name": "piston",
+      "old_qid": "",
+      "old_desc": "family name",
+      "old_wiki_url": "https://en.wikipedia.org/wiki/Pistone",
+      "actions": [
+        "cleared_qid_and_desc"
+      ]
+    },
+    {
+      "cluster_id": 4032,
+      "canonical_name": "Molière",
+      "old_qid": "Q1009425",
+      "old_desc": "commune in Gard, France",
+      "old_wiki_url": "https://en.wikipedia.org/wiki/Moli%C3%A8res-sur-C%C3%A8ze",
+      "actions": [
+        "cleared_qid_and_desc"
+      ]
+    },
+    {
+      "cluster_id": 4084,
+      "canonical_name": "Flood",
+      "old_qid": "",
+      "old_desc": "family name",
+      "old_wiki_url": "https://en.wikipedia.org/wiki/Flood",
+      "actions": [
+        "cleared_qid_and_desc"
+      ]
+    },
+    {
+      "cluster_id": 4087,
+      "canonical_name": "wisdom",
+      "old_qid": "",
+      "old_desc": "family name",
+      "old_wiki_url": "https://en.wikipedia.org/wiki/Wisdom",
+      "actions": [
+        "cleared_qid_and_desc"
+      ]
+    },
+    {
+      "cluster_id": 4088,
+      "canonical_name": "Calf",
+      "old_qid": "",
+      "old_desc": "family name",
+      "old_wiki_url": "",
+      "actions": [
+        "cleared_qid_and_desc"
+      ]
+    },
+    {
+      "cluster_id": 4107,
+      "canonical_name": "chance",
+      "old_qid": "",
+      "old_desc": "family name",
+      "old_wiki_url": "",
+      "actions": [
+        "cleared_qid_and_desc"
+      ]
+    },
+    {
+      "cluster_id": 4109,
+      "canonical_name": "Samuel",
+      "old_qid": "",
+      "old_desc": "family name",
+      "old_wiki_url": "",
+      "actions": [
+        "cleared_qid_and_desc"
+      ]
+    },
+    {
+      "cluster_id": 4139,
+      "canonical_name": "Daniel",
+      "old_qid": "",
+      "old_desc": "family name",
+      "old_wiki_url": "",
+      "actions": [
+        "cleared_qid_and_desc"
+      ]
+    },
+    {
+      "cluster_id": 4196,
+      "canonical_name": "collines",
+      "old_qid": "",
+      "old_desc": "family name",
+      "old_wiki_url": "https://en.wikipedia.org/wiki/Hill",
+      "actions": [
+        "cleared_qid_and_desc"
+      ]
+    },
+    {
+      "cluster_id": 4200,
+      "canonical_name": "Lorraine",
+      "old_qid": "Q18355916",
+      "old_desc": "family name",
+      "old_wiki_url": "https://en.wikipedia.org/wiki/Lorraine%20%28surname%29",
+      "actions": [
+        "cleared_qid_and_desc",
+        "fixed_wiki_url → https://en.wikipedia.org/wiki/Lorraine"
+      ],
+      "new_qid": "Q1137",
+      "new_desc": "cultural region in France"
+    },
+    {
+      "cluster_id": 4226,
+      "canonical_name": "landes",
+      "old_qid": "Q21506837",
+      "old_desc": "family name",
+      "old_wiki_url": "https://en.wikipedia.org/wiki/Landes%20%28surname%29",
+      "actions": [
+        "cleared_qid_and_desc",
+        "cleared_wiki_url (fixed URL also bad)"
+      ]
+    },
+    {
+      "cluster_id": 4233,
+      "canonical_name": "Students",
+      "old_qid": "",
+      "old_desc": "family name",
+      "old_wiki_url": "",
+      "actions": [
+        "cleared_qid_and_desc"
+      ]
+    },
+    {
+      "cluster_id": 4240,
+      "canonical_name": "Bellows",
+      "old_qid": "",
+      "old_desc": "family name",
+      "old_wiki_url": "",
+      "actions": [
+        "cleared_qid_and_desc"
+      ]
+    },
+    {
+      "cluster_id": 4244,
+      "canonical_name": "Cherries",
+      "old_qid": "",
+      "old_desc": "family name",
+      "old_wiki_url": "",
+      "actions": [
+        "cleared_qid_and_desc"
+      ]
+    },
+    {
+      "cluster_id": 4265,
+      "canonical_name": "Broom Field",
+      "old_qid": "",
+      "old_desc": "family name",
+      "old_wiki_url": "",
+      "actions": [
+        "cleared_qid_and_desc"
+      ]
+    },
+    {
+      "cluster_id": 4270,
+      "canonical_name": "Jelly",
+      "old_qid": "",
+      "old_desc": "family name",
+      "old_wiki_url": "https://en.wikipedia.org/wiki/Jelly_Roll_Morton",
+      "actions": [
+        "cleared_qid_and_desc"
+      ]
+    },
+    {
+      "cluster_id": 4302,
+      "canonical_name": "Geoffroy",
+      "old_qid": "",
+      "old_desc": "family name",
+      "old_wiki_url": "",
+      "actions": [
+        "cleared_qid_and_desc"
+      ]
+    },
+    {
+      "cluster_id": 4375,
+      "canonical_name": "salmuera",
+      "old_qid": "Q16860457",
+      "old_desc": "family name",
+      "old_wiki_url": "https://en.wikipedia.org/wiki/Brine%20%28surname%29",
+      "actions": [
+        "cleared_qid_and_desc",
+        "fixed_wiki_url → https://en.wikipedia.org/wiki/Brine"
+      ],
+      "new_qid": "Q214403",
+      "new_desc": "solution of very salty water, usually with sodium chloride as the salt"
+    },
+    {
+      "cluster_id": 4446,
+      "canonical_name": "Thèbes",
+      "old_qid": "",
+      "old_desc": "family name",
+      "old_wiki_url": "https://en.wikipedia.org/wiki/Thebes,_Greece",
+      "actions": [
+        "cleared_qid_and_desc"
+      ]
+    },
+    {
+      "cluster_id": 4469,
+      "canonical_name": "bocoy",
+      "old_qid": "",
+      "old_desc": "family name",
+      "old_wiki_url": "",
+      "actions": [
+        "cleared_qid_and_desc"
+      ]
+    },
+    {
+      "cluster_id": 4496,
+      "canonical_name": "Morlet",
+      "old_qid": "",
+      "old_desc": "family name",
+      "old_wiki_url": "",
+      "actions": [
+        "cleared_qid_and_desc"
+      ]
+    },
+    {
+      "cluster_id": 4609,
+      "canonical_name": "Dobrowolsky",
+      "old_qid": "",
+      "old_desc": "family name",
+      "old_wiki_url": "https://en.wikipedia.org/wiki/Induction_motor",
+      "actions": [
+        "cleared_qid_and_desc"
+      ]
+    },
+    {
+      "cluster_id": 4612,
+      "canonical_name": "morning",
+      "old_qid": "",
+      "old_desc": "family name",
+      "old_wiki_url": "",
+      "actions": [
+        "cleared_qid_and_desc"
+      ]
+    },
+    {
+      "cluster_id": 4621,
+      "canonical_name": "roar",
+      "old_qid": "",
+      "old_desc": "family name",
+      "old_wiki_url": "",
+      "actions": [
+        "cleared_qid_and_desc"
+      ]
+    },
+    {
+      "cluster_id": 4632,
+      "canonical_name": "decay",
+      "old_qid": "",
+      "old_desc": "family name",
+      "old_wiki_url": "",
+      "actions": [
+        "cleared_qid_and_desc"
+      ]
+    },
+    {
+      "cluster_id": 4653,
+      "canonical_name": "masses",
+      "old_qid": "",
+      "old_desc": "family name",
+      "old_wiki_url": "https://en.wikipedia.org/wiki/Mass",
+      "actions": [
+        "cleared_qid_and_desc"
+      ]
+    },
+    {
+      "cluster_id": 4673,
+      "canonical_name": "Volterra",
+      "old_qid": "",
+      "old_desc": "family name",
+      "old_wiki_url": "https://en.wikipedia.org/wiki/Volterrano_Volterrani",
+      "actions": [
+        "cleared_qid_and_desc"
+      ]
+    },
+    {
+      "cluster_id": 4710,
+      "canonical_name": "Esdras",
+      "old_qid": "",
+      "old_desc": "family name",
+      "old_wiki_url": "",
+      "actions": [
+        "cleared_qid_and_desc"
+      ]
+    },
+    {
+      "cluster_id": 4712,
+      "canonical_name": "Pozzuoli",
+      "old_qid": "",
+      "old_desc": "family name",
+      "old_wiki_url": "",
+      "actions": [
+        "cleared_qid_and_desc"
+      ]
+    },
+    {
+      "cluster_id": 4717,
+      "canonical_name": "St. Malo",
+      "old_qid": "Q163108",
+      "old_desc": "commune in Ille-et-Vilaine, France",
+      "old_wiki_url": "https://en.wikipedia.org/wiki/Saint-Malo",
+      "actions": [
+        "cleared_qid_and_desc"
+      ]
+    },
+    {
+      "cluster_id": 4731,
+      "canonical_name": "shingle",
+      "old_qid": "",
+      "old_desc": "family name",
+      "old_wiki_url": "",
+      "actions": [
+        "cleared_qid_and_desc"
+      ]
+    },
+    {
+      "cluster_id": 4747,
+      "canonical_name": "marido",
+      "old_qid": "",
+      "old_desc": "family name",
+      "old_wiki_url": "",
+      "actions": [
+        "cleared_qid_and_desc"
+      ]
+    },
+    {
+      "cluster_id": 4757,
+      "canonical_name": "dominus",
+      "old_qid": "",
+      "old_desc": "family name",
+      "old_wiki_url": "",
+      "actions": [
+        "cleared_qid_and_desc"
+      ]
+    },
+    {
+      "cluster_id": 4761,
+      "canonical_name": "Herculano",
+      "old_qid": "",
+      "old_desc": "family name",
+      "old_wiki_url": "",
+      "actions": [
+        "cleared_qid_and_desc"
+      ]
+    },
+    {
+      "cluster_id": 4810,
+      "canonical_name": "cammino",
+      "old_qid": "",
+      "old_desc": "family name",
+      "old_wiki_url": "",
+      "actions": [
+        "cleared_qid_and_desc"
+      ]
+    },
+    {
+      "cluster_id": 4814,
+      "canonical_name": "Donzelli",
+      "old_qid": "",
+      "old_desc": "family name",
+      "old_wiki_url": "https://en.wikipedia.org/wiki/Donzelli",
+      "actions": [
+        "cleared_qid_and_desc"
+      ]
+    },
+    {
+      "cluster_id": 4826,
+      "canonical_name": "rain-drops",
+      "old_qid": "",
+      "old_desc": "family name",
+      "old_wiki_url": "",
+      "actions": [
+        "cleared_qid_and_desc"
+      ]
+    },
+    {
+      "cluster_id": 4850,
+      "canonical_name": "Table-lands",
+      "old_qid": "",
+      "old_desc": "family name",
+      "old_wiki_url": "",
+      "actions": [
+        "cleared_qid_and_desc"
+      ]
+    }
+  ]
+}

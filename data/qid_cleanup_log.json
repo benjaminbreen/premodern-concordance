@@ -1,0 +1,3093 @@
+{
+  "cleared": 386,
+  "fixes": [
+    {
+      "id": 0,
+      "name": "America",
+      "cat": "PLACE",
+      "old_qid": "Q15885537",
+      "old_desc": "genus of insects",
+      "reason": "bad desc: \"genus of insects\""
+    },
+    {
+      "id": 17,
+      "name": "Plinio",
+      "cat": "PERSON",
+      "old_qid": "Q58340224",
+      "old_desc": "scholarly article by John F. Healy published January 1981 in Interdisciplinary S",
+      "reason": "bad desc: \"scholarly article\""
+    },
+    {
+      "id": 48,
+      "name": "South America",
+      "cat": "PLACE",
+      "old_qid": "Q476930",
+      "old_desc": "species of mammal",
+      "reason": "genus/taxon in PLACE cluster"
+    },
+    {
+      "id": 54,
+      "name": "Steel",
+      "cat": "SUBSTANCE",
+      "old_qid": "Q187986",
+      "old_desc": "fresh-water species of fish",
+      "reason": "genus/taxon in SUBSTANCE cluster"
+    },
+    {
+      "id": 66,
+      "name": "veas",
+      "cat": "SUBSTANCE",
+      "old_qid": "Q37452649",
+      "old_desc": "family name",
+      "reason": "bad desc: \"family name\""
+    },
+    {
+      "id": 67,
+      "name": "Cuba",
+      "cat": "PLACE",
+      "old_qid": "Q87300703",
+      "old_desc": "genus of plants",
+      "reason": "genus/taxon in PLACE cluster"
+    },
+    {
+      "id": 75,
+      "name": "hot",
+      "cat": "CONCEPT",
+      "old_qid": "Q37468835",
+      "old_desc": "family name",
+      "reason": "bad desc: \"family name\""
+    },
+    {
+      "id": 87,
+      "name": "Mexico",
+      "cat": "PLACE",
+      "old_qid": "Q6826187",
+      "old_desc": "genus of insects",
+      "reason": "bad desc: \"genus of insects\""
+    },
+    {
+      "id": 96,
+      "name": "Body",
+      "cat": "SUBSTANCE",
+      "old_qid": "Q5",
+      "old_desc": "any single member of Homo sapiens, unique extant species of the genus Homo",
+      "reason": "genus/taxon in SUBSTANCE cluster"
+    },
+    {
+      "id": 117,
+      "name": "Materie",
+      "cat": "SUBSTANCE",
+      "old_qid": "Q18573604",
+      "old_desc": "family name",
+      "reason": "bad desc: \"family name\""
+    },
+    {
+      "id": 122,
+      "name": "man",
+      "cat": "PERSON",
+      "old_qid": "Q5",
+      "old_desc": "any single member of Homo sapiens, unique extant species of the genus Homo",
+      "reason": "genus/taxon in PERSON cluster"
+    },
+    {
+      "id": 183,
+      "name": "Teeth",
+      "cat": "SUBSTANCE",
+      "old_qid": "Q1545761",
+      "old_desc": "genus of plants",
+      "reason": "genus/taxon in SUBSTANCE cluster"
+    },
+    {
+      "id": 194,
+      "name": "Legs",
+      "cat": "SUBSTANCE",
+      "old_qid": "Q14856098",
+      "old_desc": "family of plants",
+      "reason": "genus/taxon in SUBSTANCE cluster"
+    },
+    {
+      "id": 200,
+      "name": "September",
+      "cat": "CONCEPT",
+      "old_qid": "Q119241130",
+      "old_desc": "family name",
+      "reason": "bad desc: \"family name\""
+    },
+    {
+      "id": 223,
+      "name": "homens",
+      "cat": "PERSON",
+      "old_qid": "Q15978631",
+      "old_desc": "species of mammal",
+      "reason": "genus/taxon in PERSON cluster"
+    },
+    {
+      "id": 250,
+      "name": "Norway",
+      "cat": "PLACE",
+      "old_qid": "Q184224",
+      "old_desc": "species of mammal",
+      "reason": "genus/taxon in PLACE cluster"
+    },
+    {
+      "id": 251,
+      "name": "death",
+      "cat": "DISEASE",
+      "old_qid": "Q37258658",
+      "old_desc": "family name",
+      "reason": "bad desc: \"family name\""
+    },
+    {
+      "id": 252,
+      "name": "Guinea",
+      "cat": "PLACE",
+      "old_qid": "Q14630117",
+      "old_desc": "genus of insects",
+      "reason": "bad desc: \"genus of insects\""
+    },
+    {
+      "id": 272,
+      "name": "Creator",
+      "cat": "PERSON",
+      "old_qid": "Q18105270",
+      "old_desc": "genus of insects",
+      "reason": "bad desc: \"genus of insects\""
+    },
+    {
+      "id": 273,
+      "name": "Bodies",
+      "cat": "SUBSTANCE",
+      "old_qid": "Q5",
+      "old_desc": "any single member of Homo sapiens, unique extant species of the genus Homo",
+      "reason": "genus/taxon in SUBSTANCE cluster"
+    },
+    {
+      "id": 277,
+      "name": "gas",
+      "cat": "SUBSTANCE",
+      "old_qid": "Q131271",
+      "old_desc": "species of bacterium",
+      "reason": "genus/taxon in SUBSTANCE cluster"
+    },
+    {
+      "id": 293,
+      "name": "death",
+      "cat": "CONCEPT",
+      "old_qid": "Q51093113",
+      "old_desc": "scientific article published in December 1998",
+      "reason": "bad desc: \"scientific article\""
+    },
+    {
+      "id": 296,
+      "name": "age",
+      "cat": "CONCEPT",
+      "old_qid": "Q4691836",
+      "old_desc": "genus of insects",
+      "reason": "bad desc: \"genus of insects\""
+    },
+    {
+      "id": 308,
+      "name": "Salt-water",
+      "cat": "SUBSTANCE",
+      "old_qid": "Q182599",
+      "old_desc": "species of reptile",
+      "reason": "genus/taxon in SUBSTANCE cluster"
+    },
+    {
+      "id": 310,
+      "name": "Madagascar",
+      "cat": "PLACE",
+      "old_qid": "Q161093",
+      "old_desc": "species of flowering plant in the family Apocynaceae",
+      "reason": "genus/taxon in PLACE cluster"
+    },
+    {
+      "id": 318,
+      "name": "Archimedes",
+      "cat": "PERSON",
+      "old_qid": "Q776475",
+      "old_desc": "genus of bryozoans (fossil)",
+      "reason": "genus/taxon in PERSON cluster"
+    },
+    {
+      "id": 329,
+      "name": "cavernes",
+      "cat": "PLACE",
+      "old_qid": "Q2660276",
+      "old_desc": "genus of plants",
+      "reason": "genus/taxon in PLACE cluster"
+    },
+    {
+      "id": 341,
+      "name": "Hydropeſia",
+      "cat": "DISEASE",
+      "old_qid": "Q27261648",
+      "old_desc": "family name",
+      "reason": "bad desc: \"family name\""
+    },
+    {
+      "id": 355,
+      "name": "Andes",
+      "cat": "PLACE",
+      "old_qid": "Q10411246",
+      "old_desc": "genus of insects",
+      "reason": "bad desc: \"genus of insects\""
+    },
+    {
+      "id": 357,
+      "name": "colica",
+      "cat": "DISEASE",
+      "old_qid": "Q17272665",
+      "old_desc": "genus of plants",
+      "reason": "genus/taxon in DISEASE cluster"
+    },
+    {
+      "id": 365,
+      "name": "Deos",
+      "cat": "PERSON",
+      "old_qid": "Q106078731",
+      "old_desc": "family name",
+      "reason": "bad desc: \"family name\""
+    },
+    {
+      "id": 374,
+      "name": "dentes",
+      "cat": "SUBSTANCE",
+      "old_qid": "Q1545761",
+      "old_desc": "genus of plants",
+      "reason": "genus/taxon in SUBSTANCE cluster"
+    },
+    {
+      "id": 381,
+      "name": "Jardinillos",
+      "cat": "PLACE",
+      "old_qid": "Q740887",
+      "old_desc": "genus of flowering plants in the coffee family Rubiaceae",
+      "reason": "genus/taxon in PLACE cluster"
+    },
+    {
+      "id": 418,
+      "name": "Skin",
+      "cat": "SUBSTANCE",
+      "old_qid": "Q272206",
+      "old_desc": "family of reptiles (Reptilia)",
+      "reason": "genus/taxon in SUBSTANCE cluster"
+    },
+    {
+      "id": 421,
+      "name": "Turcos",
+      "cat": "PERSON",
+      "old_qid": "Q37572364",
+      "old_desc": "family name",
+      "reason": "bad desc: \"family name\""
+    },
+    {
+      "id": 441,
+      "name": "Clusius",
+      "cat": "PERSON",
+      "old_qid": "Q18983571",
+      "old_desc": "street in Voorhout, the Netherlands",
+      "reason": "bad desc: \"street in\""
+    },
+    {
+      "id": 446,
+      "name": "Winter",
+      "cat": "CONCEPT",
+      "old_qid": "Q852660",
+      "old_desc": "species of plant",
+      "reason": "genus/taxon in CONCEPT cluster"
+    },
+    {
+      "id": 448,
+      "name": "Syncope",
+      "cat": "DISEASE",
+      "old_qid": "Q3533488",
+      "old_desc": "genus of amphibians",
+      "reason": "genus/taxon in DISEASE cluster"
+    },
+    {
+      "id": 464,
+      "name": "rain",
+      "cat": "SUBSTANCE",
+      "old_qid": "Q25299795",
+      "old_desc": "family name",
+      "reason": "bad desc: \"family name\""
+    },
+    {
+      "id": 477,
+      "name": "femen",
+      "cat": "PLANT",
+      "old_qid": "Q37503206",
+      "old_desc": "family name",
+      "reason": "bad desc: \"family name\""
+    },
+    {
+      "id": 489,
+      "name": "Mer Caspienne",
+      "cat": "PLACE",
+      "old_qid": "Q742727",
+      "old_desc": "species of mammal",
+      "reason": "genus/taxon in PLACE cluster"
+    },
+    {
+      "id": 490,
+      "name": "vertebrata",
+      "cat": "ANIMAL",
+      "old_qid": "Q3556237",
+      "old_desc": "genus of algae",
+      "reason": "bad desc: \"genus of algae\""
+    },
+    {
+      "id": 519,
+      "name": "Romans",
+      "cat": "PERSON",
+      "old_qid": "Q613120",
+      "old_desc": "commune in Ain, France",
+      "reason": "bad desc: \"commune in\""
+    },
+    {
+      "id": 526,
+      "name": "men",
+      "cat": "PERSON",
+      "old_qid": "Q5",
+      "old_desc": "any single member of Homo sapiens, unique extant species of the genus Homo",
+      "reason": "genus/taxon in PERSON cluster"
+    },
+    {
+      "id": 550,
+      "name": "Lippen",
+      "cat": "SUBSTANCE",
+      "old_qid": "Q18107722",
+      "old_desc": "genus of insects",
+      "reason": "bad desc: \"genus of insects\""
+    },
+    {
+      "id": 607,
+      "name": "Mankind",
+      "cat": "CONCEPT",
+      "old_qid": "Q5",
+      "old_desc": "any single member of Homo sapiens, unique extant species of the genus Homo",
+      "reason": "genus/taxon in CONCEPT cluster"
+    },
+    {
+      "id": 627,
+      "name": "granada",
+      "cat": "SUBSTANCE",
+      "old_qid": "Q105368",
+      "old_desc": "family of semi-precious minerals",
+      "reason": "genus/taxon in SUBSTANCE cluster"
+    },
+    {
+      "id": 630,
+      "name": "arctic",
+      "cat": "PLACE",
+      "old_qid": "Q213141",
+      "old_desc": "species of mammal in the family Viverridae, native to South and Southeast Asia",
+      "reason": "genus/taxon in PLACE cluster"
+    },
+    {
+      "id": 650,
+      "name": "Bezoar",
+      "cat": "SUBSTANCE",
+      "old_qid": "Q897514",
+      "old_desc": "subspecies of mammal",
+      "reason": "genus/taxon in SUBSTANCE cluster"
+    },
+    {
+      "id": 661,
+      "name": "fucus",
+      "cat": "PLANT",
+      "old_qid": "Q180597",
+      "old_desc": "genus of algae",
+      "reason": "bad desc: \"genus of algae\""
+    },
+    {
+      "id": 691,
+      "name": "Indus",
+      "cat": "PLACE",
+      "old_qid": "Q260018",
+      "old_desc": "species of mammal",
+      "reason": "genus/taxon in PLACE cluster"
+    },
+    {
+      "id": 725,
+      "name": "spine",
+      "cat": "SUBSTANCE",
+      "old_qid": "Q21507681",
+      "old_desc": "family name",
+      "reason": "bad desc: \"family name\""
+    },
+    {
+      "id": 764,
+      "name": "parties du corps",
+      "cat": "SUBSTANCE",
+      "old_qid": "Q5",
+      "old_desc": "any single member of Homo sapiens, unique extant species of the genus Homo",
+      "reason": "genus/taxon in SUBSTANCE cluster"
+    },
+    {
+      "id": 768,
+      "name": "Xenophanes",
+      "cat": "PERSON",
+      "old_qid": "Q8043648",
+      "old_desc": "genus of insects",
+      "reason": "bad desc: \"genus of insects\""
+    },
+    {
+      "id": 790,
+      "name": "Aphorism",
+      "cat": "CONCEPT",
+      "old_qid": "Q4779712",
+      "old_desc": "genus of insects",
+      "reason": "bad desc: \"genus of insects\""
+    },
+    {
+      "id": 800,
+      "name": "trachea",
+      "cat": "SUBSTANCE",
+      "old_qid": "Q2136371",
+      "old_desc": "genus of insects",
+      "reason": "bad desc: \"genus of insects\""
+    },
+    {
+      "id": 804,
+      "name": "Amérique",
+      "cat": "PLACE",
+      "old_qid": "Q15885537",
+      "old_desc": "genus of insects",
+      "reason": "bad desc: \"genus of insects\""
+    },
+    {
+      "id": 833,
+      "name": "Amazone",
+      "cat": "PLACE",
+      "old_qid": "Q205329",
+      "old_desc": "species of mammal",
+      "reason": "genus/taxon in PLACE cluster"
+    },
+    {
+      "id": 883,
+      "name": "Syrup",
+      "cat": "SUBSTANCE",
+      "old_qid": "Q130307066",
+      "old_desc": "family name",
+      "reason": "bad desc: \"family name\""
+    },
+    {
+      "id": 885,
+      "name": "Mechoacan",
+      "cat": "PLACE",
+      "old_qid": "Q2744082",
+      "old_desc": "species of plant",
+      "reason": "genus/taxon in PLACE cluster"
+    },
+    {
+      "id": 909,
+      "name": "Nicaragua",
+      "cat": "PLACE",
+      "old_qid": "Q190469",
+      "old_desc": "species of fish",
+      "reason": "genus/taxon in PLACE cluster"
+    },
+    {
+      "id": 923,
+      "name": "Tides",
+      "cat": "CONCEPT",
+      "old_qid": "Q7800866",
+      "old_desc": "genus of plants",
+      "reason": "genus/taxon in CONCEPT cluster"
+    },
+    {
+      "id": 945,
+      "name": "Hodgson",
+      "cat": "PERSON",
+      "old_qid": "Q3317194",
+      "old_desc": "genus of plants",
+      "reason": "genus/taxon in PERSON cluster"
+    },
+    {
+      "id": 969,
+      "name": "aerolites",
+      "cat": "SUBSTANCE",
+      "old_qid": "Q18104262",
+      "old_desc": "genus of insects",
+      "reason": "bad desc: \"genus of insects\""
+    },
+    {
+      "id": 1022,
+      "name": "semen",
+      "cat": "SUBSTANCE",
+      "old_qid": "Q14719944",
+      "old_desc": "genus of insects",
+      "reason": "bad desc: \"genus of insects\""
+    },
+    {
+      "id": 1042,
+      "name": "retina",
+      "cat": "SUBSTANCE",
+      "old_qid": "Q14847777",
+      "old_desc": "genus of insects",
+      "reason": "bad desc: \"genus of insects\""
+    },
+    {
+      "id": 1088,
+      "name": "Potosi",
+      "cat": "PLACE",
+      "old_qid": "Q378135",
+      "old_desc": "genus of plants",
+      "reason": "genus/taxon in PLACE cluster"
+    },
+    {
+      "id": 1105,
+      "name": "Ancien Continent",
+      "cat": "PLACE",
+      "old_qid": "Q46871",
+      "old_desc": "species of plant",
+      "reason": "genus/taxon in PLACE cluster"
+    },
+    {
+      "id": 1131,
+      "name": "Indian Ocean",
+      "cat": "PLACE",
+      "old_qid": "Q370597",
+      "old_desc": "species of mammal",
+      "reason": "genus/taxon in PLACE cluster"
+    },
+    {
+      "id": 1139,
+      "name": "elements",
+      "cat": "SUBSTANCE",
+      "old_qid": "Q11344",
+      "old_desc": "species of atoms having the same number of protons in the atomic nucleus and the",
+      "reason": "genus/taxon in SUBSTANCE cluster"
+    },
+    {
+      "id": 1195,
+      "name": "Asie orientale",
+      "cat": "PLACE",
+      "old_qid": "Q156895",
+      "old_desc": "species of plant",
+      "reason": "genus/taxon in PLACE cluster"
+    },
+    {
+      "id": 1196,
+      "name": "Pampas",
+      "cat": "PLACE",
+      "old_qid": "Q11994681",
+      "old_desc": "genus of insects",
+      "reason": "bad desc: \"genus of insects\""
+    },
+    {
+      "id": 1203,
+      "name": "meteors",
+      "cat": "OBJECT",
+      "old_qid": "Q14502780",
+      "old_desc": "genus of insects",
+      "reason": "bad desc: \"genus of insects\""
+    },
+    {
+      "id": 1206,
+      "name": "Aphelion",
+      "cat": "CONCEPT",
+      "old_qid": "Q10414642",
+      "old_desc": "genus of insects",
+      "reason": "bad desc: \"genus of insects\""
+    },
+    {
+      "id": 1213,
+      "name": "Microcosmus",
+      "cat": "CONCEPT",
+      "old_qid": "Q6839400",
+      "old_desc": "genus of insects",
+      "reason": "bad desc: \"genus of insects\""
+    },
+    {
+      "id": 1245,
+      "name": "corpore",
+      "cat": "SUBSTANCE",
+      "old_qid": "Q5",
+      "old_desc": "any single member of Homo sapiens, unique extant species of the genus Homo",
+      "reason": "genus/taxon in SUBSTANCE cluster"
+    },
+    {
+      "id": 1247,
+      "name": "lapidem",
+      "cat": "SUBSTANCE",
+      "old_qid": "Q12803555",
+      "old_desc": "family name",
+      "reason": "bad desc: \"family name\""
+    },
+    {
+      "id": 1264,
+      "name": "Form",
+      "cat": "CONCEPT",
+      "old_qid": "Q7386",
+      "old_desc": "family of insects",
+      "reason": "genus/taxon in CONCEPT cluster"
+    },
+    {
+      "id": 1292,
+      "name": "Plater.",
+      "cat": "PERSON",
+      "old_qid": "Q14927887",
+      "old_desc": "genus of insects",
+      "reason": "bad desc: \"genus of insects\""
+    },
+    {
+      "id": 1306,
+      "name": "heavens",
+      "cat": "CONCEPT",
+      "old_qid": "Q476937",
+      "old_desc": "genus of plants",
+      "reason": "genus/taxon in CONCEPT cluster"
+    },
+    {
+      "id": 1356,
+      "name": "graisse",
+      "cat": "SUBSTANCE",
+      "old_qid": "Q203569",
+      "old_desc": "species of plant",
+      "reason": "genus/taxon in SUBSTANCE cluster"
+    },
+    {
+      "id": 1387,
+      "name": "torments",
+      "cat": "DISEASE",
+      "old_qid": "Q37486727",
+      "old_desc": "family name",
+      "reason": "bad desc: \"family name\""
+    },
+    {
+      "id": 1416,
+      "name": "Bahia",
+      "cat": "PLACE",
+      "old_qid": "Q2236958",
+      "old_desc": "genus of plants",
+      "reason": "genus/taxon in PLACE cluster"
+    },
+    {
+      "id": 1427,
+      "name": "Orion",
+      "cat": "ANIMAL",
+      "old_qid": "Q15885532",
+      "old_desc": "genus of insects",
+      "reason": "bad desc: \"genus of insects\""
+    },
+    {
+      "id": 1439,
+      "name": "testa",
+      "cat": "SUBSTANCE",
+      "old_qid": "Q18177320",
+      "old_desc": "family name",
+      "reason": "bad desc: \"family name\""
+    },
+    {
+      "id": 1446,
+      "name": "ocelli",
+      "cat": "SUBSTANCE",
+      "old_qid": "Q14664948",
+      "old_desc": "genus of insects",
+      "reason": "bad desc: \"genus of insects\""
+    },
+    {
+      "id": 1456,
+      "name": "Hesiod",
+      "cat": "PERSON",
+      "old_qid": "Q40372668",
+      "old_desc": "genus of annelids",
+      "reason": "genus/taxon in PERSON cluster"
+    },
+    {
+      "id": 1488,
+      "name": "Cuernavaca",
+      "cat": "PLACE",
+      "old_qid": "Q119066185",
+      "old_desc": "genus of insects",
+      "reason": "bad desc: \"genus of insects\""
+    },
+    {
+      "id": 1491,
+      "name": "náos",
+      "cat": "OBJECT",
+      "old_qid": "Q37438629",
+      "old_desc": "family name",
+      "reason": "bad desc: \"family name\""
+    },
+    {
+      "id": 1524,
+      "name": "opium",
+      "cat": "SUBSTANCE",
+      "old_qid": "Q131584",
+      "old_desc": "species of plant",
+      "reason": "genus/taxon in SUBSTANCE cluster"
+    },
+    {
+      "id": 1535,
+      "name": "chylus",
+      "cat": "SUBSTANCE",
+      "old_qid": "Q37467744",
+      "old_desc": "family name",
+      "reason": "bad desc: \"family name\""
+    },
+    {
+      "id": 1565,
+      "name": "Pipe",
+      "cat": "OBJECT",
+      "old_qid": "Q159536",
+      "old_desc": "genus of plants",
+      "reason": "genus/taxon in OBJECT cluster"
+    },
+    {
+      "id": 1594,
+      "name": "Chypre",
+      "cat": "PLACE",
+      "old_qid": "Q10262778",
+      "old_desc": "genus of insects",
+      "reason": "bad desc: \"genus of insects\""
+    },
+    {
+      "id": 1614,
+      "name": "DEUS",
+      "cat": "CONCEPT",
+      "old_qid": "Q106078731",
+      "old_desc": "family name",
+      "reason": "bad desc: \"family name\""
+    },
+    {
+      "id": 1625,
+      "name": "économie",
+      "cat": "CONCEPT",
+      "old_qid": "Q37449052",
+      "old_desc": "family name",
+      "reason": "bad desc: \"family name\""
+    },
+    {
+      "id": 1645,
+      "name": "discord",
+      "cat": "CONCEPT",
+      "old_qid": "Q5281696",
+      "old_desc": "genus of insects",
+      "reason": "bad desc: \"genus of insects\""
+    },
+    {
+      "id": 1659,
+      "name": "Cup",
+      "cat": "OBJECT",
+      "old_qid": "Q146037",
+      "old_desc": "family of plants",
+      "reason": "genus/taxon in OBJECT cluster"
+    },
+    {
+      "id": 1681,
+      "name": "cuello",
+      "cat": "SUBSTANCE",
+      "old_qid": "Q1422972",
+      "old_desc": "genus of plants",
+      "reason": "genus/taxon in SUBSTANCE cluster"
+    },
+    {
+      "id": 1713,
+      "name": "casa",
+      "cat": "PLACE",
+      "old_qid": "Q83310",
+      "old_desc": "species of mammal",
+      "reason": "genus/taxon in PLACE cluster"
+    },
+    {
+      "id": 1780,
+      "name": "star",
+      "cat": "ANIMAL",
+      "old_qid": "Q37529922",
+      "old_desc": "family name",
+      "reason": "bad desc: \"family name\""
+    },
+    {
+      "id": 1814,
+      "name": "Central America",
+      "cat": "PLACE",
+      "old_qid": "Q388032",
+      "old_desc": "species of mammal",
+      "reason": "genus/taxon in PLACE cluster"
+    },
+    {
+      "id": 1836,
+      "name": "thread",
+      "cat": "OBJECT",
+      "old_qid": "Q244111",
+      "old_desc": "species of worm",
+      "reason": "genus/taxon in OBJECT cluster"
+    },
+    {
+      "id": 1903,
+      "name": "Metaphors",
+      "cat": "CONCEPT",
+      "old_qid": "Q13847217",
+      "old_desc": "genus of insects",
+      "reason": "bad desc: \"genus of insects\""
+    },
+    {
+      "id": 1927,
+      "name": "Nouvelle-Guinée",
+      "cat": "PLACE",
+      "old_qid": "Q504839",
+      "old_desc": "species of reptile",
+      "reason": "genus/taxon in PLACE cluster"
+    },
+    {
+      "id": 1967,
+      "name": "Marcs",
+      "cat": "PERSON",
+      "old_qid": "Q37105409",
+      "old_desc": "family name",
+      "reason": "bad desc: \"family name\""
+    },
+    {
+      "id": 1977,
+      "name": "Pavie",
+      "cat": "PLACE",
+      "old_qid": "Q86604590",
+      "old_desc": "genus of plants",
+      "reason": "genus/taxon in PLACE cluster"
+    },
+    {
+      "id": 1987,
+      "name": "spinning top",
+      "cat": "OBJECT",
+      "old_qid": "Q15583916",
+      "old_desc": "species of plant",
+      "reason": "genus/taxon in OBJECT cluster"
+    },
+    {
+      "id": 2011,
+      "name": "Albumen",
+      "cat": "SUBSTANCE",
+      "old_qid": "Q169219",
+      "old_desc": "family of globular proteins",
+      "reason": "genus/taxon in SUBSTANCE cluster"
+    },
+    {
+      "id": 2019,
+      "name": "Montium",
+      "cat": "PLACE",
+      "old_qid": "Q20997411",
+      "old_desc": "family name",
+      "reason": "bad desc: \"family name\""
+    },
+    {
+      "id": 2023,
+      "name": "dragma",
+      "cat": "SUBSTANCE",
+      "old_qid": "Q5304630",
+      "old_desc": "genus of insects; genus of Arthoropoda containing only one species",
+      "reason": "bad desc: \"genus of insects\""
+    },
+    {
+      "id": 2033,
+      "name": "Mexique",
+      "cat": "PLACE",
+      "old_qid": "Q6826187",
+      "old_desc": "genus of insects",
+      "reason": "bad desc: \"genus of insects\""
+    },
+    {
+      "id": 2043,
+      "name": "Guyane",
+      "cat": "PLACE",
+      "old_qid": "Q1931753",
+      "old_desc": "genus of fishes",
+      "reason": "bad desc: \"genus of fish\""
+    },
+    {
+      "id": 2047,
+      "name": "Pérou",
+      "cat": "PLACE",
+      "old_qid": "Q14083868",
+      "old_desc": "genus of orthopteran insects",
+      "reason": "genus/taxon in PLACE cluster"
+    },
+    {
+      "id": 2070,
+      "name": "Nouveau-Continent",
+      "cat": "PLACE",
+      "old_qid": "Q25398978",
+      "old_desc": "genus of fishes",
+      "reason": "bad desc: \"genus of fish\""
+    },
+    {
+      "id": 2073,
+      "name": "solar system",
+      "cat": "CONCEPT",
+      "old_qid": "Q28039407",
+      "old_desc": "family name",
+      "reason": "bad desc: \"family name\""
+    },
+    {
+      "id": 2098,
+      "name": "Gefn.",
+      "cat": "PERSON",
+      "old_qid": "Q161394",
+      "old_desc": "species of plant",
+      "reason": "genus/taxon in PERSON cluster"
+    },
+    {
+      "id": 2099,
+      "name": "Bartholinus",
+      "cat": "PERSON",
+      "old_qid": "Q128259757",
+      "old_desc": "scholarly article",
+      "reason": "bad desc: \"scholarly article\""
+    },
+    {
+      "id": 2107,
+      "name": "Bogota",
+      "cat": "PLACE",
+      "old_qid": "Q10432089",
+      "old_desc": "genus of insects",
+      "reason": "bad desc: \"genus of insects\""
+    },
+    {
+      "id": 2156,
+      "name": "discrimination",
+      "cat": "CONCEPT",
+      "old_qid": "Q52136158",
+      "old_desc": "scientific article published in April 2001",
+      "reason": "bad desc: \"scientific article\""
+    },
+    {
+      "id": 2165,
+      "name": "trachyte",
+      "cat": "SUBSTANCE",
+      "old_qid": "Q10700948",
+      "old_desc": "genus of insects",
+      "reason": "bad desc: \"genus of insects\""
+    },
+    {
+      "id": 2205,
+      "name": "America meridionali",
+      "cat": "PLACE",
+      "old_qid": "Q15885537",
+      "old_desc": "genus of insects",
+      "reason": "bad desc: \"genus of insects\""
+    },
+    {
+      "id": 2223,
+      "name": "frios",
+      "cat": "CONCEPT",
+      "old_qid": "Q119573149",
+      "old_desc": "family name",
+      "reason": "bad desc: \"family name\""
+    },
+    {
+      "id": 2239,
+      "name": "Saturn",
+      "cat": "PLACE",
+      "old_qid": "Q843104",
+      "old_desc": "family of insects",
+      "reason": "genus/taxon in PLACE cluster"
+    },
+    {
+      "id": 2260,
+      "name": "Lyell",
+      "cat": "PERSON",
+      "old_qid": "Q76126037",
+      "old_desc": "Peerage person ID=549048",
+      "reason": "bad desc: \"peerage\""
+    },
+    {
+      "id": 2262,
+      "name": "poros",
+      "cat": "SUBSTANCE",
+      "old_qid": "Q2943924",
+      "old_desc": "genus of liverworts",
+      "reason": "genus/taxon in SUBSTANCE cluster"
+    },
+    {
+      "id": 2306,
+      "name": "vertigens",
+      "cat": "DISEASE",
+      "old_qid": "Q2531983",
+      "old_desc": "genus of molluscs",
+      "reason": "genus/taxon in DISEASE cluster"
+    },
+    {
+      "id": 2308,
+      "name": "argile",
+      "cat": "SUBSTANCE",
+      "old_qid": "Q164192",
+      "old_desc": "genus of plants",
+      "reason": "genus/taxon in SUBSTANCE cluster"
+    },
+    {
+      "id": 2322,
+      "name": "areas",
+      "cat": "SUBSTANCE",
+      "old_qid": "Q16870283",
+      "old_desc": "family name",
+      "reason": "bad desc: \"family name\""
+    },
+    {
+      "id": 2345,
+      "name": "Alas",
+      "cat": "SUBSTANCE",
+      "old_qid": "Q37122343",
+      "old_desc": "family name",
+      "reason": "bad desc: \"family name\""
+    },
+    {
+      "id": 2368,
+      "name": "Alepo",
+      "cat": "PLACE",
+      "old_qid": "Q211457",
+      "old_desc": "species of plant",
+      "reason": "genus/taxon in PLACE cluster"
+    },
+    {
+      "id": 2372,
+      "name": "Deckan",
+      "cat": "PLACE",
+      "old_qid": "Q8354327",
+      "old_desc": "genus of plants",
+      "reason": "genus/taxon in PLACE cluster"
+    },
+    {
+      "id": 2380,
+      "name": "balsamo",
+      "cat": "SUBSTANCE",
+      "old_qid": "Q428750",
+      "old_desc": "species of plant in the family Cucurbitaceae",
+      "reason": "genus/taxon in SUBSTANCE cluster"
+    },
+    {
+      "id": 2399,
+      "name": "aures",
+      "cat": "SUBSTANCE",
+      "old_qid": "Q115777984",
+      "old_desc": "scientific article published on 26 January 2022",
+      "reason": "bad desc: \"scientific article\""
+    },
+    {
+      "id": 2401,
+      "name": "pedum",
+      "cat": "SUBSTANCE",
+      "old_qid": "Q35850711",
+      "old_desc": "scientific article published on 7 December 2011",
+      "reason": "bad desc: \"scientific article\""
+    },
+    {
+      "id": 2402,
+      "name": "pedibus",
+      "cat": "SUBSTANCE",
+      "old_qid": "Q35850711",
+      "old_desc": "scientific article published on 7 December 2011",
+      "reason": "bad desc: \"scientific article\""
+    },
+    {
+      "id": 2423,
+      "name": "Lacre",
+      "cat": "SUBSTANCE",
+      "old_qid": "Q28933284",
+      "old_desc": "species of poisonous plant used to produce urushiol-based lacquer",
+      "reason": "genus/taxon in SUBSTANCE cluster"
+    },
+    {
+      "id": 2432,
+      "name": "branchiam",
+      "cat": "SUBSTANCE",
+      "old_qid": "Q21431135",
+      "old_desc": "family name",
+      "reason": "bad desc: \"family name\""
+    },
+    {
+      "id": 2442,
+      "name": "Meadows",
+      "cat": "PLACE",
+      "old_qid": "Q25062",
+      "old_desc": "species of plant in the Rutaceae family",
+      "reason": "genus/taxon in PLACE cluster"
+    },
+    {
+      "id": 2446,
+      "name": "dientes",
+      "cat": "SUBSTANCE",
+      "old_qid": "Q1545761",
+      "old_desc": "genus of plants",
+      "reason": "genus/taxon in SUBSTANCE cluster"
+    },
+    {
+      "id": 2477,
+      "name": "Huaxaca",
+      "cat": "PLACE",
+      "old_qid": "Q13906835",
+      "old_desc": "genus of Orthoptera",
+      "reason": "genus/taxon in PLACE cluster"
+    },
+    {
+      "id": 2488,
+      "name": "Mensch",
+      "cat": "PERSON",
+      "old_qid": "Q15978631",
+      "old_desc": "species of mammal",
+      "reason": "genus/taxon in PERSON cluster"
+    },
+    {
+      "id": 2499,
+      "name": "Perca",
+      "cat": "ANIMAL",
+      "old_qid": "Q600262",
+      "old_desc": "genus of fishes",
+      "reason": "bad desc: \"genus of fish\""
+    },
+    {
+      "id": 2500,
+      "name": "digitis",
+      "cat": "SUBSTANCE",
+      "old_qid": "Q136550394",
+      "old_desc": "family name",
+      "reason": "bad desc: \"family name\""
+    },
+    {
+      "id": 2503,
+      "name": "Squamis",
+      "cat": "SUBSTANCE",
+      "old_qid": "Q37488990",
+      "old_desc": "family name",
+      "reason": "bad desc: \"family name\""
+    },
+    {
+      "id": 2505,
+      "name": "epithimas",
+      "cat": "SUBSTANCE",
+      "old_qid": "Q10273352",
+      "old_desc": "genus of insects",
+      "reason": "bad desc: \"genus of insects\""
+    },
+    {
+      "id": 2511,
+      "name": "pituita",
+      "cat": "SUBSTANCE",
+      "old_qid": "Q17185833",
+      "old_desc": "genus of plants",
+      "reason": "genus/taxon in SUBSTANCE cluster"
+    },
+    {
+      "id": 2517,
+      "name": "Solinus",
+      "cat": "PERSON",
+      "old_qid": "Q3489494",
+      "old_desc": "genus of arachnids",
+      "reason": "genus/taxon in PERSON cluster"
+    },
+    {
+      "id": 2520,
+      "name": "Californie",
+      "cat": "PLACE",
+      "old_qid": "Q16047894",
+      "old_desc": "genus of plants",
+      "reason": "genus/taxon in PLACE cluster"
+    },
+    {
+      "id": 2523,
+      "name": "antennæ",
+      "cat": "SUBSTANCE",
+      "old_qid": "Q114203202",
+      "old_desc": "scientific article published in 2022",
+      "reason": "bad desc: \"scientific article\""
+    },
+    {
+      "id": 2531,
+      "name": "Tabago",
+      "cat": "PLACE",
+      "old_qid": "Q956502",
+      "old_desc": "genus of plants",
+      "reason": "genus/taxon in PLACE cluster"
+    },
+    {
+      "id": 2581,
+      "name": "Sides",
+      "cat": "SUBSTANCE",
+      "old_qid": "Q431310",
+      "old_desc": "genus of plants",
+      "reason": "genus/taxon in SUBSTANCE cluster"
+    },
+    {
+      "id": 2594,
+      "name": "mordaz",
+      "cat": "CONCEPT",
+      "old_qid": "Q7618284",
+      "old_desc": "family of insects",
+      "reason": "genus/taxon in CONCEPT cluster"
+    },
+    {
+      "id": 2601,
+      "name": "farines",
+      "cat": "SUBSTANCE",
+      "old_qid": "Q5234528",
+      "old_desc": "genus of plants",
+      "reason": "genus/taxon in SUBSTANCE cluster"
+    },
+    {
+      "id": 2602,
+      "name": "Sahara",
+      "cat": "PLACE",
+      "old_qid": "Q1717126",
+      "old_desc": "species of insect",
+      "reason": "genus/taxon in PLACE cluster"
+    },
+    {
+      "id": 2615,
+      "name": "Volcano",
+      "cat": "PLACE",
+      "old_qid": "Q2428769",
+      "old_desc": "census-designated place (CDP) in Hawaii County, Hawaii, United States",
+      "reason": "bad desc: \"census-designated place\""
+    },
+    {
+      "id": 2620,
+      "name": "Wilk.",
+      "cat": "PERSON",
+      "old_qid": "Q21508198",
+      "old_desc": "family name",
+      "reason": "bad desc: \"family name\""
+    },
+    {
+      "id": 2650,
+      "name": "leche",
+      "cat": "SUBSTANCE",
+      "old_qid": "Q157184",
+      "old_desc": "genus of plants",
+      "reason": "genus/taxon in SUBSTANCE cluster"
+    },
+    {
+      "id": 2683,
+      "name": "cornua",
+      "cat": "SUBSTANCE",
+      "old_qid": "Q735211",
+      "old_desc": "family name",
+      "reason": "bad desc: \"family name\""
+    },
+    {
+      "id": 2710,
+      "name": "Tartaria",
+      "cat": "PLACE",
+      "old_qid": "Q12358",
+      "old_desc": "species of plant",
+      "reason": "genus/taxon in PLACE cluster"
+    },
+    {
+      "id": 2726,
+      "name": "cuerpo",
+      "cat": "SUBSTANCE",
+      "old_qid": "Q5",
+      "old_desc": "any single member of Homo sapiens, unique extant species of the genus Homo",
+      "reason": "genus/taxon in SUBSTANCE cluster"
+    },
+    {
+      "id": 2727,
+      "name": "niños",
+      "cat": "PERSON",
+      "old_qid": "Q10954511",
+      "old_desc": "family name",
+      "reason": "bad desc: \"family name\""
+    },
+    {
+      "id": 2762,
+      "name": "avis",
+      "cat": "ANIMAL",
+      "old_qid": "Q14915264",
+      "old_desc": "family name",
+      "reason": "bad desc: \"family name\""
+    },
+    {
+      "id": 2801,
+      "name": "vertebræ",
+      "cat": "SUBSTANCE",
+      "old_qid": "Q3556237",
+      "old_desc": "genus of algae",
+      "reason": "bad desc: \"genus of algae\""
+    },
+    {
+      "id": 2807,
+      "name": "sal",
+      "cat": "SUBSTANCE",
+      "old_qid": "Q29653225",
+      "old_desc": "family name",
+      "reason": "bad desc: \"family name\""
+    },
+    {
+      "id": 2812,
+      "name": "bago",
+      "cat": "SUBSTANCE",
+      "old_qid": "Q5347305",
+      "old_desc": "genus of plants",
+      "reason": "genus/taxon in SUBSTANCE cluster"
+    },
+    {
+      "id": 2845,
+      "name": "Olear",
+      "cat": "PERSON",
+      "old_qid": "Q40994",
+      "old_desc": "species of mammal",
+      "reason": "genus/taxon in PERSON cluster"
+    },
+    {
+      "id": 2849,
+      "name": "Araneus",
+      "cat": "ANIMAL",
+      "old_qid": "Q1413947",
+      "old_desc": "genus of spiders in the family Araneidae",
+      "reason": "bad desc: \"genus of spiders\""
+    },
+    {
+      "id": 2859,
+      "name": "Elemente",
+      "cat": "SUBSTANCE",
+      "old_qid": "Q55953468",
+      "old_desc": "scholarly article published 20 January 2006",
+      "reason": "bad desc: \"scholarly article\""
+    },
+    {
+      "id": 2875,
+      "name": "crurum",
+      "cat": "SUBSTANCE",
+      "old_qid": "Q14856098",
+      "old_desc": "family of plants",
+      "reason": "genus/taxon in SUBSTANCE cluster"
+    },
+    {
+      "id": 2877,
+      "name": "lienis",
+      "cat": "SUBSTANCE",
+      "old_qid": "Q5347305",
+      "old_desc": "genus of plants",
+      "reason": "genus/taxon in SUBSTANCE cluster"
+    },
+    {
+      "id": 2881,
+      "name": "venenoſa",
+      "cat": "CONCEPT",
+      "old_qid": "Q847312",
+      "old_desc": "species of the suborder Serpentes that are capable of producing venom",
+      "reason": "genus/taxon in CONCEPT cluster"
+    },
+    {
+      "id": 2890,
+      "name": "Satan",
+      "cat": "PERSON",
+      "old_qid": "Q18746785",
+      "old_desc": "genus of fishes",
+      "reason": "bad desc: \"genus of fish\""
+    },
+    {
+      "id": 2900,
+      "name": "Chaos",
+      "cat": "CONCEPT",
+      "old_qid": "Q137465",
+      "old_desc": "genus of giant amoebae",
+      "reason": "genus/taxon in CONCEPT cluster"
+    },
+    {
+      "id": 2924,
+      "name": "Hispaniola",
+      "cat": "PLACE",
+      "old_qid": "Q21293623",
+      "old_desc": "genus of plants",
+      "reason": "genus/taxon in PLACE cluster"
+    },
+    {
+      "id": 2952,
+      "name": "falling stars",
+      "cat": "CONCEPT",
+      "old_qid": "Q14502780",
+      "old_desc": "genus of insects",
+      "reason": "bad desc: \"genus of insects\""
+    },
+    {
+      "id": 2958,
+      "name": "Seaweeds",
+      "cat": "PLANT",
+      "old_qid": "Q606703",
+      "old_desc": "genus of fishes (Syngnathus)",
+      "reason": "bad desc: \"genus of fish\""
+    },
+    {
+      "id": 2968,
+      "name": "Tarantula",
+      "cat": "ANIMAL",
+      "old_qid": "Q96118656",
+      "old_desc": "scientific article published on 04 June 2020",
+      "reason": "bad desc: \"scientific article\""
+    },
+    {
+      "id": 2974,
+      "name": "Capitulum",
+      "cat": "SUBSTANCE",
+      "old_qid": "Q18607530",
+      "old_desc": "genus of crustaceans",
+      "reason": "bad desc: \"genus of crustaceans\""
+    },
+    {
+      "id": 2976,
+      "name": "ocellos",
+      "cat": "SUBSTANCE",
+      "old_qid": "Q14667475",
+      "old_desc": "genus of insects",
+      "reason": "bad desc: \"genus of insects\""
+    },
+    {
+      "id": 3012,
+      "name": "schistes",
+      "cat": "SUBSTANCE",
+      "old_qid": "Q281634",
+      "old_desc": "species of insect",
+      "reason": "genus/taxon in SUBSTANCE cluster"
+    },
+    {
+      "id": 3013,
+      "name": "Atlantide",
+      "cat": "PLACE",
+      "old_qid": "Q5710888",
+      "old_desc": "genus of insects",
+      "reason": "bad desc: \"genus of insects\""
+    },
+    {
+      "id": 3065,
+      "name": "Klaproth",
+      "cat": "PERSON",
+      "old_qid": "Q983803",
+      "old_desc": "genus of plants",
+      "reason": "genus/taxon in PERSON cluster"
+    },
+    {
+      "id": 3071,
+      "name": "Dhawalagiri",
+      "cat": "PLACE",
+      "old_qid": "Q2564224",
+      "old_desc": "genus of arachnids",
+      "reason": "genus/taxon in PLACE cluster"
+    },
+    {
+      "id": 3092,
+      "name": "solid",
+      "cat": "CONCEPT",
+      "old_qid": "Q254436",
+      "old_desc": "species of flowering plant in the aster family (Asteraceae)",
+      "reason": "genus/taxon in CONCEPT cluster"
+    },
+    {
+      "id": 3095,
+      "name": "Nebulae",
+      "cat": "OBJECT",
+      "old_qid": "Q6985278",
+      "old_desc": "genus of insects",
+      "reason": "bad desc: \"genus of insects\""
+    },
+    {
+      "id": 3118,
+      "name": "Scarabaeus",
+      "cat": "ANIMAL",
+      "old_qid": "Q608094",
+      "old_desc": "genus of insects",
+      "reason": "bad desc: \"genus of insects\""
+    },
+    {
+      "id": 3143,
+      "name": "filhos",
+      "cat": "PERSON",
+      "old_qid": "Q10954511",
+      "old_desc": "family name",
+      "reason": "bad desc: \"family name\""
+    },
+    {
+      "id": 3150,
+      "name": "lens",
+      "cat": "OBJECT",
+      "old_qid": "Q148983",
+      "old_desc": "genus of plants",
+      "reason": "genus/taxon in OBJECT cluster"
+    },
+    {
+      "id": 3158,
+      "name": "Angels",
+      "cat": "PERSON",
+      "old_qid": "Q12648436",
+      "old_desc": "family name",
+      "reason": "bad desc: \"family name\""
+    },
+    {
+      "id": 3159,
+      "name": "Virgil",
+      "cat": "PERSON",
+      "old_qid": "Q13035160",
+      "old_desc": "species of plant",
+      "reason": "genus/taxon in PERSON cluster"
+    },
+    {
+      "id": 3161,
+      "name": "Ctesias",
+      "cat": "PERSON",
+      "old_qid": "Q5191748",
+      "old_desc": "genus of insects",
+      "reason": "bad desc: \"genus of insects\""
+    },
+    {
+      "id": 3163,
+      "name": "Euclide",
+      "cat": "PERSON",
+      "old_qid": "Q1949136",
+      "old_desc": "genus of insects",
+      "reason": "bad desc: \"genus of insects\""
+    },
+    {
+      "id": 3179,
+      "name": "Amérique du Nord",
+      "cat": "PLACE",
+      "old_qid": "Q15885537",
+      "old_desc": "genus of insects",
+      "reason": "bad desc: \"genus of insects\""
+    },
+    {
+      "id": 3190,
+      "name": "Cantharides",
+      "cat": "ANIMAL",
+      "old_qid": "Q88649971",
+      "old_desc": "scientific article published on 16 May 2018",
+      "reason": "bad desc: \"scientific article\""
+    },
+    {
+      "id": 3192,
+      "name": "Sweat",
+      "cat": "SUBSTANCE",
+      "old_qid": "Q37018908",
+      "old_desc": "family name",
+      "reason": "bad desc: \"family name\""
+    },
+    {
+      "id": 3205,
+      "name": "formation",
+      "cat": "CONCEPT",
+      "old_qid": "Q63854201",
+      "old_desc": "scholarly article",
+      "reason": "bad desc: \"scholarly article\""
+    },
+    {
+      "id": 3221,
+      "name": "ramus",
+      "cat": "SUBSTANCE",
+      "old_qid": "Q4956333",
+      "old_desc": "family name",
+      "reason": "bad desc: \"family name\""
+    },
+    {
+      "id": 3241,
+      "name": "Tunguragua",
+      "cat": "PLACE",
+      "old_qid": "Q21228016",
+      "old_desc": "genus of insects",
+      "reason": "bad desc: \"genus of insects\""
+    },
+    {
+      "id": 3243,
+      "name": "baie de Hudson",
+      "cat": "PLACE",
+      "old_qid": "Q322145",
+      "old_desc": "species of North American mammal",
+      "reason": "genus/taxon in PLACE cluster"
+    },
+    {
+      "id": 3245,
+      "name": "Echeneis",
+      "cat": "ANIMAL",
+      "old_qid": "Q258946",
+      "old_desc": "genus of fishes",
+      "reason": "bad desc: \"genus of fish\""
+    },
+    {
+      "id": 3299,
+      "name": "Cantharis",
+      "cat": "ANIMAL",
+      "old_qid": "Q1318030",
+      "old_desc": "genus of insects",
+      "reason": "bad desc: \"genus of insects\""
+    },
+    {
+      "id": 3300,
+      "name": "Papilio",
+      "cat": "ANIMAL",
+      "old_qid": "Q21442278",
+      "old_desc": "subgenus of insects",
+      "reason": "bad desc: \"genus of insects\""
+    },
+    {
+      "id": 3303,
+      "name": "Scomber",
+      "cat": "ANIMAL",
+      "old_qid": "Q3593412",
+      "old_desc": "genus of fishes",
+      "reason": "bad desc: \"genus of fish\""
+    },
+    {
+      "id": 3305,
+      "name": "Cerafi",
+      "cat": "PLANT",
+      "old_qid": "Q16865535",
+      "old_desc": "family name",
+      "reason": "bad desc: \"family name\""
+    },
+    {
+      "id": 3306,
+      "name": "dentibus",
+      "cat": "SUBSTANCE",
+      "old_qid": "Q1545761",
+      "old_desc": "genus of plants",
+      "reason": "genus/taxon in SUBSTANCE cluster"
+    },
+    {
+      "id": 3308,
+      "name": "aculeos",
+      "cat": "SUBSTANCE",
+      "old_qid": "Q36996393",
+      "old_desc": "family name",
+      "reason": "bad desc: \"family name\""
+    },
+    {
+      "id": 3309,
+      "name": "Corvo",
+      "cat": "ANIMAL",
+      "old_qid": "Q666368",
+      "old_desc": "genus of insects",
+      "reason": "bad desc: \"genus of insects\""
+    },
+    {
+      "id": 3332,
+      "name": "Ximenes",
+      "cat": "PERSON",
+      "old_qid": "Q69968541",
+      "old_desc": "scientific article published on 01 November 1971",
+      "reason": "bad desc: \"scientific article\""
+    },
+    {
+      "id": 3344,
+      "name": "hyperbola",
+      "cat": "CONCEPT",
+      "old_qid": "Q13846009",
+      "old_desc": "genus of insects",
+      "reason": "bad desc: \"genus of insects\""
+    },
+    {
+      "id": 3353,
+      "name": "conditions physico-chimiques",
+      "cat": "CONCEPT",
+      "old_qid": "Q37055481",
+      "old_desc": "scientific article",
+      "reason": "bad desc: \"scientific article\""
+    },
+    {
+      "id": 3368,
+      "name": "Orpheus",
+      "cat": "PERSON",
+      "old_qid": "Q137908594",
+      "old_desc": "genus of birds",
+      "reason": "genus/taxon in PERSON cluster"
+    },
+    {
+      "id": 3381,
+      "name": "Devil",
+      "cat": "PERSON",
+      "old_qid": "Q6674",
+      "old_desc": "genus of flowering plants in the buttercup family Ranunculaceae",
+      "reason": "genus/taxon in PERSON cluster"
+    },
+    {
+      "id": 3395,
+      "name": "Delphinus",
+      "cat": "ANIMAL",
+      "old_qid": "Q16869614",
+      "old_desc": "family name",
+      "reason": "bad desc: \"family name\""
+    },
+    {
+      "id": 3435,
+      "name": "glottis",
+      "cat": "SUBSTANCE",
+      "old_qid": "Q107272795",
+      "old_desc": "genus of birds",
+      "reason": "genus/taxon in SUBSTANCE cluster"
+    },
+    {
+      "id": 3451,
+      "name": "tepeapulco",
+      "cat": "PLACE",
+      "old_qid": "Q4522761",
+      "old_desc": "municipality in the State of Hidalgo, Mexico",
+      "reason": "bad desc: \"municipality\""
+    },
+    {
+      "id": 3473,
+      "name": "Mexicaine",
+      "cat": "PLACE",
+      "old_qid": "Q6826187",
+      "old_desc": "genus of insects",
+      "reason": "bad desc: \"genus of insects\""
+    },
+    {
+      "id": 3481,
+      "name": "Guancabamba",
+      "cat": "PLACE",
+      "old_qid": "Q18100172",
+      "old_desc": "genus of insects",
+      "reason": "bad desc: \"genus of insects\""
+    },
+    {
+      "id": 3488,
+      "name": "Sénégal",
+      "cat": "PLACE",
+      "old_qid": "Q3775608",
+      "old_desc": "genus of plants",
+      "reason": "genus/taxon in PLACE cluster"
+    },
+    {
+      "id": 3494,
+      "name": "droit",
+      "cat": "CONCEPT",
+      "old_qid": "Q16871926",
+      "old_desc": "family name",
+      "reason": "bad desc: \"family name\""
+    },
+    {
+      "id": 3504,
+      "name": "Peloponnesus",
+      "cat": "PLACE",
+      "old_qid": "Q1572648",
+      "old_desc": "species of reptile",
+      "reason": "genus/taxon in PLACE cluster"
+    },
+    {
+      "id": 3524,
+      "name": "MATERIAL",
+      "cat": "CONCEPT",
+      "old_qid": "Q18573604",
+      "old_desc": "family name",
+      "reason": "bad desc: \"family name\""
+    },
+    {
+      "id": 3540,
+      "name": "Brain",
+      "cat": "CONCEPT",
+      "old_qid": "Q16860338",
+      "old_desc": "family name",
+      "reason": "bad desc: \"family name\""
+    },
+    {
+      "id": 3607,
+      "name": "gallinarum",
+      "cat": "ANIMAL",
+      "old_qid": "Q128684891",
+      "old_desc": "scholarly article",
+      "reason": "bad desc: \"scholarly article\""
+    },
+    {
+      "id": 3609,
+      "name": "Lichen",
+      "cat": "PLANT",
+      "old_qid": "Q567898",
+      "old_desc": "genus of insects",
+      "reason": "bad desc: \"genus of insects\""
+    },
+    {
+      "id": 3611,
+      "name": "maxilla",
+      "cat": "SUBSTANCE",
+      "old_qid": "Q2719986",
+      "old_desc": "genus of plants",
+      "reason": "genus/taxon in SUBSTANCE cluster"
+    },
+    {
+      "id": 3618,
+      "name": "Ophiuchus",
+      "cat": "ANIMAL",
+      "old_qid": "Q114661785",
+      "old_desc": "scholarly article",
+      "reason": "bad desc: \"scholarly article\""
+    },
+    {
+      "id": 3619,
+      "name": "spinis",
+      "cat": "SUBSTANCE",
+      "old_qid": "Q21507681",
+      "old_desc": "family name",
+      "reason": "bad desc: \"family name\""
+    },
+    {
+      "id": 3623,
+      "name": "papa",
+      "cat": "PERSON",
+      "old_qid": "Q25382",
+      "old_desc": "species of bird",
+      "reason": "genus/taxon in PERSON cluster"
+    },
+    {
+      "id": 3633,
+      "name": "J. Bontii",
+      "cat": "PERSON",
+      "old_qid": "Q19273805",
+      "old_desc": "street in Amsterdam, the Netherlands",
+      "reason": "bad desc: \"street in\""
+    },
+    {
+      "id": 3642,
+      "name": "locis",
+      "cat": "PLACE",
+      "old_qid": "Q7200212",
+      "old_desc": "family name",
+      "reason": "bad desc: \"family name\""
+    },
+    {
+      "id": 3643,
+      "name": "globuli",
+      "cat": "SUBSTANCE",
+      "old_qid": "Q87183544",
+      "old_desc": "genus of plants",
+      "reason": "genus/taxon in SUBSTANCE cluster"
+    },
+    {
+      "id": 3647,
+      "name": "Lumbr.",
+      "cat": "DISEASE",
+      "old_qid": "Q93836414",
+      "old_desc": "scholarly article published in 1952",
+      "reason": "bad desc: \"scholarly article\""
+    },
+    {
+      "id": 3649,
+      "name": "clyster",
+      "cat": "SUBSTANCE",
+      "old_qid": "Q4038065",
+      "old_desc": "genus of insects",
+      "reason": "bad desc: \"genus of insects\""
+    },
+    {
+      "id": 3657,
+      "name": "Scrittori",
+      "cat": "PERSON",
+      "old_qid": "Q37244077",
+      "old_desc": "family name",
+      "reason": "bad desc: \"family name\""
+    },
+    {
+      "id": 3659,
+      "name": "mastice",
+      "cat": "PLANT",
+      "old_qid": "Q16875777",
+      "old_desc": "Wikimedia disambiguation page",
+      "reason": "bad desc: \"wikimedia\""
+    },
+    {
+      "id": 3660,
+      "name": "milagre",
+      "cat": "CONCEPT",
+      "old_qid": "Q37039890",
+      "old_desc": "family name",
+      "reason": "bad desc: \"family name\""
+    },
+    {
+      "id": 3703,
+      "name": "nero",
+      "cat": "CONCEPT",
+      "old_qid": "Q158898",
+      "old_desc": "species of plant",
+      "reason": "genus/taxon in CONCEPT cluster"
+    },
+    {
+      "id": 3730,
+      "name": "Polybius",
+      "cat": "PERSON",
+      "old_qid": "Q1990508",
+      "old_desc": "genus of crabs",
+      "reason": "genus/taxon in PERSON cluster"
+    },
+    {
+      "id": 3786,
+      "name": "Nacht",
+      "cat": "CONCEPT",
+      "old_qid": "Q146555",
+      "old_desc": "genus of plants",
+      "reason": "genus/taxon in CONCEPT cluster"
+    },
+    {
+      "id": 3802,
+      "name": "sphex",
+      "cat": "ANIMAL",
+      "old_qid": "Q109909741",
+      "old_desc": "scholarly article",
+      "reason": "bad desc: \"scholarly article\""
+    },
+    {
+      "id": 3817,
+      "name": "Tlaquiltenango",
+      "cat": "PLACE",
+      "old_qid": "Q2652063",
+      "old_desc": "municipality in the State of Morelos, Mexico",
+      "reason": "bad desc: \"municipality\""
+    },
+    {
+      "id": 3870,
+      "name": "Mancilla",
+      "cat": "PERSON",
+      "old_qid": "Q37239981",
+      "old_desc": "family name",
+      "reason": "bad desc: \"family name\""
+    },
+    {
+      "id": 3873,
+      "name": "cigarros",
+      "cat": "OBJECT",
+      "old_qid": "Q1346603",
+      "old_desc": "genus of insects",
+      "reason": "bad desc: \"genus of insects\""
+    },
+    {
+      "id": 3875,
+      "name": "Moluques",
+      "cat": "PLACE",
+      "old_qid": "Q14643845",
+      "old_desc": "genus of insects",
+      "reason": "bad desc: \"genus of insects\""
+    },
+    {
+      "id": 3882,
+      "name": "titicaca",
+      "cat": "PLACE",
+      "old_qid": "Q1628083",
+      "old_desc": "species of amphibian",
+      "reason": "genus/taxon in PLACE cluster"
+    },
+    {
+      "id": 3907,
+      "name": "bodily sensations",
+      "cat": "SUBSTANCE",
+      "old_qid": "Q129163486",
+      "old_desc": "scholarly article",
+      "reason": "bad desc: \"scholarly article\""
+    },
+    {
+      "id": 3933,
+      "name": "Bewegungsnerven",
+      "cat": "SUBSTANCE",
+      "old_qid": "Q52748561",
+      "old_desc": "scientific article published in February 1969",
+      "reason": "bad desc: \"scientific article\""
+    },
+    {
+      "id": 3936,
+      "name": "fovea",
+      "cat": "SUBSTANCE",
+      "old_qid": "Q261578",
+      "old_desc": "genus of insects",
+      "reason": "bad desc: \"genus of insects\""
+    },
+    {
+      "id": 3984,
+      "name": "Artus",
+      "cat": "SUBSTANCE",
+      "old_qid": "Q27264955",
+      "old_desc": "family name",
+      "reason": "bad desc: \"family name\""
+    },
+    {
+      "id": 3985,
+      "name": "Hortis",
+      "cat": "PLACE",
+      "old_qid": "Q740887",
+      "old_desc": "genus of flowering plants in the coffee family Rubiaceae",
+      "reason": "genus/taxon in PLACE cluster"
+    },
+    {
+      "id": 3986,
+      "name": "Pollice",
+      "cat": "SUBSTANCE",
+      "old_qid": "Q106522003",
+      "old_desc": "family name",
+      "reason": "bad desc: \"family name\""
+    },
+    {
+      "id": 3990,
+      "name": "Buprestis",
+      "cat": "ANIMAL",
+      "old_qid": "Q1316915",
+      "old_desc": "genus of insects",
+      "reason": "bad desc: \"genus of insects\""
+    },
+    {
+      "id": 4009,
+      "name": "Africam",
+      "cat": "PLACE",
+      "old_qid": "Q16159116",
+      "old_desc": "family name",
+      "reason": "bad desc: \"family name\""
+    },
+    {
+      "id": 4010,
+      "name": "cervicis",
+      "cat": "SUBSTANCE",
+      "old_qid": "Q73088417",
+      "old_desc": "scientific article published on 01 March 2003",
+      "reason": "bad desc: \"scientific article\""
+    },
+    {
+      "id": 4011,
+      "name": "umbelico",
+      "cat": "SUBSTANCE",
+      "old_qid": "Q158200",
+      "old_desc": "genus of plants",
+      "reason": "genus/taxon in SUBSTANCE cluster"
+    },
+    {
+      "id": 4022,
+      "name": "Bagre",
+      "cat": "ANIMAL",
+      "old_qid": "Q4842109",
+      "old_desc": "genus of fishes",
+      "reason": "bad desc: \"genus of fish\""
+    },
+    {
+      "id": 4029,
+      "name": "cliſteres",
+      "cat": "OBJECT",
+      "old_qid": "Q4038065",
+      "old_desc": "genus of insects",
+      "reason": "bad desc: \"genus of insects\""
+    },
+    {
+      "id": 4035,
+      "name": "Vene",
+      "cat": "SUBSTANCE",
+      "old_qid": "Q37452649",
+      "old_desc": "family name",
+      "reason": "bad desc: \"family name\""
+    },
+    {
+      "id": 4036,
+      "name": "Pulver",
+      "cat": "SUBSTANCE",
+      "old_qid": "Q37203534",
+      "old_desc": "family name",
+      "reason": "bad desc: \"family name\""
+    },
+    {
+      "id": 4071,
+      "name": "corpo",
+      "cat": "SUBSTANCE",
+      "old_qid": "Q5",
+      "old_desc": "any single member of Homo sapiens, unique extant species of the genus Homo",
+      "reason": "genus/taxon in SUBSTANCE cluster"
+    },
+    {
+      "id": 4080,
+      "name": "pallorem",
+      "cat": "DISEASE",
+      "old_qid": "Q10343842",
+      "old_desc": "genus of insects",
+      "reason": "bad desc: \"genus of insects\""
+    },
+    {
+      "id": 4081,
+      "name": "Sandali rofsi",
+      "cat": "SUBSTANCE",
+      "old_qid": "Q2392887",
+      "old_desc": "species of plant",
+      "reason": "genus/taxon in SUBSTANCE cluster"
+    },
+    {
+      "id": 4085,
+      "name": "burro",
+      "cat": "SUBSTANCE",
+      "old_qid": "Q146130",
+      "old_desc": "genus of flowering plants",
+      "reason": "genus/taxon in SUBSTANCE cluster"
+    },
+    {
+      "id": 4086,
+      "name": "criancas",
+      "cat": "PERSON",
+      "old_qid": "Q10954511",
+      "old_desc": "family name",
+      "reason": "bad desc: \"family name\""
+    },
+    {
+      "id": 4089,
+      "name": "figa",
+      "cat": "PLANT",
+      "old_qid": "Q1759071",
+      "old_desc": "genus of insects",
+      "reason": "bad desc: \"genus of insects\""
+    },
+    {
+      "id": 4096,
+      "name": "parabola",
+      "cat": "CONCEPT",
+      "old_qid": "Q7133719",
+      "old_desc": "genus of insects",
+      "reason": "bad desc: \"genus of insects\""
+    },
+    {
+      "id": 4127,
+      "name": "geometer",
+      "cat": "PERSON",
+      "old_qid": "Q45559",
+      "old_desc": "family of moths",
+      "reason": "genus/taxon in PERSON cluster"
+    },
+    {
+      "id": 4153,
+      "name": "Paris",
+      "cat": "PERSON",
+      "old_qid": "Q162121",
+      "old_desc": "genus of plants",
+      "reason": "genus/taxon in PERSON cluster"
+    },
+    {
+      "id": 4168,
+      "name": "Zeilan",
+      "cat": "PLACE",
+      "old_qid": "Q370239",
+      "old_desc": "species of flowering plant",
+      "reason": "genus/taxon in PLACE cluster"
+    },
+    {
+      "id": 4199,
+      "name": "Aloes",
+      "cat": "SUBSTANCE",
+      "old_qid": "Q93745597",
+      "old_desc": "genus of plants in the family Asphodelaceae",
+      "reason": "genus/taxon in SUBSTANCE cluster"
+    },
+    {
+      "id": 4218,
+      "name": "Swan",
+      "cat": "ANIMAL",
+      "old_qid": "Q55829744",
+      "old_desc": "genus of insects",
+      "reason": "bad desc: \"genus of insects\""
+    },
+    {
+      "id": 4227,
+      "name": "matières ferrugineuses",
+      "cat": "SUBSTANCE",
+      "old_qid": "Q518608",
+      "old_desc": "species of bird",
+      "reason": "genus/taxon in SUBSTANCE cluster"
+    },
+    {
+      "id": 4233,
+      "name": "peuple",
+      "cat": "PERSON",
+      "old_qid": "Q2069597",
+      "old_desc": "family name",
+      "reason": "bad desc: \"family name\""
+    },
+    {
+      "id": 4246,
+      "name": "Otahiti",
+      "cat": "PLACE",
+      "old_qid": "Q5230686",
+      "old_desc": "genus of plants",
+      "reason": "genus/taxon in PLACE cluster"
+    },
+    {
+      "id": 4258,
+      "name": "Cato",
+      "cat": "PERSON",
+      "old_qid": "Q127767219",
+      "old_desc": "scholarly article",
+      "reason": "bad desc: \"scholarly article\""
+    },
+    {
+      "id": 4259,
+      "name": "Birds-Nest",
+      "cat": "OBJECT",
+      "old_qid": "Q30056",
+      "old_desc": "species of plant",
+      "reason": "genus/taxon in OBJECT cluster"
+    },
+    {
+      "id": 4263,
+      "name": "Spoon",
+      "cat": "OBJECT",
+      "old_qid": "Q37178905",
+      "old_desc": "family name",
+      "reason": "bad desc: \"family name\""
+    },
+    {
+      "id": 4264,
+      "name": "Spring Water",
+      "cat": "SUBSTANCE",
+      "old_qid": "Q158996",
+      "old_desc": "species of plant",
+      "reason": "genus/taxon in SUBSTANCE cluster"
+    },
+    {
+      "id": 4265,
+      "name": "Temple",
+      "cat": "OBJECT",
+      "old_qid": "Q21500480",
+      "old_desc": "family name",
+      "reason": "bad desc: \"family name\""
+    },
+    {
+      "id": 4292,
+      "name": "Lamarck",
+      "cat": "PERSON",
+      "old_qid": "Q654959",
+      "old_desc": "genus of plants",
+      "reason": "genus/taxon in PERSON cluster"
+    },
+    {
+      "id": 4335,
+      "name": "branchial slits",
+      "cat": "SUBSTANCE",
+      "old_qid": "Q104283083",
+      "old_desc": "scientific article published on 04 December 2020",
+      "reason": "bad desc: \"scientific article\""
+    },
+    {
+      "id": 4342,
+      "name": "coco",
+      "cat": "SUBSTANCE",
+      "old_qid": "Q13187",
+      "old_desc": "species of plant",
+      "reason": "genus/taxon in SUBSTANCE cluster"
+    },
+    {
+      "id": 4354,
+      "name": "Mexicana",
+      "cat": "PLACE",
+      "old_qid": "Q6826187",
+      "old_desc": "genus of insects",
+      "reason": "bad desc: \"genus of insects\""
+    },
+    {
+      "id": 4364,
+      "name": "cuero",
+      "cat": "SUBSTANCE",
+      "old_qid": "Q178400",
+      "old_desc": "genus of plants",
+      "reason": "genus/taxon in SUBSTANCE cluster"
+    },
+    {
+      "id": 4379,
+      "name": "Xabon",
+      "cat": "SUBSTANCE",
+      "old_qid": "Q37473760",
+      "old_desc": "family name",
+      "reason": "bad desc: \"family name\""
+    },
+    {
+      "id": 4405,
+      "name": "plantation",
+      "cat": "PLACE",
+      "old_qid": "Q2688796",
+      "old_desc": "census-designated place in Sarasota County, Florida",
+      "reason": "bad desc: \"census-designated place\""
+    },
+    {
+      "id": 4455,
+      "name": "Paramos",
+      "cat": "PLACE",
+      "old_qid": "Q3023796",
+      "old_desc": "species of butterfly",
+      "reason": "genus/taxon in PLACE cluster"
+    },
+    {
+      "id": 4457,
+      "name": "Paranambucenfi",
+      "cat": "PLACE",
+      "old_qid": "Q216469",
+      "old_desc": "Species of tree",
+      "reason": "genus/taxon in PLACE cluster"
+    },
+    {
+      "id": 4458,
+      "name": "Paros",
+      "cat": "PLACE",
+      "old_qid": "Q17432507",
+      "old_desc": "genus of plants",
+      "reason": "genus/taxon in PLACE cluster"
+    },
+    {
+      "id": 4481,
+      "name": "helvola",
+      "cat": "PLANT",
+      "old_qid": "Q1514169",
+      "old_desc": "genus of fungi",
+      "reason": "bad desc: \"genus of fungi\""
+    },
+    {
+      "id": 4500,
+      "name": "sensory nerves",
+      "cat": "SUBSTANCE",
+      "old_qid": "Q46623662",
+      "old_desc": "scientific article published in June 2002",
+      "reason": "bad desc: \"scientific article\""
+    },
+    {
+      "id": 4524,
+      "name": "mechanical theory",
+      "cat": "CONCEPT",
+      "old_qid": "Q70826573",
+      "old_desc": "scientific article published on 01 November 1970",
+      "reason": "bad desc: \"scientific article\""
+    },
+    {
+      "id": 4557,
+      "name": "infirmity",
+      "cat": "DISEASE",
+      "old_qid": "Q13845725",
+      "old_desc": "genus of insects",
+      "reason": "bad desc: \"genus of insects\""
+    },
+    {
+      "id": 4578,
+      "name": "Iris",
+      "cat": "OBJECT",
+      "old_qid": "Q156901",
+      "old_desc": "genus of plants in the order Iridaceae",
+      "reason": "genus/taxon in OBJECT cluster"
+    },
+    {
+      "id": 4588,
+      "name": "Cygni",
+      "cat": "PLACE",
+      "old_qid": "Q3022426",
+      "old_desc": "genus of mammals (fossil)",
+      "reason": "genus/taxon in PLACE cluster"
+    },
+    {
+      "id": 4597,
+      "name": "Kordofan",
+      "cat": "PLACE",
+      "old_qid": "Q2044659",
+      "old_desc": "subspecies of mammal",
+      "reason": "genus/taxon in PLACE cluster"
+    },
+    {
+      "id": 4601,
+      "name": "Scania",
+      "cat": "PLACE",
+      "old_qid": "Q7430005",
+      "old_desc": "genus of insects",
+      "reason": "bad desc: \"genus of insects\""
+    },
+    {
+      "id": 4656,
+      "name": "Americani",
+      "cat": "PLACE",
+      "old_qid": "Q25398978",
+      "old_desc": "genus of fishes",
+      "reason": "bad desc: \"genus of fish\""
+    },
+    {
+      "id": 4661,
+      "name": "Uvula",
+      "cat": "SUBSTANCE",
+      "old_qid": "Q2623950",
+      "old_desc": "genus of plants",
+      "reason": "genus/taxon in SUBSTANCE cluster"
+    },
+    {
+      "id": 4665,
+      "name": "Monoceros pifcis",
+      "cat": "ANIMAL",
+      "old_qid": "Q95640550",
+      "old_desc": "scientific article published in February 1994",
+      "reason": "bad desc: \"scientific article\""
+    },
+    {
+      "id": 4668,
+      "name": "Columbis",
+      "cat": "ANIMAL",
+      "old_qid": "Q13634093",
+      "old_desc": "family name",
+      "reason": "bad desc: \"family name\""
+    },
+    {
+      "id": 4675,
+      "name": "Cicindela",
+      "cat": "ANIMAL",
+      "old_qid": "Q15641155",
+      "old_desc": "subgenus of insects",
+      "reason": "bad desc: \"genus of insects\""
+    },
+    {
+      "id": 4676,
+      "name": "CULEX",
+      "cat": "ANIMAL",
+      "old_qid": "Q10262131",
+      "old_desc": "subgenus of insects",
+      "reason": "bad desc: \"genus of insects\""
+    },
+    {
+      "id": 4682,
+      "name": "OSTREA",
+      "cat": "ANIMAL",
+      "old_qid": "Q37263692",
+      "old_desc": "family name",
+      "reason": "bad desc: \"family name\""
+    },
+    {
+      "id": 4683,
+      "name": "VOLVOX",
+      "cat": "ANIMAL",
+      "old_qid": "Q310495",
+      "old_desc": "genus of algae",
+      "reason": "bad desc: \"genus of algae\""
+    },
+    {
+      "id": 4684,
+      "name": "Aquis dulcibus",
+      "cat": "PLACE",
+      "old_qid": "Q37438507",
+      "old_desc": "family name",
+      "reason": "bad desc: \"family name\""
+    },
+    {
+      "id": 4694,
+      "name": "Macula nigra",
+      "cat": "SUBSTANCE",
+      "old_qid": "Q1328265",
+      "old_desc": "species of fish",
+      "reason": "genus/taxon in SUBSTANCE cluster"
+    },
+    {
+      "id": 4705,
+      "name": "Mexicanis",
+      "cat": "PLACE",
+      "old_qid": "Q6826187",
+      "old_desc": "genus of insects",
+      "reason": "bad desc: \"genus of insects\""
+    },
+    {
+      "id": 4713,
+      "name": "Trutta",
+      "cat": "ANIMAL",
+      "old_qid": "Q52823260",
+      "old_desc": "genus of fishes",
+      "reason": "bad desc: \"genus of fish\""
+    },
+    {
+      "id": 4759,
+      "name": "Lagrimas",
+      "cat": "SUBSTANCE",
+      "old_qid": "Q13614861",
+      "old_desc": "genus of insects",
+      "reason": "bad desc: \"genus of insects\""
+    },
+    {
+      "id": 4790,
+      "name": "Fumi",
+      "cat": "OBJECT",
+      "old_qid": "Q4958605",
+      "old_desc": "family name",
+      "reason": "bad desc: \"family name\""
+    },
+    {
+      "id": 4795,
+      "name": "animi",
+      "cat": "DISEASE",
+      "old_qid": "Q3533488",
+      "old_desc": "genus of amphibians",
+      "reason": "genus/taxon in DISEASE cluster"
+    },
+    {
+      "id": 4799,
+      "name": "culicum",
+      "cat": "ANIMAL",
+      "old_qid": "Q37556631",
+      "old_desc": "family name",
+      "reason": "bad desc: \"family name\""
+    },
+    {
+      "id": 4814,
+      "name": "prensa",
+      "cat": "OBJECT",
+      "old_qid": "Q16881394",
+      "old_desc": "family name",
+      "reason": "bad desc: \"family name\""
+    },
+    {
+      "id": 4868,
+      "name": "corps animal",
+      "cat": "SUBSTANCE",
+      "old_qid": "Q57004484",
+      "old_desc": "scholarly article published 2013",
+      "reason": "bad desc: \"scholarly article\""
+    },
+    {
+      "id": 4905,
+      "name": "Elezevir",
+      "cat": "CONCEPT",
+      "old_qid": "Q101238296",
+      "old_desc": "editions of the classics printed at Amsterdam and Leyden during the 16th and 17t",
+      "reason": "genus/taxon in CONCEPT cluster"
+    },
+    {
+      "id": 4917,
+      "name": "Belus",
+      "cat": "PERSON",
+      "old_qid": "Q14950162",
+      "old_desc": "genus of insects",
+      "reason": "bad desc: \"genus of insects\""
+    },
+    {
+      "id": 4919,
+      "name": "Almanzor",
+      "cat": "PERSON",
+      "old_qid": "Q4118950",
+      "old_desc": "human settlement in Almería Province, Andalusia, Spain",
+      "reason": "bad desc: \"human settlement\""
+    },
+    {
+      "id": 4935,
+      "name": "Demosthenes",
+      "cat": "PERSON",
+      "old_qid": "Q798024",
+      "old_desc": "genus of plants",
+      "reason": "genus/taxon in PERSON cluster"
+    },
+    {
+      "id": 4939,
+      "name": "Moons",
+      "cat": "ANIMAL",
+      "old_qid": "Q16877383",
+      "old_desc": "family name",
+      "reason": "bad desc: \"family name\""
+    },
+    {
+      "id": 4940,
+      "name": "Caius",
+      "cat": "PERSON",
+      "old_qid": "Q53628544",
+      "old_desc": "genus of mygalomorph spiders",
+      "reason": "genus/taxon in PERSON cluster"
+    },
+    {
+      "id": 4942,
+      "name": "Zoroaster",
+      "cat": "PERSON",
+      "old_qid": "Q4024820",
+      "old_desc": "genus of echinoderms",
+      "reason": "genus/taxon in PERSON cluster"
+    },
+    {
+      "id": 4951,
+      "name": "sperma Coeti",
+      "cat": "SUBSTANCE",
+      "old_qid": "Q126254579",
+      "old_desc": "scholarly article",
+      "reason": "bad desc: \"scholarly article\""
+    },
+    {
+      "id": 4967,
+      "name": "Pins",
+      "cat": "OBJECT",
+      "old_qid": "Q12024",
+      "old_desc": "genus of plants in the conifer family Pinaceae",
+      "reason": "genus/taxon in OBJECT cluster"
+    },
+    {
+      "id": 4973,
+      "name": "Neptune",
+      "cat": "PERSON",
+      "old_qid": "Q107636904",
+      "old_desc": "given name",
+      "reason": "bad desc: \"given name\""
+    },
+    {
+      "id": 4992,
+      "name": "Galba",
+      "cat": "PERSON",
+      "old_qid": "Q3075506",
+      "old_desc": "genus of molluscs",
+      "reason": "genus/taxon in PERSON cluster"
+    },
+    {
+      "id": 4998,
+      "name": "lobes",
+      "cat": "SUBSTANCE",
+      "old_qid": "Q158182",
+      "old_desc": "genus of plants",
+      "reason": "genus/taxon in SUBSTANCE cluster"
+    },
+    {
+      "id": 5021,
+      "name": "âges",
+      "cat": "CONCEPT",
+      "old_qid": "Q14878485",
+      "old_desc": "genus of insects",
+      "reason": "bad desc: \"genus of insects\""
+    },
+    {
+      "id": 5029,
+      "name": "siècles",
+      "cat": "CONCEPT",
+      "old_qid": "Q155874",
+      "old_desc": "genus of plants",
+      "reason": "genus/taxon in CONCEPT cluster"
+    },
+    {
+      "id": 5052,
+      "name": "Sardaigne",
+      "cat": "PLACE",
+      "old_qid": "Q107268972",
+      "old_desc": "genus of fishes",
+      "reason": "bad desc: \"genus of fish\""
+    },
+    {
+      "id": 5057,
+      "name": "Tacite",
+      "cat": "PERSON",
+      "old_qid": "Q15914680",
+      "old_desc": "genus of plants",
+      "reason": "genus/taxon in PERSON cluster"
+    },
+    {
+      "id": 5061,
+      "name": "Gaules",
+      "cat": "PLACE",
+      "old_qid": "Q1626776",
+      "old_desc": "genus of plants",
+      "reason": "genus/taxon in PLACE cluster"
+    },
+    {
+      "id": 5080,
+      "name": "tents",
+      "cat": "OBJECT",
+      "old_qid": "Q7700902",
+      "old_desc": "genus of insects",
+      "reason": "bad desc: \"genus of insects\""
+    },
+    {
+      "id": 5100,
+      "name": "Monks",
+      "cat": "PERSON",
+      "old_qid": "Q16877335",
+      "old_desc": "family name",
+      "reason": "bad desc: \"family name\""
+    },
+    {
+      "id": 5103,
+      "name": "Chyron",
+      "cat": "PERSON",
+      "old_qid": "Q14921870",
+      "old_desc": "genus of insects",
+      "reason": "bad desc: \"genus of insects\""
+    },
+    {
+      "id": 5131,
+      "name": "sea-side",
+      "cat": "PLACE",
+      "old_qid": "Q745253",
+      "old_desc": "Genus of plants in family Asteraceae",
+      "reason": "genus/taxon in PLACE cluster"
+    },
+    {
+      "id": 5135,
+      "name": "palpi",
+      "cat": "SUBSTANCE",
+      "old_qid": "Q10827393",
+      "old_desc": "genus of insects",
+      "reason": "bad desc: \"genus of insects\""
+    },
+    {
+      "id": 5153,
+      "name": "Mexican",
+      "cat": "PLACE",
+      "old_qid": "Q6826187",
+      "old_desc": "genus of insects",
+      "reason": "bad desc: \"genus of insects\""
+    },
+    {
+      "id": 5177,
+      "name": "Celebes",
+      "cat": "PLACE",
+      "old_qid": "Q28831520",
+      "old_desc": "species of bird",
+      "reason": "genus/taxon in PLACE cluster"
+    },
+    {
+      "id": 5234,
+      "name": "Paseuaro",
+      "cat": "PLACE",
+      "old_qid": "Q1101534",
+      "old_desc": "species of fish",
+      "reason": "genus/taxon in PLACE cluster"
+    },
+    {
+      "id": 5333,
+      "name": "mésotype",
+      "cat": "SUBSTANCE",
+      "old_qid": "Q6821653",
+      "old_desc": "genus of insects",
+      "reason": "bad desc: \"genus of insects\""
+    },
+    {
+      "id": 5343,
+      "name": "anomies",
+      "cat": "ANIMAL",
+      "old_qid": "Q59096161",
+      "old_desc": "scientific article published in Nature",
+      "reason": "bad desc: \"scientific article\""
+    },
+    {
+      "id": 5346,
+      "name": "Papoux",
+      "cat": "PERSON",
+      "old_qid": "Q213021",
+      "old_desc": "species of bird",
+      "reason": "genus/taxon in PERSON cluster"
+    },
+    {
+      "id": 5376,
+      "name": "Mexican Sea",
+      "cat": "PLACE",
+      "old_qid": "Q2673697",
+      "old_desc": "species of fish",
+      "reason": "genus/taxon in PLACE cluster"
+    },
+    {
+      "id": 5398,
+      "name": "catarrhal",
+      "cat": "DISEASE",
+      "old_qid": "Q187958",
+      "old_desc": "a species of bird common along the entire coast of the Antarctic continent",
+      "reason": "genus/taxon in DISEASE cluster"
+    },
+    {
+      "id": 5411,
+      "name": "Schneider",
+      "cat": "PERSON",
+      "old_qid": "Q550170",
+      "old_desc": "species of fish",
+      "reason": "genus/taxon in PERSON cluster"
+    },
+    {
+      "id": 5484,
+      "name": "singular",
+      "cat": "CONCEPT",
+      "old_qid": "Q7524258",
+      "old_desc": "genus of insects",
+      "reason": "bad desc: \"genus of insects\""
+    },
+    {
+      "id": 5497,
+      "name": "granules",
+      "cat": "SUBSTANCE",
+      "old_qid": "Q18581596",
+      "old_desc": "genus of insects",
+      "reason": "bad desc: \"genus of insects\""
+    },
+    {
+      "id": 5525,
+      "name": "vowel-sound",
+      "cat": "ANIMAL",
+      "old_qid": "Q130031168",
+      "old_desc": "scholarly article published in 2018",
+      "reason": "bad desc: \"scholarly article\""
+    },
+    {
+      "id": 5558,
+      "name": "Earth's orbit",
+      "cat": "CONCEPT",
+      "old_qid": "Q129523685",
+      "old_desc": "scholarly article",
+      "reason": "bad desc: \"scholarly article\""
+    },
+    {
+      "id": 5577,
+      "name": "subterranean cavities",
+      "cat": "SUBSTANCE",
+      "old_qid": "Q2660276",
+      "old_desc": "genus of plants",
+      "reason": "genus/taxon in SUBSTANCE cluster"
+    },
+    {
+      "id": 5584,
+      "name": "dark red heat",
+      "cat": "CONCEPT",
+      "old_qid": "Q5387937",
+      "old_desc": "species of plant",
+      "reason": "genus/taxon in CONCEPT cluster"
+    },
+    {
+      "id": 5601,
+      "name": "Northern Africa",
+      "cat": "PLACE",
+      "old_qid": "Q262307",
+      "old_desc": "species of mammal",
+      "reason": "genus/taxon in PLACE cluster"
+    },
+    {
+      "id": 5652,
+      "name": "scenery",
+      "cat": "CONCEPT",
+      "old_qid": "Q28431605",
+      "old_desc": "species of green algae",
+      "reason": "genus/taxon in CONCEPT cluster"
+    },
+    {
+      "id": 5661,
+      "name": "Luna",
+      "cat": "ANIMAL",
+      "old_qid": "Q16877383",
+      "old_desc": "family name",
+      "reason": "bad desc: \"family name\""
+    },
+    {
+      "id": 5665,
+      "name": "phlegmatic",
+      "cat": "CONCEPT",
+      "old_qid": "Q45823648",
+      "old_desc": "scientific article published on December 1, 1979",
+      "reason": "bad desc: \"scientific article\""
+    },
+    {
+      "id": 5668,
+      "name": "Spinae",
+      "cat": "SUBSTANCE",
+      "old_qid": "Q46795121",
+      "old_desc": "scientific article published in July 1991",
+      "reason": "bad desc: \"scientific article\""
+    },
+    {
+      "id": 5670,
+      "name": "flavefcentibus",
+      "cat": "CONCEPT",
+      "old_qid": "Q114352462",
+      "old_desc": "scientific article published in 1987",
+      "reason": "bad desc: \"scientific article\""
+    },
+    {
+      "id": 5671,
+      "name": "Lumbis",
+      "cat": "SUBSTANCE",
+      "old_qid": "Q48979759",
+      "old_desc": "family name",
+      "reason": "bad desc: \"family name\""
+    },
+    {
+      "id": 5674,
+      "name": "Ignavus",
+      "cat": "ANIMAL",
+      "old_qid": "Q37554416",
+      "old_desc": "family name",
+      "reason": "bad desc: \"family name\""
+    },
+    {
+      "id": 5681,
+      "name": "Tauro",
+      "cat": "ANIMAL",
+      "old_qid": "Q13570075",
+      "old_desc": "family name",
+      "reason": "bad desc: \"family name\""
+    },
+    {
+      "id": 5684,
+      "name": "Volucres",
+      "cat": "ANIMAL",
+      "old_qid": "Q14915264",
+      "old_desc": "family name",
+      "reason": "bad desc: \"family name\""
+    },
+    {
+      "id": 5697,
+      "name": "Haffelq",
+      "cat": "PERSON",
+      "old_qid": "Q128337587",
+      "old_desc": "scholarly article",
+      "reason": "bad desc: \"scholarly article\""
+    },
+    {
+      "id": 5699,
+      "name": "Caligulæ",
+      "cat": "PERSON",
+      "old_qid": "Q1227502",
+      "old_desc": "genus of insects",
+      "reason": "bad desc: \"genus of insects\""
+    },
+    {
+      "id": 5706,
+      "name": "calcaribus duobus",
+      "cat": "SUBSTANCE",
+      "old_qid": "Q146567",
+      "old_desc": "genus of plants in the spurge family (Euphorbiaceae)",
+      "reason": "genus/taxon in SUBSTANCE cluster"
+    },
+    {
+      "id": 5717,
+      "name": "Squatina",
+      "cat": "ANIMAL",
+      "old_qid": "Q756731",
+      "old_desc": "genus of fishes",
+      "reason": "bad desc: \"genus of fish\""
+    },
+    {
+      "id": 5719,
+      "name": "Liene",
+      "cat": "SUBSTANCE",
+      "old_qid": "Q5347305",
+      "old_desc": "genus of plants",
+      "reason": "genus/taxon in SUBSTANCE cluster"
+    },
+    {
+      "id": 5724,
+      "name": "Cappa",
+      "cat": "SUBSTANCE",
+      "old_qid": "Q67239316",
+      "old_desc": "scholarly article by Lars Vilhelmsen published April 1997 in Arthropod Structure",
+      "reason": "bad desc: \"scholarly article\""
+    },
+    {
+      "id": 5728,
+      "name": "Chela",
+      "cat": "SUBSTANCE",
+      "old_qid": "Q37493669",
+      "old_desc": "family name",
+      "reason": "bad desc: \"family name\""
+    },
+    {
+      "id": 5731,
+      "name": "Scarabcei",
+      "cat": "ANIMAL",
+      "old_qid": "Q608094",
+      "old_desc": "genus of insects",
+      "reason": "bad desc: \"genus of insects\""
+    },
+    {
+      "id": 5746,
+      "name": "Busones",
+      "cat": "ANIMAL",
+      "old_qid": "Q25407",
+      "old_desc": "genus of insects",
+      "reason": "bad desc: \"genus of insects\""
+    },
+    {
+      "id": 5753,
+      "name": "Ellifius",
+      "cat": "PERSON",
+      "old_qid": "Q115700292",
+      "old_desc": "street in Haarlem, the Netherlands",
+      "reason": "bad desc: \"street in\""
+    },
+    {
+      "id": 5756,
+      "name": "clavus",
+      "cat": "OBJECT",
+      "old_qid": "Q5129696",
+      "old_desc": "genus of molluscs",
+      "reason": "genus/taxon in OBJECT cluster"
+    },
+    {
+      "id": 5764,
+      "name": "Corallio a/bo",
+      "cat": "PLANT",
+      "old_qid": "Q59257169",
+      "old_desc": "scholarly article in Journal of the Marine Biological Association of the United ",
+      "reason": "bad desc: \"scholarly article\""
+    },
+    {
+      "id": 5779,
+      "name": "Cardones",
+      "cat": "PLANT",
+      "old_qid": "Q25036219",
+      "old_desc": "Wikimedia disambiguation page",
+      "reason": "bad desc: \"wikimedia\""
+    },
+    {
+      "id": 5792,
+      "name": "Theorica",
+      "cat": "CONCEPT",
+      "old_qid": "Q24800032",
+      "old_desc": "scientific article",
+      "reason": "bad desc: \"scientific article\""
+    },
+    {
+      "id": 5802,
+      "name": "Kryftall",
+      "cat": "SUBSTANCE",
+      "old_qid": "Q13582300",
+      "old_desc": "female given name",
+      "reason": "bad desc: \"given name\""
+    },
+    {
+      "id": 5818,
+      "name": "assassino",
+      "cat": "CONCEPT",
+      "old_qid": "Q768510",
+      "old_desc": "family of insects",
+      "reason": "genus/taxon in CONCEPT cluster"
+    },
+    {
+      "id": 5821,
+      "name": "MuUú",
+      "cat": "PERSON",
+      "old_qid": "Q21447729",
+      "old_desc": "genus of insects",
+      "reason": "bad desc: \"genus of insects\""
+    },
+    {
+      "id": 5854,
+      "name": "Lyro",
+      "cat": "OBJECT",
+      "old_qid": "Q25366088",
+      "old_desc": "genus of algae",
+      "reason": "bad desc: \"genus of algae\""
+    },
+    {
+      "id": 5857,
+      "name": "dolenti",
+      "cat": "DISEASE",
+      "old_qid": "Q37486727",
+      "old_desc": "family name",
+      "reason": "bad desc: \"family name\""
+    },
+    {
+      "id": 5858,
+      "name": "regio",
+      "cat": "SUBSTANCE",
+      "old_qid": "Q37476422",
+      "old_desc": "family name",
+      "reason": "bad desc: \"family name\""
+    },
+    {
+      "id": 5864,
+      "name": "Virium imbecillitas",
+      "cat": "DISEASE",
+      "old_qid": "Q13845725",
+      "old_desc": "genus of insects",
+      "reason": "bad desc: \"genus of insects\""
+    },
+    {
+      "id": 5892,
+      "name": "apex",
+      "cat": "SUBSTANCE",
+      "old_qid": "Q107308424",
+      "old_desc": "genus of molluscs",
+      "reason": "genus/taxon in SUBSTANCE cluster"
+    },
+    {
+      "id": 5900,
+      "name": "mell",
+      "cat": "SUBSTANCE",
+      "old_qid": "Q30034",
+      "old_desc": "species of insect",
+      "reason": "genus/taxon in SUBSTANCE cluster"
+    },
+    {
+      "id": 5901,
+      "name": "vocales",
+      "cat": "CONCEPT",
+      "old_qid": "Q7942318",
+      "old_desc": "family name",
+      "reason": "bad desc: \"family name\""
+    }
+  ]
+}

@@ -1,0 +1,1855 @@
+{
+  "timestamp": "2026-02-16T18:36:36.324849",
+  "dry_run": false,
+  "qid_fixes": [
+    {
+      "cluster_id": 21,
+      "canonical_name": "Christ",
+      "old_qid": "Q105742579",
+      "old_desc": "American Internet personality",
+      "new_qid": "Q302",
+      "new_desc": "central figure of Christianity (6 or 4 BC – AD 30 or 33)",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Jesus"
+    },
+    {
+      "cluster_id": 885,
+      "canonical_name": "magnetic needle",
+      "old_qid": "Q129950755",
+      "old_desc": "scholarly article published in April 2024",
+      "new_qid": "Q243289",
+      "new_desc": "angle on the horizontal plane between magnetic north and true north",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Magnetic_declination"
+    },
+    {
+      "cluster_id": 1651,
+      "canonical_name": "round",
+      "old_qid": "Q128171531",
+      "old_desc": "scholarly article",
+      "new_qid": "Q131191528",
+      "new_desc": "body scale based on waist circumference and height",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Body_roundness_index"
+    },
+    {
+      "cluster_id": 1716,
+      "canonical_name": "pedras",
+      "old_qid": "Q12803555",
+      "old_desc": "family name",
+      "new_qid": "Q8063",
+      "new_desc": "naturally occurring solid aggregate of one or more minerals or mineraloids",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Rock_%28geology%29"
+    },
+    {
+      "cluster_id": 1879,
+      "canonical_name": "fome",
+      "old_qid": "Q37309248",
+      "old_desc": "family name",
+      "new_qid": "Q165947",
+      "new_desc": "state in which a person, for a sustained period, is unable to eat sufficient food to meet basic nutritional needs",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Hunger"
+    },
+    {
+      "cluster_id": 2283,
+      "canonical_name": "zechstein",
+      "old_qid": "Q98436573",
+      "old_desc": "street in the city district of Davenstedt in Hanover, Germany",
+      "new_qid": "Q17515622",
+      "new_desc": "geologic formation in Germany",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Zechstein_Limestone_Formation"
+    },
+    {
+      "cluster_id": 2426,
+      "canonical_name": "poluo",
+      "old_qid": "Q37203534",
+      "old_desc": "family name",
+      "new_qid": "Q2908004",
+      "new_desc": "dry, bulk material composed of many fine solid particles",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Powder"
+    },
+    {
+      "cluster_id": 3123,
+      "canonical_name": "Sidereal System",
+      "old_qid": "Q68651525",
+      "old_desc": "scholarly article",
+      "new_qid": "Q1457297",
+      "new_desc": "astronomical treatise of Galileo",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Sidereus_Nuncius"
+    },
+    {
+      "cluster_id": 4551,
+      "canonical_name": "orographie",
+      "old_qid": "Q129292457",
+      "old_desc": "scholarly article",
+      "new_qid": "Q1261870",
+      "new_desc": "mountain in Oman and UAE",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Jebel_Hafeet"
+    },
+    {
+      "cluster_id": 4689,
+      "canonical_name": "Psychologische Analysen",
+      "old_qid": "Q7256412",
+      "old_desc": "American magazine and media organization",
+      "new_qid": "Q41630",
+      "new_desc": "psychological theory that was founded in 1890 by the Viennese neurologist Sigmund Freud",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Psychoanalysis"
+    },
+    {
+      "cluster_id": 4876,
+      "canonical_name": "remedios que den calor",
+      "old_qid": "Q39870405",
+      "old_desc": "scientific article published on March 1974",
+      "new_qid": "Q3706669",
+      "new_desc": "chemical substance that affects brain function or perception",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Psychoactive_drug"
+    },
+    {
+      "cluster_id": 4889,
+      "canonical_name": "pan",
+      "old_qid": "Q130149531",
+      "old_desc": "scholarly article published on 25 January 2018",
+      "new_qid": "Q1816679",
+      "new_desc": "the seed of the areca palm",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Areca_nut"
+    }
+  ],
+  "qid_clears": [
+    {
+      "cluster_id": 19,
+      "canonical_name": "Paulo",
+      "old_qid": "Q3947759",
+      "old_desc": "human settlement in Sassari, Province of Sassari, Sardinia, Italy"
+    },
+    {
+      "cluster_id": 52,
+      "canonical_name": "Plinio",
+      "old_qid": "Q58340224",
+      "old_desc": "scholarly article by John F. Healy published January 1981 in Interdisciplinary Science Reviews"
+    },
+    {
+      "cluster_id": 158,
+      "canonical_name": "Romans",
+      "old_qid": "Q100899067",
+      "old_desc": "basketball player"
+    },
+    {
+      "cluster_id": 176,
+      "canonical_name": "Feet",
+      "old_qid": "Q35850711",
+      "old_desc": "scientific article published on 7 December 2011"
+    },
+    {
+      "cluster_id": 177,
+      "canonical_name": "Tongue",
+      "old_qid": "Q37258562",
+      "old_desc": "family name"
+    },
+    {
+      "cluster_id": 178,
+      "canonical_name": "Ouvidos",
+      "old_qid": "Q115777984",
+      "old_desc": "scientific article published on 26 January 2022"
+    },
+    {
+      "cluster_id": 224,
+      "canonical_name": "révolution",
+      "old_qid": "Q112118425",
+      "old_desc": "scholarly article"
+    },
+    {
+      "cluster_id": 268,
+      "canonical_name": "Hydropeſia",
+      "old_qid": "Q27261648",
+      "old_desc": "family name"
+    },
+    {
+      "cluster_id": 274,
+      "canonical_name": "sun",
+      "old_qid": "Q28039407",
+      "old_desc": "family name"
+    },
+    {
+      "cluster_id": 290,
+      "canonical_name": "fogo",
+      "old_qid": "Q2044",
+      "old_desc": "Italian city and commune, located in Tuscany"
+    },
+    {
+      "cluster_id": 295,
+      "canonical_name": "Arago",
+      "old_qid": "Q87748365",
+      "old_desc": "street of Montreuil in Seine-Saint-Denis, France"
+    },
+    {
+      "cluster_id": 298,
+      "canonical_name": "Deos",
+      "old_qid": "Q106078731",
+      "old_desc": "family name"
+    },
+    {
+      "cluster_id": 314,
+      "canonical_name": "lepra",
+      "old_qid": "Q100400591",
+      "old_desc": "scholarly article"
+    },
+    {
+      "cluster_id": 349,
+      "canonical_name": "Bessel",
+      "old_qid": "Q120832704",
+      "old_desc": "street in Paffendorf, Bergheim, NRW, Germany"
+    },
+    {
+      "cluster_id": 406,
+      "canonical_name": "stars",
+      "old_qid": "Q37529922",
+      "old_desc": "family name"
+    },
+    {
+      "cluster_id": 577,
+      "canonical_name": "Cassini",
+      "old_qid": "Q58533982",
+      "old_desc": "scholarly article by Edmund Robertson published 28 March 2018 in Bulletin of the British Society for the History of Mathematics"
+    },
+    {
+      "cluster_id": 629,
+      "canonical_name": "subterraneous fires",
+      "old_qid": "Q60191082",
+      "old_desc": "scholarly article by Yasmina M. Martos et al published 24 August 2018 in Geophysical Research Letters"
+    },
+    {
+      "cluster_id": 644,
+      "canonical_name": "discoveries",
+      "old_qid": "Q42135811",
+      "old_desc": "scientific article published on 18 January 2012"
+    },
+    {
+      "cluster_id": 661,
+      "canonical_name": "Electrick attraction",
+      "old_qid": "Q40792669",
+      "old_desc": "scientific article"
+    },
+    {
+      "cluster_id": 727,
+      "canonical_name": "Paulus Ægineta",
+      "old_qid": "Q90799809",
+      "old_desc": "scientific article published on 15 October 2019"
+    },
+    {
+      "cluster_id": 729,
+      "canonical_name": "feu",
+      "old_qid": "Q2044",
+      "old_desc": "Italian city and commune, located in Tuscany"
+    },
+    {
+      "cluster_id": 750,
+      "canonical_name": "terrestrial magnetism",
+      "old_qid": "Q64325870",
+      "old_desc": "scholarly article"
+    },
+    {
+      "cluster_id": 754,
+      "canonical_name": "banho",
+      "old_qid": "Q70816289",
+      "old_desc": "scientific article published on 01 March 1970"
+    },
+    {
+      "cluster_id": 762,
+      "canonical_name": "Mercurial",
+      "old_qid": "Q129011568",
+      "old_desc": "scholarly article"
+    },
+    {
+      "cluster_id": 765,
+      "canonical_name": "Helmholtz",
+      "old_qid": "Q113814860",
+      "old_desc": "street in Kleinmachnow, Brandenburg, Germany"
+    },
+    {
+      "cluster_id": 771,
+      "canonical_name": "comets",
+      "old_qid": "Q23772858",
+      "old_desc": "family name"
+    },
+    {
+      "cluster_id": 794,
+      "canonical_name": "Cayenne",
+      "old_qid": "Q44401",
+      "old_desc": "commune and capital city of French Guiana"
+    },
+    {
+      "cluster_id": 877,
+      "canonical_name": "vie",
+      "old_qid": "Q37221362",
+      "old_desc": "family name"
+    },
+    {
+      "cluster_id": 909,
+      "canonical_name": "touch",
+      "old_qid": "Q26822488",
+      "old_desc": "scientific article"
+    },
+    {
+      "cluster_id": 912,
+      "canonical_name": "Waves",
+      "old_qid": "Q58966964",
+      "old_desc": "scientific article published in Nature"
+    },
+    {
+      "cluster_id": 943,
+      "canonical_name": "cap de Horn",
+      "old_qid": "Q5034867",
+      "old_desc": "unincorporated community in Placer County, California"
+    },
+    {
+      "cluster_id": 953,
+      "canonical_name": "Ancients",
+      "old_qid": "Q57288780",
+      "old_desc": "scientific article published on 09 October 2018"
+    },
+    {
+      "cluster_id": 963,
+      "canonical_name": "Mont-Blanc",
+      "old_qid": "Q19350231",
+      "old_desc": "street in Amersfoort, the Netherlands"
+    },
+    {
+      "cluster_id": 998,
+      "canonical_name": "Apollo",
+      "old_qid": "Q18939626",
+      "old_desc": "street in Amersfoort, the Netherlands"
+    },
+    {
+      "cluster_id": 1029,
+      "canonical_name": "madrépores",
+      "old_qid": "Q137922301",
+      "old_desc": "scholarly article published on 28 October 1939"
+    },
+    {
+      "cluster_id": 1054,
+      "canonical_name": "succession",
+      "old_qid": "Q58922789",
+      "old_desc": "scholarly article by Dola Bhattacharjee et al published 3 October 2013 in International journal of biodiversity"
+    },
+    {
+      "cluster_id": 1098,
+      "canonical_name": "déduction",
+      "old_qid": "Q60135113",
+      "old_desc": "scholarly article"
+    },
+    {
+      "cluster_id": 1117,
+      "canonical_name": "internal heat",
+      "old_qid": "Q129655466",
+      "old_desc": "scholarly article published in November 2018"
+    },
+    {
+      "cluster_id": 1130,
+      "canonical_name": "fluides élastiques",
+      "old_qid": "Q54878146",
+      "old_desc": "scientific article"
+    },
+    {
+      "cluster_id": 1135,
+      "canonical_name": "Thermal springs",
+      "old_qid": "Q97726587",
+      "old_desc": "scholarly article"
+    },
+    {
+      "cluster_id": 1141,
+      "canonical_name": "Tyndall",
+      "old_qid": "Q75927365",
+      "old_desc": "Peerage person ID=408024"
+    },
+    {
+      "cluster_id": 1214,
+      "canonical_name": "electric spark",
+      "old_qid": "Q128729910",
+      "old_desc": "scholarly article"
+    },
+    {
+      "cluster_id": 1219,
+      "canonical_name": "virtudes magneticas",
+      "old_qid": "Q128713596",
+      "old_desc": "scholarly article"
+    },
+    {
+      "cluster_id": 1291,
+      "canonical_name": "radiation of heat",
+      "old_qid": "Q58469017",
+      "old_desc": "scholarly article in Physical Review B, vol. 75 no. 20, May 2007"
+    },
+    {
+      "cluster_id": 1296,
+      "canonical_name": "prey",
+      "old_qid": "Q37568776",
+      "old_desc": "family name"
+    },
+    {
+      "cluster_id": 1333,
+      "canonical_name": "vegetable matter",
+      "old_qid": "Q114615924",
+      "old_desc": "scientific article published in 2008"
+    },
+    {
+      "cluster_id": 1334,
+      "canonical_name": "volcanic activity",
+      "old_qid": "Q60634793",
+      "old_desc": "scholarly article by T. R. Walter et al published March 2007 in Geophysical Research Letters"
+    },
+    {
+      "cluster_id": 1337,
+      "canonical_name": "Gerard",
+      "old_qid": "Q75765559",
+      "old_desc": "Peerage person ID=322663"
+    },
+    {
+      "cluster_id": 1342,
+      "canonical_name": "economy of nature",
+      "old_qid": "Q128779459",
+      "old_desc": "scholarly article"
+    },
+    {
+      "cluster_id": 1353,
+      "canonical_name": "organic nature",
+      "old_qid": "Q54411472",
+      "old_desc": "scientific article"
+    },
+    {
+      "cluster_id": 1422,
+      "canonical_name": "ardente",
+      "old_qid": "Q42503243",
+      "old_desc": "scientific article"
+    },
+    {
+      "cluster_id": 1426,
+      "canonical_name": "attraction mutuelle",
+      "old_qid": "Q127457957",
+      "old_desc": "scholarly article"
+    },
+    {
+      "cluster_id": 1472,
+      "canonical_name": "Lacaille",
+      "old_qid": "Q59003750",
+      "old_desc": "scholarly article published on March 1952"
+    },
+    {
+      "cluster_id": 1489,
+      "canonical_name": "external crust",
+      "old_qid": "Q129923132",
+      "old_desc": "scholarly article published in March 2018"
+    },
+    {
+      "cluster_id": 1517,
+      "canonical_name": "human reason",
+      "old_qid": "Q52287144",
+      "old_desc": "scientific article published in July 1982"
+    },
+    {
+      "cluster_id": 1530,
+      "canonical_name": "star",
+      "old_qid": "Q37529922",
+      "old_desc": "family name"
+    },
+    {
+      "cluster_id": 1562,
+      "canonical_name": "cold climates",
+      "old_qid": "Q58330355",
+      "old_desc": "scholarly article"
+    },
+    {
+      "cluster_id": 1574,
+      "canonical_name": "théorie de la chaleur",
+      "old_qid": "Q61029696",
+      "old_desc": "scholarly article"
+    },
+    {
+      "cluster_id": 1598,
+      "canonical_name": "geological changes",
+      "old_qid": "Q28600987",
+      "old_desc": "scientific article"
+    },
+    {
+      "cluster_id": 1608,
+      "canonical_name": "observations directes",
+      "old_qid": "Q29616032",
+      "old_desc": "scientific article (publication date: December 2006)"
+    },
+    {
+      "cluster_id": 1610,
+      "canonical_name": "principe vital",
+      "old_qid": "Q128187672",
+      "old_desc": "scholarly article"
+    },
+    {
+      "cluster_id": 1615,
+      "canonical_name": "organisations",
+      "old_qid": "Q36284737",
+      "old_desc": "scientific article"
+    },
+    {
+      "cluster_id": 1619,
+      "canonical_name": "vaisseaux capillaires",
+      "old_qid": "Q71402759",
+      "old_desc": "scientific article published on 01 January 1984"
+    },
+    {
+      "cluster_id": 1645,
+      "canonical_name": "tempérament",
+      "old_qid": "Q35548456",
+      "old_desc": "scientific article published on January 1, 1992"
+    },
+    {
+      "cluster_id": 1668,
+      "canonical_name": "cellular tissue",
+      "old_qid": "Q48177311",
+      "old_desc": "scientific article"
+    },
+    {
+      "cluster_id": 1786,
+      "canonical_name": "calor natural",
+      "old_qid": "Q126419191",
+      "old_desc": "scholarly article"
+    },
+    {
+      "cluster_id": 1811,
+      "canonical_name": "ibid.",
+      "old_qid": "Q128655046",
+      "old_desc": "scholarly article"
+    },
+    {
+      "cluster_id": 1861,
+      "canonical_name": "Glacial period",
+      "old_qid": "Q60689427",
+      "old_desc": "scholarly article"
+    },
+    {
+      "cluster_id": 1865,
+      "canonical_name": "Leop. von Buch",
+      "old_qid": "Q101563992",
+      "old_desc": "street in Angermünde, Brandenburg, Germany"
+    },
+    {
+      "cluster_id": 1885,
+      "canonical_name": "arrobas",
+      "old_qid": "Q116142500",
+      "old_desc": "family name"
+    },
+    {
+      "cluster_id": 1890,
+      "canonical_name": "basalt",
+      "old_qid": "Q18943892",
+      "old_desc": "street in Langenboom, the Netherlands"
+    },
+    {
+      "cluster_id": 1910,
+      "canonical_name": "impression",
+      "old_qid": "Q74223588",
+      "old_desc": "scientific article published on 01 July 1956"
+    },
+    {
+      "cluster_id": 1916,
+      "canonical_name": "pintas",
+      "old_qid": "Q64004372",
+      "old_desc": "scientific article published on 01 December 2001"
+    },
+    {
+      "cluster_id": 1930,
+      "canonical_name": "Lyell",
+      "old_qid": "Q76126037",
+      "old_desc": "Peerage person ID=549048"
+    },
+    {
+      "cluster_id": 1936,
+      "canonical_name": "doces",
+      "old_qid": "Q55414087",
+      "old_desc": "scientific article"
+    },
+    {
+      "cluster_id": 2005,
+      "canonical_name": "Halley",
+      "old_qid": "Q19059026",
+      "old_desc": "street in Amsterdam, the Netherlands"
+    },
+    {
+      "cluster_id": 2010,
+      "canonical_name": "sciences expérimentales",
+      "old_qid": "Q129565731",
+      "old_desc": "scholarly article"
+    },
+    {
+      "cluster_id": 2016,
+      "canonical_name": "Clusius",
+      "old_qid": "Q18983571",
+      "old_desc": "street in Voorhout, the Netherlands"
+    },
+    {
+      "cluster_id": 2022,
+      "canonical_name": "Mitscherlich",
+      "old_qid": "Q126219257",
+      "old_desc": "scholarly article"
+    },
+    {
+      "cluster_id": 2047,
+      "canonical_name": "Crawfiird",
+      "old_qid": "Q76133855",
+      "old_desc": "Peerage person ID=554576"
+    },
+    {
+      "cluster_id": 2058,
+      "canonical_name": "Zodiacal light",
+      "old_qid": "Q127775633",
+      "old_desc": "scholarly article"
+    },
+    {
+      "cluster_id": 2073,
+      "canonical_name": "déclinaison magnétique",
+      "old_qid": "Q127448891",
+      "old_desc": "scholarly article"
+    },
+    {
+      "cluster_id": 2148,
+      "canonical_name": "Grove",
+      "old_qid": "Q75743296",
+      "old_desc": "Peerage person ID=311924"
+    },
+    {
+      "cluster_id": 2161,
+      "canonical_name": "temperamento",
+      "old_qid": "Q35548456",
+      "old_desc": "scientific article published on January 1, 1992"
+    },
+    {
+      "cluster_id": 2292,
+      "canonical_name": "taste",
+      "old_qid": "Q37477789",
+      "old_desc": "family name"
+    },
+    {
+      "cluster_id": 2307,
+      "canonical_name": "mordedura",
+      "old_qid": "Q39579114",
+      "old_desc": "scientific article published on April 24, 2012"
+    },
+    {
+      "cluster_id": 2316,
+      "canonical_name": "nerve-centres",
+      "old_qid": "Q48526696",
+      "old_desc": "scientific article published in June 2006"
+    },
+    {
+      "cluster_id": 2340,
+      "canonical_name": "Dr. Falconer",
+      "old_qid": "Q76037335",
+      "old_desc": "Peerage person ID=485474"
+    },
+    {
+      "cluster_id": 2368,
+      "canonical_name": "organic life",
+      "old_qid": "Q30403306",
+      "old_desc": "scientific article"
+    },
+    {
+      "cluster_id": 2398,
+      "canonical_name": "Crolius",
+      "old_qid": "Q100432348",
+      "old_desc": "street in Bernburg (Saale), Saxony-Anhalt, Germany"
+    },
+    {
+      "cluster_id": 2413,
+      "canonical_name": "Fir-trees",
+      "old_qid": "Q5451213",
+      "old_desc": "village in County Durham, United Kingdom"
+    },
+    {
+      "cluster_id": 2422,
+      "canonical_name": "Setiembre",
+      "old_qid": "Q119241130",
+      "old_desc": "family name"
+    },
+    {
+      "cluster_id": 2435,
+      "canonical_name": "Hansteen",
+      "old_qid": "Q19372291",
+      "old_desc": "street in Oslo, Norway"
+    },
+    {
+      "cluster_id": 2454,
+      "canonical_name": "dispersion of light",
+      "old_qid": "Q33430175",
+      "old_desc": "scientific article"
+    },
+    {
+      "cluster_id": 2486,
+      "canonical_name": "Aldrovandus",
+      "old_qid": "Q128671562",
+      "old_desc": "scholarly article"
+    },
+    {
+      "cluster_id": 2490,
+      "canonical_name": "joints",
+      "old_qid": "Q33652928",
+      "old_desc": "scientific article"
+    },
+    {
+      "cluster_id": 2509,
+      "canonical_name": "Malay Archipelago",
+      "old_qid": "Q128232347",
+      "old_desc": "scholarly article"
+    },
+    {
+      "cluster_id": 2516,
+      "canonical_name": "cabepa",
+      "old_qid": "Q67239250",
+      "old_desc": "scholarly article by Rolf Georg Beutel & Lars Vilhelmsen published 29 November 2007 in Organisms Diversity and Evolution"
+    },
+    {
+      "cluster_id": 2572,
+      "canonical_name": "hôpital",
+      "old_qid": "Q55694673",
+      "old_desc": "family name"
+    },
+    {
+      "cluster_id": 2575,
+      "canonical_name": "état pathologique",
+      "old_qid": "Q44095135",
+      "old_desc": "scientific article published in March 1989"
+    },
+    {
+      "cluster_id": 2576,
+      "canonical_name": "Priestley",
+      "old_qid": "Q75908464",
+      "old_desc": "Peerage person ID=396340"
+    },
+    {
+      "cluster_id": 2579,
+      "canonical_name": "accidentes",
+      "old_qid": "Q43150581",
+      "old_desc": "scientific article published in December 1993"
+    },
+    {
+      "cluster_id": 2624,
+      "canonical_name": "enchimento de estomago",
+      "old_qid": "Q47287435",
+      "old_desc": "scientific article published on August 28, 2012"
+    },
+    {
+      "cluster_id": 2665,
+      "canonical_name": "conscious states",
+      "old_qid": "Q137464029",
+      "old_desc": "scholarly article published in Anthropology of Consciousness (1998)"
+    },
+    {
+      "cluster_id": 2668,
+      "canonical_name": "mental changes",
+      "old_qid": "Q51337367",
+      "old_desc": "scientific article published in January 1969"
+    },
+    {
+      "cluster_id": 2780,
+      "canonical_name": "word-deafness",
+      "old_qid": "Q76005580",
+      "old_desc": "scientific article published on 01 February 1952"
+    },
+    {
+      "cluster_id": 2782,
+      "canonical_name": "W. Thomson",
+      "old_qid": "Q75961067",
+      "old_desc": "Peerage person ID=432095"
+    },
+    {
+      "cluster_id": 2785,
+      "canonical_name": "males de madre",
+      "old_qid": "Q38210147",
+      "old_desc": "scientific article published on April 1, 2014"
+    },
+    {
+      "cluster_id": 2789,
+      "canonical_name": "criatura muerta",
+      "old_qid": "Q46111142",
+      "old_desc": "scientific article published on January 1, 1998"
+    },
+    {
+      "cluster_id": 2806,
+      "canonical_name": "degré",
+      "old_qid": "Q57571141",
+      "old_desc": "scientific article published on 21 June 2007"
+    },
+    {
+      "cluster_id": 2822,
+      "canonical_name": "Time and Space",
+      "old_qid": "Q57627396",
+      "old_desc": "scholarly article by Michel Christol published in July 2002"
+    },
+    {
+      "cluster_id": 2942,
+      "canonical_name": "pluies",
+      "old_qid": "Q25299795",
+      "old_desc": "family name"
+    },
+    {
+      "cluster_id": 2953,
+      "canonical_name": "température de la terre",
+      "old_qid": "Q129581157",
+      "old_desc": "scholarly article"
+    },
+    {
+      "cluster_id": 2990,
+      "canonical_name": "secondary formations",
+      "old_qid": "Q57875072",
+      "old_desc": "scholarly article"
+    },
+    {
+      "cluster_id": 3022,
+      "canonical_name": "hypersthénite",
+      "old_qid": "Q60706831",
+      "old_desc": "scholarly article"
+    },
+    {
+      "cluster_id": 3046,
+      "canonical_name": "roches volcaniques",
+      "old_qid": "Q57846654",
+      "old_desc": "scholarly article by R. Hekinian et al published 1976 in Contributions to Mineralogy and Petrology"
+    },
+    {
+      "cluster_id": 3048,
+      "canonical_name": "Dorta",
+      "old_qid": "Q100483762",
+      "old_desc": "street in Magdeburg, Saxony-Anhalt, Germany"
+    },
+    {
+      "cluster_id": 3066,
+      "canonical_name": "fresh water",
+      "old_qid": "Q5503092",
+      "old_desc": "human settlement in Conception Bay, Newfoundland and Labrador, Canada"
+    },
+    {
+      "cluster_id": 3079,
+      "canonical_name": "sense-impressions",
+      "old_qid": "Q60143327",
+      "old_desc": "scientific article published on 16 November 2003"
+    },
+    {
+      "cluster_id": 3089,
+      "canonical_name": "nervous energy",
+      "old_qid": "Q91484614",
+      "old_desc": "scientific article published on 01 October 1885"
+    },
+    {
+      "cluster_id": 3109,
+      "canonical_name": "diamagnetic polarity",
+      "old_qid": "Q62567669",
+      "old_desc": "scholarly article in Physical Review B, vol. 81 no. 5, February 2010"
+    },
+    {
+      "cluster_id": 3115,
+      "canonical_name": "ellipticity",
+      "old_qid": "Q58490119",
+      "old_desc": "scholarly article"
+    },
+    {
+      "cluster_id": 3154,
+      "canonical_name": "planetary motions",
+      "old_qid": "Q125378310",
+      "old_desc": "scientific article published in 2013"
+    },
+    {
+      "cluster_id": 3155,
+      "canonical_name": "planetary orbits",
+      "old_qid": "Q68481392",
+      "old_desc": "scholarly article"
+    },
+    {
+      "cluster_id": 3159,
+      "canonical_name": "idée scientifique",
+      "old_qid": "Q128647760",
+      "old_desc": "scholarly article"
+    },
+    {
+      "cluster_id": 3161,
+      "canonical_name": "phénomènes intellectuels",
+      "old_qid": "Q127877018",
+      "old_desc": "scholarly article"
+    },
+    {
+      "cluster_id": 3170,
+      "canonical_name": "Reise",
+      "old_qid": "Q37566821",
+      "old_desc": "family name"
+    },
+    {
+      "cluster_id": 3174,
+      "canonical_name": "organs of reproduction",
+      "old_qid": "Q44617256",
+      "old_desc": "scientific article published on 2 December 2008"
+    },
+    {
+      "cluster_id": 3214,
+      "canonical_name": "Milius",
+      "old_qid": "Q128715075",
+      "old_desc": "scholarly article"
+    },
+    {
+      "cluster_id": 3243,
+      "canonical_name": "marne",
+      "old_qid": "Q37256454",
+      "old_desc": "family name"
+    },
+    {
+      "cluster_id": 3277,
+      "canonical_name": "fossiliferous",
+      "old_qid": "Q99656226",
+      "old_desc": "scholarly article by I. G. Speden published in 1962"
+    },
+    {
+      "cluster_id": 3281,
+      "canonical_name": "Schiödte",
+      "old_qid": "Q100703296",
+      "old_desc": "street in Halle (Saale), Saxony-Anhalt, Germany"
+    },
+    {
+      "cluster_id": 3294,
+      "canonical_name": "organic actions",
+      "old_qid": "Q67372196",
+      "old_desc": "scientific article published on 01 July 1975"
+    },
+    {
+      "cluster_id": 3295,
+      "canonical_name": "human races",
+      "old_qid": "Q55878123",
+      "old_desc": "scholarly article in American Anthropologist, vol. 100 no. 3, September 1998"
+    },
+    {
+      "cluster_id": 3310,
+      "canonical_name": "olhos encovados",
+      "old_qid": "Q69128932",
+      "old_desc": "scientific article published on 01 January 1989"
+    },
+    {
+      "cluster_id": 3317,
+      "canonical_name": "alvayalde",
+      "old_qid": "Q128978130",
+      "old_desc": "scholarly article"
+    },
+    {
+      "cluster_id": 3318,
+      "canonical_name": "Wells",
+      "old_qid": "Q37574363",
+      "old_desc": "family name"
+    },
+    {
+      "cluster_id": 3363,
+      "canonical_name": "black",
+      "old_qid": "Q97599288",
+      "old_desc": "scientific article published on 01 March 2007"
+    },
+    {
+      "cluster_id": 3368,
+      "canonical_name": "magnetic disturbance",
+      "old_qid": "Q60413840",
+      "old_desc": "scientific article published in Nature"
+    },
+    {
+      "cluster_id": 3392,
+      "canonical_name": "transcendentalists",
+      "old_qid": "Q127712970",
+      "old_desc": "scholarly article"
+    },
+    {
+      "cluster_id": 3393,
+      "canonical_name": "black",
+      "old_qid": "Q97599288",
+      "old_desc": "scientific article published on 01 March 2007"
+    },
+    {
+      "cluster_id": 3397,
+      "canonical_name": "spontaneous motion",
+      "old_qid": "Q30528428",
+      "old_desc": "scientific article published on November 7, 2012"
+    },
+    {
+      "cluster_id": 3444,
+      "canonical_name": "interference of light",
+      "old_qid": "Q71862002",
+      "old_desc": "scientific article published on 01 October 1967"
+    },
+    {
+      "cluster_id": 3450,
+      "canonical_name": "Pouillet",
+      "old_qid": "Q3447474",
+      "old_desc": "street in Paris, France"
+    },
+    {
+      "cluster_id": 3454,
+      "canonical_name": "proper motions",
+      "old_qid": "Q59703281",
+      "old_desc": "scientific article published in Astronomy and Astrophysics"
+    },
+    {
+      "cluster_id": 3465,
+      "canonical_name": "leite azedo",
+      "old_qid": "Q129528842",
+      "old_desc": "scholarly article"
+    },
+    {
+      "cluster_id": 3514,
+      "canonical_name": "doute",
+      "old_qid": "Q37529041",
+      "old_desc": "family name"
+    },
+    {
+      "cluster_id": 3520,
+      "canonical_name": "fécule",
+      "old_qid": "Q37560081",
+      "old_desc": "family name"
+    },
+    {
+      "cluster_id": 3528,
+      "canonical_name": "loi des grands nombres",
+      "old_qid": "Q138147396",
+      "old_desc": "scholarly article published in 2004"
+    },
+    {
+      "cluster_id": 3530,
+      "canonical_name": "calorification",
+      "old_qid": "Q75592879",
+      "old_desc": "scientific article published on 01 August 1950"
+    },
+    {
+      "cluster_id": 3541,
+      "canonical_name": "lower animals",
+      "old_qid": "Q76892121",
+      "old_desc": "scientific article published on 01 October 1964"
+    },
+    {
+      "cluster_id": 3545,
+      "canonical_name": "Bricks",
+      "old_qid": "Q37537637",
+      "old_desc": "family name"
+    },
+    {
+      "cluster_id": 3557,
+      "canonical_name": "doenças de nervos",
+      "old_qid": "Q34738395",
+      "old_desc": "scientific article"
+    },
+    {
+      "cluster_id": 3591,
+      "canonical_name": "Fable",
+      "old_qid": "Q37449164",
+      "old_desc": "family name"
+    },
+    {
+      "cluster_id": 3598,
+      "canonical_name": "Horse dung",
+      "old_qid": "Q127549096",
+      "old_desc": "scholarly article"
+    },
+    {
+      "cluster_id": 3618,
+      "canonical_name": "gaseous emanations",
+      "old_qid": "Q42089671",
+      "old_desc": "scientific article published on September 1983"
+    },
+    {
+      "cluster_id": 3625,
+      "canonical_name": "Bailly",
+      "old_qid": "Q59003750",
+      "old_desc": "scholarly article published on March 1952"
+    },
+    {
+      "cluster_id": 3638,
+      "canonical_name": "Bicêtre",
+      "old_qid": "Q25478742",
+      "old_desc": "Paris metro station"
+    },
+    {
+      "cluster_id": 3639,
+      "canonical_name": "interior of the earth",
+      "old_qid": "Q61031870",
+      "old_desc": "scholarly article by E. A. HODGSON published 1 July 1942 in Geological Society of America Bulletin"
+    },
+    {
+      "cluster_id": 3681,
+      "canonical_name": "oceanic islands",
+      "old_qid": "Q127183048",
+      "old_desc": "scholarly article"
+    },
+    {
+      "cluster_id": 3708,
+      "canonical_name": "florets",
+      "old_qid": "Q106358610",
+      "old_desc": "family name"
+    },
+    {
+      "cluster_id": 3723,
+      "canonical_name": "transition formations",
+      "old_qid": "Q28744670",
+      "old_desc": "scientific article (publication date: 22 November 2011)"
+    },
+    {
+      "cluster_id": 3729,
+      "canonical_name": "mental actions",
+      "old_qid": "Q127877018",
+      "old_desc": "scholarly article"
+    },
+    {
+      "cluster_id": 3767,
+      "canonical_name": "don Hernando Cortes",
+      "old_qid": "Q5896098",
+      "old_desc": "human settlement in Badajoz Province, Extremadura, Spain"
+    },
+    {
+      "cluster_id": 3768,
+      "canonical_name": "estertor",
+      "old_qid": "Q84600476",
+      "old_desc": "family name"
+    },
+    {
+      "cluster_id": 3770,
+      "canonical_name": "Cerotti",
+      "old_qid": "Q37284724",
+      "old_desc": "family name"
+    },
+    {
+      "cluster_id": 3775,
+      "canonical_name": "Xabon",
+      "old_qid": "Q37473760",
+      "old_desc": "family name"
+    },
+    {
+      "cluster_id": 3788,
+      "canonical_name": "Marfil",
+      "old_qid": "Q36978969",
+      "old_desc": "family name"
+    },
+    {
+      "cluster_id": 3794,
+      "canonical_name": "Imbabura",
+      "old_qid": "Q128880473",
+      "old_desc": "scholarly article"
+    },
+    {
+      "cluster_id": 3850,
+      "canonical_name": "London clay",
+      "old_qid": "Q59637656",
+      "old_desc": "scholarly article by David Atkinson published in June 1969"
+    },
+    {
+      "cluster_id": 3851,
+      "canonical_name": "pyroxenic nepheline",
+      "old_qid": "Q130096103",
+      "old_desc": "scholarly article published in 2015"
+    },
+    {
+      "cluster_id": 3859,
+      "canonical_name": "état électrique",
+      "old_qid": "Q127391535",
+      "old_desc": "scholarly article"
+    },
+    {
+      "cluster_id": 3861,
+      "canonical_name": "Gryphites",
+      "old_qid": "Q59096161",
+      "old_desc": "scientific article published in Nature"
+    },
+    {
+      "cluster_id": 3862,
+      "canonical_name": "frescas",
+      "old_qid": "Q127893313",
+      "old_desc": "scholarly article"
+    },
+    {
+      "cluster_id": 3909,
+      "canonical_name": "pressure-sensation",
+      "old_qid": "Q78010383",
+      "old_desc": "scientific article published on 02 March 2002"
+    },
+    {
+      "cluster_id": 3916,
+      "canonical_name": "lines",
+      "old_qid": "Q125604313",
+      "old_desc": "scientific article published in 2019"
+    },
+    {
+      "cluster_id": 3925,
+      "canonical_name": "molecular change",
+      "old_qid": "Q34321453",
+      "old_desc": "scholarly article"
+    },
+    {
+      "cluster_id": 3935,
+      "canonical_name": "bodily action",
+      "old_qid": "Q30390827",
+      "old_desc": "scientific article published on February 15, 2016"
+    },
+    {
+      "cluster_id": 3967,
+      "canonical_name": "molten masses",
+      "old_qid": "Q59092322",
+      "old_desc": "scientific article published in Nature"
+    },
+    {
+      "cluster_id": 3983,
+      "canonical_name": "physical transformations",
+      "old_qid": "Q104068816",
+      "old_desc": "scientific article published on 04 December 2020"
+    },
+    {
+      "cluster_id": 3990,
+      "canonical_name": "Human happiness",
+      "old_qid": "Q93671278",
+      "old_desc": "scientific article published in December 1970"
+    },
+    {
+      "cluster_id": 4002,
+      "canonical_name": "magnetic influence",
+      "old_qid": "Q58366054",
+      "old_desc": "scholarly article by Randall C. Brooks published May 1987 in Annals of Science"
+    },
+    {
+      "cluster_id": 4026,
+      "canonical_name": "magnetism of rotation",
+      "old_qid": "Q128028415",
+      "old_desc": "scholarly article"
+    },
+    {
+      "cluster_id": 4108,
+      "canonical_name": "locality",
+      "old_qid": "Q3257686",
+      "old_desc": "place of human settlement"
+    },
+    {
+      "cluster_id": 4109,
+      "canonical_name": "Force of Expansion",
+      "old_qid": "Q106950291",
+      "old_desc": "scientific article"
+    },
+    {
+      "cluster_id": 4110,
+      "canonical_name": "mechanical action",
+      "old_qid": "Q59477049",
+      "old_desc": "scholarly article published August 1990"
+    },
+    {
+      "cluster_id": 4119,
+      "canonical_name": "circonstances météorologiques",
+      "old_qid": "Q56838729",
+      "old_desc": "scholarly article"
+    },
+    {
+      "cluster_id": 4120,
+      "canonical_name": "digestion gastrique",
+      "old_qid": "Q74299776",
+      "old_desc": "scientific article published on 01 August 2001"
+    },
+    {
+      "cluster_id": 4122,
+      "canonical_name": "lésions pathologiques",
+      "old_qid": "Q64877902",
+      "old_desc": "scientific article published on 01 December 2008"
+    },
+    {
+      "cluster_id": 4129,
+      "canonical_name": "force intérieure",
+      "old_qid": "Q43420193",
+      "old_desc": "scientific article published in June 1990"
+    },
+    {
+      "cluster_id": 4133,
+      "canonical_name": "espèces minérales",
+      "old_qid": "Q60503097",
+      "old_desc": "scholarly article by Adele M. Jones et al published February 2011 in Geochimica et Cosmochimica Acta"
+    },
+    {
+      "cluster_id": 4138,
+      "canonical_name": "éléments glandulaires",
+      "old_qid": "Q45157456",
+      "old_desc": "scientific article published on 2 May 2009"
+    },
+    {
+      "cluster_id": 4139,
+      "canonical_name": "fonctions vitales",
+      "old_qid": "Q34480384",
+      "old_desc": "scholarly article"
+    },
+    {
+      "cluster_id": 4144,
+      "canonical_name": "influence des saisons",
+      "old_qid": "Q35134799",
+      "old_desc": "scientific article"
+    },
+    {
+      "cluster_id": 4147,
+      "canonical_name": "hôpitaux",
+      "old_qid": "Q55694673",
+      "old_desc": "family name"
+    },
+    {
+      "cluster_id": 4181,
+      "canonical_name": "théories physiologiques",
+      "old_qid": "Q72143499",
+      "old_desc": "scientific article published on 01 January 1980"
+    },
+    {
+      "cluster_id": 4209,
+      "canonical_name": "CHAPTER VIII",
+      "old_qid": "Q70913180",
+      "old_desc": "scientific article published on 01 February 1967"
+    },
+    {
+      "cluster_id": 4238,
+      "canonical_name": "Phoenicean",
+      "old_qid": "Q129630055",
+      "old_desc": "scholarly article published on 24 June 2018"
+    },
+    {
+      "cluster_id": 4294,
+      "canonical_name": "matières réfractaires",
+      "old_qid": "Q127861437",
+      "old_desc": "scholarly article"
+    },
+    {
+      "cluster_id": 4312,
+      "canonical_name": "feu souterrain",
+      "old_qid": "Q60191082",
+      "old_desc": "scholarly article by Yasmina M. Martos et al published 24 August 2018 in Geophysical Research Letters"
+    },
+    {
+      "cluster_id": 4318,
+      "canonical_name": "régions froides",
+      "old_qid": "Q58330355",
+      "old_desc": "scholarly article"
+    },
+    {
+      "cluster_id": 4333,
+      "canonical_name": "Savoie",
+      "old_qid": "Q37556148",
+      "old_desc": "family name"
+    },
+    {
+      "cluster_id": 4334,
+      "canonical_name": "jades",
+      "old_qid": "Q24529805",
+      "old_desc": "family name"
+    },
+    {
+      "cluster_id": 4359,
+      "canonical_name": "woody",
+      "old_qid": "Q87156246",
+      "old_desc": "scientific article published on 01 December 1974"
+    },
+    {
+      "cluster_id": 4390,
+      "canonical_name": "ALBEMARLE STREET",
+      "old_qid": "Q134545274",
+      "old_desc": "street in Baltimore, Maryland, the United States"
+    },
+    {
+      "cluster_id": 4431,
+      "canonical_name": "waters",
+      "old_qid": "Q3118961",
+      "old_desc": "Wikimedia list article"
+    },
+    {
+      "cluster_id": 4444,
+      "canonical_name": "representative species",
+      "old_qid": "Q121914121",
+      "old_desc": "scientific article published in 2018"
+    },
+    {
+      "cluster_id": 4445,
+      "canonical_name": "organs of vegetation",
+      "old_qid": "Q76149614",
+      "old_desc": "scientific article published on 01 January 1951"
+    },
+    {
+      "cluster_id": 4475,
+      "canonical_name": "meollo",
+      "old_qid": "Q37085921",
+      "old_desc": "family name"
+    },
+    {
+      "cluster_id": 4484,
+      "canonical_name": "pastillas",
+      "old_qid": "Q106454138",
+      "old_desc": "family name"
+    },
+    {
+      "cluster_id": 4486,
+      "canonical_name": "grado",
+      "old_qid": "Q37497718",
+      "old_desc": "family name"
+    },
+    {
+      "cluster_id": 4507,
+      "canonical_name": "massa",
+      "old_qid": "Q135076494",
+      "old_desc": "video game developed by Trione"
+    },
+    {
+      "cluster_id": 4525,
+      "canonical_name": "piles galvaniques",
+      "old_qid": "Q57302444",
+      "old_desc": "scientific article published on 01 January 1801"
+    },
+    {
+      "cluster_id": 4558,
+      "canonical_name": "Itacolumite",
+      "old_qid": "Q128241969",
+      "old_desc": "scholarly article"
+    },
+    {
+      "cluster_id": 4617,
+      "canonical_name": "débris organiques",
+      "old_qid": "Q127370609",
+      "old_desc": "scholarly article"
+    },
+    {
+      "cluster_id": 4619,
+      "canonical_name": "teleological",
+      "old_qid": "Q119446245",
+      "old_desc": "scholarly article in Science Research Management no. 2, 1996"
+    },
+    {
+      "cluster_id": 4629,
+      "canonical_name": "nervous tension",
+      "old_qid": "Q79526330",
+      "old_desc": "scientific article published on 01 December 1947"
+    },
+    {
+      "cluster_id": 4644,
+      "canonical_name": "aura",
+      "old_qid": "Q774114",
+      "old_desc": "municipality in the region of Southwest Finland, Finland"
+    },
+    {
+      "cluster_id": 4691,
+      "canonical_name": "Kantian Philosophy",
+      "old_qid": "Q128820042",
+      "old_desc": "scholarly article"
+    },
+    {
+      "cluster_id": 4694,
+      "canonical_name": "perceived object",
+      "old_qid": "Q51984184",
+      "old_desc": "scientific article published in February 2007"
+    },
+    {
+      "cluster_id": 4701,
+      "canonical_name": "muscular adjustment",
+      "old_qid": "Q39833245",
+      "old_desc": "scientific article published on July 1, 1977"
+    },
+    {
+      "cluster_id": 4704,
+      "canonical_name": "conceivability",
+      "old_qid": "Q128777945",
+      "old_desc": "scholarly article"
+    },
+    {
+      "cluster_id": 4776,
+      "canonical_name": "major axes",
+      "old_qid": "Q66617704",
+      "old_desc": "scientific article"
+    },
+    {
+      "cluster_id": 4806,
+      "canonical_name": "thermo-magnetic",
+      "old_qid": "Q129988337",
+      "old_desc": "scholarly article published on 12 April 2018"
+    },
+    {
+      "cluster_id": 4818,
+      "canonical_name": "mean temperature",
+      "old_qid": "Q129363656",
+      "old_desc": "scholarly article"
+    },
+    {
+      "cluster_id": 4829,
+      "canonical_name": "Crinoidea",
+      "old_qid": "Q126121549",
+      "old_desc": "scholarly article"
+    },
+    {
+      "cluster_id": 4923,
+      "canonical_name": "affectus",
+      "old_qid": "Q49130403",
+      "old_desc": "scientific article published on December 21, 1981"
+    },
+    {
+      "cluster_id": 4932,
+      "canonical_name": "febre latica",
+      "old_qid": "Q40934219",
+      "old_desc": "scientific article published on March 1, 1970"
+    },
+    {
+      "cluster_id": 4937,
+      "canonical_name": "Cauda equina",
+      "old_qid": "Q81492131",
+      "old_desc": "scientific article published on 01 February 2005"
+    },
+    {
+      "cluster_id": 4960,
+      "canonical_name": "M. Babinet",
+      "old_qid": "Q105735141",
+      "old_desc": "street in Toulouse, Haute-Garonne, Occitania, France"
+    },
+    {
+      "cluster_id": 4966,
+      "canonical_name": "absorbed heat",
+      "old_qid": "Q127092433",
+      "old_desc": "scholarly article"
+    }
+  ],
+  "recategorizations": [
+    {
+      "cluster_id": 41,
+      "canonical_name": "botanists",
+      "modern_name": "Botanist",
+      "old_category": "PERSON",
+      "new_category": "CONCEPT"
+    },
+    {
+      "cluster_id": 71,
+      "canonical_name": "gregos",
+      "modern_name": "Greeks",
+      "old_category": "PERSON",
+      "new_category": "CONCEPT"
+    },
+    {
+      "cluster_id": 93,
+      "canonical_name": "Greci",
+      "modern_name": "Ancient Greeks",
+      "old_category": "PERSON",
+      "new_category": "CONCEPT"
+    },
+    {
+      "cluster_id": 158,
+      "canonical_name": "Romans",
+      "modern_name": "Romans",
+      "old_category": "PERSON",
+      "new_category": "CONCEPT"
+    },
+    {
+      "cluster_id": 172,
+      "canonical_name": "Author",
+      "modern_name": "author",
+      "old_category": "PERSON",
+      "new_category": "CONCEPT"
+    },
+    {
+      "cluster_id": 185,
+      "canonical_name": "homens",
+      "modern_name": "Individuals",
+      "old_category": "PERSON",
+      "new_category": "CONCEPT"
+    },
+    {
+      "cluster_id": 269,
+      "canonical_name": "Medicos",
+      "modern_name": "Physician",
+      "old_category": "PERSON",
+      "new_category": "CONCEPT"
+    },
+    {
+      "cluster_id": 283,
+      "canonical_name": "Indios",
+      "modern_name": "Indigenous peoples of the Americas",
+      "old_category": "PERSON",
+      "new_category": "CONCEPT"
+    },
+    {
+      "cluster_id": 296,
+      "canonical_name": "Authores",
+      "modern_name": "Authors",
+      "old_category": "PERSON",
+      "new_category": "CONCEPT"
+    },
+    {
+      "cluster_id": 297,
+      "canonical_name": "Portuguezes",
+      "modern_name": "Portuguese people",
+      "old_category": "PERSON",
+      "new_category": "CONCEPT"
+    },
+    {
+      "cluster_id": 298,
+      "canonical_name": "Deos",
+      "modern_name": "God",
+      "old_category": "PERSON",
+      "new_category": "CONCEPT"
+    },
+    {
+      "cluster_id": 315,
+      "canonical_name": "Chymicos",
+      "modern_name": "Chemist",
+      "old_category": "PERSON",
+      "new_category": "CONCEPT"
+    },
+    {
+      "cluster_id": 321,
+      "canonical_name": "criança",
+      "modern_name": "Child",
+      "old_category": "PERSON",
+      "new_category": "CONCEPT"
+    },
+    {
+      "cluster_id": 335,
+      "canonical_name": "man",
+      "modern_name": "Human being",
+      "old_category": "PERSON",
+      "new_category": "CONCEPT"
+    },
+    {
+      "cluster_id": 354,
+      "canonical_name": "Turcos",
+      "modern_name": "Turks",
+      "old_category": "PERSON",
+      "new_category": "CONCEPT"
+    },
+    {
+      "cluster_id": 391,
+      "canonical_name": "Anglois",
+      "modern_name": "English people",
+      "old_category": "PERSON",
+      "new_category": "CONCEPT"
+    },
+    {
+      "cluster_id": 416,
+      "canonical_name": "philosophers",
+      "modern_name": "Philosophers",
+      "old_category": "PERSON",
+      "new_category": "CONCEPT"
+    },
+    {
+      "cluster_id": 487,
+      "canonical_name": "chimistes",
+      "modern_name": "Chemists",
+      "old_category": "PERSON",
+      "new_category": "CONCEPT"
+    },
+    {
+      "cluster_id": 558,
+      "canonical_name": "philosopher",
+      "modern_name": "Philosopher",
+      "old_category": "PERSON",
+      "new_category": "CONCEPT"
+    },
+    {
+      "cluster_id": 592,
+      "canonical_name": "Priests",
+      "modern_name": "Priest",
+      "old_category": "PERSON",
+      "new_category": "CONCEPT"
+    },
+    {
+      "cluster_id": 614,
+      "canonical_name": "individual",
+      "modern_name": "Organism",
+      "old_category": "PERSON",
+      "new_category": "CONCEPT"
+    },
+    {
+      "cluster_id": 683,
+      "canonical_name": "Arábios",
+      "modern_name": "Arab physicians",
+      "old_category": "PERSON",
+      "new_category": "CONCEPT"
+    },
+    {
+      "cluster_id": 728,
+      "canonical_name": "Boticarios",
+      "modern_name": "Apothecary",
+      "old_category": "PERSON",
+      "new_category": "CONCEPT"
+    },
+    {
+      "cluster_id": 730,
+      "canonical_name": "mulheres",
+      "modern_name": "Woman",
+      "old_category": "PERSON",
+      "new_category": "CONCEPT"
+    },
+    {
+      "cluster_id": 779,
+      "canonical_name": "naturalists",
+      "modern_name": "Naturalist",
+      "old_category": "PERSON",
+      "new_category": "CONCEPT"
+    },
+    {
+      "cluster_id": 945,
+      "canonical_name": "men",
+      "modern_name": "Humans",
+      "old_category": "PERSON",
+      "new_category": "CONCEPT"
+    },
+    {
+      "cluster_id": 947,
+      "canonical_name": "Doctor",
+      "modern_name": "Doctor",
+      "old_category": "PERSON",
+      "new_category": "CONCEPT"
+    },
+    {
+      "cluster_id": 993,
+      "canonical_name": "Docters",
+      "modern_name": "Physicians",
+      "old_category": "PERSON",
+      "new_category": "CONCEPT"
+    },
+    {
+      "cluster_id": 1469,
+      "canonical_name": "mercadores",
+      "modern_name": "Merchants",
+      "old_category": "PERSON",
+      "new_category": "CONCEPT"
+    },
+    {
+      "cluster_id": 1548,
+      "canonical_name": "people",
+      "modern_name": "people",
+      "old_category": "PERSON",
+      "new_category": "CONCEPT"
+    },
+    {
+      "cluster_id": 1551,
+      "canonical_name": "persons",
+      "modern_name": "people",
+      "old_category": "PERSON",
+      "new_category": "CONCEPT"
+    },
+    {
+      "cluster_id": 1584,
+      "canonical_name": "savages",
+      "modern_name": "Indigenous peoples",
+      "old_category": "PERSON",
+      "new_category": "CONCEPT"
+    },
+    {
+      "cluster_id": 1660,
+      "canonical_name": "Europeans",
+      "modern_name": "Europeans",
+      "old_category": "PERSON",
+      "new_category": "CONCEPT"
+    },
+    {
+      "cluster_id": 1747,
+      "canonical_name": "Doutores",
+      "modern_name": "Doctors",
+      "old_category": "PERSON",
+      "new_category": "CONCEPT"
+    },
+    {
+      "cluster_id": 1783,
+      "canonical_name": "Mouros",
+      "modern_name": "Moors",
+      "old_category": "PERSON",
+      "new_category": "CONCEPT"
+    },
+    {
+      "cluster_id": 1806,
+      "canonical_name": "Eſpañoles",
+      "modern_name": "Spaniards",
+      "old_category": "PERSON",
+      "new_category": "CONCEPT"
+    },
+    {
+      "cluster_id": 1824,
+      "canonical_name": "elrey",
+      "modern_name": "King",
+      "old_category": "PERSON",
+      "new_category": "CONCEPT"
+    },
+    {
+      "cluster_id": 1901,
+      "canonical_name": "Cirurgiaó",
+      "modern_name": "Surgeon",
+      "old_category": "PERSON",
+      "new_category": "CONCEPT"
+    },
+    {
+      "cluster_id": 2124,
+      "canonical_name": "Mogores",
+      "modern_name": "Women",
+      "old_category": "PERSON",
+      "new_category": "CONCEPT"
+    },
+    {
+      "cluster_id": 2153,
+      "canonical_name": "homem",
+      "modern_name": "human",
+      "old_category": "PERSON",
+      "new_category": "CONCEPT"
+    },
+    {
+      "cluster_id": 2345,
+      "canonical_name": "niños",
+      "modern_name": "Children",
+      "old_category": "PERSON",
+      "new_category": "CONCEPT"
+    },
+    {
+      "cluster_id": 2713,
+      "canonical_name": "filhos",
+      "modern_name": "Children",
+      "old_category": "PERSON",
+      "new_category": "CONCEPT"
+    },
+    {
+      "cluster_id": 2766,
+      "canonical_name": "Emperadores",
+      "modern_name": "Emperor",
+      "old_category": "PERSON",
+      "new_category": "CONCEPT"
+    },
+    {
+      "cluster_id": 3038,
+      "canonical_name": "HOMMES",
+      "modern_name": "Humans",
+      "old_category": "PERSON",
+      "new_category": "CONCEPT"
+    },
+    {
+      "cluster_id": 3559,
+      "canonical_name": "Scholars",
+      "modern_name": "Scholars",
+      "old_category": "PERSON",
+      "new_category": "CONCEPT"
+    },
+    {
+      "cluster_id": 3635,
+      "canonical_name": "peuple",
+      "modern_name": "people",
+      "old_category": "PERSON",
+      "new_category": "CONCEPT"
+    },
+    {
+      "cluster_id": 3666,
+      "canonical_name": "Spaniards",
+      "modern_name": "Spaniards",
+      "old_category": "PERSON",
+      "new_category": "CONCEPT"
+    },
+    {
+      "cluster_id": 3934,
+      "canonical_name": "human being",
+      "modern_name": "human",
+      "old_category": "PERSON",
+      "new_category": "CONCEPT"
+    },
+    {
+      "cluster_id": 4378,
+      "canonical_name": "Monks",
+      "modern_name": "monk",
+      "old_category": "PERSON",
+      "new_category": "CONCEPT"
+    }
+  ],
+  "stats": {
+    "qid_fixed_via_wikipedia": 12,
+    "qid_cleared_suspicious": 231,
+    "qid_already_correct": 45,
+    "qid_no_wikipedia": 0,
+    "recategorized": 49,
+    "errors": 0
+  }
+}

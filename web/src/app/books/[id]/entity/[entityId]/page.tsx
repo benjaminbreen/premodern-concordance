@@ -453,6 +453,9 @@ export default function EntityDetailPage() {
       "quatro_libros_naturaleza_hernandez_1615": "/data/hernandez_entities.json",
       "epoques_nature_buffon_1778": "/data/buffon_entities.json",
       "medecine_experimentale_bernard_1865": "/data/bernard_entities.json",
+      "piso_historia_naturalis_brasiliae_1648": "/data/piso_entities.json",
+      "systema_naturae_linnaeus_1758": "/data/linnaeus_entities.json",
+      "lehrbuch_naturphilosophie_oken_1809": "/data/oken_entities.json",
     };
 
     const dataFile = bookFiles[params.id as string];

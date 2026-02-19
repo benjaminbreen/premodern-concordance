@@ -150,7 +150,8 @@ def check_vocabulary_match_quality(finding: dict, cmap: dict) -> tuple[bool, str
         cluster = cmap.get(cid, {})
         cluster_cat = cluster.get('category', '')
         cluster_name = cluster.get('canonical_name', '').lower()
-        modern = cluster.get('ground_truth', {}).get('modern_name', '').lower()
+        modern = (cluster.get('ground_truth') or {}).get('modern_name', '') or ''
+        modern = modern.lower()
 
         # Category mismatch between found entity and target cluster
         if found_cat and cluster_cat and found_cat != cluster_cat:
