@@ -373,6 +373,17 @@ const BOOK_IA_IDS: Record<string, string> = {
   "relation_historique_humboldt_vol3_1825": "relationhistoriq03humb",
   "ricettario_fiorentino_1597": "hin-wel-all-00000667-001",
   "principles_of_psychology_james_1890": "theprinciplesofp01jameuoft",
+  "origin_of_species_darwin_1859": "onoriginofspecie1859darw",
+  "pseudodoxia_epidemica_browne_1646": "b30324890_0002",
+  "first_principles_spencer_1862": "cu31924029047558",
+  "connexion_physical_sciences_somerville_1858": "connexionofphysi00somerich",
+  "kosmos_humboldt_1845": "cosmosasketchap07ottgoog",
+  "quatro_libros_naturaleza_hernandez_1615": "quatrolibrosdela00hern",
+  "epoques_nature_buffon_1778": "b28758882",
+  "medecine_experimentale_bernard_1865": "introductionltu00berngoog",
+  "piso_historia_naturalis_brasiliae_1648": "historianaturali00piso",
+  "systema_naturae_linnaeus_1758": "carolilinnaeisy00gesegoog",
+  "lehrbuch_naturphilosophie_oken_1809": "lehrbuchdernatu04okengoog",
 };
 
 function buildIASearchUrl(bookId: string, excerpt: string, term: string): string | null {

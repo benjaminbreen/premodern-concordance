@@ -30,48 +30,125 @@ ENTITY_DIR = BASE_DIR / "web" / "public" / "data"
 OUTPUT_DIR = BASE_DIR / "web" / "public" / "data" / "page_maps"
 CACHE_DIR = BASE_DIR / "data" / "page_maps"  # cache downloaded XML here
 
+# Matching profiles control normalization aggressiveness per book
+PROFILES = {
+    "modern":       {"f_to_s": False, "strip_spaces": False},
+    "early_modern": {"f_to_s": True,  "strip_spaces": False},
+    "dual_ocr":     {"f_to_s": True,  "strip_spaces": True},
+}
+
 BOOKS = {
     "english_physician_1652": {
         "ia_id": "b30335310",
         "entity_file": "culpeper_entities.json",
+        "profile": "early_modern",
     },
     "polyanthea_medicinal": {
         "ia_id": "b3040941x",
         "entity_file": "semedo_entities.json",
+        "profile": "dual_ocr",
     },
     "coloquios_da_orta_1563": {
         "ia_id": "coloquiosdossimp01ortauoft",
         "entity_file": "orta_entities.json",
+        "profile": "early_modern",
     },
     "historia_medicinal_monardes_1574": {
         "ia_id": "primeraysegunda01monagoog",
         "entity_file": "monardes_entities.json",
+        "profile": "early_modern",
     },
     "relation_historique_humboldt_vol3_1825": {
         "ia_id": "relationhistoriq03humb",
         "entity_file": "humboldt_entities.json",
+        "profile": "early_modern",
     },
     "ricettario_fiorentino_1597": {
         "ia_id": "hin-wel-all-00000667-001",
         "entity_file": "ricettario_entities.json",
+        "profile": "early_modern",
     },
     "principles_of_psychology_james_1890": {
         "ia_id": "theprinciplesofp01jameuoft",
         "entity_file": "james_psychology_entities.json",
+        "profile": "modern",
+    },
+    "origin_of_species_darwin_1859": {
+        "ia_id": "onoriginofspecie1859darw",
+        "entity_file": "darwin_origin_entities.json",
+        "profile": "modern",
+    },
+    "pseudodoxia_epidemica_browne_1646": {
+        "ia_id": "b30324890_0002",
+        "entity_file": "browne_entities.json",
+        "profile": "early_modern",
+    },
+    "first_principles_spencer_1862": {
+        "ia_id": "cu31924029047558",
+        "entity_file": "spencer_entities.json",
+        "profile": "modern",
+    },
+    "connexion_physical_sciences_somerville_1858": {
+        "ia_id": "connexionofphysi00somerich",
+        "entity_file": "somerville_entities.json",
+        "profile": "modern",
+    },
+    "kosmos_humboldt_1845": {
+        "ia_id": "cosmosasketchap07ottgoog",
+        "entity_file": "kosmos_entities.json",
+        "profile": "modern",
+    },
+    "quatro_libros_naturaleza_hernandez_1615": {
+        "ia_id": "quatrolibrosdela00hern",
+        "entity_file": "hernandez_entities.json",
+        "profile": "early_modern",
+    },
+    "epoques_nature_buffon_1778": {
+        "ia_id": "b28758882",
+        "entity_file": "buffon_entities.json",
+        "profile": "early_modern",
+    },
+    "medecine_experimentale_bernard_1865": {
+        "ia_id": "introductionltu00berngoog",
+        "entity_file": "bernard_entities.json",
+        "profile": "modern",
+    },
+    "piso_historia_naturalis_brasiliae_1648": {
+        "ia_id": "historianaturali00piso",
+        "entity_file": "piso_entities.json",
+        "profile": "early_modern",
+    },
+    "systema_naturae_linnaeus_1758": {
+        "ia_id": "carolilinnaeisy00gesegoog",
+        "entity_file": "linnaeus_entities.json",
+        "profile": "early_modern",
+    },
+    "lehrbuch_naturphilosophie_oken_1809": {
+        "ia_id": "lehrbuchdernatu04okengoog",
+        "entity_file": "oken_entities.json",
+        "profile": "modern",
     },
 }
 
 
-def normalize(s: str) -> str:
+def normalize(s: str, f_to_s: bool = False) -> str:
     """Normalize whitespace, OCR artifacts, and lowercase for fuzzy matching."""
     s = s.lower()
     # Normalize long-s and common OCR variants
     s = s.replace("ſ", "s").replace("ﬁ", "fi").replace("ﬂ", "fl")
-    s = s.replace("ê", "e").replace("ë", "e")
-    # Strip accents that OCR may drop (basic normalization)
+    # Ligature expansion
+    s = s.replace("æ", "ae").replace("œ", "oe")
+    # Early modern vv = w
+    s = s.replace("vv", "w")
+    # Strip accents that OCR may drop
     import unicodedata
     s = unicodedata.normalize("NFD", s)
     s = "".join(c for c in s if unicodedata.category(c) != "Mn")
+    # Strip all punctuation — helps with OCR artifacts
+    s = re.sub(r"[^\w\s]", "", s)
+    # Long-s OCR: early modern scans render ſ as 'f' (e.g., "fubftance" = "substance")
+    if f_to_s:
+        s = s.replace("f", "s")
     # Collapse whitespace
     s = re.sub(r"\s+", " ", s).strip()
     return s
@@ -120,49 +197,89 @@ def parse_pages(xml_data: bytes) -> list[dict]:
     return pages
 
 
-def build_page_index(pages: list[dict]) -> list[tuple[str, int]]:
+def build_page_index(pages: list[dict], f_to_s: bool = False) -> list[tuple[str, int]]:
     """Build normalized text → leaf index for searching."""
     index = []
     for p in pages:
-        normed = normalize(p["text"])
+        normed = normalize(p["text"], f_to_s=f_to_s)
         if len(normed) > 10:  # skip blank pages
             index.append((normed, p["leaf"]))
     return index
 
 
-def find_page(excerpt: str, page_index: list[tuple[str, int]]) -> int | None:
-    """Find which IA page contains the given excerpt text."""
-    normed = normalize(excerpt)
+def build_spaceless_index(page_index: list[tuple[str, int]]) -> list[tuple[str, int]]:
+    """Build space-stripped page index for dual-OCR matching."""
+    return [(text.replace(" ", ""), leaf) for text, leaf in page_index]
+
+
+def find_page(excerpt: str, page_index: list[tuple[str, int]],
+              f_to_s: bool = False, strip_spaces: bool = False,
+              spaceless_index: list[tuple[str, int]] | None = None) -> int | None:
+    """Find which IA page contains the given excerpt text.
+
+    Uses a progressive pipeline of increasingly aggressive strategies:
+    1. 4-word sliding window over middle third
+    2. 3-word sliding window over full excerpt
+    3. First/last 5 words
+    4. Space-agnostic matching (for dual-OCR books)
+    """
+    normed = normalize(excerpt, f_to_s=f_to_s)
     if len(normed) < 15:
         return None
 
-    # Strategy 1: try a distinctive middle chunk (less likely to span pages)
     words = normed.split()
-    if len(words) >= 8:
-        mid = len(words) // 2
-        chunk = " ".join(words[mid - 3 : mid + 3])
-    elif len(words) >= 4:
-        chunk = " ".join(words[1 : min(5, len(words))])
-    else:
-        chunk = normed
 
-    for page_text, leaf in page_index:
-        if chunk in page_text:
-            return leaf
+    # Strategy 1: 4-word chunks at a few positions in the middle third
+    if len(words) >= 6:
+        third = len(words) // 3
+        start = max(1, third)
+        end = min(len(words) - 1, 2 * third)
+        # Try up to 5 evenly-spaced positions instead of every position
+        positions = range(start, max(start + 1, end - 3))
+        step = max(1, len(list(positions)) // 5)
+        for i in range(start, max(start + 1, end - 3), step):
+            chunk = " ".join(words[i : i + 4])
+            for page_text, leaf in page_index:
+                if chunk in page_text:
+                    return leaf
 
-    # Strategy 2: try first 5 words
+    # Strategy 2: 3-word chunks at a few positions (skip edges — page boundary risk)
+    if len(words) >= 7:
+        positions_3w = list(range(2, len(words) - 4))
+        step = max(1, len(positions_3w) // 4)
+        for i in range(2, len(words) - 4, step):
+            chunk = " ".join(words[i : i + 3])
+            for page_text, leaf in page_index:
+                if chunk in page_text:
+                    return leaf
+
+    # Strategy 3: first 5 words / last 5 words
     if len(words) >= 5:
-        chunk2 = " ".join(words[:5])
+        chunk_first = " ".join(words[:5])
         for page_text, leaf in page_index:
-            if chunk2 in page_text:
+            if chunk_first in page_text:
                 return leaf
 
-    # Strategy 3: try last 5 words
-    if len(words) >= 5:
-        chunk3 = " ".join(words[-5:])
+        chunk_last = " ".join(words[-5:])
         for page_text, leaf in page_index:
-            if chunk3 in page_text:
+            if chunk_last in page_text:
                 return leaf
+
+    # Short excerpts: try the whole thing
+    if len(words) < 6:
+        for page_text, leaf in page_index:
+            if normed in page_text:
+                return leaf
+
+    # Strategy 4: space-agnostic matching (for dual-OCR books like Semedo)
+    if strip_spaces and spaceless_index:
+        spaceless = normed.replace(" ", "")
+        if len(spaceless) >= 25:
+            mid = len(spaceless) // 2
+            chunk = spaceless[mid - 12 : mid + 13]
+            for page_text, leaf in spaceless_index:
+                if chunk in page_text:
+                    return leaf
 
     return None
 
@@ -199,6 +316,11 @@ def process_book(book_id: str, info: dict) -> dict:
     """Process a single book: download XML, parse pages, match mentions."""
     ia_id = info["ia_id"]
     entity_path = ENTITY_DIR / info["entity_file"]
+    profile = PROFILES.get(info.get("profile", "modern"), PROFILES["modern"])
+    f_to_s = profile["f_to_s"]
+    strip_spaces = profile["strip_spaces"]
+
+    print(f"  Profile: {info.get('profile', 'modern')} (f_to_s={f_to_s}, strip_spaces={strip_spaces})")
 
     if not entity_path.exists():
         print(f"  Entity file not found: {entity_path}")
@@ -226,8 +348,11 @@ def process_book(book_id: str, info: dict) -> dict:
     pages = parse_pages(xml_data)
     print(f"  {len(pages)} IA pages parsed")
 
-    page_index = build_page_index(pages)
+    page_index = build_page_index(pages, f_to_s=f_to_s)
     print(f"  {len(page_index)} pages with text")
+
+    # Build space-stripped index if needed
+    spaceless_index = build_spaceless_index(page_index) if strip_spaces else None
 
     # Download leaf → printed page number mapping
     leaf_to_page = download_page_numbers(ia_id)
@@ -242,7 +367,8 @@ def process_book(book_id: str, info: dict) -> dict:
         if offset is None or not excerpt:
             continue
 
-        leaf = find_page(excerpt, page_index)
+        leaf = find_page(excerpt, page_index, f_to_s=f_to_s,
+                         strip_spaces=strip_spaces, spaceless_index=spaceless_index)
         if leaf is not None:
             offset_str = str(offset)
             leaves[offset_str] = leaf
