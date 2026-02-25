@@ -2,7 +2,8 @@ import { NextRequest, NextResponse } from "next/server";
 import { GoogleGenerativeAI } from "@google/generative-ai";
 import OpenAI from "openai";
 import { readFileSync } from "fs";
-import { join } from "path";
+import { dataPath } from "@/lib/dataPath";
+import { checkRateLimit } from "@/lib/rateLimit";
 import {
   getEntityRegistry,
   type RegistryBook,
@@ -78,12 +79,7 @@ let cachedProfiles: Record<string, EpistemologicalProfile> | null = null;
 
 function getProfiles(): Record<string, EpistemologicalProfile> {
   if (cachedProfiles) return cachedProfiles;
-  const filePath = join(
-    process.cwd(),
-    "public",
-    "data",
-    "book_epistemologies.json"
-  );
+  const filePath = dataPath("book_epistemologies.json");
   cachedProfiles = JSON.parse(readFileSync(filePath, "utf-8"));
   return cachedProfiles!;
 }
@@ -155,12 +151,7 @@ let cachedSearchIndex: SearchIndex | null = null;
 function getSearchIndex(): SearchIndex | null {
   if (cachedSearchIndex) return cachedSearchIndex;
   try {
-    const indexPath = join(
-      process.cwd(),
-      "public",
-      "data",
-      "search_index.json"
-    );
+    const indexPath = dataPath("search_index.json");
     cachedSearchIndex = JSON.parse(readFileSync(indexPath, "utf-8"));
     return cachedSearchIndex;
   } catch {
@@ -840,9 +831,24 @@ function validate(
   return response;
 }
 
+// ── CORS preflight ──────────────────────────────────────────────────────
+
+export function OPTIONS() {
+  return new NextResponse(null, { status: 204 });
+}
+
 // ── API handler ────────────────────────────────────────────────────────
 
 export async function POST(request: NextRequest) {
+  const ip = request.headers.get("x-forwarded-for")?.split(",")[0]?.trim() || "unknown";
+  const rl = checkRateLimit(ip, 10);
+  if (!rl.ok) {
+    return NextResponse.json(
+      { error: "Rate limit exceeded. Try again later." },
+      { status: 429, headers: { "Retry-After": String(rl.retryAfterSeconds) } }
+    );
+  }
+
   const geminiKey = process.env.GEMINI_API_KEY;
   if (!geminiKey) {
     return NextResponse.json(

@@ -267,10 +267,17 @@ function WikiThumbnail({ url, size = "sm" }: { url: string; size?: "sm" | "lg" }
       const title = decodeURIComponent(urlObj.pathname.split("/wiki/")[1] || "");
       if (!title) return;
 
+      const cacheKey = `wt_${lang}_${title}`;
+      const cached = sessionStorage.getItem(cacheKey);
+      if (cached) { setThumb(cached); return; }
+
       fetch(`https://${lang}.wikipedia.org/api/rest_v1/page/summary/${encodeURIComponent(title)}`)
         .then((res) => res.json())
         .then((data) => {
-          if (data.thumbnail?.source) setThumb(data.thumbnail.source);
+          if (data.thumbnail?.source) {
+            sessionStorage.setItem(cacheKey, data.thumbnail.source);
+            setThumb(data.thumbnail.source);
+          }
         })
         .catch(() => {});
     } catch {
@@ -287,6 +294,7 @@ function WikiThumbnail({ url, size = "sm" }: { url: string; size?: "sm" | "lg" }
     <img
       src={thumb}
       alt=""
+      loading="lazy"
       className={`${sizeClass} rounded object-cover shrink-0 border border-[var(--border)]`}
     />
   );
@@ -304,6 +312,14 @@ function WikiExtract({ url, wikiUrl }: { url: string; wikiUrl?: string }) {
       const title = decodeURIComponent(urlObj.pathname.split("/wiki/")[1] || "");
       if (!title) { setLoading(false); return; }
 
+      const cacheKey = `we_${lang}_${title}`;
+      const cached = sessionStorage.getItem(cacheKey);
+      if (cached) {
+        setParagraphs(JSON.parse(cached));
+        setLoading(false);
+        return;
+      }
+
       fetch(
         `https://${lang}.wikipedia.org/w/api.php?action=query&titles=${encodeURIComponent(title)}&prop=extracts&explaintext=true&exsectionformat=plain&format=json&origin=*`
       )
@@ -313,8 +329,9 @@ function WikiExtract({ url, wikiUrl }: { url: string; wikiUrl?: string }) {
           if (!pages) { setLoading(false); return; }
           const pageId = Object.keys(pages)[0];
           const extract = pages[pageId]?.extract || "";
-          const paras = extract.split("\n\n").filter((p: string) => p.length > 40);
-          setParagraphs(paras.slice(0, 6));
+          const paras = extract.split("\n\n").filter((p: string) => p.length > 40).slice(0, 6);
+          sessionStorage.setItem(cacheKey, JSON.stringify(paras));
+          setParagraphs(paras);
           setLoading(false);
         })
         .catch(() => setLoading(false));
@@ -606,7 +623,7 @@ function NeighborhoodGraph({
       .force("center", forceCenter(width / 2, height / 2).strength(0.05))
       .force("collide", forceCollide<GraphNode>().radius((d) => radiusScale(d.mentions) + 6).strength(0.7))
       .alpha(1)
-      .alphaDecay(0.015)
+      .alphaDecay(0.028)
       .velocityDecay(0.35);
 
     sim.on("tick", () => {
@@ -939,13 +956,15 @@ export default function ClusterDetailPage() {
     }
   }, [data, cluster, slug, slugRedirects, router]);
 
-  // Prev/next cluster slugs (by sorted order in data)
-  const { prevSlug, nextSlug } = useMemo(() => {
-    if (!data || !cluster) return { prevSlug: null, nextSlug: null };
+  // Prev/next cluster slugs + position (by sorted order in data)
+  const { prevSlug, nextSlug, clusterPosition, clusterTotal } = useMemo(() => {
+    if (!data || !cluster) return { prevSlug: null, nextSlug: null, clusterPosition: 0, clusterTotal: 0 };
     const idx = data.clusters.findIndex((c) => c.id === cluster.id);
     return {
       prevSlug: idx > 0 ? clusterSlug(data.clusters[idx - 1], data.clusters) : null,
       nextSlug: idx >= 0 && idx < data.clusters.length - 1 ? clusterSlug(data.clusters[idx + 1], data.clusters) : null,
+      clusterPosition: idx + 1,
+      clusterTotal: data.clusters.length,
     };
   }, [data, cluster]);
 
@@ -977,7 +996,7 @@ export default function ClusterDetailPage() {
     return null;
   }, [cluster, personIdentities]);
 
-  // Fetch neighbor data at page level for "Also appears with"
+  // Fetch neighbor data at page level for neighbor pills
   const [neighborData, setNeighborData] = useState<{
     k: number;
     count: number;
@@ -990,6 +1009,21 @@ export default function ClusterDetailPage() {
       .then((d) => setNeighborData(d))
       .catch(() => {});
   }, []);
+
+  // Lazy-load graph: only mount when scrolled into view
+  const graphSentinelRef = useRef<HTMLDivElement>(null);
+  const [graphVisible, setGraphVisible] = useState(false);
+
+  useEffect(() => {
+    const el = graphSentinelRef.current;
+    if (!el) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => { if (entry.isIntersecting) { setGraphVisible(true); observer.disconnect(); } },
+      { rootMargin: "200px" }
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, [loading]);
 
   // Keyboard navigation
   const handleKeyDown = useCallback(
@@ -1086,10 +1120,31 @@ export default function ClusterDetailPage() {
   if (loading) {
     return (
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div className="animate-pulse space-y-4">
-          <div className="h-4 bg-[var(--border)] rounded w-1/4" />
-          <div className="h-8 bg-[var(--border)] rounded w-1/3" />
-          <div className="h-64 bg-[var(--border)] rounded" />
+        <div className="animate-pulse space-y-6">
+          {/* Breadcrumb skeleton */}
+          <div className="flex gap-2">
+            <div className="h-4 bg-[var(--border)] rounded w-24" />
+            <div className="h-4 bg-[var(--border)] rounded w-4" />
+            <div className="h-4 bg-[var(--border)] rounded w-32" />
+          </div>
+          {/* Hero skeleton */}
+          <div className="h-40 bg-[var(--border)] rounded-xl" />
+          {/* Info cards skeleton */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div className="h-28 bg-[var(--border)] rounded-lg" />
+            <div className="h-28 bg-[var(--border)] rounded-lg" />
+            <div className="h-28 bg-[var(--border)] rounded-lg" />
+          </div>
+          {/* Bar chart skeleton */}
+          <div className="space-y-2">
+            <div className="h-3 bg-[var(--border)] rounded w-32" />
+            <div className="h-5 bg-[var(--border)] rounded w-full" />
+            <div className="h-5 bg-[var(--border)] rounded w-3/4" />
+            <div className="h-5 bg-[var(--border)] rounded w-1/2" />
+            <div className="h-5 bg-[var(--border)] rounded w-1/3" />
+          </div>
+          {/* Wikipedia placeholder */}
+          <div className="h-32 bg-[var(--border)] rounded-lg" />
         </div>
       </div>
     );
@@ -1509,74 +1564,37 @@ export default function ClusterDetailPage() {
         const hasContent = synonyms.length > 0 || contested.length > 0 || related.length > 0;
         if (!hasContent) return null;
 
+        const columns = [
+          { key: "synonyms", label: "Synonyms & Translations", items: synonyms },
+          { key: "contested", label: "Contested Identities", items: contested },
+          { key: "related", label: "Related & Co-occurring", items: related },
+        ].filter(col => col.items.length > 0);
+
+        const gridClass = columns.length === 1
+          ? ""
+          : columns.length === 2
+          ? "md:grid md:grid-cols-2 md:gap-6"
+          : "md:grid md:grid-cols-3 md:gap-6";
+
         return (
           <div className="p-4 rounded-lg border border-[var(--border)] bg-[var(--card)] mb-8">
-            <div className="grid md:grid-cols-3 gap-6">
-              {/* Column 1: Synonyms & Translations */}
-              <div>
-                <h4 className="text-xs uppercase tracking-wider text-[var(--muted)] font-medium mb-2 pb-1.5 border-b border-[var(--border)]">
-                  Synonyms &amp; Translations
-                  {synonyms.length > 0 && (
-                    <span className="ml-1.5 font-mono opacity-60">{synonyms.length}</span>
-                  )}
-                </h4>
-                {synonyms.length > 0 ? (
+            <div className={`space-y-6 md:space-y-0 ${gridClass}`}>
+              {columns.map(({ key, label, items }) => (
+                <div key={key}>
+                  <h4 className="text-xs uppercase tracking-wider text-[var(--muted)] font-medium mb-2 pb-1.5 border-b border-[var(--border)]">
+                    {label}
+                    <span className="ml-1.5 font-mono opacity-60">{items.length}</span>
+                  </h4>
                   <div className="divide-y divide-[var(--border)]/40">
-                    {synonyms.slice(0, 8).map((r, i) => <RefItem key={i} xref={r} />)}
-                    {synonyms.length > 8 && (
+                    {items.slice(0, 8).map((r, i) => <RefItem key={i} xref={r} />)}
+                    {items.length > 8 && (
                       <p className="text-xs text-[var(--muted)] pt-2">
-                        +{synonyms.length - 8} more
+                        +{items.length - 8} more
                       </p>
                     )}
                   </div>
-                ) : (
-                  <p className="text-xs text-[var(--muted)] opacity-50 py-2">None found</p>
-                )}
-              </div>
-
-              {/* Column 2: Contested Identities */}
-              <div>
-                <h4 className="text-xs uppercase tracking-wider text-[var(--muted)] font-medium mb-2 pb-1.5 border-b border-[var(--border)]">
-                  Contested Identities
-                  {contested.length > 0 && (
-                    <span className="ml-1.5 font-mono opacity-60">{contested.length}</span>
-                  )}
-                </h4>
-                {contested.length > 0 ? (
-                  <div className="divide-y divide-[var(--border)]/40">
-                    {contested.slice(0, 8).map((r, i) => <RefItem key={i} xref={r} />)}
-                    {contested.length > 8 && (
-                      <p className="text-xs text-[var(--muted)] pt-2">
-                        +{contested.length - 8} more
-                      </p>
-                    )}
-                  </div>
-                ) : (
-                  <p className="text-xs text-[var(--muted)] opacity-50 py-2">None found</p>
-                )}
-              </div>
-
-              {/* Column 3: Related & Co-occurring */}
-              <div>
-                <h4 className="text-xs uppercase tracking-wider text-[var(--muted)] font-medium mb-2 pb-1.5 border-b border-[var(--border)]">
-                  Related &amp; Co-occurring
-                  {related.length > 0 && (
-                    <span className="ml-1.5 font-mono opacity-60">{related.length}</span>
-                  )}
-                </h4>
-                {related.length > 0 ? (
-                  <div className="divide-y divide-[var(--border)]/40">
-                    {related.slice(0, 8).map((r, i) => <RefItem key={i} xref={r} />)}
-                    {related.length > 8 && (
-                      <p className="text-xs text-[var(--muted)] pt-2">
-                        +{related.length - 8} more
-                      </p>
-                    )}
-                  </div>
-                ) : (
-                  <p className="text-xs text-[var(--muted)] opacity-50 py-2">None found</p>
-                )}
-              </div>
+                </div>
+              ))}
             </div>
           </div>
         );
@@ -1619,63 +1637,14 @@ export default function ClusterDetailPage() {
         </div>
       </section>
 
-      {/* ─── 5. Names Across Texts Mosaic ─── */}
-      <section className="mb-8">
-        <h2 className="text-xs uppercase tracking-widest text-[var(--muted)] font-medium mb-3">
-          Names Across Texts
-        </h2>
-        <div className="space-y-4">
-          {data.books
-            .filter((b) => cluster.members.some((m) => m.book_id === b.id))
-            .map((book) => {
-              const bookMembers = cluster.members.filter((m) => m.book_id === book.id);
-              return (
-                <div key={book.id}>
-                  <h3 className="text-xs font-medium mb-2 flex items-center gap-2">
-                    <Link
-                      href={`/books/${encodeURIComponent(book.id)}`}
-                      className="hover:text-[var(--accent)] transition-colors"
-                    >
-                      {BOOK_SHORT_NAMES[book.id] || book.title}
-                    </Link>
-                    <span className="text-[var(--muted)]">{book.year}</span>
-                    <span className="font-mono text-[var(--muted)] text-xs">
-                      {BOOK_LANG_FLAGS[book.language] || "?"}
-                    </span>
-                  </h3>
-                  <div className="flex flex-wrap gap-2">
-                    {bookMembers.map((member) => (
-                      <Link
-                        key={member.entity_id}
-                        href={`/books/${encodeURIComponent(book.id)}/entity/${encodeURIComponent(member.entity_id)}`}
-                        className="group/tile px-3 py-2 rounded-lg border border-[var(--border)] bg-[var(--card)] hover:bg-[var(--border)]/40 transition-colors"
-                      >
-                        <span className="text-sm font-medium group-hover/tile:text-[var(--accent)] transition-colors">
-                          {member.name}
-                        </span>
-                        <span className="text-xs text-[var(--muted)] ml-2 font-mono tabular-nums">
-                          {member.count}
-                        </span>
-                        {member.variants.length > 1 && (
-                          <span className="text-xs text-[var(--muted)] ml-1.5">
-                            ({member.variants.length} variants)
-                          </span>
-                        )}
-                      </Link>
-                    ))}
-                  </div>
-                </div>
-              );
-            })}
-        </div>
-      </section>
-
-      {/* ─── 6. Comparison Table ─── */}
+      {/* ─── 5. All Entries ─── */}
       <section className="mb-8">
         <h2 className="text-xs uppercase tracking-widest text-[var(--muted)] font-medium mb-3">
           All Entries
         </h2>
-        <div className="border border-[var(--border)] rounded-lg overflow-hidden">
+
+        {/* Desktop: table layout */}
+        <div className="hidden md:block border border-[var(--border)] rounded-lg overflow-hidden">
           <div className="overflow-x-auto">
             <table className="w-full text-sm">
               <thead>
@@ -1689,13 +1658,13 @@ export default function ClusterDetailPage() {
                   <th className="text-left px-3 py-2 text-xs uppercase tracking-widest text-[var(--muted)] font-medium">
                     Name
                   </th>
-                  <th className="text-left px-3 py-2 text-xs uppercase tracking-widest text-[var(--muted)] font-medium hidden md:table-cell">
+                  <th className="text-left px-3 py-2 text-xs uppercase tracking-widest text-[var(--muted)] font-medium">
                     Context
                   </th>
                   <th className="text-right px-3 py-2 text-xs uppercase tracking-widest text-[var(--muted)] font-medium w-14">
                     Count
                   </th>
-                  <th className="px-3 py-2 w-16" />
+                  <th className="px-3 py-2 w-10" />
                 </tr>
               </thead>
               <tbody className="divide-y divide-[var(--border)]">
@@ -1720,16 +1689,16 @@ export default function ClusterDetailPage() {
                           </Link>
                         </td>
                         <td className="px-3 py-2">
-                          <span className="font-medium">{member.name}</span>
+                          <span className="font-medium" title={member.name}>{member.name}</span>
                           {member.variants.length > 1 && (
                             <span className="text-xs text-[var(--muted)] ml-1.5">
                               +{member.variants.length - 1} variant{member.variants.length - 1 !== 1 ? "s" : ""}
                             </span>
                           )}
                         </td>
-                        <td className="px-3 py-2 text-xs text-[var(--muted)] hidden md:table-cell max-w-xs">
+                        <td className="px-3 py-2 text-xs text-[var(--muted)] max-w-xs">
                           {member.contexts[0] ? (
-                            <span className="line-clamp-2">
+                            <span className="line-clamp-2" title={member.contexts[0]}>
                               &ldquo;
                               <AutoLinkedText
                                 text={member.contexts[0].length > 100 ? member.contexts[0].slice(0, 97) + "\u2026" : member.contexts[0]}
@@ -1746,9 +1715,12 @@ export default function ClusterDetailPage() {
                         <td className="px-3 py-2 text-right">
                           <Link
                             href={`/books/${encodeURIComponent(member.book_id)}/entity/${encodeURIComponent(member.entity_id)}`}
-                            className="text-xs text-[var(--accent)] hover:underline whitespace-nowrap"
+                            className="inline-flex items-center justify-center w-6 h-6 rounded-full border border-[var(--border)] text-[var(--muted)] hover:text-[var(--accent)] hover:border-[var(--accent)]/40 transition-colors"
+                            title="View entity"
                           >
-                            View &rarr;
+                            <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                            </svg>
                           </Link>
                         </td>
                       </tr>
@@ -1758,83 +1730,93 @@ export default function ClusterDetailPage() {
             </table>
           </div>
         </div>
+
+        {/* Mobile: card layout */}
+        <div className="md:hidden space-y-2">
+          {[...cluster.members]
+            .sort((a, b) => b.count - a.count)
+            .map((member) => {
+              const book = data.books.find((b) => b.id === member.book_id);
+              return (
+                <Link
+                  key={`${member.book_id}-${member.entity_id}`}
+                  href={`/books/${encodeURIComponent(member.book_id)}/entity/${encodeURIComponent(member.entity_id)}`}
+                  className="block p-3 rounded-lg border border-[var(--border)] bg-[var(--card)] hover:bg-[var(--border)]/30 transition-colors"
+                >
+                  <div className="flex items-center justify-between mb-1">
+                    <span className="text-xs text-[var(--muted)]">
+                      {BOOK_SHORT_NAMES[member.book_id] || book?.title || member.book_id}
+                      <span className="font-mono ml-1.5">{BOOK_LANG_FLAGS[book?.language || ""] || "?"}</span>
+                    </span>
+                    <span className="text-xs font-mono text-[var(--muted)] tabular-nums">{member.count} mentions</span>
+                  </div>
+                  <p className="text-sm font-medium">{member.name}</p>
+                  {member.variants.length > 1 && (
+                    <p className="text-xs text-[var(--muted)] mt-0.5">
+                      +{member.variants.length - 1} variant{member.variants.length - 1 !== 1 ? "s" : ""}
+                    </p>
+                  )}
+                  {member.contexts[0] && (
+                    <p className="text-xs text-[var(--muted)] mt-1 line-clamp-2" title={member.contexts[0]}>
+                      &ldquo;{member.contexts[0].length > 120 ? member.contexts[0].slice(0, 117) + "\u2026" : member.contexts[0]}&rdquo;
+                    </p>
+                  )}
+                </Link>
+              );
+            })}
+        </div>
       </section>
 
-      {/* ─── 7. Semantic Neighborhood ─── */}
-      <section className="mb-8">
+      {/* ─── 6. Semantic Neighborhood ─── */}
+      <section className="mb-8" ref={graphSentinelRef}>
         <h2 className="text-xs uppercase tracking-widest text-[var(--muted)] font-medium mb-3">
           Semantic Neighborhood
         </h2>
         <p className="text-xs text-[var(--muted)] mb-3">
           Entities closest to {clusterDisplayName} in cross-lingual embedding space. Click a node to navigate.
         </p>
-        <NeighborhoodGraph clusterId={cluster.id} clusters={data.clusters} books={data.books} />
-      </section>
+        {graphVisible ? (
+          <NeighborhoodGraph clusterId={cluster.id} clusters={data.clusters} books={data.books} />
+        ) : (
+          <div className="h-[350px] rounded-lg border border-[var(--border)] bg-[var(--card)] flex items-center justify-center">
+            <span className="text-xs text-[var(--muted)]">Loading graph...</span>
+          </div>
+        )}
 
-      {/* ─── 7b. Also Appears With ─── */}
-      {neighborData && (() => {
-        const neighbors = neighborData.neighbors[String(cluster.id)];
-        if (!neighbors || neighbors.length === 0) return null;
-        const top8 = neighbors.slice(0, 8);
-        const maxSim = top8[0]?.sim || 1;
-        const clusterMap = new Map(data.clusters.map((c) => [c.id, c]));
+        {/* Neighbor pills — compact legend below the graph */}
+        {neighborData && (() => {
+          const neighbors = neighborData.neighbors[String(cluster.id)];
+          if (!neighbors || neighbors.length === 0) return null;
+          const top8 = neighbors.slice(0, 8);
+          const clusterMap = new Map(data.clusters.map((c) => [c.id, c]));
 
-        return (
-          <section className="mb-8">
-            <h2 className="text-xs uppercase tracking-widest text-[var(--muted)] font-medium mb-3">
-              Also Appears With
-            </h2>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+          return (
+            <div className="mt-3 flex flex-wrap gap-1.5">
               {top8.map((n) => {
                 const nc = clusterMap.get(n.id);
                 if (!nc) return null;
                 const nSlug = slugMap.get(n.id) || "";
-                const gt = nc.ground_truth;
-                const name = displayName(nc);
-                const subtitle = name.toLowerCase() !== nc.canonical_name.toLowerCase()
-                  ? nc.canonical_name
-                  : nc.members[0]?.contexts[0]
-                    ? (nc.members[0].contexts[0].length > 60 ? nc.members[0].contexts[0].slice(0, 57) + "\u2026" : nc.members[0].contexts[0])
-                    : null;
                 const dotClass = CATEGORY_BAR_COLORS[nc.category] || "bg-slate-500";
-                const barPct = (n.sim / maxSim) * 100;
-                const hexColor = CAT_HEX[nc.category] || "#64748b";
-
+                const name = displayName(nc);
                 return (
                   <Link
                     key={n.id}
                     href={`/concordance/${nSlug}?from=${encodeURIComponent(slug)}`}
-                    className="flex items-center gap-3 px-3 py-2.5 rounded-lg border border-[var(--border)] bg-[var(--card)] hover:bg-[var(--border)]/40 transition-colors group/neighbor"
+                    className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full border border-[var(--border)] bg-[var(--card)] hover:bg-[var(--border)]/40 transition-colors text-xs group/pill"
+                    title={name}
                   >
-                    <span className={`w-2.5 h-2.5 rounded-full shrink-0 ${dotClass}`} />
-                    <div className="flex-1 min-w-0">
-                      <p className="text-sm font-medium truncate group-hover/neighbor:text-[var(--accent)] transition-colors">
-                        {name}
-                      </p>
-                      {subtitle && (
-                        <p className="text-xs text-[var(--muted)] truncate">{subtitle}</p>
-                      )}
-                    </div>
-                    <div className="w-16 shrink-0 flex items-center gap-1.5">
-                      <div className="flex-1 h-1 bg-[var(--border)]/50 rounded-full overflow-hidden">
-                        <div
-                          className="h-full rounded-full"
-                          style={{ width: `${barPct}%`, backgroundColor: hexColor }}
-                        />
-                      </div>
-                      <span className="text-xs font-mono text-[var(--muted)] tabular-nums w-7 text-right">
-                        {Math.round(n.sim * 100)}
-                      </span>
-                    </div>
+                    <span className={`w-1.5 h-1.5 rounded-full shrink-0 ${dotClass}`} />
+                    <span className="font-medium truncate max-w-[10rem] group-hover/pill:text-[var(--accent)] transition-colors">{name}</span>
+                    <span className="font-mono text-[var(--muted)] tabular-nums">{Math.round(n.sim * 100)}%</span>
                   </Link>
                 );
               })}
             </div>
-          </section>
-        );
-      })()}
+          );
+        })()}
+      </section>
 
-      {/* ─── 8. Navigation ─── */}
+      {/* ─── 7. Navigation ─── */}
       <nav className="flex items-center justify-between pt-6 border-t border-[var(--border)]">
         {prevSlug !== null ? (
           <Link
@@ -1849,12 +1831,19 @@ export default function ClusterDetailPage() {
         ) : (
           <span />
         )}
-        <Link
-          href="/concordance"
-          className="px-3 py-2 text-sm text-[var(--muted)] hover:text-[var(--foreground)] transition-colors"
-        >
-          Back to Concordance
-        </Link>
+        <div className="flex flex-col items-center gap-1">
+          <Link
+            href="/concordance"
+            className="px-3 py-2 text-sm text-[var(--muted)] hover:text-[var(--foreground)] transition-colors"
+          >
+            Back to Concordance
+          </Link>
+          {clusterPosition > 0 && (
+            <span className="text-xs text-[var(--muted)] font-mono tabular-nums">
+              {clusterPosition.toLocaleString()} of {clusterTotal.toLocaleString()}
+            </span>
+          )}
+        </div>
         {nextSlug !== null ? (
           <Link
             href={`/concordance/${nextSlug}`}

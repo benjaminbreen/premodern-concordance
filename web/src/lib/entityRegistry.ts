@@ -1,5 +1,5 @@
 import { readFileSync } from "fs";
-import { join } from "path";
+import { dataPath } from "./dataPath";
 
 export interface RegistryBook {
   id: string;
@@ -67,7 +67,7 @@ let cached: EntityRegistry | null = null;
 
 export function getEntityRegistry(): EntityRegistry {
   if (cached) return cached;
-  const registryPath = join(process.cwd(), "public", "data", "entity_registry.json");
+  const registryPath = dataPath("entity_registry.json");
   const raw = readFileSync(registryPath, "utf-8");
   cached = JSON.parse(raw) as EntityRegistry;
   return cached;

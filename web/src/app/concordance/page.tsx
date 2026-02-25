@@ -218,146 +218,6 @@ function SourceLangs({ bookIds, books }: { bookIds: string[]; books: BookMeta[] 
   );
 }
 
-function SimilarityBar({ value }: { value: number }) {
-  const pct = Math.round(value * 100);
-  const color = pct >= 95 ? "bg-green-500" : pct >= 88 ? "bg-emerald-400" : pct >= 82 ? "bg-yellow-400" : "bg-orange-400";
-  return (
-    <div className="flex items-center gap-2">
-      <div className="w-16 h-1.5 rounded-full bg-[var(--border)] overflow-hidden">
-        <div className={`h-full rounded-full ${color}`} style={{ width: `${pct}%` }} />
-      </div>
-      <span className="text-xs text-[var(--muted)] font-mono">{pct}%</span>
-    </div>
-  );
-}
-
-function WikiThumbnail({ url }: { url: string }) {
-  const [thumb, setThumb] = useState<string | null>(null);
-
-  useEffect(() => {
-    const controller = new AbortController();
-    const timeout = setTimeout(() => controller.abort(), 8000);
-    try {
-      const urlObj = new URL(url);
-      const lang = urlObj.hostname.split(".")[0];
-      const title = decodeURIComponent(urlObj.pathname.split("/wiki/")[1] || "");
-      if (!title) { clearTimeout(timeout); return; }
-
-      fetch(`https://${lang}.wikipedia.org/api/rest_v1/page/summary/${encodeURIComponent(title)}`, { signal: controller.signal })
-        .then((res) => res.json())
-        .then((data) => {
-          if (data.thumbnail?.source) {
-            setThumb(data.thumbnail.source);
-          }
-        })
-        .catch(() => {})
-        .finally(() => clearTimeout(timeout));
-    } catch {
-      clearTimeout(timeout);
-    }
-    return () => { controller.abort(); clearTimeout(timeout); };
-  }, [url]);
-
-  if (!thumb) return null;
-
-  return (
-    // eslint-disable-next-line @next/next/no-img-element
-    <img
-      src={thumb}
-      alt=""
-      className="w-24 h-24 rounded object-cover shrink-0 border border-[var(--border)]"
-    />
-  );
-}
-
-/** Fetches and displays Wikipedia article extract with expandable reading */
-function WikiExtract({ url }: { url: string }) {
-  const [paragraphs, setParagraphs] = useState<string[]>([]);
-  const [expanded, setExpanded] = useState(false);
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    const controller = new AbortController();
-    const timeout = setTimeout(() => controller.abort(), 10000);
-    try {
-      const urlObj = new URL(url);
-      const lang = urlObj.hostname.split(".")[0];
-      const title = decodeURIComponent(urlObj.pathname.split("/wiki/")[1] || "");
-      if (!title) { setLoading(false); clearTimeout(timeout); return; }
-
-      fetch(
-        `https://${lang}.wikipedia.org/w/api.php?action=query&titles=${encodeURIComponent(title)}&prop=extracts&explaintext=true&exsectionformat=plain&format=json&origin=*`,
-        { signal: controller.signal }
-      )
-        .then((res) => res.json())
-        .then((data) => {
-          const pages = data.query?.pages;
-          if (!pages) { setLoading(false); return; }
-          const pageId = Object.keys(pages)[0];
-          const extract = pages[pageId]?.extract || "";
-          const paras = extract.split("\n\n").filter((p: string) => p.length > 40);
-          setParagraphs(paras.slice(0, 6));
-          setLoading(false);
-        })
-        .catch(() => setLoading(false))
-        .finally(() => clearTimeout(timeout));
-    } catch {
-      setLoading(false);
-      clearTimeout(timeout);
-    }
-    return () => { controller.abort(); clearTimeout(timeout); };
-  }, [url]);
-
-  if (loading || paragraphs.length === 0) return null;
-
-  // Truncate first paragraph to ~500 chars at a sentence boundary
-  const PREVIEW_MAX = 500;
-  const firstPara = paragraphs[0];
-  let preview: string;
-  let restOfFirst: string | null = null;
-
-  if (firstPara.length <= PREVIEW_MAX) {
-    preview = firstPara;
-  } else {
-    const cut = firstPara.slice(0, PREVIEW_MAX);
-    const sentenceEnd = cut.lastIndexOf(". ");
-    if (sentenceEnd > 200) {
-      preview = cut.slice(0, sentenceEnd + 1);
-      restOfFirst = firstPara.slice(sentenceEnd + 2);
-    } else {
-      const wordEnd = cut.lastIndexOf(" ");
-      preview = cut.slice(0, wordEnd > 0 ? wordEnd : PREVIEW_MAX) + "\u2026";
-      restOfFirst = firstPara.slice(wordEnd > 0 ? wordEnd + 1 : PREVIEW_MAX);
-    }
-  }
-
-  const hasMore = restOfFirst !== null || paragraphs.length > 1;
-
-  return (
-    <div className="mt-3">
-      <p className="text-sm text-[var(--foreground)]/80 leading-relaxed">
-        {preview}
-      </p>
-      {expanded && (
-        <div className="max-h-[280px] overflow-y-auto space-y-3 text-sm text-[var(--foreground)]/80 leading-relaxed">
-          {restOfFirst && <p>{restOfFirst}</p>}
-          {paragraphs.slice(1).map((p, i) => (
-            <p key={i}>{p}</p>
-          ))}
-        </div>
-      )}
-      {hasMore && (
-        <button
-          onClick={(e) => { e.stopPropagation(); setExpanded(!expanded); }}
-          className="mt-2 text-xs text-[var(--accent)] hover:underline"
-        >
-          {expanded ? "Less" : "More"}
-        </button>
-      )}
-    </div>
-  );
-}
-
 interface PersonIdentity {
   name: string;
   thumbnail?: string;
@@ -452,23 +312,29 @@ export default function ConcordancePage() {
 
   // Precompute cluster ID → local thumbnail path
   const clusterThumbnails = useMemo(() => {
-    if (!data || Object.keys(personIdentities).length === 0) return new Map<number, string>();
+    const identKeys = Object.keys(personIdentities);
+    if (!data || identKeys.length === 0) return new Map<number, string>();
+    // Pre-index: lowercase name → thumbnail path
+    const thumbByName = new Map<string, string>();
+    for (const key of identKeys) {
+      const ident = personIdentities[key];
+      if (ident?.thumbnail) thumbByName.set(key.toLowerCase().trim(), `/thumbnails/${ident.thumbnail}`);
+    }
     const map = new Map<number, string>();
     for (const cluster of data.clusters) {
-      const namesToCheck = new Set<string>();
-      namesToCheck.add((cluster.canonical_name || "").toLowerCase().trim());
-      const mn = cluster.ground_truth?.modern_name;
-      if (mn) namesToCheck.add(mn.toLowerCase().trim());
-      for (const m of cluster.members) {
-        namesToCheck.add(m.name.toLowerCase().trim());
+      const cn = (cluster.canonical_name || "").toLowerCase().trim();
+      let found = thumbByName.get(cn);
+      if (!found) {
+        const mn = cluster.ground_truth?.modern_name;
+        if (mn) found = thumbByName.get(mn.toLowerCase().trim());
       }
-      for (const name of namesToCheck) {
-        const ident = personIdentities[name];
-        if (ident?.thumbnail) {
-          map.set(cluster.id, `/thumbnails/${ident.thumbnail}`);
-          break;
+      if (!found) {
+        for (const m of cluster.members) {
+          found = thumbByName.get(m.name.toLowerCase().trim());
+          if (found) break;
         }
       }
+      if (found) map.set(cluster.id, found);
     }
     return map;
   }, [data, personIdentities]);
@@ -476,11 +342,6 @@ export default function ConcordancePage() {
   const getClusterThumbnail = useCallback((cluster: Cluster): string | null => {
     return clusterThumbnails.get(cluster.id) || null;
   }, [clusterThumbnails]);
-
-  const categories = useMemo(() => {
-    if (!data) return [];
-    return Object.keys(data.stats.by_category).sort();
-  }, [data]);
 
   const filteredClusters = useMemo(() => {
     if (!data) return [];
@@ -576,9 +437,35 @@ export default function ConcordancePage() {
     return (
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="animate-pulse space-y-4">
-          <div className="h-8 bg-[var(--border)] rounded w-1/4"></div>
-          <div className="h-4 bg-[var(--border)] rounded w-1/2"></div>
-          <div className="h-64 bg-[var(--border)] rounded"></div>
+          {/* Title + subtitle */}
+          <div className="h-8 bg-[var(--border)] rounded w-1/4" />
+          <div className="h-4 bg-[var(--border)] rounded w-1/2" />
+          {/* Search bar + filter row */}
+          <div className="flex gap-2">
+            <div className="h-10 bg-[var(--border)] rounded-lg flex-1" />
+            <div className="h-10 bg-[var(--border)] rounded-lg w-40" />
+          </div>
+          <div className="flex gap-1.5">
+            {Array.from({ length: 7 }).map((_, i) => (
+              <div key={i} className="h-7 bg-[var(--border)] rounded w-20" />
+            ))}
+          </div>
+          {/* Table header */}
+          <div className="hidden md:grid grid-cols-[1.75rem_1fr_1fr_5.5rem_1fr_3rem_1.5rem] gap-x-3 px-4 py-2.5">
+            <div /><div className="h-3 bg-[var(--border)] rounded w-12" /><div className="h-3 bg-[var(--border)] rounded w-20" /><div className="h-3 bg-[var(--border)] rounded w-10" /><div className="h-3 bg-[var(--border)] rounded w-16" /><div className="h-3 bg-[var(--border)] rounded w-8" /><div />
+          </div>
+          {/* Rows */}
+          {Array.from({ length: 8 }).map((_, i) => (
+            <div key={i} className="grid grid-cols-[1.75rem_1fr_1fr_5.5rem_1fr_3rem_1.5rem] gap-x-3 px-4 py-3 items-center">
+              <div className="w-2.5 h-2.5 bg-[var(--border)] rounded-full" />
+              <div className="h-4 bg-[var(--border)] rounded w-3/4" />
+              <div className="hidden md:block h-3 bg-[var(--border)] rounded w-2/3" />
+              <div className="hidden md:block h-5 bg-[var(--border)] rounded w-14" />
+              <div className="hidden md:flex gap-1"><div className="h-5 bg-[var(--border)] rounded w-8" /><div className="h-5 bg-[var(--border)] rounded w-8" /></div>
+              <div className="hidden md:block h-3 bg-[var(--border)] rounded w-6 ml-auto" />
+              <div className="hidden md:block w-4 h-4 bg-[var(--border)] rounded ml-auto" />
+            </div>
+          ))}
         </div>
       </div>
     );
@@ -662,8 +549,8 @@ export default function ConcordancePage() {
         )}
       </div>
 
-      {/* Search + filters */}
-      <div className="flex flex-col sm:flex-row gap-2 mb-4">
+      {/* Search + book filter */}
+      <div className="flex flex-col sm:flex-row gap-2 mb-3">
         <div className="relative flex-1">
           <svg
             className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-[var(--muted)]"
@@ -680,19 +567,6 @@ export default function ConcordancePage() {
           />
         </div>
         <select
-          value={categoryFilter}
-          onChange={(e) => { setCategoryFilter(e.target.value); setShowCount(50); }}
-          className="px-3 py-2 rounded-lg border border-[var(--border)] bg-[var(--card)] text-sm focus:outline-none focus:ring-2 focus:ring-[var(--accent)] focus:border-transparent cursor-pointer hover:border-[var(--muted)] transition-colors appearance-none bg-[length:1.25rem] bg-[position:right_0.5rem_center] bg-no-repeat"
-          style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%2378716c'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'/%3E%3C/svg%3E")`, paddingRight: "2rem" }}
-        >
-          <option value="ALL">All categories</option>
-          {categories.map((cat) => (
-            <option key={cat} value={cat}>
-              {cat} ({data.stats.by_category[cat]})
-            </option>
-          ))}
-        </select>
-        <select
           value={bookFilter}
           onChange={(e) => { setBookFilter(e.target.value); setShowCount(50); }}
           className="px-3 py-2 rounded-lg border border-[var(--border)] bg-[var(--card)] text-sm focus:outline-none focus:ring-2 focus:ring-[var(--accent)] focus:border-transparent cursor-pointer hover:border-[var(--muted)] transition-colors appearance-none bg-[length:1.25rem] bg-[position:right_0.5rem_center] bg-no-repeat"
@@ -708,31 +582,33 @@ export default function ConcordancePage() {
       </div>
 
       {/* Category chips */}
-      <div className="flex flex-wrap gap-1.5 mb-4">
-        {Object.entries(data.stats.by_category)
-          .sort(([, a], [, b]) => b - a)
-          .map(([cat, count]) => {
-            const color = CATEGORY_COLORS[cat];
-            const active = categoryFilter === cat;
-            return (
-              <button
-                key={cat}
-                onClick={() => {
-                  setCategoryFilter(active ? "ALL" : cat);
-                  setShowCount(50);
-                }}
-                className={`inline-flex items-center gap-1.5 px-2 py-1 rounded text-xs transition-colors ${
-                  active
-                    ? `${color?.badge || "bg-[var(--border)]"} border border-current`
-                    : "border border-[var(--border)] text-[var(--muted)] hover:text-[var(--foreground)]"
-                }`}
-              >
-                <span className={`w-1.5 h-1.5 rounded-full ${color?.dot || "bg-gray-400"}`} />
-                {cat}
-                <span className="font-mono opacity-60">{count}</span>
-              </button>
-            );
-          })}
+      <div className="relative mb-4">
+        <div className="flex gap-1.5 overflow-x-auto pb-1 scrollbar-thin" style={{ WebkitOverflowScrolling: "touch" }}>
+          {Object.entries(data.stats.by_category)
+            .sort(([, a], [, b]) => b - a)
+            .map(([cat, count]) => {
+              const color = CATEGORY_COLORS[cat];
+              const active = categoryFilter === cat;
+              return (
+                <button
+                  key={cat}
+                  onClick={() => {
+                    setCategoryFilter(active ? "ALL" : cat);
+                    setShowCount(50);
+                  }}
+                  className={`inline-flex items-center gap-1.5 px-2 py-1 rounded text-xs transition-colors whitespace-nowrap shrink-0 ${
+                    active
+                      ? `${color?.badge || "bg-[var(--border)]"} border border-current`
+                      : "border border-[var(--border)] text-[var(--muted)] hover:text-[var(--foreground)]"
+                  }`}
+                >
+                  <span className={`w-1.5 h-1.5 rounded-full ${color?.dot || "bg-gray-400"}`} />
+                  {cat}
+                  <span className="font-mono opacity-60">{count}</span>
+                </button>
+              );
+            })}
+        </div>
       </div>
 
       <div className="flex items-baseline gap-2 mb-3 flex-wrap">
@@ -791,6 +667,7 @@ export default function ConcordancePage() {
               key={cluster.id}
               id={`cluster-${cluster.id}`}
               className="relative bg-[var(--card)] group/row"
+              style={{ contentVisibility: "auto", containIntrinsicSize: "auto 56px" }}
             >
               {/* Left accent bar — visible on hover or when expanded */}
               <span className={`absolute left-0 top-0 bottom-0 w-0.5 ${catColor?.dot || "bg-gray-400"} ${isExpanded ? "opacity-100" : "opacity-0 group-hover/row:opacity-100"} transition-opacity z-10`} />
@@ -812,16 +689,17 @@ export default function ConcordancePage() {
                     href={`/concordance/${clusterSlug(cluster, data!.clusters)}`}
                     onClick={(e) => e.stopPropagation()}
                     className="font-semibold truncate block hover:text-[var(--accent)] transition-colors"
+                    title={displayName(cluster)}
                   >
                     {displayName(cluster)}
                   </Link>
                   {displayName(cluster).toLowerCase() !== cluster.canonical_name.toLowerCase() && (
-                    <span className="text-xs text-[var(--muted)] truncate block mt-0.5">
+                    <span className="text-xs text-[var(--muted)] truncate block mt-0.5" title={cluster.canonical_name}>
                       {cluster.canonical_name}
                     </span>
                   )}
                   {cluster.ground_truth?.wikidata_description && (
-                    <span className="md:hidden text-xs text-[var(--muted)] truncate block mt-0.5">
+                    <span className="md:hidden text-xs text-[var(--muted)] truncate block mt-0.5" title={cluster.ground_truth.wikidata_description}>
                       {cluster.ground_truth.wikidata_description}
                     </span>
                   )}
@@ -830,12 +708,12 @@ export default function ConcordancePage() {
                 {/* Identification + description — hidden on mobile */}
                 <div className="hidden md:block min-w-0">
                   {identification ? (
-                    <span className="text-sm text-[var(--muted)] truncate block">
+                    <span className="text-sm text-[var(--muted)] truncate block" title={identification.text}>
                       {identification.italic ? <i>{identification.text}</i> : identification.text}
                     </span>
                   ) : null}
                   {cluster.ground_truth?.wikidata_description && (
-                    <span className="text-xs text-[var(--muted)] opacity-60 truncate block">
+                    <span className="text-xs text-[var(--muted)] opacity-60 truncate block" title={cluster.ground_truth.wikidata_description}>
                       {cluster.ground_truth.wikidata_description}
                     </span>
                   )}
@@ -865,176 +743,77 @@ export default function ConcordancePage() {
                 </svg>
               </button>
 
-              {/* Expanded detail */}
+              {/* Expanded preview card */}
               {isExpanded && (
-                <div className="px-4 pb-5 border-t border-[var(--border)] animate-expand">
-                  {/* View full details — prominent at top right */}
-                  <div className="flex justify-end mt-3 mb-1">
-                    <Link
-                      href={`/concordance/${clusterSlug(cluster, data!.clusters)}`}
-                      className="inline-flex items-center gap-1.5 px-3 py-1.5 text-sm font-medium text-[var(--accent)] border border-[var(--accent)]/25 rounded-lg hover:bg-[var(--accent)]/5 transition-colors"
-                      onClick={(e) => e.stopPropagation()}
-                    >
-                      View full details &rarr;
-                    </Link>
-                  </div>
-                  <div className="md:flex md:gap-6">
-                    {/* Left panel: Identification */}
-                    {cluster.ground_truth && (
-                      <div className="md:w-[280px] md:shrink-0">
-                        <div className="p-3 rounded-lg bg-[var(--background)] border border-[var(--border)]">
-                          <div className="flex items-start gap-3">
-                            {(() => {
-                              const localThumb = getClusterThumbnail(cluster);
-                              if (localThumb) return (
-                                <div className="shrink-0">
-                                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                                  <img
-                                    src={localThumb}
-                                    alt={cluster.ground_truth?.modern_name || ""}
-                                    className="w-14 h-[4.5rem] rounded object-cover border border-[var(--border)] bg-[var(--border)]"
-                                  />
-                                </div>
-                              );
-                              if (cluster.ground_truth?.wikipedia_url) return (
-                                <WikiThumbnail url={cluster.ground_truth.wikipedia_url} />
-                              );
-                              return null;
-                            })()}
-                            <div className="flex-1 min-w-0">
-                              <div className="flex items-center gap-2 flex-wrap">
-                                <span className="text-sm font-semibold">{cluster.ground_truth.modern_name}</span>
-                                {cluster.ground_truth.linnaean && (
-                                  <span className="text-sm italic text-[var(--muted)]">{cluster.ground_truth.linnaean}</span>
-                                )}
-                                <span className={`px-1.5 py-0.5 rounded text-xs font-medium ${
-                                  cluster.ground_truth.confidence === "high" ? "bg-green-500/20 text-green-600 dark:text-green-400" :
-                                  cluster.ground_truth.confidence === "medium" ? "bg-yellow-500/20 text-yellow-600 dark:text-yellow-400" :
-                                  "bg-red-500/20 text-red-600 dark:text-red-400"
-                                }`}>
-                                  {cluster.ground_truth.confidence}
-                                </span>
-                              </div>
-                              {cluster.ground_truth.description && (
-                                <p className="text-xs text-[var(--muted)] mt-1.5 leading-relaxed">{cluster.ground_truth.description}</p>
-                              )}
-                              {cluster.ground_truth.wikidata_description && !cluster.ground_truth.description && (
-                                <p className="text-xs text-[var(--muted)] mt-1.5 leading-relaxed">{cluster.ground_truth.wikidata_description}</p>
-                              )}
-                              <div className="flex flex-wrap gap-x-3 gap-y-0.5 mt-2 text-xs text-[var(--muted)]">
-                                {cluster.ground_truth.family && <span>Family: {cluster.ground_truth.family}</span>}
-                                {cluster.ground_truth.birth_year && (
-                                  <span>{cluster.ground_truth.birth_year}&ndash;{cluster.ground_truth.death_year || "?"}</span>
-                                )}
-                                {cluster.ground_truth.country && <span>{cluster.ground_truth.country}</span>}
-                                {cluster.ground_truth.modern_term && cluster.ground_truth.modern_term !== cluster.ground_truth.modern_name && (
-                                  <span>Modern: {cluster.ground_truth.modern_term}</span>
-                                )}
-                              </div>
-                              {cluster.ground_truth.note && (
-                                <p className="text-xs text-[var(--muted)] mt-2 border-l-2 border-[var(--border)] pl-2 leading-relaxed">
-                                  {cluster.ground_truth.note}
-                                </p>
-                              )}
-                              <div className="flex items-center gap-2 mt-2 flex-wrap">
-                                {cluster.ground_truth.wikipedia_url && (
-                                  <a
-                                    href={cluster.ground_truth.wikipedia_url}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="inline-flex items-center gap-1 px-2 py-0.5 rounded text-xs border border-[var(--border)] hover:bg-[var(--border)] transition-colors"
-                                  >
-                                    <svg className="w-3 h-3" viewBox="0 0 24 24" fill="currentColor"><path d="M12.09 13.119c-.936 1.932-2.217 4.548-2.853 5.728-.616 1.074-1.127.931-1.532.029-1.406-3.321-4.293-9.144-5.651-12.409-.251-.601-.441-.987-.619-1.139-.181-.15-.554-.224-1.122-.224L.203 5.104c-.196 0-.302-.099-.302-.296S.035 4.5.231 4.5h4.717c.196 0 .294.099.294.296s-.098.312-.294.312c-.635 0-1.067.078-1.3.234-.238.155-.244.467-.06.931 1.283 3.223 3.944 8.502 5.283 11.727.477-1.054 2.067-4.287 2.772-5.821C10.791 10.485 9.25 7.35 8.187 5.104c-.196-.439-.36-.685-.535-.789-.173-.104-.583-.156-1.225-.156l-.022-.312c-.196 0-.302-.099-.302-.296S6.207 3.24 6.403 3.24h4.43c.196 0 .294.099.294.296s-.098.312-.294.312c-.523 0-.885.078-1.085.234-.205.155-.178.39.024.693 1.095 2.23 2.256 4.475 2.93 5.737.384-.747 1.665-3.324 2.466-4.957.354-.786.456-1.357.129-1.619-.191-.164-.616-.246-1.27-.246l-.022-.312c-.196 0-.302-.099-.302-.296s.106-.312.302-.312h4.068c.196 0 .294.099.294.296s-.098.312-.294.312c-.466 0-.86.078-1.181.234-.322.155-.662.5-1.019 1.035-.638.862-2.096 3.785-2.709 5.01.634 1.259 2.627 5.532 3.423 7.142.424-.811 2.464-5.014 3.241-6.661.344-.746.395-1.357.017-1.619-.227-.164-.662-.246-1.303-.246l-.022-.312c-.196 0-.302-.099-.302-.296s.106-.312.302-.312h3.686c.196 0 .294.099.294.296s-.098.312-.294.312c-.487 0-.89.078-1.211.234-.322.155-.705.5-1.15 1.035-.8 1.094-2.722 5.236-3.592 7.136-.453.987-1.024 2.145-1.49 3.124-.556 1.074-1.073.931-1.478.029L12.09 13.119z"/></svg>
-                                    Wikipedia
-                                  </a>
-                                )}
-                                {cluster.ground_truth.wikidata_id && (
-                                  <a
-                                    href={`https://www.wikidata.org/wiki/${cluster.ground_truth.wikidata_id}`}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="inline-flex items-center gap-1 px-2 py-0.5 rounded text-xs border border-[var(--border)] hover:bg-[var(--border)] transition-colors font-mono text-[var(--muted)]"
-                                    title={cluster.ground_truth.wikidata_id}
-                                  >
-                                    {cluster.ground_truth.wikidata_id}
-                                  </a>
-                                )}
-                              </div>
-                            </div>
-                          </div>
+                <div className="px-4 pb-4 border-t border-[var(--border)] animate-expand">
+                  <div className="mt-3 flex items-start gap-3">
+                    {/* Optional thumbnail */}
+                    {(() => {
+                      const localThumb = getClusterThumbnail(cluster);
+                      if (localThumb) return (
+                        <div className="shrink-0">
+                          {/* eslint-disable-next-line @next/next/no-img-element */}
+                          <img
+                            src={localThumb}
+                            alt={cluster.ground_truth?.modern_name || ""}
+                            className="w-12 h-14 rounded object-cover border border-[var(--border)] bg-[var(--border)]"
+                          />
                         </div>
-                        {/* Wikipedia extract */}
-                        {cluster.ground_truth?.wikipedia_url && (
-                          <WikiExtract url={cluster.ground_truth.wikipedia_url} />
-                        )}
-                      </div>
-                    )}
-
-                    {/* Right panel: Members by book — two-column grid, max 10 */}
-                    <div className={`flex-1 min-w-0 ${cluster.ground_truth ? "mt-4 md:mt-0" : ""}`}>
-                      <h4 className="text-xs uppercase tracking-widest text-[var(--muted)] font-medium mb-2">Source Evidence</h4>
-                      {(() => {
-                        const bookEntries = data.books
-                          .filter((b) => cluster.members.some((m) => m.book_id === b.id))
-                          .sort((a, b) => a.year - b.year)
-                          .map((book) => ({
-                            book,
-                            members: cluster.members.filter((m) => m.book_id === book.id),
-                          }));
-                        const MAX_SHOW = 10;
-                        const visible = bookEntries.slice(0, MAX_SHOW);
-                        const remaining = bookEntries.length - MAX_SHOW;
-
-                        return (
-                          <>
-                            <div className="sm:columns-2 gap-4 space-y-2.5">
-                              {visible.map(({ book, members: bookMembers }) => (
-                                <div key={book.id} className="pl-3 border-l-2 border-[var(--border)] break-inside-avoid">
-                                  <div className="flex items-baseline gap-2 mb-0.5">
-                                    <span className="text-xs font-medium">{BOOK_SHORT_NAMES[book.id] || book.title}</span>
-                                    <span className="text-xs text-[var(--muted)] font-mono">{BOOK_LANG_FLAGS[book.language] || ""}</span>
-                                    <span className="text-xs text-[var(--muted)]">{book.year}</span>
-                                  </div>
-                                  {bookMembers.map((member) => (
-                                    <div key={member.entity_id} className="mb-1.5 last:mb-0">
-                                      <div className="flex items-baseline gap-1.5 flex-wrap">
-                                        <Link
-                                          href={`/books/${book.id}/entity/${member.entity_id}`}
-                                          className="text-sm font-medium text-[var(--accent)] hover:underline"
-                                        >
-                                          {member.name}
-                                        </Link>
-                                        <span className="text-xs text-[var(--muted)] font-mono tabular-nums">
-                                          {member.count}
-                                        </span>
-                                        {member.variants.length > 1 && (
-                                          <span className="text-xs text-[var(--muted)]">
-                                            {member.variants.slice(0, 3).join(", ")}
-                                            {member.variants.length > 3 && ` +${member.variants.length - 3}`}
-                                          </span>
-                                        )}
-                                      </div>
-                                      {member.contexts.length > 0 && (
-                                        <p className="text-xs text-[var(--muted)] italic leading-relaxed mt-0.5 line-clamp-1">
-                                          &ldquo;{member.contexts[0].length > 120 ? member.contexts[0].slice(0, 117) + "\u2026" : member.contexts[0]}&rdquo;
-                                        </p>
-                                      )}
-                                    </div>
-                                  ))}
-                                </div>
-                              ))}
-                            </div>
-                            {remaining > 0 && (
-                              <p className="text-xs text-[var(--muted)] mt-2">
-                                and {remaining} more book{remaining !== 1 ? "s" : ""}
-                              </p>
-                            )}
-                          </>
-                        );
-                      })()}
+                      );
+                      return null;
+                    })()}
+                    <div className="flex-1 min-w-0">
+                      {/* One-line identification */}
+                      {cluster.ground_truth && (
+                        <div className="flex items-center gap-2 flex-wrap mb-1">
+                          <span className="text-sm font-semibold">{cluster.ground_truth.modern_name}</span>
+                          {cluster.ground_truth.linnaean && (
+                            <span className="text-sm italic text-[var(--muted)]">{cluster.ground_truth.linnaean}</span>
+                          )}
+                        </div>
+                      )}
+                      {/* 2-3 line description */}
+                      {(cluster.ground_truth?.description || cluster.ground_truth?.wikidata_description) && (
+                        <p className="text-xs text-[var(--muted)] leading-relaxed line-clamp-3">
+                          {cluster.ground_truth.description || cluster.ground_truth.wikidata_description}
+                        </p>
+                      )}
                     </div>
                   </div>
 
+                  {/* Compact source book list with mention counts */}
+                  <div className="mt-3">
+                    <div className="flex flex-wrap gap-1.5">
+                      {data.books
+                        .filter((b) => cluster.members.some((m) => m.book_id === b.id))
+                        .sort((a, b) => a.year - b.year)
+                        .map((book) => {
+                          const count = cluster.members.filter((m) => m.book_id === book.id).reduce((s, m) => s + m.count, 0);
+                          return (
+                            <span
+                              key={book.id}
+                              className="inline-flex items-center gap-1 px-2 py-0.5 rounded text-xs border border-[var(--border)] text-[var(--muted)]"
+                            >
+                              <span className="font-mono">{BOOK_LANG_FLAGS[book.language] || "?"}</span>
+                              {BOOK_SHORT_NAMES[book.id] || book.title}
+                              <span className="font-mono tabular-nums opacity-60">{count}</span>
+                            </span>
+                          );
+                        })}
+                    </div>
+                  </div>
+
+                  {/* Prominent full details button */}
+                  <Link
+                    href={`/concordance/${clusterSlug(cluster, data!.clusters)}`}
+                    className="mt-3 w-full inline-flex items-center justify-center gap-2 px-4 py-2.5 text-sm font-medium text-white bg-[var(--accent)] rounded-lg hover:opacity-90 transition-opacity"
+                    onClick={(e) => e.stopPropagation()}
+                  >
+                    View full details
+                    <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                    </svg>
+                  </Link>
                 </div>
               )}
             </div>
