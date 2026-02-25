@@ -1,5 +1,5 @@
 import { readFileSync } from "fs";
-import { dataPath } from "./dataPath";
+import { join } from "path";
 
 export interface ClusterMember {
   entity_id: string;
@@ -114,14 +114,14 @@ let cachedNeighbors: NeighborGraph | null = null;
 
 export function getConcordance(): ConcordanceData {
   if (cachedConcordance) return cachedConcordance;
-  const raw = readFileSync(dataPath("concordance.json"), "utf-8");
+  const raw = readFileSync(join(process.cwd(), "public", "data", "concordance.json"), "utf-8");
   cachedConcordance = JSON.parse(raw) as ConcordanceData;
   return cachedConcordance;
 }
 
 export function getNeighborGraph(): NeighborGraph {
   if (cachedNeighbors) return cachedNeighbors;
-  const raw = readFileSync(dataPath("cluster_neighbors.json"), "utf-8");
+  const raw = readFileSync(join(process.cwd(), "public", "data", "cluster_neighbors.json"), "utf-8");
   cachedNeighbors = JSON.parse(raw) as NeighborGraph;
   return cachedNeighbors;
 }

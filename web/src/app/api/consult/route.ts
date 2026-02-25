@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { GoogleGenerativeAI } from "@google/generative-ai";
 import OpenAI from "openai";
 import { readFileSync } from "fs";
-import { dataPath } from "@/lib/dataPath";
+import { join } from "path";
 import { checkRateLimit } from "@/lib/rateLimit";
 import {
   getEntityRegistry,
@@ -79,7 +79,7 @@ let cachedProfiles: Record<string, EpistemologicalProfile> | null = null;
 
 function getProfiles(): Record<string, EpistemologicalProfile> {
   if (cachedProfiles) return cachedProfiles;
-  const filePath = dataPath("book_epistemologies.json");
+  const filePath = join(process.cwd(), "public", "data", "book_epistemologies.json");
   cachedProfiles = JSON.parse(readFileSync(filePath, "utf-8"));
   return cachedProfiles!;
 }
@@ -151,7 +151,7 @@ let cachedSearchIndex: SearchIndex | null = null;
 function getSearchIndex(): SearchIndex | null {
   if (cachedSearchIndex) return cachedSearchIndex;
   try {
-    const indexPath = dataPath("search_index.json");
+    const indexPath = join(process.cwd(), "public", "data", "search_index.json");
     cachedSearchIndex = JSON.parse(readFileSync(indexPath, "utf-8"));
     return cachedSearchIndex;
   } catch {

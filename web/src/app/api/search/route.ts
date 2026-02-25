@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import OpenAI from "openai";
 import { readFileSync } from "fs";
-import { dataPath } from "@/lib/dataPath";
+import { join } from "path";
 import { BOOK_YEARS } from "@/lib/books";
 
 // ── Types ──────────────────────────────────────────────────────────────
@@ -62,7 +62,7 @@ let cachedIndex: SearchIndex | null = null;
 
 function getIndex(): SearchIndex {
   if (cachedIndex) return cachedIndex;
-  const indexPath = dataPath("search_index.json");
+  const indexPath = join(process.cwd(), "public", "data", "search_index.json");
   const raw = readFileSync(indexPath, "utf-8");
   cachedIndex = JSON.parse(raw);
   return cachedIndex!;
@@ -87,7 +87,7 @@ function getClusterContextText(): Map<string, string> {
 
 function loadConcordanceMaps(): void {
   if (!cachedConcordance) {
-    const cPath = dataPath("concordance.json");
+    const cPath = join(process.cwd(), "public", "data", "concordance.json");
     cachedConcordance = JSON.parse(readFileSync(cPath, "utf-8"));
   }
 

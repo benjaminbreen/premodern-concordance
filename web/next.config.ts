@@ -2,6 +2,19 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   compress: true,
+  outputFileTracingExcludes: {
+    "*": [
+      "./public/data/*.bak*",
+      "./public/data/*.pre-cleanup*",
+      "./public/data/*.pre_*",
+      "./public/data/*_entities.json",
+      "./public/data/*_entities.json.bak",
+      "./public/data/*_entities.pre-cleanup.json",
+      "./public/data/concordance.pre_*",
+      "./public/data/concordance.tuned_*",
+      "./public/data/concordance_pre_*",
+    ],
+  },
   images: {
     formats: ["image/webp", "image/avif"],
     remotePatterns: [
