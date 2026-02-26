@@ -42,6 +42,20 @@ interface GroundTruth {
   portrait_url?: string;
 }
 
+interface CrossReference {
+  found_name: string;
+  link_type: string;
+  link_strength: number;
+  target_cluster_id: number | null;
+  target_cluster_name: string | null;
+  source_book: string;
+  evidence_snippet: string;
+  confidence: number;
+  auto_label: string;
+  found_relationship: string;
+  is_reverse?: boolean;
+}
+
 interface Cluster {
   id: number;
   stable_key?: string;
@@ -53,6 +67,7 @@ interface Cluster {
   members: ClusterMember[];
   edges: ClusterEdge[];
   ground_truth?: GroundTruth;
+  cross_references?: CrossReference[];
 }
 
 interface BookMeta {
@@ -238,6 +253,7 @@ export default function ConcordancePage() {
   const [personIdentities, setPersonIdentities] = useState<Record<string, PersonIdentity>>({});
   const [showAll, setShowAll] = useState(false);
   const [corpusExpanded, setCorpusExpanded] = useState(false);
+  const [xrefFilter, setXrefFilter] = useState<string>(""); // "" = off, "any", "same_referent", "cross_linguistic", "contested_identity"
 
   // Read all URL params on mount
   useEffect(() => {
@@ -381,6 +397,14 @@ export default function ConcordancePage() {
       );
     }
 
+    if (xrefFilter) {
+      clusters = clusters.filter((c) => {
+        const refs = (c.cross_references || []).filter((r) => r.target_cluster_id != null && !r.is_reverse);
+        if (xrefFilter === "any") return refs.length > 0;
+        return refs.some((r) => r.link_type === xrefFilter);
+      });
+    }
+
     // Sort by salience: cross-book coverage weighted by mention frequency
     clusters = [...clusters].sort((a, b) => {
       const sa = a.book_count * a.total_mentions;
@@ -389,7 +413,7 @@ export default function ConcordancePage() {
     });
 
     return clusters;
-  }, [data, search, categoryFilter, bookFilter, showAll]);
+  }, [data, search, categoryFilter, bookFilter, showAll, xrefFilter]);
 
   // Keyboard navigation: Escape to close, Left/Right arrows to navigate
   const handleKeyDown = useCallback((e: KeyboardEvent) => {
@@ -611,6 +635,40 @@ export default function ConcordancePage() {
         </div>
       </div>
 
+      {/* Cross-reference filter chips */}
+      <div className="flex items-center gap-1.5 mb-3">
+        <span className="text-xs text-[var(--muted)] mr-1 shrink-0">Links:</span>
+        {([
+          { key: "any", label: "Has cross-refs" },
+          { key: "same_referent", label: "Synonyms" },
+          { key: "cross_linguistic", label: "Translations" },
+          { key: "contested_identity", label: "Contested" },
+        ] as const).map(({ key, label }) => {
+          const active = xrefFilter === key;
+          return (
+            <button
+              key={key}
+              onClick={() => { setXrefFilter(active ? "" : key); setShowCount(50); }}
+              className={`px-2 py-0.5 rounded text-xs transition-colors whitespace-nowrap ${
+                active
+                  ? "bg-[var(--foreground)] text-[var(--background)]"
+                  : "border border-[var(--border)] text-[var(--muted)] hover:text-[var(--foreground)]"
+              }`}
+            >
+              {label}
+            </button>
+          );
+        })}
+        {xrefFilter && (
+          <button
+            onClick={() => setXrefFilter("")}
+            className="text-xs text-[var(--muted)] hover:text-[var(--foreground)] ml-1"
+          >
+            clear
+          </button>
+        )}
+      </div>
+
       <div className="flex items-baseline gap-2 mb-3 flex-wrap">
         <span className="text-sm font-medium">{filteredClusters.length.toLocaleString()} clusters</span>
         {!search && !showAll && (
@@ -729,10 +787,21 @@ export default function ConcordancePage() {
                   <SourceLangs bookIds={bookIds} books={data.books} />
                 </div>
 
-                {/* Mention count */}
-                <span className="text-sm text-[var(--muted)] font-mono text-right tabular-nums">
-                  {cluster.total_mentions.toLocaleString()}
-                </span>
+                {/* Mention count + cross-ref indicator */}
+                <div className="text-right">
+                  <span className="text-sm text-[var(--muted)] font-mono tabular-nums">
+                    {cluster.total_mentions.toLocaleString()}
+                  </span>
+                  {(() => {
+                    const linkedRefs = (cluster.cross_references || []).filter((r) => r.target_cluster_id != null && !r.is_reverse);
+                    if (linkedRefs.length === 0) return null;
+                    return (
+                      <span className="block text-[10px] text-[var(--accent)] font-mono tabular-nums mt-0.5" title={`${linkedRefs.length} cross-references`}>
+                        {linkedRefs.length} links
+                      </span>
+                    );
+                  })()}
+                </div>
 
                 {/* Chevron */}
                 <svg
@@ -802,6 +871,59 @@ export default function ConcordancePage() {
                         })}
                     </div>
                   </div>
+
+                  {/* Cross-reference highlights */}
+                  {(() => {
+                    const refs = (cluster.cross_references || []).filter((r) => r.target_cluster_id != null && !r.is_reverse);
+                    if (refs.length === 0) return null;
+                    const synonyms = refs.filter((r) => r.link_type === "same_referent" || r.link_type === "cross_linguistic");
+                    const contested = refs.filter((r) => r.link_type === "contested_identity");
+                    const shown = [...synonyms.slice(0, 3), ...contested.slice(0, 2)];
+                    if (shown.length === 0 && refs.length > 0) {
+                      // Show a few conceptual_overlap if nothing else
+                      shown.push(...refs.slice(0, 3));
+                    }
+                    const typeLabel: Record<string, string> = {
+                      same_referent: "synonym",
+                      cross_linguistic: "translation",
+                      contested_identity: "contested",
+                      conceptual_overlap: "related",
+                      derivation: "derived",
+                    };
+                    const typeColor: Record<string, string> = {
+                      same_referent: "text-emerald-600 dark:text-emerald-400 bg-emerald-500/10",
+                      cross_linguistic: "text-blue-600 dark:text-blue-400 bg-blue-500/10",
+                      contested_identity: "text-amber-600 dark:text-amber-400 bg-amber-500/10",
+                      conceptual_overlap: "text-purple-600 dark:text-purple-400 bg-purple-500/10",
+                      derivation: "text-cyan-600 dark:text-cyan-400 bg-cyan-500/10",
+                    };
+                    return (
+                      <div className="mt-3">
+                        <div className="text-[10px] uppercase tracking-widest text-[var(--muted)] font-medium mb-1.5">
+                          Cross-references
+                          <span className="normal-case tracking-normal font-mono ml-1 opacity-60">({refs.length})</span>
+                        </div>
+                        <div className="flex flex-wrap gap-1.5">
+                          {shown.map((r, i) => (
+                            <span
+                              key={i}
+                              className="inline-flex items-center gap-1 px-2 py-0.5 rounded text-xs border border-[var(--border)]"
+                            >
+                              <span className={`px-1 py-px rounded text-[10px] font-medium ${typeColor[r.link_type] || "text-[var(--muted)] bg-[var(--border)]"}`}>
+                                {typeLabel[r.link_type] || r.link_type}
+                              </span>
+                              <span className="text-[var(--muted)]">{r.target_cluster_name || r.found_name}</span>
+                            </span>
+                          ))}
+                          {refs.length > shown.length && (
+                            <span className="text-xs text-[var(--muted)] self-center">
+                              +{refs.length - shown.length} more
+                            </span>
+                          )}
+                        </div>
+                      </div>
+                    );
+                  })()}
 
                   {/* Prominent full details button */}
                   <Link
