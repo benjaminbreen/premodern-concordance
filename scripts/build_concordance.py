@@ -1031,6 +1031,108 @@ def merge_near_duplicates(
     return result, merge_count
 
 
+def merge_by_ground_truth(clusters: list[dict]) -> tuple[list[dict], int]:
+    """Merge clusters that share the same ground_truth.modern_name and category.
+
+    This catches fragmentation from the embedding similarity step — e.g. five
+    separate "Moon" clusters that all resolved to modern_name="Moon" after
+    Wikidata enrichment.  Runs after migrate_ground_truth.py has populated
+    ground_truth fields.  Safe to call even if no ground_truth exists (no-op).
+    """
+    # Group by (modern_name_lower, category)
+    by_key: dict[tuple[str, str], list[int]] = defaultdict(list)
+    for i, c in enumerate(clusters):
+        gt = c.get("ground_truth", {})
+        if not isinstance(gt, dict):
+            continue
+        mn = (gt.get("modern_name") or "").strip()
+        if not mn:
+            continue
+        by_key[(mn.lower(), c["category"])].append(i)
+
+    merged_into: dict[int, int] = {}
+    merge_count = 0
+
+    for (mn_lower, cat), indices in by_key.items():
+        if len(indices) < 2:
+            continue
+
+        # Pick primary = most mentions
+        indices.sort(key=lambda i: -clusters[i].get("total_mentions", 0))
+        primary_idx = indices[0]
+        primary = clusters[primary_idx]
+
+        for absorbed_idx in indices[1:]:
+            if absorbed_idx in merged_into:
+                continue
+            ab = clusters[absorbed_idx]
+
+            # Merge members
+            existing = {(m["book_id"], m["entity_id"]) for m in primary["members"]}
+            for m in ab["members"]:
+                if (m["book_id"], m["entity_id"]) not in existing:
+                    primary["members"].append(m)
+                    existing.add((m["book_id"], m["entity_id"]))
+
+            # Merge edges
+            existing_edges = {
+                (e["source_book"], e["source_name"], e["target_book"], e["target_name"])
+                for e in primary.get("edges", [])
+            }
+            for e in ab.get("edges", []):
+                key = (e["source_book"], e["source_name"], e["target_book"], e["target_name"])
+                if key not in existing_edges:
+                    primary["edges"].append(e)
+
+            # Merge cross-references
+            if ab.get("cross_references"):
+                existing_xrefs = {
+                    (x.get("target_cluster_id"), x.get("link_type", ""))
+                    for x in primary.get("cross_references", [])
+                }
+                if "cross_references" not in primary:
+                    primary["cross_references"] = []
+                for x in ab["cross_references"]:
+                    xkey = (x.get("target_cluster_id"), x.get("link_type", ""))
+                    if xkey not in existing_xrefs:
+                        primary["cross_references"].append(x)
+                        existing_xrefs.add(xkey)
+
+            # Pick best ground_truth
+            def gt_score(gt):
+                if not isinstance(gt, dict):
+                    return 0
+                return (sum(1 for v in gt.values() if v)
+                        + (10 if gt.get("wikidata_id") else 0)
+                        + (5 if gt.get("wikipedia_extract") else 0))
+
+            ab_gt = ab.get("ground_truth", {})
+            if isinstance(ab_gt, dict) and gt_score(ab_gt) > gt_score(primary.get("ground_truth", {})):
+                primary["ground_truth"] = ab_gt
+
+            # Update stats
+            primary["total_mentions"] = sum(m["count"] for m in primary["members"])
+            primary["book_count"] = len(set(m["book_id"] for m in primary["members"]))
+            primary["member_count"] = len(primary["members"])
+
+            merged_into[absorbed_idx] = primary_idx
+            merge_count += 1
+
+            print(f"    ground_truth merge: {ab['canonical_name']} -> {primary['canonical_name']} "
+                  f"(modern_name='{mn_lower}', {cat})")
+
+    if not merge_count:
+        return clusters, 0
+
+    # Remove absorbed clusters, re-sort, re-assign IDs
+    result = [c for i, c in enumerate(clusters) if i not in merged_into]
+    result.sort(key=lambda c: (-c["book_count"], -c["total_mentions"]))
+    for i, c in enumerate(result):
+        c["id"] = i + 1
+
+    return result, merge_count
+
+
 def split_oversized_clusters(
     clusters: list[dict],
     max_size: int = MAX_CLUSTER_SIZE,
@@ -1253,6 +1355,14 @@ def main():
     )
     if merge_count:
         print(f"  Merged {merge_count} cluster pairs")
+
+    # Post-processing: merge clusters sharing same ground_truth.modern_name + category.
+    # This catches fragmentation from embedding similarity (e.g. 5 separate Moon clusters).
+    # Only effective after migrate_ground_truth.py has populated ground_truth fields.
+    print("Merging clusters with matching ground_truth.modern_name...")
+    clusters, gt_merge_count = merge_by_ground_truth(clusters)
+    if gt_merge_count:
+        print(f"  Merged {gt_merge_count} cluster pairs by ground_truth")
 
     # Safety valve: split oversized clusters
     oversized = [c for c in clusters if len(c.get("members", [])) > MAX_CLUSTER_SIZE]

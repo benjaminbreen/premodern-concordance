@@ -353,7 +353,7 @@ Embed every entity from every book using the fine-tuned BGE-M3 model. The embedd
 
 Store all embeddings in a FAISS index alongside entity metadata. This is computed once per entity and persisted to disk.
 
-At current scale (4 books, ~35K entities): a few minutes on CPU.
+At current scale (18 books, ~5,600 clusters): a few minutes on CPU.
 At target scale (5,000 books, ~25M entities): FAISS handles this fine with an IVF index. Embedding computation is the bottleneck — ~50 hours on GPU, or batched over time as books are added.
 
 #### Step 2: Cluster
@@ -398,7 +398,7 @@ Return JSON:
 }
 ```
 
-Cost estimate: ~$0.01 per cluster. At 5,000 clusters across 4 books: ~$50. At 100,000 clusters across 5,000 books: ~$1,000 (but spread over years of incremental ingestion).
+Cost estimate: ~$0.01 per cluster. At 5,657 clusters across 18 books: ~$57. At 100,000 clusters across 5,000 books: ~$1,000 (but spread over years of incremental ingestion).
 
 #### Step 4: Human review
 
@@ -426,6 +426,62 @@ When a new book is added:
 6. Update FAISS index with new embeddings
 
 Adding a new book is O(n) where n = number of entities in the new book, regardless of how many books are already in the system. No re-clustering needed.
+
+### Current Production Workflow (February 2026)
+
+The actual script pipeline for adding books and rebuilding the concordance. Run from the project root.
+
+#### Adding a new book
+
+```bash
+# 1. Extract entities from source text using Gemini Flash Lite
+python3 scripts/extract_book_entities.py --book-id new_book_author_year
+
+# 2. Find entity excerpts (character offsets into source text)
+python3 scripts/find_entity_excerpts.py
+```
+
+This produces `web/public/data/{book_id}_entities.json`.
+
+#### Full concordance rebuild (after adding books or re-fine-tuning embeddings)
+
+```bash
+# 1. Cluster all entities across all books using fine-tuned BGE-M3
+#    Outputs: concordance.json with clusters, members, edges
+#    Includes: merge_near_duplicates (lexical dedup) + merge_by_ground_truth (modern_name dedup)
+python3 scripts/build_concordance.py
+
+# 2. Carry over ground_truth enrichment from previous concordance
+#    Matches clusters by member overlap, transfers wikidata_id, modern_name, etc.
+python3 scripts/migrate_ground_truth.py
+
+# 3. Enrich new clusters (ones without ground_truth) via Wikidata + LLM
+python3 scripts/enrich_concordance.py
+python3 scripts/enrich_wikipedia.py
+python3 scripts/enrich_wikipedia_pass2.py
+
+# 4. Integrate cross-references from synonym chain data
+#    --strict flag: only high-quality labels (true_synonym, cross_linguistic, etc.)
+python3 scripts/integrate_cross_references.py --strict
+
+# 5. Post-enrichment dedup: merge clusters that now share the same modern_name + category
+#    This catches fragmentation that only becomes visible after Wikidata enrichment
+#    (e.g., five "Moon" clusters that all resolve to modern_name="Moon" after enrichment)
+python3 scripts/merge_clusters.py          # or: just re-run build_concordance.py
+
+# 6. Rebuild search index (requires OPENAI_API_KEY for text-embedding-3-small)
+python3 scripts/build_search_index.py
+
+# 7. Rebuild neighbor graph (pairwise similarity from search embeddings, ~15 min on CPU)
+python3 scripts/build_neighbor_graph.py
+```
+
+**Key notes:**
+- `build_concordance.py` now includes `merge_by_ground_truth()` which auto-merges same-category clusters sharing the same `ground_truth.modern_name`. This is a no-op on first build (before enrichment) but catches fragmentation on subsequent rebuilds after `migrate_ground_truth.py`.
+- `merge_clusters.py` is the standalone version of the same dedup logic — use it for post-hoc cleanup without a full rebuild. Supports `--dry-run` and `--plan merge_plan.json`.
+- After any concordance.json change, you **must** update `search_index.json` (filter+remap IDs if not regenerating) and rebuild `cluster_neighbors.json`.
+- Steps 3–4 have checkpoint saves (every 100 enrichments) to survive crashes.
+- Current state: **5,657 clusters across 18 books** after merge cleanup.
 
 ### Data Model
 
