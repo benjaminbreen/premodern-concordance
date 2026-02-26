@@ -43,6 +43,141 @@ The concordance links entities across books and languages through embedding simi
 
 ---
 
+## Architecture
+
+```
+╔══════════════════════════════════════════════════════════════════════════════╗
+║                    PREMODERN CONCORDANCE — DATA ARCHITECTURE               ║
+╚══════════════════════════════════════════════════════════════════════════════╝
+
+  SOURCE TEXTS (12 books, 6 languages, 1563–1890)
+  ┌─────────────┬──────────────┬──────────────┬─────────────────┐
+  │ Orta 1563   │ Monardes 1574│ Ricettario   │ Culpeper 1652   │
+  │ Portuguese  │ Spanish      │ Italian 1567 │ English         │
+  ├─────────────┼──────────────┼──────────────┼─────────────────┤
+  │ Semedo 1637 │ Humboldt     │ Darwin 1859  │ James 1890      │
+  │ Portuguese  │ German 1845  │ English      │ English         │
+  ├─────────────┼──────────────┼──────────────┼─────────────────┤
+  │ Spencer     │ Somerville   │ Kosmos       │ + Browne, etc.  │
+  │ English     │ English      │ German       │                 │
+  └──────┬──────┴──────┬───────┴──────┬───────┴────────┬────────┘
+         │             │              │                │
+         ▼             ▼              ▼                ▼
+  ┌──────────────────────────────────────────────────────────────┐
+  │              ENTITY EXTRACTION  (LLM-powered)                │
+  │  Each book → *_entities.json                                 │
+  │  Entities: name, category, subcategory, count, variants,     │
+  │            contexts[], mentions[].excerpt                    │
+  │                                                              │
+  │  Categories: SUBSTANCE │ PLANT │ DISEASE │ PERSON │ CONCEPT  │
+  │              PLACE │ ANIMAL │ ANATOMY │ OBJECT               │
+  └──────────────────────────────┬───────────────────────────────┘
+                                 │
+                                 │  12 entity files (4–40 MB each)
+                                 ▼
+  ┌──────────────────────────────────────────────────────────────┐
+  │            build_concordance.py                              │
+  │                                                              │
+  │  Fine-tuned BGE-M3 embeddings (2.2 GB model)                │
+  │  ┌────────────────────────────────────────────┐              │
+  │  │  "azogue" ──embed──▶ [0.12, -0.34, ...]   │              │
+  │  │  "mercury" ─embed──▶ [0.11, -0.33, ...]   │              │
+  │  │  "mercúrio" embed──▶ [0.13, -0.35, ...]   │              │
+  │  │          cosine similarity > 0.84 ──▶ CLUSTER            │
+  │  │          (0.80 threshold for PERSON)       │              │
+  │  └────────────────────────────────────────────┘              │
+  │                                                              │
+  │  Output: concordance.json (16 MB, 4,546 clusters)           │
+  │  ┌─────────────────────────────────────────┐                 │
+  │  │ { metadata, books[], stats,             │                 │
+  │  │   clusters: [                           │                 │
+  │  │     { id, canonical_name, category,     │                 │
+  │  │       members: [                        │                 │
+  │  │         { book_id: "orta",              │                 │
+  │  │           name: "mercúrio",             │                 │
+  │  │           count: 45, contexts: [...] }, │                 │
+  │  │         { book_id: "culpeper",          │                 │
+  │  │           name: "Mercury",              │                 │
+  │  │           count: 23, ... }              │                 │
+  │  │       ],                                │                 │
+  │  │       edges: [{ similarity: 0.94 }],    │                 │
+  │  │       ground_truth: { ... }             │                 │
+  │  │   } ] }                                 │                 │
+  │  └─────────────────────────────────────────┘                 │
+  └──────────────────────────────┬───────────────────────────────┘
+                                 │
+              ┌──────────────────┼──────────────────┐
+              ▼                  ▼                  ▼
+  ┌─────────────────┐ ┌──────────────────┐ ┌────────────────────┐
+  │ ENRICHMENT      │ │ ENRICHMENT       │ │ ENRICHMENT         │
+  │ PASS 1          │ │ PASS 2           │ │ PASS 3             │
+  │ enrich_         │ │ enrich_          │ │ enrich_            │
+  │ concordance.py  │ │ wikipedia.py     │ │ wikipedia_pass2.py │
+  │                 │ │                  │ │                    │
+  │ Gemini adds:    │ │ Wikidata →       │ │ Fill gaps          │
+  │ • modern_name   │ │ Wikipedia API:   │ │ (96% coverage)     │
+  │ • wikidata_id   │ │ • extracts      │ │                    │
+  │ • linnaean      │ │ • portraits     │ │                    │
+  │ • semantic_gloss│ │                  │ │                    │
+  └────────┬────────┘ └────────┬─────────┘ └─────────┬──────────┘
+           └───────────────────┼──────────────────────┘
+                               ▼
+  ┌──────────────────────────────────────────────────────────────┐
+  │                    POST-ENRICHMENT BUILDS                    │
+  │                                                              │
+  │  build_search_index.py     build_neighbor_graph.py           │
+  │  OpenAI text-embedding-    Cluster-to-cluster cosine         │
+  │  3-small, 512 dims         similarity (k=15 nearest)         │
+  │  → search_index.json       → cluster_neighbors.json          │
+  │    (72 MB)                   (2.1 MB)                        │
+  │                                                              │
+  │  build_entity_registry.py  resolve_person_identities.py      │
+  │  Flattened searchable      Wikipedia portraits for           │
+  │  registry of all entities  PERSON nodes (185 with photos)    │
+  │  → entity_registry.json    → person_identities.json          │
+  │    (74 MB)                                                   │
+  └──────────────────────────────┬───────────────────────────────┘
+                                 │
+         ════════════════════════╪════════════════════════════
+              STATIC DATA        │        WEB APPLICATION
+         ════════════════════════╪════════════════════════════
+                                 ▼
+  public/data/                   Next.js (Vercel)
+  ┌────────────────────┐         ┌──────────────────────────────┐
+  │ concordance.json   │────────▶│         API LAYER            │
+  │ search_index.json  │────────▶│                              │
+  │ entity_registry.json────────▶│  GET /api/books              │
+  │ cluster_neighbors  │────────▶│  GET /api/entities?q=...     │
+  │ book_epistemologies│────────▶│  GET /api/entity/:slug       │
+  │ person_identities  │         │  GET /api/clusters/:slug     │
+  │ person_graphs.json │         │  GET /api/search?q=...       │
+  └────────────────────┘         │  POST /api/consult           │
+                                 │  POST /api/translate         │
+                                 └──────────────────┬───────────┘
+                                                    │
+                           ┌────────────────────────┴──────────┐
+                           ▼                                   ▼
+              ┌──────────────────────┐     ┌───────────────────────┐
+              │   EXTERNAL APIS      │     │   FRONTEND PAGES      │
+              │                      │     │                       │
+              │  OpenAI Embeddings   │     │ /concordance          │
+              │  (search queries)    │     │   Browse 4,546 cross- │
+              │                      │     │   lingual clusters    │
+              │  Gemini 2.5 Flash    │     │                       │
+              │  (persona consult,   │     │ /books/:id/consult    │
+              │   constrained to     │     │   Chat with historical│
+              │   author's era)      │     │   author persona      │
+              │                      │     │                       │
+              │  Gemini Flash Lite   │     │ /search               │
+              │  (translation)       │     │   Hybrid semantic +   │
+              └──────────────────────┘     │   lexical search      │
+                                           └───────────────────────┘
+```
+
+The key architectural insight: the computationally expensive work (embedding, clustering, enrichment) happens offline in Python scripts, producing static JSON files. The web layer reads those files and adds search and AI features on top.
+
+---
+
 ## At a Glance
 
 | | |

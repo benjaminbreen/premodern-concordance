@@ -85,7 +85,12 @@ def build_embedding_text(cluster: dict) -> str:
     if gt.get("wikipedia_extract"):
         parts.append(gt["wikipedia_extract"])
 
-    return " | ".join(parts)
+    text = " | ".join(parts)
+    # Cap at ~6000 tokens (~18000 chars) to stay within 8192-token embedding limit
+    # (multilingual text tokenizes at ~3 chars/token)
+    if len(text) > 18000:
+        text = text[:18000]
+    return text
 
 
 def build_metadata(cluster: dict) -> dict:
