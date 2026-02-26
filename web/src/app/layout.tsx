@@ -262,7 +262,7 @@ export default function RootLayout({
                   <li><Link href="/methodology" className="footer-link text-[#fafaf9]/70">Methodology</Link></li>
                   <li><Link href="/about" className="footer-link text-[#fafaf9]/70">About</Link></li>
                   <li><Link href="/developers" className="footer-link text-[#fafaf9]/70">API</Link></li>
-                  <li><a href="https://github.com" target="_blank" rel="noopener noreferrer" className="footer-link text-[#fafaf9]/70">GitHub</a></li>
+                  <li><a href="https://github.com/benjaminbreen/premodern-concordance" target="_blank" rel="noopener noreferrer" className="footer-link text-[#fafaf9]/70">GitHub</a></li>
                 </ul>
               </div>
             </div>

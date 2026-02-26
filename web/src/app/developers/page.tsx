@@ -484,7 +484,7 @@ export default function DevelopersPage() {
         <p className="text-sm text-[var(--muted)]">
           Questions or feature requests?{" "}
           <a
-            href="https://github.com/bgreen-litai/premodern-concordance"
+            href="https://github.com/benjaminbreen/premodern-concordance"
             target="_blank"
             rel="noopener noreferrer"
             className="underline underline-offset-2 decoration-[var(--border)] hover:text-[var(--foreground)] transition-colors"
