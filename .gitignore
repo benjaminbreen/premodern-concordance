@@ -34,3 +34,14 @@ output/
 pilot/embedding_results.csv
 pilot/llm_review.csv
 pilot/summary.txt
+
+# Backup and intermediate data files (huge, not needed for deployment)
+web/public/data/*.bak*
+web/public/data/*.pre-cleanup*
+web/public/data/*.pre_*
+web/public/data/concordance.pre_*
+web/public/data/concordance.tuned_*
+web/public/data/concordance_pre_*
+web/public/data/entity_registry.json
+web/public/data/*_entities.json.bak
+web/public/data/*_entities.pre-cleanup.json
