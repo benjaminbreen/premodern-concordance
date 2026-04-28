@@ -438,11 +438,7 @@ export default function DevelopersPage() {
           <code className="bg-[var(--border)] px-1.5 py-0.5 rounded font-mono text-[11px]">
             /data/concordance.json
           </code>{" "}
-          (~18 MB),{" "}
-          <code className="bg-[var(--border)] px-1.5 py-0.5 rounded font-mono text-[11px]">
-            /data/entity_registry.json
-          </code>
-          , and{" "}
+          (~18 MB) and{" "}
           <code className="bg-[var(--border)] px-1.5 py-0.5 rounded font-mono text-[11px]">
             /data/search_index.json
           </code>

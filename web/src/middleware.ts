@@ -8,8 +8,11 @@ export function middleware(request: NextRequest) {
   if (pathname.startsWith("/data/")) {
     const filename = pathname.split("/").pop() || "";
 
-    // Block .bak files, .pre- files, pre_ prefixed backups, tuned_ files
+    // Block .bak files, .pre- files, pre_ prefixed backups, tuned_ files,
+    // and entity_registry.json (77MB — bundled into serverless functions
+    // for API routes but must not be served publicly to avoid bandwidth abuse).
     if (
+      filename === "entity_registry.json" ||
       filename.includes(".bak") ||
       filename.includes(".pre-cleanup") ||
       filename.includes(".pre_") ||
