@@ -1,0 +1,8 @@
+.page { width: min(calc(100% - 2rem), 60rem); padding-block: 4rem 8rem; }
+.page header h1 { margin: 0.8rem 0; font-size: clamp(2.4rem, 5vw, 3.75rem); font-weight: 700; letter-spacing: -0.04em; line-height: 1; }
+.page header > p:last-child { color: var(--muted); }
+.citation { margin-top: 3rem; border-top: 1px solid var(--border); padding-top: 2rem; }
+.citation h2 { font-size: 1.6rem; }
+.citation p { line-height: 1.65; }
+.citation code { overflow-wrap: anywhere; }
+.citation div { display: flex; gap: 1.5rem; color: var(--accent); }

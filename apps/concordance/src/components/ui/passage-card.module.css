@@ -1,0 +1,12 @@
+.card { padding-block: 2rem; border-top: 1px solid var(--border); }
+.meta, .footer { display: flex; justify-content: space-between; gap: 1rem; }
+.meta > div { display: flex; flex-direction: column; gap: 0.25rem; }
+.meta span, .footer { color: var(--muted); font-size: 0.78rem; }
+.source { font-weight: 700; }
+.source:hover, .footer a:hover { color: var(--accent); }
+.card blockquote { margin: 1.2rem 0; }
+.footer { align-items: center; }
+.footer div { display: flex; gap: 1rem; }
+@media (max-width: 600px) {
+  .meta, .footer { align-items: flex-start; flex-direction: column; }
+}

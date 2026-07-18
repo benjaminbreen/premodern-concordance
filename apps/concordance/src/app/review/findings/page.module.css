@@ -1,0 +1,22 @@
+.page {
+  padding-block: 4.5rem 6rem;
+}
+
+.header {
+  max-width: 54rem;
+  margin-bottom: 2.5rem;
+}
+
+.header h1 {
+  margin: 0.65rem 0 0.8rem;
+  font-size: clamp(2.4rem, 6vw, 4.5rem);
+  letter-spacing: -0.055em;
+  line-height: 0.98;
+}
+
+.header > p:last-child {
+  max-width: 46rem;
+  color: var(--muted);
+  font-size: 1.05rem;
+  line-height: 1.65;
+}

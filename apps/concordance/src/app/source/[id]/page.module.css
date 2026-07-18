@@ -1,0 +1,9 @@
+.page { padding-block: 4rem 8rem; }
+.page header { max-width: 58rem; }
+.page header h1 { margin: 0.8rem 0; font-size: clamp(2.7rem, 5vw, 4.5rem); font-weight: 700; letter-spacing: -0.05em; line-height: 1; }
+.page header > p { max-width: 45rem; color: var(--muted); line-height: 1.6; }
+.page header a { display: inline-block; margin-top: 1rem; color: var(--accent); }
+.byline { font-weight: 700; }
+.page section { max-width: 58rem; margin-top: 4.5rem; }
+.page section h2 { margin: 0.7rem 0 1.5rem; font-size: 2rem; letter-spacing: -0.035em; }
+.pagination { display: flex; justify-content: space-between; gap: 2rem; padding-top: 2rem; border-top: 1px solid var(--border); color: var(--accent); font-weight: 700; }

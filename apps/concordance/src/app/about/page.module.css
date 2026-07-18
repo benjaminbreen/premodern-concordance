@@ -1,0 +1,91 @@
+.page {
+  width: min(calc(100% - 2rem), 56rem);
+  padding-block: 3.5rem 7rem;
+}
+
+.page header { max-width: 47rem; }
+
+.page h1 {
+  margin: 0 0 1rem;
+  font-size: 2.1rem;
+  font-weight: 700;
+  letter-spacing: -0.045em;
+  line-height: 1.1;
+}
+
+.intro {
+  margin: 0;
+  color: var(--muted);
+  font-size: 1rem;
+  line-height: 1.72;
+}
+
+.method {
+  margin: 2.25rem 0 0;
+  font-size: 1.05rem;
+  line-height: 1.65;
+}
+
+.method a,
+.colophon a {
+  border-bottom: 1px solid var(--border);
+  color: var(--foreground);
+}
+
+.method a:hover,
+.colophon a:hover {
+  border-color: var(--foreground);
+}
+
+.page section { margin-top: 4rem; }
+
+.people {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 3rem;
+  margin-top: 1.75rem;
+}
+
+.people h3,
+.colophon h3 {
+  margin: 0 0 0.45rem;
+  font-size: 0.95rem;
+}
+
+.people p,
+.colophon p,
+.colophon li {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.86rem;
+  line-height: 1.55;
+}
+
+.colophon {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem 4rem;
+  margin-top: 1.75rem;
+}
+
+.colophon ul {
+  display: grid;
+  gap: 0.3rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.colophon li > span { color: var(--foreground); }
+.blackletter { font-family: var(--font-blackletter); font-size: 1rem; }
+.serif { font-family: var(--font-serif); font-size: 1rem; }
+.grotesk { font-family: var(--font-space), sans-serif; }
+
+@media (max-width: 620px) {
+  .page { padding-block: 3rem 5rem; }
+  .people,
+  .colophon {
+    grid-template-columns: 1fr;
+    gap: 1.75rem;
+  }
+}

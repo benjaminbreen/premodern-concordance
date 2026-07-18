@@ -1,0 +1,12 @@
+.passage-text {
+  font-family: var(--font-serif);
+  font-size: clamp(1.1rem, 1rem + 0.45vw, 1.35rem);
+  line-height: 1.75;
+}
+
+.passage-text mark {
+  border-radius: 0.15em;
+  background: color-mix(in srgb, var(--accent) 22%, transparent);
+  color: inherit;
+  padding-inline: 0.08em;
+}
