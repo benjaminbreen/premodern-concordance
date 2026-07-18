@@ -1,0 +1,211 @@
+{
+  "entries": [
+    {
+      "id": "entry-alligator",
+      "slug": "alligator",
+      "preferred_label": "Alligator",
+      "kind": "ORGANISM_TAXON",
+      "scope_note": "Alligators as zoological organisms, including historically identified American alligators and contextually supported historical spellings.",
+      "exclusions_note": "Crocodiles and caimans are not treated as unconditional synonyms.",
+      "legacy_terms": [
+        {"form": "alligator", "names": ["alligator", "alligators"], "relation": "PREFERRED_LABEL", "status": "CORE"}
+      ]
+    },
+    {
+      "id": "entry-cinchona-bark",
+      "slug": "cinchona-bark",
+      "preferred_label": "Cinchona bark",
+      "kind": "SUBSTANCE_MATERIAL",
+      "scope_note": "The historical febrifuge bark complex associated with Cinchona plants, including contextually supported quina and quinquina forms.",
+      "exclusions_note": "The bark complex is not identical to a single modern Cinchona species or every preparation containing bark.",
+      "legacy_terms": [
+        {"form": "quinquina", "names": ["quinquina"], "relation": "HISTORICAL_LABEL", "status": "CORE"},
+        {"form": "Quinaquina", "names": ["quinaquina"], "relation": "HISTORICAL_LABEL", "status": "CORE", "prefer": ["preparada com Quinaquina", "agua de Inglaterra"]}
+      ]
+    },
+    {
+      "id": "entry-cinchona-officinalis",
+      "slug": "cinchona-officinalis",
+      "preferred_label": "Cinchona officinalis",
+      "kind": "ORGANISM_TAXON",
+      "scope_note": "The Linnaean taxon Cinchona officinalis rather than the entire historical febrifuge bark complex.",
+      "exclusions_note": "Generic cinchona and quinquina passages require species-level evidence before assignment.",
+      "external_ids": {"scientific_name": "Cinchona officinalis"},
+      "legacy_terms": []
+    },
+    {
+      "id": "entry-agua-inglaterra",
+      "slug": "agua-de-inglaterra",
+      "preferred_label": "Água de Inglaterra",
+      "kind": "SUBSTANCE_MATERIAL",
+      "scope_note": "Portuguese proprietary or compounded febrifuge preparations known as Água de Inglaterra.",
+      "exclusions_note": "Not treated as another name for cinchona bark; recipes and ingredients varied.",
+      "legacy_terms": []
+    },
+    {
+      "id": "entry-engineer",
+      "slug": "engineer",
+      "preferred_label": "Engineer",
+      "kind": "ROLE_OCCUPATION",
+      "scope_note": "The historical occupation and role of the engineer, resolved separately from engineering as a field or generic learned expertise.",
+      "exclusions_note": "Man of science and other learned occupations are not synonyms.",
+      "legacy_terms": [
+        {"form": "engineers", "names": ["engineers"], "relation": "ORTHOGRAPHIC_VARIANT", "status": "CORE"}
+      ]
+    },
+    {
+      "id": "entry-military-engineer",
+      "slug": "military-engineer",
+      "preferred_label": "Military engineer",
+      "kind": "ROLE_OCCUPATION",
+      "scope_note": "Engineers working primarily on fortification, siegecraft, surveying, and other military works.",
+      "exclusions_note": "Not all historical engineers were military engineers.",
+      "legacy_terms": []
+    },
+    {
+      "id": "entry-machine",
+      "slug": "machine",
+      "preferred_label": "Machine",
+      "kind": "OBJECT_INSTRUMENT",
+      "scope_note": "Physical machines and historically explicit machine analogies, with metaphorical uses retained as passage-level senses.",
+      "exclusions_note": "Machine metaphors do not make their subjects literal machines.",
+      "legacy_terms": [
+        {"form": "machine", "names": ["machine"], "relation": "PREFERRED_LABEL", "status": "CORE"}
+      ]
+    },
+    {
+      "id": "entry-consciousness",
+      "slug": "consciousness",
+      "preferred_label": "Consciousness",
+      "kind": "CONCEPT_THEORY",
+      "scope_note": "Psychological and philosophical accounts of awareness or conscious mental life.",
+      "exclusions_note": "Moral conscience and incidental awareness phrases require separate contextual resolution.",
+      "legacy_terms": [
+        {"form": "consciousness", "names": ["consciousness"], "relation": "PREFERRED_LABEL", "status": "CORE", "exclude": ["table of contents", "contents of"]}
+      ]
+    },
+    {
+      "id": "entry-cosmos",
+      "slug": "cosmos",
+      "preferred_label": "Cosmos",
+      "kind": "CONCEPT_THEORY",
+      "scope_note": "The ordered universe or nature conceived as an interconnected whole, distinct from a mere book-title occurrence.",
+      "exclusions_note": "Title-page and bibliographic uses alone do not establish the conceptual sense.",
+      "legacy_terms": [
+        {"form": "Cosmos", "names": ["cosmos"], "relation": "PREFERRED_LABEL", "status": "SUGGESTED", "minimum_offset": 12000, "exclude": ["contents of vol", "sketch of the physical description"]}
+      ]
+    },
+    {
+      "id": "entry-homo-sapiens",
+      "slug": "homo-sapiens",
+      "preferred_label": "Homo sapiens",
+      "kind": "ORGANISM_TAXON",
+      "scope_note": "The human species under the Linnaean taxonomic name Homo sapiens.",
+      "exclusions_note": "Generic theological or anthropological uses of human species are resolved separately.",
+      "external_ids": {"scientific_name": "Homo sapiens"},
+      "legacy_terms": [
+        {"form": "Homo sapiens", "names": ["homo sapiens"], "relation": "PREFERRED_LABEL", "status": "CORE"}
+      ]
+    },
+    {
+      "id": "entry-human-species",
+      "slug": "human-species",
+      "preferred_label": "Human species",
+      "kind": "CONCEPT_THEORY",
+      "scope_note": "Historical conceptions of humanity as a species when the passage does not warrant direct assignment to the modern taxon.",
+      "exclusions_note": "Not every use is a taxonomic synonym for Homo sapiens.",
+      "legacy_terms": []
+    },
+    {
+      "id": "entry-evolution",
+      "slug": "evolution",
+      "preferred_label": "Evolution",
+      "kind": "CONCEPT_THEORY",
+      "scope_note": "Historical scientific concepts of ordered development or transformation, with biological and non-biological senses distinguished in passages.",
+      "exclusions_note": "Not treated as an unconditional synonym for transmutation of species.",
+      "legacy_terms": [
+        {"form": "evolution", "names": ["evolution"], "relation": "PREFERRED_LABEL", "status": "SUGGESTED", "exclude": ["contents"]}
+      ]
+    },
+    {
+      "id": "entry-transmutation-species",
+      "slug": "transmutation-of-species",
+      "preferred_label": "Transmutation of species",
+      "kind": "CONCEPT_THEORY",
+      "scope_note": "The historical claim that species transform into other species.",
+      "exclusions_note": "Kept distinct from evolution, development, and ordinary change.",
+      "legacy_terms": []
+    },
+    {
+      "id": "entry-genius",
+      "slug": "genius",
+      "preferred_label": "Genius",
+      "kind": "CONCEPT_THEORY",
+      "scope_note": "Exceptional natural intellectual or creative capacity, including historically explicit accounts of natural genius.",
+      "exclusions_note": "Grammatical genius, tutelary spirits, intelligence in general, and eugenics are distinct senses or entries.",
+      "legacy_terms": [
+        {"form": "genius", "names": ["genius"], "relation": "PREFERRED_LABEL", "status": "CORE", "exclude": ["grammatical form", "genius of manly"]}
+      ]
+    },
+    {
+      "id": "entry-intelligence",
+      "slug": "intelligence",
+      "preferred_label": "Intelligence",
+      "kind": "CONCEPT_THEORY",
+      "scope_note": "Cognitive capacity or intellect as discussed in scientific, philosophical, and psychological contexts.",
+      "exclusions_note": "Not interchangeable with genius, measurement practices, or eugenics.",
+      "legacy_terms": [
+        {"form": "intelligence", "names": ["intelligence"], "relation": "PREFERRED_LABEL", "status": "CORE"}
+      ]
+    },
+    {
+      "id": "entry-mental-measurement",
+      "slug": "mental-measurement",
+      "preferred_label": "Mental measurement",
+      "kind": "PRACTICE_METHOD",
+      "scope_note": "Practices intended to quantify mental capacities, performance, or individual psychological differences.",
+      "exclusions_note": "Intelligence as a concept is not itself a measurement practice.",
+      "legacy_terms": []
+    },
+    {
+      "id": "entry-eugenics",
+      "slug": "eugenics",
+      "preferred_label": "Eugenics",
+      "kind": "CONCEPT_THEORY",
+      "scope_note": "The modern program of directing human reproduction according to claims about heredity and population quality.",
+      "exclusions_note": "Not treated as equivalent to genius, intelligence, racial classification, or limpieza de sangre.",
+      "legacy_terms": []
+    },
+    {
+      "id": "entry-melancholy",
+      "slug": "melancholy",
+      "preferred_label": "Melancholy",
+      "kind": "DISEASE_CONDITION",
+      "scope_note": "Melancholy as a historical temperament, condition, or disorder, retaining humoral and later psychological distinctions.",
+      "exclusions_note": "Incidental sadness and black bile as a substance are not automatically identical to the condition.",
+      "legacy_terms": [
+        {"form": "melancholy", "names": ["melancholy"], "relation": "PREFERRED_LABEL", "status": "SUGGESTED", "minimum_offset": 800000}
+      ]
+    },
+    {
+      "id": "entry-contagion",
+      "slug": "contagion",
+      "preferred_label": "Contagion",
+      "kind": "CONCEPT_THEORY",
+      "scope_note": "Historical accounts of communicable disease transmission or contagious influence.",
+      "exclusions_note": "A disease described as contagious is not itself the concept or mechanism of contagion.",
+      "legacy_terms": []
+    },
+    {
+      "id": "entry-electricity",
+      "slug": "electricity",
+      "preferred_label": "Electricity",
+      "kind": "PHENOMENON_PROCESS",
+      "scope_note": "Electrical attraction, charge, current, and related historical physical phenomena.",
+      "exclusions_note": "Metaphorical electricity and particular electrical instruments are separately resolved.",
+      "legacy_terms": [
+        {"form": "electricity", "names": ["electricity"], "relation": "PREFERRED_LABEL", "status": "CORE", "exclude": ["contents", "section xx"]}
+      ]
+    }
+  ]
+}
