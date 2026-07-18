@@ -1,5 +1,11 @@
 # Scaling the Premodern Concordance: 4 Books to 5,000
 
+> Historical planning note. This document describes the legacy cluster-oriented
+> scaling proposal and is retained for context. The active direction is
+> [docs/v2/discovery-roadmap.md](docs/v2/discovery-roadmap.md), which centers a
+> typed usage and claim graph and treats model choices as replaceable
+> experiments.
+
 ## The Core Question
 
 How does a concordance designed for 4 books become useful at 5,000? The answer isn't just "make everything bigger" — the product changes shape. At 4 books, the concordance is a browsable list. At 5,000, it's a search engine for historical science.

@@ -1,653 +1,218 @@
 # AGENTS.md
 
-Project overview
-
-This project proposes historical typed entity resolution: linking entity mentions across languages and centuries while preserving the reason for the link (orthographic variant, same referent, conceptual overlap, derivation, contested identity). The goal is to move beyond keyword search in early modern scientific and medical texts, where terminology is unstable, by building a cross‑linguistic concordance that supports historical research on knowledge circulation and also creates AI benchmarks for similarity with explicit link types.
-
-Core objectives
-
-1. Build a multilingual corpus and entity vocabulary from early modern sources (seeded indices, LLM extraction, and historian curation).
-2. Detect entity mentions and embed them with a fine‑tuned multilingual model to retrieve candidate matches.
-3. Use a two‑stage pipeline: high‑confidence auto‑accept, low‑confidence auto‑reject, and LLM review for uncertain cases.
-4. Produce a typed annotation schema and benchmarks that test whether models can distinguish *why* terms are linked, and whether explanations are correct.
-5. Release a cross‑linguistic concordance and associated datasets/models for humanities and AI research.
-
-Planned deliverables
-
-1. Cross‑linguistic concordance of early modern natural knowledge (gold‑standard set plus model‑generated extensions).
-2. Fine‑tuned multilingual embedding model and evaluation scripts.
-3. Benchmark datasets for typed similarity and explanation correctness.
-4. Transfer pilot in a related domain (e.g., historical patents) to test generalizability.
-5. Publications across humanities, NLP, and interdisciplinary venues.
-
-Key risks and mitigation (proposed)
-
-1. Hard negatives clustering with true matches: use hard‑negative mining, margin losses, and calibrated thresholds by link type.
-2. Annotation bottlenecks: focus on high‑value entities, bootstrap with LLM extraction, and iterate with historian review.
-3. Reproducibility and scale: report pipeline‑level metrics, stratified evaluation by link type, and clear release plan for derived data.
-
-Primary value proposition
-
-For humanities: a searchable, cross‑lingual concordance enabling new research on knowledge circulation, contested identifications, and non‑European contributions.
-
-For AI: benchmarks and methods for typed similarity learning and explanation correctness in historically unstable terminology.
-
----
-
-## Scaling Strategy
-
-See [futureworkflow.md](futureworkflow.md) for a detailed plan on scaling from 4 books to 5,000+, covering:
-- Entity convergence projections (why 5,000 books doesn't mean 5,000x entities)
-- Tiered entity model (specific referents vs. domain concepts vs. generic vocabulary)
-- UI redesign from browsable list to search engine with entity profile pages
-- Architecture migration path (current: cluster-based JSON, planned: Turso/libSQL entity registry, optional later PostgreSQL + pgvector)
-- Concrete use cases for botanists, medical historians, pharmacologists, linguists
-- Phased implementation roadmap
-
----
-
-## Planned Work (Later February 2026): Canonical Entity Pages + Database Registry
-
-**Status:** Planned for later in February 2026 (not implemented yet).
-
-### Why this was initiated (Galton example)
-
-Current UX gap:
-- Searching for "Galton" in global search returns nothing.
-- "Galton" exists only as a book-local page in James (e.g. `/books/principles_of_psychology_james_1890/entity/galton`).
-- Concordance/search currently prioritizes cross-book clusters, so single-book entities are hard to discover globally.
-
-Goal:
-- Make entities discoverable and stable from day one, even before they appear in multiple books.
-- Add richer canonical profiles (e.g. biography panel, thumbnail, category-aware labels) above excerpts.
-
-### Product decision for scale (500-book target)
-
-For now:
-- Keep **semantic search** focused on the concordance list (cross-book cluster layer).
-- Use **lexical search** (prefix/fuzzy) for broad entity lookup (e.g. typing "GALT" finds "Galton").
-
-This avoids immediate need for vector search across all entities while still supporting large-scale discoverability.
-
-### Architecture plan
-
-1. Introduce a canonical entity registry in a database with stable IDs/slugs (`/entity/[slug]`).
-2. Keep existing book-local entity pages for provenance and excerpt context.
-3. Model concordance as a **view over canonical entities** (entities with `book_count >= 2`), not a separate ontology.
-4. Keep extraction stateless; add a resolver stage that links new local entities to existing canonical entities when confidence is high.
-
-### Galton lifecycle under the new model
-
-1. First mention (James only): create canonical entity "Galton" with one attestation.
-2. Later mention in another book: resolver links the new local entity to the same canonical ID.
-3. No URL migration or structural rewrite needed; only `book_count` increases and concordance visibility updates automatically.
-
-### Rollout phases (later Feb 2026)
-
-1. **Phase 1:** Core DB + migration from JSON (books, canonical entities, local attestations, mentions, memberships).
-2. **Phase 2:** Canonical routes and API (`/entity/[slug]`) + category-aware top panel content.
-3. **Phase 3:** Search split (semantic concordance search + lexical entity search).
-4. **Phase 4:** Resolver + human review queue for uncertain links.
-
-### Transition rule and non-goals (important)
-
-- **Current production model remains cluster-based** until the migration phases above are completed.
-- During transition, cluster pages and book-local entity pages continue to work as-is.
-- **Non-goal for this phase:** full semantic vector search over all entities. Full-entity search can remain lexical (prefix/fuzzy).
-
-### Database schema
-
-See [`docs/entity_registry_schema.md`](docs/entity_registry_schema.md) for the full proposed schema (6 tables: `books`, `entities`, `attestations`, `mentions`, `entity_links`, `pending_entities`).
-
-### Hosting decision (current recommendation)
-
-- Start with **Turso/libSQL** for this phase (cost-effective and sufficient for DB-backed canonical pages + lexical entity search).
-- Defer PostgreSQL/pgvector migration until/if semantic search over the full entity universe becomes a core requirement.
-
----
-
-## Technical Architecture: Fine-Tuning vs. API Strategy
-
-### The Economics Reality
-
-Entity extraction costs with commercial APIs are now low enough that fine-tuning small models for this task doesn't make economic sense at typical grant scales:
-
-| Scale | Gemini 2.5 Flash Lite cost | Fine-tune justified? |
-|-------|---------------------------|----------------------|
-| 500 books | ~$5-10 | No |
-| 5,000 books | ~$50-100 | Marginal |
-| 50,000 books | ~$500-1,000 | Maybe |
-
-### Where Fine-Tuning Makes Sense
-
-Fine-tuning open-source models is valuable for tasks that run frequently at runtime, require instant responses, or benefit from domain-specific optimization:
-
-1. **Embedding model (implemented)** — Fine-tuned BGE-M3 for cross-lingual entity matching. Runs thousands of times during user searches; local inference = instant and free at runtime. Handles orthographic variants across languages (bezoar → bezoartica → pedra de porco).
-
-2. **Query understanding (planned)** — Fine-tune a small LLM to interpret scholarly queries ("show me Iberian drug trade references" → structured search parameters). Runs on every user interaction.
-
-3. **Relationship classification (planned)** — Given two entities + context, classify the relationship type (CITES, DISPUTES, DESCRIBES, TRADES, etc.). Simpler than full extraction; small models can handle classification tasks.
-
-4. **OCR correction (potential)** — Fine-tune to fix common early modern OCR errors (ſ→s, ct ligatures, abbreviation marks, etc.).
-
-### Recommended Pipeline Architecture
-
-```
-PREPROCESSING (one-time per book):
-├── Gemini 2.5 Flash Lite → Entity extraction (~$0.01/book)
-│   Returns: JSON array of {name, category, context} for each entity
-├── Fine-tuned embeddings → Cross-lingual deduplication (free, local)
-│   Clusters variant spellings, links across languages
-└── Optional: Relationship extraction pass
-
-RUNTIME (every user query):
-├── Fine-tuned query model → Interpret search intent (free, local, instant)
-├── Fine-tuned embeddings → Find matching entities (free, local, instant)
-└── UI serves pre-computed entity data + relationships
-```
-
-### Pilot Results: Qwen3-0.6B Fine-Tuning (February 2026)
-
-Attempted fine-tuning Qwen3-0.6B on 414 training examples (generated by Gemini 2.5 Flash Lite as teacher) for entity extraction. Results on held-out test set:
-
-- **F1 Score: 1.74%** — Model failed to produce valid JSON for 9/10 test examples
-- **Conclusion:** 0.6B parameter models lack capacity for structured entity extraction from early modern texts
-- **Recommendation:** Use commercial APIs for extraction; reserve fine-tuning for simpler classification and embedding tasks
-
-### Grant Narrative
-
-"We use state-of-the-art commercial LLMs for complex extraction tasks where quality matters, combined with fine-tuned open-source models for runtime inference where speed and cost-at-scale matter. This hybrid approach optimizes for both accuracy in preprocessing and responsiveness in the user-facing concordance."
-
----
-
-## Progress Update: Cross-Book Matching Pipeline (February 2026)
-
-### Entity Extraction Schema
-
-Implemented an 8-category schema with subcategories for entity extraction (updated February 2026 — PLANT and ANIMAL promoted from SUBSTANCE subcategories to top-level categories):
-
-| Category | Subcategories |
-|----------|---------------|
-| PERSON | AUTHORITY, SCHOLAR, PRACTITIONER, PATRON, OTHER_PERSON |
-| PLANT | HERB, TREE, ROOT, SEED, RESIN, OTHER_PLANT |
-| ANIMAL | MAMMAL, BIRD, FISH, INSECT, REPTILE, PRODUCT, OTHER_ANIMAL |
-| SUBSTANCE | MINERAL, PREPARATION, ANATOMY, OTHER_SUBSTANCE |
-| PLACE | COUNTRY, CITY, REGION, OTHER_PLACE |
-| DISEASE | ACUTE, CHRONIC, SYMPTOM, OTHER_DISEASE |
-| CONCEPT | THEORY, PRACTICE, QUALITY, OTHER_CONCEPT |
-| OBJECT | INSTRUMENT, VESSEL, TOOL, OTHER_OBJECT |
-
-Scripts created:
-- `scripts/extract_book_entities.py` — Extracts entities using Gemini 2.5 Flash Lite with the new schema
-- `scripts/fix_categories.py` — Normalizes misplaced subcategories to correct top-level categories
-- `scripts/match_cross_book_entities.py` — Cross-book entity matching using fine-tuned embeddings
-
-### Cross-Book Matching: Test Results
-
-Tested matching between Semedo (Portuguese, 1741) and Culpeper (English, 1652) entities.
-
-**What works well:**
-- Exact matches: Apollo ↔ Apollo (1.000)
-- Cross-lingual cognates: Medicina ↔ Medicine (0.988), França ↔ France (0.988)
-- OCR variants: Diofcorides ↔ Dioscorides (0.986) — long-s handling
-- Semantic matches: agua ↔ Waters (0.982), enfermidade ↔ Disease (0.963)
-
-**Failure modes identified:**
-
-1. **"Attractor" entities** — Certain entities (Avicenna, Julips, Cornhil) match to many unrelated entities because they appear in similar contexts. The model learned "scholars citing other scholars" have similar embeddings regardless of identity.
-
-2. **Broad subcategories** — PREPARATION lumps together bezoar antidotes, juleps, syrups, decoctions. CONCEPT lumps together unrelated abstractions.
-
-3. **False positives at high similarity** — 90+ matches with >0.95 similarity that share no linguistic features (e.g., Caffaneo ↔ Avicenna, afucena ↔ Fennel).
-
-**Root cause:** The embedding model was fine-tuned primarily on medical/substance terminology. It correctly clusters "Medicina/Medicine" but lacks training signal to distinguish individual scholars, places, or concepts.
-
-### Fixes Implemented
-
-1. **String similarity filter for PERSON** — Names must share linguistic features (threshold 0.35)
-2. **Higher threshold for PREPARATION** (0.90) and OTHER_CONCEPT (0.92)
-3. **One-to-one matching constraint** — Each entity only keeps its single best match, preventing "attractor" entities from matching everything
-
-Results after fixes:
-- Matches reduced from 32,246 → 82 (with one-to-one constraint)
-- ~16% clearly correct, ~15% clearly incorrect, ~70% need human review
-- Many "uncertain" matches are actually correct (e.g., corpo ↔ Body)
-
-### Training Data for Re-Fine-Tuning
-
-Created `data/training_pairs.json` with 347 positive pairs and 63 hard negatives across 6 languages:
-- Latin-English (most common in medical texts)
-- Portuguese-English (Semedo)
-- French-English, German-English, Italian-English, Spanish-English
-
-Coverage by category:
-- PERSON: 67 positives, 10 negatives (Galeno↔Galen, Avicena↔Avicenna, etc.)
-- SUBSTANCE: 132 positives, 10 negatives (agua↔water, sangue↔blood, etc.)
-- PLACE: 81 positives, 9 negatives (Lisboa↔Lisbon, França↔France, etc.)
-- CONCEPT: 98 positives, 9 negatives (Medicina↔Medicine, sangria↔bloodletting, etc.)
-- DISEASE: 77 positives, 6 negatives (febre↔fever, peste↔plague, etc.)
-- OBJECT: 50 positives, 4 negatives (alambique↔alembic, ventosa↔cupping glass, etc.)
-
-Hard negatives include actual false positives from testing (Caffaneo↔Avicenna, vontade↔Vertue, etc.).
-
-### Expert-Reviewed Membership Decisions (Training Data)
-
-**Location:** `data/training/membership_decisions.jsonl` (491 examples) + `data/training/membership_decisions.csv`
-
-Created by expert review (Opus 4.6 with early modern history domain knowledge) of 491 borderline cluster members — entities flagged by low string similarity to their cluster's canonical name. Each example is a labeled pair: does this member belong in this cluster?
-
-| Verdict | Count | Description |
-|---------|-------|-------------|
-| KEEP (label=1) | 401 | Member correctly belongs (cross-language translation, variant spelling, descriptive phrase) |
-| SPLIT (label=0) | 90 | Member is a genuinely different entity (string-similarity false positive) |
-
-**Pattern breakdown:** 136 phrase matches, 129 cross-language translations, 127 variant spellings, 90 mismatches, 9 subtypes.
-
-**Why this data is valuable for fine-tuning:**
-
-This dataset captures the core challenge of cross-linguistic entity resolution in historical texts: distinguishing true semantic equivalence from superficial string similarity. Standard embedding models fail here because:
-
-1. **String similarity is misleading.** "oolithes" (oolitic limestone) has 0.38 similarity to "olio" (oil) — higher than "azeytes" (oils, Spanish) at 0.00. But azeytes IS oil and oolithes is NOT. A fine-tuned model needs to learn that shared substrings across language boundaries carry different weight than shared substrings within a language.
-
-2. **Context disambiguates.** "Stones" in Culpeper (1652) means kidney stones (= pedras/calculus) while "roches" in Humboldt (1825) means geological rocks. The member context field ("hard concretions in kidneys" vs. "geological formations") is the signal a model should learn to exploit.
-
-3. **Cross-linguistic translation is asymmetric.** "eau" (French) = water is obvious to a multilingual model, but "orraca" (Konkani/Arabic) = arrack ≠ mint requires domain knowledge about early modern trade languages. These hard negatives are exactly what contrastive training needs.
-
-**Recommended fine-tuning approach:**
-
-- **Format:** Convert to triplet format (anchor, positive, negative) where the anchor is the cluster description, positives are KEEP members, and negatives are SPLIT members from the *same cluster* (hard negatives). Where a cluster has no SPLIT members, use SPLIT members from same-category clusters.
-- **Model:** Start from BGE-M3 (already multilingual) or `intfloat/multilingual-e5-large`. These handle Latin-script languages well but need tuning for early modern orthography and OCR artifacts.
-- **Loss:** MultipleNegativesRankingLoss or TripletLoss with a margin that accounts for the difficulty gradient — "Ozark" in the "Oxus" cluster is an easy negative, while "Coumarouma" in the "Cocomero" cluster is harder.
-- **Augmentation:** For each KEEP example, generate OCR-corrupted variants (ſ→s, ligature splitting, random character substitution) as additional positives. For each SPLIT example, find the highest-similarity KEEP member in the same cluster to create maximally contrastive pairs.
-- **Evaluation:** Hold out ~10% stratified by pattern type. Key metric is recall@1 for KEEP members while maintaining <5% false acceptance of SPLIT members. The `sim_to_canonical` and `sim_to_modern` scores in the dataset provide a baseline to beat.
-
-### Synonym Chain Detection Training Data
-
-**Location:** `data/training/synonym_chain_examples.jsonl` (75 examples) + `data/training/synonym_chain_examples.csv`
-
-Created by expert curation of second-pass synonym chain extraction results. Each example is a found entity in an excerpt alongside a known entity, labeled with one of 8 relationship types and graduated link strength (0.0–1.0).
-
-| Label | Count | Link Strength | Description |
-|-------|-------|---------------|-------------|
-| cross_linguistic | 28 | 0.9 | Same entity in different language (cassab = calamus, Zafferano = saffron) |
-| true_synonym | 14 | 1.0 | Explicit equivalence claim (pompholige = Spodio, Antimonio = Estibio) |
-| ingredient_cooccurrence | 10 | 0.0 | Recipe ingredients listed together — NOT synonyms |
-| contested_identity | 7 | 0.7 | Early modern authors debated whether A = B (tabaxir ≟ spodium) |
-| subtype_relation | 7 | 0.5 | A is a variety of B (emblic myrobalan ⊂ myrobalan) |
-| authority_cooccurrence | 4 | 0.0 | Person names cited together (Galen + Avicenna) — NOT synonyms |
-| ocr_noise | 3 | 0.0 | OCR garbage mistakenly extracted as entity |
-| generic_term | 2 | 0.0 | Word too generic to be an entity (sale, lattouaro) |
-
-**What this adds beyond membership_decisions.jsonl:**
-- **Hard negatives for synonym detection:** ingredient co-occurrences look like synonym chains (both use "o vero", "cioè" markers) but are fundamentally different relationships
-- **Graduated link strength:** not binary but 0.0–1.0, capturing the spectrum from true equivalence to contested identity to mere co-occurrence
-- **Text excerpts with OCR noise:** real source text with long-s, ligatures, line breaks, allowing models to learn extraction in noisy conditions
-- **Expert reasoning:** each example has a 1–3 sentence explanation of WHY the link is/isn't genuine, usable as chain-of-thought training signal
-
-**Combined training corpus:** 566 expert-labeled examples (491 membership + 75 synonym chain)
-
-### Second-Pass Extraction Results
-
-**Location:** `data/synonym_chains/` (4 files)
-
-The second-pass extraction (`scripts/extract_synonym_chains.py`) scanned 1,629 excerpts with synonym chain markers and found 5,384 new entity mentions. Key outputs:
-
-- `findings.json` — all 5,384 entities with metadata
-- `cross_cluster_links.json` — 1,690 links between existing clusters (1,323 unique pairs)
-- `unmatched_entities.json` — 3,546 entities not yet in concordance
-- `summary.csv` — tabular overview
-
-**Caveat:** ~17% of findings are ingredient co-occurrences from recipes, not true synonym chains. The cross_cluster_links should be treated as candidates for human review, not auto-integrated.
-
-### Next Steps
-
-1. ~~Convert training data to triplet format for contrastive learning~~ Done
-2. ~~Re-fine-tune BGE-M3 with expanded multilingual training data~~ Done (finetuned-bge-m3-v2)
-3. ~~Run full extraction on Semedo (1922 chunks) and Culpeper (409 chunks)~~ Done
-4. ~~Evaluate improved model on cross-book matching~~ Done (138 matches, 50 auto-accepted on partial data)
-5. ~~Second-pass synonym chain extraction~~ Done (5,384 entities, 1,690 cross-links)
-6. Build human review interface for uncertain matches
-7. Integrate high-confidence synonym chain links into concordance
-
----
-
-## Concordance: Cluster-Based Cross-Book Entity Resolution
-
-### Core Concept
-
-Every entity from every book lives in a shared embedding space. Entities that refer to the same thing — across languages, centuries, and spelling conventions — cluster together. Each cluster becomes a **concordance entry**: a canonical concept with attestations across multiple books.
-
-```
-CONCORDANCE ENTRY: "Galen" (PERSON)
-  Description: "Ancient Greek physician (129–216 CE), foundational authority in humoral medicine"
-  Attestations:
-    ├── Culpeper (English, 1652): "Galen" — 45× — SAME_REFERENT
-    ├── Semedo (Portuguese, 1741): "Galeno" — 130× — SAME_REFERENT
-    ├── Semedo (Portuguese, 1741): "Galenus" — 93× — ORTHOGRAPHIC_VARIANT
-    ├── Semedo (Portuguese, 1741): "Galen" — 218× — SAME_REFERENT
-    ├── Da Orta (Portuguese, 1563): "Galeno" — 87× — SAME_REFERENT
-    └── Monardes (Spanish, 1574): "Galeno" — 52× — SAME_REFERENT
-```
-
-This replaces the pairwise book-matching approach, which doesn't scale and produces redundant entries.
-
-### Link Types (from grant proposal)
-
-Each attestation's relationship to the concordance entry is classified as one of five types:
-
-1. **ORTHOGRAPHIC_VARIANT** — Different spellings of the same word (Diofcorides ↔ Dioscorides, cerebro ↔ cerebrum)
-2. **SAME_REFERENT** — Different words across languages pointing to the same thing (Galeno ↔ Galen, água ↔ water)
-3. **CONCEPTUAL_OVERLAP** — Related but distinct concepts (sangria ↔ bloodletting, humores ↔ humoral theory)
-4. **DERIVATION** — One term derives from or gave rise to another (Latin *febris* → Portuguese *febre* → English *fever*)
-5. **CONTESTED_IDENTITY** — Genuinely unclear or historically debated whether these are the same thing (is Monardes's *bálsamo del Perú* the same substance as Culpeper's *Balsam*?)
-
-### Pipeline
-
-#### Step 1: Embed all entities
-
-Embed every entity from every book using the fine-tuned BGE-M3 model. The embedding input combines name, category, and first context:
-
-```
-"{entity_name} | {category} | {first_context}"
-```
-
-Store all embeddings in a FAISS index alongside entity metadata. This is computed once per entity and persisted to disk.
-
-At current scale (18 books, ~5,600 clusters): a few minutes on CPU.
-At target scale (5,000 books, ~25M entities): FAISS handles this fine with an IVF index. Embedding computation is the bottleneck — ~50 hours on GPU, or batched over time as books are added.
-
-#### Step 2: Cluster
-
-For each entity, find its k nearest neighbors (k=10) in the FAISS index above a similarity threshold (0.82). Build a graph where edges connect similar entities. Apply community detection (Louvain algorithm) to find clusters.
-
-**Constraints:**
-- Entities must share a top-level category to cluster (PERSON with PERSON, SUBSTANCE with SUBSTANCE). This prevents "Galen" the person from accidentally clustering with a substance that happens to have a similar embedding.
-- Within-book entities CAN cluster together — this handles deduplication naturally (Galen/Galeno/Galenus in Semedo → same cluster).
-- Minimum similarity for any edge: 0.82. This is deliberately conservative — false merges are worse than false splits for scholarly credibility.
-
-**Why Louvain over simple connected components:** Connected components suffer from "chaining" — if A~B and B~C, they all merge even if A≁C. Louvain finds denser communities and avoids long chains of tenuous connections.
-
-#### Step 3: Classify link types (LLM pass)
-
-For each cluster, send the member entities to Gemini 2.5 Flash Lite:
-
-```
-You are classifying relationships in a concordance of early modern scientific texts.
-
-Concordance cluster members:
-1. "Galen" (PERSON) — from The English Physician (English, 1652). Context: "Galen describes the virtues of..."
-2. "Galeno" (PERSON) — from Polyanthea Medicinal (Portuguese, 1741). Context: "Galeno diz que os humores..."
-3. "Galenus" (PERSON) — from Polyanthea Medicinal (Portuguese, 1741). Context: "segundo Galenus no livro..."
-
-For each member, classify its relationship to the cluster concept:
-- ORTHOGRAPHIC_VARIANT: different spelling of the same word
-- SAME_REFERENT: different word, same thing
-- CONCEPTUAL_OVERLAP: related but distinct
-- DERIVATION: etymological descent
-- CONTESTED_IDENTITY: historically debated equivalence
-
-Return JSON:
-{
-  "canonical_name": "Galen",
-  "description": "Ancient Greek physician...",
-  "members": [
-    {"index": 1, "link_type": "SAME_REFERENT", "explanation": "English form of the name"},
-    {"index": 2, "link_type": "SAME_REFERENT", "explanation": "Portuguese form of Galenus"},
-    {"index": 3, "link_type": "ORTHOGRAPHIC_VARIANT", "explanation": "Latin nominative form"}
-  ]
-}
-```
-
-Cost estimate: ~$0.01 per cluster. At 5,657 clusters across 18 books: ~$57. At 100,000 clusters across 5,000 books: ~$1,000 (but spread over years of incremental ingestion).
-
-#### Step 4: Human review
-
-Flag clusters for human review when:
-- Any member is classified as CONTESTED_IDENTITY
-- Cluster has members with low similarity to centroid (0.82-0.87)
-- LLM confidence is low or explanation is uncertain
-- Cluster is unusually large (>20 members) — may be over-merged
-
-Provide a review interface where a historian can:
-- Confirm or reject cluster membership
-- Split over-merged clusters
-- Merge under-split clusters
-- Override link type classifications
-
-### Incremental Ingestion (adding book #5,001)
-
-When a new book is added:
-
-1. Extract entities (Gemini Flash Lite) — same as now
-2. Embed entities (fine-tuned BGE-M3)
-3. For each new entity, query FAISS for nearest neighbors above threshold
-4. If match found: assign to existing cluster, run LLM link typing on the new member
-5. If no match: create a new single-member cluster
-6. Update FAISS index with new embeddings
-
-Adding a new book is O(n) where n = number of entities in the new book, regardless of how many books are already in the system. No re-clustering needed.
-
-### Current Production Workflow (February 2026)
-
-The actual script pipeline for adding books and rebuilding the concordance. Run from the project root.
-
-#### Adding a new book
-
-```bash
-# 1. Extract entities from source text using Gemini Flash Lite
-python3 scripts/extract_book_entities.py --book-id new_book_author_year
-
-# 2. Find entity excerpts (character offsets into source text)
-python3 scripts/find_entity_excerpts.py
-```
-
-This produces `web/public/data/{book_id}_entities.json`.
-
-#### Full concordance rebuild (after adding books or re-fine-tuning embeddings)
-
-```bash
-# 1. Cluster all entities across all books using fine-tuned BGE-M3
-#    Outputs: concordance.json with clusters, members, edges
-#    Includes: merge_near_duplicates (lexical dedup) + merge_by_ground_truth (modern_name dedup)
-python3 scripts/build_concordance.py
-
-# 2. Carry over ground_truth enrichment from previous concordance
-#    Matches clusters by member overlap, transfers wikidata_id, modern_name, etc.
-python3 scripts/migrate_ground_truth.py
-
-# 3. Enrich new clusters (ones without ground_truth) via Wikidata + LLM
-python3 scripts/enrich_concordance.py
-python3 scripts/enrich_wikipedia.py
-python3 scripts/enrich_wikipedia_pass2.py
-
-# 4. Integrate cross-references from synonym chain data
-#    --strict flag: only high-quality labels (true_synonym, cross_linguistic, etc.)
-python3 scripts/integrate_cross_references.py --strict
-
-# 5. Post-enrichment dedup: merge clusters that now share the same modern_name + category
-#    This catches fragmentation that only becomes visible after Wikidata enrichment
-#    (e.g., five "Moon" clusters that all resolve to modern_name="Moon" after enrichment)
-python3 scripts/merge_clusters.py          # or: just re-run build_concordance.py
-
-# 6. Rebuild search index (requires OPENAI_API_KEY for text-embedding-3-small)
-python3 scripts/build_search_index.py
-
-# 7. Rebuild neighbor graph (pairwise similarity from search embeddings, ~15 min on CPU)
-python3 scripts/build_neighbor_graph.py
-```
-
-**Key notes:**
-- `build_concordance.py` now includes `merge_by_ground_truth()` which auto-merges same-category clusters sharing the same `ground_truth.modern_name`. This is a no-op on first build (before enrichment) but catches fragmentation on subsequent rebuilds after `migrate_ground_truth.py`.
-- `merge_clusters.py` is the standalone version of the same dedup logic — use it for post-hoc cleanup without a full rebuild. Supports `--dry-run` and `--plan merge_plan.json`.
-- After any concordance.json change, you **must** update `search_index.json` (filter+remap IDs if not regenerating) and rebuild `cluster_neighbors.json`.
-- Steps 3–4 have checkpoint saves (every 100 enrichments) to survive crashes.
-- Current state: **5,657 clusters across 18 books** after merge cleanup.
-
-### Data Model
-
-> **Current production model (as of February 2026).** The app currently runs on the cluster-based schema (`clusters` + `cluster_members` + `embeddings`). A migration to a unified canonical entity registry is planned for later February 2026; see [`docs/entity_registry_schema.md`](docs/entity_registry_schema.md).
-
-### Concordance UI
-
-The concordance page shows:
-
-1. **Search bar** — find concordance entries by name, across all books and languages
-2. **Filterable table** of concordance entries:
-   - Canonical name, category, number of books, total attestations
-   - Color-coded book badges showing which books contain this entity
-   - Expand to see all attestations with link types
-3. **Network view** (optional) — graph showing books as nodes, concordance entries as edges, thickness = number of shared entities
-4. **Stats dashboard** — how many shared entities between each book pair, by category, by link type
-
----
-
-## Database Migration Plan
-
-> **Planned work (not yet implemented).** Current production still uses static JSON + cluster architecture. The migration target is the canonical entity registry described in the [Planned Work](#planned-work-later-february-2026-canonical-entity-pages--database-registry) section above, hosted on **Turso/libSQL**. See [`docs/entity_registry_schema.md`](docs/entity_registry_schema.md) for the proposed schema.
-
-### Why migrate from JSON
-
-The current architecture serves entity data as static JSON files loaded entirely by the browser. This works at 8 books but doesn't scale to the 500-book target:
-
-- At 100 books, total JSON could reach several gigabytes
-- The browser downloads and parses everything even to display one entity
-- Cross-book queries require loading all books into memory
-- Single-book entities are invisible to search
-
----
-
-## Expanded Excerpt System
-
-### Current state
-
-Each entity mention stores a **character offset** (`mention.offset`) pointing to its position in the source text, plus a pre-computed ~300-character excerpt (150 chars each side of the matched term). Source texts for all 12 books are already deployed as static `.txt` files in `/web/public/texts/` (14.6 MB total). The extraction script (`scripts/find_entity_excerpts.py`) uses `CONTEXT_WINDOW = 150` characters and records offsets via Python `match.start()` — these are **character indices**, not byte offsets.
-
-### Goal
-
-Allow users to expand from the current ~4 lines of context to ~10–20 lines on demand (e.g., clicking "Show more context" on an entity's book page). This should work without pre-computing or storing larger excerpts, since the source texts and character offsets already exist.
-
-### Architecture: API route with stable contract
-
-Build a Next.js API route that reads the source text and slices a wider window around the stored offset:
-
-```
-GET /api/excerpt?book_id=coloquios_da_orta_1563&offset=1509&term_length=4&window=1000
-→ { "excerpt": "...~2KB of expanded context...", "start": 509, "end": 2513 }
-```
-
-**Why an API route (not client-side fetch):**
-- Aligns with the Turso migration direction — server-side data access, not client-side bulk loading.
-- The character offset slicing happens server-side in a UTF-8–aware environment, avoiding byte/character mismatches that would occur with HTTP Range requests.
-- Returns ~2KB per request regardless of source text size.
-- Works on all pages (entity detail, concordance cluster, search results) without the client needing to cache multiple full texts.
-- The API contract stays identical across all scaling phases — only the implementation changes.
-
-### Scaling path
-
-| Phase | Source texts live at | API route reads from | Client changes |
-|-------|---------------------|---------------------|----------------|
-| **Now** (12 books, static JSON) | `/public/texts/` (14.6 MB) | Internal CDN URL | — |
-| **Turso** (500 books) | `/public/texts/` or R2/S3 | `books.text_path` column | None |
-| **Scale** (2,000+ books) | R2/S3 (~2+ GB) | Object storage URL | None |
-
-The planned `books` table already has a `text_path` column, and the `mentions` table already stores `offset` — so the API route simply wires these together. When source texts outgrow Vercel's static file hosting, move them to R2/S3 and update `text_path` values. The API interface and all client code remain unchanged.
-
-### Implementation notes
-
-- Server-side slicing uses `text.slice(offset - window, offset + termLength + window)` on the UTF-8 decoded string, then extends to sentence or paragraph boundaries for clean breaks.
-- Vercel Edge Runtime is preferred over standard serverless functions for near-zero cold starts (this is a simple fetch + slice with no Node-specific dependencies).
-- No caching layer is needed initially — CDN-served static text files are already fast (~20ms within Vercel infrastructure). Post-Turso, consider caching hot texts in Edge Config or KV if latency matters.
-- The matched term can be highlighted in the response by returning `start` and `end` indices relative to the returned excerpt.
-
----
-
-## Data Interoperability & External Access (Feb 2026)
-
-Roadmap for making the concordance machine-readable, AI-accessible, and interoperable with the scholarly linked data web. Ordered by priority and effort.
-
-### JSON-LD (high priority, ~1 afternoon)
-
-Add `@context` to API responses (or static JSON exports) mapping fields to standard vocabularies. Wikidata QIDs already present on many entities make this natural. No data shape changes — just a context header.
-
-```json
-{
-  "@context": {
-    "@vocab": "https://schema.org/",
-    "wikidata_id": { "@id": "sameAs", "@type": "@id" },
-    "category": "additionalType",
-    "canonical_name": "name",
-    "members": "hasPart"
-  },
-  "@type": "DefinedTerm",
-  "canonical_name": "Mercury",
-  "wikidata_id": "https://www.wikidata.org/entity/Q925"
-}
-```
-
-Vocabularies: Schema.org for basics, CIDOC-CRM (`crm:E55_Type`, `crm:P1_is_identified_by`) for cultural heritage relationships if granularity needed. Can implement pre-API as a "Download JSON-LD" client-side export button alongside existing CSV/TXT.
-
-### HuggingFace Dataset (high priority, ~1 afternoon)
-
-Publish as `datasets` package. Parquet splits: `clusters`, `members`, `edges`, `books`. One-liner access: `ds = load_dataset("username/premodern-concordance")`. Immediate visibility to ML/NLP researchers. Update on each data release. Include dataset card with schema, citation, license.
-
-### TEI Export (moderate priority, ~1-2 days)
-
-XML export using TEI P5. Category-to-element mapping:
-
-| Category | TEI Element | Key Attributes |
-|----------|-------------|----------------|
-| PERSON | `<listPerson><person>` | `<persName>`, `@ref` to Wikidata |
-| PLACE | `<listPlace><place>` | `<placeName>`, `@ref` to Pelagios gazetteer |
-| PLANT/ANIMAL | `<list type="entities"><item>` | `<name>`, `<idno type="Wikidata">`, `<idno type="Linnaean">` |
-| SUBSTANCE/OBJECT | `<list type="entities"><item>` | `<name>`, `<idno type="Wikidata">` |
-| DISEASE/CONCEPT | `<list type="entities"><item>` | `<term>`, `<gloss>` |
-
-Expose as "Download TEI-XML" button on `/data` page. ~200 lines of export code. Useful when collaborators request it for integration with oXygen, XSLT pipelines, collation tools.
-
-### MCP Server (~200 lines TypeScript)
-
-Model Context Protocol server exposing concordance as AI-agent-accessible tools:
-
-- `search_concordance(query, category?, book?)` — semantic search across clusters
-- `get_cluster(id)` — full cluster with members, edges, ground truth
-- `list_books()` — corpus metadata
-- `get_stats()` — quantitative summary
-
-Any MCP-compatible AI (Claude Code, etc.) can query the concordance mid-conversation. Compelling DH + AI demo. Low effort, high novelty.
-
-### OpenAPI Spec (do alongside API build)
-
-Publish Swagger/OpenAPI 3.0 spec for the REST API. AI coding assistants auto-generate client code from the spec. Even before the full API exists, the spec documents intent and allows tooling.
-
-### DH Network Integrations (longer term)
-
-**Pelagios / Linked Pasts**: Connect PLACE clusters (303 currently) to historical gazetteers via Pelagios network. Established DH infrastructure for geospatial linked data. Adoption = visibility in ancient/early modern DH community.
-
-**Recogito**: Collaborative semantic annotation platform (built on W3C Web Annotation model). If building user annotations, adopt Recogito's data model rather than inventing a new one. Could potentially integrate directly — Recogito supports custom vocabularies.
-
-**IIIF**: Only relevant if adding facsimile page images from source texts. Low priority unless project moves toward digital edition territory.
-
-**Zotero**: Export book metadata as CSL-JSON/BibTeX. Minor feature, trivial to implement.
-
-### For AI Agents / Vibe Coders
-
-Priority order:
-1. **HuggingFace dataset** — standard ML ecosystem, `pip install`-able
-2. **OpenAPI spec** — AI assistants generate typed clients automatically
-3. **MCP server** — direct tool-use from AI coding environments
-4. **Stable raw JSON URL** — `/data/concordance.json` already works; just needs schema docs
-5. **JSON-LD** — machines parse entity relationships without custom code
-
-### Hosting Context
-
-Current recommendation: **Turso/libSQL** (SQLite-compatible, 9GB free tier, edge replicas). Revisit PostgreSQL + pgvector when/if semantic vector search over the full entity universe becomes a core requirement.
-
-| Books | Est. DB Size | Turso Free Tier (9GB) |
-|-------|-------------|----------------------|
-| 8 | ~30 MB | Comfortable |
-| 50 | ~150 MB | Comfortable |
-| 200 | ~500 MB | Comfortable |
-| 500 | ~1.5 GB | Comfortable |
-| 2,000 | ~5 GB | Comfortable |
-
-Pipeline bottleneck shifts from database to NER/clustering at ~200 books. At 1k+, pairwise entity comparison needs approximate nearest neighbors (FAISS with IVF index) instead of brute-force.
+## Project direction
+
+Premodern Concordance is a research and discovery engine for historical
+scientific and medical texts. It should move beyond full-text search by finding
+and explaining:
+
+- historical names, spellings, translations, and referents;
+- changes and splits in meaning across time and language;
+- claims, attributions, disagreements, and reframings;
+- unexpected but evidence-backed connections between distinct topics.
+
+The target is roughly 500 important texts and about 5,000 curated anchor topics,
+expandable toward 10,000. Surface forms, contextual usages, induced senses,
+claims, and candidate links may be much larger.
+
+Read [the discovery roadmap](docs/v2/discovery-roadmap.md) before planning
+substantial product, data-model, retrieval, or pipeline work.
+
+The active corpus-foundation contract is
+[passage and retrieval architecture](docs/v2/passage-retrieval.md). Read it
+before changing source ingestion, passage boundaries, page alignment,
+embeddings, lexical retrieval, or candidate ranking.
+
+## Architectural idea
+
+Build a typed diachronic evidence graph:
+
+    sources → passages → contextual usages → senses/referents
+                                     ↘ claims → agreements/disagreements
+                                               ↘ sourced hypotheses
+
+Keep the upper schema small and let the evidence graph grow. Related topics
+remain separate entries connected by typed edges; similarity never silently
+means identity. Every derived object should lead back to citable passage
+evidence.
+
+The V2 web app is the reader and materialized read model. Heavy extraction,
+retrieval, clustering, and LLM analysis happen offline.
+
+## Adaptability
+
+The roadmap is directional, not prescriptive.
+
+- Treat model, embedding, vector-index, clustering, and storage choices as
+  replaceable implementation details.
+- The fine-tuned BGE-M3 model is an experiment, not a required dependency.
+- Compare existing work with current off-the-shelf models and new fine-tuning
+  approaches before assuming any model is best.
+- Prefer the simplest method that produces useful historical discoveries.
+- Record enough run and evidence provenance to compare methods and reproduce an
+  interesting result.
+- It is acceptable to change the schema or roadmap when experiments reveal a
+  better approach; update the relevant document when doing so.
+
+## Intellectual and communication standard
+
+The project owner explicitly prefers direct criticism to agreement, reassurance,
+or praise. Accuracy and research value take priority over conversational
+smoothness.
+
+- Do not endorse a proposal merely because the owner suggested it.
+- State plainly when evidence is weak, a result is banal, a method is unlikely
+  to work, or effort is being spent on the wrong layer.
+- Separate observed results, reasonable inference, and speculation.
+- When disagreeing, give the concrete evidence and a better alternative.
+- Do not flatter the owner's expertise or treat expert judgment as infallible.
+  Preserve it as high-value labeled data while keeping objective support and
+  subjective research interest as separate fields.
+- Directness is not performative negativity: calibrate criticism to the
+  evidence and acknowledge genuinely strong results without exaggeration.
+
+## Historian assessment workflow
+
+The local-only interface at `/apps/concordance/review/findings` records expert
+assessment of model-generated findings. Read
+[historian assessment](docs/v2/historian-assessment.md) before changing this
+workflow or using its output.
+
+- Live assessments are append-only events in ignored
+  `var/historian-reviews.sqlite`; never put them in the public database.
+- Each event snapshots the exact release, entry, finding, claims, quotations,
+  and scan links reviewed. Later pipeline runs must not rewrite old judgments.
+- Evidence support, research value, failure mode, and claim fidelity are
+  distinct labels. Never collapse them into one positive/negative target.
+- Export the latest judgment per finding with `premodern export-reviews` to
+  versioned JSONL before treating reviews as durable evaluation or training
+  data. The export adds model-run and prompt provenance from the authoring DB.
+- Use small reviewed sets first as evaluation and error diagnosis. Do not claim
+  that dozens of findings justify generative fine-tuning. Derive task-specific
+  datasets only after enough consistent labels accumulate.
+
+## Active passage and retrieval contract
+
+The next research layers depend on one stable citable passage corpus. Unless a
+corpus-specific evaluation shows a better method:
+
+- Passageize immutable source text paragraph-first: merge fragments under
+  roughly 80 words, target 150–220 words, and split over 320 words near a
+  sentence boundary.
+- Canonical passages do not overlap. Expand to adjacent passages only when a
+  model needs context.
+- Preserve raw character offsets, raw text, normalized search text, corrected
+  display text, headings, printed-page ranges, scan-leaf ranges, and direct
+  scan links. Normalization or OCR correction must never overwrite the source.
+- Passage IDs derive from the source and immutable raw offsets. Published IDs
+  are never silently renumbered.
+- Parse Internet Archive DJVU `PAGE` parameters for real zero-based scan leaves;
+  do not infer leaves from XML array position. Derive printed pages from Page
+  Numbers JSON when available and retain alignment provenance.
+- Use `gemini-embedding-2` at 768 dimensions as the default passage embedder,
+  preferably through Batch. Embed normalized passage text with its work/section
+  title, not year, page, language, or archive metadata.
+- Dense retrieval proposes passages; it never resolves identity. Candidate
+  retrieval is the union of exact/normalized forms, OCR-aware lexical search,
+  and dense search, combined by reciprocal-rank fusion with component scores
+  retained.
+- Gemini 3.1 Flash-Lite is the current default for bounded candidate analysis.
+  Give it the candidate plus adjacent context, but require evidence spans to
+  resolve to canonical passages.
+- Keep the fine-tuned BGE-M3 experiment available for entity-label resolution.
+  Do not use it as the default passage embedder: it was trained on label pairs,
+  not query-to-passage retrieval.
+- LLMs may propose historical names, translations, and periphrases. Generate
+  OCR variants deterministically from known confusions and actual corpus forms;
+  do not trust invented lists of plausible OCR errors.
+- Embeddings, vector indexes, raw corpus files, and analysis outputs are offline
+  build artifacts and never ship in the Vercel bundle. The reader receives only
+  materialized evidence and bounded database responses.
+
+The first vertical discovery slice is complete: source registry and page-aware
+passageization; offset/page/scan audit; Gemini embedding index; hybrid retrieval;
+contextual usage and claim analysis; entry-local sense induction; and
+claim-linked research findings. The next operation is historian assessment of
+the resulting evidence packet, followed by targeted retrieval/prompt repair and
+then a broader source-and-topic slice. Do not redesign the schema before using
+the real outputs to identify a concrete failure.
+
+Current checkpoint (July 17, 2026): the private database contains 16,016
+canonical passages from 17 complete legacy texts plus 254 citable Jamesiana
+passages. All legacy passage audits pass; 15,525 passages align directly to
+scan OCR and 491 retain explicitly marked inferred locators. Gemini Embedding 2
+at 768 dimensions has embedded all 16,270 passages and 20 trial queries. The
+saved matrix is finite, normalized, and keyed; its estimated standard-endpoint
+cost was $1.03. The batch endpoint could not accept the 5.17M-token embedding
+job under its published queue cap, so the resumable, rate-limited standard
+endpoint was used without changing the artifact contract.
+
+Weighted hybrid retrieval is the active baseline. On the 15 entries with
+existing evidence it improves macro recall over lexical-only retrieval from
+49.0% to 52.0% at 20 and from 63.1% to 65.0% at 50; all 15 have a known hit in
+the top 50. Dense retrieval alone is substantially worse and must not replace
+inspectable lexical/OCR retrieval.
+
+The first bounded Gemini 3.1 Flash-Lite discovery slice analyzed the top 20
+hybrid candidates for all 20 trial entries. Of 400 candidates, 373 passed
+source-span validation; 292 relevant same-entry or related-distinct usages and
+454 claims are public. Entry-local induction groups 253 same-entry usages into
+63 senses. Claim comparison produced 42 suggested findings linked through 89
+explicit claim roles. Analysis, senses, and findings cost about $0.21 combined;
+the public reader still makes no model calls. These are candidate research
+objects, not asserted historical truth. Weak examples are useful evaluation
+data and should be corrected by better retrieval or bounded prompts, not by
+silently editing model prose.
+
+The next active step is historian assessment. The local review workbench covers
+all 42 findings, supports claim-level fidelity labels, saves append-only
+snapshots, and exports JSONL. Use its error distribution to decide whether the
+next repair belongs in retrieval, entry resolution, claim extraction, or
+finding comparison. Do not scale the same error distribution to thousands of
+topics first.
+
+## Working style
+
+- Build vertical research slices before broad infrastructure.
+- Candidate links and model suggestions are useful during internal development;
+  expose their reason, confidence, method, and evidence.
+- Do not create elaborate review queues, approval systems, governance layers,
+  or test frameworks unless a demonstrated workflow requires them.
+- Use compact evaluations to compare retrieval and analysis methods. Testing
+  should support decisions, not become the product.
+- Avoid extracting every abstract noun into an ontology. Start from curated
+  topics while preserving recurring unmatched clusters for discovery.
+- Keep the interface focused on one path: search → topic → findings, senses,
+  claims, connections, and passages.
+- Keep original text readable, citable, and linked to the edition or scan.
+
+## Repository boundaries
+
+- web/ — frozen legacy prototype for comparison; localhost:3000.
+- apps/concordance/ — V2 reader application; localhost:3001 at
+  /apps/concordance.
+- pipeline/ — private/offline ingestion and research analysis.
+- var/ — ignored local databases and releases.
+- docs/v2/ — active architecture, roadmap, operations, and progress.
+
+V2 must not import web/ or the legacy root scripts at runtime. Client
+components must not import server repositories, secrets, filesystem code, model
+SDKs, or private pipeline modules.
+
+## Active documents
+
+- [Discovery roadmap](docs/v2/discovery-roadmap.md) — research and product
+  direction.
+- [V2 architecture](docs/v2/README.md) — application boundaries and deployment
+  shape.
+- [Data contract](docs/v2/data-contract.md) — current and planned records.
+- [Operations](docs/v2/operations.md) — commands and release flow.
+- [Implementation ledger](docs/v2/implementation-ledger.md) — current state and
+  decisions.
+- [Passage and retrieval architecture](docs/v2/passage-retrieval.md) — active
+  chunking, page-alignment, embedding, and hybrid-retrieval contract.
+- [Historian assessment](docs/v2/historian-assessment.md) — local review,
+  durable export, and task-specific use of expert judgments.
+
+Preserve unrelated user work and keep the legacy prototype available until V2
+has clearly superseded it.
