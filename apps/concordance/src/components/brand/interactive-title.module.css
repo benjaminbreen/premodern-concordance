@@ -1,0 +1,26 @@
+.title {
+  display: flex;
+  min-height: 2.15em;
+  flex-direction: column;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--foreground);
+  cursor: pointer;
+  font-size: clamp(3rem, 5vw, 4.75rem);
+  font-weight: 700;
+  letter-spacing: -0.055em;
+  line-height: 1.06;
+  text-align: left;
+  transition: color 180ms ease, font-family 220ms ease;
+}
+
+.title:hover { color: var(--accent); }
+.title:focus-visible { outline: 3px solid var(--accent); outline-offset: 0.25rem; }
+.title span { display: block; }
+.sans { font-family: var(--font-sans); }
+.serif { font-family: var(--font-serif); letter-spacing: -0.04em; }
+.grotesk { font-family: var(--font-space), sans-serif; }
+.blackletter { font-family: var(--font-blackletter); font-weight: 400; letter-spacing: -0.025em; }

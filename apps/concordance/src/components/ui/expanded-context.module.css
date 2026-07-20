@@ -1,0 +1,8 @@
+.container { margin: 1.25rem 0; }
+.container button { border: 0; border-bottom: 1px solid var(--border); padding: 0.25rem 0; background: transparent; color: var(--muted); cursor: pointer; font-size: 0.78rem; }
+.container button:hover { color: var(--accent); border-color: var(--accent); }
+.container button:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+.container button:disabled { cursor: wait; opacity: 0.6; }
+.context { max-height: 32rem; margin-top: 1rem; overflow: auto; border-left: 3px solid var(--border); padding: 1rem 0 1rem 1.25rem; color: var(--muted); }
+.notice { color: var(--muted); font-size: 0.8rem; line-height: 1.45; margin: 0.75rem 0 0; max-width: 62ch; }
+.error { color: var(--danger); font-size: 0.8rem; }

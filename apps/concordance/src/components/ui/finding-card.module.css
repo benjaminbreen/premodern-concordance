@@ -1,0 +1,61 @@
+.card {
+  margin-top: 1.25rem;
+  padding: 1.25rem;
+  border: 1px solid var(--border);
+  background: var(--card);
+}
+
+.card header span {
+  color: var(--accent);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.card h3 {
+  margin: 0.35rem 0 0;
+  font-size: 1.2rem;
+}
+
+.summary {
+  max-width: 46rem;
+  margin: 0.75rem 0 1.1rem;
+  color: var(--muted);
+  line-height: 1.55;
+}
+
+.evidence {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1px;
+  background: var(--border);
+  border: 1px solid var(--border);
+}
+
+.evidence > div {
+  min-width: 0;
+  padding: 0.9rem;
+  background: var(--background);
+}
+
+.evidence small {
+  color: var(--muted);
+  font-size: 0.7rem;
+}
+
+.evidence blockquote {
+  margin: 0.65rem 0;
+  font-size: 0.94rem;
+  line-height: 1.5;
+}
+
+.evidence a {
+  color: var(--accent);
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+@media (max-width: 700px) {
+  .evidence { grid-template-columns: 1fr; }
+}

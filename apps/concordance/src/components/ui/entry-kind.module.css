@@ -1,0 +1,17 @@
+.badge {
+  display: inline-flex;
+  width: fit-content;
+  align-items: center;
+  border: 1px solid color-mix(in srgb, var(--accent) 35%, var(--border));
+  border-radius: 999px;
+  padding: 0.28rem 0.55rem;
+  background: color-mix(in srgb, var(--accent) 8%, transparent);
+  color: var(--accent);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.badge[data-kind="CONCEPT_THEORY"] { color: var(--concept); border-color: color-mix(in srgb, var(--concept) 35%, var(--border)); background: color-mix(in srgb, var(--concept) 8%, transparent); }
+.badge[data-kind="SUBSTANCE_MATERIAL"] { color: var(--substance); border-color: color-mix(in srgb, var(--substance) 35%, var(--border)); background: color-mix(in srgb, var(--substance) 8%, transparent); }
+.badge[data-kind="ROLE_OCCUPATION"] { color: var(--person); border-color: color-mix(in srgb, var(--person) 35%, var(--border)); background: color-mix(in srgb, var(--person) 8%, transparent); }

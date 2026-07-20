@@ -1,0 +1,18 @@
+.page { padding-block: 4rem 8rem; }
+.header { width: min(100%, 58rem); }
+.header h1 { margin: 0.7rem 0 1.75rem; font-size: clamp(2.7rem, 5vw, 4.5rem); font-weight: 700; letter-spacing: -0.05em; line-height: 1; }
+.summary { margin: 3rem 0 1.2rem; color: var(--muted); }
+.results { display: grid; grid-template-columns: repeat(2, 1fr); border-top: 1px solid var(--border); }
+.result { padding: 2rem 2rem 2rem 0; border-bottom: 1px solid var(--border); }
+.result:nth-child(even) { padding-left: 2rem; border-left: 1px solid var(--border); }
+.result:hover h2 { color: var(--accent); }
+.resultTop { display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
+.result h2 { margin: 1rem 0 0.75rem; font-size: 1.65rem; letter-spacing: -0.035em; }
+.result p { margin: 0 0 1rem; color: var(--muted); line-height: 1.55; }
+.result > span { color: var(--muted); font-size: 0.76rem; }
+.match { font-size: 0.82rem; }
+.empty { max-width: 42rem; margin-top: 3rem; color: var(--muted); line-height: 1.65; }
+@media (max-width: 720px) {
+  .results { grid-template-columns: 1fr; }
+  .result:nth-child(even) { padding-left: 0; border-left: 0; }
+}

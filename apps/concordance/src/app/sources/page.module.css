@@ -1,0 +1,12 @@
+.page { padding-block: 4rem 8rem; }
+.page header { max-width: 50rem; margin-bottom: 3rem; }
+.page header h1 { margin: 0.7rem 0 1rem; font-size: clamp(2.7rem, 5vw, 4.5rem); font-weight: 700; letter-spacing: -0.05em; line-height: 1; }
+.page header > p:last-child { color: var(--muted); font-size: 1.1rem; line-height: 1.6; }
+.list { border-top: 1px solid var(--border); }
+.list a { display: grid; grid-template-columns: 7rem 1fr auto; align-items: baseline; gap: 2rem; padding-block: 1.5rem; border-bottom: 1px solid var(--border); }
+.list time { font-size: 1.25rem; font-weight: 700; letter-spacing: -0.03em; }
+.list h2, .list p { margin: 0; }
+.list h2 { font-size: 1.15rem; }
+.list p, .list span { margin-top: 0.4rem; color: var(--muted); font-size: 0.8rem; }
+.list a:hover h2 { color: var(--accent); }
+@media (max-width: 650px) { .list a { grid-template-columns: 1fr; gap: 0.4rem; } }

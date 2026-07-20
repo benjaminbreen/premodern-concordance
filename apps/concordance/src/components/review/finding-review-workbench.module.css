@@ -1,0 +1,320 @@
+.workbench {
+  display: grid;
+  grid-template-columns: minmax(14rem, 18rem) minmax(0, 1fr);
+  align-items: start;
+  gap: 3rem;
+}
+
+.queue {
+  position: sticky;
+  top: 1.5rem;
+  max-height: calc(100dvh - 3rem);
+  overflow: auto;
+  border: 1px solid var(--border);
+  background: var(--card);
+}
+
+.progress {
+  padding: 1rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.progress strong,
+.progress span {
+  display: block;
+}
+
+.progress strong { font-size: 0.9rem; }
+.progress > span { margin-top: 0.25rem; color: var(--muted); font-size: 0.72rem; }
+
+.progress > div {
+  height: 3px;
+  margin-top: 0.75rem;
+  overflow: hidden;
+  background: var(--border);
+}
+
+.progress > div span {
+  height: 100%;
+  background: var(--accent);
+}
+
+.export {
+  display: block;
+  padding: 0.8rem 1rem;
+  border-bottom: 1px solid var(--border);
+  color: var(--accent);
+  font-size: 0.76rem;
+  font-weight: 700;
+}
+
+.queue ol {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.queue li + li { border-top: 1px solid var(--border); }
+
+.queue button {
+  width: 100%;
+  padding: 0.8rem 1rem;
+  border: 0;
+  background: transparent;
+  text-align: left;
+  cursor: pointer;
+}
+
+.queue button:hover,
+.queue .currentQueueItem { background: var(--accent-soft); }
+
+.queue button span,
+.queue button strong,
+.queue button small { display: block; }
+.queue button span { color: var(--muted); font-size: 0.66rem; }
+.queue button strong { margin: 0.2rem 0; font-size: 0.78rem; line-height: 1.35; }
+.queue button small { color: var(--accent); font-size: 0.62rem; }
+
+.review { min-width: 0; max-width: 56rem; }
+
+.findingHeader {
+  padding-bottom: 2rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.findingHeader > div {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  color: var(--muted);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.findingHeader a { color: var(--accent); }
+
+.findingHeader h2 {
+  margin: 0.65rem 0;
+  font-size: clamp(1.7rem, 4vw, 2.6rem);
+  letter-spacing: -0.035em;
+  line-height: 1.08;
+}
+
+.findingHeader > p {
+  max-width: 49rem;
+  margin: 0;
+  color: var(--foreground);
+  font-size: 1.06rem;
+  line-height: 1.65;
+}
+
+.findingHeader > small {
+  display: block;
+  max-width: 49rem;
+  margin-top: 1rem;
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+.evidenceList {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1px;
+  margin-top: 1.5rem;
+  border: 1px solid var(--border);
+  background: var(--border);
+}
+
+.evidenceList > article {
+  min-width: 0;
+  padding: 1.1rem;
+  background: var(--card);
+}
+
+.evidenceList article > header {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.75rem;
+  color: var(--muted);
+  font-size: 0.68rem;
+}
+
+.evidenceList article > header div {
+  display: flex;
+  flex-shrink: 0;
+  gap: 0.65rem;
+}
+
+.evidenceList a { color: var(--accent); font-weight: 700; }
+
+.claim {
+  margin: 0.8rem 0 0;
+  font-size: 0.88rem;
+  font-weight: 650;
+  line-height: 1.45;
+}
+
+.evidenceList blockquote {
+  margin: 0.75rem 0 1rem;
+  font-size: 0.98rem;
+  line-height: 1.55;
+}
+
+.claimVerdict,
+.judgment,
+.failures {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.claimVerdict legend,
+.judgment legend,
+.failures legend {
+  font-weight: 700;
+}
+
+.claimVerdict legend { margin-bottom: 0.5rem; font-size: 0.72rem; }
+
+.claimVerdict label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  margin: 0 0.7rem 0.3rem 0;
+  font-size: 0.7rem;
+}
+
+.judgment,
+.failures,
+.textFields {
+  margin-top: 2.4rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--border);
+}
+
+.judgment legend,
+.failures legend { font-size: 1.05rem; }
+.failures legend span { color: var(--muted); font-size: 0.75rem; font-weight: 400; }
+
+.optionGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.6rem;
+  margin-top: 0.9rem;
+}
+
+.optionGrid label {
+  position: relative;
+  display: block;
+  min-height: 5.2rem;
+  padding: 0.85rem 0.9rem 0.85rem 2.1rem;
+  border: 1px solid var(--border);
+  background: var(--card);
+  cursor: pointer;
+}
+
+.optionGrid label:hover,
+.optionGrid .selectedOption { border-color: var(--accent); }
+.optionGrid .selectedOption { background: var(--accent-soft); }
+
+.optionGrid input {
+  position: absolute;
+  top: 1rem;
+  left: 0.75rem;
+}
+
+.optionGrid strong,
+.optionGrid span { display: block; }
+.optionGrid strong { font-size: 0.83rem; }
+.optionGrid span { margin-top: 0.25rem; color: var(--muted); font-size: 0.7rem; line-height: 1.4; }
+
+.failures > div {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.55rem 1rem;
+  margin-top: 0.9rem;
+}
+
+.failures label {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  font-size: 0.78rem;
+  line-height: 1.4;
+}
+
+.failures input { margin-top: 0.15rem; }
+
+.textFields {
+  display: grid;
+  gap: 1rem;
+}
+
+.textFields label > span {
+  display: block;
+  margin-bottom: 0.4rem;
+  font-size: 0.82rem;
+  font-weight: 700;
+}
+
+.textFields small { color: var(--muted); font-weight: 400; }
+
+.textFields textarea {
+  width: 100%;
+  resize: vertical;
+  padding: 0.75rem;
+  border: 1px solid var(--border);
+  border-radius: 0;
+  background: var(--card);
+  color: var(--foreground);
+  font: inherit;
+  font-size: 0.85rem;
+  line-height: 1.5;
+}
+
+.textFields textarea:focus { outline: 2px solid var(--accent); outline-offset: 1px; }
+
+.actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 2rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--border);
+}
+
+.actions > div {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+}
+
+.actions button {
+  min-height: 2.6rem;
+  padding: 0.65rem 0.9rem;
+  border: 1px solid var(--border);
+  background: var(--card);
+  cursor: pointer;
+}
+
+.actions button:disabled { cursor: not-allowed; opacity: 0.5; }
+.actions .save { border-color: var(--foreground); background: var(--foreground); color: var(--background); font-weight: 700; }
+.actions .defer { color: var(--muted); }
+.message { color: var(--accent); font-size: 0.75rem; }
+
+@media (max-width: 900px) {
+  .workbench { grid-template-columns: 1fr; }
+  .queue { position: static; max-height: 18rem; }
+}
+
+@media (max-width: 650px) {
+  .evidenceList,
+  .optionGrid,
+  .failures > div { grid-template-columns: 1fr; }
+  .actions,
+  .actions > div { align-items: stretch; flex-direction: column; }
+  .actions button { width: 100%; }
+}

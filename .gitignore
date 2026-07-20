@@ -31,6 +31,8 @@ site/
 
 # Output files (regeneratable)
 output/
+var/
+pipeline/*.egg-info/
 pilot/embedding_results.csv
 pilot/llm_review.csv
 pilot/summary.txt
@@ -44,3 +46,5 @@ web/public/data/concordance.tuned_*
 web/public/data/concordance_pre_*
 web/public/data/*_entities.json.bak
 web/public/data/*_entities.pre-cleanup.json
+.vercel
+.env*.local
