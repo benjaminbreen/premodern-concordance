@@ -1,6 +1,7 @@
 import type { NextConfig } from "next";
 
-const basePath = "/apps/concordance";
+const standaloneDeployment = process.env.NEXT_PUBLIC_CONCORDANCE_STANDALONE === "1";
+const basePath = standaloneDeployment ? "" : "/apps/concordance";
 
 const nextConfig: NextConfig = {
   basePath,
@@ -20,6 +21,8 @@ const nextConfig: NextConfig = {
     ];
   },
   async redirects() {
+    if (standaloneDeployment) return [];
+
     return [
       {
         source: "/",

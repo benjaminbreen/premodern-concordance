@@ -168,6 +168,7 @@ Vercel receives only `apps/concordance/`. It requires:
 - `TURSO_DATABASE_URL`
 - `TURSO_AUTH_TOKEN`
 - `R2_PUBLIC_BASE_URL`
+- `NEXT_PUBLIC_CONCORDANCE_STANDALONE=1`
 
 The promoted public SQLite file is uploaded to Turso. The contents of
 `var/objects/` are uploaded under the same keys to a public or read-only R2
@@ -176,6 +177,23 @@ JSON, source PDFs, and embeddings are never deployed.
 
 Vercel project root: `apps/concordance`. Framework preset: Next.js. No runtime
 model key is required or permitted.
+
+The standalone flag serves the deployed reader at `/`; leave it unset locally
+to preserve the side-by-side `/apps/concordance` route. Use Git-linked previews
+for deployment and promote the verified preview. Do not run a source upload
+from the monorepo root: the repository contains large private/offline artifacts
+that are outside the configured Vercel application root.
+
+Current shared-reader resources (non-secret identifiers):
+
+- Vercel project: `premodern-concordance`
+- Turso database: `premodern-concordance-v2`
+- R2 bucket: `premodern-concordance-sources`
+- R2 origin: `https://pub-f4e25c9e98614a0cbacaac3f3ab54a16.r2.dev`
+
+The Turso token configured in Vercel is read-only. The R2 objects use the same
+`sources/...` keys and SHA-256 values recorded in the public release database.
+The deployed project must not contain model API keys.
 
 ## Release and rollback
 

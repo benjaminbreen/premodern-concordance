@@ -15,7 +15,7 @@ export async function readSourceText(key: string): Promise<string> {
   const baseUrl = process.env.R2_PUBLIC_BASE_URL?.replace(/\/$/, "");
   if (baseUrl) {
     const response = await fetch(`${baseUrl}/${key.split("/").map(encodeURIComponent).join("/")}`, {
-      next: { revalidate: 3600 }
+      cache: "no-store"
     });
     if (!response.ok) throw new Error(`Source object returned ${response.status}`);
     return response.text();

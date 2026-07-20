@@ -70,7 +70,7 @@ frequent user decisions.
 | Entry-local sense induction | Complete | 253 same-entry usages grouped into 63 senses across 18 evidenced entries |
 | Claim-linked research findings | Complete | 42 suggested findings linked to 89 exact claims across 10 qualifying entries |
 | Local historian assessment | Complete | Append-only finding/claim review, progress queue, local save API, JSONL export, and provenance enrichment |
-| Turso/R2/Vercel deployment | Pending | Requires account credentials |
+| Turso/R2/Vercel deployment | In progress | Turso and R2 provisioned and checksum-verified; Vercel preview/production promotion pending |
 
 ## Deviations and decisions during implementation
 
